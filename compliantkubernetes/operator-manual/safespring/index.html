@@ -1823,7 +1823,9 @@ In the section below some guidance and samples are provided but remember that th
 <p>We recommend you to have at least three worker nodes with 4 cores and 8 GB memory each, and we recommend you to have at least 2 cores and 4 GB for your control plane nodes.</p>
 <p>Below is example <code>cluster.tfvars</code> for a few select openstack providers.
 The examples are copy-pastable, but you might want to change <code>cluster_name</code> and <code>network_name</code> (if neutron is used!).</p>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Safespring sto1 with public IPs assigned to VMs (no floating IP)</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Safespring sto1 with public IPs assigned to VMs (no floating IP)</label><label for="__tabbed_1_2">Safespring sto1 with private IPs and floating IPs assigned to VMs</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code># your Kubernetes cluster name here
 cluster_name = &quot;your-cluster-name&quot;
 
@@ -1881,7 +1883,8 @@ use_server_groups = true # Comment this out if you don&#39;t mind that the VMs a
                          # Also, comment this out if you run into problems on Safespring because of shortage of physical machines
 </code></pre></div>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Safespring sto1 with private IPs and floating IPs assigned to VMs</label><div class="tabbed-content"></div>
+<div class="tabbed-block"></div>
+</div>
 </div>
 <p>For this to work, make sure that you can create networks and floating IPs on Safespring.</p>
 <div class="highlight"><pre><span></span><code>    ``` hcl
@@ -2292,6 +2295,8 @@ Navigate to the endpoints, for example <code>grafana.$BASE_DOMAIN</code>, <code>
               
             </article>
             
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
           </div>
         </div>
         
@@ -2360,7 +2365,7 @@ Navigate to the endpoints, for example <code>grafana.$BASE_DOMAIN</code>, <code>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.2ab50757.min.js"></script>

@@ -1837,7 +1837,9 @@ In the section below some guidance and samples are provided but remember that th
 </div>
 <p>Below is example <code>cluster.tfvars</code> for a few select openstack providers.
 The examples are copy-pastable, but you might want to change <code>cluster_name</code> and <code>network_name</code> (if neutron is used!).</p>
-<div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Citycloud Fra1</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Citycloud Fra1</label><label for="__tabbed_1_2">Citycloud Kna1</label><label for="__tabbed_1_3">Safespring sto1</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code># your Kubernetes cluster name here
 cluster_name = &quot;your-cluster-name&quot;
 
@@ -1925,7 +1927,7 @@ use_server_groups = true
 subnet_cidr = &quot;172.16.0.0/24&quot;
 </code></pre></div>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Citycloud Kna1</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code># your Kubernetes cluster name here
 cluster_name = &quot;your-cluster-name&quot;
 
@@ -2012,7 +2014,7 @@ use_server_groups = true
 subnet_cidr = &quot;172.16.0.0/24&quot;
 </code></pre></div>
 </div>
-<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">Safespring sto1</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code># your Kubernetes cluster name here
 cluster_name = &quot;your-cluster-name&quot;
 
@@ -2099,6 +2101,7 @@ subnet_cidr = &quot;172.16.0.0/24&quot;
 </code></pre></div>
 </div>
 </div>
+</div>
 <h3 id="initialize-and-apply-terraform">Initialize and apply Terraform<a class="headerlink" href="#initialize-and-apply-terraform" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nv">MODULE_PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">/kubespray/contrib/terraform/openstack&quot;</span>
 
@@ -2124,7 +2127,9 @@ Additionally we will need to expose some credentials so that Kubespray can set u
 We will be going with the external cloud provider and simply source the Openstack credentials.</p>
 <h3 id="setting-up-kubespray-variables">Setting up Kubespray variables<a class="headerlink" href="#setting-up-kubespray-variables" title="Permanent link">&para;</a></h3>
 <p>Below are some examples for <code>${CK8S_CONFIG_PATH}/${CLUSTER}-config/group_vars/k8s_cluster/ck8s-k8s-cluster-openstack.yaml</code> for a few selected openstack providers. The examples are copy-pastable, but you will have to change some of the values.</p>
-<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Citycloud Fra1</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Citycloud Fra1</label><label for="__tabbed_2_2">Citycloud Kna1</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>etcd_kubeadm_enabled: true
 
 cloud_provider: external
@@ -2173,7 +2178,7 @@ external_openstack_network_public_networks:
 supplementary_addresses_in_ssl_keys: [&quot;master-ip-address1&quot;, &quot;master-ip-address2&quot;, ...]
 </code></pre></div>
 </div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Citycloud Kna1</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>etcd_kubeadm_enabled: true
 
 cloud_provider: external
@@ -2217,6 +2222,7 @@ external_openstack_network_public_networks:
 ## if you have use_access_ip = 0 in cluster.tfvars, you should add the public ip address of the master nodes to this variable
 supplementary_addresses_in_ssl_keys: [&quot;master-ip-address1&quot;, &quot;master-ip-address2&quot;, ...]
 </code></pre></div>
+</div>
 </div>
 </div>
 <div class="admonition note">
@@ -2293,7 +2299,9 @@ sops <span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span cla
 <p>Do not modify the read-only default configurations files found in the directory <code>${CK8S_CONFIG_PATH}/defaults/</code>. Instead configure the cluster by modifying the regular files <code>${CK8S_CONFIG_PATH}/sc-config.yaml</code> and <code>${CK8S_CONFIG_PATH}/wc-config.yaml</code> as they will override the default options.</p>
 </div>
 <p>The following are the minimum change you should perform:</p>
-<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Citycloud Fra1, Kna1</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Citycloud Fra1, Kna1</label><label for="__tabbed_3_2">Safespring sto1</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="c1"># ${CK8S_CONFIG_PATH}/sc-config.yaml and ${CK8S_CONFIG_PATH}/wc-config.yaml</span><span class="w"></span>
 <span class="nt">global</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">baseDomain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">set-me</span><span class="w">         </span><span class="c1"># set to $CK8S_ENVIRONMENT_NAME.$DOMAIN</span><span class="w"></span>
@@ -2400,7 +2408,7 @@ sops <span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span cla
 <span class="w">    </span><span class="nt">secretKey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">set-me</span><span class="w"> </span><span class="c1"># set to your s3 secretKey</span><span class="w"></span>
 </code></pre></div>
 </div>
-<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Safespring sto1</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="c1"># ${CK8S_CONFIG_PATH}/sc-config.yaml and ${CK8S_CONFIG_PATH}/wc-config.yaml</span><span class="w"></span>
 <span class="nt">global</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">baseDomain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">set-me</span><span class="w">         </span><span class="c1"># set to $CK8S_ENVIRONMENT_NAME.$DOMAIN</span><span class="w"></span>
@@ -2491,9 +2499,12 @@ sops <span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span cla
 </code></pre></div>
 </div>
 </div>
+</div>
 <h3 id="create-s3-buckets">Create S3 buckets<a class="headerlink" href="#create-s3-buckets" title="Permanent link">&para;</a></h3>
 <p>You can use the following script to create required S3 buckets. The script uses s3cmd in the background and gets configuration and credentials for your S3 provider from <code>$CK8S_CONFIG_PATH/.state/s3cfg.ini</code> file.</p>
-<div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Citycloud Fra1, Kna1</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Citycloud Fra1, Kna1</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code># To get your s3 access and secret keys run:
  openstack --os-interface public ec2 credentials list
 # If you don&#39;t have any create them with:
@@ -2509,6 +2520,7 @@ use_https = True
 
 ./scripts/S3/entry.sh --s3cfg &quot;$CK8S_CONFIG_PATH/.state/s3cfg.ini&quot; create
 </code></pre></div>
+</div>
 </div>
 </div>
 <h3 id="dns">DNS<a class="headerlink" href="#dns" title="Permanent link">&para;</a></h3>
@@ -2710,6 +2722,8 @@ These objects may create cloud resources that are not managed by Terraform, and 
               
             </article>
             
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
           </div>
         </div>
         
@@ -2778,7 +2792,7 @@ These objects may create cloud resources that are not managed by Terraform, and 
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.2ab50757.min.js"></script>
