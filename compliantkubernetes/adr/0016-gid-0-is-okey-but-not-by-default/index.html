@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://elastisys.io/compliantkubernetes/adr/0016-gid-0-is-okey-but-not-by-default/">
       
       <link rel="icon" href="../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.3">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.4">
     
     
       
@@ -1781,6 +1781,7 @@
 <p>PodSecurityPolicies are deprecated in favor of <a href="https://kubernetes.io/docs/concepts/security/pod-security-admission/">PodSecurity Admission</a>. This decision will have to be revisited once PodSecurity Admission is stable.</p>
 <p>In case we notice that the <code>gid=0</code> practice is gaining significant uptake, we will have to revisit this decision to allow <code>gid=0</code> by default.</p>
 <p>In case <a href="https://kernelnewbies.org/LinuxChanges#Linux_5.12.ID_mapping_in_mounts">ID mapping</a> is implemented in container runtimes and Kubernetes, this problem will likely go away. In that case, this decision might be revisited to never allow <code>gid=0</code>.</p>
+
 
 
 

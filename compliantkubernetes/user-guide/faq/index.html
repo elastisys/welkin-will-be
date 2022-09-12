@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://elastisys.io/compliantkubernetes/user-guide/faq/">
       
       <link rel="icon" href="../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.3">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.4">
     
     
       
@@ -1879,6 +1879,7 @@ kubectl hns tree &lt;namespace&gt;
 <p>The only real option is to rely on support from the cloud provider. The latest generation (physical) servers feature a <a href="https://en.wikipedia.org/wiki/Trusted_Platform_Module">TPM</a> to store the disk encryption key. This can be <a href="https://en.wikipedia.org/wiki/Disk_encryption#Full_disk_encryption">securely release to the Linux kernel</a> thanks to <a href="https://en.wikipedia.org/wiki/Pre-boot_authentication">pre-boot authentication</a>. This process is performance-neutral and fully transparent to the VMs running on top of the servers.</p>
 <p>And that is why Compliant Kubernetes encrypts everything at rest, <strong>only if the underlying cloud provider supports it</strong>.</p>
 </div>
+
 
 
 

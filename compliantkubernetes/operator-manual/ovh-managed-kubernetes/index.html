@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://elastisys.io/compliantkubernetes/operator-manual/ovh-managed-kubernetes/">
       
       <link rel="icon" href="../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.3">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.4">
     
     
       
@@ -1958,6 +1958,7 @@ bin/ck8s ops kubectl sc patch daemonset -n velero restic -p &#39;{&quot;spec&quo
 bin/ck8s ops kubectl wc patch deployment -n velero velero -p &#39;{&quot;spec&quot;:{&quot;template&quot;:{&quot;spec&quot;:{&quot;containers&quot;:[{&quot;name&quot;:&quot;velero&quot;,&quot;image&quot;:&quot;velero/velero:v1.3.0&quot;}]}}}}&#39;
 bin/ck8s ops kubectl wc patch daemonset -n velero restic -p &#39;{&quot;spec&quot;:{&quot;template&quot;:{&quot;spec&quot;:{&quot;containers&quot;:[{&quot;name&quot;:&quot;velero&quot;,&quot;image&quot;:&quot;velero/velero:v1.3.0&quot;}]}}}}&#39;
 </code></pre></div>
+
 
 
 
