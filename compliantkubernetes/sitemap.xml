@@ -156,6 +156,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://elastisys.io/compliantkubernetes/adr/0023-allow-snippets-annotations/</loc>
+         <lastmod>2022-09-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/template/</loc>
          <lastmod>2022-09-14</lastmod>
          <changefreq>daily</changefreq>
