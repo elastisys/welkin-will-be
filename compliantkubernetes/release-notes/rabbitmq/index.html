@@ -1770,6 +1770,7 @@
 <h2 id="compliant-kubernetes-rabbitmq">Compliant Kubernetes RabbitMQ<a class="headerlink" href="#compliant-kubernetes-rabbitmq" title="Permanent link">&para;</a></h2>
 <!-- BEGIN TOC -->
 <ul>
+<li><a href="#v3107-ck8s1">v3.10.7-ck8s1</a> - 2022-09-21</li>
 <li><a href="#v1111-ck8s2">v1.11.1-ck8s2</a> - 2022-06-08</li>
 <li><a href="#v1111-ck8s1">v1.11.1-ck8s1</a> - 2022-03-11</li>
 <li><a href="#v170-ck8s1">v1.7.0-ck8s1</a> - 2021-12-23</li>
@@ -1780,6 +1781,19 @@
 <p class="admonition-title">Note</p>
 <p>These are only the user-facing changes.</p>
 </div>
+<h3 id="v3107-ck8s1">v3.10.7-ck8s1<a class="headerlink" href="#v3107-ck8s1" title="Permanent link">&para;</a></h3>
+<p>Released 2022-09-21</p>
+<p>Changes:</p>
+<ul>
+<li>Changed versioning to be based on the server version rather than the operator version. The version is now <server version>-<ck8s patch>, e.g. v3.10.7-ck8s1.</li>
+<li>Improved monitoring and alerting</li>
+<li>Added queue details Grafana dashboard based on metrics from the prometheus plugin, made to replace the metrics exporter dashboard</li>
+<li>Added support for external access using load balancer or node port service</li>
+<li>Added issuer to generate chain of trust for TLS support</li>
+<li>Updated cluster operator to v1.14.0, updated server to 3.10.7</li>
+<li>Improved support for multi-cluster setup</li>
+<li>Removed metrics exporter and dashboard</li>
+</ul>
 <h3 id="v1111-ck8s2">v1.11.1-ck8s2<a class="headerlink" href="#v1111-ck8s2" title="Permanent link">&para;</a></h3>
 <p>Released 2022-06-08</p>
 <p>Changes:</p>
