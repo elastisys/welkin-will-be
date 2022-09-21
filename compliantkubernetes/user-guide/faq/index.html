@@ -1865,8 +1865,11 @@ kubectl hns tree &lt;namespace&gt;
 <p>For more information about how to use HNC see their <a href="https://github.com/kubernetes-sigs/hierarchical-namespaces/tree/master/docs/user-guide">user documentation</a>.</p>
 <h2 id="why-cant-i-access-my-cluster-bad-request-unregistered-redirect_uri-httplocalhost18000">Why can't I access my cluster? 'Bad Request Unregistered redirect_uri ("http://localhost:18000").'<a class="headerlink" href="#why-cant-i-access-my-cluster-bad-request-unregistered-redirect_uri-httplocalhost18000" title="Permanent link">&para;</a></h2>
 <p>Port 8000 is the only allowed port for OpenID callback URL and is needed by the <code>kubectl</code> OpenID plugin. If that port is used locally, then <code>kubectl</code> will try to bind to port 18000 which is not allowed due to security concerns. Make sure that nothing is running locally that is using port 8000.</p>
-<h2 id="why-cant-i-access-kibana-or-elasticsearch">Why can't I access Kibana or Elasticsearch?<a class="headerlink" href="#why-cant-i-access-kibana-or-elasticsearch" title="Permanent link">&para;</a></h2>
-<p>In Compliant Kubernetes v0.19.0 or later Elasticsearch and Kibana is no used and has been replaced by Opensearch and Opensearch Dashboards respectively. These can be accessed with domain prefix <code>opensearch</code>.</p>
+<h2 id="select-your-tenant">Select your tenant?<a class="headerlink" href="#select-your-tenant" title="Permanent link">&para;</a></h2>
+<p>If you are using Compliant Kubernetes <code>&lt;v0.26.0</code> then you will likely see this popup when logging in to Opensearch.</p>
+<p><img alt="Select Your Tenant Opensearch" src="../img/select-your-tenant.png" /></p>
+<p>We have disabled multi tenancy in Opensearch and there is a bug in older versions of Opensearch which makes this popup appear when multi tenancy is disabled. It has been fixed in a newer version of Opensearch which is included in Compliant Kubernetes version <code>v0.26.0</code>.</p>
+<p>So if you are using Compliant Kubernetes <code>&lt;v0.26.0</code> then please just click <code>Cancel</code> or <code>X</code> and continue to use Opensearch as you would.</p>
 <h2 id="what-is-encrypted-at-rest">What is encrypted at rest?<a class="headerlink" href="#what-is-encrypted-at-rest" title="Permanent link">&para;</a></h2>
 <p>Compliant Kubernetes encrypts everything at rest, including Kubernetes resources, PersistentVolumeClaims, logs, metrics and backups, <strong>if the underlying cloud provider supports it</strong>.</p>
 <p>Get in touch with your administrator to check the status. They are responsible for performing a <a href="/compliantkubernetes/operator-manual/provider-audit">provider audit</a>.</p>
