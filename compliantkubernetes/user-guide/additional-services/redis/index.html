@@ -1862,6 +1862,9 @@ kubectl config view --minify --output <span class="s1">&#39;jsonpath={..namespac
 <li><a href="https://github.com/danigosa/django-redis-sentinel-redux#how-to-use-it">Django-Redis Client that supports Sentinel Cluster HA</a>
     If the linked code example doesn't work, try <code>LOCATION: redis://mymaster/db</code>.</li>
 </ul>
+<p>If your library doesn't support sentinel you could use this project - <a href="https://github.com/anubhavmishra/redis-sentinel-proxy">Redis sentinel proxy</a>
+    Note that the default configuration in this repository will not ensure HA for redis.
+    For this you'll either need to use multiple replicas or use it as a sidecar for your applications.</p>
 </div>
 <h2 id="follow-the-go-live-checklist">Follow the Go-Live Checklist<a class="headerlink" href="#follow-the-go-live-checklist" title="Permanent link">&para;</a></h2>
 <p>You should be all set.
