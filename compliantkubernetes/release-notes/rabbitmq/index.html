@@ -1783,32 +1783,57 @@
 </div>
 <h3 id="v3107-ck8s1">v3.10.7-ck8s1<a class="headerlink" href="#v3107-ck8s1" title="Permanent link">&para;</a></h3>
 <p>Released 2022-09-21</p>
-<p>Changes:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>From this release the version tracks the RabbitMQ server version rather than the RabbitMQ cluster operator version.</p>
+</div>
+<h4 id="updated">Updated:<a class="headerlink" href="#updated" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Changed versioning to be based on the server version rather than the operator version. The version is now <code>&lt;server version&gt;-&lt;ck8s patch&gt;</code>, e.g. v3.10.7-ck8s1.</li>
-<li>Improved monitoring and alerting</li>
-<li>Added queue details Grafana dashboard based on metrics from the prometheus plugin, made to replace the metrics exporter dashboard</li>
-<li>Added support for external access using load balancer or node port service</li>
-<li>Added issuer to generate chain of trust for TLS support</li>
-<li>Updated cluster operator to v1.14.0, updated server to 3.10.7</li>
-<li>Improved support for multi-cluster setup</li>
-<li>Removed metrics exporter and dashboard</li>
+<li><strong>Upgraded RabbitMQ server version to <code>3.10.7</code></strong> <br/>
+    This is a two minor version jump that introduces new upstream features while remaining compatible with current clients.
+    The most exciting features includes the new Stream queue type tuned for bulk messaging, and much improved efficiency for Quorum and Classic queue types.
+    See <a href="https://www.rabbitmq.com/changelog.html">the upstream changelog</a> for more detailed information.</li>
+</ul>
+<h4 id="added">Added:<a class="headerlink" href="#added" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Added support for external access</strong> <br/>
+    Using either a LoadBalancer or NodePort Service, additionally with a self-signed chain of trust to enable TLS and host verification.</li>
+</ul>
+<h4 id="changed">Changed:<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Improved observability</strong> <br/>
+    Improved the alerting and replaced the per queue metrics source and dashboard, removing the need for an external exporter.</li>
 </ul>
 <h3 id="v1111-ck8s2">v1.11.1-ck8s2<a class="headerlink" href="#v1111-ck8s2" title="Permanent link">&para;</a></h3>
 <p>Released 2022-06-08</p>
-<p>Changes:</p>
+<h4 id="changed_1">Changed:<a class="headerlink" href="#changed_1" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Added a dashboard that shows metrics per queue</li>
+<li><strong>Reworked monitoring</strong> <br/>
+    Added additional metrics collection and a new dashboard to show metrics per queue, and fixed those added by the previous release.</li>
+<li><strong>Tuned performance</strong> <br/>
+    Configured and tuned the performance according to RabbitMQ upstream production checklist.
+    Including better constraints to improve scheduling for redundancy.</li>
 </ul>
 <h3 id="v1111-ck8s1">v1.11.1-ck8s1<a class="headerlink" href="#v1111-ck8s1" title="Permanent link">&para;</a></h3>
 <p>Released 2022-03-11</p>
-<p>Changes:</p>
+<h4 id="updated_1">Updated:<a class="headerlink" href="#updated_1" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Upgraded rabbitmq-operator to version <code>v1.11.1</code></li>
+<li><strong>Upgraded RabbitMQ to version <code>3.8.21</code></strong> <br/>
+    Using Cluster operator version <code>1.11.1</code> providing bugfixes.</li>
+</ul>
+<h4 id="added_1">Added:<a class="headerlink" href="#added_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Added definitions-exporter</strong> <br/>
+    Taking daily backups of the RabbitMQ messaging topology and users for quick and easy reconfiguring in case of disaster.</li>
+</ul>
+<h4 id="changed_2">Changed:<a class="headerlink" href="#changed_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Reduced RabbitMQ privilege for security.</li>
+<li>Improved RabbitMQ observability through better monitoring.</li>
 </ul>
 <h3 id="v170-ck8s1">v1.7.0-ck8s1<a class="headerlink" href="#v170-ck8s1" title="Permanent link">&para;</a></h3>
 <p>Released 2021-12-23</p>
-<p>First stable release!</p>
+<p>First stable release using RabbitMQ version <code>3.8.16</code>!</p>
 
 
 
