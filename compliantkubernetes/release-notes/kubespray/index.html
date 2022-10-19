@@ -1784,6 +1784,7 @@
 <h2 id="compliant-kubernetes-kubespray">Compliant Kubernetes Kubespray<a class="headerlink" href="#compliant-kubernetes-kubespray" title="Permanent link">&para;</a></h2>
 <!-- BEGIN TOC -->
 <ul>
+<li><a href="#v2200-ck8s1">v2.20.0-ck8s1</a> - 2022-10-10</li>
 <li><a href="#v2190-ck8s3">v2.19.0-ck8s3</a> - 2022-09-23</li>
 <li><a href="#v2190-ck8s2">v2.19.0-ck8s2</a> - 2022-07-22</li>
 <li><a href="#v2190-ck8s1">v2.19.0-ck8s1</a> - 2022-06-27</li>
@@ -1800,7 +1801,16 @@
 <p class="admonition-title">Note</p>
 <p>For a more detailed look check out the full <a href="https://github.com/elastisys/compliantkubernetes-kubespray/blob/main/CHANGELOG.md">changelog</a>.</p>
 </div>
-<h2 id="v2190-ck8s3">v2.19.0-ck8s3<a class="headerlink" href="#v2190-ck8s3" title="Permanent link">&para;</a></h2>
+<h3 id="v2200-ck8s1">v2.20.0-ck8s1<a class="headerlink" href="#v2200-ck8s1" title="Permanent link">&para;</a></h3>
+<p>Released 2022-10-10</p>
+<p>Changes:</p>
+<ul>
+<li>Scripts are now using yq version 4, this requires <code>yq4</code> as an alias to yq v4.</li>
+<li>Kubespray updated to <code>v2.20.0</code>.</li>
+<li>Kubernetes version upgraded to <a href="https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.24.md#v1246">v1.24.6</a>.</li>
+<li>Fixed multiple kube-bench fails (01.03.07, 01.04.01, 01.04.02)</li>
+</ul>
+<h3 id="v2190-ck8s3">v2.19.0-ck8s3<a class="headerlink" href="#v2190-ck8s3" title="Permanent link">&para;</a></h3>
 <p>Released 2022-09-23</p>
 <p>Changes:</p>
 <ul>
