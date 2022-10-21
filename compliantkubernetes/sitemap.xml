@@ -326,6 +326,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/on-prem-standard/</loc>
+         <lastmod>2022-10-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/openstack/</loc>
          <lastmod>2022-10-21</lastmod>
          <changefreq>daily</changefreq>
