@@ -1638,18 +1638,16 @@
 <h1 id="standard-template-for-on-prem-environment">Standard Template for on-prem Environment<a class="headerlink" href="#standard-template-for-on-prem-environment" title="Permanent link">&para;</a></h1>
 <p>This document contains instructions on how to set-up a new Compliant Kubernetes on-prem environment.</p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
-<ol>
-<li>
-<blockquote>
-<p><strong>DECISION-TO-BE-TAKEN:</strong>
-    Decisions regarding the following items should be made before venturing on deploying Compliant Kubernetes.</p>
-</blockquote>
+<div class="admonition important">
+<p class="admonition-title">Decision to be taken</p>
+<p>Decisions regarding the following items should be made before venturing on deploying Compliant Kubernetes.</p>
 <ul>
 <li>Overall architecture, i.e., VM sizes, load-balancer configuration, storage configuration, etc.</li>
 <li>Identity Provider (IdP) choice and configuration</li>
 <li>On-call Management Tool (OMT) choice and configuration</li>
 </ul>
-</li>
+</div>
+<ol>
 <li>
 <p>Prepare Ubuntu-based VMs:
     If you are using public clouds, you can create VMs using the scripts included in Kubespray:</p>
@@ -1660,48 +1658,68 @@
 </li>
 <li>
 <p>Create a git working folder to store Compliant Kubernetes configurations in a version-controlled manner. Run the following commands from the root of the config repo.</p>
-<blockquote>
-<p><strong><em>NOTE:</em></strong> the following steps are done from the root of the git repository you created for the cofigurations.</p>
-<p><strong><em>NOTE:</em></strong> You can choose names for your service cluster and workload cluster by changing the values for <code>SERVICE_CLUSTER</code> and <code>WORKLOAD_CLUSTERS</code> respectively.</p>
-</blockquote>
-<div class="highlight"><pre><span></span><code><span class="go">export CK8S_CONFIG_PATH=./</span>
-<span class="go">export CK8S_ENVIRONMENT_NAME=&lt;my-ck8s-cluster&gt;</span>
-<span class="go">export CK8S_CLOUD_PROVIDER=[exoscale|safespring|citycloud|elastx|aws|baremetal]</span>
-<span class="go">export CK8S_FLAVOR=[dev|prod] # defaults to dev</span>
-<span class="go">export CK8S_PGP_FP=&lt;PGP-fingerprint&gt; # retrieve with gpg --list-secret-keys</span>
-<span class="go">SERVICE_CLUSTER=&quot;sc&quot;</span>
-<span class="go">WORKLOAD_CLUSTERS=&quot;wc&quot;</span>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following steps are done from the root of the git repository you created for the cofigurations.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can choose names for your service cluster and workload cluster by changing the values for <code>SERVICE_CLUSTER</code> and <code>WORKLOAD_CLUSTERS</code> respectively.</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">CK8S_CONFIG_PATH</span><span class="o">=</span>./
+<span class="nb">export</span> <span class="nv">CK8S_ENVIRONMENT_NAME</span><span class="o">=</span>&lt;my-ck8s-cluster&gt;
+<span class="nb">export</span> <span class="nv">CK8S_CLOUD_PROVIDER</span><span class="o">=[</span>exoscale<span class="p">|</span>safespring<span class="p">|</span>citycloud<span class="p">|</span>elastx<span class="p">|</span>aws<span class="p">|</span>baremetal<span class="o">]</span>
+<span class="nb">export</span> <span class="nv">CK8S_FLAVOR</span><span class="o">=[</span>dev<span class="p">|</span>prod<span class="o">]</span> <span class="c1"># defaults to dev</span>
+<span class="nb">export</span> <span class="nv">CK8S_PGP_FP</span><span class="o">=</span>&lt;PGP-fingerprint&gt; <span class="c1"># retrieve with gpg --list-secret-keys</span>
+<span class="nv">SERVICE_CLUSTER</span><span class="o">=</span><span class="s2">&quot;sc&quot;</span>
+<span class="nv">WORKLOAD_CLUSTERS</span><span class="o">=</span><span class="s2">&quot;wc&quot;</span>
 </code></pre></div>
 </li>
 <li>
 <p>Add the Elastisys Compliant Kubernetes Kubespray repo as <code>git submodule</code> to the configuration repo as follows:</p>
-<div class="highlight"><pre><span></span><code><span class="go">git submodule add  https://github.com/elastisys/compliantkubernetes-kubespray</span>
-<span class="go">git submodule update --init --recursive</span>
+<div class="highlight"><pre><span></span><code>git submodule add  https://github.com/elastisys/compliantkubernetes-kubespray
+git submodule update --init --recursive
 </code></pre></div>
 </li>
 <li>
 <p>Add compliantkubernetes-apps as <code>git submodule</code> to the configuration repo and install pre-requisites as follows:</p>
-<p><div class="highlight"><pre><span></span><code><span class="go">https://github.com/elastisys/compliantkubernetes-apps.git</span>
-<span class="go">cd compliantkubernetes-apps</span>
-<span class="go">ansible-playbook -e &#39;ansible_python_interpreter=/usr/bin/python3&#39; --ask-become-pass --connection local --inventory 127.0.0.1, get-requirements.yaml</span>
+<div class="highlight"><pre><span></span><code>https://github.com/elastisys/compliantkubernetes-apps.git
+<span class="nb">cd</span> compliantkubernetes-apps
+ansible-playbook -e <span class="s1">&#39;ansible_python_interpreter=/usr/bin/python3&#39;</span> --ask-become-pass --connection <span class="nb">local</span> --inventory <span class="m">127</span>.0.0.1, get-requirements.yaml
 </code></pre></div>
-1. Create the domain name.
-You need to create a domain name to access the different services in your environment. You will need to set up the following DNS entries (replace example.com with your domain name).
-- Point these domains to the workload cluster ingress controller (this step is done during Compliant Kubernetes app installation):
-    - <code>*.example.com</code>
-- Point these domains to the service cluster ingress controller (this step is done during Compliant Kubernetes app installation):
-    - <code>*.ops.example.com</code>
-    - <code>dex.example.com</code>
-    - <code>grafana.example.com</code>
-    - <code>harbor.example.com</code>
-    - <code>opensearch.example.com</code></p>
+</li>
+<li>
+<p>Create the domain name.
+    You need to create a domain name to access the different services in your environment. You will need to set up the following DNS entries (replace <code>example.com</code> with your domain name).</p>
+<ul>
+<li>Point these domains to the workload cluster ingress controller (this step is done during Compliant Kubernetes app installation):<ul>
+<li><code>*.example.com</code></li>
+</ul>
+</li>
+<li>Point these domains to the service cluster ingress controller (this step is done during Compliant Kubernetes app installation):<ul>
+<li><code>*.ops.example.com</code></li>
+<li><code>dex.example.com</code></li>
+<li><code>grafana.example.com</code></li>
+<li><code>harbor.example.com</code></li>
+<li><code>opensearch.example.com</code></li>
+</ul>
+</li>
+</ul>
+<details class="note" open="open">
+<summary>If both service and workload clusters are in the same subnet</summary>
+<p>If both the service and workload clusters are in the same subnet, it would be great to configure the following domain names to the private IP addresses of service cluster's worker nodes. (Replace <code>example.com</code> with your domain name.)</p>
+<ul>
+<li><code>*.thanos.ops.example.com</code></li>
+<li><code>*.opensearch.ops.example.com</code></li>
+</ul>
+</details>
 </li>
 <li>
 <p>Create S3 credentials and add them to <code>.state/s3cfg.ini</code>.</p>
 </li>
 <li>
-<p>Set up Load balancer</p>
-<p>You need to set-up two load balancers, one for the workload cluster and one for the service cluster.</p>
+<p>Set up load balancer</p>
+<p>You need to set up two load balancers, one for the workload cluster and one for the service cluster.</p>
 </li>
 <li>
 <p>Make sure you have <a href="https://elastisys.io/compliantkubernetes/operator-manual/getting-started/">all necessary tools</a>.</p>
@@ -1709,11 +1727,9 @@ You need to create a domain name to access the different services in your enviro
 </ol>
 <h2 id="deploying-compliant-kubernetes-using-kubespray">Deploying Compliant Kubernetes using Kubespray<a class="headerlink" href="#deploying-compliant-kubernetes-using-kubespray" title="Permanent link">&para;</a></h2>
 <h3 id="init-kubespray-config-in-your-config-path">Init Kubespray config in your config path.<a class="headerlink" href="#init-kubespray-config-in-your-config-path" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>```console
-for CLUSTER in ${SERVICE_CLUSTER} &quot;{WORKLOAD_CLUSTERS}&quot;; do
-  compliantkubernetes-kubespray/ck8s-kubespray init $CLUSTER $CK8S_CLOUD_PROVIDER $CK8S_PGP_FP
-done
-```
+<div class="highlight"><pre><span></span><code><span class="k">for</span> CLUSTER <span class="k">in</span> <span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span> <span class="s2">&quot;{WORKLOAD_CLUSTERS}&quot;</span><span class="p">;</span> <span class="k">do</span>
+compliantkubernetes-kubespray/ck8s-kubespray init <span class="nv">$CLUSTER</span> <span class="nv">$CK8S_CLOUD_PROVIDER</span> <span class="nv">$CK8S_PGP_FP</span>
+<span class="k">done</span>
 </code></pre></div>
 <h3 id="configure-oidc">Configure OIDC<a class="headerlink" href="#configure-oidc" title="Permanent link">&para;</a></h3>
 <p>To configure OpenID access for Kubernetes API and other services, Dex should be configured with your identity provider. Check what Dex needs from <a href="https://dexidp.io/docs/connectors/">your identity provider</a>.</p>
@@ -1721,30 +1737,32 @@ done
 <p>Set <code>kube_oidc_url</code> in <code>${CK8S_CONFIG_PATH}/sc-config/group_vars/k8s_cluster/ck8s-k8s-cluster.yaml</code> and <code>${CK8S_CONFIG_PATH}/wc-config/group_vars/k8s_cluster/ck8s-k8s-cluster.yaml</code> based on your cluster. For example, if your domain is <code>example.com</code> then kube_oidc_url is set as <code>kube_oidc_url: https://dex.example.com</code> in both files.</p>
 <h3 id="copy-the-vms-information-to-the-inventery-files">Copy the VMs information to the inventery files<a class="headerlink" href="#copy-the-vms-information-to-the-inventery-files" title="Permanent link">&para;</a></h3>
 <p>Add the host name, user and IP address of each VM that you prepared above in <code>${CK8S_CONFIG_PATH}/sc-config/inventory.ini</code>for service cluster and <code>${CK8S_CONFIG_PATH}/sc-config/inventory.ini</code> for workload cluster. Moreover, you also need to add the host names of the master nodes under <code>[kube_control_plane]</code>, etdc nodes under <code>[etcd]</code> and worker nodes under <code>[kube_node]</code>.</p>
-<blockquote>
-<p><strong><em>NOTE:</em></strong> Make sure that the user has SSH access to the VMs.</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure that the user has SSH access to the VMs.</p>
+</div>
 <h3 id="run-kubespray-to-deploy-the-kubernetes-clusters">Run Kubespray to deploy the Kubernetes clusters<a class="headerlink" href="#run-kubespray-to-deploy-the-kubernetes-clusters" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="go">for CLUSTER in ${SERVICE_CLUSTER} ${WORKLOAD_CLUSTERS}; do</span>
-<span class="go">    compliantkubernetes-kubespray/bin/ck8s-kubespray apply $CLUSTER --flush-cache</span>
-<span class="go">done</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> CLUSTER <span class="k">in</span> <span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span> <span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span>
+    compliantkubernetes-kubespray/bin/ck8s-kubespray apply <span class="nv">$CLUSTER</span> --flush-cache
+<span class="k">done</span>
 </code></pre></div>
-<blockquote>
-<p><strong><em>NOTE:</em></strong> the kubeconfig for wc <code>.state/kube_config_wc.yaml</code> will not be usable until you have installed dex in the service cluster (by deploying apps).</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The kubeconfig for wc <code>.state/kube_config_wc.yaml</code> will not be usable until you have installed dex in the service cluster (by deploying apps).</p>
+</div>
 <h3 id="set-up-rook">Set up Rook<a class="headerlink" href="#set-up-rook" title="Permanent link">&para;</a></h3>
 <p><em>Only for cloud providers that doesn't natively support storage kubernetes.</em></p>
 <p>Run the following command to set up Rook.</p>
-<div class="highlight"><pre><span></span><code><span class="go"> for CLUSTER in  sc wc; do</span>
-<span class="go">     sops --decrypt ${CK8S_CONFIG_PATH}/.state/kube_config_$CLUSTER.yaml &gt; $CLUSTER.yaml</span>
-<span class="go">     export KUBECONFIG=$CLUSTER.yaml</span>
-<span class="go">     compliantkubernetes-kubespray/rook/deploy-rook.sh</span>
-<span class="go"> done</span>
+<div class="highlight"><pre><span></span><code> <span class="k">for</span> CLUSTER <span class="k">in</span>  sc wc<span class="p">;</span> <span class="k">do</span>
+     sops --decrypt <span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml &gt; <span class="nv">$CLUSTER</span>.yaml
+     <span class="nb">export</span> <span class="nv">KUBECONFIG</span><span class="o">=</span><span class="nv">$CLUSTER</span>.yaml
+     compliantkubernetes-kubespray/rook/deploy-rook.sh
+ <span class="k">done</span>
 </code></pre></div>
 <p>Please restart the operator pod, <code>rook-ceph-operator*</code>, if some pods stall in the initialization state as shown below:</p>
-<div class="highlight"><pre><span></span><code><span class="go">rook-ceph     rook-ceph-crashcollector-minion-0-b75b9fc64-tv2vg    0/1     Init:0/2   0          24m</span>
-<span class="go">rook-ceph     rook-ceph-crashcollector-minion-1-5cfb88b66f-mggrh   0/1     Init:0/2   0          36m</span>
-<span class="go">rook-ceph     rook-ceph-crashcollector-minion-2-5c74ffffb6-jwk55   0/1     Init:0/2   0          14m</span>
+<div class="highlight"><pre><span></span><code>rook-ceph     rook-ceph-crashcollector-minion-0-b75b9fc64-tv2vg    <span class="m">0</span>/1     Init:0/2   <span class="m">0</span>          24m
+rook-ceph     rook-ceph-crashcollector-minion-1-5cfb88b66f-mggrh   <span class="m">0</span>/1     Init:0/2   <span class="m">0</span>          36m
+rook-ceph     rook-ceph-crashcollector-minion-2-5c74ffffb6-jwk55   <span class="m">0</span>/1     Init:0/2   <span class="m">0</span>          14m
 </code></pre></div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -1776,50 +1794,54 @@ done
 <h3 id="configure-the-apps-and-secrets">Configure the apps and secrets<a class="headerlink" href="#configure-the-apps-and-secrets" title="Permanent link">&para;</a></h3>
 <p>The configuration files contain some predefined values. You may want to check and edit based on your current environment requirements. The configuration files that require editing are <code>${CK8S_CONFIG_PATH}/common-config.yaml</code>, <code>${CK8S_CONFIG_PATH}/sc-config.yaml</code>, <code>${CK8S_CONFIG_PATH}/wc-config.yaml</code> and <code>${CK8S_CONFIG_PATH}/secrets.yaml</code> and set the appropriate values for some of the configuration fields.
 Note that, the latter is encrypted.</p>
-<p><div class="highlight"><pre><span></span><code><span class="go">vim ${CK8S_CONFIG_PATH}/sc-config.yaml</span>
+<div class="highlight"><pre><span></span><code>vim <span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/sc-config.yaml
 
-<span class="go">vim ${CK8S_CONFIG_PATH}/wc-config.yaml</span>
+vim <span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/wc-config.yaml
 
-<span class="go">vim ${CK8S_CONFIG_PATH}/common-config.yaml</span>
+vim <span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/common-config.yaml
 </code></pre></div>
-Edit the secrets.yaml file and add the credentials for:
-- s3 - used for backup storage
-- dex - connectors -- check <a href="https://dexidp.io/docs/connectors/">your indentiy provider</a>.
-- On-call management tool configurations-- Check <a href="https://prometheus.io/docs/alerting/latest/configuration/">supported on-call management tools</a></p>
-<div class="highlight"><pre><span></span><code><span class="go">sops ${CK8S_CONFIG_PATH}/secrets.yaml</span>
+<p>Edit the secrets.yaml file and add the credentials for:</p>
+<ul>
+<li>s3 - used for backup storage</li>
+<li>dex - connectors -- check <a href="https://dexidp.io/docs/connectors/">your indentiy provider</a>.</li>
+<li>On-call management tool configurations-- Check <a href="https://prometheus.io/docs/alerting/latest/configuration/">supported on-call management tools</a></li>
+</ul>
+<div class="highlight"><pre><span></span><code>sops <span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/secrets.yaml
 </code></pre></div>
-<blockquote>
-<p><strong><em>TIP:</em></strong> The default configuration for the service cluster and workload cluster are available in the directory <code>${CK8S_CONFIG_PATH}/defaults/</code> and can be used as a reference for available options.</p>
-<p><strong><em>WARNING:</em></strong> Do not modify the read-only default configurations files found in the directory <code>${CK8S_CONFIG_PATH}/defaults/</code>. Instead configure the cluster by modifying the regular files <code>${CK8S_CONFIG_PATH}/sc-config.yaml</code> and <code>${CK8S_CONFIG_PATH}/wc-config.yaml</code> as they will override the default options.</p>
-</blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The default configuration for the service cluster and workload cluster are available in the directory <code>${CK8S_CONFIG_PATH}/defaults/</code> and can be used as a reference for available options.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not modify the read-only default configurations files found in the directory <code>${CK8S_CONFIG_PATH}/defaults/</code>. Instead configure the cluster by modifying the regular files <code>${CK8S_CONFIG_PATH}/sc-config.yaml</code> and <code>${CK8S_CONFIG_PATH}/wc-config.yaml</code> as they will override the default options.</p>
+</div>
 <h3 id="create-s3-buckets">Create S3 buckets<a class="headerlink" href="#create-s3-buckets" title="Permanent link">&para;</a></h3>
 <p>You can use the following command to create the required S3 buckets. The command uses <code>s3cmd</code> in the background and gets configuration and credentials for your S3 provider from the <code>~/.s3cfg</code> file.</p>
-<p>```console
-compliantkubernetes-apps/bin/ck8s s3cmd create
-<div class="highlight"><pre><span></span><code>### Install Compliant Kubernetes apps
-
-This will set up apps, first in the service cluster and then in the workload cluster:
-
-```console
-compliantkubernetes-apps/bin/ck8s apply sc
+<div class="highlight"><pre><span></span><code>compliantkubernetes-apps/bin/ck8s s3cmd create
+</code></pre></div>
+<h3 id="install-compliant-kubernetes-apps">Install Compliant Kubernetes apps<a class="headerlink" href="#install-compliant-kubernetes-apps" title="Permanent link">&para;</a></h3>
+<p>This will set up apps, first in the service cluster and then in the workload cluster:</p>
+<div class="highlight"><pre><span></span><code>compliantkubernetes-apps/bin/ck8s apply sc
 compliantkubernetes-apps/bin/ck8s apply wc
-</code></pre></div></p>
+</code></pre></div>
 <h3 id="settling">Settling<a class="headerlink" href="#settling" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p><strong><em>INFO:</em></strong> Leave sufficient time for the system to settle, e.g., request TLS certificates from LetsEncrypt, perhaps as much as 20 minutes.</p>
-</blockquote>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Leave sufficient time for the system to settle, e.g., request TLS certificates from LetsEncrypt, perhaps as much as 20 minutes.</p>
+</div>
 <p>Check if all helm charts succeeded.</p>
-<div class="highlight"><pre><span></span><code><span class="go">compliantkubernetes-apps/bin/ck8s ops helm wc list -A --all</span>
+<div class="highlight"><pre><span></span><code>compliantkubernetes-apps/bin/ck8s ops helm wc list -A --all
 </code></pre></div>
 <p>You can check if the system settled as follows.</p>
-<div class="highlight"><pre><span></span><code><span class="go">for CLUSTER in ${SERVICE_CLUSTER} &quot;${WORKLOAD_CLUSTERS[@]}&quot;; do</span>
-<span class="go"> compliantkubernetes-apps/bin/ck8s ops kubectl $CLUSTER get --all-namespaces pods</span>
-<span class="go">done</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> CLUSTER <span class="k">in</span> <span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">do</span>
+ compliantkubernetes-apps/bin/ck8s ops kubectl <span class="nv">$CLUSTER</span> get --all-namespaces pods
+<span class="k">done</span>
 </code></pre></div>
 <p>Check the output of the command above. All Pods need to be <code>Running</code> or <code>Completed</code> status.</p>
-<div class="highlight"><pre><span></span><code><span class="go">for CLUSTER in ${SERVICE_CLUSTER} &quot;${WORKLOAD_CLUSTERS[@]}&quot;; do</span>
-<span class="go">  compliantkubernetes-apps/bin/ck8s ops kubectl $CLUSTER get --all-namespaces issuers,clusterissuers,certificates</span>
-<span class="go">done</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> CLUSTER <span class="k">in</span> <span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">do</span>
+  compliantkubernetes-apps/bin/ck8s ops kubectl <span class="nv">$CLUSTER</span> get --all-namespaces issuers,clusterissuers,certificates
+<span class="k">done</span>
 </code></pre></div>
 <p>Check the output of the command above.
 All resources need to have the <code>Ready</code> column <code>True</code>.</p>
