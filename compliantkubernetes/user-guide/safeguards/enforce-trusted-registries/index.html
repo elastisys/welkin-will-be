@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://elastisys.io/compliantkubernetes/user-guide/safeguards/enforce-trusted-registries/">
       
       <link rel="icon" href="../../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.7">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
@@ -23,10 +23,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.20d9efc8.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.472b142f.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.08040f6c.min.css">
         
       
       
@@ -395,6 +395,20 @@
     <li class="md-nav__item">
       <a href="../../registry/" class="md-nav__link">
         Container registry
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../continous-development/" class="md-nav__link">
+        Continous Development
       </a>
     </li>
   
@@ -1687,6 +1701,9 @@ Note to contributors: Aim for the following format.
 <p class="admonition-title">Important</p>
 <p>Instead of adding a not-really-trusted registry to the set of trusted registries, prefer mirroring some public images in your Compliant Kubernetes registry.</p>
 </div>
+<p>If your administrator has not enforced this policy yet, you can view current violations of the policy by running
+<div class="highlight"><pre><span></span><code>kubectl get k8sallowedrepos.constraints.gatekeeper.sh require-harbor-repo -ojson <span class="p">|</span> jq .status.violations
+</code></pre></div></p>
 <h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://kubernetes.io/docs/concepts/containers/images/">Container Images</a></li>
@@ -1774,7 +1791,7 @@ Note to contributors: Aim for the following format.
     <script id="__config" type="application/json">{"base": "../../..", "features": ["toc.integrate", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.8492ddcf.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
       
     
   </body>
