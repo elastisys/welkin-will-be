@@ -1,0 +1,2068 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Compliant Kubernetes is a Kubernetes distribution that reduces the burden for complying with Swedish Healthcare (Patientdatalagen), GDPR and ISO 27001.">
+      
+      
+        <meta name="author" content="Elastisys AB">
+      
+      
+        <link rel="canonical" href="https://elastisys.io/compliantkubernetes-v0.27/user-guide/long-term-log-retention/">
+      
+      <link rel="icon" href="../../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Long-term Log Retention - Elastisys Compliant Kubernetes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/branding.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://matomo.elastisys.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '2']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+    
+    
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  img-src 'self' data:;
+  connect-src 'self' https://matomo.elastisys.com/;
+  script-src 'self' 'unsafe-inline';
+">
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="elastisys" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Elastisys Compliant Kubernetes" class="md-header__button md-logo" aria-label="Elastisys Compliant Kubernetes" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Elastisys Compliant Kubernetes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Long-term Log Retention
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+
+<a
+  href="https://github.com/elastisys/compliantkubernetes/"
+  title="Go to repository"
+  style="display: block; font-size: .65rem; line-height: 1.2; white-space: nowrap; -webkit-backface-visibility: hidden; backface-visibility: hidden; transition: opacity 250ms;"
+>
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Elastisys Compliant Kubernetes" class="md-nav__button md-logo" aria-label="Elastisys Compliant Kubernetes" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Elastisys Compliant Kubernetes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+<a
+  href="https://github.com/elastisys/compliantkubernetes/"
+  title="Go to repository"
+  style="display: block; font-size: .65rem; line-height: 1.2; white-space: nowrap; -webkit-backface-visibility: hidden; backface-visibility: hidden; transition: opacity 250ms;"
+>
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          For Application Developers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="For Application Developers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          For Application Developers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prepare/" class="md-nav__link">
+        Step 1: Prepare
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy/" class="md-nav__link">
+        Step 2: Deploy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operate/" class="md-nav__link">
+        Step 3: Operate
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Go Deeper
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Go Deeper" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Go Deeper
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prepare-application/" class="md-nav__link">
+        Prepare Your Application
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../registry/" class="md-nav__link">
+        Container registry
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../continous-development/" class="md-nav__link">
+        Continous Development
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network-model/" class="md-nav__link">
+        Network Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes-api/" class="md-nav__link">
+        Kubernetes API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes-ui/" class="md-nav__link">
+        Kubernetes UI (Lens)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logs/" class="md-nav__link">
+        Logs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../log-based-alerts/" class="md-nav__link">
+        Log-based Alerts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Long-term Log Retention
+      </a>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metrics/" class="md-nav__link">
+        Metrics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../alerts/" class="md-nav__link">
+        Metric Alerts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maintenance/" class="md-nav__link">
+        Maintenance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backup/" class="md-nav__link">
+        Backups
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ci-cd/" class="md-nav__link">
+        CI/CD
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../demarcation/" class="md-nav__link">
+        Demarcation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../delegation/" class="md-nav__link">
+        How to Delegate
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          Safeguards
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Safeguards" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Safeguards
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../safeguards/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../safeguards/enforce-no-root/" class="md-nav__link">
+        Enforce No Root
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../safeguards/enforce-networkpolicies/" class="md-nav__link">
+        Enforce NetworkPolicies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../safeguards/enforce-resources/" class="md-nav__link">
+        Enforce Resources
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../safeguards/enforce-trusted-registries/" class="md-nav__link">
+        Enforce Trusted Registries
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../safeguards/enforce-no-latest-tag/" class="md-nav__link">
+        Enforce No Latest Tag
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          Additional Services
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Additional Services" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Additional Services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../additional-services/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../additional-services/postgresql/" class="md-nav__link">
+        PostgreSQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../additional-services/timescaledb/" class="md-nav__link">
+        TimescaleDB
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../additional-services/redis/" class="md-nav__link">
+        Redis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../additional-services/rabbitmq/" class="md-nav__link">
+        RabbitMQ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../go-live/" class="md-nav__link">
+        Go-live Checklist
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        Troubleshooting
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          For Kubernetes Administrators
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="For Kubernetes Administrators" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          For Kubernetes Administrators
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/getting-started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/provider-audit/" class="md-nav__link">
+        Provider Audit
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/on-prem-standard/" class="md-nav__link">
+        Standard Template for on-prem Environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/qa/" class="md-nav__link">
+        QA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_6">
+          Advanced Configuration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Advanced Configuration" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Advanced Configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/configure/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/cluster-sizing/" class="md-nav__link">
+        Sizing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/ingress/" class="md-nav__link">
+        Ingress
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/access-control/" class="md-nav__link">
+        Access Control
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/user-alerts/" class="md-nav__link">
+        User Alerts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/disaster-recovery/" class="md-nav__link">
+        Disaster Recovery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/break-glass/" class="md-nav__link">
+        Breaking the Glass
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/credentials/" class="md-nav__link">
+        Use of Credentials
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/capacity-management/" class="md-nav__link">
+        Capacity Management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/maintenance/" class="md-nav__link">
+        Maintenance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/troubleshooting/" class="md-nav__link">
+        Troubleshooting
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/faq/" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          For CISOs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="For CISOs" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          For CISOs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/controls/" class="md-nav__link">
+        ISO 27001, BSI IT-Grundschutz and HIPAA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/audit-logs/" class="md-nav__link">
+        Audit Logs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/backup/" class="md-nav__link">
+        Backup
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/cryptography/" class="md-nav__link">
+        Cryptography
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/intrusion-detection/" class="md-nav__link">
+        Intrusion Detection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/policy-as-code/" class="md-nav__link">
+        Policy-as-Code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/network-security/" class="md-nav__link">
+        Network Security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/capacity-management/" class="md-nav__link">
+        Capacity Management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/vulnerability/" class="md-nav__link">
+        Vulnerability Management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/log-review/" class="md-nav__link">
+        Log Review
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/faq/" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          For Contributors
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="For Contributors" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          For Contributors
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributor-guide/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/" class="md-nav__link">
+        Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/" class="md-nav__link">
+        Architectural Decision Log
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech-radar/" class="md-nav__link">
+        Tech Radar
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Release Notes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Release Notes" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Release Notes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/ck8s/" class="md-nav__link">
+        Compliant Kubernetes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/kubespray/" class="md-nav__link">
+        CK8S Kubespray
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/postgres/" class="md-nav__link">
+        CK8S PostgreSQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/rabbitmq/" class="md-nav__link">
+        CK8S RabbitMQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/redis/" class="md-nav__link">
+        CK8S Redis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roadmap/" class="md-nav__link">
+        Roadmap
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://elastisys.com/" class="md-nav__link">
+        Support ⧉
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://elastisys.com/blog/" class="md-nav__link">
+        Blog ⧉
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+  <nav class="md-tags" >
+    
+      
+      
+        <a href="../../ciso-guide/controls/#hipaa-s48-audit-controls-164312b" class="md-tag">HIPAA S48 - Audit Controls - § 164.312(b)</a>
+      
+    
+  </nav>
+
+
+
+  <a href="https://github.com/elastisys/compliantkubernetes/edit/main/docs/user-guide/long-term-log-retention.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="long-term-log-retention">Long-term log retention<a class="headerlink" href="#long-term-log-retention" title="Permanent link">&para;</a></h1>
+<p>Compliant Kubernetes by default sets an retention of 30 days for logs, with an additional 30 days though backups of this logs, within OpenSearch.
+Many regulators, including Swedish Healthcare, require a minimum of 5 year log retention.</p>
+<p>This is not provided at the platform level by Compliant Kubernetes as it runs the risk of GDPR non-complicance.
+Logs may include sensitive information like personal data, which requires that the the retention scheme is designed together with application-specific knowledge to ensure compliance.
+Specifically, this includes that the retention scheme ensures that erased personal data can not be accidentally restored, as per <a href="https://gdpr-info.eu/art-17-gdpr/">Art. 17 GDPR Right to erasure (‘right to be forgotten’)</a>.</p>
+<p>Using application-specific knowledge would also make it possible to reduce the amount of logs stored, by filtering out so only the required logs are kept.
+Minimising the kept data, storage costs and storage management.</p>
+<h2 id="exporting-logs-for-long-term-storage">Exporting logs for long-term storage<a class="headerlink" href="#exporting-logs-for-long-term-storage" title="Permanent link">&para;</a></h2>
+<p>To enable long-term log retention we instead recommend using <a href="https://github.com/elasticsearch-dump/elasticsearch-dump">Elasticdump</a>.
+This tool can export logs from OpenSearch within Compliant Kubernetes on a per document basis in either CSV or JSON format, allowing other tools to process the logs and ship them somewhere else.
+It can also perform transformations, compress using Gzip, and write them into a file or send them to S3 object storage.</p>
+<p>Using this tool, along with the REST API of OpenSearch, then it is possible to create scripts to export logs for long-term storage using a Kubernetes CronJob.
+Down below are some examples how to discover indices to export from OpenSearch, some commands to use with Elasticdump, and an example Dockerfile and some Kubernetes manifests.</p>
+<h2 id="accessing-opensearch">Accessing OpenSearch<a class="headerlink" href="#accessing-opensearch" title="Permanent link">&para;</a></h2>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>To access OpenSearch contact your Compliant Kubernetes administrator and ask them to create a user with suitable permissions listed here below.</p>
+</div>
+<p>This is the permissions required for the OpenSearch API snippets and the permissions required by Elasticdump:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">cluster_permissions</span><span class="p">:</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cluster_monitor</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">indices:data/read/scroll</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">indices:data/read/scroll/clear</span><span class="w"></span>
+<span class="nt">index_permissions</span><span class="p">:</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">index_patterns</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;*&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">allowed_actions</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">indices:admin/aliases/get</span><span class="w"> </span><span class="c1"># Can be omitted when aliases is not used</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">indices:monitor/*</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">index_patterns</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kubernetes*</span><span class="w"></span>
+<span class="w">  </span><span class="nt">allowed_actions</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">indices:admin/get</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">indices:admin/mappings/get</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">indices_monitor</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">read</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">search</span><span class="w"></span>
+</code></pre></div>
+<p>With <code>${DOMAIN}</code> set to the domain of your environment, the variables then needed to connect the becomes:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">OS_PROTOCOL</span><span class="o">=</span><span class="s2">&quot;https&quot;</span>
+<span class="nb">export</span> <span class="nv">OS_ENDPOINT</span><span class="o">=</span><span class="s2">&quot;opensearch.ops.</span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nb">export</span> <span class="nv">OS_USERNAME</span><span class="o">=</span><span class="s2">&quot;&lt;provided-by-admin&gt;&quot;</span>
+<span class="nb">export</span> <span class="nv">OS_PASSWORD</span><span class="o">=</span><span class="s2">&quot;&lt;provided-by-admin&gt;&quot;</span>
+
+<span class="c1"># The index pattern we want to export, normally &quot;kubernetes*&quot;</span>
+<span class="nb">export</span> <span class="nv">OS_PATTERN</span><span class="o">=</span><span class="s2">&quot;kubernetes*&quot;</span>
+</code></pre></div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>These variables will be used later on in the example snippets.</p>
+</div>
+<h2 id="discovering-aliases-and-indices">Discovering aliases and indices<a class="headerlink" href="#discovering-aliases-and-indices" title="Permanent link">&para;</a></h2>
+<p>In OpenSearch logs are stored into <em>indices</em>.
+These indices are managed in a way that will limit them both in time and size, to make them more manageable.
+Each index typically represents a days worth of logs, but if the size of the index exceeds a set threshold a new one will be created to limit their maximum size.</p>
+<p>The indices are all grouped within index <em>aliases</em>, a sort of virtual index that behind the scenes link to other indices.
+This allows one to read from all indices and write to one designated write index, all using the same name.</p>
+<p>Since only the write index can change one method to select indices for exporting into log-term storage is to only export the read indices.
+This way there is no need to check and update indices in case they've changed since the previous export run, simplifying the export logic.</p>
+<div class="admonition example">
+<p class="admonition-title">Example: List all indices using a pattern</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># call as: get_indices &lt;pattern&gt;</span>
+get_indices<span class="o">()</span> <span class="o">{</span>
+    <span class="nv">pattern</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+
+    <span class="nv">res</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>curl -u <span class="s2">&quot;</span><span class="si">${</span><span class="nv">OS_USERNAME</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">OS_PASSWORD</span><span class="si">}</span><span class="s2">&quot;</span> -XGET <span class="s2">&quot;</span><span class="si">${</span><span class="nv">OS_PROTOCOL</span><span class="si">}</span><span class="s2">://</span><span class="si">${</span><span class="nv">OS_ENDPOINT</span><span class="si">}</span><span class="s2">/_cat/indices?h=index&quot;</span><span class="k">)</span><span class="s2">&quot;</span>
+
+    <span class="k">if</span> <span class="nb">echo</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">res</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">|</span> grep <span class="s2">&quot;error&quot;</span> &gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nb">exit</span> <span class="m">1</span>
+    <span class="k">elif</span> <span class="nb">echo</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">res</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">|</span> grep <span class="s2">&quot;fail&quot;</span> &gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nb">exit</span> <span class="m">1</span>
+    <span class="k">else</span>
+        <span class="nb">echo</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">res</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">|</span> sed -n <span class="s2">&quot;/</span><span class="si">${</span><span class="nv">pattern</span><span class="si">}</span><span class="s2">/p&quot;</span> <span class="p">|</span> sort
+    <span class="k">fi</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>This will generate a list of all indices within OpenSearch for the specified pattern.</p>
+<p>The pattern accept regex used by <code>sed</code> and should in most instances be <code>kubernetes*</code> to only include the application logs indices.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example: List all write indices using a pattern</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># call as: get_write_index &lt;pattern&gt;</span>
+get_write_index<span class="o">()</span> <span class="o">{</span>
+    <span class="nv">pattern</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+
+    <span class="nv">res</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>curl -u <span class="s2">&quot;</span><span class="si">${</span><span class="nv">OS_USERNAME</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">OS_PASSWORD</span><span class="si">}</span><span class="s2">&quot;</span> -XGET <span class="s2">&quot;</span><span class="si">${</span><span class="nv">OS_PROTOCOL</span><span class="si">}</span><span class="s2">://</span><span class="si">${</span><span class="nv">OS_ENDPOINT</span><span class="si">}</span><span class="s2">/_cat/aliases?h=alias,index,is_write_index&quot;</span><span class="k">)</span><span class="s2">&quot;</span>
+
+    <span class="k">if</span> <span class="nb">echo</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">res</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">|</span> grep <span class="s2">&quot;error&quot;</span> &gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nb">exit</span> <span class="m">1</span>
+    <span class="k">elif</span> <span class="nb">echo</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">res</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">|</span> grep <span class="s2">&quot;fail&quot;</span> &gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nb">exit</span> <span class="m">1</span>
+    <span class="k">else</span>
+        <span class="nb">echo</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">res</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">|</span> grep <span class="s2">&quot;true&quot;</span> <span class="p">|</span> sed -n <span class="s2">&quot;/</span><span class="si">${</span><span class="nv">pattern</span><span class="si">}</span><span class="s2">/p&quot;</span> <span class="p">|</span> awk <span class="s1">&#39;{print $2}&#39;</span> <span class="o">||</span> <span class="nb">true</span>
+    <span class="k">fi</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>This will generate a list of all write indices within OpenSearch for the specified pattern.</p>
+<p>The pattern accept regex used by <code>sed</code> and should in most instances be <code>kubernetes*</code> to only include the application logs alias.</p>
+<p>Since the pattern only should only match a single alias, and since each alias can only have a single write index, the output should be validated that it at most only contains one index.</p>
+</div>
+<p>Using these two example functions we can now fetch the indices for a pattern and find the write index for any matching alias, meaning we can iterate over them, filter out the write index, and perform our backup:</p>
+<div class="admonition example">
+<p class="admonition-title">Example: Iterating over indices, filtering out the write index, and perform export action</p>
+<div class="highlight"><pre><span></span><code><span class="nv">indices</span><span class="o">=</span><span class="k">$(</span>get_indices <span class="s2">&quot;</span><span class="si">${</span><span class="nv">OS_PATTERN</span><span class="si">}</span><span class="s2">&quot;</span><span class="k">)</span>
+<span class="nv">write_index</span><span class="o">=</span><span class="k">$(</span>get_write_index <span class="s2">&quot;</span><span class="si">${</span><span class="nv">OS_PATTERN</span><span class="si">}</span><span class="s2">&quot;</span><span class="k">)</span>
+
+<span class="k">for</span> index <span class="k">in</span> <span class="si">${</span><span class="nv">indices</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span>
+    <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">write_index</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="k">continue</span> <span class="c1"># skipping as it is the write index</span>
+    <span class="k">fi</span>
+
+    perform_export <span class="s2">&quot;</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+</code></pre></div>
+</div>
+<p>For more complex tasks checkout <a href="https://opensearch.org/docs/latest/opensearch/rest-api/index/">the OpenSearch REST API reference</a>.</p>
+<h2 id="exporting-indices">Exporting indices<a class="headerlink" href="#exporting-indices" title="Permanent link">&para;</a></h2>
+<p>With Elasticdump it is possible to export logs out to the console, to file, or to S3.
+In these example snippets we well export them to S3.
+To be able to do some management functions we will also use <a href="https://github.com/s3tools/s3cmd">s3cmd</a>, most importantly to be able to check for existing exports.</p>
+<p>Using S3 both for Elasticdump and s3cmd will require the following variables:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">S3_BUCKET</span><span class="o">=</span><span class="s2">&quot;&lt;bucket&gt;&quot;</span>
+<span class="nb">export</span> <span class="nv">S3_REGION</span><span class="o">=</span><span class="s2">&quot;&lt;region&gt;&quot;</span>
+<span class="nb">export</span> <span class="nv">S3_ENDPOINT</span><span class="o">=</span><span class="s2">&quot;&lt;region-endpoint&gt;&quot;</span>
+<span class="nb">export</span> <span class="nv">S3_FORCE_PATH_STYLE</span><span class="o">=</span><span class="s2">&quot;&lt;false|true&gt;&quot;</span> <span class="c1"># Generally &quot;false&quot; for AWS and Exoscale, else &quot;true&quot;</span>
+<span class="nb">export</span> <span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="s2">&quot;&lt;access-key&gt;&quot;</span>
+<span class="nb">export</span> <span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="s2">&quot;&lt;secret-key&gt;&quot;</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$S3_FORCE_PATH_STYLE</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;true&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">export</span> <span class="nv">S3_BUCKET_ENDPOINT</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">S3_ENDPOINT</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">else</span>
+    <span class="nb">export</span> <span class="nv">S3_BUCKET_ENDPOINT</span><span class="o">=</span><span class="s2">&quot;%(bucket)s.</span><span class="si">${</span><span class="nv">S3_ENDPOINT</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">fi</span>
+</code></pre></div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>These variables will be used later on in the example snippets.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example: Export entire index to S3</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># With ${index} set to the index to export.</span>
+elasticdump <span class="se">\</span>
+    --input <span class="s2">&quot;</span><span class="si">${</span><span class="nv">OS_PROTOCOL</span><span class="si">}</span><span class="s2">://</span><span class="si">${</span><span class="nv">OS_USERNAME</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">OS_PASSWORD</span><span class="si">}</span><span class="s2">@</span><span class="si">${</span><span class="nv">OS_ENDPOINT</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">&quot;</span> <span class="se">\</span>
+    --output <span class="s2">&quot;s3://</span><span class="nv">$S3_BUCKET</span><span class="s2">/</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">.json.gz&quot;</span> <span class="se">\</span>
+    --s3Region <span class="si">${</span><span class="nv">S3_REGION</span><span class="si">}</span> <span class="se">\</span>
+    --s3Endpoint <span class="si">${</span><span class="nv">S3_ENDPOINT</span><span class="si">}</span> <span class="se">\</span>
+    --s3ForcePathStyle <span class="si">${</span><span class="nv">S3_FORCE_PATH_STYLE</span><span class="si">}</span> <span class="se">\</span>
+    --s3Compress <span class="se">\</span>
+    --concurrency <span class="m">40</span> <span class="se">\</span>
+    --concurrencyInterval <span class="m">1000</span> <span class="se">\</span>
+    --intervalCap <span class="m">20</span> <span class="se">\</span>
+    --limit <span class="m">1000</span>
+</code></pre></div>
+<p>This process will take a while depending on the size of the index.
+By default it will not try to delete, replace or update any resources, so this must be enabled using the <a href="https://github.com/elasticsearch-dump/elasticsearch-dump#options">appropriate flags</a> or it should be managed by other means like s3cmd.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>If this process is aborted it will leave multipart uploads after itself that should be cleared, else they will still use storage on the S3 service!</p>
+<p>These can be listed and then removed with s3cmd:
+<div class="highlight"><pre><span></span><code>s3cmd <span class="se">\</span>
+    --host<span class="o">=</span><span class="si">${</span><span class="nv">S3_ENDPOINT</span><span class="si">}</span> <span class="se">\</span>
+    --host-bucket<span class="o">=</span><span class="si">${</span><span class="nv">S3_BUCKET_ENDPOINT</span><span class="si">}</span> <span class="se">\</span>
+    multipart <span class="s2">&quot;s3://</span><span class="si">${</span><span class="nv">S3_BUCKET</span><span class="si">}</span><span class="s2">&quot;</span>
+
+s3cmd <span class="se">\</span>
+    --host<span class="o">=</span><span class="si">${</span><span class="nv">S3_ENDPOINT</span><span class="si">}</span> <span class="se">\</span>
+    --host-bucket<span class="o">=</span><span class="si">${</span><span class="nv">S3_BUCKET_ENDPOINT</span><span class="si">}</span> <span class="se">\</span>
+    abortmp <span class="s2">&quot;s3://</span><span class="si">${</span><span class="nv">S3_BUCKET</span><span class="si">}</span><span class="s2">/&lt;multipart-upload-path&gt;&quot;</span> <span class="s2">&quot;&lt;multipart-upload-id&gt;&quot;</span>
+</code></pre></div></p>
+</div>
+</div>
+<p>In the example above only certain logs can be exported by adding a query using <a href="https://opensearch.org/docs/latest/opensearch/query-dsl/index/">OpenSearch Query DSL</a> with the <code>--searchBody '&lt;query&gt;'</code> flag.
+This way it is possible to filter on certain labels to only export logs for a particular namespace, deployment, or even using identifier within structured logs.
+An example for a specific namespace would be:
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;query&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;term&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;kubernetes.namespace_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;production&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+Since the Query DSL is in JSON format it must be properly quoted or escaped to keep its format, preferably the whitespace should be stripped before sending it as an argument to Elasticdump.</p>
+<div class="admonition example">
+<p class="admonition-title">Example: Putting it all together</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># call as: perform_export &lt;index&gt;</span>
+perform_export<span class="o">()</span> <span class="o">{</span>
+    <span class="nv">index</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+
+    <span class="nv">check</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>s3cmd <span class="s2">&quot;--host=</span><span class="si">${</span><span class="nv">S3_ENDPOINT</span><span class="si">}</span><span class="s2">&quot;</span> <span class="s2">&quot;--host-bucket=</span><span class="si">${</span><span class="nv">S3_BUCKET_ENDPOINT</span><span class="si">}</span><span class="s2">&quot;</span> ls <span class="s2">&quot;s3://</span><span class="si">${</span><span class="nv">S3_BUCKET</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">.json.gz&quot;</span>
+    <span class="k">if</span> <span class="o">[</span> -n <span class="s2">&quot;</span><span class="si">${</span><span class="nv">check</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="k">return</span> <span class="c1"># skipping as it is already exported</span>
+    <span class="k">fi</span>
+
+    <span class="c1"># Just as an example</span>
+    <span class="nv">query</span><span class="o">=</span><span class="s1">&#39;{&quot;query&quot;: {&quot;term&quot;: {&quot;kubernetes.namespace_name&quot;: &quot;production&quot;}}}&#39;</span>
+
+    elasticdump <span class="se">\</span>
+        --input <span class="s2">&quot;</span><span class="si">${</span><span class="nv">OS_PROTOCOL</span><span class="si">}</span><span class="s2">://</span><span class="si">${</span><span class="nv">OS_USERNAME</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">OS_PASSWORD</span><span class="si">}</span><span class="s2">@</span><span class="si">${</span><span class="nv">OS_ENDPOINT</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">&quot;</span> <span class="se">\</span>
+        --output <span class="s2">&quot;s3://</span><span class="nv">$S3_BUCKET</span><span class="s2">/</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">.json.gz&quot;</span> <span class="se">\</span>
+        --s3Region <span class="si">${</span><span class="nv">S3_REGION</span><span class="si">}</span> <span class="se">\</span>
+        --s3Endpoint <span class="si">${</span><span class="nv">S3_ENDPOINT</span><span class="si">}</span> <span class="se">\</span>
+        --s3ForcePathStyle <span class="si">${</span><span class="nv">S3_FORCE_PATH_STYLE</span><span class="si">}</span> <span class="se">\</span>
+        --s3Compress <span class="se">\</span>
+        --concurrency <span class="m">40</span> <span class="se">\</span>
+        --concurrencyInterval <span class="m">1000</span> <span class="se">\</span>
+        --intervalCap <span class="m">20</span> <span class="se">\</span>
+        --limit <span class="m">1000</span> <span class="se">\</span>
+        --searchBody <span class="s2">&quot;</span><span class="si">${</span><span class="nv">query</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="o">}</span>
+</code></pre></div>
+</div>
+<h2 id="deploying-cronjobs">Deploying CronJobs<a class="headerlink" href="#deploying-cronjobs" title="Permanent link">&para;</a></h2>
+<p>The simplest way to prepare this for deployment is to build a container image including Bash, Elasticdump and s3cmd, and set up a CronJob to run this on a preferred schedule.</p>
+<p>Here are some examples of how to build and deploy them:</p>
+<div class="admonition example">
+<p class="admonition-title">Example: Containerfile / Dockerfile</p>
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">docker.io/library/ubuntu:jammy</span>
+
+<span class="k">ARG</span><span class="w"> </span><span class="nv">DEBIAN_FRONTEND</span><span class="o">=</span>noninteractive
+<span class="k">ARG</span><span class="w"> </span><span class="nv">TZ</span><span class="o">=</span>Etc/UTC
+
+<span class="k">RUN</span><span class="w"> </span>apt update <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    apt install -y --no-install-recommends ca-certificates curl npm s3cmd <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    apt clean -y <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    rm -rf /var/lib/apt
+
+<span class="k">RUN</span><span class="w"> </span>npm install elasticdump@v6.88.0 -g
+
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;elasticdump&quot;</span><span class="p">]</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example: Kubernetes resources</p>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span><span class="w"></span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConfigMap</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">export-script</span><span class="w"></span>
+<span class="nt">data</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">script.sh</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|-</span><span class="w"></span>
+<span class="w">    </span><span class="no">&lt;bash-script&gt;</span><span class="w"></span>
+<span class="nn">---</span><span class="w"></span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">export-secret</span><span class="w"></span>
+<span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Opaque</span><span class="w"></span>
+<span class="nt">stringData</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="c1"># OpenSearch</span><span class="w"></span>
+<span class="w">  </span><span class="nt">OS_PROTOCOL</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${OS_PROTOCOL}&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">OS_ENDPOINT</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${OS_ENDPOINT}&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">OS_USERNAME</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${OS_USERNAME}&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">OS_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${OS_PASSWORD}&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">OS_PATTERN</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${OS_PATTERN}&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="c1"># S3</span><span class="w"></span>
+<span class="w">  </span><span class="nt">S3_BUCKET</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${S3_BUCKET}&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">S3_REGION</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${S3_REGION}&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">S3_ENDPOINT</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${S3_ENDPOINT}&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">S3_BUCKET_ENDPOINT</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${S3_BUCKET_ENDPOINT}&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">S3_FORCE_PATH_STYLE</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${S3_FORCE_PATH_STYLE}&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">AWS_ACCESS_KEY_ID</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${AWS_ACCESS_KEY_ID}&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">AWS_SECRET_ACCESS_KEY</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${AWS_SECRET_ACCESS_KEY}&quot;</span><span class="w"></span>
+<span class="nn">---</span><span class="w"></span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">batch/v1</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CronJob</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">export</span><span class="w"></span>
+<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">schedule</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;schedule&gt;</span><span class="w"> </span><span class="c1"># example &quot;@daily&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">concurrencyPolicy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Forbid</span><span class="w"></span>
+<span class="w">  </span><span class="nt">jobTemplate</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">template</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="nt">labels</span><span class="p">:</span><span class="w"></span>
+<span class="w">            </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">log-export</span><span class="w"></span>
+<span class="w">        </span><span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="nt">automountServiceAccountToken</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<span class="w">          </span><span class="nt">restartPolicy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Never</span><span class="w"></span>
+<span class="w">          </span><span class="nt">containers</span><span class="p">:</span><span class="w"></span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">export</span><span class="w"></span>
+<span class="w">              </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;image&gt;</span><span class="w"></span>
+<span class="w">              </span><span class="nt">command</span><span class="p">:</span><span class="w"></span>
+<span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/scripts/script.sh</span><span class="w"></span>
+<span class="w">              </span><span class="nt">envFrom</span><span class="p">:</span><span class="w"></span>
+<span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">secretRef</span><span class="p">:</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">export-secret</span><span class="w"></span>
+<span class="w">              </span><span class="nt">resources</span><span class="p">:</span><span class="w"></span>
+<span class="w">                </span><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
+<span class="w">                  </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">500m</span><span class="w"></span>
+<span class="w">                  </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">500Mi</span><span class="w"></span>
+<span class="w">                </span><span class="nt">limits</span><span class="p">:</span><span class="w"></span>
+<span class="w">                  </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000m</span><span class="w"></span>
+<span class="w">                  </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">750Mi</span><span class="w"></span>
+<span class="w">              </span><span class="nt">securityContext</span><span class="p">:</span><span class="w"></span>
+<span class="w">                </span><span class="nt">runAsNonRoot</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<span class="w">                </span><span class="nt">capabilities</span><span class="p">:</span><span class="w"></span>
+<span class="w">                  </span><span class="nt">drop</span><span class="p">:</span><span class="w"></span>
+<span class="w">                    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ALL</span><span class="w"></span>
+<span class="w">              </span><span class="nt">volumeMounts</span><span class="p">:</span><span class="w"></span>
+<span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">script</span><span class="w"></span>
+<span class="w">                  </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/scripts</span><span class="w"></span>
+<span class="w">                  </span><span class="nt">readOnly</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<span class="w">          </span><span class="nt">securityContext</span><span class="p">:</span><span class="w"></span>
+<span class="w">            </span><span class="nt">runAsNonRoot</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<span class="w">            </span><span class="nt">runAsGroup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">65534</span><span class="w"></span>
+<span class="w">            </span><span class="nt">runAsUser</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">65534</span><span class="w"></span>
+<span class="w">            </span><span class="nt">fsGroup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">65534</span><span class="w"></span>
+<span class="w">          </span><span class="nt">volumes</span><span class="p">:</span><span class="w"></span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">script</span><span class="w"></span>
+<span class="w">              </span><span class="nt">configMap</span><span class="p">:</span><span class="w"></span>
+<span class="w">                </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">export-script</span><span class="w"></span>
+<span class="w">                </span><span class="nt">defaultMode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0777</span><span class="w"></span>
+</code></pre></div>
+</div>
+<p>For more information about CronJobs checkout the Kubernetes <a href="https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/">documentation</a> and <a href="https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/cron-job-v1/">reference</a> about the subject.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../log-based-alerts/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Log-based Alerts" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Log-based Alerts
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../metrics/" class="md-footer__link md-footer__link--next" aria-label="Next: Metrics" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Metrics
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2022 Elastisys AB <br/> Kubernetes® is a registered trademark of The Linux Foundation in the United States and other countries, and is used pursuant to a license from The Linux Foundation. <br/> Postgres and PostgreSQL and the Elephant Logo (Slonik) are all registered trademarks of the PostgreSQL Community Association of Canada. <br/> Redis is a trademark of Redis Ltd. Any rights therein are reserved to Redis Ltd. Any use by the Compliant Kubernetes project is for referential purposes only and does not indicate any sponsorship, endorsement or affiliation between Redis and Compliant Kubernetes project. <br/> RabbitMQ is a trademark of VMware, Inc. in the U.S. and other countries. <br/> TimescaleDB and the EON mascot are trademarks of <a href="https://www.timescale.com/">Timescale, Inc.</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>
