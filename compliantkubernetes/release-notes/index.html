@@ -1643,7 +1643,7 @@
 <h2 id="compliant-kubernetes">Compliant Kubernetes<a class="headerlink" href="#compliant-kubernetes" title="Permanent link">&para;</a></h2>
 <!-- BEGIN TOC -->
 <ul>
-<li><a href="#v0262">v0.26.2</a> - 2022-10-18</li>
+<li><a href="#v0270">v0.27.0</a> - 2022-11-17</li>
 <li><a href="#v0260">v0.26.0</a> - 2022-09-19</li>
 <li><a href="#v0250">v0.25.0</a> - 2022-08-25</li>
 <li><a href="#v0241">v0.24.1</a> - 2022-08-01</li>
@@ -1668,22 +1668,39 @@
 <p class="admonition-title">Note</p>
 <p>For a more detailed look check out the full <a href="https://github.com/elastisys/compliantkubernetes-apps/blob/main/CHANGELOG.md">changelog</a>.</p>
 </div>
-<h3 id="v0262">V0.26.2<a class="headerlink" href="#v0262" title="Permanent link">&para;</a></h3>
-<p>Released 2022-10-18</p>
-<h4 id="fixed">Fixed<a class="headerlink" href="#fixed" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Blackbox exporter now looks at the correct error code for the opensearch-dashboards target</strong></li>
-<li><strong>Fixed inevitable mapping conflicts in Opensearch by updating <code>elastisys/fluentd</code> to use image tag <code>v3.4.0-ck8s4</code>.</strong></li>
-<li><strong>Kubernetes cluster status Grafana dashboard not loading data for some panels</strong></li>
-<li><strong>Fixed small issues introduced in v0.26.0</strong></li>
-</ul>
-<h3 id="v0261">V0.26.1<a class="headerlink" href="#v0261" title="Permanent link">&para;</a></h3>
-<p>Released 2022-10-05</p>
+<h3 id="v0270">v0.27.0<a class="headerlink" href="#v0270" title="Permanent link">&para;</a></h3>
+<p>Released 2022-11-17</p>
 <h4 id="updated">Updated<a class="headerlink" href="#updated" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>Updated dex chart to <code>v0.12.0</code> which upgraded dex to <code>v2.35.1</code></strong></li>
+<li><strong>Updated Dex helm chart to <code>v0.12.0</code>, which also upgrades Dex to <code>v2.35.1</code>.</strong></li>
+<li><strong>Updated Falco helm chart to <code>2.2.0</code>, which also upgrades Falco to <code>0.33.0</code> and Falco Sidekick to <code>2.26.0</code>.</strong></li>
+<li><strong>Updated Falco Exporter helm chart to <code>0.9.0</code>, which also upgrades Falco Exporter to <code>0.8.0</code>.</strong></li>
+<li><strong>Updated Velero helm chart to <code>v2.31.8</code>, which also upgrades Velero to <code>v1.9.2</code>.</strong></li>
+<li><strong>Updated Grafana helm chart to <code>v6.43.4</code>, which also upgrades Grafana to <code>v9.2.4</code>.</strong></li>
 </ul>
-<h3 id="v0260">V0.26.0<a class="headerlink" href="#v0260" title="Permanent link">&para;</a></h3>
+<h4 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Improved Network security by adding Network policies to a lot of the included services.</strong></li>
+<li><strong>NetworkPolicies are now automatically propagated from a parent namespace to its subnamespaces in HNC.</strong></li>
+<li><strong>Several default resource requests and limits have changed for the included services.</strong></li>
+<li><strong>Lowered the default retention age for Kubernetes logs in the prod flavor down to 30 days.</strong></li>
+<li><strong>Made dex ID Token expiration time configurable.</strong></li>
+<li><strong>User alertmanager is now enabled by default.</strong></li>
+</ul>
+<h4 id="fixed">Fixed<a class="headerlink" href="#fixed" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Fixed an issue with the "Kubernetes cluster status" Grafana dashboard not loading data for some panels</strong></li>
+<li><strong>Rclone can now be configured to run every x minutes/hours/days/week/month/year.</strong></li>
+</ul>
+<h4 id="added">Added<a class="headerlink" href="#added" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Added RBAC for admin users to view Gatekeeper constraints.</strong></li>
+<li><strong>New section in the welcoming dashboards, displaying the most relevant features and changes for the user added in the last two releases.</strong></li>
+<li><strong>Added an option to configure alerts for growing indices in OpenSearch.</strong></li>
+<li><strong>The settings for this might need to be tweaked to better suit the environment.</strong></li>
+<li><strong>Added an alert for failed evicted pods (KubeFailedEvictedPods).</strong></li>
+</ul>
+<h3 id="v0260">v0.26.0<a class="headerlink" href="#v0260" title="Permanent link">&para;</a></h3>
 <p>Released 2022-09-19</p>
 <h4 id="updated_1">Updated<a class="headerlink" href="#updated_1" title="Permanent link">&para;</a></h4>
 <ul>
@@ -1694,7 +1711,7 @@
 <ul>
 <li><strong>Fixed the welcome dashboard template for OpenSearch Dashboards</strong></li>
 </ul>
-<h4 id="added">Added<a class="headerlink" href="#added" title="Permanent link">&para;</a></h4>
+<h4 id="added_1">Added<a class="headerlink" href="#added_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Option to create custom solvers for letsencrypt issuers, including a simple way to add secrets</strong></li>
 <li><strong>Kube-bench runs on every node</strong>
@@ -1705,7 +1722,7 @@
 </ul>
 <h3 id="v0250">v0.25.0<a class="headerlink" href="#v0250" title="Permanent link">&para;</a></h3>
 <p>Released 2022-08-25</p>
-<h4 id="added_1">Added<a class="headerlink" href="#added_1" title="Permanent link">&para;</a></h4>
+<h4 id="added_2">Added<a class="headerlink" href="#added_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Added Hierarchical Namespace Controller</strong><br/> Allowing users to create and manage subnamespaces, namespaces within namespaces. You can read more about this in our <a href="https://elastisys.io/compliantkubernetes/user-guide/faq/#how-do-i-add-a-new-namespace">FAQ</a>.</li>
 <li><strong>Added support for custom solvers in cluster issuers</strong> <br/> Allowing DNS01 challenges for certificate requests.</li>
@@ -1720,7 +1737,7 @@
 <p><strong>Updated OpenSearch with new usability improvements and features</strong> <br/> Checkout their <a href="https://opensearch.org/blog/releases/2022/03/launch-announcement-1-3-0/">launch announcement</a>.</p>
 </li>
 </ul>
-<h4 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h4>
+<h4 id="changed_1">Changed<a class="headerlink" href="#changed_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>New additions to the Kubernetes cluster status Grafana dashboard</strong> <br/> It now shows information about resource requests and limits per node, and resource usage vs request per pod.</li>
 </ul>
@@ -1745,11 +1762,11 @@
 <p><strong>Image upgrade to node-local-dns</strong><br/></p>
 </li>
 </ul>
-<h4 id="changed_1">Changed<a class="headerlink" href="#changed_1" title="Permanent link">&para;</a></h4>
+<h4 id="changed_2">Changed<a class="headerlink" href="#changed_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Improved stability to automatic node reboots</strong><br/></li>
 </ul>
-<h4 id="added_2">Added<a class="headerlink" href="#added_2" title="Permanent link">&para;</a></h4>
+<h4 id="added_3">Added<a class="headerlink" href="#added_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Further configurability to ingress-nginx</strong><br/></li>
 </ul>
@@ -1760,11 +1777,11 @@
 <li><strong>Updated the ingress controller <code>ingress-nginx</code> to image version v1.2.1</strong><br/></li>
 <li>You can find the changelog <a href="https://github.com/kubernetes/ingress-nginx/releases/tag/controller-v1.2.1">here</a>.</li>
 </ul>
-<h4 id="changed_2">Changed<a class="headerlink" href="#changed_2" title="Permanent link">&para;</a></h4>
+<h4 id="changed_3">Changed<a class="headerlink" href="#changed_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Added support for accessing Alertmanager via port-forward</strong><br/></li>
 </ul>
-<h4 id="added_3">Added<a class="headerlink" href="#added_3" title="Permanent link">&para;</a></h4>
+<h4 id="added_4">Added<a class="headerlink" href="#added_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Backups can now be encrypted before they are replicated to an off-site S3 service.</strong><br/></li>
 <li><strong>Improved metrics and alerting for OpenSearch.</strong><br/></li>
@@ -1775,7 +1792,7 @@
 </ul>
 <h3 id="v0220">v0.22.0<a class="headerlink" href="#v0220" title="Permanent link">&para;</a></h3>
 <p>Released 2022-06-01</p>
-<h4 id="added_4">Added<a class="headerlink" href="#added_4" title="Permanent link">&para;</a></h4>
+<h4 id="added_5">Added<a class="headerlink" href="#added_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p><strong>Added support for Elastx and UpCloud!</strong><br/></p>
@@ -1804,7 +1821,7 @@
 </ul>
 <h3 id="v0210">v0.21.0<a class="headerlink" href="#v0210" title="Permanent link">&para;</a></h3>
 <p>Released 2022-05-04</p>
-<h4 id="changed_3">Changed<a class="headerlink" href="#changed_3" title="Permanent link">&para;</a></h4>
+<h4 id="changed_4">Changed<a class="headerlink" href="#changed_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p><strong>Users can now view ClusterIssuers.</strong><br/></p>
@@ -1832,7 +1849,7 @@
 </ul>
 <h3 id="v0200">v0.20.0<a class="headerlink" href="#v0200" title="Permanent link">&para;</a></h3>
 <p>Released 2022-03-21</p>
-<h4 id="added_5">Added<a class="headerlink" href="#added_5" title="Permanent link">&para;</a></h4>
+<h4 id="added_6">Added<a class="headerlink" href="#added_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p><strong>Added kured - Kubernetes Reboot Daemon.</strong><br/>
@@ -1849,7 +1866,7 @@
 <p><strong>Added containerd support for fluentd.</strong><br/></p>
 </li>
 </ul>
-<h4 id="changed_4">Changed<a class="headerlink" href="#changed_4" title="Permanent link">&para;</a></h4>
+<h4 id="changed_5">Changed<a class="headerlink" href="#changed_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p><strong>Added the new OPA policy.</strong><br/>
@@ -1889,7 +1906,7 @@
 </ul>
 <h3 id="v0190">v0.19.0<a class="headerlink" href="#v0190" title="Permanent link">&para;</a></h3>
 <p>Released 2022-02-01</p>
-<h4 id="added_6">Added<a class="headerlink" href="#added_6" title="Permanent link">&para;</a></h4>
+<h4 id="added_7">Added<a class="headerlink" href="#added_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p><strong>Added Thanos as a new metrics backend.</strong><br/>
@@ -1905,7 +1922,7 @@
   <em>Currently considered to be an alpha feature.</em></p>
 </li>
 </ul>
-<h4 id="changed_5">Changed<a class="headerlink" href="#changed_5" title="Permanent link">&para;</a></h4>
+<h4 id="changed_6">Changed<a class="headerlink" href="#changed_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p><strong>Replacing Open Distro for Elasticsearch with OpenSearch.</strong><br/>
