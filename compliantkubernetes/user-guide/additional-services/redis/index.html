@@ -1684,14 +1684,14 @@
 <div class="highlight"><pre><span></span><code>sudo apt install redis-tools
 </code></pre></div>
 <h2 id="getting-access">Getting Access<a class="headerlink" href="#getting-access" title="Permanent link">&para;</a></h2>
-<p>Your administrator will set up a Secret inside Compliant Kubernetes, which contains all information you need to access your Redis cluster.
-The Secret has the following shape:</p>
+<p>Your administrator will set up a ConfigMap inside Compliant Kubernetes, which contains all information you need to access your Redis cluster.
+The ConfigMap has the following shape:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"></span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConfigMap</span><span class="w"></span>
 <span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$SECRET</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$CONFIG_MAP</span><span class="w"></span>
 <span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$NAMESPACE</span><span class="w"></span>
-<span class="nt">stringData</span><span class="p">:</span><span class="w"></span>
+<span class="nt">data</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="c1"># REDIS_SENTINEL_HOST represents a cluster-scoped Redis Sentinel host, which only makes sense inside the Kubernetes cluster.</span><span class="w"></span>
 <span class="w">  </span><span class="c1"># E.g., rfs-redis-cluster.redis-system</span><span class="w"></span>
 <span class="w">  </span><span class="nt">REDIS_SENTINEL_HOST</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$REDIS_SENTINEL_HOST</span><span class="w"></span>
@@ -1700,34 +1700,29 @@ The Secret has the following shape:</p>
 <span class="w">  </span><span class="c1"># E.g., 26379</span><span class="w"></span>
 <span class="w">  </span><span class="nt">REDIS_SENTINEL_PORT</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;$REDIS_SENTINEL_PORT&quot;</span><span class="w"></span>
 </code></pre></div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>The Secret is very precious! Prefer not to persist any information extracted from it, as shown below.</p>
-</div>
 <p>To extract this information, proceed as follows:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">SECRET</span><span class="o">=</span>            <span class="c1"># Get this from your administrator</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">CONFIG_MAP</span><span class="o">=</span>            <span class="c1"># Get this from your administrator</span>
 <span class="nb">export</span> <span class="nv">NAMESPACE</span><span class="o">=</span>         <span class="c1"># Get this from your administrator</span>
 
-<span class="nb">export</span> <span class="nv">REDIS_SENTINEL_HOST</span><span class="o">=</span><span class="k">$(</span>kubectl -n <span class="nv">$NAMESPACE</span> get secret <span class="nv">$SECRET</span> -o <span class="s1">&#39;jsonpath={.data.REDIS_SENTINEL_HOST}&#39;</span> <span class="p">|</span> base64 -d<span class="k">)</span>
-<span class="nb">export</span> <span class="nv">REDIS_SENTINEL_PORT</span><span class="o">=</span><span class="k">$(</span>kubectl -n <span class="nv">$NAMESPACE</span> get secret <span class="nv">$SECRET</span> -o <span class="s1">&#39;jsonpath={.data.REDIS_SENTINEL_PORT}&#39;</span> <span class="p">|</span> base64 -d<span class="k">)</span>
+<span class="nb">export</span> <span class="nv">REDIS_SENTINEL_HOST</span><span class="o">=</span><span class="k">$(</span>kubectl -n <span class="nv">$NAMESPACE</span> get configmap <span class="nv">$CONFIG_MAP</span> -o <span class="s1">&#39;jsonpath={.data.REDIS_SENTINEL_HOST}&#39;</span><span class="k">)</span>
+<span class="nb">export</span> <span class="nv">REDIS_SENTINEL_PORT</span><span class="o">=</span><span class="k">$(</span>kubectl -n <span class="nv">$NAMESPACE</span> get configmap <span class="nv">$CONFIG_MAP</span> -o <span class="s1">&#39;jsonpath={.data.REDIS_SENTINEL_PORT}&#39;</span><span class="k">)</span>
 </code></pre></div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>At the time of this writing, we do not recommend to use a Redis cluster in a multi-tenant fashion. One Redis cluster should have only one purpose.</p>
 </div>
-<h2 id="create-a-secret">Create a Secret<a class="headerlink" href="#create-a-secret" title="Permanent link">&para;</a></h2>
+<h2 id="create-a-configmap">Create a ConfigMap<a class="headerlink" href="#create-a-configmap" title="Permanent link">&para;</a></h2>
 <p>First, check that you are on the right Compliant Kubernetes cluster, in the right <strong>application</strong> namespace:</p>
 <div class="highlight"><pre><span></span><code>kubectl get nodes
 kubectl config view --minify --output <span class="s1">&#39;jsonpath={..namespace}&#39;</span><span class="p">;</span> <span class="nb">echo</span>
 </code></pre></div>
-<p>Now, create a Kubernetes Secret in your application namespace to store the Redis Sentinel connection parameters:</p>
+<p>Now, create a Kubernetes ConfigMap in your application namespace to store the Redis Sentinel connection parameters:</p>
 <div class="highlight"><pre><span></span><code>cat <span class="s">&lt;&lt;EOF | kubectl apply -f -</span>
 <span class="s">apiVersion: v1</span>
-<span class="s">kind: Secret</span>
+<span class="s">kind: ConfigMap</span>
 <span class="s">metadata:</span>
-<span class="s">    name: app-redis-secret</span>
-<span class="s">type: Opaque</span>
-<span class="s">stringData:</span>
+<span class="s">    name: app-redis-config</span>
+<span class="s">data:</span>
 <span class="s">    REDIS_SENTINEL_HOST: $REDIS_SENTINEL_HOST</span>
 <span class="s">    REDIS_SENTINEL_PORT: &quot;$REDIS_SENTINEL_PORT&quot;</span>
 <span class="s">EOF</span>
@@ -1735,8 +1730,8 @@ kubectl config view --minify --output <span class="s1">&#39;jsonpath={..namespac
 <h2 id="expose-redis-connection-parameters-to-your-application">Expose Redis Connection Parameters to Your Application<a class="headerlink" href="#expose-redis-connection-parameters-to-your-application" title="Permanent link">&para;</a></h2>
 <p>To expose the Redis cluster to your application, follow one of the following upstream documentation:</p>
 <ul>
-<li><a href="https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/#create-a-pod-that-has-access-to-the-secret-data-through-a-volume">Create a Pod that has access to the secret data through a Volume</a></li>
-<li><a href="https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/#define-container-environment-variables-using-secret-data">Define container environment variables using Secret data</a></li>
+<li><a href="https://kubernetes.io/docs/concepts/configuration/configmap/#using-configmaps-as-files-from-a-pod">Create a Pod that has access to the ConfigMap data through a Volume</a></li>
+<li><a href="https://kubernetes.io/docs/concepts/configuration/configmap/#configmaps-and-pods">Define container environment variables using ConfigMap data</a></li>
 </ul>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -1759,7 +1754,7 @@ Before going into production, don't forget to go through the <a href="../../go-l
 <li><a href="https://redis.io/topics/sentinel">Redis Sentinel</a></li>
 <li><a href="https://redis.io/topics/sentinel-clients">Guidelines for Redis clients with support for Redis Sentinel</a></li>
 <li><a href="https://redis.io/commands">Redis Commands</a></li>
-<li><a href="https://kubernetes.io/docs/concepts/configuration/secret/">Kubernetes Secrets</a></li>
+<li><a href="https://kubernetes.io/docs/concepts/configuration/configmap">Kubernetes ConfigMap</a></li>
 </ul>
 
 
