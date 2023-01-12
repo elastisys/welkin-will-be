@@ -176,6 +176,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://elastisys.io/compliantkubernetes/adr/0027-postgresql-external-replication/</loc>
+         <lastmod>2023-01-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0028-harder-pod-eviction-when-node-goes-OOM/</loc>
          <lastmod>2023-01-12</lastmod>
          <changefreq>daily</changefreq>
