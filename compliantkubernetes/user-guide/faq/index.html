@@ -493,6 +493,20 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
+      <a href="../namespaces/" class="md-nav__link">
+        Namespaces
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../logs/" class="md-nav__link">
         Logs
       </a>
@@ -1869,52 +1883,7 @@ Here is an example command (please replace the <code>$MY_HARBOR_IMAGE</code>):</
 </code></pre></div>
 <p>If you are not using groups, contact your administrator.</p>
 <h2 id="how-do-i-add-a-new-namespace">How do I add a new namespace?<a class="headerlink" href="#how-do-i-add-a-new-namespace" title="Permanent link">&para;</a></h2>
-<p>In Compliant Kubernetes v0.25.0 and later <a href="https://github.com/kubernetes-sigs/hierarchical-namespaces">Hierarchical Namespace Controller</a> (HNC) is included, and it allows the super application developer to manage namespaces as subnamespaces and delegates access automatically. From the perspective of Kubernetes these are regular namespaces, but these can be modified via a namespaced resource by the user. In Compliant Kubernetes versions prior to v0.25.0 HNC is not included, for these versions please ask your administrator for creating a new namespace.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>When a subnamespace is created all roles and rolebindings will propagate from the parent namespace to the descendant namespace to ensure that correct access is set.
-Propagated copies cannot be modified, these types of resources cannot be created in a parent namespace if it conflicts with a resource in a descendant namespace.</p>
-<p>To put an exception annotate the role or rolebinding with <code>propagate.hnc.x-k8s.io/none: "true"</code> to prevent if from being propagated at all.
-Or to only propagate to selected descendant namespaces use <code>propagate.hnc.x-k8s.io/treeSelect: ...</code>, include descendant namespaces with <code>&lt;descendant-namespace&gt;</code> or exclude namespaces with <code>!&lt;descendant-namespace&gt;</code>.</p>
-</div>
-<p>Creating a subnamespace:
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>-<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
-<span class="s">apiVersion: hnc.x-k8s.io/v1alpha2</span>
-<span class="s">kind: SubnamespaceAnchor</span>
-<span class="s">metadata:</span>
-<span class="s">  name: &lt;descendant-namespace&gt;</span>
-<span class="s">  namespace: &lt;parent-namespace&gt;</span>
-<span class="s">EOF</span>
-</code></pre></div></p>
-<p>Verify that it gets created:
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>ns<span class="w"> </span>&lt;descendant-namespace&gt;
-</code></pre></div></p>
-<p>Verify that it gets configured:
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>get<span class="w"> </span>subns<span class="w"> </span>-n<span class="w"> </span>&lt;parent-namespace&gt;<span class="w"> </span>&lt;descendant-namespace&gt;<span class="w"> </span>-o<span class="w"> </span>yaml
-<span class="go">apiVersion: hnc.x-k8s.io/v1alpha2</span>
-<span class="go">kind: SubnamespaceAnchor</span>
-<span class="go">metadata:</span>
-<span class="go">    ...</span>
-<span class="go">  name: &lt;descendant-namespace&gt;</span>
-<span class="go">  namespace: &lt;parent-namespace&gt;</span>
-<span class="go">...</span>
-<span class="go">status:</span>
-<span class="go">  status: Ok</span>
-</code></pre></div></p>
-<p>If the status is <code>Ok</code> then the subnamespace is ready to go.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>HNC also comes with the <a href="https://github.com/kubernetes-sigs/hierarchical-namespaces/blob/master/docs/user-guide/how-to.md#prepare-to-use-hierarchical-namespaces-as-a-user">HNS <code>kubectl</code> plugin</a>.</p>
-<p>Using this plugin creating subnamespaces is as easy as:
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>hns<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>&lt;parent-namespace&gt;<span class="w"> </span>&lt;descendant-namespace&gt;
-</code></pre></div></p>
-<p>And provides more detailed information using:
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>hns<span class="w"> </span>describe<span class="w"> </span>&lt;namespace&gt;
-
-kubectl<span class="w"> </span>hns<span class="w"> </span>tree<span class="w"> </span>&lt;namespace&gt;
-</code></pre></div></p>
-</div>
-<p>For more information about how to use HNC see their <a href="https://github.com/kubernetes-sigs/hierarchical-namespaces/tree/master/docs/user-guide">user documentation</a>.</p>
+<p>See <a href="../namespaces/">Namespaces</a>.</p>
 <h2 id="why-cant-i-access-my-cluster-bad-request-unregistered-redirect_uri-httplocalhost18000">Why can't I access my cluster? 'Bad Request Unregistered redirect_uri ("http://localhost:18000").'<a class="headerlink" href="#why-cant-i-access-my-cluster-bad-request-unregistered-redirect_uri-httplocalhost18000" title="Permanent link">&para;</a></h2>
 <p>Port 8000 is the only allowed port for OpenID callback URL and is needed by the <code>kubectl</code> OpenID plugin. If that port is used locally, then <code>kubectl</code> will try to bind to port 18000 which is not allowed due to security concerns. Make sure that nothing is running locally that is using port 8000.</p>
 <h2 id="select-your-tenant">Select your tenant?<a class="headerlink" href="#select-your-tenant" title="Permanent link">&para;</a></h2>

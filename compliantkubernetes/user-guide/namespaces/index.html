@@ -6,22 +6,26 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Compliant Kubernetes is a Kubernetes distribution that reduces the burden for complying with Swedish Healthcare (Patientdatalagen), GDPR and ISO 27001.">
+        <meta name="description" content="How to work with namespaces in Elastisys Compliant Kubernetes, the security-focused Kubernetes distribution.">
       
       
         <meta name="author" content="Elastisys AB">
       
       
-        <link rel="canonical" href="https://elastisys.io/compliantkubernetes/adr/0025-local-storage/">
+        <link rel="canonical" href="https://elastisys.io/compliantkubernetes/user-guide/namespaces/">
       
       
+        <link rel="prev" href="../kubernetes-ui/">
+      
+      
+        <link rel="next" href="../logs/">
       
       <link rel="icon" href="../../img/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.5">
     
     
       
-        <title>Use local-volume-provisioner for Managed Services that requires high-speed disks. - Elastisys Compliant Kubernetes</title>
+        <title>Namespaces - Elastisys Compliant Kubernetes</title>
       
     
     
@@ -141,7 +145,7 @@ if(!document.__defineGetter__) {
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Use local-volume-provisioner for Managed Services that requires high-speed disks.
+              Namespaces
             
           </span>
         </div>
@@ -271,18 +275,20 @@ if(!document.__defineGetter__) {
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
-        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="true">
           For Application Developers
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -327,7 +333,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/prepare/" class="md-nav__link">
+      <a href="../prepare/" class="md-nav__link">
         Step 1: Prepare
       </a>
     </li>
@@ -341,7 +347,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/deploy/" class="md-nav__link">
+      <a href="../deploy/" class="md-nav__link">
         Step 2: Deploy
       </a>
     </li>
@@ -355,7 +361,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/operate/" class="md-nav__link">
+      <a href="../operate/" class="md-nav__link">
         Step 3: Operate
       </a>
     </li>
@@ -374,18 +380,20 @@ if(!document.__defineGetter__) {
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
       
       
       
-        <label class="md-nav__link" for="__nav_2_2" tabindex="0" aria-expanded="false">
+        <label class="md-nav__link" for="__nav_2_2" tabindex="0" aria-expanded="true">
           Go Deeper
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -403,7 +411,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/prepare-application/" class="md-nav__link">
+      <a href="../prepare-application/" class="md-nav__link">
         Prepare Your Application
       </a>
     </li>
@@ -417,7 +425,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/registry/" class="md-nav__link">
+      <a href="../registry/" class="md-nav__link">
         Container registry
       </a>
     </li>
@@ -431,7 +439,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/continous-development/" class="md-nav__link">
+      <a href="../continous-development/" class="md-nav__link">
         Continous Development
       </a>
     </li>
@@ -445,7 +453,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/network-model/" class="md-nav__link">
+      <a href="../network-model/" class="md-nav__link">
         Network Model
       </a>
     </li>
@@ -459,7 +467,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/kubernetes-api/" class="md-nav__link">
+      <a href="../kubernetes-api/" class="md-nav__link">
         Kubernetes API
       </a>
     </li>
@@ -473,7 +481,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/kubernetes-ui/" class="md-nav__link">
+      <a href="../kubernetes-ui/" class="md-nav__link">
         Kubernetes UI (Lens)
       </a>
     </li>
@@ -485,11 +493,19 @@ if(!document.__defineGetter__) {
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../user-guide/namespaces/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Namespaces
       </a>
+      
     </li>
   
 
@@ -501,7 +517,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/logs/" class="md-nav__link">
+      <a href="../logs/" class="md-nav__link">
         Logs
       </a>
     </li>
@@ -515,7 +531,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/log-based-alerts/" class="md-nav__link">
+      <a href="../log-based-alerts/" class="md-nav__link">
         Log-based Alerts
       </a>
     </li>
@@ -529,7 +545,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/long-term-log-retention/" class="md-nav__link">
+      <a href="../long-term-log-retention/" class="md-nav__link">
         Long-term Log Retention
       </a>
     </li>
@@ -543,7 +559,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/metrics/" class="md-nav__link">
+      <a href="../metrics/" class="md-nav__link">
         Metrics
       </a>
     </li>
@@ -557,7 +573,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/alerts/" class="md-nav__link">
+      <a href="../alerts/" class="md-nav__link">
         Metric Alerts
       </a>
     </li>
@@ -571,7 +587,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/maintenance/" class="md-nav__link">
+      <a href="../maintenance/" class="md-nav__link">
         Maintenance
       </a>
     </li>
@@ -585,7 +601,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/backup/" class="md-nav__link">
+      <a href="../backup/" class="md-nav__link">
         Backups
       </a>
     </li>
@@ -599,7 +615,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/ci-cd/" class="md-nav__link">
+      <a href="../ci-cd/" class="md-nav__link">
         CI/CD
       </a>
     </li>
@@ -613,7 +629,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/demarcation/" class="md-nav__link">
+      <a href="../demarcation/" class="md-nav__link">
         Demarcation
       </a>
     </li>
@@ -627,7 +643,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/delegation/" class="md-nav__link">
+      <a href="../delegation/" class="md-nav__link">
         How to Delegate
       </a>
     </li>
@@ -641,7 +657,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/how-many-environments/" class="md-nav__link">
+      <a href="../how-many-environments/" class="md-nav__link">
         How many environments?
       </a>
     </li>
@@ -689,7 +705,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/safeguards/" class="md-nav__link">
+      <a href="../safeguards/" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -703,7 +719,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/safeguards/enforce-no-root/" class="md-nav__link">
+      <a href="../safeguards/enforce-no-root/" class="md-nav__link">
         Enforce No Root
       </a>
     </li>
@@ -717,7 +733,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/safeguards/enforce-networkpolicies/" class="md-nav__link">
+      <a href="../safeguards/enforce-networkpolicies/" class="md-nav__link">
         Enforce NetworkPolicies
       </a>
     </li>
@@ -731,7 +747,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/safeguards/enforce-resources/" class="md-nav__link">
+      <a href="../safeguards/enforce-resources/" class="md-nav__link">
         Enforce Resources
       </a>
     </li>
@@ -745,7 +761,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/safeguards/enforce-trusted-registries/" class="md-nav__link">
+      <a href="../safeguards/enforce-trusted-registries/" class="md-nav__link">
         Enforce Trusted Registries
       </a>
     </li>
@@ -759,7 +775,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/safeguards/enforce-no-latest-tag/" class="md-nav__link">
+      <a href="../safeguards/enforce-no-latest-tag/" class="md-nav__link">
         Enforce No Latest Tag
       </a>
     </li>
@@ -807,7 +823,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/additional-services/" class="md-nav__link">
+      <a href="../additional-services/" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -821,7 +837,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/additional-services/postgresql/" class="md-nav__link">
+      <a href="../additional-services/postgresql/" class="md-nav__link">
         PostgreSQL
       </a>
     </li>
@@ -835,7 +851,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/additional-services/timescaledb/" class="md-nav__link">
+      <a href="../additional-services/timescaledb/" class="md-nav__link">
         TimescaleDB
       </a>
     </li>
@@ -849,7 +865,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/additional-services/redis/" class="md-nav__link">
+      <a href="../additional-services/redis/" class="md-nav__link">
         Redis
       </a>
     </li>
@@ -863,7 +879,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/additional-services/rabbitmq/" class="md-nav__link">
+      <a href="../additional-services/rabbitmq/" class="md-nav__link">
         RabbitMQ
       </a>
     </li>
@@ -884,7 +900,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/go-live/" class="md-nav__link">
+      <a href="../go-live/" class="md-nav__link">
         Go-live Checklist
       </a>
     </li>
@@ -898,7 +914,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/troubleshooting/" class="md-nav__link">
+      <a href="../troubleshooting/" class="md-nav__link">
         Troubleshooting
       </a>
     </li>
@@ -912,7 +928,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../user-guide/faq/" class="md-nav__link">
+      <a href="../faq/" class="md-nav__link">
         FAQ
       </a>
     </li>
@@ -1589,7 +1605,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../adr/" class="md-nav__link">
         Architectural Decision Log
       </a>
     </li>
@@ -1797,6 +1813,20 @@ if(!document.__defineGetter__) {
                   
   
 
+  <nav class="md-tags" >
+    
+      
+      
+        <a href="../../ciso-guide/controls/iso-27001#iso-27001-a1214-separation-of-development-testing-operational-environments" class="md-tag">ISO 27001 A.12.1.4 Separation of Development, Testing & Operational Environments</a>
+      
+    
+      
+      
+        <a href="../../ciso-guide/controls/iso-27001#iso-27001-a1425-secure-system-engineering-principles" class="md-tag">ISO 27001 A.14.2.5 Secure System Engineering Principles</a>
+      
+    
+  </nav>
+
 
 
   
@@ -1804,51 +1834,60 @@ if(!document.__defineGetter__) {
 
 
 
-<h1 id="use-local-volume-provisioner-for-managed-services-that-requires-high-speed-disks">Use local-volume-provisioner for Managed Services that requires high-speed disks.<a class="headerlink" href="#use-local-volume-provisioner-for-managed-services-that-requires-high-speed-disks" title="Permanent link">&para;</a></h1>
+<h1 id="namespaces">Namespaces<a class="headerlink" href="#namespaces" title="Permanent link">&para;</a></h1>
+<h2 id="hnc">HNC<a class="headerlink" href="#hnc" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/kubernetes-sigs/hierarchical-namespaces">Hierarchical Namespace Controller</a> (HNC) is included in Compliant Kubernetes. It allows the super application developer to manage namespaces as subnamespaces and delegates access automatically. From the perspective of Kubernetes these are regular namespaces, but these can be modified via a namespaced resource by the user. Building a good namespace structure will enable you to apply namespace-scoped RBAC resources to multiple namespaces at once.</p>
+<h2 id="namespace-management">Namespace Management<a class="headerlink" href="#namespace-management" title="Permanent link">&para;</a></h2>
+<p>Creating a subnamespace:
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>-<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<span class="s">apiVersion: hnc.x-k8s.io/v1alpha2</span>
+<span class="s">kind: SubnamespaceAnchor</span>
+<span class="s">metadata:</span>
+<span class="s">  name: &lt;descendant-namespace&gt;</span>
+<span class="s">  namespace: &lt;parent-namespace&gt;</span>
+<span class="s">EOF</span>
+</code></pre></div></p>
+<p>Verify that it gets created:
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>ns<span class="w"> </span>&lt;descendant-namespace&gt;
+</code></pre></div></p>
+<p>Verify that it gets configured:
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>get<span class="w"> </span>subns<span class="w"> </span>-n<span class="w"> </span>&lt;parent-namespace&gt;<span class="w"> </span>&lt;descendant-namespace&gt;<span class="w"> </span>-o<span class="w"> </span>yaml
+<span class="go">apiVersion: hnc.x-k8s.io/v1alpha2</span>
+<span class="go">kind: SubnamespaceAnchor</span>
+<span class="go">metadata:</span>
+<span class="go">    ...</span>
+<span class="go">  name: &lt;descendant-namespace&gt;</span>
+<span class="go">  namespace: &lt;parent-namespace&gt;</span>
+<span class="go">...</span>
+<span class="go">status:</span>
+<span class="go">  status: Ok</span>
+</code></pre></div></p>
+<p>If the status is <code>Ok</code> then the subnamespace is ready to go.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>HNC also comes with the <a href="https://github.com/kubernetes-sigs/hierarchical-namespaces/blob/master/docs/user-guide/how-to.md#prepare-to-use-hierarchical-namespaces-as-a-user">HNS <code>kubectl</code> plugin</a>.</p>
+<p>Using this plugin creating subnamespaces is as easy as:
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>hns<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>&lt;parent-namespace&gt;<span class="w"> </span>&lt;descendant-namespace&gt;
+</code></pre></div></p>
+<p>And provides more detailed information using:
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>hns<span class="w"> </span>describe<span class="w"> </span>&lt;namespace&gt;
+
+kubectl<span class="w"> </span>hns<span class="w"> </span>tree<span class="w"> </span>&lt;namespace&gt;
+</code></pre></div></p>
+</div>
+<h2 id="resource-propagation">Resource Propagation<a class="headerlink" href="#resource-propagation" title="Permanent link">&para;</a></h2>
+<p>When a subnamespace is created all <code>Roles</code> and <code>RoleBindings</code> will propagate from the parent namespace to the descendant namespace to ensure that correct access is set. This is what lets you apply namespace-scoped RBAC resources to multiple namespaces at once.
+Propagated copies cannot be modified, these types of resources cannot be created in a parent namespace if it conflicts with a resource in a descendant namespace.
+To put an exception annotate the <code>Role</code> or <code>RoleBinding</code> with <code>propagate.hnc.x-k8s.io/none: "true"</code> to prevent if from being propagated at all.
+Another option is to only propagate to selected descendant namespaces use <code>propagate.hnc.x-k8s.io/treeSelect: ...</code>, include descendant namespaces with <code>&lt;descendant-namespace&gt;</code> or exclude namespaces with <code>!&lt;descendant-namespace&gt;</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In Compliant Kubernetes <code>v0.27.0</code> and later <code>NetworkPolicies</code> will also propagate from the parent namespace to the descendant namespace just like <code>Roles</code> and <code>Rolebindings</code>.</p>
+</div>
+<h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Status: accepted</li>
-<li>Deciders: arch meeting</li>
-<li>Date: 2022-11-10</li>
-</ul>
-<h2 id="context-and-problem-statement">Context and Problem Statement<a class="headerlink" href="#context-and-problem-statement" title="Permanent link">&para;</a></h2>
-<p>After performing several storage load testing and PostgreSQL load testing and benchmarking we have discovered that the local storage is significantly faster than network storage.
-We have one use case where the disk have proven to be too slow for a PostgreSQL database and the performance was not as expected.
-How should we expose local storage to Managed Services?</p>
-<h2 id="decision-drivers">Decision Drivers<a class="headerlink" href="#decision-drivers" title="Permanent link">&para;</a></h2>
-<ul>
-<li>We want to best serve our customer needs.</li>
-<li>We want to offer fast performant Managed Services.</li>
-<li>We want to find a solution which is scalable and minimizes administrator burden.</li>
-<li>We want to find a future-proof solution, which exposes local disks to any application.</li>
-</ul>
-<h2 id="considered-options">Considered Options<a class="headerlink" href="#considered-options" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Use the fastest network storage with dedicated IOPS.</li>
-<li>Use local storage with <a href="https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner">local-volume-provisioner</a>.</li>
-<li>Use local storage with <a href="https://github.com/rancher/local-path-provisioner">local-path-provisioner</a></li>
-<li>Use <a href="https://kubernetes.io/docs/concepts/storage/volumes/#hostpath">hostPath</a></li>
-<li>Use <a href="https://kubernetes.io/docs/concepts/storage/volumes/#local">local</a></li>
-</ul>
-<h2 id="decision-outcome">Decision Outcome<a class="headerlink" href="#decision-outcome" title="Permanent link">&para;</a></h2>
-<p>Chosen option: Use local storage with local-volume-provisioner and move the code within the kubespray repo.</p>
-<h3 id="positive-consequences">Positive Consequences<a class="headerlink" href="#positive-consequences" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Services using the local storage are performing better.</li>
-<li>We are able to provide a PostgreSQL service that meet the high performance requirements.</li>
-</ul>
-<h3 id="negative-consequences">Negative Consequences<a class="headerlink" href="#negative-consequences" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Scaling the storage becomes harder as it will involve replacing the nodes.</li>
-<li>We are limited by the size of the volumes that are available within the cloud provider offering.</li>
-</ul>
-<h2 id="recommendation-to-operators">Recommendation to Operators<a class="headerlink" href="#recommendation-to-operators" title="Permanent link">&para;</a></h2>
-<p>When using the local-volume-provisioner please create dedicated partitions and make sure to reserve enough space for the boot partition. Failing to do so can lead to entire disc to become full and the node will become unresponsive and crash.</p>
-<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner/tree/v2.5.0">local-volume-provisioner</a></li>
-<li><a href="https://github.com/rancher/local-path-provisioner">local-path-provisioner</a></li>
-<li><a href="https://kubernetes.io/docs/concepts/storage/volumes/#hostpath">hostPath</a></li>
-<li><a href="https://kubernetes.io/docs/concepts/storage/volumes/#local">local</a></li>
+<li><a href="https://github.com/kubernetes-sigs/hierarchical-namespaces/tree/master/docs/user-guide">HNC User Documentation</a></li>
+<li><a href="https://kubernetes.io/blog/2020/08/14/introducing-hierarchical-namespaces/">Introducing HNC</a></li>
 </ul>
 
 
