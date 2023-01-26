@@ -1847,7 +1847,7 @@ if(!document.__defineGetter__) {
 An important part of this is keeping your Compliant Kubernetes environment up to date with the latest security patches not run outdated versions of components that are no longer supported.
 This maps to objectives in ISO Annex <a href="https://www.isms.online/iso-27001/annex-a-12-operations-security/">A.12.6.1 Management of Technical Vulnerabilities</a>.</p>
 <h2 id="what-maintenance-do-i-need-to-do-and-how">What maintenance do I need to do and how?<a class="headerlink" href="#what-maintenance-do-i-need-to-do-and-how" title="Permanent link">&para;</a></h2>
-<p>In short, there are three levels of maintenane that should be performed on a regular basis.</p>
+<p>In short, there are three levels of maintenance that should be performed on a regular basis.</p>
 <ul>
 <li>Patching the underlying OS on the nodes</li>
 <li>Upgrading the Compliant Kubernetes application stack</li>
@@ -1865,12 +1865,30 @@ It will cordon and reboot the nodes one by one.</p>
 <div class="highlight"><pre><span></span><code>./bin/ck8s-kubespray<span class="w"> </span>reboot-nodes<span class="w"> </span>&lt;prefix&gt;<span class="w"> </span><span class="o">[</span>--extra-vars<span class="w"> </span><span class="nv">manual_prompt</span><span class="o">=</span>true<span class="o">]</span><span class="w"> </span><span class="o">[</span>&lt;options&gt;<span class="o">]</span>
 </code></pre></div>
 <h3 id="upgrading-the-compliant-kubernetes-application-stack">Upgrading the Compliant Kubernetes application stack<a class="headerlink" href="#upgrading-the-compliant-kubernetes-application-stack" title="Permanent link">&para;</a></h3>
-<p>Compliant Kuberenets consists of a multitude of open source components that interact to form a smooth end user experience.
+<p>Compliant Kubernetes consists of a multitude of open source components that interact to form a smooth end user experience.
 In order to free you of the burden of keeping track of when to upgrade the various components, new versions of Complaint Kubernetes are regularly release.
 When a new version is released, it becomes available as a <a href="https://github.com/elastisys/compliantkubernetes-apps/tags">tagged release</a> in the github repo.</p>
 <blockquote>
 <p>Before upgrading to a new release, please review the <a href="https://github.com/elastisys/compliantkubernetes-apps/blob/main/CHANGELOG.md">changelog</a> if possible, apply the upgrade to a staging environment before upgrading any environments with production data.</p>
 </blockquote>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Notify the users (if any) before the upgrade starts;</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Check if there are any pending changes to the environment;</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Check the state of the environment, pods, nodes and backup jobs:</li>
+</ul>
+<blockquote>
+<p><strong><em>NOTE:</em></strong> the below steps should be run from compliantkubernetes-apps root directory</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span><span class="nb">test</span><span class="w"> </span>sc<span class="p">|</span>wc
+./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span>sc<span class="p">|</span>wc<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-A<span class="w"> </span>-o<span class="w"> </span>custom-columns<span class="o">=</span>NAMESPACE:metadata.namespace,POD:metadata.name,READY-false:status.containerStatuses<span class="o">[</span>*<span class="o">]</span>.ready,REASON:status.containerStatuses<span class="o">[</span>*<span class="o">]</span>.state.terminated.reason<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span>Completed
+./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span>sc<span class="p">|</span>wc<span class="w"> </span>get<span class="w"> </span>nodes
+./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span>sc<span class="p">|</span>wc<span class="w"> </span>get<span class="w"> </span><span class="nb">jobs</span><span class="w"> </span>-A
+velero<span class="w"> </span>get<span class="w"> </span>backup
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Silence the notifications for the alerts. e.g you can use <a href="https://prometheus.io/docs/alerting/latest/alertmanager/#silences">alertmanager silences</a>;</li>
+</ul>
 <h3 id="upgrading-compliantkubernetes-apps">Upgrading compliantkubernetes-apps<a class="headerlink" href="#upgrading-compliantkubernetes-apps" title="Permanent link">&para;</a></h3>
 <p>For security, compliance, and support reasons, environments should stay up to date with the latest version of <a href="https://github.com/elastisys/compliantkubernetes-apps">compliankubernetes-apps</a>.</p>
 <p>Note what version of compliantkubernetes-apps that is currently used and the version that you want to upgrade to.
@@ -1878,13 +1896,19 @@ Then check the release notes for each version in between to see if there are any
 <strong>You should never upgrade more than one minor version of compliantkubernetes-apps at a time.</strong></p>
 <ol>
 <li>
-<p>Checkout the next compliantkubernetes-apps version</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># you should be in the root folder of compliantkubernetes-apps</span>
-git<span class="w"> </span>checkout<span class="w"> </span>&lt;next-version&gt;
+<p>Pull the latest changes and switch to the correct branch:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>pull
+git<span class="w"> </span>switch<span class="w"> </span>-d<span class="w"> </span>&lt;next-version&gt;
 </code></pre></div>
 </li>
 <li>
-<p>Check if there is a <a href="https://github.com/elastisys/compliantkubernetes-apps/tree/main/migration">migration document</a> for the relesae you want to upgrade to, (e.g. <a href="https://github.com/elastisys/compliantkubernetes-apps/blob/5d8f4f1b3cc053b3b515711549ab80df9617f2f4/migration/v0.10.x-v0.11.x/upgrade-apps.md">for upgrade to 0.11.0</a> ) and follow the instructions there.
+<p>Update apps configuration:</p>
+<p>This will take a backup into <code>backups/</code> before modifying any files.</p>
+<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>init
+</code></pre></div>
+</li>
+<li>
+<p>Check if there is a <a href="https://github.com/elastisys/compliantkubernetes-apps/tree/main/migration">migration document</a> for the release you want to upgrade to, (e.g. <a href="https://github.com/elastisys/compliantkubernetes-apps/blob/5d8f4f1b3cc053b3b515711549ab80df9617f2f4/migration/v0.10.x-v0.11.x/upgrade-apps.md">for upgrade to 0.11.0</a> ) and follow the instructions there.
 Note that you should check the documentation at the release tag instead of <code>main</code> to be sure that it's correct.</p>
 </li>
 <li>
@@ -1925,22 +1949,45 @@ Read more about Kubespray upgrades in their <a href="https://kubespray.io/#/docs
 <li>
 <p>Checkout the next Kubespray version by checking out the last compliantkubernetes-kubespray commit (the commit is <code>next-version</code> in the snippet below) that used that version and updating the submodule.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># you should be in the root folder of compliantkubernetes-kubespray</span>
-git<span class="w"> </span>checkout<span class="w"> </span>&lt;next-version&gt;
-git<span class="w"> </span>submodule<span class="w"> </span>update
+git<span class="w"> </span>switch<span class="w"> </span>-d<span class="w"> </span>&lt;next-version&gt;
+git<span class="w"> </span>submodule<span class="w"> </span>sync
+git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init<span class="w"> </span>--recursive
 </code></pre></div>
 </li>
 <li>
 <p>Upgrade compliantkubernetes-kubespray by following the relevant <a href="https://github.com/elastisys/compliantkubernetes-kubespray/tree/main/migration">documentation</a> (e.g. <a href="https://github.com/elastisys/compliantkubernetes-kubespray/blob/v2.17.1-ck8s1/migration/v2.16.0-ck8s1-v2.17.x-ck8s1/upgrade-cluster.md">for upgrade to v2.17.x-ck8s1</a>).</p>
 </li>
+<li>
+<p>Download the required files on the nodes</p>
+<div class="highlight"><pre><span></span><code>./bin/ck8s-kubespray<span class="w"> </span>run-playbook<span class="w"> </span>sc<span class="w"> </span>upgrade-cluster.yml<span class="w"> </span>-b<span class="w"> </span>--tags<span class="o">=</span>download
+./bin/ck8s-kubespray<span class="w"> </span>run-playbook<span class="w"> </span>wc<span class="w"> </span>upgrade-cluster.yml<span class="w"> </span>-b<span class="w"> </span>--tags<span class="o">=</span>download
+</code></pre></div>
+</li>
+<li>
+<p>Upgrade the cluster to a new kubernetes version:</p>
+<div class="highlight"><pre><span></span><code>./bin/ck8s-kubespray<span class="w"> </span>run-playbook<span class="w"> </span>sc<span class="w"> </span>upgrade-cluster.yml<span class="w"> </span>-b<span class="w"> </span>--skip-tags<span class="o">=</span>download
+./bin/ck8s-kubespray<span class="w"> </span>run-playbook<span class="w"> </span>wc<span class="w"> </span>upgrade-cluster.yml<span class="w"> </span>-b<span class="w"> </span>--skip-tags<span class="o">=</span>download
+</code></pre></div>
+</li>
 </ol>
-<h2 id="after-doing-any-upgrades-or-maintenance">After doing any upgrades or maintenance<a class="headerlink" href="#after-doing-any-upgrades-or-maintenance" title="Permanent link">&para;</a></h2>
-<p>It is a good idea to perform a <strong>log review</strong> after each maintenance.
-The purpose is two-fold:</p>
-<ol>
-<li>To catch potential issues caused by the maintenance.</li>
-<li>To piggy-back log review on top of a known-good process.</li>
-</ol>
-<p>For instructions on how to do this, please follow the <a href="https://compliantkubernetes.io/ciso-guide/log-review/">log review guide</a>.</p>
+<h3 id="after-doing-any-upgrades-or-maintenance">After doing any upgrades or maintenance<a class="headerlink" href="#after-doing-any-upgrades-or-maintenance" title="Permanent link">&para;</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Check the state of the environment, pods and nodes:</li>
+</ul>
+<blockquote>
+<p><strong><em>NOTE:</em></strong> the below steps should be run from compliantkubernetes-apps root directory</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span><span class="nb">test</span><span class="w"> </span>sc<span class="p">|</span>wc
+./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span>sc<span class="p">|</span>wc<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-A<span class="w"> </span>-o<span class="w"> </span>custom-columns<span class="o">=</span>NAMESPACE:metadata.namespace,POD:metadata.name,READY-false:status.containerStatuses<span class="o">[</span>*<span class="o">]</span>.ready,REASON:status.containerStatuses<span class="o">[</span>*<span class="o">]</span>.state.terminated.reason<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span>Completed
+./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span>sc<span class="p">|</span>wc<span class="w"> </span>get<span class="w"> </span>nodes
+</code></pre></div>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Check if any alerts generated by the upgrade didn't close;</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Check if you can login to Grafana, Opensearch or Harbor;</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Enable the notifications for the alerts;</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Notify the users (if any) when the upgrade is complete;</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Check that you can see fresh metrics and logs.</li>
+</ul>
 
 
 
