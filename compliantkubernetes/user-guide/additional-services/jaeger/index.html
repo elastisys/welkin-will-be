@@ -17,7 +17,7 @@
       
       
       <link rel="icon" href="../../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.8">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.9">
     
     
       
@@ -1800,7 +1800,53 @@ if(!document.__defineGetter__) {
 
 
 
-<h1 id="jaeger">Jaeger<a class="headerlink" href="#jaeger" title="Permanent link">&para;</a></h1>
+<h1 id="jaeger">Jaeger®<a class="headerlink" href="#jaeger" title="Permanent link">&para;</a></h1>
+<p><img alt="Jaeger Deployment Model" src="../img/jaeger.drawio.svg" /></p>
+<p>This page will help you succeed in connecting your application to Jaeger tracing  which meets your security and compliance requirements.</p>
+<!--jaeger-setup-start-->
+
+<h2 id="provision-a-new-jaeger-cluster">Provision a New Jaeger Cluster<a class="headerlink" href="#provision-a-new-jaeger-cluster" title="Permanent link">&para;</a></h2>
+<p>Ask your service-specific administrator to install a Jaeger cluster inside your Compliant Kubernetes environment. The service-specific administrator will ensure the Jaeger cluster complies with your security requirements, including:</p>
+<ul>
+<li><strong>Business continuity</strong>: We recommend a highly available setup with 3 instances for Jaeger and Opensearch.</li>
+<li><strong>Disaster recovery</strong>: Your service-specific administrator will configure Opensearch with regular backups.</li>
+<li><strong>Capacity management</strong>: Your service-specific administrator will ensure Jaeger and Opensearch runs on dedicated (i.e., tainted) Kubernetes Nodes, as required to get the best performance.</li>
+<li><strong>Incident management</strong>: Your administrator will set up the necessary probes, dashboards and alerts, to discover issues and resolve them, before they become a problem.</li>
+<li><strong>Access control</strong>: Your administrator will set up a reverse proxy that provides authentication using Dex.</li>
+</ul>
+<p>Compliant Kubernetes recommends the <a href="https://github.com/jaegertracing/jaeger-operator">Jaeger operator</a>.</p>
+<h2 id="getting-access">Getting Access<a class="headerlink" href="#getting-access" title="Permanent link">&para;</a></h2>
+<p>Your administrator will set up the authentication reverse proxy inside Compliant Kubernetes, which will give you access to JaegerUI.</p>
+<h2 id="prepare-your-application">Prepare your application<a class="headerlink" href="#prepare-your-application" title="Permanent link">&para;</a></h2>
+<p>The Jaeger agent is exposed as a DaemonSet. Your application needs to be told where the agent is located by setting the environment variable JAEGER_AGENT_HOST to the value of the Kubernetes node’s IP:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">  </span><span class="nt">template</span><span class="p">:</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">spec</span><span class="p p-Indicator">:</span>
+<span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-app</span>
+<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">acme/my-app:my-version</span>
+<span class="w">        </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JAEGER_AGENT_HOST</span>
+<span class="w">          </span><span class="nt">valueFrom</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">fieldRef</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">fieldPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">status.hostIP</span>
+</code></pre></div>
+<!--jaeger-setup-end-->
+
+<h2 id="follow-the-go-live-checklist">Follow the Go-Live Checklist<a class="headerlink" href="#follow-the-go-live-checklist" title="Permanent link">&para;</a></h2>
+<p>You should be all set.
+Before going into production, don't forget to go through the <a href="../../go-live/">go-live checklist</a>.</p>
+<h2 id="ck8s-jaeger-release-notes">CK8S Jaeger Release Notes<a class="headerlink" href="#ck8s-jaeger-release-notes" title="Permanent link">&para;</a></h2>
+<p>Check out the <a href="../../../release-notes/jaeger/">release notes</a> for the Jaeger setup that runs in Compliant Kubernetes environments!</p>
+<h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.jaegertracing.io/docs/latest/">Jaeger documentation</a></li>
+</ul>
 
 
 
@@ -1824,7 +1870,7 @@ if(!document.__defineGetter__) {
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright © 2022 Elastisys AB <br/> Kubernetes® is a registered trademark of The Linux Foundation in the United States and other countries, and is used pursuant to a license from The Linux Foundation. <br/> Postgres and PostgreSQL and the Elephant Logo (Slonik) are all registered trademarks of the PostgreSQL Community Association of Canada. <br/> Redis is a trademark of Redis Ltd. Any rights therein are reserved to Redis Ltd. Any use by the Compliant Kubernetes project is for referential purposes only and does not indicate any sponsorship, endorsement or affiliation between Redis and Compliant Kubernetes project. <br/> RabbitMQ is a trademark of VMware, Inc. in the U.S. and other countries. <br/> TimescaleDB and the EON mascot are trademarks of <a href="https://www.timescale.com/">Timescale, Inc.</a>
+      Copyright © 2022 Elastisys AB <br/> Kubernetes® is a registered trademark of The Linux Foundation in the United States and other countries, and is used pursuant to a license from The Linux Foundation. <br/> Postgres and PostgreSQL and the Elephant Logo (Slonik) are all registered trademarks of the PostgreSQL Community Association of Canada. <br/> Redis is a trademark of Redis Ltd. Any rights therein are reserved to Redis Ltd. Any use by the Compliant Kubernetes project is for referential purposes only and does not indicate any sponsorship, endorsement or affiliation between Redis and Compliant Kubernetes project. <br/> RabbitMQ is a trademark of VMware, Inc. in the U.S. and other countries. <br/> TimescaleDB and the EON mascot are trademarks of <a href="https://www.timescale.com/">Timescale, Inc.</a> <br/> Jaeger and the Logo are a trademark of The Linux Foundation in the United States and other countries, and is used pursuant to a license from The Linux Foundation.
     </div>
   
   
