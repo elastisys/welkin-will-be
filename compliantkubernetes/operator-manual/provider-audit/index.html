@@ -21,7 +21,7 @@
         <link rel="next" href="../on-prem-standard/">
       
       <link rel="icon" href="../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.9">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.10">
     
     
       
@@ -1979,6 +1979,7 @@ Failing to due your due diligence will end up in <a href="https://en.wikipedia.o
 <li>Which API (OpenStack, VMware)?</li>
 <li>In which zones?</li>
 <li>Can I use a <a href="https://kubernetes-csi.github.io/docs/drivers.html">Container Storage Interface (CSI) driver</a> for automatic creating of PersistentVolumes?</li>
+<li>[For NFS] How did you configure <a href="https://linux.die.net/man/5/exports#:~:text=User%20ID%20Mapping">User ID Mapping</a>, specifically <code>root_squash</code>, <code>no_root_squash</code>, <code>all_squash</code>, <code>anonuid</code> and <code>anongid</code>? Mapping the root UID to values typically used by containers, e.g., 1000, will lead to permission denied errors. For example, OpenSearch's init containers do <code>chown 1000</code> which fails with <code>squash_root</code> and <code>anonuid=1000</code>.</li>
 <li>Is BSaaS stretched across zones?</li>
 <li>Is block storage replicated across zones?</li>
 </ol>
@@ -2161,7 +2162,7 @@ Failing to due your due diligence will end up in <a href="https://en.wikipedia.o
     <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a00a7c5e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6df46069.min.js"></script>
       
     
   </body>
