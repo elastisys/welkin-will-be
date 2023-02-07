@@ -2136,8 +2136,9 @@ The daily backup will not take backups of everything in a kubernetes cluster, it
 Read more about those labels and annotations here: <a href="https://compliantkubernetes.io/user-guide/backup/#backing-up">https://compliantkubernetes.io/user-guide/backup/#backing-up</a></p>
 <p>It is also possible to take on-demand backups.
 Then you can freely chose what to backup and do not have to base it on the same labels.
-A basic example with the Velero CLI would be <code>velero backup create manual-backup</code>, which would take a backup of all kubernetes resources (though not the data in the volumes by default).
-Check which arguments you can use by running <code>velero backup create --help</code>.</p>
+A basic example with the Velero CLI would be <code>velero backup create manual-backup</code>, which would take a backup of all kubernetes resources (though not the data in the volumes by default).</p>
+<p>If you want to create a latest backup from existing schedule , Velero CLI would be <code>velero backup create --from-schedule velero-daily-backup --wait</code>.</p>
+<p>Check which arguments you can use by running <code>velero backup create --help</code>.</p>
 <h3 id="restore_2">Restore<a class="headerlink" href="#restore_2" title="Permanent link">&para;</a></h3>
 <p>Restoring from a backup with Velero is meant to be a type of disaster recovery.
 <strong>Velero will not overwrite existing Resources when restoring.</strong>
