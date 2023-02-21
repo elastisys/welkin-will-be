@@ -1991,6 +1991,74 @@ if(!document.__defineGetter__) {
 <p>To check if source IP is preserved, check the HTTP request headers received by your application, specifically <code>x-forwarded-for</code> and <code>x-real-ip</code>. The <a href="https://github.com/elastisys/compliantkubernetes/blob/main/user-demo/app.js#L24">user demo</a> logs all HTTP request headers, as shown in the screenshot below.</p>
 <p><img alt="HTTP request headers shown in the user demo" src="../img/http-request-headers.png" /></p>
 </div>
+<h2 id="letsencrypt">LetsEncrypt<a class="headerlink" href="#letsencrypt" title="Permanent link">&para;</a></h2>
+<p>Let’s Encrypt is a certificate authority that provides free SSL/TLS certificates via an automated process. Their certificates are accepted by most of today’s browsers.</p>
+<p>On Compliant Kubernetes, we provide a cert-manager setup which you can use to create, sign, install and renew certificates for your domains/apps running in CK8S.</p>
+<h3 id="issuing-a-certificate">Issuing a Certificate<a class="headerlink" href="#issuing-a-certificate" title="Permanent link">&para;</a></h3>
+<p>You can use cert-manager setup for general purpose certificates not directly linked to an Ingress object.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cert-manager.io/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Certificate</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">custom-cert</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">dnsNames</span><span class="p">:</span><span class="w"> </span><span class="c1"># (1)</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;domain.example.com&#39;</span>
+<span class="w">  </span><span class="nt">issuerRef</span><span class="p">:</span><span class="w"> </span><span class="c1"># (2)</span>
+<span class="w">    </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClusterIssuer</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">letsencrypt-prod</span>
+<span class="w">  </span><span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">custom-cert</span><span class="w"> </span><span class="c1"># (3)</span>
+</code></pre></div>
+<ol>
+<li>For which domains the certificate will be valid for.</li>
+<li>Reference to the issuer to use.</li>
+<li>The created certificate is stored in this secret.</li>
+</ol>
+<p>And you can directly link a certificate to an Ingress object :</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">networking.k8s.io/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ingress</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">cert-manager.io/cluster-issuer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">letsencrypt-prod</span><span class="w"> </span><span class="c1"># (1)</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">webapp-ingress</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span><span class="w"> </span><span class="c1"># (2)</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example.com</span>
+<span class="w">    </span><span class="nt">http</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">paths</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">pathType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Prefix</span>
+<span class="w">        </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/</span>
+<span class="w">        </span><span class="nt">backend</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">service</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myservice</span>
+<span class="w">            </span><span class="nt">port</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
+<span class="w">  </span><span class="nt">tls</span><span class="p">:</span><span class="w"> </span><span class="c1"># (3)</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example.com</span>
+<span class="w">    </span><span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">webapp-certificate</span><span class="w"> </span><span class="c1"># (4)</span>
+</code></pre></div>
+<ol>
+<li>Annotation indicating the issuer to use.</li>
+<li>Target namespace where the object will be created.</li>
+<li>Placing a host in the TLS config will determine what ends up in the cert’s subjectAltNames.</li>
+<li>The created certificate is stored in this secret.</li>
+</ol>
+<h3 id="lets-encrypt-environments">Let's Encrypt Environments<a class="headerlink" href="#lets-encrypt-environments" title="Permanent link">&para;</a></h3>
+<p>LetsEncrypt provides two environments as part of their ACME V2 standardization: Staging &amp; Production.</p>
+<p>The ACME URL for LetsEncrypt ACME v2 staging environment is: https://acme-staging-v02.api.letsencrypt.org/directory</p>
+<p>The ACME URL for LetsEncrypt ACME v2 production environment is: https://acme-v02.api.letsencrypt.org/directory</p>
+<p>Both environments serve to issue valid certificates, the difference is the CA, on staging, the CA is not trusted by any application, web browser ..</p>
+<p>We highly recommend testing against the Let’s Encrypt staging environment and use it for any non-production workloads. This will allow you to get things right before issuing trusted certificates and reduce the chance of you running up against rate limits. It should be to test that your client is working fine and can generate the challenges, certificates…</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Certificates issued by the LetsEncrypt staging environment are signed by untrusted authorities, similar to self-signed certificates. They are typically not used in production environments.</p>
+</div>
+<h3 id="rate-limits">Rate Limits<a class="headerlink" href="#rate-limits" title="Permanent link">&para;</a></h3>
+<p>LetsEncrypt provides rate-limits on generated certificates to ensure fair usage across all clients. The production environment limits can be exceeded more frequently in environments certificates are installed or reinstalled frequently. This can result in failed installations due to rate limit exceptions on certificate generation.</p>
+<p>In such environments, it is better to use the LetsEncrypt staging environment, which has much higher limits than the production environment.</p>
+<p>The default rate limits for the production environment are listed in the following page by letencrypt : <a href="https://letsencrypt.org/docs/rate-limits/">Production Rate Limits</a>.</p>
+<p>The staging environment uses the same rate limits as described for the production environment with some exceptions that are listed here : <a href="https://letsencrypt.org/docs/staging-environment/">Staging Rate Limits</a>.</p>
 <h2 id="demarcation-of-responsibilities">Demarcation of Responsibilities<a class="headerlink" href="#demarcation-of-responsibilities" title="Permanent link">&para;</a></h2>
 <p>You are responsible for:</p>
 <ul>
@@ -2054,7 +2122,7 @@ if(!document.__defineGetter__) {
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "toc.integrate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.2a6f1dda.min.js"></script>
