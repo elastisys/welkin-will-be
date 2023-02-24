@@ -21,7 +21,7 @@
         <link rel="next" href="../enforce-resources/">
       
       <link rel="icon" href="../../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.13">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.14">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ffa9267a.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.113286f1.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -1860,7 +1860,10 @@ if(!document.__defineGetter__) {
 </div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>This safeguard is enabled by default since <a href="/compliantkubernetes/release-notes/#v0190">Compliant Kubernetes apps v0.19.0</a>.</p>
+<ul>
+<li>This safeguard is enabled by default with the enforcement action <code>deny</code> since <a href="/compliantkubernetes/release-notes/#v0190">Compliant Kubernetes apps v0.19.0</a>. As a result, resources that violate this policy will not be created.</li>
+<li>The default enforcement action for this safeguard has been changed to <code>warn</code> instead of <code>deny</code> since <a href="/compliantkubernetes/release-notes/#v0290">Compliant Kubernetes apps v0.29.0</a>. As a result, resources that violate this policy will generate warning messages, but will still be created.</li>
+</ul>
 </div>
 <p>NetworkPolicies are useful in two cases: segregating tenants hosted in the same environment and further segregating application components. Both help you achieve better data protection.</p>
 <h2 id="segregating-tenants-hosted-in-the-same-environment">Segregating tenants hosted in the same environment<a class="headerlink" href="#segregating-tenants-hosted-in-the-same-environment" title="Permanent link">&para;</a></h2>
