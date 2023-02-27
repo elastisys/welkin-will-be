@@ -21,7 +21,7 @@
         <link rel="next" href="../how-many-environments/">
       
       <link rel="icon" href="../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.14">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.15">
     
     
       
@@ -1936,8 +1936,16 @@ kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> <
 </code></pre></div>
 <h3 id="add-a-user-admin">Add a User admin<a class="headerlink" href="#add-a-user-admin" title="Permanent link">&para;</a></h3>
 <p>In Compliant Kubernetes v0.21.0 User admins can now add more <code>User admins</code> themselves.</p>
-<p>Edit the clusterrolebinding <code>user-admin-cluster-wide-delegation</code> and add the desired users or groups under <code>subjects</code>. If unsure, look at an <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/#referring-to-subjects">example subject</a> from the official kubernetes documentation.</p>
+<h4 id="steps">Steps:<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Edit the clusterrolebinding <code>extra-user-view</code> and add the desired users or groups under <code>subjects</code>. If unsure, look at an <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/#referring-to-subjects">example subject</a> from the official kubernetes documentation.</li>
+</ol>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>edit<span class="w"> </span>clusterrolebinding<span class="w"> </span>user-admin-cluster-wide-delegation
+</code></pre></div>
+<ol>
+<li>In each of your user namespaces that you want the users or groups to be admin in, edit the rolebinding <code>extra-workload-admins</code> and add the desired users or groups under <code>subjects</code>. If you have a root HNC namespace and you want the users or groups to be admin in all of <strong>your</strong> namespaces, you only need to edit the rolebinding in this root namespace and it will propagate.</li>
+</ol>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>edit<span class="w"> </span>rolebinding<span class="w"> </span>extra-workload-admins<span class="w"> </span>-n<span class="w"> </span>user-namespace
 </code></pre></div>
 <h2 id="application-metrics-grafana">Application Metrics (Grafana)<a class="headerlink" href="#application-metrics-grafana" title="Permanent link">&para;</a></h2>
 <p>Your administrator will have mapped your IdP groups to the Grafana viewer, editor and admin roles.
