@@ -1838,17 +1838,18 @@ if(!document.__defineGetter__) {
 <li><strong>Business continuity</strong>: We recommend a highly available setup with three instances.</li>
 <li><strong>Disaster recovery</strong>: Note that, because messages are often short-lived and possibly transient, backing them up from under a running node is highly discouraged and can lead to an inconsistent snapshot of the data. Generally, disaster recovery for message queue only makes sense for the <a href="https://www.rabbitmq.com/dlx.html">dead letter exchange</a>.</li>
 <li><strong>Capacity management</strong>: Your service-specific administrator will ensure RabbitMQ runs on dedicated (i.e., tainted) Kubernetes Nodes, as required to get the best performance.</li>
-<li><strong>Incident management</strong>: Your administrator will set up the necessary Probes, dashboards and alerts, to discover issues and resolve them, before they become a problem.</li>
+<li><strong>Incident management</strong>: Your administrator will set up the necessary monitors, probes, dashboards and alerts, to discover issues and resolve them, before they become a problem.</li>
 <li><strong>Access control</strong>: Your service-specific administrator will hand you the RabbitMQ administrator username and password. This will allow you to declare exchanges, queues, bindings, users, virtual hosts and user permissions, as required.</li>
 </ul>
 <p>Compliant Kubernetes recommends the <a href="https://www.rabbitmq.com/kubernetes/operator/operator-overview.html">RabbitMQ Cluster Operator for Kubernetes</a>.</p>
-<h2 id="install-prerequisites">Install Prerequisites<a class="headerlink" href="#install-prerequisites" title="Permanent link">&para;</a></h2>
+<h2 id="accessing-a-rabbitmq-cluster">Accessing a RabbitMQ Cluster<a class="headerlink" href="#accessing-a-rabbitmq-cluster" title="Permanent link">&para;</a></h2>
 <p>Before continuing, make sure you have access to the Kubernetes API, as describe <a href="/compliantkubernetes/user-guide/setup/">here</a>.</p>
 <p>Make sure to install the RabbitMQ client on your workstation. On Ubuntu, this can be achieved as follows:</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>rabbitmq-server
 </code></pre></div>
-<h2 id="getting-access-to-the-management-ui">Getting Access to the Management UI<a class="headerlink" href="#getting-access-to-the-management-ui" title="Permanent link">&para;</a></h2>
-<p>Your administrator will set up a Secret inside Compliant Kubernetes, which contains all information you need to access your RabbitMQ cluster.
+<h3 id="accessing-the-management-ui">Accessing the Management UI<a class="headerlink" href="#accessing-the-management-ui" title="Permanent link">&para;</a></h3>
+<p>RabbitMQ provides the management plugin which allows control over everything within it, including messaging topology and access control.</p>
+<p>Your administrator will set up a Secret inside Compliant Kubernetes containing the credentials of the default admin user, which is all you need to access your RabbitMQ cluster.
 The Secret has the following shape:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span>
@@ -1859,8 +1860,8 @@ The Secret has the following shape:</p>
 <span class="w">  </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${RABBITMQ_ADMIN_USERNAME}</span>
 <span class="w">  </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${RABBITMQ_ADMIN_PASSWORD}</span>
 </code></pre></div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
 <p>The Secret is very precious! Prefer not to persist any information extracted from it, as shown below.</p>
 </div>
 <p>To access the management UI, proceed as follows:</p>
@@ -1876,9 +1877,9 @@ kubectl<span class="w"> </span>-n<span class="w"> </span>rabbitmq-system<span cl
 <span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;RabbitMQ admin password: &quot;</span>
 kubectl<span class="w"> </span>-n<span class="w"> </span>rabbitmq-system<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>rabbitmq-cluster-default-user<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s2">&quot;{.data.password}&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>--decode<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span>
 </code></pre></div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Do not configure your application with the RabbitMQ admin username and password. Since the application will get too much permission, this will likely violate your access control policy.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Do not configure your application with the RabbitMQ default admin username and password. Since the application will get too much permission, this will likely violate your access control policy.</p>
 </div>
 </li>
 <li>
@@ -1897,7 +1898,7 @@ kubectl<span class="w"> </span>-n<span class="w"> </span>rabbitmq-system<span cl
 </code></pre></div>
 </li>
 </ol>
-<h2 id="create-a-application-secret">Create a Application Secret<a class="headerlink" href="#create-a-application-secret" title="Permanent link">&para;</a></h2>
+<h3 id="create-an-application-secret">Create an Application Secret<a class="headerlink" href="#create-an-application-secret" title="Permanent link">&para;</a></h3>
 <p>First, check that you are on the right Compliant Kubernetes cluster, in the right <strong>application</strong> namespace:</p>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>nodes
 kubectl<span class="w"> </span>config<span class="w"> </span>view<span class="w"> </span>--minify<span class="w"> </span>--output<span class="w"> </span><span class="s1">&#39;jsonpath={..namespace}&#39;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span>
@@ -1913,11 +1914,75 @@ kubectl<span class="w"> </span>config<span class="w"> </span>view<span class="w"
 <span class="s">    AMQP_URL: amqp://${APP_USER}:${APP_PASS}@${RABBITMQ_CLUSTER}.${RABBITMQ_NAMESPACE}/${APP_VHOST}</span>
 <span class="s">EOF</span>
 </code></pre></div>
-<h2 id="expose-amqp-url-to-your-application">Expose AMQP URL to Your Application<a class="headerlink" href="#expose-amqp-url-to-your-application" title="Permanent link">&para;</a></h2>
+<h3 id="expose-amqp-url-to-your-application">Expose AMQP URL to Your Application<a class="headerlink" href="#expose-amqp-url-to-your-application" title="Permanent link">&para;</a></h3>
 <p>To expose the AMQP URL to your application, follow one of the following upstream documentation:</p>
 <ul>
 <li><a href="https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/#create-a-pod-that-has-access-to-the-secret-data-through-a-volume">Create a Pod that has access to the secret data through a Volume</a></li>
 <li><a href="https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/#define-container-environment-variables-using-secret-data">Define container environment variables using Secret data</a></li>
+</ul>
+<h2 id="using-a-rabbitmq-cluster">Using a RabbitMQ Cluster<a class="headerlink" href="#using-a-rabbitmq-cluster" title="Permanent link">&para;</a></h2>
+<p>Best practices for using RabbitMQ in Compliant Kubernetes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>RabbitMQ is built as a plugin based system, by default only a limited set of plugins are enabled, contact your service-specific administrator about enabling the ones you require.</p>
+</div>
+<h3 id="cluster-division">Cluster Division<a class="headerlink" href="#cluster-division" title="Permanent link">&para;</a></h3>
+<p>RabbitMQ is a multi tenant system and has the concept of virtual host or vhost which provides logical separation of resources within it. Each vhost acts as their own RabbitMQ cluster and have their own connection, channels, exchanges, queues, and bindings.</p>
+<p>Messages cannot flow directly between exchanges and queues in different vhosts, instead if that is required there must be a client that consumes messages in one vhost and then publishes messages in another vhost. This can also be realised with two plugins:</p>
+<ul>
+<li>
+<p><a href="https://www.rabbitmq.com/federation.html"><strong>Federation plugin</strong></a> - Provides federated exchanges and queue which connect to an upstream cluster or vhost, allowing consumers to access message from the upstream source.</p>
+</li>
+<li>
+<p><a href="https://www.rabbitmq.com/shovel.html"><strong>Shovel plugin</strong></a> - Provides a client which connect both to an upstream and downstream cluster or vhost, consuming and publishing messages between them.</p>
+</li>
+</ul>
+<h3 id="connection-and-channel-management">Connection and Channel Management<a class="headerlink" href="#connection-and-channel-management" title="Permanent link">&para;</a></h3>
+<p>In RabbitMQ connections and channels are intended to and optimised to be long-lived. Therefore one should avoid connection and channel churn by using and reusing them for as long as possible.</p>
+<p>Each connection and channel consumes resources and should therefore be kept at a minimal number as required by the application. It is important to close unused connections and channels to free their resources.</p>
+<p>Consumers and publishers should use separate connections and channels to allow RabbitMQ to better manage clients when under high pressure, allowing consumers to catch up by restricting publishers.</p>
+<p>Recovering from connection failures should use automatic or recommended methods when provided by the client library, custom recovery methods need to be carefully made to not put too much pressure on RabbitMQ.</p>
+<h3 id="reliable-messaging">Reliable Messaging<a class="headerlink" href="#reliable-messaging" title="Permanent link">&para;</a></h3>
+<p>The messaging protocol AMQP provide two mechanisms for client to manage reliable messaging:</p>
+<ul>
+<li>
+<p><strong>Consumer Acknowledgements</strong> - Ensure that the client has properly received a message. RabbitMQ will redeliver message left unacknowledged.</p>
+</li>
+<li>
+<p><strong>Publisher Confirms</strong> - Ensures that the server has properly received a message. RabbitMQ may delay confirms when under to high pressure to be able to handle the load.</p>
+</li>
+</ul>
+<p>Additionally RabbitMQ has different queue types and modes that affect the reliability of messaging as will be explained in the next section.</p>
+<h3 id="queue-selection">Queue Selection<a class="headerlink" href="#queue-selection" title="Permanent link">&para;</a></h3>
+<p>RabbitMQ supports three different types of queues which all have different pro's and con's:</p>
+<ul>
+<li>
+<p><strong>Classic Queues</strong> - <em>Best for high performance with transient messages.</em></p>
+<p>This is the standard choice for transient queues and messages since they consume little resources and offer high performance.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Classic queues are not replicated by default and should not be used with replication since mirrored classic queues are deprecated.</p>
+<p>Durable classic queues are tied to the server they are created on and will become unavailable if that server is unavailable.</p>
+</div>
+</li>
+<li>
+<p><a href="https://www.rabbitmq.com/quorum-queues.html"><strong>Quorum Queues</strong></a> - <em>Best for high availability with durable messages.</em></p>
+<p>This is the standard choice for durable queues and messages since they are replicated by default and offer high availability.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Similar to connections and channels quorum queues are intended to be long-lived, avoid scenarios where quorum queues are frequently removed and redeclared as it may lock internal resources within RabbitMQ.</p>
+<p>Keep the queues small and use multiple queues when possible for best performance.</p>
+</div>
+</li>
+<li>
+<p><a href="https://www.rabbitmq.com/streams.html"><strong>Stream Queues</strong></a> - <em>Best for high volume with durable messages.</em></p>
+<p>This is the standard choice for high volume durable queues and messages since they store messages as a persistent replicated log. This allows for messages to persist after they are consumed to be recalled or replayed, or with the stream protocol efficiently processed in batches.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When using stream queues you must set reasonable retention to keep them from filling up RabbitMQ as it will prevent it from accepting new messages.</p>
+<p>Also note that messages in RabbitMQ are not backed up in the case of disaster.</p>
+</div>
+</li>
 </ul>
 <h2 id="follow-the-go-live-checklist">Follow the Go-Live Checklist<a class="headerlink" href="#follow-the-go-live-checklist" title="Permanent link">&para;</a></h2>
 <p>You should be all set.
