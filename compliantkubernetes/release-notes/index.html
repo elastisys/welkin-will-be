@@ -17,7 +17,7 @@
       
       
       <link rel="icon" href="../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.15">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.0">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.113286f1.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.402914a4.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -121,7 +121,9 @@ if(!document.__defineGetter__) {
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="Elastisys Compliant Kubernetes" class="md-header__button md-logo" aria-label="Elastisys Compliant Kubernetes" data-md-component="logo">
       
@@ -1817,6 +1819,7 @@ if(!document.__defineGetter__) {
 <h2 id="compliant-kubernetes">Compliant Kubernetes<a class="headerlink" href="#compliant-kubernetes" title="Permanent link">&para;</a></h2>
 <!-- BEGIN TOC -->
 <ul>
+<li><a href="#v0281">v0.28.1</a> - 2023-03-02</li>
 <li><a href="#v0280">v0.28.0</a> - 2023-01-30</li>
 <li><a href="#v0270">v0.27.0</a> - 2022-11-17</li>
 <li><a href="#v0260">v0.26.0</a> - 2022-09-19</li>
@@ -1843,6 +1846,12 @@ if(!document.__defineGetter__) {
 <p class="admonition-title">Note</p>
 <p>For a more detailed look check out the full <a href="https://github.com/elastisys/compliantkubernetes-apps/blob/main/CHANGELOG.md">changelog</a>.</p>
 </div>
+<h3 id="v0281">v0.28.1<a class="headerlink" href="#v0281" title="Permanent link">&para;</a></h3>
+<p>Released 2023-03-02</p>
+<h4 id="added">Added<a class="headerlink" href="#added" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Added falco rules to ignore redis operator related alerts.</strong></li>
+</ul>
 <h3 id="v0280">v0.28.0<a class="headerlink" href="#v0280" title="Permanent link">&para;</a></h3>
 <p>Released 2023-01-30</p>
 <h4 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h4>
@@ -1860,7 +1869,7 @@ if(!document.__defineGetter__) {
 <li><strong>Added <code>fluent-plugin-record-modifier</code> to the fluentd image to prevent mapping errors.</strong></li>
 <li><strong>Various fixes to network policies.</strong></li>
 </ul>
-<h4 id="added">Added<a class="headerlink" href="#added" title="Permanent link">&para;</a></h4>
+<h4 id="added_1">Added<a class="headerlink" href="#added_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Improved security posture by adding network policies for some of the networking and storage components.</strong></li>
 <li><strong>Added alert for less kubelets than nodes in the cluster.</strong></li>
@@ -1890,7 +1899,7 @@ if(!document.__defineGetter__) {
 <li><strong>Fixed an issue with the "Kubernetes cluster status" Grafana dashboard not loading data for some panels</strong></li>
 <li><strong>Rclone can now be configured to run every x minutes/hours/days/week/month/year.</strong></li>
 </ul>
-<h4 id="added_1">Added<a class="headerlink" href="#added_1" title="Permanent link">&para;</a></h4>
+<h4 id="added_2">Added<a class="headerlink" href="#added_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Added RBAC for admin users to view Gatekeeper constraints.</strong></li>
 <li><strong>New section in the welcoming dashboards, displaying the most relevant features and changes for the user added in the last two releases.</strong></li>
@@ -1909,7 +1918,7 @@ if(!document.__defineGetter__) {
 <ul>
 <li><strong>Fixed the welcome dashboard template for OpenSearch Dashboards</strong></li>
 </ul>
-<h4 id="added_2">Added<a class="headerlink" href="#added_2" title="Permanent link">&para;</a></h4>
+<h4 id="added_3">Added<a class="headerlink" href="#added_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Option to create custom solvers for letsencrypt issuers, including a simple way to add secrets</strong></li>
 <li><strong>Kube-bench runs on every node</strong>
@@ -1920,7 +1929,7 @@ if(!document.__defineGetter__) {
 </ul>
 <h3 id="v0250">v0.25.0<a class="headerlink" href="#v0250" title="Permanent link">&para;</a></h3>
 <p>Released 2022-08-25</p>
-<h4 id="added_3">Added<a class="headerlink" href="#added_3" title="Permanent link">&para;</a></h4>
+<h4 id="added_4">Added<a class="headerlink" href="#added_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Added Hierarchical Namespace Controller</strong><br/> Allowing users to create and manage subnamespaces, namespaces within namespaces. You can read more about this in our <a href="https://elastisys.io/compliantkubernetes/user-guide/faq/#how-do-i-add-a-new-namespace">FAQ</a>.</li>
 <li><strong>Added support for custom solvers in cluster issuers</strong> <br/> Allowing DNS01 challenges for certificate requests.</li>
@@ -1964,7 +1973,7 @@ if(!document.__defineGetter__) {
 <ul>
 <li><strong>Improved stability to automatic node reboots</strong><br/></li>
 </ul>
-<h4 id="added_4">Added<a class="headerlink" href="#added_4" title="Permanent link">&para;</a></h4>
+<h4 id="added_5">Added<a class="headerlink" href="#added_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Further configurability to ingress-nginx</strong><br/></li>
 </ul>
@@ -1979,7 +1988,7 @@ if(!document.__defineGetter__) {
 <ul>
 <li><strong>Added support for accessing Alertmanager via port-forward</strong><br/></li>
 </ul>
-<h4 id="added_5">Added<a class="headerlink" href="#added_5" title="Permanent link">&para;</a></h4>
+<h4 id="added_6">Added<a class="headerlink" href="#added_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Backups can now be encrypted before they are replicated to an off-site S3 service.</strong><br/></li>
 <li><strong>Improved metrics and alerting for OpenSearch.</strong><br/></li>
@@ -1990,7 +1999,7 @@ if(!document.__defineGetter__) {
 </ul>
 <h3 id="v0220">v0.22.0<a class="headerlink" href="#v0220" title="Permanent link">&para;</a></h3>
 <p>Released 2022-06-01</p>
-<h4 id="added_6">Added<a class="headerlink" href="#added_6" title="Permanent link">&para;</a></h4>
+<h4 id="added_7">Added<a class="headerlink" href="#added_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p><strong>Added support for Elastx and UpCloud!</strong><br/></p>
@@ -2047,7 +2056,7 @@ if(!document.__defineGetter__) {
 </ul>
 <h3 id="v0200">v0.20.0<a class="headerlink" href="#v0200" title="Permanent link">&para;</a></h3>
 <p>Released 2022-03-21</p>
-<h4 id="added_7">Added<a class="headerlink" href="#added_7" title="Permanent link">&para;</a></h4>
+<h4 id="added_8">Added<a class="headerlink" href="#added_8" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p><strong>Added kured - Kubernetes Reboot Daemon.</strong><br/>
@@ -2104,7 +2113,7 @@ if(!document.__defineGetter__) {
 </ul>
 <h3 id="v0190">v0.19.0<a class="headerlink" href="#v0190" title="Permanent link">&para;</a></h3>
 <p>Released 2022-02-01</p>
-<h4 id="added_8">Added<a class="headerlink" href="#added_8" title="Permanent link">&para;</a></h4>
+<h4 id="added_9">Added<a class="headerlink" href="#added_9" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p><strong>Added Thanos as a new metrics backend.</strong><br/>
@@ -2239,7 +2248,7 @@ if(!document.__defineGetter__) {
     <script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate", "toc.integrate", "content.tabs.link"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.2a6f1dda.min.js"></script>
+      <script src="../assets/javascripts/bundle.ce72ebac.min.js"></script>
       
     
   </body>
