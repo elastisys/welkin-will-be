@@ -1856,6 +1856,18 @@ if(!document.__defineGetter__) {
 <p>All Certificates needs to be Ready.</p>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>certificates
 </code></pre></div>
+<h2 id="is-the-api-server-healthy">Is the API server healthy?<a class="headerlink" href="#is-the-api-server-healthy" title="Permanent link">&para;</a></h2>
+<p>The command below should return <code>HTTP/2 200</code>.
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>--fail<span class="w"> </span>--verbose<span class="w"> </span>-k<span class="w"> </span>https://<span class="nv">$loadbalancer_ip_address</span>:6443/healthz
+</code></pre></div></p>
+<h2 id="are-compliantkubernetes-apps-services-healthy">Are Compliantkubernetes apps services healthy?<a class="headerlink" href="#are-compliantkubernetes-apps-services-healthy" title="Permanent link">&para;</a></h2>
+<p>All commands below should return <code>HTTP/2 200</code>.</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>--fail<span class="w"> </span>--verbose<span class="w"> </span>https://dex.<span class="nv">$DOMAIN</span>/healthz
+curl<span class="w"> </span>--fail<span class="w"> </span>--verbose<span class="w"> </span>https://harbor.<span class="nv">$DOMAIN</span>/healthz
+curl<span class="w"> </span>--fail<span class="w"> </span>--verbose<span class="w"> </span>https://grafana.<span class="nv">$DOMAIN</span>/healthz
+curl<span class="w"> </span>--fail<span class="w"> </span>--verbose<span class="w"> </span>https://opensearch.<span class="nv">$DOMAIN</span>/
+curl<span class="w"> </span>--fail<span class="w"> </span>--verbose<span class="w"> </span>-k<span class="w"> </span>https://app.<span class="nv">$DOMAIN</span>/healthz<span class="w">  </span><span class="c1"># WC Ingress Controller</span>
+</code></pre></div>
 
 
 
