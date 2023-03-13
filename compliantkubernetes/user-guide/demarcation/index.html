@@ -1870,6 +1870,24 @@ if(!document.__defineGetter__) {
   
 
 
+<div class="admonition danger">
+<p class="admonition-title">TL;DR: You <strong>cannot</strong> install:</p>
+<ul>
+<li>ClusterRoles, ClusterRoleBindings, Roles and RoleBindings</li>
+<li>CustomResourceDefinitions (CRDs)</li>
+<li>Roles and RoleBindings</li>
+<li>PodSecurityPolicies</li>
+<li>ValidatingWebhookConfiguration, MutatingWebhookConfiguration</li>
+</ul>
+<p><strong>This means that generally you cannot deploy <a href="https://kubernetes.io/docs/concepts/extend-kubernetes/operator/">Operators</a>.</strong></p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">TL;DR: You <strong>cannot</strong>:</p>
+<ul>
+<li>Run containers as root (<code>uid=0</code>)</li>
+<li>SSH into any Node</li>
+</ul>
+</div>
 <h1 id="can-i">Can I?<a class="headerlink" href="#can-i" title="Permanent link">&para;</a></h1>
 <p>Compliant Kubernetes comes with a lot of safeguards to ensure you protect your business reputation and earn the trust of your customers. Furthermore, it is a good idea to keep regulators happy, since they bring public trust into digitalization. Public trust is necessary to shift customers away from pen-and-paper to drive usage of your amazing application.</p>
 <p>If you used Kubernetes before, especially if you acted as a Kubernetes administrator, then being a Compliant Kubernetes user might feel a bit limiting. For example, you might not be able to run containers with root (<code>uid=0</code>) as you were used to. Again, these are not limitations, rather safeguards.</p>
