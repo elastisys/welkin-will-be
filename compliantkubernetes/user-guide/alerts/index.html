@@ -1870,7 +1870,7 @@ kubectl<span class="w"> </span>patch<span class="w"> </span>-n<span class="w"> <
 <p>If you want to access AlertManager, for example to confirm that its configuration was picked up correctly, or to configure silences, proceed as follows:</p>
 <ol>
 <li>Type: <code>kubectl proxy</code>.</li>
-<li>Open <a href="http://127.0.0.1:8001/api/v1/namespaces/alertmanager/services/alertmanager-operated:web/proxy/">this link</a> in your browser.</li>
+<li>Open <a href="http://127.0.0.1:8001/api/v1/namespaces/alertmanager/services/alertmanager-operated:9093/proxy/">this link</a> in your browser.</li>
 </ol>
 <h2 id="configuring-alerts">Configuring alerts<a class="headerlink" href="#configuring-alerts" title="Permanent link">&para;</a></h2>
 <p>Before setting up an alert, you must first <a href="../metrics">collect metrics</a> from your application by setting up either ServiceMonitors or PodMonitors. In general ServiceMonitors are recommended over PodMonitors, and it is the most common way to configure metrics collection.</p>
