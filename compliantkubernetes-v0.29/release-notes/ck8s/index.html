@@ -1,0 +1,2271 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Compliant Kubernetes is a Kubernetes distribution that reduces the burden for complying with Swedish Healthcare (Patientdatalagen), GDPR and ISO 27001.">
+      
+      
+        <meta name="author" content="Elastisys AB">
+      
+      
+        <link rel="canonical" href="https://elastisys.io/compliantkubernetes-v0.29/release-notes/ck8s/">
+      
+      
+        <link rel="prev" href="../../tech-radar/">
+      
+      
+        <link rel="next" href="../kubespray/">
+      
+      <link rel="icon" href="../../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
+    
+    
+      
+        <title>Compliant Kubernetes - Elastisys Compliant Kubernetes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.c4a75a56.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/branding.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://matomo.elastisys.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '2']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+    
+    
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  style-src 'self' 'unsafe-inline';
+  img-src 'self' data:;
+  connect-src 'self' https://matomo.elastisys.com/;
+  script-src 'self' 'unsafe-inline' https://matomo.elastisys.com/;
+">
+
+<!-- Disable localStorage, sessionStorage and cookies -->
+<script>
+if (window.localStorage) {
+  window.localStorage.setItem = function() { };
+  window.localStorage.clear();
+}
+if (window.sessionStorage) {
+  window.sessionStorage.setItem = function() { }
+  window.sessionStorage.clear();
+}
+if(!document.__defineGetter__) {
+  Object.defineProperty(document, 'cookie', {
+    get: function(){return ''},
+    set: function(){return true},
+  });
+} else {
+  document.__defineGetter__("cookie", function() { return '';} );
+  document.__defineSetter__("cookie", function() {} );
+}
+</script>
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="elastisys" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Elastisys Compliant Kubernetes" class="md-header__button md-logo" aria-label="Elastisys Compliant Kubernetes" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Elastisys Compliant Kubernetes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Compliant Kubernetes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+
+<ul class="header-links">
+  <li>
+    <a href="https://github.com/elastisys/compliantkubernetes/">
+      <img width="25px" src="../../img/git-alt.svg" alt="Git logo" />
+    </a>
+  </li>
+  <li><a href="https://elastisys.com/" class="menu-callout">Try out Managed<br/>Compliant Kubernetes</a></li>
+</ul>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Elastisys Compliant Kubernetes" class="md-nav__button md-logo" aria-label="Elastisys Compliant Kubernetes" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Elastisys Compliant Kubernetes
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+<ul class="header-links">
+  <li>
+    <a href="https://github.com/elastisys/compliantkubernetes/">
+      <img width="25px" src="../../img/git-alt.svg" alt="Git logo" />
+    </a>
+  </li>
+  <li><a href="https://elastisys.com/" class="menu-callout">Try out Managed<br/>Compliant Kubernetes</a></li>
+</ul>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          For Application Developers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          For Application Developers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/prepare/" class="md-nav__link">
+        Step 1: Prepare
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/deploy/" class="md-nav__link">
+        Step 2: Deploy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/operate/" class="md-nav__link">
+        Step 3: Operate
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          Go Deeper
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Go Deeper
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/prepare-application/" class="md-nav__link">
+        Prepare Your Application
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/registry/" class="md-nav__link">
+        Container registry
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/continous-development/" class="md-nav__link">
+        Continous Development
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/network-model/" class="md-nav__link">
+        Network Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/kubernetes-api/" class="md-nav__link">
+        Kubernetes API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/kubernetes-ui/" class="md-nav__link">
+        Kubernetes UI (Lens)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/namespaces/" class="md-nav__link">
+        Namespaces
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/logs/" class="md-nav__link">
+        Logs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/log-based-alerts/" class="md-nav__link">
+        Log-based Alerts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/long-term-log-retention/" class="md-nav__link">
+        Long-term Log Retention
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/metrics/" class="md-nav__link">
+        Metrics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/alerts/" class="md-nav__link">
+        Metric Alerts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/maintenance/" class="md-nav__link">
+        Maintenance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/backup/" class="md-nav__link">
+        Backups
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/ci-cd/" class="md-nav__link">
+        CI/CD
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/demarcation/" class="md-nav__link">
+        Demarcation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/delegation/" class="md-nav__link">
+        How to Delegate
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/how-many-environments/" class="md-nav__link">
+        How many environments?
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          Safeguards
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Safeguards
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/safeguards/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/safeguards/enforce-no-root/" class="md-nav__link">
+        Enforce No Root
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/safeguards/enforce-networkpolicies/" class="md-nav__link">
+        Enforce NetworkPolicies
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/safeguards/enforce-resources/" class="md-nav__link">
+        Enforce Resources
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/safeguards/enforce-trusted-registries/" class="md-nav__link">
+        Enforce Trusted Registries
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/safeguards/enforce-no-latest-tag/" class="md-nav__link">
+        Enforce No Latest Tag
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+          Additional Services
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Additional Services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/additional-services/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/additional-services/postgresql/" class="md-nav__link">
+        PostgreSQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/additional-services/timescaledb/" class="md-nav__link">
+        TimescaleDB
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/additional-services/redis/" class="md-nav__link">
+        Redis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/additional-services/rabbitmq/" class="md-nav__link">
+        RabbitMQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/additional-services/jaeger/" class="md-nav__link">
+        Jaeger
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/go-live/" class="md-nav__link">
+        Go-live Checklist
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/troubleshooting/" class="md-nav__link">
+        Troubleshooting
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/faq/" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          For Kubernetes Administrators
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          For Kubernetes Administrators
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/getting-started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/provider-audit/" class="md-nav__link">
+        Provider Audit
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/on-prem-standard/" class="md-nav__link">
+        Standard Template for on-prem Environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/qa/" class="md-nav__link">
+        QA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+          Advanced Configuration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Advanced Configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/configure/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/cluster-sizing/" class="md-nav__link">
+        Sizing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/ingress/" class="md-nav__link">
+        Ingress
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/access-control/" class="md-nav__link">
+        Access Control
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/user-alerts/" class="md-nav__link">
+        User Alerts
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/disaster-recovery/" class="md-nav__link">
+        Disaster Recovery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/break-glass/" class="md-nav__link">
+        Breaking the Glass
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/credentials/" class="md-nav__link">
+        Use of Credentials
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/capacity-management/" class="md-nav__link">
+        Capacity Management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/maintenance/" class="md-nav__link">
+        Maintenance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/troubleshooting/" class="md-nav__link">
+        Troubleshooting
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/faq/" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          For CISOs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          For CISOs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/controls/iso-27001/" class="md-nav__link">
+        ISO 27001
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/controls/hslf-fs-201640/" class="md-nav__link">
+        HSLF-FS 2016:40
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/controls/msbfs-20207/" class="md-nav__link">
+        MSBFS 2020:7
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/controls/hipaa/" class="md-nav__link">
+        HIPAA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/controls/bsi-it-grundschutz/" class="md-nav__link">
+        BSI IT-Grundschutz
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+          CISO Dashboards
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_7">
+          <span class="md-nav__icon md-icon"></span>
+          CISO Dashboards
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/audit-logs/" class="md-nav__link">
+        Audit Logs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/backup/" class="md-nav__link">
+        Backup Dashboard
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/cryptography/" class="md-nav__link">
+        Cryptography Dashboard
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/intrusion-detection/" class="md-nav__link">
+        Intrusion Detection Dashboard
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/policy-as-code/" class="md-nav__link">
+        Policy-as-Code Dashboard
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/network-security/" class="md-nav__link">
+        Network Security Dashboard
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/capacity-management/" class="md-nav__link">
+        Capacity Management (Kubernetes Status) Dashboard
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/vulnerability/" class="md-nav__link">
+        Vulnerability Dashboard
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/log-review/" class="md-nav__link">
+        Log Review
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/faq/" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          For Contributors
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          For Contributors
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributor-guide/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/" class="md-nav__link">
+        Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/" class="md-nav__link">
+        Architectural Decision Log
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech-radar/" class="md-nav__link">
+        Tech Radar
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Release Notes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Release Notes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Compliant Kubernetes
+      </a>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubespray/" class="md-nav__link">
+        CK8S Kubespray
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgres/" class="md-nav__link">
+        CK8S PostgreSQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rabbitmq/" class="md-nav__link">
+        CK8S RabbitMQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/" class="md-nav__link">
+        CK8S Redis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roadmap/" class="md-nav__link">
+        Roadmap
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://elastisys.com/" class="md-nav__link">
+        Support ⧉
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://elastisys.com/blog/" class="md-nav__link">
+        Blog ⧉
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://elastisys.com/privacy-policy/" class="md-nav__link">
+        Privacy Policy ⧉
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+  
+  
+
+
+<!--apps-release-notes-start-->
+<h1 id="release-notes">Release Notes<a class="headerlink" href="#release-notes" title="Permanent link">&para;</a></h1>
+<h2 id="compliant-kubernetes">Compliant Kubernetes<a class="headerlink" href="#compliant-kubernetes" title="Permanent link">&para;</a></h2>
+<!-- BEGIN TOC -->
+<ul>
+<li><a href="#v0281">v0.28.1</a> - 2023-03-02</li>
+<li><a href="#v0280">v0.28.0</a> - 2023-01-30</li>
+<li><a href="#v0270">v0.27.0</a> - 2022-11-17</li>
+<li><a href="#v0260">v0.26.0</a> - 2022-09-19</li>
+<li><a href="#v0250">v0.25.0</a> - 2022-08-25</li>
+<li><a href="#v0241">v0.24.1</a> - 2022-08-01</li>
+<li><a href="#v0240">v0.24.0</a> - 2022-07-25</li>
+<li><a href="#v0230">v0.23.0</a> - 2022-07-06</li>
+<li><a href="#v0220">v0.22.0</a> - 2022-06-01</li>
+<li><a href="#v0210">v0.21.0</a> - 2022-05-04</li>
+<li><a href="#v0200">v0.20.0</a> - 2022-03-21</li>
+<li><a href="#v0191">v0.19.1</a> - 2022-03-01</li>
+<li><a href="#v0190">v0.19.0</a> - 2022-02-01</li>
+<li><a href="#v0182">v0.18.2</a> - 2021-12-16</li>
+<li><a href="#v0172">v0.17.2</a> - 2021-12-16</li>
+<li><a href="#v0181">v0.18.1</a> - 2021-12-08</li>
+<li><a href="#v0171">v0.17.1</a> - 2021-12-08</li>
+<li><a href="#v0180">v0.18.0</a> - 2021-11-04</li>
+<li><a href="#v0170">v0.17.0</a> - 2021-06-29</li>
+<li><a href="#v0160">v0.16.0</a> - 2021-05-27</li>
+</ul>
+<!-- END TOC -->
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For a more detailed look check out the full <a href="https://github.com/elastisys/compliantkubernetes-apps/blob/main/CHANGELOG.md">changelog</a>.</p>
+</div>
+<h3 id="v0281">v0.28.1<a class="headerlink" href="#v0281" title="Permanent link">&para;</a></h3>
+<p>Released 2023-03-02</p>
+<h4 id="added">Added<a class="headerlink" href="#added" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Added falco rules to ignore redis operator related alerts.</strong></li>
+</ul>
+<h3 id="v0280">v0.28.0<a class="headerlink" href="#v0280" title="Permanent link">&para;</a></h3>
+<p>Released 2023-01-30</p>
+<h4 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Updated Rook alerts to <code>v1.10.5</code>.</strong></li>
+<li><strong>Nginx ingress controller service can now have multiple annotations instead of just one.</strong></li>
+<li><strong>Synced all grafana dashboards to use the default organization timezone.</strong></li>
+<li><strong>Several default resource requests and limits have changed for the included services.</strong></li>
+</ul>
+<h4 id="fixed">Fixed<a class="headerlink" href="#fixed" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Use FQDN for services connecting from the workload cluster to the service cluster to prevent resolve timeouts.</strong></li>
+<li><strong>Fixed <code>KubeletDown</code> alert rule not alerting if a kubelet was missing.</strong></li>
+<li><strong>Added permissions to the <code>alerting_full_access</code> role in Opensearch to be able to view notification channels.</strong></li>
+<li><strong>Added <code>fluent-plugin-record-modifier</code> to the fluentd image to prevent mapping errors.</strong></li>
+<li><strong>Various fixes to network policies.</strong></li>
+</ul>
+<h4 id="added_1">Added<a class="headerlink" href="#added_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Improved security posture by adding network policies for some of the networking and storage components.</strong></li>
+<li><strong>Added alert for less kubelets than nodes in the cluster.</strong></li>
+<li><strong>Added alert for object limits in buckets.</strong></li>
+</ul>
+<h3 id="v0270">v0.27.0<a class="headerlink" href="#v0270" title="Permanent link">&para;</a></h3>
+<p>Released 2022-11-17</p>
+<h4 id="updated">Updated<a class="headerlink" href="#updated" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Updated Dex helm chart to <code>v0.12.0</code>, which also upgrades Dex to <code>v2.35.1</code>.</strong></li>
+<li><strong>Updated Falco helm chart to <code>2.2.0</code>, which also upgrades Falco to <code>0.33.0</code> and Falco Sidekick to <code>2.26.0</code>.</strong></li>
+<li><strong>Updated Falco Exporter helm chart to <code>0.9.0</code>, which also upgrades Falco Exporter to <code>0.8.0</code>.</strong></li>
+<li><strong>Updated Velero helm chart to <code>v2.31.8</code>, which also upgrades Velero to <code>v1.9.2</code>.</strong></li>
+<li><strong>Updated Grafana helm chart to <code>v6.43.4</code>, which also upgrades Grafana to <code>v9.2.4</code>.</strong></li>
+</ul>
+<h4 id="changed_1">Changed<a class="headerlink" href="#changed_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Improved Network security by adding Network policies to a lot of the included services.</strong></li>
+<li><strong>NetworkPolicies are now automatically propagated from a parent namespace to its subnamespaces in HNC.</strong></li>
+<li><strong>Several default resource requests and limits have changed for the included services.</strong></li>
+<li><strong>Lowered the default retention age for Kubernetes logs in the prod flavor down to 30 days.</strong></li>
+<li><strong>Made dex ID Token expiration time configurable.</strong></li>
+<li><strong>User alertmanager is now enabled by default.</strong></li>
+</ul>
+<h4 id="fixed_1">Fixed<a class="headerlink" href="#fixed_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Fixed an issue with the "Kubernetes cluster status" Grafana dashboard not loading data for some panels</strong></li>
+<li><strong>Rclone can now be configured to run every x minutes/hours/days/week/month/year.</strong></li>
+</ul>
+<h4 id="added_2">Added<a class="headerlink" href="#added_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Added RBAC for admin users to view Gatekeeper constraints.</strong></li>
+<li><strong>New section in the welcoming dashboards, displaying the most relevant features and changes for the user added in the last two releases.</strong></li>
+<li><strong>Added an option to configure alerts for growing indices in OpenSearch.</strong></li>
+<li><strong>The settings for this might need to be tweaked to better suit the environment.</strong></li>
+<li><strong>Added an alert for failed evicted pods (KubeFailedEvictedPods).</strong></li>
+</ul>
+<h3 id="v0260">v0.26.0<a class="headerlink" href="#v0260" title="Permanent link">&para;</a></h3>
+<p>Released 2022-09-19</p>
+<h4 id="updated_1">Updated<a class="headerlink" href="#updated_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Harbor upgraded to <code>v2.6.0</code></strong></li>
+<li><strong>Upgraded Opensearch helm chart to <code>2.6.0</code>, this upgrades Opensearch to <code>2.3.0</code>. For more information about the upgrade, check out their <a href="https://opensearch.org/blog/releases/2022/09/opensearch-2-3-is-ready-for-download/">2.3 Launch Announcement</a>.</strong></li>
+</ul>
+<h4 id="fixed_2">Fixed<a class="headerlink" href="#fixed_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Fixed the welcome dashboard template for OpenSearch Dashboards</strong></li>
+</ul>
+<h4 id="added_3">Added<a class="headerlink" href="#added_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Option to create custom solvers for letsencrypt issuers, including a simple way to add secrets</strong></li>
+<li><strong>Kube-bench runs on every node</strong>
+  Automated CIS tests are performed on each node using kube-bench
+  Added a CIS kube-bench Grafana dashboard</li>
+<li><strong>Added option for kured to notify to slack when draning and rebooting nodes</strong></li>
+<li><strong>Allow users to proxy and port-forward to prometheus running in the workload cluster</strong></li>
+</ul>
+<h3 id="v0250">v0.25.0<a class="headerlink" href="#v0250" title="Permanent link">&para;</a></h3>
+<p>Released 2022-08-25</p>
+<h4 id="added_4">Added<a class="headerlink" href="#added_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Added Hierarchical Namespace Controller</strong><br/> Allowing users to create and manage subnamespaces, namespaces within namespaces. You can read more about this in our <a href="https://elastisys.io/compliantkubernetes/user-guide/faq/#how-do-i-add-a-new-namespace">FAQ</a>.</li>
+<li><strong>Added support for custom solvers in cluster issuers</strong> <br/> Allowing DNS01 challenges for certificate requests.</li>
+<li><strong>Added support for running Harbor in High Availability</strong></li>
+</ul>
+<h4 id="updated_2">Updated<a class="headerlink" href="#updated_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p><strong>Updated cert-manager from v1.6.1 to v1.8.2</strong> <br/> API versions <code>v1alpha2</code>, <code>v1alpha3</code>, and <code>v1beta1</code> have been removed from the custom resource definitions (CRDs), certificate rotation policy will now be validated. See their <a href="https://github.com/cert-manager/cert-manager/releases">changelog</a> for more details.</p>
+</li>
+<li>
+<p><strong>Updated OpenSearch with new usability improvements and features</strong> <br/> Checkout their <a href="https://opensearch.org/blog/releases/2022/03/launch-announcement-1-3-0/">launch announcement</a>.</p>
+</li>
+</ul>
+<h4 id="changed_2">Changed<a class="headerlink" href="#changed_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>New additions to the Kubernetes cluster status Grafana dashboard</strong> <br/> It now shows information about resource requests and limits per node, and resource usage vs request per pod.</li>
+</ul>
+<h3 id="v0241">v0.24.1<a class="headerlink" href="#v0241" title="Permanent link">&para;</a></h3>
+<p>Released 2022-08-01</p>
+<ul>
+<li><strong>Required patch to be able to use release <code>v0.24.0</code></strong><br/></li>
+</ul>
+<h4 id="fixed_3">Fixed<a class="headerlink" href="#fixed_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Fixed a formatting issue with harbor s3 configuration.</li>
+</ul>
+<h3 id="v0240">v0.24.0<a class="headerlink" href="#v0240" title="Permanent link">&para;</a></h3>
+<p>Released 2022-07-25</p>
+<h4 id="updated_3">Updated<a class="headerlink" href="#updated_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p><strong>Upgraded Helm stack</strong><br/>
+  Upgrades for Helm, Helmfile and Helm-secrets.</p>
+</li>
+<li>
+<p><strong>Image upgrade to node-local-dns</strong><br/></p>
+</li>
+</ul>
+<h4 id="changed_3">Changed<a class="headerlink" href="#changed_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Improved stability to automatic node reboots</strong><br/></li>
+</ul>
+<h4 id="added_5">Added<a class="headerlink" href="#added_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Further configurability to ingress-nginx</strong><br/></li>
+</ul>
+<h3 id="v0230">v0.23.0<a class="headerlink" href="#v0230" title="Permanent link">&para;</a></h3>
+<p>Released 2022-07-06</p>
+<h4 id="updated_4">Updated<a class="headerlink" href="#updated_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Updated the ingress controller <code>ingress-nginx</code> to image version v1.2.1</strong><br/></li>
+<li>You can find the changelog <a href="https://github.com/kubernetes/ingress-nginx/releases/tag/controller-v1.2.1">here</a>.</li>
+</ul>
+<h4 id="changed_4">Changed<a class="headerlink" href="#changed_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Added support for accessing Alertmanager via port-forward</strong><br/></li>
+</ul>
+<h4 id="added_6">Added<a class="headerlink" href="#added_6" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Backups can now be encrypted before they are replicated to an off-site S3 service.</strong><br/></li>
+<li><strong>Improved metrics and alerting for OpenSearch.</strong><br/></li>
+</ul>
+<h4 id="fixed_4">Fixed<a class="headerlink" href="#fixed_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>The deployment of Dex is now properly configured to be HA, ensuring that the Dex instances are placed on different Kubernetes worker nodes.</strong><br/></li>
+</ul>
+<h3 id="v0220">v0.22.0<a class="headerlink" href="#v0220" title="Permanent link">&para;</a></h3>
+<p>Released 2022-06-01</p>
+<h4 id="added_7">Added<a class="headerlink" href="#added_7" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p><strong>Added support for Elastx and UpCloud!</strong><br/></p>
+</li>
+<li>
+<p><strong>New 'Welcoming' dashboard in OpenSearch and Grafana.</strong><br/>
+  Users can now access public docs and different urls to the services provided by Compliant Kubernetes.</p>
+</li>
+<li>
+<p><strong>Improved availability of metrics and alerting.</strong><br/>
+  Alertmanager now runs with two replicas by default, Prometheus can now be run in HA mode.</p>
+</li>
+<li>
+<p><strong>Added Falco rules to reduce alerts for services in Compliant Kubernetes.</strong><br/>
+  Falco now alerts less on operations that are expected out of these services.</p>
+</li>
+</ul>
+<h4 id="fixed_5">Fixed<a class="headerlink" href="#fixed_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p><strong>Fixed a bug where users couldn't silence alerts when portforwarding to alertmanager.</strong><br/></p>
+</li>
+<li>
+<p><strong>Improved logging stack and fixed a number of issues to ensure reliability.</strong><br/></p>
+</li>
+</ul>
+<h3 id="v0210">v0.21.0<a class="headerlink" href="#v0210" title="Permanent link">&para;</a></h3>
+<p>Released 2022-05-04</p>
+<h4 id="changed_5">Changed<a class="headerlink" href="#changed_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p><strong>Users can now view ClusterIssuers.</strong><br/></p>
+</li>
+<li>
+<p><strong>User admins can now add users to the ClusterRole user-view.</strong><br/>
+  This is done by adding users to the ClusterRoleBinding <code>extra-user-view</code>.</p>
+</li>
+<li>
+<p><strong>User can now get ClusterIssuers.</strong><br/></p>
+</li>
+<li>
+<p><strong>Ensured all CISO dashboards are available to users.</strong><br/>
+  All the grafana dashboards in our <a href="https://elastisys.io/compliantkubernetes/ciso-guide/">CISO docs</a> are now available.</p>
+</li>
+<li>
+<p><strong>Better stability for dex</strong><br/>
+  Dex now runs with two replicas and has been updated.</p>
+</li>
+</ul>
+<h4 id="updated_5">Updated<a class="headerlink" href="#updated_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Image upgrades to reduce number of vulnerabilities</strong><br/>
+  Upgrades for fluentd, grafana, and harbor chartmuseum.</li>
+</ul>
+<h3 id="v0200">v0.20.0<a class="headerlink" href="#v0200" title="Permanent link">&para;</a></h3>
+<p>Released 2022-03-21</p>
+<h4 id="added_8">Added<a class="headerlink" href="#added_8" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p><strong>Added kured - Kubernetes Reboot Daemon.</strong><br/>
+  This enables automatic node reboots and security patching of the underlying base Operating System image, container runtime and Kubernetes cluster components.</p>
+</li>
+<li>
+<p><strong>Added fluentd grafana dashboard and alerts.</strong><br/></p>
+</li>
+<li>
+<p><strong>Added RBAC for admin users.</strong><br/>
+  Admin users can now list pods cluster wide and run the kubectl top command.</p>
+</li>
+<li>
+<p><strong>Added containerd support for fluentd.</strong><br/></p>
+</li>
+</ul>
+<h4 id="changed_6">Changed<a class="headerlink" href="#changed_6" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p><strong>Added the new OPA policy.</strong><br/>
+  To disallow the latest image tag.</p>
+</li>
+<li>
+<p><strong>Persist Dex state in Kubernetes.</strong><br/>
+  This ensure the JWT token received from an OpenID provider is valid even after security patching of Kubernetes cluster components.</p>
+</li>
+<li>
+<p><strong>Add ingressClassName in ingresses where that configuration option is available.</strong><br/></p>
+</li>
+<li>
+<p><strong>Thanos is now enabled by default.</strong><br/></p>
+</li>
+</ul>
+<h4 id="updated_6">Updated<a class="headerlink" href="#updated_6" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p><strong>Upgraded nginx-ingress helm chart to v4.0.17</strong><br/>
+  This upgrades nginx-ingress to v1.1.1. When upgrading an ingressClass object called nginx will be installed, this class has been set as the default class in Kubernetes. Ingress-nginx has been configured to still handle existing ingress objects that do not specify any ingressClassName.</p>
+</li>
+<li>
+<p><strong>Upgraded starboard-operator helm chart to v0.9.1</strong><br/>
+  This is upgrading starboard-operator to v0.14.1</p>
+</li>
+</ul>
+<h4 id="removed">Removed<a class="headerlink" href="#removed" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Removed influxDB and dependent helm charts.</strong><br/></li>
+</ul>
+<h3 id="v0191">v0.19.1<a class="headerlink" href="#v0191" title="Permanent link">&para;</a></h3>
+<p>Released 2022-03-01</p>
+<h4 id="fixed_6">Fixed<a class="headerlink" href="#fixed_6" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Fixed critical stability issue related to Prometheus rules being evaluated without metrics.</li>
+</ul>
+<h3 id="v0190">v0.19.0<a class="headerlink" href="#v0190" title="Permanent link">&para;</a></h3>
+<p>Released 2022-02-01</p>
+<h4 id="added_9">Added<a class="headerlink" href="#added_9" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p><strong>Added Thanos as a new metrics backend.</strong><br/>
+  Provides a much more efficient and reliable platform for long-term metrics, with the capabilities to keep metrics for much longer time periods than previously possible.<br/>
+  InfluxDB will still be supported in this release.</p>
+</li>
+<li>
+<p><strong>Added a new feature to enable off-site replication of backups.</strong><br/>
+  Synchronizes S3 buckets across regions or clouds to keep an off-site backup.</p>
+</li>
+<li>
+<p><strong>Added a new feature to create and log into separate indices per namespace.</strong><br/>
+  <em>Currently considered to be an alpha feature.</em></p>
+</li>
+</ul>
+<h4 id="changed_7">Changed<a class="headerlink" href="#changed_7" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p><strong>Replacing Open Distro for Elasticsearch with OpenSearch.</strong><br/>
+  In this release, since <a href="https://opendistro.github.io/for-elasticsearch/">the Open Distro project has reached end of life</a>, Elasticsearch is replaced with OpenSearch and Kibana with OpenSearch Dashboards.
+  OpenSearch is a fully open source fork of Elasticsearch with a compatible API and familiar User Experience.<br/>
+  <em>Note that recent versions of official Elasticsearch clients and tools will not work with OpenSearch as they employ a product check, compatible versions can be found <a href="https://opensearch.org/docs/latest/clients/index/">here</a>.</em></p>
+</li>
+<li>
+<p><strong>Enforcing OPA policies by default.</strong><br/>
+  Provides <a href="/compliantkubernetes/user-guide/safeguards/">strict safeguards</a> by default.</p>
+</li>
+<li>
+<p><strong>Allowing viewers to inspect and temporarily edit panels in Grafana.</strong><br/>
+  Gives more insight to the metrics and data shown.</p>
+</li>
+<li>
+<p><strong>Setting Fluentd to log the reason why when it can't push logs to OpenSearch.</strong></p>
+</li>
+</ul>
+<h4 id="updated_7">Updated<a class="headerlink" href="#updated_7" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Large number of application and service updates, keeping up to date with new security fixes and changes.</li>
+</ul>
+<h3 id="v0182">v0.18.2<a class="headerlink" href="#v0182" title="Permanent link">&para;</a></h3>
+<p>Released 2021-12-16.</p>
+<p>Changes:</p>
+<ul>
+<li>Updated Open Distro for Elasticsearch to 1.13.3 to mitigate <a href="https://opendistro.github.io/for-elasticsearch/blog/2021/12/update-to-1-13-3/">CVE-2021-44228 &amp; CVE-2021-45046</a></li>
+</ul>
+<h3 id="v0172">v0.17.2<a class="headerlink" href="#v0172" title="Permanent link">&para;</a></h3>
+<p>Released 2021-12-16.</p>
+<p>Changes:</p>
+<ul>
+<li>Updated Open Distro for Elasticsearch to 1.13.3 to mitigate <a href="https://opendistro.github.io/for-elasticsearch/blog/2021/12/update-to-1-13-3/">CVE-2021-44228 &amp; CVE-2021-45046</a></li>
+</ul>
+<h3 id="v0181">v0.18.1<a class="headerlink" href="#v0181" title="Permanent link">&para;</a></h3>
+<p>Released 2021-12-08.</p>
+<p>Changes:</p>
+<ul>
+<li>updated Grafana to 8.0.7 in order to fix <a href="https://grafana.com/blog/2021/12/07/grafana-8.3.1-8.2.7-8.1.8-and-8.0.7-released-with-high-severity-security-fix/">CVE-2021-43798</a></li>
+</ul>
+<h3 id="v0171">v0.17.1<a class="headerlink" href="#v0171" title="Permanent link">&para;</a></h3>
+<p>Released 2021-12-08.</p>
+<p>Changes:</p>
+<ul>
+<li>updated Grafana to 8.0.7 in order to fix <a href="https://grafana.com/blog/2021/12/07/grafana-8.3.1-8.2.7-8.1.8-and-8.0.7-released-with-high-severity-security-fix/">CVE-2021-43798</a></li>
+</ul>
+<h3 id="v0180">v0.18.0<a class="headerlink" href="#v0180" title="Permanent link">&para;</a></h3>
+<p>Released 2021-11-04.</p>
+<p>Changes:</p>
+<ul>
+<li>Ingress-nginx-controller has been updated from v0.28.0 to v0.49.3, bringing various updates.<ul>
+<li>Additionally, the configuration option <code>allow-snippet-annotations</code> has been set to <code>false</code> to mitigate known security issue <a href="https://github.com/kubernetes/ingress-nginx/issues/7837">CVE-2021-25742</a></li>
+</ul>
+</li>
+<li>Fixes, minor version upgrades, improvements to resource requests and limits for applications, improvements to stability.</li>
+</ul>
+<h3 id="v0170">v0.17.0<a class="headerlink" href="#v0170" title="Permanent link">&para;</a></h3>
+<p>Released 2021-06-29.</p>
+<p>Changes:</p>
+<ul>
+<li>The dashboard tool Grafana has been updated to a new major version of 8.x.x. This introduces new features and fixes, as well as some possibly breaking changes. See their <a href="https://grafana.com/docs/grafana/v8.0/whatsnew/whats-new-in-v8-0/">release notes</a> for more information.</li>
+<li>The single-sign-on service Dex has been updated, bringing small changes and better consistency to the UI.</li>
+<li>Fixes, improvements to resource limits, resource usage, and stability.</li>
+</ul>
+<h3 id="v0160">v0.16.0<a class="headerlink" href="#v0160" title="Permanent link">&para;</a></h3>
+<p>Released 2021-05-27.</p>
+<p>Changes:</p>
+<ul>
+<li>The default retention values have been changed and streamlined for <code>authlog*</code> and <code>other*</code>. The former will be kept for a longer period of time while the latter for shorter, both have reduced sized according to their actual usage.</li>
+<li>Updates, fixes, and features to improve the security of the platform.</li>
+</ul>
+<!--apps-release-notes-end-->
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2022 Elastisys AB <br/> Kubernetes® is a registered trademark of The Linux Foundation in the United States and other countries, and is used pursuant to a license from The Linux Foundation. <br/> Postgres and PostgreSQL and the Elephant Logo (Slonik) are all registered trademarks of the PostgreSQL Community Association of Canada. <br/> Redis is a trademark of Redis Ltd. Any rights therein are reserved to Redis Ltd. Any use by the Compliant Kubernetes project is for referential purposes only and does not indicate any sponsorship, endorsement or affiliation between Redis and Compliant Kubernetes project. <br/> RabbitMQ is a trademark of VMware, Inc. in the U.S. and other countries. <br/> TimescaleDB and the EON mascot are trademarks of <a href="https://www.timescale.com/">Timescale, Inc.</a> <br/> Jaeger and the Logo are a trademark of The Linux Foundation in the United States and other countries, and is used pursuant to a license from The Linux Foundation.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "toc.integrate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      
+    
+  </body>
+</html>
