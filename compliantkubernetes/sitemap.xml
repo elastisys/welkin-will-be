@@ -646,6 +646,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://elastisys.io/compliantkubernetes/ciso-guide/controls/gdpr/</loc>
+         <lastmod>2023-03-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://elastisys.io/compliantkubernetes/ciso-guide/controls/hipaa/</loc>
          <lastmod>2023-03-24</lastmod>
          <changefreq>daily</changefreq>
