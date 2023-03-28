@@ -206,6 +206,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://elastisys.io/compliantkubernetes/adr/0034-how-to-run-multiple-ams-packages-of-the-same-type/</loc>
+         <lastmod>2023-03-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0035-run-tekton-on-service-cluster/</loc>
          <lastmod>2023-03-28</lastmod>
          <changefreq>daily</changefreq>
