@@ -1963,8 +1963,7 @@ if(!document.__defineGetter__) {
 <th align="left">crd</th>
 <th align="left">apigroup</th>
 <th align="left">kind</th>
-<th align="left">used by</th>
-<th align="left">description</th>
+<th align="left">can be used by users</th>
 </tr>
 </thead>
 <tbody>
@@ -1972,43 +1971,37 @@ if(!document.__defineGetter__) {
 <td align="left">alertmanagers</td>
 <td align="left">monitoring.coreos.com</td>
 <td align="left">Alertmanager</td>
-<td align="left">prometheus-alerts</td>
-<td align="left"></td>
+<td align="left">NO</td>
 </tr>
 <tr>
 <td align="left">podmonitors</td>
 <td align="left">monitoring.coreos.com</td>
 <td align="left">PodMonitor</td>
-<td align="left">customer-rbac</td>
-<td align="left"></td>
+<td align="left">YES</td>
 </tr>
 <tr>
 <td align="left">prometheuses</td>
 <td align="left">monitoring.coreos.com</td>
 <td align="left">Prometheus</td>
-<td align="left"></td>
-<td align="left"></td>
+<td align="left">NO</td>
 </tr>
 <tr>
 <td align="left">prometheusrules</td>
 <td align="left">monitoring.coreos.com</td>
 <td align="left">PrometheusRule</td>
-<td align="left">customer-rbac, elasticsearch</td>
-<td align="left"></td>
+<td align="left">YES</td>
 </tr>
 <tr>
 <td align="left">servicemonitors</td>
 <td align="left">monitoring.coreos.com</td>
 <td align="left">ServiceMonitor</td>
-<td align="left">customer-rbac, dex, grafana, kibana, elastisearch, influxdb</td>
-<td align="left"></td>
+<td align="left">YES</td>
 </tr>
 <tr>
 <td align="left">thanosrulers</td>
 <td align="left">monitoring.coreos.com</td>
 <td align="left">ThanosRuler</td>
-<td align="left"></td>
-<td align="left"></td>
+<td align="left">NO</td>
 </tr>
 </tbody>
 </table>

@@ -1919,7 +1919,7 @@ if(!document.__defineGetter__) {
 <h1 id="cluster-sizing">Cluster Sizing<a class="headerlink" href="#cluster-sizing" title="Permanent link">&para;</a></h1>
 <p>A full Compliant Kubernetes deployment requires a cluster with at least 40 CPUs and 82 GB of memory in total.</p>
 <h2 id="monitoring">Monitoring<a class="headerlink" href="#monitoring" title="Permanent link">&para;</a></h2>
-<p>Monitoring stack (InfluxDB) can handle 2500 metrics per second while provisioned with 4 CPUs and 16 GB of memory.</p>
+<p>Monitoring stack (Thanos) can handle 6000 metrics per second in our standard configuration. This can be increased on demand.</p>
 <h2 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">&para;</a></h2>
 <p>Logging stack (OpenSearch) can take 100 records per second while provisioned with 12 CPUs and 24 GB of memory.</p>
 
