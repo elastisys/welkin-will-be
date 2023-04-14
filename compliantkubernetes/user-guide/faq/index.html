@@ -896,7 +896,7 @@ if(!document.__defineGetter__) {
   
     <li class="md-nav__item">
       <a href="../additional-services/jaeger/" class="md-nav__link">
-        Jaeger
+        Jaeger (preview)
       </a>
     </li>
   
@@ -910,7 +910,7 @@ if(!document.__defineGetter__) {
   
     <li class="md-nav__item">
       <a href="../additional-services/argocd/" class="md-nav__link">
-        Argo CD
+        Argo CD (preview)
       </a>
     </li>
   
@@ -2030,6 +2030,16 @@ Here is an example command (please replace the <code>$MY_HARBOR_IMAGE</code>):</
 <p>The only real option is to rely on support from the cloud provider. The latest generation (physical) servers feature a <a href="https://en.wikipedia.org/wiki/Trusted_Platform_Module">TPM</a> to store the disk encryption key. This can be <a href="https://en.wikipedia.org/wiki/Disk_encryption#Full_disk_encryption">securely release to the Linux kernel</a> thanks to <a href="https://en.wikipedia.org/wiki/Pre-boot_authentication">pre-boot authentication</a>. This process is performance-neutral and fully transparent to the VMs running on top of the servers.</p>
 <p>And that is why Compliant Kubernetes encrypts everything at rest, <strong>only if the underlying cloud provider supports it</strong>.</p>
 </div>
+<h2 id="what-are-preview-features">What are preview features?<a class="headerlink" href="#what-are-preview-features" title="Permanent link">&para;</a></h2>
+<p>Preview features are assessed to have a higher residual risk than commonly accepted by Customers.
+Residual risks include, but are not limited to:</p>
+<ul>
+<li>risk of downtime;</li>
+<li>risk of the feature becoming unavailable in the future;</li>
+<li>risk of data loss.</li>
+</ul>
+<p>The risks are usually due to novelty of the feature or uncertainties in the open-source ecosystem.
+By using Preview Features, the Customer accepts these additional risks.</p>
 
 
 
@@ -2053,7 +2063,7 @@ Here is an example command (please replace the <code>$MY_HARBOR_IMAGE</code>):</
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright © 2022 Elastisys AB <br/> Kubernetes® is a registered trademark of The Linux Foundation in the United States and other countries, and is used pursuant to a license from The Linux Foundation. <br/> Postgres and PostgreSQL and the Elephant Logo (Slonik) are all registered trademarks of the PostgreSQL Community Association of Canada. <br/> Redis is a trademark of Redis Ltd. Any rights therein are reserved to Redis Ltd. Any use by the Compliant Kubernetes project is for referential purposes only and does not indicate any sponsorship, endorsement or affiliation between Redis and Compliant Kubernetes project. <br/> RabbitMQ is a trademark of VMware, Inc. in the U.S. and other countries. <br/> TimescaleDB and the EON mascot are trademarks of <a href="https://www.timescale.com/">Timescale, Inc.</a> <br/> Jaeger and the Logo are a trademark of The Linux Foundation in the United States and other countries, and is used pursuant to a license from The Linux Foundation.
+      Copyright © 2022 Elastisys AB <br/> The Linux Foundation has the following registered trademarks in the United States and/or other countries: Certified Kubernetes®, containerd®, fluentd®, Helm®, Istio®, K8s®, Kubernetes®, Prometheus®, PromQL®, Rook®, The Linux Foundation®. <br/> The Linux Foundation has registrations pending or trademarks in use for the following marks in the United States and/or other countries: Argo™, CoreDNS™, Falco™, Harbor™, Jaeger™, Linux Foundation™, OpenTelemetry™, OpenTracing™, Open Policy Agent™, Tekton™, Thanos™. <br/> Postgres and PostgreSQL and the Elephant Logo (Slonik) are all registered trademarks of the PostgreSQL Community Association of Canada. <br/> Redis is a trademark of Redis Ltd. Any rights therein are reserved to Redis Ltd. Any use by the Compliant Kubernetes project is for referential purposes only and does not indicate any sponsorship, endorsement or affiliation between Redis and Compliant Kubernetes project. <br/> RabbitMQ is a trademark of VMware, Inc. in the U.S. and other countries. <br/> TimescaleDB and the EON mascot are trademarks of <a href="https://www.timescale.com/">Timescale, Inc.</a>
     </div>
   
   
