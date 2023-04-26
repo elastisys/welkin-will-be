@@ -21,7 +21,7 @@
         <link rel="next" href="../log-based-alerts/">
       
       <link rel="icon" href="../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.7">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
     
     
       
@@ -153,6 +153,8 @@ if(!document.__defineGetter__) {
         </div>
       </div>
     </div>
+    
+      
     
     
     
@@ -1962,10 +1964,6 @@ if(!document.__defineGetter__) {
 <h2 id="opensearch">OpenSearch<a class="headerlink" href="#opensearch" title="Permanent link">&para;</a></h2>
 <p>Raw logs in CK8s are normalized, filtered, and processed by <a href="https://www.fluentd.org/">fluentd</a> and shipped to <a href="https://opensearch.org/">OpenSearch</a> for storage and analysis. OpenSearch is derived from the fully open source version of Elasticsearch called  <a href="https://logz.io/blog/open-distro-for-elasticsearch/">Open Distro for Elasticsearch</a>.</p>
 <p>OpenSearch provides a powerful, easy-to-use event monitoring and alerting system, enabling you to monitor, search, visualize your data among other things. OpenSearch Dashboards is used as visualization and analysis interface for OpenSearch for all your logs.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Compliant Kubernetes v0.18 and earlier used Open Distro for Elasticsearch, providing fully open source versions of Elasticsearch and Kibana. This project has now reached end of life and continues through OpenSearch, replacing Elasticsearch with OpenSearch and Kibana with OpenSearch Dashboards. Although a big change for the project, it still remains highly compatible and with minor differences in features and user experience.</p>
-</div>
 <h2 id="visualization-using-opensearch-dashboards">Visualization using OpenSearch Dashboards<a class="headerlink" href="#visualization-using-opensearch-dashboards" title="Permanent link">&para;</a></h2>
 <p>OpenSearch Dashboards is used as a data visualization and exploration tool for log time-series  and aggregate analytics. It offers powerful and easy-to-use features such as histograms, line graphs, pie charts, heat maps, and built-in geospatial support.</p>
 <p>When you log into OpenSearch Dashboards, you will start at the home page as shown below.</p>

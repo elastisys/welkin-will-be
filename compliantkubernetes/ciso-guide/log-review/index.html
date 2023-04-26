@@ -21,7 +21,7 @@
         <link rel="next" href="../faq/">
       
       <link rel="icon" href="../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.7">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
     
     
       
@@ -153,6 +153,8 @@ if(!document.__defineGetter__) {
         </div>
       </div>
     </div>
+    
+      
     
     
     
@@ -1991,10 +1993,10 @@ a process for regularly testing, assessing and evaluating the effectiveness of t
 <li>A.12.4.3 "Administrator and Operator Logs"</li>
 </ul>
 <h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">&para;</a></h2>
-<p>Compliant Kubernetes captures application logs and audit logs in a tamper-proof logging environment, which we call the service cluster. By "tamper-proof", we mean that even a complete compromise of production infrastructure does not allow an attacker to erase or change existing log entries, as would be required to hide their activity and avoid suspecion.</p>
+<p>Compliant Kubernetes captures application logs and audit logs in a tamper-proof logging environment, which we call the service cluster. By "tamper-proof", we mean that even a complete compromise of production infrastructure does not allow an attacker to erase or change existing log entries, as would be required to hide their activity and avoid suspicion.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Attackers can, however, inject new "weird" logs entries. However, that wouldn't remove their tracks and would only trigger more suspecion.</p>
+<p>Attackers can, however, inject new "weird" logs entries. However, that wouldn't remove their tracks and would only trigger more suspicion.</p>
 </div>
 <p>However, said logs only help with information security if they are <strong>regularly reviewed</strong> for suspicious activity. Prefer to use logs for catching "unknown unknowns". For known bad failures -- e.g., a fluentd Pod restarting -- prefer alerts.</p>
 <h2 id="risks">Risks<a class="headerlink" href="#risks" title="Permanent link">&para;</a></h2>
@@ -2008,7 +2010,7 @@ a process for regularly testing, assessing and evaluating the effectiveness of t
 <p>By <em>review period</em>, we mean the time elapsed since the last review of the logs, e.g., 30 days.</p>
 <p>Aim for a review which is both <strong>wide</strong> and <strong>deep</strong>. By wide we mean that you should vary the time interval, time point, filters, etc., when reviewing log entries. By deep we mean that you should actually read and try to understand a sample of logs.</p>
 <ol>
-<li>Open up a browser and open the Compliant Kubernetes <a href="/compliantkubernetes/user-guide/logs/">logs</a> of the cluster you are reviewing. This functionality is currently offered by OpenSearch or Kibana and Elasticsearch depending on version, but the procedure is the same.</li>
+<li>Open up a browser and open the Compliant Kubernetes <a href="/compliantkubernetes/user-guide/logs/">logs</a> of the cluster you are reviewing. This functionality is currently offered by OpenSearch.</li>
 <li>Search for the following keywords on all indices -- i.e., search over each index pattern -- over the last review period: <code>error</code>, <code>failed</code>, <code>failure</code>, <code>deny</code>, <code>denied</code>, <code>blocked</code>, <code>invalid</code>, <code>expired</code>, <code>unable</code>, <code>unauthorized</code>, <code>bad</code>, <code>401</code>, <code>403</code>, <code>500</code>, <code>unknown</code>. Sample a few keywords you recently encountered during your work, e.g., <code>already installed</code> or <code>not found</code>; be creative and unpredictable.</li>
 <li>Vary the time point, the time interval, filters, etc.</li>
 <li>Go <em>wide</em>: For each query (index pattern, keyword, timepoint, time interval and filter combination), look at the timeline and see if there is an unexpected increase or decrease in the count of log lines. If you find any, focus your attention on those.</li>
@@ -2026,7 +2028,7 @@ a process for regularly testing, assessing and evaluating the effectiveness of t
 <p>Their is a <a href="https://elastisys.io/compliantkubernetes/ciso-guide/audit-logs/">dashboard</a> made to get a overview of the log landscape.</p>
 <h2 id="possible-resolutions">Possible resolutions<a class="headerlink" href="#possible-resolutions" title="Permanent link">&para;</a></h2>
 <ol>
-<li>If you found a suspecious activity, escalate.</li>
+<li>If you found a suspicious activity, escalate.</li>
 <li>If the log entry is due to a bug in Compliant Kubernetes, file an issue.</li>
 </ol>
 
