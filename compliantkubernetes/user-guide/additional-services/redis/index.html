@@ -2030,6 +2030,23 @@ kubectl<span class="w"> </span>config<span class="w"> </span>view<span class="w"
 Before going into production, don't forget to go through the <a href="../../go-live/">go-live checklist</a>.</p>
 <h2 id="ck8s-redis-release-notes">CK8S Redis Release Notes<a class="headerlink" href="#ck8s-redis-release-notes" title="Permanent link">&para;</a></h2>
 <p>Check out the <a href="../../../release-notes/redis/">release notes</a> for the Redis cluster that runs in Compliant Kubernetes environments!</p>
+<h2 id="best-practices-recommended">Best Practices Recommended<a class="headerlink" href="#best-practices-recommended" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Eviction Policy</strong>: Choose the <a href="https://redis.io/docs/reference/eviction/">eviction policy</a> that works for your application. The <code>default</code> eviction policy for our Managed Redis is <code>allkeys-lru</code>, which means any key can be evicted under memory pressure irrespective of whether the key is expired or not. It will keep the most recently used keys and remove the least recently used (LRU) key.</li>
+<li><strong>Set TTL</strong>: If possible, take the advantage of expiring keys, such as temporary OAuth authentication keys. When you set the key, set it with some expiration and Redis will clean up for you. Refer to <a href="https://redis.io/commands/ttl/">TTL</a></li>
+<li><strong>Avoid expensive or blocking operations</strong>: Since Redis command processing is single-threaded,  operations like the <a href="https://redis.io/commands/keys/">KEYS</a> command are expensive and should be avoided. You can avoid <code>KEYS</code> by using <a href="https://redis.io/commands/scan/">SCAN</a> to reduce CPU spikes.</li>
+<li><strong>Monitor memory usage</strong>: Monitor the usage in Grafana dashboard to ensure that you don't run out of memory and have the chance to scale your cache before seeing issues.</li>
+<li><strong>Manage idle connection</strong>: The number of connections to Redis increases if connections are not properly terminated. This can lead to bad performance. Therefore, we recommend to setting <code>timeout</code> which allows you to set the number of seconds before idle client connections are automatically terminated.
+The default <code>timeout</code> for our Managed Redis is set to <code>0</code>, which means the idle clients do not timeout and remain connected until the client issues the termination.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since this is a server setting it can not be set by the user itself but needs to be set by the administrators. Please send a support ticket with the values you would like to set.</p>
+</div>
+<ul>
+<li><strong>Cache-hit ratio</strong>: You should regularly monitor your <code>cache-hit</code> ratio so that you know what percentage of key lookups are successfully returned by keys in your Redis instance.
+<code>info stats</code> command provides <code>keyspace_hits</code> &amp; <code>keyspace_misses</code> metric data to further calculate cache hit ratio for a running Redis instance.</li>
+</ul>
 <h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://redis.io/topics/sentinel">Redis Sentinel</a></li>
