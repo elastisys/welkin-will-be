@@ -1988,9 +1988,9 @@ if(!document.__defineGetter__) {
 <div class="admonition danger">
 <p class="admonition-title">TL;DR: You <strong>cannot</strong> install:</p>
 <ul>
-<li>ClusterRoles, ClusterRoleBindings, Roles and RoleBindings</li>
+<li>ClusterRoles, ClusterRoleBindings</li>
+<li>Roles and RoleBindings that would <a href="https://elastisys.io/compliantkubernetes/architecture/">escalate your privileges</a></li>
 <li>CustomResourceDefinitions (CRDs)</li>
-<li>Roles and RoleBindings</li>
 <li>PodSecurityPolicies</li>
 <li>ValidatingWebhookConfiguration, MutatingWebhookConfiguration</li>
 </ul>
@@ -2019,7 +2019,7 @@ The mission of administrators is to make you, the Compliant Kubernetes user, suc
 <ul>
 <li>change the Kubernetes API through <a href="https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/">CustomResourceDefinitions</a> or <a href="https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/#admission-webhooks">Dynamic Webhooks</a>;</li>
 <li>gain more container execution permissions by mutating <a href="https://kubernetes.io/docs/concepts/policy/pod-security-policy/">PodSecurityPolicies</a>; this implies that you cannot run container images as root or mount <a href="https://kubernetes.io/docs/concepts/storage/volumes/#hostpath">hostPaths</a>;</li>
-<li>mutate ClusterRoles or Roles so as to <a href="https://v1-19.docs.kubernetes.io/docs/reference/access-authn-authz/rbac/#privilege-escalation-prevention-and-bootstrapping">escalate privileges</a>;</li>
+<li>mutate ClusterRoles or Roles so as to <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/#privilege-escalation-prevention-and-bootstrapping">escalate privileges</a>;</li>
 <li>mutate Kubernetes resources in administrator-owned namespaces, such as <code>monitoring</code> or <code>kube-system</code>;</li>
 <li>re-configure system Pods, such as Prometheus or fluentd;</li>
 <li>access the hosts directly.</li>
