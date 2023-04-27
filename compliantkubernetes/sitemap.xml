@@ -306,16 +306,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://elastisys.io/compliantkubernetes/operator-manual/aws/</loc>
-         <lastmod>2023-04-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://elastisys.io/compliantkubernetes/operator-manual/azure/</loc>
-         <lastmod>2023-04-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/break-glass/</loc>
          <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
@@ -366,22 +356,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://elastisys.io/compliantkubernetes/operator-manual/eksd/</loc>
-         <lastmod>2023-04-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://elastisys.io/compliantkubernetes/operator-manual/exoscale/</loc>
-         <lastmod>2023-04-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/faq/</loc>
-         <lastmod>2023-04-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://elastisys.io/compliantkubernetes/operator-manual/gcp/</loc>
          <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -406,27 +381,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://elastisys.io/compliantkubernetes/operator-manual/openstack/</loc>
-         <lastmod>2023-04-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://elastisys.io/compliantkubernetes/operator-manual/ovh-managed-kubernetes/</loc>
-         <lastmod>2023-04-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/provider-audit/</loc>
          <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/qa/</loc>
-         <lastmod>2023-04-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://elastisys.io/compliantkubernetes/operator-manual/safespring/</loc>
          <lastmod>2023-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
