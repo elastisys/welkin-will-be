@@ -221,6 +221,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://elastisys.io/compliantkubernetes/adr/0037-enforce-ttl-on-jobs/</loc>
+         <lastmod>2023-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0038-replace-starboard-operator-with-trivy-operator/</loc>
          <lastmod>2023-04-28</lastmod>
          <changefreq>daily</changefreq>
