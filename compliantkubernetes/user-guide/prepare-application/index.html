@@ -1999,7 +1999,7 @@ if(!document.__defineGetter__) {
 <li>A.12.6.1 Management of Technical Vulnerabilities</li>
 </ul>
 </div>
-<p>Compliant Kubernetes recommends <strong>against</strong> <a href="https://kubernetes.io/docs/tasks/run-application/configure-pdb/">PodDisruptionBudgets (PDBs)</a>. PDBs can easily be misconfigured to block draining Nodes, which interferes with automatic OS patching and compromises the security posture of the environment. Instead, prefer engineering your application to deal with disruptions. The user demo already showcases how to achieve this with replication and topologySpreadConstraints. Make sure to move state, even soft state, to <a href="/compliantkubernetes/user-guide/additional-services/">specialized services</a>.</p>
+<p>Compliant Kubernetes recommends <strong>against</strong> <a href="https://kubernetes.io/docs/tasks/run-application/configure-pdb/">PodDisruptionBudgets (PDBs)</a>. PDBs can easily be misconfigured to block draining Nodes, which interferes with automatic OS patching and compromises the security posture of the environment. Instead, prefer engineering your application to deal with disruptions. The user demo already showcases how to achieve this with replication and topologySpreadConstraints. Make sure to move state, even soft state, to <a href="../additional-services/">specialized services</a>.</p>
 <p>Further reading:</p>
 <ul>
 <li><a href="https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#dealing-with-disruptions">Dealing with Disruptions</a></li>

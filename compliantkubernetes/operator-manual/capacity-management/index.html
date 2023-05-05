@@ -1995,14 +1995,14 @@ Keeping the application secure means having sufficient capacity in the environme
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Compliant Kubernetes can be configured to <a href="/user-guide/safeguards/#avoid-downtime-with-resource-requests">require resource requests</a> for all Pods.</p>
+<p>Compliant Kubernetes can be configured to <a href="../../user-guide/safeguards/enforce-resources/">require resource requests</a> for all Pods.</p>
 </div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Nodes dedicated for data services, such as PostgreSQL, are excluded from Kubernetes requests to allocatable calculation.</p>
 </div>
 <h3 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h3>
-<p><a href="/operator-manual/troubleshooting/#node-seems-really-not-fine-i-want-a-new-one">Add a new Node</a> of the same type as the other Nodes in the cluster.</p>
+<p><a href="../troubleshooting/#node-seems-really-not-fine-i-want-a-new-one">Add a new Node</a> of the same type as the other Nodes in the cluster.</p>
 <p>If the cluster has 6 Nodes, consider consolidating to 3 Nodes of twice-the-size -- in number of CPUs or memory or both -- if the infrastructure cost is reduced.
 Before doing this, get in touch with application developers to ensure they don't have Kubernetes scheduling constraints that would cause issues on the consolidated environment.</p>
 <p>If you are about to double the number of Nodes, get in touch with application developers to ensure their application is not misbehaving, before upscaling.</p>

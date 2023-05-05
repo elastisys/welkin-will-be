@@ -1976,7 +1976,7 @@ if(!document.__defineGetter__) {
 
 
 <h1 id="audit-logs">Audit Logs<a class="headerlink" href="#audit-logs" title="Permanent link">&para;</a></h1>
-<p>To help comply with various data protection regulations, Compliant Kubernetes comes built-in with audit logs, which can be accessed via <a href="../../user-guide/logs">OpenSearch Dashboard</a>.</p>
+<p>To help comply with various data protection regulations, Compliant Kubernetes comes built-in with audit logs, which can be accessed via <a href="../../user-guide/logs/">OpenSearch Dashboard</a>.</p>
 <h2 id="what-are-audit-logs">What are audit logs?<a class="headerlink" href="#what-are-audit-logs" title="Permanent link">&para;</a></h2>
 <p>In brief, audit logs are lines answering "<strong>who</strong> did <strong>what</strong> and <strong>when</strong>?".</p>
 <h2 id="why-are-audit-logs-important">Why are audit logs important?<a class="headerlink" href="#why-are-audit-logs-important" title="Permanent link">&para;</a></h2>
@@ -2019,7 +2019,7 @@ The audit logs cover calls to the Kubernetes API, specifically <strong>who</stro
 <h2 id="audit-logs-for-additional-services">Audit Logs for Additional Services<a class="headerlink" href="#audit-logs-for-additional-services" title="Permanent link">&para;</a></h2>
 <p>The Kubernetes Audit Logs capture user access to additional services, i.e., <code>kubectl exec</code> or <code>kubectl port-forward</code> commands. Additional services usually do not have audit logging enabled, since that generates a lot of log entries. Too often the extra bandwidth, storage capacity, performance loss comes with little benefit to data security.</p>
 <p><strong>Prefer audit logs in your application to capture audit-worthy events</strong>, such as login, logout, patient record access, patient record change, etc. Resist the temptation to enable audit logging too "low" in the stack. Messages like "Redis client connected" are plenty and add little value to your data protection posture.</p>
-<p>Out of all additional services, audit logging for the <a href="/compliantkubernetes/user-guide/additional-services/postgresql">database</a> makes the most sense. It can be enabled via <a href="https://github.com/pgaudit/pgaudit/blob/master/README.md">pgaudit</a>. Make sure you discuss your auditing requirements with the service-specific administrator, to ensure you find the best risk-reduction-to-implementation-cost trade-off. Typically, you want to discuss:</p>
+<p>Out of all additional services, audit logging for the <a href="../../user-guide/additional-services/postgresql/">database</a> makes the most sense. It can be enabled via <a href="https://github.com/pgaudit/pgaudit/blob/master/README.md">pgaudit</a>. Make sure you discuss your auditing requirements with the service-specific administrator, to ensure you find the best risk-reduction-to-implementation-cost trade-off. Typically, you want to discuss:</p>
 <ul>
 <li>which databases and tables are audited: e.g., audit <code>app.users</code>, but not <code>app.emailsSent</code>;</li>
 <li>what operations are audited: e.g., audit <code>INSERT/UPDATE/DELETE</code>, but not <code>SELECT</code>;</li>

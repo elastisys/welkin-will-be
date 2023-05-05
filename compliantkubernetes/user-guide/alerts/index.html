@@ -1988,7 +1988,7 @@ kubectl<span class="w"> </span>patch<span class="w"> </span>-n<span class="w"> <
 <li>Open <a href="http://127.0.0.1:8001/api/v1/namespaces/alertmanager/services/alertmanager-operated:9093/proxy/">this link</a> in your browser.</li>
 </ol>
 <h2 id="configuring-alerts">Configuring alerts<a class="headerlink" href="#configuring-alerts" title="Permanent link">&para;</a></h2>
-<p>Before setting up an alert, you must first <a href="../metrics">collect metrics</a> from your application by setting up either ServiceMonitors or PodMonitors. In general ServiceMonitors are recommended over PodMonitors, and it is the most common way to configure metrics collection.</p>
+<p>Before setting up an alert, you must first <a href="../metrics/">collect metrics</a> from your application by setting up either ServiceMonitors or PodMonitors. In general ServiceMonitors are recommended over PodMonitors, and it is the most common way to configure metrics collection.</p>
 <p>Then create a <code>PrometheusRule</code> following the examples below or the upstream documentation with an expression that evaluates to the condition to alert on. Prometheus will pick them up, evaluate them, and then send notifications to AlertManager.</p>
 <p>The <a href="https://prometheus-operator.dev/docs/operator/api/#monitoring.coreos.com/v1.PrometheusRule">API reference for Prometheus Operator</a> describes how the Kubernetes resource is configured and the <a href="https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/">configuration reference for Prometheus</a> describes the rules themselves.</p>
 <p>In Compliant Kubernetes the Prometheus Operator in the workload cluster is configured to pick up all PrometheusRules, regardless in which namespace they are or which labels they have.</p>
@@ -2012,7 +2012,7 @@ kubectl<span class="w"> </span>patch<span class="w"> </span>-n<span class="w"> <
 <span class="p p-Indicator">{{</span><span class="nv">- end</span><span class="w"> </span><span class="p p-Indicator">}}</span>
 </code></pre></div>
 <p>The screenshot below gives an example of the application alert, as seen in AlertManager.</p>
-<p><img alt="Example of User Demo Alerts" src="/compliantkubernetes/img/user-demo-alerts.png" /></p>
+<p><img alt="Example of User Demo Alerts" src="../../img/user-demo-alerts.png" /></p>
 <!--user-demo-alerts-end-->
 
 <h3 id="detailed-example">Detailed example<a class="headerlink" href="#detailed-example" title="Permanent link">&para;</a></h3>

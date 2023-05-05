@@ -2099,14 +2099,14 @@ Correcting this issue will require re-indexing your data.
 <p>Second, ask your administrator to re-index the affected indices.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Re-indexing requires a lot of permissions, including creating and deleting indices, and changing Index templates. This may interfere with audit logs and <a href="/compliantkubernetes/user-guide/demarcation/">compromise platform security</a>. Therefore, to ensure platform security, re-indexing can only be performed by Compliant Kubernetes administrators.</p>
+<p>Re-indexing requires a lot of permissions, including creating and deleting indices, and changing Index templates. This may interfere with audit logs and <a href="../demarcation/">compromise platform security</a>. Therefore, to ensure platform security, re-indexing can only be performed by Compliant Kubernetes administrators.</p>
 </div>
 <h2 id="running-example">Running Example<a class="headerlink" href="#running-example" title="Permanent link">&para;</a></h2>
 <!--user-demo-logs-start-->
 
 <p>The user demo application already includes structured logging: For each HTTP request, it logs the URL, the user agent, etc. Compliant Kubernetes further adds the Pod name, Helm Chart name, Helm Release name, etc. to each log entry.</p>
 <p>The screenshot below gives an example of log entries produced by the user demo application. It was obtained by using the index pattern <code>kubernetes*</code> and the filter <code>kubernetes.labels.app_kubernetes_io/instance:myapp</code>.</p>
-<p><img alt="Example of User Demo Logs" src="/compliantkubernetes/img/user-demo-logs.jpeg" /></p>
+<p><img alt="Example of User Demo Logs" src="../../img/user-demo-logs.jpeg" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You may want to save frequently used searches as dashboards. Compliant Kubernetes saves and backs these up for you.</p>

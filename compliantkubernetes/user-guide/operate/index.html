@@ -1972,7 +1972,7 @@ if(!document.__defineGetter__) {
 <span class="p p-Indicator">{{</span><span class="nv">- end</span><span class="w"> </span><span class="p p-Indicator">}}</span>
 </code></pre></div>
 <p>The screenshot below shows Grafana in "Explore" mode (the compass icon to the left) featuring the query <code>rate(http_request_duration_seconds_count[1m])</code>. It shows the request rate for the user demo application for each path and status code. As can be seen in the graph, the <code>/users</code> endpoint is getting more traffic than the other endpoints.</p>
-<p><img alt="Example of User Demo Metrics" src="/compliantkubernetes/img/user-demo-metrics.jpeg" /></p>
+<p><img alt="Example of User Demo Metrics" src="../../img/user-demo-metrics.jpeg" /></p>
 <p>The "Explore" mode is great for developing queries and exploring the data set. If you want to save a query so you can refer back to it, you can create a Dashboard instead. Dashboards consist of multiple Panels, each of which, can display the results of running queries. Learn more <a href="https://grafana.com/docs/grafana/latest/panels/">about Grafana panels</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -2003,7 +2003,7 @@ if(!document.__defineGetter__) {
 <span class="p p-Indicator">{{</span><span class="nv">- end</span><span class="w"> </span><span class="p p-Indicator">}}</span>
 </code></pre></div>
 <p>The screenshot below gives an example of the application alert, as seen in AlertManager.</p>
-<p><img alt="Example of User Demo Alerts" src="/compliantkubernetes/img/user-demo-alerts.png" /></p>
+<p><img alt="Example of User Demo Alerts" src="../../img/user-demo-alerts.png" /></p>
 <p>Go deeper into <a href="../alerts/">metric alerts</a>.</p>
 <h3 id="alert-on-log-contents">Alert on Log Contents<a class="headerlink" href="#alert-on-log-contents" title="Permanent link">&para;</a></h3>
 <p>Similar to alerting based on monitoring metrics, you may need to alert based on application log contents. For instance, it might make sense to send any log line of the <code>FATAL</code> log level to your Slack channel for immediate attention.</p>

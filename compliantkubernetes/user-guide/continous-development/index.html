@@ -1975,9 +1975,9 @@ sudo<span class="w"> </span>install<span class="w"> </span>skaffold<span class="
 Skaffold finds you will be prompted to specify how to build them, or if they are not built by the current project.</p>
 <p>The first image Skaffold finds is busybox, however this image is not built from this project, so choose
 <code>None (image not built from these sources)</code></p>
-<p><img alt="Skaffold init Output1" src="/compliantkubernetes/user-guide/img/skaffold-busybox.png" /></p>
+<p><img alt="Skaffold init Output1" src="../img/skaffold-busybox.png" /></p>
 <p>The second image Skaffold finds is the user-demo image and this image is built from the Dockerfile.</p>
-<p><img alt="Skaffold init Output2" src="/compliantkubernetes/user-guide/img/skaffold-user-demo.png" /></p>
+<p><img alt="Skaffold init Output2" src="../img/skaffold-user-demo.png" /></p>
 <p>Skaffold then asks for which resources we want to create Kubernetes resources, but as the image already has a Helm Chart
 this can be skipped by pressing enter.</p>
 <p>Skaffold will then create the <code>skaffold.yaml</code> file containing our configuration. Skaffold will also automatically detect the
@@ -2018,7 +2018,7 @@ to the local workstation:</p>
 <h3 id="application-updates">Application updates<a class="headerlink" href="#application-updates" title="Permanent link">&para;</a></h3>
 <p>When the application has been built and deployed to the cluster Skaffold shows which URL to access,
 shows the logs of the application, and starts listening for changes in the source-files.</p>
-<p><img alt="Skaffold Output1" src="/compliantkubernetes/user-guide/img/skaffold-output1.png" /></p>
+<p><img alt="Skaffold Output1" src="../img/skaffold-output1.png" /></p>
 <p>When visiting the URL to the application or the portforwarded URL the following output can be seen:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;hostname&quot;</span><span class="p">:</span><span class="s2">&quot;ck8s-user-demo-dd9c58979-rm9rv&quot;</span><span class="p">,</span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="s2">&quot;0.0.1&quot;</span><span class="p">}</span>
 </code></pre></div>

@@ -2061,7 +2061,7 @@ kubectl<span class="w"> </span>patch<span class="w"> </span>serviceaccount<span 
 <h2 id="view-application-logs">View Application Logs<a class="headerlink" href="#view-application-logs" title="Permanent link">&para;</a></h2>
 <p>The user demo application already includes structured logging: For each HTTP request, it logs the URL, the user agent, etc. Compliant Kubernetes further adds the Pod name, Helm Chart name, Helm Release name, etc. to each log entry.</p>
 <p>The screenshot below gives an example of log entries produced by the user demo application. It was obtained by using the index pattern <code>kubernetes*</code> and the filter <code>kubernetes.labels.app_kubernetes_io/instance:myapp</code>.</p>
-<p><img alt="Example of User Demo Logs" src="/compliantkubernetes/img/user-demo-logs.jpeg" /></p>
+<p><img alt="Example of User Demo Logs" src="../../img/user-demo-logs.jpeg" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You may want to save frequently used searches as dashboards. Compliant Kubernetes saves and backs these up for you.</p>
