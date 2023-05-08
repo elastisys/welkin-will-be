@@ -12,20 +12,20 @@
         <meta name="author" content="Elastisys AB">
       
       
-        <link rel="canonical" href="https://elastisys.io/compliantkubernetes/user-guide/additional-services/redis/">
+        <link rel="canonical" href="https://elastisys.io/compliantkubernetes/user-guide/additional-services/ferretdb/">
       
       
-        <link rel="prev" href="../timescaledb/">
+        <link rel="prev" href="../argocd/">
       
       
-        <link rel="next" href="../rabbitmq/">
+        <link rel="next" href="../../go-live/">
       
       <link rel="icon" href="../../../img/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.9">
     
     
       
-        <title>Redis - Elastisys Compliant Kubernetes</title>
+        <title>FerretDB (self-service) - Elastisys Compliant Kubernetes</title>
       
     
     
@@ -147,7 +147,7 @@ if(!document.__defineGetter__) {
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Redis
+              FerretDB (self-service)
             
           </span>
         </div>
@@ -869,19 +869,11 @@ if(!document.__defineGetter__) {
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../redis/" class="md-nav__link">
         Redis
       </a>
-      
     </li>
   
 
@@ -933,11 +925,19 @@ if(!document.__defineGetter__) {
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../ferretdb/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         FerretDB (self-service)
       </a>
+      
     </li>
   
 
@@ -1960,133 +1960,243 @@ if(!document.__defineGetter__) {
   
 
 
-<h1 id="redistm">Redis™<a class="headerlink" href="#redistm" title="Permanent link">&para;</a></h1>
-<p><img alt="Redis Deployment Model" src="../img/redis.drawio.svg" /></p>
-<p>This page will help you succeed in connecting your application to a low-latency in-memory cache Redis which meets your security and compliance requirements.</p>
-<h2 id="provision-a-new-redis-cluster">Provision a New Redis Cluster<a class="headerlink" href="#provision-a-new-redis-cluster" title="Permanent link">&para;</a></h2>
-<p>Ask your service-specific administrator to install a Redis cluster inside your Compliant Kubernetes environment. The service-specific administrator will ensure the Redis cluster complies with your security requirements, including:</p>
+<h1 id="ferretdb-self-service">FerretDB (self-service)<a class="headerlink" href="#ferretdb-self-service" title="Permanent link">&para;</a></h1>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>FerretDB tries to be a drop-in replacement for MongoDB. However:</p>
 <ul>
-<li><strong>Business continuity</strong>: We recommend a highly available setup with at minimum three instances. The Redis client library that you use in your application needs to support <a href="https://redis.io/topics/sentinel">Redis Sentinel</a>. Notice that clients with Sentinel support need <a href="https://redis.io/topics/sentinel-clients">extra steps to discover the Redis primary</a>.</li>
-<li><strong>Capacity management</strong>: Your service-specific administrator will ensure Redis has enough capacity to meet your needs.</li>
-<li><strong>Incident management</strong>: Your administrator will set up the necessary Probes, dashboards and alerts, to discover issues and resolve them, before they become a problem.</li>
+<li>There are <a href="https://docs.ferretdb.io/diff/">known differences</a>.</li>
+<li>There might also be performance implications.</li>
 </ul>
-<div class="admonition important">
-<p class="admonition-title">Important: Improve Access Control with NetworkPolicies</p>
-<p>Please note the follow information about <a href="https://redis.io/topics/security">Redis access control</a> from the upstream documentation:</p>
-<blockquote>
-<p>Redis is designed to be accessed by trusted clients inside trusted environments.</p>
-</blockquote>
-<p>For improved security, discuss with your service-specific administrator what Pods and/or Namespaces need access to the Redis cluster. They can then set up the necessary <a href="../../safeguards/enforce-networkpolicies/">NetworkPolicies</a>.</p>
+<p>Make sure to load-test your application with FerretDB before going into production.</p>
 </div>
-<div class="admonition important">
-<p class="admonition-title">Important: No Disaster Recovery</p>
-<p>We do not recommend using Redis as primary database. Redis should be used to store:</p>
-<ul>
-<li>Cached data: If this is lost, this data can be quickly retrieved from the primary database, such as the PostgreSQL cluster.</li>
-<li>Session state: If this is lost, the user experience might be impacted -- e.g., the user needs to re-login -- but no data should be lost.</li>
-</ul>
-</div>
-<p>Compliant Kubernetes recommends the <a href="https://github.com/spotahome/redis-operator">Spotahome operator</a>.</p>
-<h2 id="install-prerequisites">Install Prerequisites<a class="headerlink" href="#install-prerequisites" title="Permanent link">&para;</a></h2>
-<p>Before continuing, make sure you have access to the Kubernetes API, as describe <a href="../../setup/">here</a>.</p>
-<p>Make sure to install the Redis client on your workstation. On Ubuntu, this can be achieved as follows:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>redis-tools
+<p><a href="https://www.ferretdb.io/">FerretDB</a> is a database that is an open-source alternative to MongoDB that uses Postgres as its backend database. This documentation details how to run FerretDB in a Compliant Kubernetes cluster using the managed <a href="../postgresql/">Postgres service</a>.</p>
+<h2 id="pushing-ferretdb-image-to-harbor">Pushing FerretDB image to Harbor<a class="headerlink" href="#pushing-ferretdb-image-to-harbor" title="Permanent link">&para;</a></h2>
+<p>These instructions will pull the FerretDB container image and push it to another registry. If you are using managed Harbor as your container registry, please follow <a href="../../deploy/">these instructions</a> on how to authenticate, create a new project, and how to create a robot account and using it in a pull-secret to be able to pull an image from Harbor to your cluster safely:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">TAG</span><span class="o">=</span><span class="m">1</span>.0.0
+<span class="nv">REGISTRY</span><span class="o">=</span>harbor.<span class="nv">$DOMAIN</span>
+<span class="nv">REGISTRY_PROJECT</span><span class="o">=</span>demo
+
+docker<span class="w"> </span>pull<span class="w"> </span>ghcr.io/ferretdb/ferretdb:<span class="nv">$TAG</span>
+docker<span class="w"> </span>tag<span class="w"> </span>ghcr.io/ferretdb/ferretdb:<span class="nv">$TAG</span><span class="w"> </span><span class="nv">$REGISTRY</span>/<span class="nv">$REGISTRY_PROJECT</span>/ferretdb:<span class="nv">$TAG</span>
+docker<span class="w"> </span>push<span class="w"> </span><span class="nv">$REGISTRY</span>/<span class="nv">$REGISTRY_PROJECT</span>/ferretdb:<span class="nv">$TAG</span>
 </code></pre></div>
-<h2 id="getting-access">Getting Access<a class="headerlink" href="#getting-access" title="Permanent link">&para;</a></h2>
-<p>Your administrator will set up a ConfigMap inside Compliant Kubernetes, which contains all information you need to access your Redis cluster.
-The ConfigMap has the following shape:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
+<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
+<p>In a managed CK8s environment, follow <a href="../postgresql/#getting-access">these instructions</a> on how to access the managed postgres service and how to create an application user and database.</p>
+<p>Create secret containing a postgres url to authenticate to the managed postgres service and newly created database with the application user credentials:
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>--from-literal<span class="o">=</span>ferretdb-url<span class="o">=</span><span class="s2">&quot;postgresql://</span><span class="nv">$APP_USERNAME</span><span class="s2">:</span><span class="nv">$APP_PASSWORD</span><span class="s2">@</span><span class="nv">$PGHOST</span><span class="s2">:</span><span class="nv">$PGPORT</span><span class="s2">/</span><span class="nv">$APP_DATABASE</span><span class="s2">&quot;</span><span class="w"> </span>ferretdb-postgres-credentials
+</code></pre></div></p>
+<p>Deploy:
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
 <span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$CONFIG_MAP</span>
-<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$NAMESPACE</span>
-<span class="nt">data</span><span class="p">:</span>
-<span class="w">  </span><span class="c1"># REDIS_SENTINEL_HOST represents a cluster-scoped Redis Sentinel host, which only makes sense inside the Kubernetes cluster.</span>
-<span class="w">  </span><span class="c1"># E.g., rfs-redis-cluster.redis-system</span>
-<span class="w">  </span><span class="nt">REDIS_SENTINEL_HOST</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$REDIS_SENTINEL_HOST</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ferretdb</span>
+<span class="w">  </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ferretdb</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ferretdb</span>
+<span class="w">  </span><span class="nt">template</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">metadata</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ferretdb</span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ferretdb</span>
+<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$REGISTRY/$REGISTRY_PROJECT/ferretdb:$TAG</span><span class="w"> </span><span class="c1"># replace this</span>
+<span class="w">        </span><span class="nt">args</span><span class="p">:</span>
+<span class="w">         </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--listen-addr=0.0.0.0:27017</span>
+<span class="w">         </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--telemetry=disable</span>
+<span class="w">         </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--postgresql-url=$(FERRETDB_URL)</span>
+<span class="w">        </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FERRETDB_URL</span>
+<span class="w">          </span><span class="nt">valueFrom</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">secretKeyRef</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ferretdb-postgres-credentials</span>
+<span class="w">              </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ferretdb-url</span>
+<span class="w">        </span><span class="nt">securityContext</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">capabilities</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">drop</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ALL</span>
+<span class="w">          </span><span class="nt">runAsNonRoot</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">          </span><span class="nt">runAsUser</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1001</span>
+<span class="w">        </span><span class="nt">volumeMounts</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/state</span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">state</span>
+<span class="w">      </span><span class="nt">securityContext</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">fsGroup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1001</span>
+<span class="w">      </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">state</span>
+<span class="w">        </span><span class="nt">emptyDir</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<span class="nn">---</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ferretdb-service</span>
+<span class="w">  </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ferretdb</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClusterIP</span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+<span class="w">   </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ferretdb</span>
+<span class="w">  </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+<span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">27017</span>
+<span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">27017</span>
+</code></pre></div></p>
+<p>Check that FerretDB started properly:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>get<span class="w"> </span>svc,deploy,pod<span class="w"> </span>-l<span class="w"> </span><span class="nv">run</span><span class="o">=</span>ferretdb
+<span class="go">NAME                       TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)     AGE</span>
+<span class="go">service/ferretdb-service   ClusterIP   10.233.42.102   &lt;none&gt;        27017/TCP   75s</span>
 
-<span class="w">  </span><span class="c1"># REDIS_SENTINEL_PORT represents a cluster-scoped Redis Sentinel port, which only makes sense inside the Kubernetes cluster.</span>
-<span class="w">  </span><span class="c1"># E.g., 26379</span>
-<span class="w">  </span><span class="nt">REDIS_SENTINEL_PORT</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;$REDIS_SENTINEL_PORT&quot;</span>
-</code></pre></div>
-<p>To extract this information, proceed as follows:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CONFIG_MAP</span><span class="o">=</span><span class="w">            </span><span class="c1"># Get this from your administrator</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">NAMESPACE</span><span class="o">=</span><span class="w">         </span><span class="c1"># Get this from your administrator</span>
+<span class="go">NAME                       READY   UP-TO-DATE   AVAILABLE   AGE</span>
+<span class="go">deployment.apps/ferretdb   1/1     1            1           75s</span>
 
-<span class="nb">export</span><span class="w"> </span><span class="nv">REDIS_SENTINEL_HOST</span><span class="o">=</span><span class="k">$(</span>kubectl<span class="w"> </span>-n<span class="w"> </span><span class="nv">$NAMESPACE</span><span class="w"> </span>get<span class="w"> </span>configmap<span class="w"> </span><span class="nv">$CONFIG_MAP</span><span class="w"> </span>-o<span class="w"> </span><span class="s1">&#39;jsonpath={.data.REDIS_SENTINEL_HOST}&#39;</span><span class="k">)</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">REDIS_SENTINEL_PORT</span><span class="o">=</span><span class="k">$(</span>kubectl<span class="w"> </span>-n<span class="w"> </span><span class="nv">$NAMESPACE</span><span class="w"> </span>get<span class="w"> </span>configmap<span class="w"> </span><span class="nv">$CONFIG_MAP</span><span class="w"> </span>-o<span class="w"> </span><span class="s1">&#39;jsonpath={.data.REDIS_SENTINEL_PORT}&#39;</span><span class="k">)</span>
+<span class="go">NAME                            READY   STATUS    RESTARTS   AGE</span>
+<span class="go">pod/ferretdb-5887cc848c-brwjf   1/1     Running   0          75s</span>
 </code></pre></div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>At the time of this writing, we do not recommend to use a Redis cluster in a multi-tenant fashion. One Redis cluster should have only one purpose.</p>
-</div>
-<h2 id="create-a-configmap">Create a ConfigMap<a class="headerlink" href="#create-a-configmap" title="Permanent link">&para;</a></h2>
-<p>First, check that you are on the right Compliant Kubernetes cluster, in the right <strong>application</strong> namespace:</p>
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>nodes
-kubectl<span class="w"> </span>config<span class="w"> </span>view<span class="w"> </span>--minify<span class="w"> </span>--output<span class="w"> </span><span class="s1">&#39;jsonpath={..namespace}&#39;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span>
+<p>The Deployment should show <code>STATUS</code> is <code>Running</code>. The Pod(s) should have <code>STATUS</code> is <code>Running</code>.</p>
+<p>To try out access to FerretDB, you can port-forward the Service to localhost and connect using mongosh:
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>port-forward<span class="w"> </span>svc/ferretdb-service<span class="w"> </span><span class="m">27017</span>
+
+mongosh<span class="w"> </span>mongodb://localhost:27017
+</code></pre></div></p>
+<h2 id="python-client-example">Python client example<a class="headerlink" href="#python-client-example" title="Permanent link">&para;</a></h2>
+<p>The following is an example of how to connect to FerretDB using the <a href="https://pymongo.readthedocs.io/en/stable/">PyMongo</a> Python library (using the localhost port-forwarding described above).</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pymongo</span> <span class="kn">import</span> <span class="n">MongoClient</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="s1">&#39;mongodb://localhost:27017&#39;</span><span class="p">)</span>
+
+<span class="c1"># List all databases</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">list_database_names</span><span class="p">())</span>
+
+<span class="c1"># List collections in the database &quot;mongodb&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="p">[</span><span class="s1">&#39;mongodb&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">list_collection_names</span><span class="p">())</span>
+
+<span class="c1"># Create db and insert element into a collection</span>
+<span class="n">database</span>   <span class="o">=</span> <span class="n">client</span><span class="p">[</span><span class="s1">&#39;test_db&#39;</span><span class="p">]</span>
+<span class="n">collection</span> <span class="o">=</span> <span class="n">database</span><span class="p">[</span><span class="s1">&#39;customers&#39;</span><span class="p">]</span>
+
+<span class="n">mydict</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span> <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;Highway 38&quot;</span> <span class="p">}</span>
+
+<span class="n">collection</span><span class="o">.</span><span class="n">insert_one</span><span class="p">(</span><span class="n">mydict</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">collection</span><span class="o">.</span><span class="n">find_one</span><span class="p">())</span>
 </code></pre></div>
-<p>Now, create a Kubernetes ConfigMap in your application namespace to store the Redis Sentinel connection parameters:</p>
-<div class="highlight"><pre><span></span><code>cat<span class="w"> </span><span class="s">&lt;&lt;EOF | kubectl apply -f -</span>
-<span class="s">apiVersion: v1</span>
-<span class="s">kind: ConfigMap</span>
-<span class="s">metadata:</span>
-<span class="s">    name: app-redis-config</span>
-<span class="s">data:</span>
-<span class="s">    REDIS_SENTINEL_HOST: $REDIS_SENTINEL_HOST</span>
-<span class="s">    REDIS_SENTINEL_PORT: &quot;$REDIS_SENTINEL_PORT&quot;</span>
-<span class="s">EOF</span>
+<p>See the following <code>pg_dump</code> below to see how the example above is mapped in the actual backend Postgres database.</p>
+<details>
+<summary>pg_dump</summary>
+
+<div class="highlight"><pre><span></span><code><span class="c1">--</span>
+<span class="c1">-- PostgreSQL database dump</span>
+<span class="c1">--</span>
+
+<span class="c1">-- Dumped from database version 14.6 (Ubuntu 14.6-1.pgdg22.04+1)</span>
+<span class="c1">-- Dumped by pg_dump version 15.1 (Ubuntu 15.1-1.pgdg22.04+1)</span>
+
+<span class="k">SET</span><span class="w"> </span><span class="n">statement_timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">SET</span><span class="w"> </span><span class="n">lock_timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">SET</span><span class="w"> </span><span class="n">idle_in_transaction_session_timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">SET</span><span class="w"> </span><span class="n">client_encoding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;UTF8&#39;</span><span class="p">;</span>
+<span class="k">SET</span><span class="w"> </span><span class="n">standard_conforming_strings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">on</span><span class="p">;</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">pg_catalog</span><span class="p">.</span><span class="n">set_config</span><span class="p">(</span><span class="s1">&#39;search_path&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">false</span><span class="p">);</span>
+<span class="k">SET</span><span class="w"> </span><span class="n">check_function_bodies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<span class="k">SET</span><span class="w"> </span><span class="n">xmloption</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
+<span class="k">SET</span><span class="w"> </span><span class="n">client_min_messages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">warning</span><span class="p">;</span>
+<span class="k">SET</span><span class="w"> </span><span class="n">row_security</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">off</span><span class="p">;</span>
+
+<span class="c1">--</span>
+<span class="c1">-- Name: test_db; Type: SCHEMA; Schema: -; Owner: ferretdb</span>
+<span class="c1">--</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">SCHEMA</span><span class="w"> </span><span class="n">test_db</span><span class="p">;</span>
+
+
+<span class="k">ALTER</span><span class="w"> </span><span class="k">SCHEMA</span><span class="w"> </span><span class="n">test_db</span><span class="w"> </span><span class="k">OWNER</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">ferretdb</span><span class="p">;</span>
+
+<span class="k">SET</span><span class="w"> </span><span class="n">default_tablespace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span>
+
+<span class="k">SET</span><span class="w"> </span><span class="n">default_table_access_method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">heap</span><span class="p">;</span>
+
+<span class="c1">--</span>
+<span class="c1">-- Name: _ferretdb_database_metadata; Type: TABLE; Schema: test_db; Owner: ferretdb</span>
+<span class="c1">--</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">test_db</span><span class="p">.</span><span class="n">_ferretdb_database_metadata</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">_jsonb</span><span class="w"> </span><span class="n">jsonb</span>
+<span class="p">);</span>
+
+
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">test_db</span><span class="p">.</span><span class="n">_ferretdb_database_metadata</span><span class="w"> </span><span class="k">OWNER</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">ferretdb</span><span class="p">;</span>
+
+<span class="c1">--</span>
+<span class="c1">-- Name: customers_c09344de; Type: TABLE; Schema: test_db; Owner: ferretdb</span>
+<span class="c1">--</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">test_db</span><span class="p">.</span><span class="n">customers_c09344de</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">_jsonb</span><span class="w"> </span><span class="n">jsonb</span>
+<span class="p">);</span>
+
+
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">test_db</span><span class="p">.</span><span class="n">customers_c09344de</span><span class="w"> </span><span class="k">OWNER</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">ferretdb</span><span class="p">;</span>
+
+<span class="c1">--</span>
+<span class="c1">-- Data for Name: _ferretdb_database_metadata; Type: TABLE DATA; Schema: test_db; Owner: ferretdb</span>
+<span class="c1">--</span>
+
+<span class="k">COPY</span><span class="w"> </span><span class="n">test_db</span><span class="p">.</span><span class="n">_ferretdb_database_metadata</span><span class="w"> </span><span class="p">(</span><span class="n">_jsonb</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">stdin</span><span class="p">;</span>
+<span class="err">{</span><span class="ss">&quot;$s&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;p&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;t&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;string&quot;</span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;table&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;t&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;string&quot;</span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;indexes&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;i&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">{</span><span class="ss">&quot;t&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;object&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;$s&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;p&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;t&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;object&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;$s&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;p&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;t&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;int&quot;</span><span class="err">}}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;$k&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="ss">&quot;_id&quot;</span><span class="p">]</span><span class="err">}}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;t&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;string&quot;</span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;unique&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;t&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;bool&quot;</span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;pgindex&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;t&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;string&quot;</span><span class="err">}}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;$k&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="ss">&quot;pgindex&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;key&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;unique&quot;</span><span class="p">]</span><span class="err">}}</span><span class="p">],</span><span class="w"> </span><span class="ss">&quot;t&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;array&quot;</span><span class="err">}}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;$k&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="ss">&quot;_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;table&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;indexes&quot;</span><span class="p">]</span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;customers&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;table&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;customers_c09344de&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;indexes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">{</span><span class="ss">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;_id_&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;unique&quot;</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;pgindex&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;customers__id__e06693c2_idx&quot;</span><span class="err">}</span><span class="p">]</span><span class="err">}</span>
+<span class="err">\</span><span class="p">.</span>
+
+
+<span class="c1">--</span>
+<span class="c1">-- Data for Name: customers_c09344de; Type: TABLE DATA; Schema: test_db; Owner: ferretdb</span>
+<span class="c1">--</span>
+
+<span class="k">COPY</span><span class="w"> </span><span class="n">test_db</span><span class="p">.</span><span class="n">customers_c09344de</span><span class="w"> </span><span class="p">(</span><span class="n">_jsonb</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">stdin</span><span class="p">;</span>
+<span class="err">{</span><span class="ss">&quot;$s&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;p&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;t&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;objectId&quot;</span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;t&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;string&quot;</span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;t&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;string&quot;</span><span class="err">}}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;$k&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="ss">&quot;_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;address&quot;</span><span class="p">]</span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;6454cd232da4567e5cd31f39&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;John&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;Highway 37&quot;</span><span class="err">}</span>
+<span class="err">\</span><span class="p">.</span>
+
+
+<span class="c1">--</span>
+<span class="c1">-- Name: _ferretdb_database_metadata_id_idx; Type: INDEX; Schema: test_db; Owner: ferretdb</span>
+<span class="c1">--</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">_ferretdb_database_metadata_id_idx</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">test_db</span><span class="p">.</span><span class="n">_ferretdb_database_metadata</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">btree</span><span class="w"> </span><span class="p">(((</span><span class="n">_jsonb</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s1">&#39;_id&#39;</span><span class="p">::</span><span class="nb">text</span><span class="p">)));</span>
+
+
+<span class="c1">--</span>
+<span class="c1">-- Name: customers__id__e06693c2_idx; Type: INDEX; Schema: test_db; Owner: ferretdb</span>
+<span class="c1">--</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">customers__id__e06693c2_idx</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">test_db</span><span class="p">.</span><span class="n">customers_c09344de</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">btree</span><span class="w"> </span><span class="p">(((</span><span class="n">_jsonb</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s1">&#39;_id&#39;</span><span class="p">::</span><span class="nb">text</span><span class="p">)));</span>
+
+
+<span class="c1">--</span>
+<span class="c1">-- PostgreSQL database dump complete</span>
+<span class="c1">--</span>
 </code></pre></div>
-<h2 id="expose-redis-connection-parameters-to-your-application">Expose Redis Connection Parameters to Your Application<a class="headerlink" href="#expose-redis-connection-parameters-to-your-application" title="Permanent link">&para;</a></h2>
-<p>To expose the Redis cluster to your application, follow one of the following upstream documentation:</p>
+</details>
+
+<h2 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h2>
+<p>FerretDB supports securing connections between FerretDB and client with TLS. All you need is to specify additional run-time arguments or environment variables, as described in the <a href="https://docs.ferretdb.io/security/">FerretDB documentation</a>.</p>
+<h2 id="known-issues-limitations">Known Issues / Limitations<a class="headerlink" href="#known-issues-limitations" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://kubernetes.io/docs/concepts/configuration/configmap/#using-configmaps-as-files-from-a-pod">Create a Pod that has access to the ConfigMap data through a Volume</a></li>
-<li><a href="https://kubernetes.io/docs/concepts/configuration/configmap/#configmaps-and-pods">Define container environment variables using ConfigMap data</a></li>
+<li>FerretDB currently does not support user management.</li>
+<li>FerretDB currently does not support role management.</li>
+<li>FerretDB currently does not allow for optimizations or tweaks to the underlying PostgreSQL schema that is used by FerretDB as it translates MongoDB collections to PostgreSQL tables.</li>
 </ul>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Make sure to use a Redis client library with Sentinel support. For example:</p>
-<ul>
-<li><a href="https://github.com/danigosa/django-redis-sentinel-redux#how-to-use-it">Django-Redis Client that supports Sentinel Cluster HA</a>
-    If the linked code example doesn't work, try <code>LOCATION: redis://mymaster/db</code>.</li>
-</ul>
-<p>If your library doesn't support sentinel you could use this project - <a href="https://github.com/anubhavmishra/redis-sentinel-proxy">Redis sentinel proxy</a>
-    Note that the default configuration in this repository will not ensure HA for redis.
-    For this you'll either need to use multiple replicas or use it as a sidecar for your applications.</p>
-</div>
-<h2 id="follow-the-go-live-checklist">Follow the Go-Live Checklist<a class="headerlink" href="#follow-the-go-live-checklist" title="Permanent link">&para;</a></h2>
-<p>You should be all set.
-Before going into production, don't forget to go through the <a href="../../go-live/">go-live checklist</a>.</p>
-<h2 id="ck8s-redis-release-notes">CK8S Redis Release Notes<a class="headerlink" href="#ck8s-redis-release-notes" title="Permanent link">&para;</a></h2>
-<p>Check out the <a href="../../../release-notes/redis/">release notes</a> for the Redis cluster that runs in Compliant Kubernetes environments!</p>
-<h2 id="best-practices-recommended">Best Practices Recommended<a class="headerlink" href="#best-practices-recommended" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Eviction Policy</strong>: Choose the <a href="https://redis.io/docs/reference/eviction/">eviction policy</a> that works for your application. The <code>default</code> eviction policy for our Managed Redis is <code>allkeys-lru</code>, which means any key can be evicted under memory pressure irrespective of whether the key is expired or not. It will keep the most recently used keys and remove the least recently used (LRU) key.</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Since this is a server setting, it cannot be set by the user itself, but needs to be set by the administrators. Please send a support ticket with the values you would like to set.</p>
-</div>
-<ul>
-<li><strong>Set TTL</strong>: If possible, take the advantage of expiring keys, such as temporary OAuth authentication keys. When you set the key, set it with some expiration and Redis will clean up for you. Refer to <a href="https://redis.io/commands/ttl/">TTL</a></li>
-<li><strong>Avoid expensive or blocking operations</strong>: Since Redis command processing is single-threaded,  operations like the <a href="https://redis.io/commands/keys/">KEYS</a> command are expensive and should be avoided. You can avoid <code>KEYS</code> by using <a href="https://redis.io/commands/scan/">SCAN</a> to reduce CPU spikes.</li>
-<li><strong>Monitor memory usage</strong>: Monitor the usage in Grafana dashboard to ensure that you don't run out of memory and have the chance to scale your cache before seeing issues.</li>
-<li><strong>Manage idle connection</strong>: The number of connections to Redis increases if connections are not properly terminated. This can lead to bad performance. Therefore, we recommend to setting <code>timeout</code> which allows you to set the number of seconds before idle client connections are automatically terminated.
-The default <code>timeout</code> for our Managed Redis is set to <code>0</code>, which means the idle clients do not timeout and remain connected until the client issues the termination.</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Since this is a server setting, it cannot be set by the user itself, but needs to be set by the administrators. Please send a support ticket with the values you would like to set.</p>
-</div>
-<ul>
-<li><strong>Cache-hit ratio</strong>: You should regularly monitor your <code>cache-hit</code> ratio so that you know what percentage of key lookups are successfully returned by keys in your Redis instance.
-<code>info stats</code> command provides <code>keyspace_hits</code> &amp; <code>keyspace_misses</code> metric data to further calculate cache hit ratio for a running Redis instance.</li>
-</ul>
+<blockquote>
+<p><strong>Note</strong> <br/>
+As of May 2023, the project was recently released to its first major version (v1.0.0) and is constantly being developed and improved, hence, these issues may have already been solved depending on when you are reading this. Check <a href="https://docs.ferretdb.io/reference/supported-commands/">supported commands</a> for FerretDB to see what is currently available.</p>
+</blockquote>
 <h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://redis.io/topics/sentinel">Redis Sentinel</a></li>
-<li><a href="https://redis.io/topics/sentinel-clients">Guidelines for Redis clients with support for Redis Sentinel</a></li>
-<li><a href="https://redis.io/commands">Redis Commands</a></li>
-<li><a href="https://kubernetes.io/docs/concepts/configuration/configmap">Kubernetes ConfigMap</a></li>
+<li><a href="https://github.com/FerretDB/FerretDB">FerretDB GitHub</a></li>
+<li><a href="https://docs.ferretdb.io/">FerretDB documentation</a></li>
+<li><a href="https://docs.ferretdb.io/reference/supported-commands/">FerretDB supported commands</a></li>
+<li><a href="https://www.mongodb.com/docs/mongodb-shell/">MongoDB Shell (mongosh)</a></li>
 </ul>
 
 
