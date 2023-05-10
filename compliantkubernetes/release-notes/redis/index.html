@@ -1962,6 +1962,7 @@ if(!document.__defineGetter__) {
 <h2 id="compliant-kubernetes-redis">Compliant Kubernetes Redis<a class="headerlink" href="#compliant-kubernetes-redis" title="Permanent link">&para;</a></h2>
 <!-- BEGIN TOC -->
 <ul>
+<li><a href="#v626-ck8s1">v6.2.6-ck8s1</a> - 2023-05-10</li>
 <li><a href="#v111-ck8s4">v1.1.1-ck8s4</a> - 2022-12-09</li>
 <li><a href="#v111-ck8s3">v1.1.1-ck8s3</a> - 2022-10-04</li>
 <li><a href="#v111-ck8s2">v1.1.1-ck8s2</a> - 2022-08-23</li>
@@ -1974,6 +1975,22 @@ if(!document.__defineGetter__) {
 <p class="admonition-title">Note</p>
 <p>These are only the user-facing changes.</p>
 </div>
+<h3 id="v626-ck8s1">v6.2.6-ck8s1<a class="headerlink" href="#v626-ck8s1" title="Permanent link">&para;</a></h3>
+<p>Released 2023-05-10</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>From this release the version tracks the Redis version rather than the Redis operator version.</p>
+</div>
+<p>Changes:</p>
+<ul>
+<li>Changed to standard timezone in grafana dashboard</li>
+<li>Upgraded the redis-operator to <code>v1.2.4</code> and Chart version to <code>v3.2.8</code></li>
+</ul>
+<p>Added:</p>
+<ul>
+<li>Added RBAC for users to be able to port-forward to redis</li>
+<li>Added nodeAffinity for the label <code>elastisys.io/ams-cluster-name</code> which will be set for each cluster in <code>values.yaml</code></li>
+</ul>
 <h3 id="v111-ck8s4">v1.1.1-ck8s4<a class="headerlink" href="#v111-ck8s4" title="Permanent link">&para;</a></h3>
 <p>Released 2022-12-09</p>
 <p>Changes:</p>
