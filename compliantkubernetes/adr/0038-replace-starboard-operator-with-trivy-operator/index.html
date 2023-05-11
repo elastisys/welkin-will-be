@@ -1951,7 +1951,7 @@ if(!document.__defineGetter__) {
 <li>Date: 2023-03-30</li>
 </ul>
 <h2 id="context-and-problem-statement">Context and Problem Statement<a class="headerlink" href="#context-and-problem-statement" title="Permanent link">&para;</a></h2>
-<p>The maintainers of starboard <a href="https://github.com/aquasecurity/starboard/discussions/1173">deprecated it</a> in favor of <a href="https://aquasecurity.github.io/trivy/latest/docs/kubernetes/cli/scanning/">trivy kubernetes</a> with <a href="https://github.com/aquasecurity/trivy-operator">trivy operator</a>. They will no longer make any bigger changes to starboard operator. They announced the change in march.</p>
+<p>The maintainers of starboard <a href="https://github.com/aquasecurity/starboard/discussions/1173">deprecated it</a> in favor of <a href="https://aquasecurity.github.io/trivy/v0.41/tutorials/kubernetes/cluster-scanning/">trivy kubernetes</a> with <a href="https://github.com/aquasecurity/trivy-operator">trivy operator</a>. They will no longer make any bigger changes to starboard operator. They announced the change in march.</p>
 <p>We currently use starboard operator for scanning images with trivy and for running the CIS kubernetes benchmark with kubebench. Trivy operator has support for scanning images and running a version of the CIS kubernetes benchmark.</p>
 <p>Can or should we follow the evolution and replace starboard-operator with trivy-operator?</p>
 <h2 id="decision-drivers">Decision Drivers<a class="headerlink" href="#decision-drivers" title="Permanent link">&para;</a></h2>
