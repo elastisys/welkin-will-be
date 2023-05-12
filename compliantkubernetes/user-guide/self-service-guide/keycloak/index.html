@@ -12,7 +12,7 @@
         <meta name="author" content="Elastisys AB">
       
       
-        <link rel="canonical" href="https://elastisys.io/compliantkubernetes/user-guide/additional-services/keycloak/">
+        <link rel="canonical" href="https://elastisys.io/compliantkubernetes/user-guide/self-service-guide/keycloak/">
       
       
         <link rel="prev" href="../ferretdb/">
@@ -798,16 +798,14 @@ if(!document.__defineGetter__) {
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
       
       
       
@@ -816,7 +814,7 @@ if(!document.__defineGetter__) {
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_4">
           <span class="md-nav__icon md-icon"></span>
           Additional Services
@@ -829,7 +827,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../additional-services/" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -843,7 +841,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../postgresql/" class="md-nav__link">
+      <a href="../../additional-services/postgresql/" class="md-nav__link">
         PostgreSQL
       </a>
     </li>
@@ -857,7 +855,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../timescaledb/" class="md-nav__link">
+      <a href="../../additional-services/timescaledb/" class="md-nav__link">
         TimescaleDB
       </a>
     </li>
@@ -871,7 +869,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../redis/" class="md-nav__link">
+      <a href="../../additional-services/redis/" class="md-nav__link">
         Redis
       </a>
     </li>
@@ -885,7 +883,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../rabbitmq/" class="md-nav__link">
+      <a href="../../additional-services/rabbitmq/" class="md-nav__link">
         RabbitMQ
       </a>
     </li>
@@ -899,7 +897,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../jaeger/" class="md-nav__link">
+      <a href="../../additional-services/jaeger/" class="md-nav__link">
         Jaeger (preview)
       </a>
     </li>
@@ -913,13 +911,49 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../argocd/" class="md-nav__link">
+      <a href="../../additional-services/argocd/" class="md-nav__link">
         Argo CD (preview)
       </a>
     </li>
   
 
             
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+          Self-Service Guides
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Self-Service Guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
             
               
@@ -1974,16 +2008,16 @@ if(!document.__defineGetter__) {
   
 
 
-<h1 id="keycloak-self-service">Keycloak (self-service)<a class="headerlink" href="#keycloak-self-service" title="Permanent link">&para;</a></h1>
+<h1 id="keycloaktm-self-service">Keycloak™ (self-service)<a class="headerlink" href="#keycloaktm-self-service" title="Permanent link">&para;</a></h1>
 <p><img alt="Keycloak Image" src="../img/keycloakpic.png" /></p>
 <p>This page will help you succeed in connecting your application to an identity and access management solution Keycloak, which meets your security and compliance requirements.</p>
 <p>Keycloak is a widely recognized open-source Identity and Access Management (IAM) solution that provides user authentication and authorization services for applications. It offers a comprehensive set of features, including Single Sign-On (SSO), user federation, and social login support, making it a popular choice for securing applications in a variety of industries.</p>
 <p>As of May 2023, Keycloak is a <a href="https://www.cncf.io/blog/2023/04/11/keycloak-joins-cncf-as-an-incubating-project/">CNCF Incubating project</a>.</p>
-<p>In this guide we outline the necessary steps to configure and deploy a Keycloak instance on a Compliant Kubernetes cluster that is using the <a href="../postgresql/">managed PostgreSQL service</a>.</p>
+<p>In this guide we outline the necessary steps to configure and deploy a Keycloak instance on a Compliant Kubernetes cluster that is using the <a href="../../additional-services/postgresql/">managed PostgreSQL service</a>.</p>
 <p>This will provide you with a robust and secure IAM solution to manage user access and authorization for your applications running on Compliant Kubernetes.</p>
 <h2 id="initial-preparation">Initial preparation<a class="headerlink" href="#initial-preparation" title="Permanent link">&para;</a></h2>
 <p><em>Note: This guide assumes that you have managed PostgreSQL as an additional service.</em></p>
-<p><a href="../postgresql/">Setup an application database and user in PostgreSQL</a></p>
+<p><a href="../../additional-services/postgresql/">Setup an application database and user in PostgreSQL</a></p>
 <p>Take note of the following variables for the next section.</p>
 <ul>
 <li>
@@ -2090,7 +2124,7 @@ helm upgrade --install keycloak bitnami/keycloak --values values.yaml
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright © Elastisys AB <br/> The Linux Foundation has the following registered trademarks in the United States and/or other countries: Certified Kubernetes®, containerd®, fluentd®, Helm®, Istio®, K8s®, Kubernetes®, Prometheus®, PromQL®, Rook®, The Linux Foundation®. <br/> The Linux Foundation has registrations pending or trademarks in use for the following marks in the United States and/or other countries: Argo™, CoreDNS™, Falco™, Harbor™, Jaeger™, Linux Foundation™, OpenTelemetry™, OpenTracing™, Open Policy Agent™, Tekton™, Thanos™. <br/> Postgres and PostgreSQL and the Elephant Logo (Slonik) are all registered trademarks of the PostgreSQL Community Association of Canada. <br/> Redis is a trademark of Redis Ltd. Any rights therein are reserved to Redis Ltd. Any use by the Compliant Kubernetes project is for referential purposes only and does not indicate any sponsorship, endorsement or affiliation between Redis and Compliant Kubernetes project. <br/> RabbitMQ is a trademark of VMware, Inc. in the U.S. and other countries. <br/> TimescaleDB and the EON mascot are trademarks of <a href="https://www.timescale.com/">Timescale, Inc.</a>
+      Copyright © Elastisys AB <br/> The Linux Foundation has the following registered trademarks in the United States and/or other countries: Certified Kubernetes®, containerd®, fluentd®, Helm®, Istio®, K8s®, Kubernetes®, Prometheus®, PromQL®, Rook®, The Linux Foundation®. <br/> The Linux Foundation has registrations pending or trademarks in use for the following marks in the United States and/or other countries: Argo™, CoreDNS™, Falco™, Harbor™, Jaeger™, Linux Foundation™, OpenTelemetry™, OpenTracing™, Open Policy Agent™, Tekton™, Thanos™. <br/> Postgres and PostgreSQL and the Elephant Logo (Slonik) are all registered trademarks of the PostgreSQL Community Association of Canada. <br/> Redis is a trademark of Redis Ltd. Any rights therein are reserved to Redis Ltd. Any use by the Compliant Kubernetes project is for referential purposes only and does not indicate any sponsorship, endorsement or affiliation between Redis and Compliant Kubernetes project. <br/> RabbitMQ is a trademark of VMware, Inc. in the U.S. and other countries. <br/> TimescaleDB and the EON mascot are trademarks of <a href="https://www.timescale.com/">Timescale, Inc.</a> <br/> FerretDB® is a registered trademark of FerretDB, Inc. FerretDB Inc. is not affiliated, associated, authorized, endorsed by, or in any way officially connected with MongoDB Inc., or any of its subsidiaries or its affiliates. <br/> MongoDB, Mongo, and the leaf logo are registered trademarks of MongoDB, Inc. <br/> Keycloak™ is a trademark of Red Hat Inc.
     </div>
   
   

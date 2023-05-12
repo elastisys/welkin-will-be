@@ -591,17 +591,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://elastisys.io/compliantkubernetes/user-guide/additional-services/ferretdb/</loc>
-         <lastmod>2023-05-12</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/additional-services/jaeger/</loc>
-         <lastmod>2023-05-12</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://elastisys.io/compliantkubernetes/user-guide/additional-services/keycloak/</loc>
          <lastmod>2023-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -657,6 +647,16 @@
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/safeguards/enforce-trusted-registries/</loc>
+         <lastmod>2023-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/user-guide/self-service-guide/ferretdb/</loc>
+         <lastmod>2023-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/user-guide/self-service-guide/keycloak/</loc>
          <lastmod>2023-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>

@@ -12,10 +12,10 @@
         <meta name="author" content="Elastisys AB">
       
       
-        <link rel="canonical" href="https://elastisys.io/compliantkubernetes/user-guide/additional-services/ferretdb/">
+        <link rel="canonical" href="https://elastisys.io/compliantkubernetes/user-guide/self-service-guide/ferretdb/">
       
       
-        <link rel="prev" href="../argocd/">
+        <link rel="prev" href="../../additional-services/argocd/">
       
       
         <link rel="next" href="../keycloak/">
@@ -798,16 +798,14 @@ if(!document.__defineGetter__) {
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
       
       
       
@@ -816,7 +814,7 @@ if(!document.__defineGetter__) {
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_4">
           <span class="md-nav__icon md-icon"></span>
           Additional Services
@@ -829,7 +827,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../additional-services/" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -843,7 +841,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../postgresql/" class="md-nav__link">
+      <a href="../../additional-services/postgresql/" class="md-nav__link">
         PostgreSQL
       </a>
     </li>
@@ -857,7 +855,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../timescaledb/" class="md-nav__link">
+      <a href="../../additional-services/timescaledb/" class="md-nav__link">
         TimescaleDB
       </a>
     </li>
@@ -871,7 +869,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../redis/" class="md-nav__link">
+      <a href="../../additional-services/redis/" class="md-nav__link">
         Redis
       </a>
     </li>
@@ -885,7 +883,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../rabbitmq/" class="md-nav__link">
+      <a href="../../additional-services/rabbitmq/" class="md-nav__link">
         RabbitMQ
       </a>
     </li>
@@ -899,7 +897,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../jaeger/" class="md-nav__link">
+      <a href="../../additional-services/jaeger/" class="md-nav__link">
         Jaeger (preview)
       </a>
     </li>
@@ -913,13 +911,49 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../argocd/" class="md-nav__link">
+      <a href="../../additional-services/argocd/" class="md-nav__link">
         Argo CD (preview)
       </a>
     </li>
   
 
             
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+          Self-Service Guides
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Self-Service Guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
             
               
@@ -1974,17 +2008,17 @@ if(!document.__defineGetter__) {
   
 
 
-<h1 id="ferretdb-self-service">FerretDB (self-service)<a class="headerlink" href="#ferretdb-self-service" title="Permanent link">&para;</a></h1>
+<h1 id="ferretdb-self-service">FerretDB® (self-service)<a class="headerlink" href="#ferretdb-self-service" title="Permanent link">&para;</a></h1>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
-<p>FerretDB tries to be a drop-in replacement for MongoDB. However:</p>
+<p>FerretDB® tries to be a drop-in replacement for MongoDB®. However:</p>
 <ul>
 <li>There are <a href="https://docs.ferretdb.io/diff/">known differences</a>.</li>
 <li>There might also be performance implications.</li>
 </ul>
 <p>Make sure to load-test your application with FerretDB before going into production.</p>
 </div>
-<p><a href="https://www.ferretdb.io/">FerretDB</a> is a database that is an open-source alternative to MongoDB that uses Postgres as its backend database. This documentation details how to run FerretDB in a Compliant Kubernetes cluster using the managed <a href="../postgresql/">Postgres service</a>.</p>
+<p><a href="https://www.ferretdb.io/">FerretDB</a> is a database that is an open-source alternative to MongoDB that uses PostgreSQL as its backend database. This documentation details how to run FerretDB in a Compliant Kubernetes cluster using the Managed <a href="../../additional-services/postgresql/">PostgreSQL service</a>.</p>
 <h2 id="pushing-ferretdb-image-to-harbor">Pushing FerretDB image to Harbor<a class="headerlink" href="#pushing-ferretdb-image-to-harbor" title="Permanent link">&para;</a></h2>
 <p>These instructions will pull the FerretDB container image and push it to another registry. If you are using managed Harbor as your container registry, please follow <a href="../../deploy/">these instructions</a> on how to authenticate, create a new project, and how to create a robot account and using it in a pull-secret to be able to pull an image from Harbor to your cluster safely:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">TAG</span><span class="o">=</span><span class="m">1</span>.0.0
@@ -1996,8 +2030,8 @@ docker<span class="w"> </span>tag<span class="w"> </span>ghcr.io/ferretdb/ferret
 docker<span class="w"> </span>push<span class="w"> </span><span class="nv">$REGISTRY</span>/<span class="nv">$REGISTRY_PROJECT</span>/ferretdb:<span class="nv">$TAG</span>
 </code></pre></div>
 <h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
-<p>In a managed CK8s environment, follow <a href="../postgresql/#getting-access">these instructions</a> on how to access the managed postgres service and how to create an application user and database.</p>
-<p>Create secret containing a postgres url to authenticate to the managed postgres service and newly created database with the application user credentials:
+<p>In a managed CK8s environment, follow <a href="../../additional-services/postgresql/#getting-access">these instructions</a> on how to access the Managed PostgreSQL service and how to create an application user and database.</p>
+<p>Create secret containing a PostgreSQL URL to authenticate to the Managed PostgreSQL service and newly created database with the application user credentials:
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>--from-literal<span class="o">=</span>ferretdb-url<span class="o">=</span><span class="s2">&quot;postgresql://</span><span class="nv">$APP_USERNAME</span><span class="s2">:</span><span class="nv">$APP_PASSWORD</span><span class="s2">@</span><span class="nv">$PGHOST</span><span class="s2">:</span><span class="nv">$PGPORT</span><span class="s2">/</span><span class="nv">$APP_DATABASE</span><span class="s2">&quot;</span><span class="w"> </span>ferretdb-postgres-credentials
 </code></pre></div></p>
 <p>Deploy:
@@ -2235,7 +2269,7 @@ As of May 2023, the project was recently released to its first major version (v1
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright © Elastisys AB <br/> The Linux Foundation has the following registered trademarks in the United States and/or other countries: Certified Kubernetes®, containerd®, fluentd®, Helm®, Istio®, K8s®, Kubernetes®, Prometheus®, PromQL®, Rook®, The Linux Foundation®. <br/> The Linux Foundation has registrations pending or trademarks in use for the following marks in the United States and/or other countries: Argo™, CoreDNS™, Falco™, Harbor™, Jaeger™, Linux Foundation™, OpenTelemetry™, OpenTracing™, Open Policy Agent™, Tekton™, Thanos™. <br/> Postgres and PostgreSQL and the Elephant Logo (Slonik) are all registered trademarks of the PostgreSQL Community Association of Canada. <br/> Redis is a trademark of Redis Ltd. Any rights therein are reserved to Redis Ltd. Any use by the Compliant Kubernetes project is for referential purposes only and does not indicate any sponsorship, endorsement or affiliation between Redis and Compliant Kubernetes project. <br/> RabbitMQ is a trademark of VMware, Inc. in the U.S. and other countries. <br/> TimescaleDB and the EON mascot are trademarks of <a href="https://www.timescale.com/">Timescale, Inc.</a>
+      Copyright © Elastisys AB <br/> The Linux Foundation has the following registered trademarks in the United States and/or other countries: Certified Kubernetes®, containerd®, fluentd®, Helm®, Istio®, K8s®, Kubernetes®, Prometheus®, PromQL®, Rook®, The Linux Foundation®. <br/> The Linux Foundation has registrations pending or trademarks in use for the following marks in the United States and/or other countries: Argo™, CoreDNS™, Falco™, Harbor™, Jaeger™, Linux Foundation™, OpenTelemetry™, OpenTracing™, Open Policy Agent™, Tekton™, Thanos™. <br/> Postgres and PostgreSQL and the Elephant Logo (Slonik) are all registered trademarks of the PostgreSQL Community Association of Canada. <br/> Redis is a trademark of Redis Ltd. Any rights therein are reserved to Redis Ltd. Any use by the Compliant Kubernetes project is for referential purposes only and does not indicate any sponsorship, endorsement or affiliation between Redis and Compliant Kubernetes project. <br/> RabbitMQ is a trademark of VMware, Inc. in the U.S. and other countries. <br/> TimescaleDB and the EON mascot are trademarks of <a href="https://www.timescale.com/">Timescale, Inc.</a> <br/> FerretDB® is a registered trademark of FerretDB, Inc. FerretDB Inc. is not affiliated, associated, authorized, endorsed by, or in any way officially connected with MongoDB Inc., or any of its subsidiaries or its affiliates. <br/> MongoDB, Mongo, and the leaf logo are registered trademarks of MongoDB, Inc. <br/> Keycloak™ is a trademark of Red Hat Inc.
     </div>
   
   
