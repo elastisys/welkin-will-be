@@ -2293,20 +2293,20 @@ There is a CronJob called <code>harbor-backup-cronjob</code> in the cluster that
 </div>
 <p>Instructions for how to restore Harbor can be found in <code>compliantkubernetes-apps</code>: <a href="https://github.com/elastisys/compliantkubernetes-apps/tree/main/scripts/restore#restore-harbor">https://github.com/elastisys/compliantkubernetes-apps/tree/main/scripts/restore#restore-harbor</a></p>
 <h2 id="velero">Velero<a class="headerlink" href="#velero" title="Permanent link">&para;</a></h2>
-<p>These instructions make use of the Velero CLI, you can download it here: <a href="https://github.com/vmware-tanzu/velero/releases/tag/v1.7.1">https://github.com/vmware-tanzu/velero/releases/tag/v1.7.1</a> (version 1.7.1).
+<p>These instructions make use of the Velero CLI, you can download it <a href="https://github.com/vmware-tanzu/velero/releases/tag/v1.7.1">here</a> (version 1.7.1).
 The CLI needs the env variable <code>KUBECONFIG</code> set to the path of a decrypted kubeconfig.
-Read more about Velero here: <a href="https://compliantkubernetes.io/user-guide/backup/">https://compliantkubernetes.io/user-guide/backup/</a></p>
+Read more about Velero <a href="../../user-guide/backup/">here</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This documentation uses the Velero CLI, as opposed to Velero CRDs, since that is what is encouraged by upstream documentation.</p>
 </div>
 <h3 id="backup_2">Backup<a class="headerlink" href="#backup_2" title="Permanent link">&para;</a></h3>
 <p>Velero is set up to take daily backups and store them in an S3 bucket.
-The daily backup will not take backups of everything in a kubernetes cluster, it will instead look for certain labels and annotations.
-Read more about those labels and annotations here: <a href="https://compliantkubernetes.io/user-guide/backup/#backing-up">https://compliantkubernetes.io/user-guide/backup/#backing-up</a></p>
+The daily backup will not take backups of everything in a Kubernetes cluster, it will instead look for certain labels and annotations.
+Read more about those labels and annotations <a href="../../user-guide/backup/#backing-up">here</a>.</p>
 <p>It is also possible to take on-demand backups.
 Then you can freely chose what to backup and do not have to base it on the same labels.
-A basic example with the Velero CLI would be <code>velero backup create manual-backup</code>, which would take a backup of all kubernetes resources (though not the data in the volumes by default).</p>
+A basic example with the Velero CLI would be <code>velero backup create manual-backup</code>, which would take a backup of all Kubernetes resources (though not the data in the volumes by default).</p>
 <p>If you want to create a latest backup from existing schedule , Velero CLI would be <code>velero backup create --from-schedule velero-daily-backup --wait</code>.</p>
 <p>Check which arguments you can use by running <code>velero backup create --help</code>.</p>
 <h3 id="restore_2">Restore<a class="headerlink" href="#restore_2" title="Permanent link">&para;</a></h3>

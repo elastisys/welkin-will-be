@@ -2117,7 +2117,7 @@ kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> <
 <p>In Compliant Kubernetes v0.21.0 User admins can now add more <code>User admins</code> themselves.</p>
 <h4 id="steps">Steps:<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h4>
 <ol>
-<li>Edit the clusterrolebinding <code>extra-user-view</code> and add the desired users or groups under <code>subjects</code>. If unsure, look at an <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/#referring-to-subjects">example subject</a> from the official kubernetes documentation.</li>
+<li>Edit the clusterrolebinding <code>extra-user-view</code> and add the desired users or groups under <code>subjects</code>. If unsure, look at an <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/#referring-to-subjects">example subject</a> from the official Kubernetes documentation.</li>
 </ol>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>edit<span class="w"> </span>clusterrolebinding<span class="w"> </span>user-admin-cluster-wide-delegation
 </code></pre></div>

@@ -2034,9 +2034,9 @@ if(!document.__defineGetter__) {
 <p>In order to keep your Compliant Kubernetes environment running smoothly, and to assure that you are up to date with the latest patches you need to perform regular maintenance on it.</p>
 <p>This guide assumes that:</p>
 <ul>
-<li>Your Compliant Kubernetes environment is running normally, if not, please see the <a href="https://elastisys.io/compliantkubernetes/operator-manual/troubleshooting/">Troubleshooting guide</a>.</li>
-<li>Your Compliant Kubernetes environment is properly <a href="https://elastisys.io/compliantkubernetes/operator-manual/cluster-sizing/">sized</a></li>
-<li>You have performed the actions in the <a href="https://elastisys.io/compliantkubernetes/user-guide/go-live/">Go-live Checklist</a> as failure to do so might cause downtime during maintenance.</li>
+<li>Your Compliant Kubernetes environment is running normally, if not, please see the <a href="../troubleshooting/">Troubleshooting guide</a>.</li>
+<li>Your Compliant Kubernetes environment is properly <a href="../cluster-sizing/">sized</a></li>
+<li>You have performed the actions in the <a href="../../user-guide/go-live/">Go-live Checklist</a> as failure to do so might cause downtime during maintenance.</li>
 </ul>
 <h2 id="compliance-needs">Compliance needs<a class="headerlink" href="#compliance-needs" title="Permanent link">&para;</a></h2>
 <p>Many regulations require you to secure your information system against unauthorized access, data loss, and breaches.
@@ -2063,7 +2063,7 @@ It will cordon and reboot the nodes one by one.</p>
 <h3 id="upgrading-the-compliant-kubernetes-application-stack">Upgrading the Compliant Kubernetes application stack<a class="headerlink" href="#upgrading-the-compliant-kubernetes-application-stack" title="Permanent link">&para;</a></h3>
 <p>Compliant Kubernetes consists of a multitude of open source components that interact to form a smooth end user experience.
 In order to free you of the burden of keeping track of when to upgrade the various components, new versions of Complaint Kubernetes are regularly release.
-When a new version is released, it becomes available as a <a href="https://github.com/elastisys/compliantkubernetes-apps/tags">tagged release</a> in the github repo.</p>
+When a new version is released, it becomes available as a <a href="https://github.com/elastisys/compliantkubernetes-apps/tags">tagged release</a> in the GitHub repo.</p>
 <blockquote>
 <p>Before upgrading to a new release, please review the <a href="https://github.com/elastisys/compliantkubernetes-apps/blob/main/CHANGELOG.md">changelog</a> if possible, apply the upgrade to a staging environment before upgrading any environments with production data.</p>
 </blockquote>
@@ -2160,7 +2160,7 @@ git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w
 </code></pre></div>
 </li>
 <li>
-<p>Upgrade the cluster to a new kubernetes version:</p>
+<p>Upgrade the cluster to a new Kubernetes version:</p>
 <div class="highlight"><pre><span></span><code>./bin/ck8s-kubespray<span class="w"> </span>run-playbook<span class="w"> </span>sc<span class="w"> </span>upgrade-cluster.yml<span class="w"> </span>-b<span class="w"> </span>--skip-tags<span class="o">=</span>download
 ./bin/ck8s-kubespray<span class="w"> </span>run-playbook<span class="w"> </span>wc<span class="w"> </span>upgrade-cluster.yml<span class="w"> </span>-b<span class="w"> </span>--skip-tags<span class="o">=</span>download
 </code></pre></div>

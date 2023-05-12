@@ -2023,7 +2023,7 @@ This is not usually a problem for collecting application specific metrics, since
 <p>Due to very different performance-tuning characteristics, Timescale and PostgreSQL databases should never run on the same PostgreSQL cluster.
 To comply with this, it is essential that every PostgreSQL database that gets created on the PostgreSQL cluster also has the Timescale extension created for it.</p>
 </div>
-<p>If you want to use TimescaleDB on your Compliant Kubernetes cluster, ask your administrator to <a href="https://elastisys.io/compliantkubernetes/user-guide/additional-services/timescaledb/#provision-a-new-postgresql-cluster">provision a new standard PostgreSQL cluster</a> inside your Compliant Kubernetes environment. Then set up the TimescaleDB extension.</p>
+<p>If you want to use TimescaleDB on your Compliant Kubernetes cluster, ask your administrator to <a href="./#provision-a-new-postgresql-cluster">provision a new standard PostgreSQL cluster</a> inside your Compliant Kubernetes environment. Then set up the TimescaleDB extension.</p>
 <h2 id="provision-a-new-postgresql-cluster">Provision a New PostgreSQL Cluster<a class="headerlink" href="#provision-a-new-postgresql-cluster" title="Permanent link">&para;</a></h2>
 <p>Ask your service-specific administrator to install a PostgreSQL cluster inside your Compliant Kubernetes environment. The service-specific administrator will ensure the PostgreSQL cluster complies with your security requirements, including:</p>
 <ul>
@@ -2159,7 +2159,7 @@ Before going into production, don't forget to go through the <a href="../../go-l
 <ul>
 <li><a href="https://docs.timescale.com/getting-started/latest/">Getting started with Timescale</a></li>
 <li><a href="https://www.postgresql.org/docs/13/sql-createuser.html">Creating users</a></li>
-<li><a href="https://www.postgresql.org/docs/13/sql-createdatabase.html">Creating databases</a> - Remember to <a href="https://elastisys.io/compliantkubernetes/user-guide/additional-services/timescaledb/#set-up-the-timescaledb-extension-on-postgresql">create Timescale extension</a> on the new databases.</li>
+<li><a href="https://www.postgresql.org/docs/13/sql-createdatabase.html">Creating databases</a> - Remember to <a href="./#set-up-the-timescaledb-extension-on-postgresql">create Timescale extension</a> on the new databases.</li>
 <li><a href="https://www.postgresql.org/docs/13/sql-grant.html">Granting permissions</a></li>
 <li><a href="https://kubernetes.io/docs/concepts/configuration/secret/">Kubernetes Secrets</a></li>
 </ul>

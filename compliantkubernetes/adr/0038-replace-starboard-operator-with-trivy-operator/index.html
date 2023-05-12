@@ -1999,8 +1999,8 @@ if(!document.__defineGetter__) {
 <li>Date: 2023-03-30</li>
 </ul>
 <h2 id="context-and-problem-statement">Context and Problem Statement<a class="headerlink" href="#context-and-problem-statement" title="Permanent link">&para;</a></h2>
-<p>The maintainers of starboard <a href="https://github.com/aquasecurity/starboard/discussions/1173">deprecated it</a> in favor of <a href="https://aquasecurity.github.io/trivy/v0.41/tutorials/kubernetes/cluster-scanning/">trivy kubernetes</a> with <a href="https://github.com/aquasecurity/trivy-operator">trivy operator</a>. They will no longer make any bigger changes to starboard operator. They announced the change in march.</p>
-<p>We currently use starboard operator for scanning images with trivy and for running the CIS kubernetes benchmark with kubebench. Trivy operator has support for scanning images and running a version of the CIS kubernetes benchmark.</p>
+<p>The maintainers of Starboard <a href="https://github.com/aquasecurity/starboard/discussions/1173">deprecated it</a> in favor of <a href="https://aquasecurity.github.io/trivy/v0.41/tutorials/kubernetes/cluster-scanning/">Trivy Kubernetes</a> with <a href="https://github.com/aquasecurity/trivy-operator">Trivy operator</a>. They will no longer make any bigger changes to Starboard operator. They announced the change in march.</p>
+<p>We currently use Starboard operator for scanning images with Trivy and for running the CIS Kubernetes benchmark with kubebench. Trivy operator has support for scanning images and running a version of the CIS Kubernetes benchmark.</p>
 <p>Can or should we follow the evolution and replace starboard-operator with trivy-operator?</p>
 <h2 id="decision-drivers">Decision Drivers<a class="headerlink" href="#decision-drivers" title="Permanent link">&para;</a></h2>
 <ul>
@@ -2013,7 +2013,7 @@ if(!document.__defineGetter__) {
 <li>Move ahead and replace starboard-operator with trivy-operator</li>
 </ol>
 <h2 id="decision-outcome">Decision Outcome<a class="headerlink" href="#decision-outcome" title="Permanent link">&para;</a></h2>
-<p>Chosen option: 2 - Move ahead and replace starboard-operator with trivy-operator and include the CIS kubernetes benchmark</p>
+<p>Chosen option: 2 - Move ahead and replace starboard-operator with trivy-operator and include the CIS Kubernetes benchmark</p>
 <h3 id="positive-consequences">Positive Consequences<a class="headerlink" href="#positive-consequences" title="Permanent link">&para;</a></h3>
 <p>The main and the good reason for replacing starboard-operator with trivy-operator is that starboard-operator is getting replaces as stated above.</p>
 <h3 id="negative-consequences">Negative Consequences<a class="headerlink" href="#negative-consequences" title="Permanent link">&para;</a></h3>
@@ -2023,7 +2023,7 @@ if(!document.__defineGetter__) {
 <ul>
 <li><a href="https://raw.githubusercontent.com/dotdc/media/main/grafana-dashboards-kubernetes/k8s-addons-starboard-operator.png">Trivy-operator dashboard!</a></li>
 <li><a href="https://github.com/aquasecurity/trivy-operator/blob/main/docs/tutorials/integrations/metrics.md#clustercompliancereport">Hot to request Pass and Fail</a></li>
-<li><a href="https://www.cisecurity.org/benchmark/kubernetes">CIS kubernetes benchmark</a> goes under <a href="https://aquasecurity.github.io/trivy-operator/v0.12.1/docs/crds/clustercompliance-report/">ClusterComplianceReports</a>.</li>
+<li><a href="https://www.cisecurity.org/benchmark/kubernetes">CIS Kubernetes benchmark</a> goes under <a href="https://aquasecurity.github.io/trivy-operator/v0.12.1/docs/crds/clustercompliance-report/">ClusterComplianceReports</a>.</li>
 <li><a href="https://media.defense.gov/2022/Aug/29/2003066362/-1/-1/0/CTR_KUBERNETES_HARDENING_GUIDANCE_1.2_20220829.PDF">NSA, CISA Kubernetes Hardening Guidance v1.2</a></li>
 </ul>
 
