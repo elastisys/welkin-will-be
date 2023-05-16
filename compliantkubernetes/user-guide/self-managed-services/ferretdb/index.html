@@ -12,20 +12,20 @@
         <meta name="author" content="Elastisys AB">
       
       
-        <link rel="canonical" href="https://elastisys.io/compliantkubernetes/user-guide/self-service-guide/keycloak/">
+        <link rel="canonical" href="https://elastisys.io/compliantkubernetes/user-guide/self-managed-services/ferretdb/">
       
       
-        <link rel="prev" href="../ferretdb/">
+        <link rel="prev" href="../../additional-services/argocd/">
       
       
-        <link rel="next" href="../../go-live/">
+        <link rel="next" href="../keycloak/">
       
       <link rel="icon" href="../../../img/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.12">
     
     
       
-        <title>Keycloak (self-service) - Elastisys Compliant Kubernetes</title>
+        <title>FerretDB (self-managed) - Elastisys Compliant Kubernetes</title>
       
     
     
@@ -147,7 +147,7 @@ if(!document.__defineGetter__) {
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Keycloak (self-service)
+              FerretDB (self-managed)
             
           </span>
         </div>
@@ -944,30 +944,16 @@ if(!document.__defineGetter__) {
       
       
         <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
-          Self-Service Guides
+          Self-Managed Services
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2_5">
           <span class="md-nav__icon md-icon"></span>
-          Self-Service Guides
+          Self-Managed Services
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ferretdb/" class="md-nav__link">
-        FerretDB (self-service)
-      </a>
-    </li>
-  
-
-            
           
             
               
@@ -983,9 +969,23 @@ if(!document.__defineGetter__) {
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Keycloak (self-service)
+        FerretDB (self-managed)
       </a>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../keycloak/" class="md-nav__link">
+        Keycloak (self-managed)
+      </a>
     </li>
   
 
@@ -2008,100 +2008,267 @@ if(!document.__defineGetter__) {
   
 
 
-<h1 id="keycloaktm-self-service">Keycloak™ (self-service)<a class="headerlink" href="#keycloaktm-self-service" title="Permanent link">&para;</a></h1>
-<p><img alt="Keycloak Image" src="../img/keycloakpic.png" /></p>
-<p>This page will help you succeed in connecting your application to an identity and access management solution Keycloak, which meets your security and compliance requirements.</p>
-<p>Keycloak is a widely recognized open-source Identity and Access Management (IAM) solution that provides user authentication and authorization services for applications. It offers a comprehensive set of features, including Single Sign-On (SSO), user federation, and social login support, making it a popular choice for securing applications in a variety of industries.</p>
-<p>As of May 2023, Keycloak is a <a href="https://www.cncf.io/blog/2023/04/11/keycloak-joins-cncf-as-an-incubating-project/">CNCF Incubating project</a>.</p>
-<p>In this guide we outline the necessary steps to configure and deploy a Keycloak instance on a Compliant Kubernetes cluster that is using the <a href="../../additional-services/postgresql/">managed PostgreSQL service</a>.</p>
-<p>This will provide you with a robust and secure IAM solution to manage user access and authorization for your applications running on Compliant Kubernetes.</p>
-<h2 id="initial-preparation">Initial preparation<a class="headerlink" href="#initial-preparation" title="Permanent link">&para;</a></h2>
-<p><em>Note: This guide assumes that you have managed PostgreSQL as an additional service.</em></p>
-<p><a href="../../additional-services/postgresql/">Setup an application database and user in PostgreSQL</a></p>
-<p>Take note of the following variables for the next section.</p>
+<h1 id="ferretdb-self-managed">FerretDB® (self-managed)<a class="headerlink" href="#ferretdb-self-managed" title="Permanent link">&para;</a></h1>
+<!-- BEGIN INCLUDE _common.include '&lt;!--disclaimer-start--&gt;' '&lt;!--disclaimer-end--&gt;' -->
+
+<div class="admonition important">
+<p class="admonition-title">This page describes how to install a Customer Application</p>
+<p>You are solely responsible for Customer Applications.</p>
+<p>If you are an Elastisys Managed Services customer, please review your responsibilities in <a href="https://elastisys.com/legal/terms-of-service/#52-customer-applications">ToS 5.2</a>.</p>
+<p>Specifically, you are responsible for performing due diligence for the project discussed in this page.
+At the very least, you must:</p>
 <ul>
-<li>
-<p>The application secret you have created.</p>
-</li>
-<li>
-<p>The following environment variables:</p>
-</li>
+<li>assess project ownership, governance and licensing;</li>
+<li>assess project roadmap and future suitability;</li>
+<li>assess project compatibility with your use-case;</li>
+<li>assess business continuity, i.e., what will you do if the project is abandoned;</li>
+<li>subscribe to security advisories related to the project;</li>
+<li>apply security patches and updates, as needed;</li>
+<li>regularly test disaster recovery.</li>
 </ul>
-<div class="highlight"><pre><span></span><code>echo $PGHOST
-echo $APP_USERNAME
-echo $APP_DATABASE
+</div>
+<!-- END INCLUDE -->
+
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>FerretDB® tries to be a drop-in replacement for MongoDB®. However:</p>
+<ul>
+<li>There are <a href="https://docs.ferretdb.io/diff/">known differences</a>.</li>
+<li>There might also be performance implications.</li>
+</ul>
+<p>Make sure to load-test your application with FerretDB before going into production.</p>
+</div>
+<p><a href="https://www.ferretdb.io/">FerretDB</a> is a database that is an open-source alternative to MongoDB that uses PostgreSQL as its backend database. This documentation details how to run FerretDB in a Compliant Kubernetes cluster using the Managed <a href="../../additional-services/postgresql/">PostgreSQL service</a>.</p>
+<h2 id="pushing-ferretdb-image-to-harbor">Pushing FerretDB image to Harbor<a class="headerlink" href="#pushing-ferretdb-image-to-harbor" title="Permanent link">&para;</a></h2>
+<p>These instructions will pull the FerretDB container image and push it to another registry. If you are using managed Harbor as your container registry, please follow <a href="../../deploy/">these instructions</a> on how to authenticate, create a new project, and how to create a robot account and using it in a pull-secret to be able to pull an image from Harbor to your cluster safely:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">TAG</span><span class="o">=</span><span class="m">1</span>.0.0
+<span class="nv">REGISTRY</span><span class="o">=</span>harbor.<span class="nv">$DOMAIN</span>
+<span class="nv">REGISTRY_PROJECT</span><span class="o">=</span>demo
+
+docker<span class="w"> </span>pull<span class="w"> </span>ghcr.io/ferretdb/ferretdb:<span class="nv">$TAG</span>
+docker<span class="w"> </span>tag<span class="w"> </span>ghcr.io/ferretdb/ferretdb:<span class="nv">$TAG</span><span class="w"> </span><span class="nv">$REGISTRY</span>/<span class="nv">$REGISTRY_PROJECT</span>/ferretdb:<span class="nv">$TAG</span>
+docker<span class="w"> </span>push<span class="w"> </span><span class="nv">$REGISTRY</span>/<span class="nv">$REGISTRY_PROJECT</span>/ferretdb:<span class="nv">$TAG</span>
 </code></pre></div>
-<h2 id="configure-keycloak-with-managed-postgresql">Configure Keycloak with managed PostgreSQL<a class="headerlink" href="#configure-keycloak-with-managed-postgresql" title="Permanent link">&para;</a></h2>
-<p>We chose Bitnami's Helm chart for <a href="https://github.com/bitnami/charts/tree/main/bitnami/keycloak">Keycloak</a> due to its open-source nature, ease of deployment, security optimization, and active maintenance.</p>
-<p>Bitnami is a well known provider of pre-configured, open-source application stacks that simplify deployment and management in various environments, such as Kubernetes. They offer a Helm chart for Keycloak, which streamlines deployment while adhering to Kubernetes best practices for security.</p>
-<h3 id="deploying-keycloak">Deploying Keycloak<a class="headerlink" href="#deploying-keycloak" title="Permanent link">&para;</a></h3>
-<p>Below is a sample <strong>values.yaml</strong> file that can be used to deploy Keycloak, please read the notes and change what is necessary.
-<div class="highlight"><pre><span></span><code><span class="nt">resources</span><span class="p">:</span><span class="w"> </span><span class="c1"># (1)</span>
-<span class="w">  </span><span class="nt">limits</span><span class="p">:</span>
-<span class="w">    </span><span class="c1">#cpu: 1000m</span>
-<span class="w">    </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000Mi</span>
-<span class="w">  </span><span class="nt">requests</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10m</span>
-<span class="w">    </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">400Mi</span>
-
-<span class="nt">postgresql</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-
-<span class="nt">externalDatabase</span><span class="p">:</span><span class="w"> </span><span class="c1"># (2)</span>
-<span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;PGHOST&gt;&quot;</span>
-<span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5432</span>
-<span class="w">  </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;APP_USERNAME&gt;</span>
-<span class="w">  </span><span class="nt">database</span><span class="p">:</span><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">&lt;APP_DATABASE&gt;</span>
-<span class="w">  </span><span class="nt">existingSecret</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;secret-name&gt;&quot;</span>
-<span class="w">  </span><span class="nt">existingSecretPasswordKey</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;PGPASSWORD&quot;</span>
-
-<span class="nt">ingress</span><span class="p">:</span><span class="w"> </span><span class="c1"># (3)</span>
-<span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">ingressClassName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;nginx&quot;</span>
-<span class="w">  </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;URL&gt;</span>
-<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">cert-manager.io/cluster-issuer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">letsencrypt-prod</span>
-<span class="w">  </span><span class="nt">tls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-
-<span class="nt">production</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"> </span><span class="c1"># (4)</span>
-<span class="nt">tls</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">autoGenerated</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
+<p>In a managed CK8s environment, follow <a href="../../additional-services/postgresql/#getting-access">these instructions</a> on how to access the Managed PostgreSQL service and how to create an application user and database.</p>
+<p>Create secret containing a PostgreSQL URL to authenticate to the Managed PostgreSQL service and newly created database with the application user credentials:
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>--from-literal<span class="o">=</span>ferretdb-url<span class="o">=</span><span class="s2">&quot;postgresql://</span><span class="nv">$APP_USERNAME</span><span class="s2">:</span><span class="nv">$APP_PASSWORD</span><span class="s2">@</span><span class="nv">$PGHOST</span><span class="s2">:</span><span class="nv">$PGPORT</span><span class="s2">/</span><span class="nv">$APP_DATABASE</span><span class="s2">&quot;</span><span class="w"> </span>ferretdb-postgres-credentials
 </code></pre></div></p>
-<ol>
-<li>The example provided serves as a starting point for configuring resource requests and limits for your Keycloak deployment. Be sure to tailor these values to your specific requirements, and monitor your deployment to optimize resource allocation for your unique use case.</li>
-<li>Insert the variables that you got from initial preparation.</li>
-<li>Configure the ingress hostname and which issuer you will be using.</li>
-<li>Enabling production mode and TLS for HTTPS. Disclaimer: Enabling production mode does not mean that the configuration here is ready for production. Please see further reading on Production configuration.</li>
-</ol>
-<p>With the above values you can deploy Keycloak with:
-<div class="highlight"><pre><span></span><code>helm repo add bitnami https://charts.bitnami.com/bitnami
-helm upgrade --install keycloak bitnami/keycloak --values values.yaml
+<p>Deploy:
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ferretdb</span>
+<span class="w">  </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ferretdb</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ferretdb</span>
+<span class="w">  </span><span class="nt">template</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">metadata</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ferretdb</span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ferretdb</span>
+<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$REGISTRY/$REGISTRY_PROJECT/ferretdb:$TAG</span><span class="w"> </span><span class="c1"># replace this</span>
+<span class="w">        </span><span class="nt">args</span><span class="p">:</span>
+<span class="w">         </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--listen-addr=0.0.0.0:27017</span>
+<span class="w">         </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--telemetry=disable</span>
+<span class="w">         </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--postgresql-url=$(FERRETDB_URL)</span>
+<span class="w">        </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FERRETDB_URL</span>
+<span class="w">          </span><span class="nt">valueFrom</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">secretKeyRef</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ferretdb-postgres-credentials</span>
+<span class="w">              </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ferretdb-url</span>
+<span class="w">        </span><span class="nt">resources</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">requests</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5m&quot;</span>
+<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;15M&quot;</span>
+<span class="w">        </span><span class="nt">securityContext</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">capabilities</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">drop</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ALL</span>
+<span class="w">          </span><span class="nt">runAsNonRoot</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">          </span><span class="nt">runAsUser</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1001</span>
+<span class="w">        </span><span class="nt">volumeMounts</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/state</span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">state</span>
+<span class="w">      </span><span class="nt">securityContext</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">fsGroup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1001</span>
+<span class="w">      </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">state</span>
+<span class="w">        </span><span class="nt">emptyDir</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<span class="nn">---</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ferretdb-service</span>
+<span class="w">  </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ferretdb</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClusterIP</span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+<span class="w">   </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ferretdb</span>
+<span class="w">  </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+<span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">27017</span>
+<span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">27017</span>
 </code></pre></div></p>
-<h3 id="accessing-keycloak">Accessing Keycloak<a class="headerlink" href="#accessing-keycloak" title="Permanent link">&para;</a></h3>
-<p>When you have deployed Keycloak and can access the URL you can:</p>
-<p><a href="https://www.keycloak.org/getting-started/getting-started-kube">Login as admin and configure realms, users, and clients.</a></p>
-<p>The default admin user is <code>user</code>.</p>
-<p>The initial admin password can be fetched using the command below (assuming default namespace):</p>
-<div class="highlight"><pre><span></span><code><span class="go">kubectl get secret keycloak -o jsonpath=&quot;{.data.admin-password}&quot; | base64 -d</span>
+<p>Check that FerretDB started properly:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>get<span class="w"> </span>svc,deploy,pod<span class="w"> </span>-l<span class="w"> </span><span class="nv">run</span><span class="o">=</span>ferretdb
+<span class="go">NAME                       TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)     AGE</span>
+<span class="go">service/ferretdb-service   ClusterIP   10.233.42.102   &lt;none&gt;        27017/TCP   75s</span>
+
+<span class="go">NAME                       READY   UP-TO-DATE   AVAILABLE   AGE</span>
+<span class="go">deployment.apps/ferretdb   1/1     1            1           75s</span>
+
+<span class="go">NAME                            READY   STATUS    RESTARTS   AGE</span>
+<span class="go">pod/ferretdb-5887cc848c-brwjf   1/1     Running   0          75s</span>
 </code></pre></div>
-<p>Note: If you uninstall and install Keycloak the initial admin password will be regenerated but the previous initial admin password may still be used unless you clear the PostgreSQL database.</p>
-<p>For more information about using Keycloak to secure/protect your applications, see “Securing your applications” and “Reverse Proxy” in the further reading section.</p>
+<p>The Deployment should show <code>STATUS</code> is <code>Running</code>. The Pod(s) should have <code>STATUS</code> is <code>Running</code>.</p>
+<p>To try out access to FerretDB, you can port-forward the Service to localhost and connect using mongosh:
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>port-forward<span class="w"> </span>svc/ferretdb-service<span class="w"> </span><span class="m">27017</span>
+
+mongosh<span class="w"> </span>mongodb://localhost:27017
+</code></pre></div></p>
+<h2 id="python-client-example">Python client example<a class="headerlink" href="#python-client-example" title="Permanent link">&para;</a></h2>
+<p>The following is an example of how to connect to FerretDB using the <a href="https://pymongo.readthedocs.io/en/stable/">PyMongo</a> Python library (using the localhost port-forwarding described above).</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pymongo</span> <span class="kn">import</span> <span class="n">MongoClient</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="s1">&#39;mongodb://localhost:27017&#39;</span><span class="p">)</span>
+
+<span class="c1"># List all databases</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">list_database_names</span><span class="p">())</span>
+
+<span class="c1"># List collections in the database &quot;mongodb&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="p">[</span><span class="s1">&#39;mongodb&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">list_collection_names</span><span class="p">())</span>
+
+<span class="c1"># Create db and insert element into a collection</span>
+<span class="n">database</span>   <span class="o">=</span> <span class="n">client</span><span class="p">[</span><span class="s1">&#39;test_db&#39;</span><span class="p">]</span>
+<span class="n">collection</span> <span class="o">=</span> <span class="n">database</span><span class="p">[</span><span class="s1">&#39;customers&#39;</span><span class="p">]</span>
+
+<span class="n">mydict</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span> <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;Highway 38&quot;</span> <span class="p">}</span>
+
+<span class="n">collection</span><span class="o">.</span><span class="n">insert_one</span><span class="p">(</span><span class="n">mydict</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">collection</span><span class="o">.</span><span class="n">find_one</span><span class="p">())</span>
+</code></pre></div>
+<p>See the following <code>pg_dump</code> below to see how the example above is mapped in the actual backend Postgres database.</p>
+<details>
+<summary>pg_dump</summary>
+
+<div class="highlight"><pre><span></span><code><span class="c1">--</span>
+<span class="c1">-- PostgreSQL database dump</span>
+<span class="c1">--</span>
+
+<span class="c1">-- Dumped from database version 14.6 (Ubuntu 14.6-1.pgdg22.04+1)</span>
+<span class="c1">-- Dumped by pg_dump version 15.1 (Ubuntu 15.1-1.pgdg22.04+1)</span>
+
+<span class="k">SET</span><span class="w"> </span><span class="n">statement_timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">SET</span><span class="w"> </span><span class="n">lock_timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">SET</span><span class="w"> </span><span class="n">idle_in_transaction_session_timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">SET</span><span class="w"> </span><span class="n">client_encoding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;UTF8&#39;</span><span class="p">;</span>
+<span class="k">SET</span><span class="w"> </span><span class="n">standard_conforming_strings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">on</span><span class="p">;</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">pg_catalog</span><span class="p">.</span><span class="n">set_config</span><span class="p">(</span><span class="s1">&#39;search_path&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">false</span><span class="p">);</span>
+<span class="k">SET</span><span class="w"> </span><span class="n">check_function_bodies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<span class="k">SET</span><span class="w"> </span><span class="n">xmloption</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">content</span><span class="p">;</span>
+<span class="k">SET</span><span class="w"> </span><span class="n">client_min_messages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">warning</span><span class="p">;</span>
+<span class="k">SET</span><span class="w"> </span><span class="n">row_security</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">off</span><span class="p">;</span>
+
+<span class="c1">--</span>
+<span class="c1">-- Name: test_db; Type: SCHEMA; Schema: -; Owner: ferretdb</span>
+<span class="c1">--</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">SCHEMA</span><span class="w"> </span><span class="n">test_db</span><span class="p">;</span>
+
+
+<span class="k">ALTER</span><span class="w"> </span><span class="k">SCHEMA</span><span class="w"> </span><span class="n">test_db</span><span class="w"> </span><span class="k">OWNER</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">ferretdb</span><span class="p">;</span>
+
+<span class="k">SET</span><span class="w"> </span><span class="n">default_tablespace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span>
+
+<span class="k">SET</span><span class="w"> </span><span class="n">default_table_access_method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">heap</span><span class="p">;</span>
+
+<span class="c1">--</span>
+<span class="c1">-- Name: _ferretdb_database_metadata; Type: TABLE; Schema: test_db; Owner: ferretdb</span>
+<span class="c1">--</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">test_db</span><span class="p">.</span><span class="n">_ferretdb_database_metadata</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">_jsonb</span><span class="w"> </span><span class="n">jsonb</span>
+<span class="p">);</span>
+
+
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">test_db</span><span class="p">.</span><span class="n">_ferretdb_database_metadata</span><span class="w"> </span><span class="k">OWNER</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">ferretdb</span><span class="p">;</span>
+
+<span class="c1">--</span>
+<span class="c1">-- Name: customers_c09344de; Type: TABLE; Schema: test_db; Owner: ferretdb</span>
+<span class="c1">--</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">test_db</span><span class="p">.</span><span class="n">customers_c09344de</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">_jsonb</span><span class="w"> </span><span class="n">jsonb</span>
+<span class="p">);</span>
+
+
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">test_db</span><span class="p">.</span><span class="n">customers_c09344de</span><span class="w"> </span><span class="k">OWNER</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">ferretdb</span><span class="p">;</span>
+
+<span class="c1">--</span>
+<span class="c1">-- Data for Name: _ferretdb_database_metadata; Type: TABLE DATA; Schema: test_db; Owner: ferretdb</span>
+<span class="c1">--</span>
+
+<span class="k">COPY</span><span class="w"> </span><span class="n">test_db</span><span class="p">.</span><span class="n">_ferretdb_database_metadata</span><span class="w"> </span><span class="p">(</span><span class="n">_jsonb</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">stdin</span><span class="p">;</span>
+<span class="err">{</span><span class="ss">&quot;$s&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;p&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;t&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;string&quot;</span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;table&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;t&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;string&quot;</span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;indexes&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;i&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">{</span><span class="ss">&quot;t&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;object&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;$s&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;p&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;t&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;object&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;$s&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;p&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;t&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;int&quot;</span><span class="err">}}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;$k&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="ss">&quot;_id&quot;</span><span class="p">]</span><span class="err">}}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;t&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;string&quot;</span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;unique&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;t&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;bool&quot;</span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;pgindex&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;t&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;string&quot;</span><span class="err">}}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;$k&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="ss">&quot;pgindex&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;key&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;unique&quot;</span><span class="p">]</span><span class="err">}}</span><span class="p">],</span><span class="w"> </span><span class="ss">&quot;t&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;array&quot;</span><span class="err">}}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;$k&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="ss">&quot;_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;table&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;indexes&quot;</span><span class="p">]</span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;customers&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;table&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;customers_c09344de&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;indexes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">{</span><span class="ss">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;_id_&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;unique&quot;</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;pgindex&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;customers__id__e06693c2_idx&quot;</span><span class="err">}</span><span class="p">]</span><span class="err">}</span>
+<span class="err">\</span><span class="p">.</span>
+
+
+<span class="c1">--</span>
+<span class="c1">-- Data for Name: customers_c09344de; Type: TABLE DATA; Schema: test_db; Owner: ferretdb</span>
+<span class="c1">--</span>
+
+<span class="k">COPY</span><span class="w"> </span><span class="n">test_db</span><span class="p">.</span><span class="n">customers_c09344de</span><span class="w"> </span><span class="p">(</span><span class="n">_jsonb</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">stdin</span><span class="p">;</span>
+<span class="err">{</span><span class="ss">&quot;$s&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;p&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;t&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;objectId&quot;</span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;t&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;string&quot;</span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">{</span><span class="ss">&quot;t&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;string&quot;</span><span class="err">}}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;$k&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="ss">&quot;_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;address&quot;</span><span class="p">]</span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;6454cd232da4567e5cd31f39&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;John&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;Highway 37&quot;</span><span class="err">}</span>
+<span class="err">\</span><span class="p">.</span>
+
+
+<span class="c1">--</span>
+<span class="c1">-- Name: _ferretdb_database_metadata_id_idx; Type: INDEX; Schema: test_db; Owner: ferretdb</span>
+<span class="c1">--</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">_ferretdb_database_metadata_id_idx</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">test_db</span><span class="p">.</span><span class="n">_ferretdb_database_metadata</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">btree</span><span class="w"> </span><span class="p">(((</span><span class="n">_jsonb</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s1">&#39;_id&#39;</span><span class="p">::</span><span class="nb">text</span><span class="p">)));</span>
+
+
+<span class="c1">--</span>
+<span class="c1">-- Name: customers__id__e06693c2_idx; Type: INDEX; Schema: test_db; Owner: ferretdb</span>
+<span class="c1">--</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">customers__id__e06693c2_idx</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">test_db</span><span class="p">.</span><span class="n">customers_c09344de</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">btree</span><span class="w"> </span><span class="p">(((</span><span class="n">_jsonb</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s1">&#39;_id&#39;</span><span class="p">::</span><span class="nb">text</span><span class="p">)));</span>
+
+
+<span class="c1">--</span>
+<span class="c1">-- PostgreSQL database dump complete</span>
+<span class="c1">--</span>
+</code></pre></div>
+</details>
+
+<h2 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h2>
+<p>FerretDB supports securing connections between FerretDB and client with TLS. All you need is to specify additional run-time arguments or environment variables, as described in the <a href="https://docs.ferretdb.io/security/">FerretDB documentation</a>.</p>
+<h2 id="known-issues-limitations">Known Issues / Limitations<a class="headerlink" href="#known-issues-limitations" title="Permanent link">&para;</a></h2>
+<ul>
+<li>FerretDB currently does not support user management.</li>
+<li>FerretDB currently does not support role management.</li>
+<li>FerretDB currently does not allow for optimizations or tweaks to the underlying PostgreSQL schema that is used by FerretDB as it translates MongoDB collections to PostgreSQL tables.</li>
+</ul>
+<blockquote>
+<p><strong>Note</strong> <br/>
+As of May 2023, the project was recently released to its first major version (v1.0.0) and is constantly being developed and improved, hence, these issues may have already been solved depending on when you are reading this. Check <a href="https://docs.ferretdb.io/reference/supported-commands/">supported commands</a> for FerretDB to see what is currently available.</p>
+</blockquote>
 <h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://www.keycloak.org/documentation">Documentation</a></li>
-<li><a href="https://www.keycloak.org/guides">Guides</a></li>
-<li><a href="https://www.keycloak.org/server/configuration-production">Production Configuration</a></li>
-<li><a href="https://www.keycloak.org/server/reverseproxy">Reverse Proxy</a><ul>
-<li><a href="https://kubernetes.github.io/ingress-nginx/examples/auth/oauth-external-auth/">Ingress Nginx</a></li>
-<li><a href="https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/oauth_provider/#keycloak-oidc-auth-provider">Oauth2-Proxy</a><ul>
-<li>Note: the “oidc-issuer-url” may be outdated in the guide. See <a href="https://stackoverflow.com/questions/70577004/keycloak-could-not-find-resource-for-full-path">this issue.</a></li>
-<li>Note: Keycloak realm steps may be different if you are using the new admin console. Instructions for that can be found on their <a href="https://github.com/oauth2-proxy/oauth2-proxy/blob/master/docs/docs/configuration/auth.md#keycloak-oidc-auth-provider">github</a>.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="https://www.keycloak.org/docs/latest/securing_apps/index.html">Securing your applications</a></li>
+<li><a href="https://github.com/FerretDB/FerretDB">FerretDB GitHub</a></li>
+<li><a href="https://docs.ferretdb.io/">FerretDB documentation</a></li>
+<li><a href="https://docs.ferretdb.io/reference/supported-commands/">FerretDB supported commands</a></li>
+<li><a href="https://www.mongodb.com/docs/mongodb-shell/">MongoDB Shell (mongosh)</a></li>
 </ul>
 
 
