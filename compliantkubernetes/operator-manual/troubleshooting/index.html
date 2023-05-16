@@ -2186,14 +2186,35 @@ ssh<span class="w"> </span>ubuntu@<span class="nv">$UNHEALTHY_NODE</span><span c
 <h2 id="okay-i-want-to-add-a-new-node">Okay, I want to add a new Node.<a class="headerlink" href="#okay-i-want-to-add-a-new-node" title="Permanent link">&para;</a></h2>
 <p>Prefer this option if you "quickly" need to add CPU, memory or storage (i.e., Rook) capacity.</p>
 <p>First, check for infrastructure drift, as shown <a href="#how-do-i-check-if-infrastructure-drifted-due-to-manual-intervention">here</a>.</p>
-<p>Depending on your provider:</p>
-<ol>
-<li>Add a new Node by editing the <code>*.tfvars</code>.</li>
-<li>Re-apply Terraform.</li>
-<li>Re-create the <code>inventory.ini</code> (skip this step if the cluster is using a dynamic inventory).</li>
-<li>Re-apply Kubespray.</li>
-<li>Re-fix the Kubernetes API URL.</li>
-</ol>
+<p>Depending on your provider:
+If the infrastructure is not managed by terraform you can skip to step 3:
+1. Add a new Node by editing the <code>*.tfvars</code>.
+2. Re-apply Terraform.
+3. Add the new node to the <code>inventory.ini</code> (skip this step if the cluster is using a dynamic inventory).
+4. Re-apply Kubespray only for the new node.
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="o">[</span>compliantkubernetes-kubespray-root-dir<span class="o">]</span>
+
+<span class="nv">CLUSTER</span><span class="o">=[</span>sc<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="o">]</span>
+
+./bin/ck8s-kubespray<span class="w"> </span>run-playbook<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>facts.yml
+./bin/ck8s-kubespray<span class="w"> </span>run-playbook<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>scale.yml<span class="w"> </span>-b<span class="w"> </span>--limit<span class="o">=[</span>new_node_name<span class="o">]</span>
+</code></pre></div>
+5. Add ssh keys to the new node if necessary
+<div class="highlight"><pre><span></span><code>./bin/ck8s-kubespray<span class="w"> </span>apply-ssh<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>--limit<span class="o">=[</span>new_node_name<span class="o">]</span>
+</code></pre></div>
+6. Update network policies
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="o">[</span>compliatkubernetes-apps-root-dir<span class="o">]</span>
+
+./bin/ck8s<span class="w"> </span>update-ips<span class="w"> </span>sc<span class="w"> </span>update
+./bin/ck8s<span class="w"> </span>update-ips<span class="w"> </span>wc<span class="w"> </span>update
+
+./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>helmfile<span class="w"> </span>sc<span class="w"> </span>-l<span class="w"> </span><span class="nv">app</span><span class="o">=</span>common-np<span class="w"> </span>-i<span class="w"> </span>apply
+./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>helmfile<span class="w"> </span>wc<span class="w"> </span>-l<span class="w"> </span><span class="nv">app</span><span class="o">=</span>common-np<span class="w"> </span>-i<span class="w"> </span>apply
+
+./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>helmfile<span class="w"> </span>sc<span class="w"> </span>-l<span class="w"> </span><span class="nv">app</span><span class="o">=</span>service-cluster-np<span class="w"> </span>-i<span class="w"> </span>apply
+<span class="c1"># or</span>
+./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>helmfile<span class="w"> </span>wc<span class="w"> </span>-l<span class="w"> </span><span class="nv">app</span><span class="o">=</span>workload-cluster-np<span class="w"> </span>-i<span class="w"> </span>apply
+</code></pre></div></p>
 <p>Check that the new Node joined the cluster, as shown <a href="#are-the-kubernetes-clusters-doing-fine">here</a>.</p>
 <h2 id="a-systemd-unit-failed">A systemd unit failed<a class="headerlink" href="#a-systemd-unit-failed" title="Permanent link">&para;</a></h2>
 <p>SSH into the Node. Check which systemd unit is failing:</p>
