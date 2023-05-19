@@ -2011,128 +2011,89 @@ if(!document.__defineGetter__) {
 <p>This guide assumes that:</p>
 <ul>
 <li>You have <a href="../getting-started/">pre-requisites</a> installed.</li>
-<li>Your environment variables, in particular <code>CK8S_CONFIG_PATH</code> is set.</li>
+<li>Your environment variables, in particular <code>CK8S_CONFIG_PATH</code> is set, and <code>CLUSTER</code> set to either <code>sc</code> or <code>wc</code>.</li>
 <li>Your config folder is available.</li>
 <li><code>compliantkubernetes-apps</code> and <code>compliantkubernetes-kubespray</code> is available.</li>
 </ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><code>./bin/ck8s</code> references the <code>compliantkubernetes-apps</code> CLI
+<code>./bin/ck8s-kubespray</code> references the <code>compliantkubernetes-kubespray</code> CLI</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>For some of the ansible commands below, you might require root privileges. To run commands as a privileged user with ansible, use the <code>--become, -b</code> flag.</p>
+<p>Example:
+<code>ansible -i inventory.ini -b all -m ping</code></p>
+</div>
 <h2 id="i-have-no-clue-where-to-start">I have no clue where to start<a class="headerlink" href="#i-have-no-clue-where-to-start" title="Permanent link">&para;</a></h2>
 <p>If you get lost, start checking from the "physical layer" and up.</p>
 <h3 id="are-the-nodes-still-accessible-via-ssh">Are the Nodes still accessible via SSH?<a class="headerlink" href="#are-the-nodes-still-accessible-via-ssh" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>ansible<span class="w"> </span>-i<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>-config/inventory.ini<span class="w"> </span>all<span class="w"> </span>-m<span class="w"> </span>ping
-<span class="k">done</span>
+<div class="highlight"><pre><span></span><code>ansible<span class="w"> </span>-i<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>-config/inventory.ini<span class="w"> </span>all<span class="w"> </span>-m<span class="w"> </span>ping
 </code></pre></div>
 <h3 id="are-the-nodes-doing-fine">Are the Nodes "doing fine"?<a class="headerlink" href="#are-the-nodes-doing-fine" title="Permanent link">&para;</a></h3>
 <p>Dmesg should not display unexpected messages. <a href="https://en.wikipedia.org/wiki/Out_of_memory">OOM</a> will show up here.</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>ansible<span class="w"> </span>-i<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>-config/inventory.ini<span class="w"> </span>all<span class="w"> </span>-m<span class="w"> </span>shell<span class="w"> </span>-a<span class="w"> </span><span class="s1">&#39;echo; hostname; dmesg | tail -n 10&#39;</span>
-<span class="k">done</span>
+<div class="highlight"><pre><span></span><code>ansible<span class="w"> </span>-i<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>-config/inventory.ini<span class="w"> </span>all<span class="w"> </span>-m<span class="w"> </span>shell<span class="w"> </span>-a<span class="w"> </span><span class="s1">&#39;echo; hostname; dmesg | tail -n 10&#39;</span>
 </code></pre></div>
 <p>Uptime should show high uptime (e.g., days) and low load (e.g., less than 3):</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>ansible<span class="w"> </span>-i<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>-config/inventory.ini<span class="w"> </span>all<span class="w"> </span>-m<span class="w"> </span>shell<span class="w"> </span>-a<span class="w"> </span><span class="s1">&#39;echo; hostname; uptime&#39;</span>
-<span class="k">done</span>
+<div class="highlight"><pre><span></span><code>ansible<span class="w"> </span>-i<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>-config/inventory.ini<span class="w"> </span>all<span class="w"> </span>-m<span class="w"> </span>shell<span class="w"> </span>-a<span class="w"> </span><span class="s1">&#39;echo; hostname; uptime&#39;</span>
 </code></pre></div>
 <p>Any process that uses too much CPU?</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>ansible<span class="w"> </span>-i<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>-config/inventory.ini<span class="w"> </span>all<span class="w"> </span>-m<span class="w"> </span>shell<span class="w"> </span>-a<span class="w"> </span><span class="s1">&#39;echo; hostname; ps -Ao user,uid,comm,pid,pcpu,tty --sort=-pcpu | head -n 6&#39;</span>
-<span class="k">done</span>
+<div class="highlight"><pre><span></span><code>ansible<span class="w"> </span>-i<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>-config/inventory.ini<span class="w"> </span>all<span class="w"> </span>-m<span class="w"> </span>shell<span class="w"> </span>-a<span class="w"> </span><span class="s1">&#39;echo; hostname; ps -Ao user,uid,comm,pid,pcpu,tty --sort=-pcpu | head -n 6&#39;</span>
 </code></pre></div>
 <p>Is there enough disk space? All writeable file-systems should have at least 30% free.</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>ansible<span class="w"> </span>-i<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>-config/inventory.ini<span class="w"> </span>all<span class="w"> </span>-m<span class="w"> </span>shell<span class="w"> </span>-a<span class="w"> </span><span class="s1">&#39;echo; hostname; df -h&#39;</span>
-<span class="k">done</span>
+<div class="highlight"><pre><span></span><code>ansible<span class="w"> </span>-i<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>-config/inventory.ini<span class="w"> </span>all<span class="w"> </span>-m<span class="w"> </span>shell<span class="w"> </span>-a<span class="w"> </span><span class="s1">&#39;echo; hostname; df -h&#39;</span>
 </code></pre></div>
 <p>Is there enough available memory? There should be at least a few GB of available memory.</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>ansible<span class="w"> </span>-i<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>-config/inventory.ini<span class="w"> </span>all<span class="w"> </span>-m<span class="w"> </span>shell<span class="w"> </span>-a<span class="w"> </span><span class="s1">&#39;echo; hostname; cat /proc/meminfo | grep Available&#39;</span>
-<span class="k">done</span>
+<div class="highlight"><pre><span></span><code>ansible<span class="w"> </span>-i<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>-config/inventory.ini<span class="w"> </span>all<span class="w"> </span>-m<span class="w"> </span>shell<span class="w"> </span>-a<span class="w"> </span><span class="s1">&#39;echo; hostname; cat /proc/meminfo | grep Available&#39;</span>
 </code></pre></div>
 <p>Can Nodes access the Internet?</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>ansible<span class="w"> </span>-i<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>-config/inventory.ini<span class="w"> </span>all<span class="w"> </span>-m<span class="w"> </span>shell<span class="w"> </span>-a<span class="w"> </span><span class="s1">&#39;echo; hostname; curl --silent  https://checkip.amazonaws.com&#39;</span>
-<span class="k">done</span>
+<div class="highlight"><pre><span></span><code>ansible<span class="w"> </span>-i<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>-config/inventory.ini<span class="w"> </span>all<span class="w"> </span>-m<span class="w"> </span>shell<span class="w"> </span>-a<span class="w"> </span><span class="s1">&#39;echo; hostname; curl --silent  https://checkip.amazonaws.com&#39;</span>
 </code></pre></div>
 <p>Are the Nodes having the proper time? You should see <code>System clock synchronized: yes</code> and <code>NTP service: active</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>ansible<span class="w"> </span>-i<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>-config/inventory.ini<span class="w"> </span>all<span class="w"> </span>-m<span class="w"> </span>shell<span class="w"> </span>-a<span class="w"> </span><span class="s1">&#39;echo; timedatectl status&#39;</span>
-<span class="k">done</span>
+<div class="highlight"><pre><span></span><code>ansible<span class="w"> </span>-i<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>-config/inventory.ini<span class="w"> </span>all<span class="w"> </span>-m<span class="w"> </span>shell<span class="w"> </span>-a<span class="w"> </span><span class="s1">&#39;echo; timedatectl status&#39;</span>
 </code></pre></div>
 <h3 id="is-the-base-os-doing-fine">Is the base OS doing fine?<a class="headerlink" href="#is-the-base-os-doing-fine" title="Permanent link">&para;</a></h3>
 <p>We generally run the latest <a href="https://ubuntu.com/blog/what-is-an-ubuntu-lts-release">Ubuntu LTS</a>, at the time of this writing Ubuntu 20.04 LTS.</p>
 <p>You can confirm this by doing:</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>ansible<span class="w"> </span>-i<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>-config/inventory.ini<span class="w"> </span>all<span class="w"> </span>-m<span class="w"> </span>shell<span class="w"> </span>-a<span class="w"> </span><span class="s1">&#39;cat /etc/lsb-release&#39;</span>
-<span class="k">done</span>
+<div class="highlight"><pre><span></span><code>ansible<span class="w"> </span>-i<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>-config/inventory.ini<span class="w"> </span>all<span class="w"> </span>-m<span class="w"> </span>shell<span class="w"> </span>-a<span class="w"> </span><span class="s1">&#39;cat /etc/lsb-release&#39;</span>
 </code></pre></div>
 <p>Are systemd units running fine? You should see <code>running</code> and not <code>degraded</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>ansible<span class="w"> </span>-i<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>-config/inventory.ini<span class="w"> </span>all<span class="w"> </span>-m<span class="w"> </span>shell<span class="w"> </span>-a<span class="w"> </span><span class="s1">&#39;systemctl is-system-running&#39;</span>
-<span class="k">done</span>
+<div class="highlight"><pre><span></span><code>ansible<span class="w"> </span>-i<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>-config/inventory.ini<span class="w"> </span>all<span class="w"> </span>-m<span class="w"> </span>shell<span class="w"> </span>-a<span class="w"> </span><span class="s1">&#39;systemctl is-system-running&#39;</span>
 </code></pre></div>
 <h3 id="are-the-kubernetes-clusters-doing-fine">Are the Kubernetes clusters doing fine?<a class="headerlink" href="#are-the-kubernetes-clusters-doing-fine" title="Permanent link">&para;</a></h3>
 <p>Are the Nodes reporting in on Kubernetes? All Kubernetes Nodes, both control-plane and workers, should be <code>Ready</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>sops<span class="w"> </span>exec-file<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span><span class="s1">&#39;kubectl --kubeconfig {} get nodes&#39;</span>
-<span class="k">done</span>
+<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>get<span class="w"> </span>nodes
 </code></pre></div>
 <h3 id="is-rook-doing-fine">Is Rook doing fine?<a class="headerlink" href="#is-rook-doing-fine" title="Permanent link">&para;</a></h3>
 <p>If Rook is installed, is Rook doing fine? You should see <code>HEALTH_OK</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>sops<span class="w"> </span>exec-file<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span><span class="s1">&#39;kubectl --kubeconfig {} -n rook-ceph apply -f ./compliantkubernetes-kubespray/rook/toolbox-deploy.yaml&#39;</span>
-<span class="k">done</span>
+<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>-n<span class="w"> </span>rook-ceph<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>./compliantkubernetes-kubespray/rook/toolbox-deploy.yaml
 
-<span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>sops<span class="w"> </span>exec-file<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span><span class="s1">&#39;kubectl --kubeconfig {} -n rook-ceph exec deploy/rook-ceph-tools -- ceph status&#39;</span>
-<span class="k">done</span>
+./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>-n<span class="w"> </span>rook-ceph<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>deploy/rook-ceph-tools<span class="w"> </span>--<span class="w"> </span>ceph<span class="w"> </span>status<span class="err">&#39;</span>
 </code></pre></div>
 <h3 id="are-kubernetes-pods-doing-fine">Are Kubernetes Pods doing fine?<a class="headerlink" href="#are-kubernetes-pods-doing-fine" title="Permanent link">&para;</a></h3>
 <p>Pods should be <code>Running</code> or <code>Completed</code>, and fully <code>Ready</code> (e.g., <code>1/1</code> or <code>6/6</code>)?</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>sops<span class="w"> </span>exec-file<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span><span class="s1">&#39;kubectl --kubeconfig {} get --all-namespaces pods&#39;</span>
-<span class="k">done</span>
+<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>get<span class="w"> </span>--all-namespaces<span class="w"> </span>pods<span class="err">&#39;</span>
 </code></pre></div>
 <p>Are all Deployments fine? Deployments should show all Pods Ready, Up-to-date and Available (e.g., <code>2/2 2 2</code>).</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>sops<span class="w"> </span>exec-file<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span><span class="s1">&#39;kubectl --kubeconfig {} get --all-namespaces deployments&#39;</span>
-<span class="k">done</span>
+<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>get<span class="w"> </span>--all-namespaces<span class="w"> </span>deployments<span class="err">&#39;</span>
 </code></pre></div>
 <p>Are all DaemonSets fine? DaemonSets should show as many Pods Desired, Current, Ready and Up-to-date, as Desired.</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>sops<span class="w"> </span>exec-file<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span><span class="s1">&#39;kubectl --kubeconfig {} get --all-namespaces ds&#39;</span>
-<span class="k">done</span>
+<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>get<span class="w"> </span>--all-namespaces<span class="w"> </span>ds<span class="err">&#39;</span>
 </code></pre></div>
 <h3 id="are-helm-releases-fine">Are Helm Releases fine?<a class="headerlink" href="#are-helm-releases-fine" title="Permanent link">&para;</a></h3>
 <p>All Releases should be <code>deployed</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">KUBECONFIG</span><span class="o">=</span>kube_config_<span class="nv">$CLUSTER</span>.yaml
-<span class="w">    </span>sops<span class="w"> </span>-d<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml<span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$KUBECONFIG</span>
-<span class="w">    </span>helm<span class="w"> </span>list<span class="w"> </span>--all<span class="w"> </span>--all-namespaces
-<span class="w">    </span>shred<span class="w"> </span><span class="nv">$KUBECONFIG</span>
-<span class="k">done</span>
+<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>helm<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>list<span class="w"> </span>--all<span class="w"> </span>--all-namespaces
 </code></pre></div>
 <h3 id="is-cert-manager-doing-fine">Is cert-manager doing fine?<a class="headerlink" href="#is-cert-manager-doing-fine" title="Permanent link">&para;</a></h3>
 <p>Are (Cluster)Issuers fine? All Resources should be <code>READY=True</code> or <code>valid</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">KUBECONFIG</span><span class="o">=</span>kube_config_<span class="nv">$CLUSTER</span>.yaml
-<span class="w">    </span>sops<span class="w"> </span>-d<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml<span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$KUBECONFIG</span>
-<span class="w">    </span>kubectl<span class="w"> </span>get<span class="w"> </span>clusterissuers,issuers,certificates,orders,challenges<span class="w"> </span>--all-namespaces
-<span class="w">    </span>shred<span class="w"> </span><span class="nv">$KUBECONFIG</span>
-<span class="k">done</span>
+<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>get<span class="w"> </span>clusterissuers,issuers,certificates,orders,challenges<span class="w"> </span>--all-namespaces
 </code></pre></div>
 <h2 id="where-do-i-find-the-nodes-public-and-private-ip">Where do I find the Nodes public and private IP?<a class="headerlink" href="#where-do-i-find-the-nodes-public-and-private-ip" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span>inventory.ini
 </code></pre></div>
 <p>or</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>ansible-inventory<span class="w"> </span>-i<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>-config/inventory.ini<span class="w"> </span>--list<span class="w"> </span>all
-<span class="k">done</span>
+<div class="highlight"><pre><span></span><code>ansible-inventory<span class="w"> </span>-i<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>-config/inventory.ini<span class="w"> </span>--list<span class="w"> </span>all
 </code></pre></div>
 <p><code>ansible_host</code> is usually the public IP, while <code>ip</code> is usually the private IP.</p>
 <h2 id="node-cannot-be-access-via-ssh">Node cannot be access via SSH<a class="headerlink" href="#node-cannot-be-access-via-ssh" title="Permanent link">&para;</a></h2>
@@ -2233,49 +2194,39 @@ journalctl<span class="w"> </span>--unit<span class="w"> </span><span class="nv"
 <li><a href="https://github.com/rook/rook/blob/master/Documentation/Troubleshooting/ceph-common-issues.md">Ceph Common Issues</a></li>
 </ul>
 <h2 id="pod-seems-not-fine">Pod seems not fine<a class="headerlink" href="#pod-seems-not-fine" title="Permanent link">&para;</a></h2>
-<p>Before starting, set up a handy environment:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">CLUSTER</span><span class="o">=</span>cksc<span class="w">  </span><span class="c1"># Cluster containing the unhealthy Pod</span>
-
-<span class="nb">export</span><span class="w"> </span><span class="nv">KUBECONFIG</span><span class="o">=</span>kube_config_<span class="nv">$CLUSTER</span>.yaml
-sops<span class="w"> </span>-d<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml<span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$KUBECONFIG</span>
-</code></pre></div>
-<p>Check that you are on the <strong>right</strong> cluster:</p>
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>nodes
+<p>Make sure you are on the <strong>right</strong> cluster:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$CLUSTER</span>
 </code></pre></div>
 <p>Find the name of the Pod which is not fine:</p>
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>-A
+<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>-A
 
 <span class="c1"># Copy-paste the Pod and Pod namespace below</span>
 <span class="nv">UNHEALTHY_POD</span><span class="o">=</span>prometheus-kube-prometheus-stack-prometheus-0
 <span class="nv">UNHEALTHY_POD_NAMESPACE</span><span class="o">=</span>monitoring
 </code></pre></div>
 <p>Gather some "evidence" for later diagnostics, when the heat is over:</p>
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>describe<span class="w"> </span>pod<span class="w"> </span>-n<span class="w"> </span><span class="nv">$UNHEALTHY_POD_NAMESPACE</span><span class="w"> </span><span class="nv">$UNHEALTHY_POD</span>
-kubectl<span class="w"> </span>logs<span class="w"> </span>-n<span class="w"> </span><span class="nv">$UNHEALTHY_POD_NAMESPACE</span><span class="w"> </span><span class="nv">$UNHEALTHY_POD</span>
+<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>describe<span class="w"> </span>pod<span class="w"> </span>-n<span class="w"> </span><span class="nv">$UNHEALTHY_POD_NAMESPACE</span><span class="w"> </span><span class="nv">$UNHEALTHY_POD</span>
+./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>logs<span class="w"> </span>-n<span class="w"> </span><span class="nv">$UNHEALTHY_POD_NAMESPACE</span><span class="w"> </span><span class="nv">$UNHEALTHY_POD</span>
 </code></pre></div>
 <p>Try to kill  and check if the underlying Deployment, StatefulSet or DaemonSet will restart it:</p>
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>delete<span class="w"> </span>pod<span class="w"> </span>-n<span class="w"> </span><span class="nv">$UNHEALTHY_POD_NAMESPACE</span><span class="w"> </span><span class="nv">$UNHEALTHY_POD</span>
-kubectl<span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>-A<span class="w"> </span>--watch
+<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>delete<span class="w"> </span>pod<span class="w"> </span>-n<span class="w"> </span><span class="nv">$UNHEALTHY_POD_NAMESPACE</span><span class="w"> </span><span class="nv">$UNHEALTHY_POD</span>
+./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>-A<span class="w"> </span>--watch
 </code></pre></div>
 <h2 id="helm-release-is-failed">Helm Release is <code>failed</code><a class="headerlink" href="#helm-release-is-failed" title="Permanent link">&para;</a></h2>
-<p>Before starting, set up a handy environment:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">CLUSTER</span><span class="o">=</span>cksc<span class="w">  </span><span class="c1"># Cluster containing the failed Release</span>
-
-<span class="nb">export</span><span class="w"> </span><span class="nv">KUBECONFIG</span><span class="o">=</span>kube_config_<span class="nv">$CLUSTER</span>.yaml
-sops<span class="w"> </span>-d<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml<span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$KUBECONFIG</span>
-</code></pre></div>
-<p>Check that you are on the <strong>right</strong> cluster:</p>
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>nodes
+<p>Make sure you are on the <strong>right</strong> cluster:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$CLUSTER</span>
 </code></pre></div>
 <p>Find the failed Release:
-<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>ls<span class="w"> </span>--all-namespaces<span class="w"> </span>--all
+<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>helm<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>ls<span class="w"> </span>--all-namespaces<span class="w"> </span>--all
 
 <span class="nv">FAILED_RELEASE</span><span class="o">=</span>user-rbac
 <span class="nv">FAILED_RELEASE_NAMESPACE</span><span class="o">=</span>kube-system
 </code></pre></div></p>
 <p>Just to make sure, do a drift check, as shown <a href="#how-do-i-check-if-apps-drifted-due-to-manual-intervention">here</a>.</p>
 <p>Remove the failed Release:
-<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>uninstall<span class="w"> </span>-n<span class="w"> </span><span class="nv">$FAILED_RELEASE_NAMESPACE</span><span class="w"> </span><span class="nv">$FAILED_RELEASE</span>
+<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>helm<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>uninstall<span class="w"> </span>-n<span class="w"> </span><span class="nv">$FAILED_RELEASE_NAMESPACE</span><span class="w"> </span><span class="nv">$FAILED_RELEASE</span>
 </code></pre></div></p>
 <p>Re-apply <code>apps</code> according to documentation.</p>
 <h2 id="cert-manager-is-not-fine">cert-manager is not fine<a class="headerlink" href="#cert-manager-is-not-fine" title="Permanent link">&para;</a></h2>
@@ -2300,28 +2251,22 @@ sops<span class="w"> </span>-d<span class="w"> </span><span class="si">${</span>
 <h2 id="how-do-i-check-if-infrastructure-drifted-due-to-manual-intervention">How do I check if infrastructure drifted due to manual intervention?<a class="headerlink" href="#how-do-i-check-if-infrastructure-drifted-due-to-manual-intervention" title="Permanent link">&para;</a></h2>
 <p>Go to the docs of the cloud provider and run Terraform <code>plan</code> instead of <code>apply</code>. For Exoscale, it looks as follows:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">TF_SCRIPTS_DIR</span><span class="o">=</span><span class="k">$(</span>readlink<span class="w"> </span>-f<span class="w"> </span>compliantkubernetes-kubespray/kubespray/contrib/terraform/exoscale<span class="k">)</span>
-<span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span><span class="nb">pushd</span><span class="w"> </span><span class="si">${</span><span class="nv">TF_SCRIPTS_DIR</span><span class="si">}</span>
-<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">TF_VAR_inventory_file</span><span class="o">=</span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>-config/inventory.ini
-<span class="w">    </span>terraform<span class="w"> </span>init
-<span class="w">    </span>terraform<span class="w"> </span>plan<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>-var-file<span class="o">=</span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>-config/cluster.tfvars<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>-state<span class="o">=</span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>-config/terraform.tfstate
-<span class="w">    </span><span class="nb">popd</span>
-<span class="k">done</span>
+<span class="nb">pushd</span><span class="w"> </span><span class="si">${</span><span class="nv">TF_SCRIPTS_DIR</span><span class="si">}</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">TF_VAR_inventory_file</span><span class="o">=</span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>-config/inventory.ini
+terraform<span class="w"> </span>init
+terraform<span class="w"> </span>plan<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-var-file<span class="o">=</span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>-config/cluster.tfvars<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-state<span class="o">=</span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>-config/terraform.tfstate
+<span class="nb">popd</span>
 </code></pre></div>
 <h2 id="how-do-i-check-if-the-kubespray-setup-drifted-due-to-manual-intervention">How do I check if the Kubespray setup drifted due to manual intervention?<a class="headerlink" href="#how-do-i-check-if-the-kubespray-setup-drifted-due-to-manual-intervention" title="Permanent link">&para;</a></h2>
 <p>At the time of this writing, this cannot be done, but <a href="https://github.com/cristiklein/kubespray/tree/make-check-work">efforts are underway</a>.</p>
 <h2 id="how-do-i-check-if-apps-drifted-due-to-manual-intervention">How do I check if <code>apps</code> drifted due to manual intervention?<a class="headerlink" href="#how-do-i-check-if-apps-drifted-due-to-manual-intervention" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># For service cluster</span>
-ln<span class="w"> </span>-sf<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_<span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span>.yaml<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_sc.yaml
-./compliantkubernetes-apps/bin/ck8s<span class="w"> </span>ops<span class="w"> </span>helmfile<span class="w"> </span>sc<span class="w"> </span>diff<span class="w">  </span><span class="c1"># Respond &quot;n&quot; if you get WARN</span>
+./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>helmfile<span class="w"> </span>sc<span class="w"> </span>diff<span class="w">  </span><span class="c1"># Respond &quot;n&quot; if you get WARN</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1"># For the workload clusters</span>
-<span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>ln<span class="w"> </span>-sf<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>.yaml<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_wc.yaml
-<span class="w">    </span>./compliantkubernetes-apps/bin/ck8s<span class="w"> </span>ops<span class="w"> </span>helmfile<span class="w"> </span>wc<span class="w"> </span>diff<span class="w">  </span><span class="c1"># Respond &quot;n&quot; if you get WARN</span>
-<span class="k">done</span>
+./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>helmfile<span class="w"> </span>wc<span class="w"> </span>diff<span class="w">  </span><span class="c1"># Respond &quot;n&quot; if you get WARN</span>
 </code></pre></div>
 <h2 id="velero-backup-stuck-in-progress">Velero backup stuck in progress<a class="headerlink" href="#velero-backup-stuck-in-progress" title="Permanent link">&para;</a></h2>
 <p>Velero is known to get stuck <code>InProgress</code> when doing backups</p>
@@ -2334,7 +2279,7 @@ velero-daily-backup-20211005143248<span class="w">   </span>InProgress<span clas
 <div class="highlight"><pre><span></span><code>./velero<span class="w"> </span>backup<span class="w"> </span>delete<span class="w"> </span>velero-daily-backup-20211005143248
 </code></pre></div>
 <p>Then kill all the pods under the velero namespace
-<div class="highlight"><pre><span></span><code>./compliantkubernetes-apps/bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span>wc<span class="w"> </span>delete<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>velero<span class="w"> </span>--all
+<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span>wc<span class="w"> </span>delete<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>velero<span class="w"> </span>--all
 </code></pre></div></p>
 <p>Check that the backup is gone
 <div class="highlight"><pre><span></span><code>velero<span class="w"> </span>backup<span class="w"> </span>get
@@ -2343,6 +2288,14 @@ NAME<span class="w">                                 </span>STATUS<span class="w
 </code></pre></div></p>
 <p>Recreate the backup from a schedule</p>
 <div class="highlight"><pre><span></span><code>velero<span class="w"> </span>backup<span class="w"> </span>create<span class="w"> </span>--from-schedule<span class="w"> </span>velero-daily-backup
+</code></pre></div>
+<h2 id="how-do-i-use-kubectl-and-helm-directly">How do I use <code>kubectl</code> and <code>helm</code> directly?<a class="headerlink" href="#how-do-i-use-kubectl-and-helm-directly" title="Permanent link">&para;</a></h2>
+<p>This guide makes heavy use of the <code>compliantkubernetes-apps</code> CLI to access and control Compliant Kubernetes clusters. However, you can use <code>kubectl</code> and <code>helm</code> directly, by exporting a <code>KUBECONFIG</code> like so:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">KUBECONFIG</span><span class="o">=</span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>.yaml
+
+kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-A
+
+helm<span class="w"> </span>list<span class="w"> </span>-A
 </code></pre></div>
 
 
