@@ -21,7 +21,7 @@
         <link rel="next" href="../backup/">
       
       <link rel="icon" href="../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.12">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.13">
     
     
       
@@ -2066,6 +2066,10 @@ The audit logs cover calls to the Kubernetes API, specifically <strong>who</stro
 <p>Your change management or incident management process should ensure that you also cover <strong>why</strong>.</p>
 <p>Both users (application developers) and administrators will show in the audit log. The former will change resources related to their application, whereas the latter will change Compliant Kubernetes system components.</p>
 <p>The exact configuration of the Kubernetes audit logs can be found <a href="https://github.com/elastisys/compliantkubernetes-kubespray/blob/main/config/common/group_vars/k8s_cluster/ck8s-k8s-cluster.yaml">here</a>.</p>
+<p>To view the audit logs for a specific user:
+   1. Open the <code>Audit user</code> dashboard in Opensearch;
+   2. Under <code>User selector</code> add the name of the user you want to audit (e.g admin@example.com);
+   3. Apply changes;</p>
 <p><img alt="Example of Audit Logs" src="../img/audit-logs.png" /></p>
 <h2 id="ssh-access-logs">SSH Access Logs<a class="headerlink" href="#ssh-access-logs" title="Permanent link">&para;</a></h2>
 <p>Compliant Kubernetes also captures highly privileged SSH access to the worker Nodes in the <code>authlog*</code> index pattern. Only administrators should have such access.</p>
@@ -2138,7 +2142,7 @@ The audit logs cover calls to the Kubernetes API, specifically <strong>who</stro
     <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "toc.integrate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.c2be25ad.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
       
     
   </body>
