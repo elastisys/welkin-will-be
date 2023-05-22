@@ -21,7 +21,7 @@
         <link rel="next" href="../faq/">
       
       <link rel="icon" href="../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.13">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
     
     
       
@@ -112,6 +112,11 @@ if(!document.__defineGetter__) {
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#troubleshooting-tools" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -227,9 +232,7 @@ if(!document.__defineGetter__) {
                     
 
 
-  
-
-<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Elastisys Compliant Kubernetes" class="md-nav__button md-logo" aria-label="Elastisys Compliant Kubernetes" data-md-component="logo">
       
@@ -1335,10 +1338,237 @@ if(!document.__defineGetter__) {
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Troubleshooting
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         Troubleshooting
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#i-have-no-clue-where-to-start" class="md-nav__link">
+    I have no clue where to start
+  </a>
+  
+    <nav class="md-nav" aria-label="I have no clue where to start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#are-the-nodes-still-accessible-via-ssh" class="md-nav__link">
+    Are the Nodes still accessible via SSH?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#are-the-nodes-doing-fine" class="md-nav__link">
+    Are the Nodes "doing fine"?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is-the-base-os-doing-fine" class="md-nav__link">
+    Is the base OS doing fine?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#are-the-kubernetes-clusters-doing-fine" class="md-nav__link">
+    Are the Kubernetes clusters doing fine?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is-rook-doing-fine" class="md-nav__link">
+    Is Rook doing fine?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#are-kubernetes-pods-doing-fine" class="md-nav__link">
+    Are Kubernetes Pods doing fine?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#are-helm-releases-fine" class="md-nav__link">
+    Are Helm Releases fine?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is-cert-manager-doing-fine" class="md-nav__link">
+    Is cert-manager doing fine?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-do-i-find-the-nodes-public-and-private-ip" class="md-nav__link">
+    Where do I find the Nodes public and private IP?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-cannot-be-access-via-ssh" class="md-nav__link">
+    Node cannot be access via SSH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-node-has-incorrect-time" class="md-nav__link">
+    A Node has incorrect time
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-seems-not-fine" class="md-nav__link">
+    Node seems not fine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-seems-really-not-fine-i-want-a-new-one" class="md-nav__link">
+    Node seems really not fine. I want a new one.
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#okay-i-want-to-add-a-new-node" class="md-nav__link">
+    Okay, I want to add a new Node.
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-systemd-unit-failed" class="md-nav__link">
+    A systemd unit failed
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rook-seems-not-fine" class="md-nav__link">
+    Rook seems not fine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pod-seems-not-fine" class="md-nav__link">
+    Pod seems not fine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helm-release-is-failed" class="md-nav__link">
+    Helm Release is failed
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cert-manager-is-not-fine" class="md-nav__link">
+    cert-manager is not fine
+  </a>
+  
+    <nav class="md-nav" aria-label="cert-manager is not fine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#failed-to-perform-self-check-no-such-host" class="md-nav__link">
+    Failed to perform self check: no such host
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failed-to-perform-self-check-connection-timed-out" class="md-nav__link">
+    Failed to perform self check: connection timed out
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-check-if-infrastructure-drifted-due-to-manual-intervention" class="md-nav__link">
+    How do I check if infrastructure drifted due to manual intervention?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-check-if-the-kubespray-setup-drifted-due-to-manual-intervention" class="md-nav__link">
+    How do I check if the Kubespray setup drifted due to manual intervention?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-check-if-apps-drifted-due-to-manual-intervention" class="md-nav__link">
+    How do I check if apps drifted due to manual intervention?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#velero-backup-stuck-in-progress" class="md-nav__link">
+    Velero backup stuck in progress
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-use-kubectl-and-helm-directly" class="md-nav__link">
+    How do I use kubectl and helm directly?
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1992,6 +2222,233 @@ if(!document.__defineGetter__) {
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#i-have-no-clue-where-to-start" class="md-nav__link">
+    I have no clue where to start
+  </a>
+  
+    <nav class="md-nav" aria-label="I have no clue where to start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#are-the-nodes-still-accessible-via-ssh" class="md-nav__link">
+    Are the Nodes still accessible via SSH?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#are-the-nodes-doing-fine" class="md-nav__link">
+    Are the Nodes "doing fine"?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is-the-base-os-doing-fine" class="md-nav__link">
+    Is the base OS doing fine?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#are-the-kubernetes-clusters-doing-fine" class="md-nav__link">
+    Are the Kubernetes clusters doing fine?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is-rook-doing-fine" class="md-nav__link">
+    Is Rook doing fine?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#are-kubernetes-pods-doing-fine" class="md-nav__link">
+    Are Kubernetes Pods doing fine?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#are-helm-releases-fine" class="md-nav__link">
+    Are Helm Releases fine?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is-cert-manager-doing-fine" class="md-nav__link">
+    Is cert-manager doing fine?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-do-i-find-the-nodes-public-and-private-ip" class="md-nav__link">
+    Where do I find the Nodes public and private IP?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-cannot-be-access-via-ssh" class="md-nav__link">
+    Node cannot be access via SSH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-node-has-incorrect-time" class="md-nav__link">
+    A Node has incorrect time
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-seems-not-fine" class="md-nav__link">
+    Node seems not fine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-seems-really-not-fine-i-want-a-new-one" class="md-nav__link">
+    Node seems really not fine. I want a new one.
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#okay-i-want-to-add-a-new-node" class="md-nav__link">
+    Okay, I want to add a new Node.
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-systemd-unit-failed" class="md-nav__link">
+    A systemd unit failed
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rook-seems-not-fine" class="md-nav__link">
+    Rook seems not fine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pod-seems-not-fine" class="md-nav__link">
+    Pod seems not fine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helm-release-is-failed" class="md-nav__link">
+    Helm Release is failed
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cert-manager-is-not-fine" class="md-nav__link">
+    cert-manager is not fine
+  </a>
+  
+    <nav class="md-nav" aria-label="cert-manager is not fine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#failed-to-perform-self-check-no-such-host" class="md-nav__link">
+    Failed to perform self check: no such host
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failed-to-perform-self-check-connection-timed-out" class="md-nav__link">
+    Failed to perform self check: connection timed out
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-check-if-infrastructure-drifted-due-to-manual-intervention" class="md-nav__link">
+    How do I check if infrastructure drifted due to manual intervention?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-check-if-the-kubespray-setup-drifted-due-to-manual-intervention" class="md-nav__link">
+    How do I check if the Kubespray setup drifted due to manual intervention?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-check-if-apps-drifted-due-to-manual-intervention" class="md-nav__link">
+    How do I check if apps drifted due to manual intervention?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#velero-backup-stuck-in-progress" class="md-nav__link">
+    Velero backup stuck in progress
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-i-use-kubectl-and-helm-directly" class="md-nav__link">
+    How do I use kubectl and helm directly?
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           
             <div class="md-content" data-md-component="content">
@@ -2311,6 +2768,11 @@ helm<span class="w"> </span>list<span class="w"> </span>-A
 
         </div>
         
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
       </main>
       
         <footer class="md-footer">
@@ -2340,7 +2802,7 @@ helm<span class="w"> </span>list<span class="w"> </span>-A
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "toc.integrate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.tabs.link", "navigation.top"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
