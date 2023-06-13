@@ -894,13 +894,6 @@ if(!document.__defineGetter__) {
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#provision-a-new-postgresql-cluster" class="md-nav__link">
-    Provision a New PostgreSQL Cluster
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#install-prerequisites" class="md-nav__link">
     Install Prerequisites
   </a>
@@ -2113,13 +2106,6 @@ if(!document.__defineGetter__) {
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#provision-a-new-postgresql-cluster" class="md-nav__link">
-    Provision a New PostgreSQL Cluster
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#install-prerequisites" class="md-nav__link">
     Install Prerequisites
   </a>
@@ -2204,8 +2190,28 @@ if(!document.__defineGetter__) {
 
 
 <h1 id="timescaledb">TimescaleDB®<a class="headerlink" href="#timescaledb" title="Permanent link">&para;</a></h1>
+<div class="admonition elastisys">
+<p class="admonition-title">For Elastisys Managed Services Customers</p>
+<p>You can order Managed TimescaleDB® Community by filing a <a href="https://elastisys.atlassian.net/a">service ticket</a>. Here are the highlights:</p>
+<ul>
+<li><strong>Business continuity</strong>:<ul>
+<li>Standard Plan is configured with two replicas (one primary and one standby).</li>
+<li>Premium Plan is configured with three replicas (one primary and two standby-s).</li>
+</ul>
+</li>
+<li><strong>Disaster recovery</strong>:<ul>
+<li>Backup scope includes user definitions, data definitions, and the data per-se.</li>
+<li>A full backup is taken every day between 0:00 am and 6:00 am CET. The backup retention period is 30 days unless otherwise requested by the customer.</li>
+<li>Point-in-Time Recovery (PITR) is provided for the last 7 days with a recovery point objective of 5 minutes.</li>
+<li>Long-term backup schemes can be enabled after discussion with the customer.</li>
+</ul>
+</li>
+<li><strong>Only open-source features are included</strong></li>
+</ul>
+<p>For more information, please read <a href="https://elastisys.com/legal/terms-of-service/#appendix-3-managed-additional-service-specification">ToS Appendix 3 Managed Additional Service Specification</a>.</p>
+</div>
 <p><img alt="TimescaleDB Deployment Model" src="../img/timescaledb.drawio.svg" /></p>
-<p>This page will help you succeed in connecting your application to a primary relational database TimescaleDB which meets your security and compliance requirements.</p>
+<p>This page will help you succeed in connecting your application to the time-series database TimescaleDB which meets your security and compliance requirements.</p>
 <p>TimescaleDB is an extension on top of our managed PostgreSQL.
 This means that your administrator will be setting up a complete PostgreSQL cluster for you and you just use it for TimescaleDB via the TimescaleDB extension.</p>
 <div class="admonition note">
@@ -2219,16 +2225,6 @@ This is not usually a problem for collecting application specific metrics, since
 To comply with this, it is essential that every PostgreSQL database that gets created on the PostgreSQL cluster also has the Timescale extension created for it.</p>
 </div>
 <p>If you want to use TimescaleDB on your Compliant Kubernetes cluster, ask your administrator to <a href="./#provision-a-new-postgresql-cluster">provision a new standard PostgreSQL cluster</a> inside your Compliant Kubernetes environment. Then set up the TimescaleDB extension.</p>
-<h2 id="provision-a-new-postgresql-cluster">Provision a New PostgreSQL Cluster<a class="headerlink" href="#provision-a-new-postgresql-cluster" title="Permanent link">&para;</a></h2>
-<p>Ask your service-specific administrator to install a PostgreSQL cluster inside your Compliant Kubernetes environment. The service-specific administrator will ensure the PostgreSQL cluster complies with your security requirements, including:</p>
-<ul>
-<li><strong>Business continuity</strong>: We recommend a highly available setup with at minimum a primary instance and a replica. Ideally, the PostgreSQL cluster should be configured with a primary and two replicas.</li>
-<li><strong>Disaster recovery</strong>: Your service-specific administrator will configure the PostgreSQL cluster with physical backups, logical backups and Point-in-Time Recovery (PITR), as required to meet your <a href="https://en.wikipedia.org/wiki/Disaster_recovery#Recovery_Point_Objective">Recovery Point Objectives</a>.</li>
-<li><strong>Capacity management</strong>: Your service-specific administrator will ensure PostgreSQL runs on dedicated (i.e., tainted) Kubernetes Nodes, as required to get the best performance.</li>
-<li><strong>Incident management</strong>: Your administrator will set up the necessary Probes, dashboards and alerts, to discover issues and resolve them, before they become a problem.</li>
-<li><strong>Access control</strong>: Your administrator will set up a "root-like" PostgreSQL account, which will allow you to create databases and PostgreSQL users, but not tamper will logging, business continuity or disaster recovery.</li>
-</ul>
-<p>Compliant Kubernetes recommends the <a href="https://postgres-operator.readthedocs.io/en/latest/">Zalando PostgreSQL operator</a>.</p>
 <h2 id="install-prerequisites">Install Prerequisites<a class="headerlink" href="#install-prerequisites" title="Permanent link">&para;</a></h2>
 <p>Before continuing, make sure you have access to the Kubernetes API, as describe <a href="../../setup/">here</a>.</p>
 <p>Make sure to install the PostgreSQL client on your workstation. On Ubuntu, this can be achieved as follows:</p>
