@@ -2717,6 +2717,10 @@ A basic example with the Velero CLI would be <code>velero backup create manual-b
 <p>If you want to create a latest backup from existing schedule , Velero CLI would be <code>velero backup create --from-schedule velero-daily-backup --wait</code>.</p>
 <p>Check which arguments you can use by running <code>velero backup create --help</code>.</p>
 <h3 id="restore_2">Restore<a class="headerlink" href="#restore_2" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are restoring an environment under a new domain name then there is a possibility to reconfigure image references with <a href="https://velero.io/docs/main/restore-reference/#changing-poddeploymentstatefulsetdaemonsetreplicasetreplicationcontrollerjobcronjob-image-repositories">Velero</a>, but ingresses must be updated manually.</p>
+</div>
 <p>Restoring from a backup with Velero is meant to be a type of disaster recovery.
 <strong>Velero will not overwrite existing Resources when restoring.</strong>
 As such, if you want to restore the state of a Resource that is still running, the Resource must be deleted first.</p>
