@@ -1154,14 +1154,14 @@ if(!document.__defineGetter__) {
       
       
         <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-          For Kubernetes Administrators
+          For Platform Administrators
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
-          For Kubernetes Administrators
+          For Platform Administrators
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1451,6 +1451,20 @@ if(!document.__defineGetter__) {
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/additional-services/" class="md-nav__link">
+        Additional Services
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1475,14 +1489,14 @@ if(!document.__defineGetter__) {
       
       
         <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-          For CISOs
+          For CISOs and DPOs
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
-          For CISOs
+          For CISOs and DPOs
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2219,7 +2233,7 @@ Even better, OpenLens does not require "activation" and does not track your acti
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>lens.deb
 </code></pre></div>
 <h3 id="note-for-macos-and-linux-users">Note for macOS and Linux users<a class="headerlink" href="#note-for-macos-and-linux-users" title="Permanent link">&para;</a></h3>
-<p>If you followed the <a href="../setup/">Install Prerequisites</a> steps of this documentation, you have probably installed the <code>oidc-login</code> plugin to <code>kubectl</code> via <code>krew</code>. If so, Lens will not be able to find it. That makes Lens fail to authenticate via Dex, the OpenID Connect provider in Compliant Kubernetes.</p>
+<p>If you followed the <a href="../prepare/">Install Prerequisites</a> steps of this documentation, you have probably installed the <code>oidc-login</code> plugin to <code>kubectl</code> via <code>krew</code>. If so, Lens will not be able to find it. That makes Lens fail to authenticate via Dex, the OpenID Connect provider in Compliant Kubernetes.</p>
 <p>You have two options for making the <code>oidc-login</code> plugin findable by Lens:</p>
 <ol>
 <li>

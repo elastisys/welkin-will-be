@@ -321,6 +321,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/additional-services/</loc>
+         <lastmod>2023-06-16</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/break-glass/</loc>
          <lastmod>2023-06-16</lastmod>
          <changefreq>daily</changefreq>
@@ -567,11 +572,6 @@
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/registry/</loc>
-         <lastmod>2023-06-16</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://elastisys.io/compliantkubernetes/user-guide/setup/</loc>
          <lastmod>2023-06-16</lastmod>
          <changefreq>daily</changefreq>
     </url>
