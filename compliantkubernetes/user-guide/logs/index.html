@@ -2464,23 +2464,26 @@ if(!document.__defineGetter__) {
 <p>To create visualizations:</p>
 <ol>
 <li>Open the sidebar and click <strong>Visualize</strong> under OpenSearch Dashboards.</li>
-<li>Click <strong>Create visualization</strong> link located on the top right side of the page.</li>
+<li>Click <strong>Create visualization</strong> button located on the top right side of the page.</li>
 <li>Select a visualization type, we will use <strong>Pie</strong> here.</li>
-<li>Choose the index name or saved query name, if any,  under <strong>New Pie / Choose a source</strong>. We will use the <strong>Kubernetes</strong> index here.</li>
+<li>Choose an index pattern or saved search name under <strong>New Pie / Choose a source</strong>. You can utilize the search function. We will use the <strong>kubernetes*</strong> index here.</li>
 </ol>
 <p>By default a pie chart with the total number of logs will be provided by OpenSearch Dashboards. Let us divide the pie chart based on the number of logs contributed by each <strong>namespace</strong>. To do that perform the following steps:</p>
 <ol>
 <li>
-<p>Under <strong>Buckets</strong> click <strong>add</strong> then <strong>Split Slices</strong>. See the figure below.</p>
+<p>Under <strong>Buckets</strong> click <strong>Add</strong> then <strong>Split slices</strong>. See the figure below.</p>
 <p><img alt="Visualize Bucket" src="../../img/add_bucket.png" /></p>
 </li>
 <li>
-<p>Under <strong>aggregation</strong> select <strong>Significant Terms</strong> terms. see the figure below.</p>
+<p>Under <strong>Aggregation</strong> select <strong>Significant Terms</strong> terms. See the figure below.</p>
 <p><img alt="Visualize Aggregation" src="../../img/aggregation.png" /></p>
 </li>
 <li>
-<p>Select <strong>Kubernetes.namespace_name.keyword</strong> under <strong>field</strong>. See the figure below.</p>
+<p>Under <strong>Field</strong> select <strong>kubernetes.namespace_name.keyword</strong> and under <strong>Size</strong> input <strong>10</strong>. See the figure below.</p>
 <p><img alt="Visualize Fields" src="../../img/namespace.png" /></p>
+</li>
+<li>
+<p>Click <strong>Update</strong> button located in the bottom right corner.</p>
 </li>
 </ol>
 <p>The final result will look like the following figure.</p>
@@ -2494,8 +2497,8 @@ if(!document.__defineGetter__) {
 <p>To do that:</p>
 <ol>
 <li>Open the sidebar and click <strong>Dashboard</strong> under OpenSearch Dashboards.</li>
-<li>Click <strong>Create Dashboard</strong> link located on the top right side of the page.</li>
-<li>Click <strong>Add existing</strong> link located on the left side.</li>
+<li>Click <strong>Create dashboard</strong> button located on the top right side of the page.</li>
+<li>Click <strong>Add an existing</strong> link located on the left side.</li>
 <li>Select the name of the two charts/visualizations that you created above.</li>
 </ol>
 <p>The figure below shows the dashboard generated from the above steps showing the two pie charts in a single page.</p>
