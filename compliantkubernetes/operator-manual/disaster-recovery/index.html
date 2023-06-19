@@ -2550,11 +2550,15 @@ It is possible to restore serviecs directly from <strong>unencrypted</strong> of
 </code></pre></div>
 <h3 id="restore">Restore<a class="headerlink" href="#restore" title="Permanent link">&para;</a></h3>
 <p>Set the following variables</p>
-<ul>
-<li><code>user</code> - OpenSearch user with permissions to manage snapshots, usually <code>admin</code></li>
-<li><code>password</code> - password for the above user</li>
-<li><code>os_url</code> - URL to OpenSearch</li>
-</ul>
+<ol>
+<li>OpenSearch user with permissions to manage snapshots, usually <code>admin</code></li>
+<li>The password for the above user</li>
+<li>The URL to OpenSearch</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="nv">user</span><span class="o">=</span>admin
+<span class="nv">password</span><span class="o">=</span><span class="k">$(</span>sops<span class="w"> </span>-d<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/secrets.yaml<span class="w"> </span><span class="p">|</span><span class="w"> </span>yq4<span class="w"> </span><span class="s1">&#39;.opensearch.adminPassword&#39;</span><span class="k">)</span>
+<span class="nv">os_url</span><span class="o">=</span>https://opensearch.<span class="k">$(</span>yq4<span class="w"> </span><span class="s1">&#39;.global.opsDomain&#39;</span><span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/common-config.yaml<span class="k">)</span>
+</code></pre></div>
 <div class="admonition important">
 <p class="admonition-title">Restoring from off-site backup</p>
 <ul>
@@ -2655,7 +2659,8 @@ Restore one or multiple indices from a snapshot</p>
 <p>You cannot restore a write index (the latest index) if you already have a write index connected to the same index alias (which will happen if you have started to receive logs).</p>
 </div>
 <div class="highlight"><pre><span></span><code><span class="nv">snapshot_name</span><span class="o">=</span>&lt;Snapshot<span class="w"> </span>name<span class="w"> </span>from<span class="w"> </span>previous<span class="w"> </span>step&gt;
-<span class="nv">indices</span><span class="o">=</span><span class="s2">&quot;&lt;list of comma separated indices/index patterns&gt;&quot;</span>
+<span class="c1"># Use &quot;-.*&quot; if index per namespace is enabled</span>
+<span class="nv">indices</span><span class="o">=</span><span class="s2">&quot;kubernetes-*,kubeaudit-*,other-*,authlog-*&quot;</span>
 
 curl<span class="w"> </span>-kL<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">user</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">password</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">os_url</span><span class="si">}</span><span class="s2">/_snapshot/</span><span class="si">${</span><span class="nv">snapshot_repo</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">snapshot_name</span><span class="si">}</span><span class="s2">/_restore?pretty&quot;</span><span class="w"> </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span>-d<span class="s1">&#39;</span>
 <span class="s1">{</span>
@@ -2702,10 +2707,10 @@ curl<span class="w"> </span>-kL<span class="w"> </span>-u<span class="w"> </span
 <p>Install the OpenSearch suite:</p>
 <div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>helmfile<span class="w"> </span>sc<span class="w"> </span>-l<span class="w"> </span><span class="nv">group</span><span class="o">=</span>opensearch<span class="w"> </span>apply
 </code></pre></div>
-<p>Wait for the the installation to complete.</p>
+<p>Wait for the installation to complete.</p>
 <p>After the installation, go back up to the <strong>Restore</strong> section to proceed with the restore.
 If you want to restore all indices, use the following <code>indices</code> variable</p>
-<div class="highlight"><pre><span></span><code><span class="nv">indices</span><span class="o">=</span><span class="s2">&quot;kubernetes-*,kubeaudit-*,other-*&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">indices</span><span class="o">=</span><span class="s2">&quot;kubernetes-*,kubeaudit-*,other-*,authlog-*&quot;</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
