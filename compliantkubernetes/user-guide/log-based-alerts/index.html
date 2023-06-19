@@ -566,6 +566,13 @@ if(!document.__defineGetter__) {
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#alert-state" class="md-nav__link">
+    Alert state
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2085,6 +2092,13 @@ if(!document.__defineGetter__) {
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#alert-state" class="md-nav__link">
+    Alert state
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2119,89 +2133,134 @@ if(!document.__defineGetter__) {
 <p>The alerting feature notifies you when data from one or more OpenSearch indices meets certain conditions. For example, you might want to notify a Slack channel if your application logs more than five HTTP 404 errors in one hour/minute, or you might want to page a developer if no new documents have been indexed in the past 20 minutes.</p>
 <p>Alerting features have been enabled by default in Elastisys Compliant Kubernetes as of version 0.19.X</p>
 <h2 id="opensearch-alert-demo">OpenSearch Alert Demo<a class="headerlink" href="#opensearch-alert-demo" title="Permanent link">&para;</a></h2>
-<p>When you log into <strong>OpenSearch Dashboards</strong>, you will start at the home page as shown below.</p>
-<p><img alt="OpenSearch Dashboards" src="../../img/osd-home.png" /></p>
-<p>From here click <strong>"Visualize &amp; analyze"</strong> to continue and you will be greeted with the options to go forward to either <strong>Dashboard</strong> or <strong>Discover</strong>. Opening the sidebar in the top left will also provide navigation to OpenSearch Dashboards features, and here <strong>Alerting</strong> can be found in the page shown below.</p>
-<p><img alt="OpenSearch Alert Sidebar" src="../../img/osd-alerting-sidebar.png" /></p>
-<p>Once you click  <strong>Alerting</strong>, it will navigate to the below page.</p>
-<p><img alt="OpenSearch Alerting Page" src="../../img/alerting-page.png" /></p>
 <p>To use OpenSearch alerting feature, it involves two steps described below.</p>
 <ol>
-<li><strong>Create Destination</strong> - A reusable location for the information that you want the monitor to send out after being triggered. Supported locations are Amazon Chime, Email, Slack, or custom webhook.</li>
+<li><strong>Create Notifications Channel</strong> - A reusable location for the information that you want the monitor to send out after being triggered. Supported locations are Amazon Chime, Email, Slack, or custom webhook.</li>
 <li><strong>Create Monitor</strong> - A job that runs on a defined schedule and queries OpenSearch indices. The results of these queries are then used as input for one or more triggers (Conditions that, if met, generate alerts).</li>
 </ol>
-<p><strong>Step 1 - Create Destination</strong></p>
-<p>Go to Destination &amp; Create Destinations as shown in the below.</p>
+<p>When you log into <strong>OpenSearch Dashboards</strong>, you will start at the home page as shown below.</p>
+<p><img alt="OpenSearch Dashboards" src="../../img/osd-home.png" /></p>
+<p>From here click <strong>Visualize &amp; analyze</strong> to continue and you will be greeted with the options to go forward to either <strong>Dashboard</strong> or <strong>Discover</strong>. Opening the sidebar in the top left will also provide navigation to <strong>OpenSearch Dashboards Plugins</strong>, and here <strong>Alerting</strong> and <strong>Notifications</strong> can be found in the page shown below.</p>
+<p><img alt="OpenSearch Alert Sidebar" src="../../img/osd-alerting-sidebar.png" /></p>
+<p><strong>Step 1 - Create Notification Channel</strong></p>
+<p>We start with creating a notification channel, which enables sending messages directly to a designated Slack channel.</p>
 <ul>
-<li><strong>Name</strong> - Name of the destination, for example “<strong>user-demo-404-slack-notify</strong>”</li>
-<li><strong>Type</strong> - choose Slack or any other available types you want to use it.</li>
-<li><strong>Webhook URL</strong> - If using Slack, paste the webhook URL. Please refer for more information <a href="https://api.slack.com/incoming-webhooks">slack-webhook</a></li>
+<li>
+<p>Go to <strong>Notifications</strong> page, then <strong>Channels</strong> tab as shown below.</p>
+<p><img alt="OpenSearch Notification Channels" src="../../img/osd-notifications-channels-tab.png" /></p>
+</li>
+<li>
+<p>Click on <strong>Create channel</strong></p>
+</li>
+<li>
+<p>Fill in <strong>Channel details</strong></p>
+<p><img alt="OpenSearch Notification" src="../../img/add-notifications-channel.png" /></p>
+<ul>
+<li><strong>Name</strong> - Name of the destination - for example <strong>user-demo-404-slack-notify</strong></li>
+<li><strong>Channel type</strong> - choose <strong>Slack</strong></li>
+<li><strong>Slack webhook URL</strong> - Create a Slack Webhook following <a href="https://api.slack.com/incoming-webhooks">Slack documentation</a>. Paste the webhook URL</li>
 </ul>
-<p><img alt="OpenSearch Destination" src="../../img/add-destination.png" /></p>
+</li>
+<li>
+<p>Test that the Slack integration works by clicking <strong>Send test message</strong> button and check if you receive a test message in your Slack Channel.</p>
+<p><img alt="OpenSearch Notification Test" src="../../img/notifications-channel-slack-test.png" /></p>
+</li>
+<li>
+<p>Finally, save the Notification channel by clicking <strong>Create</strong> button.</p>
+<p><img alt="OpenSearch Monitor Create" src="../../img/create-channel-button.png" /></p>
+</li>
+</ul>
+<p>Next, we can proceed with creating a monitor that will use our newly created channel.</p>
 <p><strong>Step 2 - Create Monitors</strong></p>
-<p>Go to Monitors &amp; Create Monitor as shown in the below.</p>
 <ul>
-<li><strong>Monitor Name</strong> -  Name of the monitor, for example <strong>“user-demo-404-error”</strong></li>
-<li>Select <strong>Per query monitor or Per bucket monitor</strong>. - For more information <a href="https://opensearch.org/docs/latest/monitoring-plugins/alerting/monitors/#create-monitors">Monitor-types</a></li>
-<li><strong>Frequency</strong> -  How often to monitor, for instance, to check every 1 minute</li>
+<li>
+<p>Go to <strong>Alerting</strong> page, then <strong>Monitors</strong> tab as shown below.</p>
+<p><img alt="OpenSearch Notification Channels" src="../../img/osd-alerting-monitors-tab.png" /></p>
+</li>
+<li>
+<p>Click on <strong>Create monitor</strong> button</p>
+</li>
+<li>
+<p>Fill in <strong>Monitor details</strong></p>
+<p><img alt="OpenSearch Monitor 1" src="../../img/monitor-creation-1.png" /></p>
+<ul>
+<li><strong>Monitor name</strong> - Name of the monitor, for example <strong>user-demo-404-error</strong></li>
+<li><strong>Monitor type</strong> - Select <strong>Per query monitor</strong> - For more information check OpenSearch documentation on <a href="https://opensearch.org/docs/latest/monitoring-plugins/alerting/monitors/#create-monitors">Monitor types</a></li>
+<li><strong>Schedule</strong> - How often to monitor, for example, to check every 1 minute, set:<ul>
+<li><strong>Frequency</strong> - <strong>By interval</strong></li>
+<li><strong>Run every</strong> - <strong>1 Minutes</strong></li>
+</ul>
+</li>
 <li>
 <p><strong>Data source</strong></p>
 <ul>
 <li>
-<p><strong>Index</strong>  where your logs are stored, for instance, “kubernetes” (per default, Compliant Kubernetes will store all application logs indices that match the <strong>“kubernetes*”</strong> index pattern)</p>
+<p><strong>Index</strong> where your logs are stored, for instance, <strong>kubernetes*</strong> (per default, Compliant Kubernetes will store all application logs indices that match the <strong>kubernetes*</strong> index pattern)</p>
 </li>
 <li>
-<p><strong>Time field</strong> should be set to <strong>“@timestamp”</strong></p>
+<p><strong>Time field</strong> should be set to <strong>@timestamp</strong></p>
 </li>
 </ul>
 </li>
 </ul>
-<p><img alt="OpenSearch Monitor 1" src="../../img/monitor-creation-1.png" /></p>
-<ul>
-<li><strong>Query</strong><ul>
-<li><strong>Metrics</strong> - optional</li>
-<li><strong>Time range for the last</strong> - Time frame of data the plugin should monitor . Ex-  1 minute(s)
- Data filter - <strong>status-code is 404</strong></li>
-</ul>
 </li>
-</ul>
+<li>
+<p>Continue with <strong>Query</strong> details</p>
 <p><img alt="OpenSearch Monitor 2" src="../../img/monitor-creation-2.png" /></p>
 <ul>
-<li><strong>Triggers</strong><ul>
-<li><strong>Trigger name</strong> -  Name of the trigger. Ex- <strong>“404-error occurred &gt;5 times in last 1 minute”</strong></li>
-<li><strong>Severity level</strong> - Select the severity level range with <strong>1</strong>(Highest) &amp; <strong>5</strong>(Lowest)</li>
-<li><strong>Trigger condition</strong> - Select the condition according to your applications . Ex- <strong>IS ABOVE = 5</strong></li>
-<li><strong>Actions</strong> - Create an action with name , destination and customized message notification accordingly.</li>
+<li><strong>Metrics</strong> - optional</li>
+<li><strong>Time range for the last</strong> - Time frame of data the plugin should monitor - <strong>1 minute(s)</strong></li>
+<li><strong>Data filter</strong> - <strong>status-code is 404</strong></li>
 </ul>
 </li>
-</ul>
+<li>
+<p>Continue with <strong>Triggers</strong> details</p>
 <p><img alt="OpenSearch Trigger" src="../../img/trigger.png" /></p>
+<ul>
+<li><strong>Trigger name</strong> - Name of the trigger - <strong>404-error occurred &gt;5 times in last 1 minute</strong></li>
+<li><strong>Severity level</strong> - Select the severity level <strong>1(Highest)</strong></li>
+<li><strong>Trigger condition</strong> - Select the condition according to your applications - <strong>IS ABOVE 5</strong></li>
+</ul>
+</li>
+<li>
+<p>Continue with <strong>Actions</strong> details</p>
 <p><img alt="OpenSearch Action" src="../../img/action.png" /></p>
 <ul>
-<li>Finally click - <strong>Create</strong> button to complete the creation of the monitor.</li>
+<li>Create an action with name, destination and customized message notification accordingly.</li>
+<li>
+<p>Test the action by clicking <strong>Send test message</strong> and check if you receive a test message in your Slack Channel.</p>
+<p><img alt="OpenSearch Test Trigger" src="../../img/trigger-notification-slack-test.png" /></p>
+</li>
 </ul>
+</li>
+<li>
+<p>Finally click <strong>Create</strong> button to complete the creation of the monitor.</p>
 <p><img alt="OpenSearch Monitor Create" src="../../img/create-monitor-button.png" /></p>
-<ul>
-<li>You can see the status of the monitor under <strong>Alerting&gt; Monitors&gt; user-demo-404-error</strong> as shown below.</li>
-</ul>
+</li>
+<li>
+<p>You can see the status of the monitor under <strong>Alerting &gt; Monitors &gt; user-demo-404-error</strong> as shown below.</p>
 <p><img alt="OpenSearch Monitor View" src="../../img/monitor-view.png" /></p>
-<h1 id="test-alert-notification-to-slack">Test alert notification to Slack.<a class="headerlink" href="#test-alert-notification-to-slack" title="Permanent link">&para;</a></h1>
-<ul>
-<li>Demo application deployed and users get 404 errors many times (5 is the condition set before) as shown below.</li>
+</li>
 </ul>
+<p><strong>Test alert notification to Slack</strong></p>
+<ul>
+<li>
+<p>Demo application deployed and users get 404 errors many times (5 is the condition set before) as shown below.</p>
 <p><img alt="OpenSearch User Request" src="../../img/404-user-request.png" /></p>
-<ul>
-<li>We get the Slack notifications as shown below.</li>
-</ul>
+</li>
+<li>
+<p>We get the Slack notifications as shown below.</p>
 <p><img alt="OpenSearch Slack Notify" src="../../img/slack-notify.png" /></p>
-<ul>
-<li>Users can view the alert status under the <strong>Alerting</strong> tab as shown below and accordingly take the required action.</li>
-</ul>
+</li>
+<li>
+<p>Users can view the alert status under the <strong>Alerting</strong> tab as shown below and accordingly take the required action.</p>
 <p><img alt="OpenSearch Alert List" src="../../img/alert-list.png" /></p>
-<ul>
-<li>Users can <strong>acknowledge</strong> the alerts under the <strong>Alerting</strong> tab as shown below.</li>
-</ul>
+</li>
+<li>
+<p>Users can <strong>acknowledge</strong> the alerts under the <strong>Alerting</strong> tab as shown below.</p>
 <p><img alt="OpenSearch Acknowledge Alert" src="../../img/acknowledge-alert.png" /></p>
+</li>
+</ul>
 <h2 id="alert-state">Alert state<a class="headerlink" href="#alert-state" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Active</strong> - The alert is ongoing and unacknowledged. Alerts remain in this state until you acknowledge them, delete the trigger associated with the alert, or delete the monitor entirely.</li>
