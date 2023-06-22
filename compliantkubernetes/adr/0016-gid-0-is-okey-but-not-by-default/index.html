@@ -2118,7 +2118,7 @@ if(!document.__defineGetter__) {
 </code></pre></div>
 <p>During execution, OpenShift assigns <code>gid=0</code> as a supplementary group to containers, so as to give them access to the required files.</p>
 <p>In contrast to OpenShift, Compliant Kubernetes is not a multi-tenant solution. Given previous vulnerabilities in Kubernetes that affected tenant isolation (e.g., <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-8554">CVE-2020-8554</a>
-), we believe that non-trusting users should not share a workload cluster. Hence, we do not assign arbitrary UIDs to containers and do not need to assign <code>gid=0</code> as a supplementary group.</p>
+), we believe that non-trusting users should not share a Workload Cluster. Hence, we do not assign arbitrary UIDs to containers and do not need to assign <code>gid=0</code> as a supplementary group.</p>
 <p>The <code>gid=0</code> practice above seems to have made its way in <a href="https://github.com/search?l=Dockerfile&amp;q=%22chgrp+-R%22&amp;type=Code">quite a few Dockerfiles</a>, however, it is far from being the default outside OpenShift.</p>
 <p>What should Compliant Kubernetes do with the <code>gid=0</code> practice?</p>
 <h2 id="decision-drivers">Decision Drivers<a class="headerlink" href="#decision-drivers" title="Permanent link">&para;</a></h2>

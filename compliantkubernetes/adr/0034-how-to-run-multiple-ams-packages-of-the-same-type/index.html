@@ -2078,8 +2078,8 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
-  <a href="#recommendations-to-operators" class="md-nav__link">
-    Recommendations to Operators
+  <a href="#recommendations-to-platform-administrators" class="md-nav__link">
+    Recommendations to Platform Administrators
   </a>
   
 </li>
@@ -2112,14 +2112,14 @@ if(!document.__defineGetter__) {
 <li>Date: 2023-03-23</li>
 </ul>
 <h2 id="context-and-problem-statement">Context and Problem Statement<a class="headerlink" href="#context-and-problem-statement" title="Permanent link">&para;</a></h2>
-<p>Some of our customers request multiple AMS packages of the same size or different sizes, using 1 package per request or multiple packages in the same request (batch-order).
+<p>Some of the Application Developers request multiple AMS packages of the same size or different sizes, using 1 package per request or multiple packages in the same request (batch-order).
 How should we add the second or n-th package? Should we scale the nodes vertically or horizontally?
 If we scale horizontally, then in some cases we need to add AMS packages of different sizes and this brings up the problem where we need to stick the package to a specific set of nodes otherwise for example, after a maintenance that reboots the nodes, a postgres-4 package might be scheduled on a node that was intended for a postgres-8 package and the postgres-8 pod will not be able to be scheduled anymore because it does not fit on the postgres-4 node.
 How can we overcome this issue? Should we add a <code>elastisys.io/ams-cluster-name</code> label/taint for the AMS with dedicated nodes?</p>
 <h2 id="decision-drivers">Decision Drivers<a class="headerlink" href="#decision-drivers" title="Permanent link">&para;</a></h2>
 <ul>
 <li>We want to deliver a stable and secure platform.</li>
-<li>We want to best serve our customer needs.</li>
+<li>We want to best serve the Application Developer needs.</li>
 <li>We want to find a solution which is scalable and minimizes administrator burden.</li>
 <li>We don't want to waste infrastructure.</li>
 </ul>
@@ -2158,9 +2158,9 @@ Respect <a href="../0022-use-dedicated-nodes-for-additional-services/">ADR-0022<
 <ul>
 <li>The platform stability and scalability is improved.</li>
 <li>We provide extra isolation of the AMS.</li>
-<li>Being able to choose from options of scaling the nodes both vertically and horizontally shows that we are flexible and we can satisfy more of the customer needs.</li>
+<li>Being able to choose from options of scaling the nodes both vertically and horizontally shows that we are flexible and we can satisfy more of the Application Developer needs.</li>
 <li>We can add more labels that will better describe and schedulle our AMS services, like <code>local-disk</code> and others.</li>
-<li>With options 1 and 3 more resources are available to the customer.</li>
+<li>With options 1 and 3 more resources are available to the Application Developer.</li>
 </ul>
 <h3 id="negative-consequences">Negative Consequences<a class="headerlink" href="#negative-consequences" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2168,7 +2168,7 @@ Respect <a href="../0022-use-dedicated-nodes-for-additional-services/">ADR-0022<
 <li>The infrastructure footprint is increased for option 2.</li>
 <li>With options 1 and 3 the stability of the AMS package is reduced, because if 1 node is unresponsive then it will affect not 1 AMS package, but multiple AMS packages.</li>
 </ul>
-<h2 id="recommendations-to-operators">Recommendations to Operators<a class="headerlink" href="#recommendations-to-operators" title="Permanent link">&para;</a></h2>
+<h2 id="recommendations-to-platform-administrators">Recommendations to Platform Administrators<a class="headerlink" href="#recommendations-to-platform-administrators" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Use label like: <code>elastisys.io/ams-cluster-name</code></li>
 <li>Update the AMS repo and documentation with this and set it by default to automatically picked up from kubectl</li>

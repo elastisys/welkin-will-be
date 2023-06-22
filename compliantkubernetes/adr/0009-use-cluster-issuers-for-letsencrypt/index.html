@@ -2058,11 +2058,11 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
-  <a href="#recommendations-to-operators" class="md-nav__link">
-    Recommendations to Operators
+  <a href="#recommendations-to-platform-administrators" class="md-nav__link">
+    Recommendations to Platform Administrators
   </a>
   
-    <nav class="md-nav" aria-label="Recommendations to Operators">
+    <nav class="md-nav" aria-label="Recommendations to Platform Administrators">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2120,26 +2120,26 @@ if(!document.__defineGetter__) {
 <li>We want to make compliantkubernetes-apps less fragile, and LetsEncrypt ratelimiting is a cause of fragility.</li>
 <li>We want to make it easy for users to get started with Compliant Kubernetes in a "secure by default" manner.</li>
 <li>We want to have a clear separation between user and administrator resources, responsibilities and privileges.</li>
-<li>We want to keep the option open for "light" renderings, i.e., a single Kubernetes clusters that hosts both service cluster and workload cluster components.</li>
+<li>We want to keep the option open for "light" renderings, i.e., a single Kubernetes clusters that hosts both Management Cluster and Workload Cluster components.</li>
 </ul>
 <h2 id="considered-options">Considered Options<a class="headerlink" href="#considered-options" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Use one Issuer per namespace; users need to install their own Issuers in the workload clusters.</li>
-<li>Use ClusterIssuer in service cluster; let users install Issuers in the workload clusters as required.</li>
-<li>Use ClusterIssuer in both service cluster and workload cluster(s).</li>
+<li>Use one Issuer per namespace; users need to install their own Issuers in the Workload Clusters.</li>
+<li>Use ClusterIssuer in Management Cluster; let users install Issuers in the Workload Clusters as required.</li>
+<li>Use ClusterIssuer in both Management Cluster and Workload Cluster(s).</li>
 </ul>
 <h2 id="decision-outcome">Decision Outcome<a class="headerlink" href="#decision-outcome" title="Permanent link">&para;</a></h2>
-<p>Chosen option: "Use ClusterIssuers in the service cluster; optionally enable ClusterIssuers in the workload cluster(s)", because it reduces fragility, clarifies responsibilities, makes it easy to get started securely.</p>
+<p>Chosen option: "Use ClusterIssuers in the Management Cluster; optionally enable ClusterIssuers in the Workload Cluster(s)", because it reduces fragility, clarifies responsibilities, makes it easy to get started securely.</p>
 <p>Each cluster is configured with an optional ClusterIssuer called <code>letsencrypt-prod</code> for LetsEncrypt production and <code>letsencrypt-staging</code> for LetsEncrypt staging. The email address for the ClusterIssuers is configured by the administrator.</p>
-<h2 id="recommendations-to-operators">Recommendations to Operators<a class="headerlink" href="#recommendations-to-operators" title="Permanent link">&para;</a></h2>
+<h2 id="recommendations-to-platform-administrators">Recommendations to Platform Administrators<a class="headerlink" href="#recommendations-to-platform-administrators" title="Permanent link">&para;</a></h2>
 <h3 id="direct-letsencrypt-emails-to-a-logging-mailbox">Direct LetsEncrypt emails to a "logging" mailbox<a class="headerlink" href="#direct-letsencrypt-emails-to-a-logging-mailbox" title="Permanent link">&para;</a></h3>
 <p>Although LetsEncrypt does not require an email address, cert-managers seems to require all ClusterIssuers/Issuers to be configured with a syntactically valid email address. Said email address will receive notifications when certificates are close to expiry. Given that Compliant Kubernetes comes with <a href="../../ciso-guide/cryptography/">Cryptography</a> dashboards, these emails do not seem useful. <strong>Hence, ClusterIssuer emails should be directed to an address that has "logging" but not "alerting" status.</strong></p>
 <h3 id="separate-registered-domains">Separate registered domains<a class="headerlink" href="#separate-registered-domains" title="Permanent link">&para;</a></h3>
-<p>LetsEncrypt production has a rate limit of <a href="https://letsencrypt.org/docs/rate-limits/">50 certificates per week per registered domain</a>. For example, if <code>awesome-website.workload-cluster.environment.elastisys.se</code> points to the workload cluster's Ingress controller, then an excessive creation and destruction of Ingress resources may trigger rate limiting for all of <code>elastisys.se</code>.</p>
+<p>LetsEncrypt production has a rate limit of <a href="https://letsencrypt.org/docs/rate-limits/">50 certificates per week per registered domain</a>. For example, if <code>awesome-website.workload-cluster.environment.elastisys.se</code> points to the Workload Cluster's Ingress controller, then an excessive creation and destruction of Ingress resources may trigger rate limiting for all of <code>elastisys.se</code>.</p>
 <p>It is therefore advisable to:</p>
 <ul>
 <li>Use separate registered domains for development and production environments.</li>
-<li>Use separate registered domains for workload cluster(s) and the service cluster, or restrict which Ingress resources can be created by the user.</li>
+<li>Use separate registered domains for Workload Cluster(s) and the Management Cluster, or restrict which Ingress resources can be created by the user.</li>
 </ul>
 <p>Note that, the rate limiting risk exists with both Issuers and ClusterIssuers and was not introduced by this ADR.</p>
 

@@ -2394,7 +2394,7 @@ if(!document.__defineGetter__) {
 <li><a href="https://www.isms.online/iso-27001/annex-a-12-operations-security/">Annex 12</a>, article A.12.4.1 "Event Logging" and A.12.4.3 "Administrator and Operator Logs".</li>
 <li><a href="https://www.isms.online/iso-27001/annex-a-16-information-security-incident-management/">Annex 16</a> which deals with incident management.</li>
 </ul>
-<p>In Compliant Kubernetes, OpenSearch is separate from the production workload, hence it complies with A.12.4.2 "Protection of Log Information". The cloud provider should ensure that the clock of Kubernetes nodes is synchronized, hence complying with A.12.4.4 "Clock Synchronisation".</p>
+<p>In Compliant Kubernetes, OpenSearch is separate from the production workload, hence it complies with A.12.4.2 "Protection of Log Information". The Infrastructure Provider should ensure that the clock of Kubernetes nodes is synchronized, hence complying with A.12.4.4 "Clock Synchronisation".</p>
 <h2 id="opensearch">OpenSearch<a class="headerlink" href="#opensearch" title="Permanent link">&para;</a></h2>
 <p>Raw logs in CK8s are normalized, filtered, and processed by <a href="https://www.fluentd.org/">fluentd</a> and shipped to <a href="https://opensearch.org/">OpenSearch</a> for storage and analysis. OpenSearch is derived from the fully open source version of Elasticsearch called  <a href="https://logz.io/blog/open-distro-for-elasticsearch/">Open Distro for Elasticsearch</a>.</p>
 <p>OpenSearch provides a powerful, easy-to-use event monitoring and alerting system, enabling you to monitor, search, visualize your data among other things. OpenSearch Dashboards is used as visualization and analysis interface for OpenSearch for all your logs.</p>

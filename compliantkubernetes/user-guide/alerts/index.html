@@ -2247,7 +2247,7 @@ kubectl<span class="w"> </span>patch<span class="w"> </span>-n<span class="w"> <
 <p>Before setting up an alert, you must first <a href="../metrics/">collect metrics</a> from your application by setting up either ServiceMonitors or PodMonitors. In general ServiceMonitors are recommended over PodMonitors, and it is the most common way to configure metrics collection.</p>
 <p>Then create a <code>PrometheusRule</code> following the examples below or the upstream documentation with an expression that evaluates to the condition to alert on. Prometheus will pick them up, evaluate them, and then send notifications to AlertManager.</p>
 <p>The <a href="https://prometheus-operator.dev/docs/operator/api/#monitoring.coreos.com/v1.PrometheusRule">API reference for Prometheus Operator</a> describes how the Kubernetes resource is configured and the <a href="https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/">configuration reference for Prometheus</a> describes the rules themselves.</p>
-<p>In Compliant Kubernetes the Prometheus Operator in the workload cluster is configured to pick up all PrometheusRules, regardless in which namespace they are or which labels they have.</p>
+<p>In Compliant Kubernetes the Prometheus Operator in the Workload Cluster is configured to pick up all PrometheusRules, regardless in which namespace they are or which labels they have.</p>
 <h3 id="running-example">Running Example<a class="headerlink" href="#running-example" title="Permanent link">&para;</a></h3>
 <!--user-demo-alerts-start-->
 

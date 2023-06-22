@@ -21,7 +21,7 @@
     
     
       
-        <title>Rely on cloud provider for encryption-at-rest - Elastisys Compliant Kubernetes</title>
+        <title>Rely on Infrastructure Provider for encryption-at-rest - Elastisys Compliant Kubernetes</title>
       
     
     
@@ -110,7 +110,7 @@ if(!document.__defineGetter__) {
     <div data-md-component="skip">
       
         
-        <a href="#rely-on-cloud-provider-for-encryption-at-rest" class="md-skip">
+        <a href="#rely-on-infrastructure-provider-for-encryption-at-rest" class="md-skip">
           Skip to content
         </a>
       
@@ -148,7 +148,7 @@ if(!document.__defineGetter__) {
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Rely on cloud provider for encryption-at-rest
+              Rely on Infrastructure Provider for encryption-at-rest
             
           </span>
         </div>
@@ -2098,7 +2098,7 @@ if(!document.__defineGetter__) {
   
 
 
-<h1 id="rely-on-cloud-provider-for-encryption-at-rest">Rely on cloud provider for encryption-at-rest<a class="headerlink" href="#rely-on-cloud-provider-for-encryption-at-rest" title="Permanent link">&para;</a></h1>
+<h1 id="rely-on-infrastructure-provider-for-encryption-at-rest">Rely on Infrastructure Provider for encryption-at-rest<a class="headerlink" href="#rely-on-infrastructure-provider-for-encryption-at-rest" title="Permanent link">&para;</a></h1>
 <ul>
 <li>Status: accepted</li>
 <li>Deciders: arch meeting</li>
@@ -2108,16 +2108,16 @@ if(!document.__defineGetter__) {
 <p>A reason why people want encryption-at-rest is to add another safeguard to data confidentiality.
 Encryption-at-rest is a must have for phones and laptops as they can easily be stolen or get lost.
 However, in our opinion, it is a nice-to-have addition for servers, which are supposed to be in a physically protected and secure data-center, with the disks being safely disposed.
-The same should be true if the cloud provider offers object storage - the disks comprising the storage layer should be nicely tucked away deep inside a secure data-center.</p>
-<p>Anyhow, we are sometimes asked by customers on why we don't simply do full-disk encryption at the VM level, using something like <a href="https://linux.die.net/man/8/cryptsetup">cryptsetup</a>, or why we don't always encrypt data before it is shipped to object storage.
-Furthermore, some customers require that <em>all</em> data is encrypted-at-rest.
+The same should be true if the Infrastructure Provideroffers object storage - the disks comprising the storage layer should be nicely tucked away deep inside a secure data-center.</p>
+<p>Anyhow, we are sometimes asked by Application Developers on why we don't simply do full-disk encryption at the VM level, using something like <a href="https://linux.die.net/man/8/cryptsetup">cryptsetup</a>, or why we don't always encrypt data before it is shipped to object storage.
+Furthermore, some Application Developers require that <em>all</em> data is encrypted-at-rest.
 How should we in Compliant Kubernetes handle encryption-at-rest both for VMs and object storage?</p>
 <h2 id="decision-drivers">Decision Drivers<a class="headerlink" href="#decision-drivers" title="Permanent link">&para;</a></h2>
 <ul>
 <li>We want to avoid security theatre.</li>
 <li>We want to avoid operational complexity.</li>
 <li>We want to avoid cloud-provider dependent implementation sprawl.</li>
-<li>We want to make customers that require encryption-at-rest happy.</li>
+<li>We want to make Application Developers that require encryption-at-rest happy.</li>
 </ul>
 <h2 id="considered-options">Considered Options<a class="headerlink" href="#considered-options" title="Permanent link">&para;</a></h2>
 <p>VM disk encryption:</p>
@@ -2127,10 +2127,10 @@ How should we in Compliant Kubernetes handle encryption-at-rest both for VMs and
 <li>Let admins type the encryption key on the VM's console.
     Asking admins to do this is time-consuming, error-prone, effectively jeopardizing uptime. Instead, Compliant Kubernetes recommends automatic VM reboots during application "quiet times", such as at night, to ensure the OS is patched without sacrificing uptime.</li>
 <li>Let the VM pull the encryption key via instance metadata or instance configuration.
-    This would imply storing the encryption key on the cloud provider. If the cloud provider doesn't have encryption-at-rest, then the encryption key is also stored unencrypted, likely on the same server as the VM is running. Hence, this quickly ends up being security theatre.</li>
+    This would imply storing the encryption key on the Infrastructure Provider. If the Infrastructure Provider doesn't have encryption-at-rest, then the encryption key is also stored unencrypted, likely on the same server as the VM is running. Hence, this quickly ends up being security theatre.</li>
 <li>Let the VM pull the encryption key from an external location which features encryption-at-rest.
-    This would imply that the VM needs some kind of credentials to authenticate to the external location. Again these credentials are stored unencrypted on the cloud provider, so we are back to option 3.</li>
-<li>Rely on cloud provider to provide encryption-at-rest.</li>
+    This would imply that the VM needs some kind of credentials to authenticate to the external location. Again these credentials are stored unencrypted on the Infrastructure Provider, so we are back to option 3.</li>
+<li>Rely on Infrastructure Provider to provide encryption-at-rest.</li>
 </ol>
 <p>Object storage encryption:</p>
 <ol>
@@ -2141,23 +2141,23 @@ How should we in Compliant Kubernetes handle encryption-at-rest both for VMs and
     In Compliant Kubernetes we use Openstack Swift and the S3 API when interacting with object storage.
     Openstack swift has no notion of server-side encryption where the data is encrypted at rest with a user provided key.
     The S3 API has server-side encryption but again some applications in Compliant Kubernetes lacks the features necessary to leverage it.</li>
-<li>Rely on cloud provider to provide encryption-at-rest.</li>
+<li>Rely on Infrastructure Provider to provide encryption-at-rest.</li>
 </ol>
 <h2 id="decision-outcome">Decision Outcome<a class="headerlink" href="#decision-outcome" title="Permanent link">&para;</a></h2>
 <p>Chosen options:</p>
 <ul>
-<li>VM disk encryption: "Rely on cloud provider to provide encryption-at-rest".</li>
-<li>Object storage encryption: "Rely on cloud provider to provide encryption-at-rest".</li>
+<li>VM disk encryption: "Rely on Infrastructure Provider to provide encryption-at-rest".</li>
+<li>Object storage encryption: "Rely on Infrastructure Provider to provide encryption-at-rest".</li>
 </ul>
 <h3 id="positive-consequences">Positive Consequences<a class="headerlink" href="#positive-consequences" title="Permanent link">&para;</a></h3>
 <ul>
-<li>We can offer encryption-at-rest for customers that require it.</li>
+<li>We can offer encryption-at-rest for Application Developers that require it.</li>
 <li>We don't increase the operational complexity.</li>
 <li>We avoid security theatre.</li>
 </ul>
 <h3 id="negative-consequences">Negative Consequences<a class="headerlink" href="#negative-consequences" title="Permanent link">&para;</a></h3>
 <ul>
-<li>We limit what cloud providers customers can choose if they require encryption-at-rest.</li>
+<li>We limit what Infrastructure Providers Application Developers can choose if they require encryption-at-rest.</li>
 </ul>
 
 

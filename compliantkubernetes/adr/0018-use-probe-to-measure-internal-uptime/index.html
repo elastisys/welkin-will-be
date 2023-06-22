@@ -2078,8 +2078,8 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
-  <a href="#recommendations-to-operators" class="md-nav__link">
-    Recommendations to Operators
+  <a href="#recommendations-to-platform-administrators" class="md-nav__link">
+    Recommendations to Platform Administrators
   </a>
   
 </li>
@@ -2159,9 +2159,9 @@ if(!document.__defineGetter__) {
 </ul>
 <h3 id="negative-consequences">Negative Consequences<a class="headerlink" href="#negative-consequences" title="Permanent link">&para;</a></h3>
 <ul>
-<li>We don't currently run Blackbox in the workload cluster, so we'll need a bit of extra capacity.</li>
+<li>We don't currently run Blackbox in the Workload Cluster, so we'll need a bit of extra capacity.</li>
 </ul>
-<h2 id="recommendations-to-operators">Recommendations to Operators<a class="headerlink" href="#recommendations-to-operators" title="Permanent link">&para;</a></h2>
+<h2 id="recommendations-to-platform-administrators">Recommendations to Platform Administrators<a class="headerlink" href="#recommendations-to-platform-administrators" title="Permanent link">&para;</a></h2>
 <p>Blackbox should only be used for measuring uptime of internal services, i.e., those that are only exposed within the Kubernetes cluster. Examples include additional services, such as PostgreSQL, Redis and RabbitMQ.</p>
 <p>For external endpoints -- specifically, Dex, Grafana, Kibana, Harbor and Ingress Controllers -- prefer using an external uptime service which integrates with an On-Call Management Tool, e.g., <a href="https://docs.opsgenie.com/v1.0/docs/copperegg-integration">Uptime Cloud Monitor Integration for Opsgenie</a>.</p>
 <p>External uptime measurement should achieve the similar effect as the commands below:</p>

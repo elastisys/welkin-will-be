@@ -2106,8 +2106,8 @@ if(!document.__defineGetter__) {
 </ul>
 <p>Technical Story: https://github.com/elastisys/compliantkubernetes-apps/issues/742</p>
 <h2 id="context-and-problem-statement">Context and Problem Statement<a class="headerlink" href="#context-and-problem-statement" title="Permanent link">&para;</a></h2>
-<p>Compliant Kubernetes allows multiple workload clusters to be connected to a single service cluster.
-This allows the metrics of multiple workload clusters to be inspected via the same dashboards.</p>
+<p>Compliant Kubernetes allows multiple Workload Clusters to be connected to a single Management Cluster.
+This allows the metrics of multiple Workload Clusters to be inspected via the same dashboards.</p>
 <p>How should we organise metrics to allow users and admins to select for which clusters they want to see metrics?</p>
 <h2 id="decision-drivers">Decision Drivers<a class="headerlink" href="#decision-drivers" title="Permanent link">&para;</a></h2>
 <ul>
@@ -2136,7 +2136,7 @@ because it fulfills the all decision drivers with little complexity.</p>
 <h3 id="negative-consequences">Negative Consequences<a class="headerlink" href="#negative-consequences" title="Permanent link">&para;</a></h3>
 <ul>
 <li>[Minor] We need to configure data sources in <code>sc-config.yaml</code></li>
-<li>For example, if we forget to add the name of a workload cluster, the data source will be missing, but filtering based on <code>cluster</code> label is still possible.</li>
+<li>For example, if we forget to add the name of a Workload Cluster, the data source will be missing, but filtering based on <code>cluster</code> label is still possible.</li>
 <li>[Minor] Label enforcer uses a bit of resources.</li>
 <li>However, we already saved a lot by migrating from InfluxDB to Thanos, so we can afford go back a bit.</li>
 </ul>

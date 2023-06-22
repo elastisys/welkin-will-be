@@ -2113,8 +2113,8 @@ Others agree with me and since k8s 1.23 TTL on Jobs entered a stable API state.<
 <ul>
 <li>We want to maintain platform security and stability.</li>
 <li>We want to find a solution which is scalable and minimizes MSE burden.</li>
-<li>We want to best serve our customers.</li>
-<li>We want to make the operator life easier.</li>
+<li>We want to best serve the Application Developers.</li>
+<li>We want to make the Platform Administrator life easier.</li>
 </ul>
 <h2 id="considered-options">Considered Options<a class="headerlink" href="#considered-options" title="Permanent link">&para;</a></h2>
 <ol>
@@ -2128,14 +2128,14 @@ Others agree with me and since k8s 1.23 TTL on Jobs entered a stable API state.<
 We decided for a default Job TTL of 7 days, as this is a good compromise between being able to inspect the Pod -- e.g., check exit status and logs -- and not keeping Pods for too long.</p>
 <h3 id="positive-consequences">Positive Consequences<a class="headerlink" href="#positive-consequences" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Customer don't need to worry about setting any value</li>
+<li>Application Developers don't need to worry about setting any value</li>
 <li>We don't have to worry about setting any value for our jobs (assuming we will run Gatekeeper in SC, in the meantime we can just update our Job speces in Apps)</li>
 <li>There won't be any lingering Jobs in Kubernetes (assuming that no bad finalizers are set)</li>
 <li>TTL of Jobs will be visible in out IO site and possibly stated in our ToS</li>
 </ul>
 <h3 id="negative-consequences">Negative Consequences<a class="headerlink" href="#negative-consequences" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Some customers might not agree with our set TTL (not likely though IMO)</li>
+<li>Some Application Developers might not agree with our set TTL (not likely though IMO)</li>
 </ul>
 
 

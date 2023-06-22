@@ -2246,7 +2246,7 @@ See <a href="../log-review/">log review</a> for details.</p>
 The audit logs cover calls to the Kubernetes API, specifically <strong>who</strong> did <strong>what</strong> and <strong>when</strong> on <strong>which</strong> Kubernetes cluster.</p>
 <p>Thanks to integration with <a href="../../user-guide/kubernetes-api/#authentication-and-access-control-in-compliant-kubernetes">your Identity Provider</a> (IdP), if who is a person, their email address will be shown. If who is a system -- e.g., a CI/CD pipeline -- the name of the ServiceAccount is recorded.</p>
 <p>Your change management or incident management process should ensure that you also cover <strong>why</strong>.</p>
-<p>Both users (application developers) and administrators will show in the audit log. The former will change resources related to their application, whereas the latter will change Compliant Kubernetes system components.</p>
+<p>Both users (Application Developers) and administrators will show in the audit log. The former will change resources related to their application, whereas the latter will change Compliant Kubernetes system components.</p>
 <p>The exact configuration of the Kubernetes audit logs can be found <a href="https://github.com/elastisys/compliantkubernetes-kubespray/blob/main/config/common/group_vars/k8s_cluster/ck8s-k8s-cluster.yaml">here</a>.</p>
 <p>To view the audit logs for a specific user:
    1. Open the <code>Audit user</code> dashboard in Opensearch;

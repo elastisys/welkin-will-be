@@ -2078,8 +2078,8 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
-  <a href="#recommendation-to-operators" class="md-nav__link">
-    Recommendation to Operators
+  <a href="#recommendation-to-platform-administrators" class="md-nav__link">
+    Recommendation to Platform Administrators
   </a>
   
 </li>
@@ -2157,7 +2157,7 @@ What do we do for Infra Providers that do not have service type loadbalancer?</p
 <ul>
 <li>Feels like some resources are wasted on very large environments with many nodes.</li>
 </ul>
-<h2 id="recommendation-to-operators">Recommendation to Operators<a class="headerlink" href="#recommendation-to-operators" title="Permanent link">&para;</a></h2>
+<h2 id="recommendation-to-platform-administrators">Recommendation to Platform Administrators<a class="headerlink" href="#recommendation-to-platform-administrators" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Do not run the ingress-nginx on the AMS nodes.</li>
 <li>For Infra Providers without service type loadbalancer start using service type NodePort for nginx and also use the external load balancer to route traffic from ports 80/443 to node ports 30080/30443</li>

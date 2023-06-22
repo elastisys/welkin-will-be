@@ -2388,7 +2388,7 @@ if(!document.__defineGetter__) {
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You can choose names for your service cluster and workload cluster by changing the values for <code>SERVICE_CLUSTER</code> and <code>WORKLOAD_CLUSTERS</code> respectively.</p>
+<p>You can choose names for your Management Cluster and Workload Cluster by changing the values for <code>SERVICE_CLUSTER</code> and <code>WORKLOAD_CLUSTERS</code> respectively.</p>
 </div>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_CONFIG_PATH</span><span class="o">=</span>./
 <span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_ENVIRONMENT_NAME</span><span class="o">=</span>&lt;my-ck8s-cluster&gt;
@@ -2416,11 +2416,11 @@ ansible-playbook<span class="w"> </span>-e<span class="w"> </span><span class="s
 <p>Create the domain name.
     You need to create a domain name to access the different services in your environment. You will need to set up the following DNS entries (replace <code>example.com</code> with your domain name).</p>
 <ul>
-<li>Point these domains to the workload cluster ingress controller (this step is done during Compliant Kubernetes app installation):<ul>
+<li>Point these domains to the Workload Cluster ingress controller (this step is done during Compliant Kubernetes app installation):<ul>
 <li><code>*.example.com</code></li>
 </ul>
 </li>
-<li>Point these domains to the service cluster ingress controller (this step is done during Compliant Kubernetes app installation):<ul>
+<li>Point these domains to the Management Cluster ingress controller (this step is done during Compliant Kubernetes app installation):<ul>
 <li><code>*.ops.example.com</code></li>
 <li><code>dex.example.com</code></li>
 <li><code>grafana.example.com</code></li>
@@ -2430,8 +2430,8 @@ ansible-playbook<span class="w"> </span>-e<span class="w"> </span><span class="s
 </li>
 </ul>
 <details class="note" open="open">
-<summary>If both service and workload clusters are in the same subnet</summary>
-<p>If both the service and workload clusters are in the same subnet, it would be great to configure the following domain names to the private IP addresses of service cluster's worker nodes. (Replace <code>example.com</code> with your domain name.)</p>
+<summary>If both service and Workload Clusters are in the same subnet</summary>
+<p>If both the service and Workload Clusters are in the same subnet, it would be great to configure the following domain names to the private IP addresses of Management Cluster's worker nodes. (Replace <code>example.com</code> with your domain name.)</p>
 <ul>
 <li><code>*.thanos.ops.example.com</code></li>
 <li><code>*.opensearch.ops.example.com</code></li>
@@ -2443,7 +2443,7 @@ ansible-playbook<span class="w"> </span>-e<span class="w"> </span><span class="s
 </li>
 <li>
 <p>Set up load balancer</p>
-<p>You need to set up two load balancers, one for the workload cluster and one for the service cluster.</p>
+<p>You need to set up two load balancers, one for the Workload Cluster and one for the Management Cluster.</p>
 </li>
 <li>
 <p>Make sure you have <a href="../getting-started/">all necessary tools</a>.</p>
@@ -2456,13 +2456,13 @@ ansible-playbook<span class="w"> </span>-e<span class="w"> </span><span class="s
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">For Kubernetes</label><label for="__tabbed_1_2">For Docker</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">*</span><span class="w"> </span>For service cluster: Add <span class="sb">`kube_service_addresses: 10.178.0.0/18`</span> and <span class="sb">`kube_pods_subnet: 10.178.120.0/18`</span> in <span class="sb">`${CK8S_CONFIG_PATH}/sc-config/group_vars/k8s_cluster/ck8s-k8s-cluster.yaml`</span> file.
-<span class="k">*</span><span class="w"> </span>For workload cluster:  Add <span class="sb">`kube_service_addresses: 10.178.0.0/18`</span> and <span class="sb">`kube_pods_subnet: 10.178.120.0/18`</span> in <span class="sb">`${CK8S_CONFIG_PATH}/wc-config/group_vars/k8s_cluster/ck8s-k8s-cluster.yaml`</span> file.
+<div class="highlight"><pre><span></span><code><span class="k">*</span><span class="w"> </span>For Management Cluster: Add <span class="sb">`kube_service_addresses: 10.178.0.0/18`</span> and <span class="sb">`kube_pods_subnet: 10.178.120.0/18`</span> in <span class="sb">`${CK8S_CONFIG_PATH}/sc-config/group_vars/k8s_cluster/ck8s-k8s-cluster.yaml`</span> file.
+<span class="k">*</span><span class="w"> </span>For Workload Cluster:  Add <span class="sb">`kube_service_addresses: 10.178.0.0/18`</span> and <span class="sb">`kube_pods_subnet: 10.178.120.0/18`</span> in <span class="sb">`${CK8S_CONFIG_PATH}/wc-config/group_vars/k8s_cluster/ck8s-k8s-cluster.yaml`</span> file.
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">*</span><span class="w"> </span>For service cluster: Added <span class="sb">`docker_options: &quot;--default-address-pool base=10.179.0.0/24,size=24&quot;`</span> in <span class="sb">`${CK8S_CONFIG_PATH}/sc-config/group_vars/all/docker.yml`</span> file.
-<span class="k">*</span><span class="w"> </span>For workload cluster:  Added <span class="sb">`docker_options: &quot;--default-address-pool base=10.179.4.0/24,size=24&quot;`</span> in <span class="sb">`${CK8S_CONFIG_PATH}/wc-config/group_vars/all/docker.yml`</span> file.
+<div class="highlight"><pre><span></span><code><span class="k">*</span><span class="w"> </span>For Management Cluster: Added <span class="sb">`docker_options: &quot;--default-address-pool base=10.179.0.0/24,size=24&quot;`</span> in <span class="sb">`${CK8S_CONFIG_PATH}/sc-config/group_vars/all/docker.yml`</span> file.
+<span class="k">*</span><span class="w"> </span>For Workload Cluster:  Added <span class="sb">`docker_options: &quot;--default-address-pool base=10.179.4.0/24,size=24&quot;`</span> in <span class="sb">`${CK8S_CONFIG_PATH}/wc-config/group_vars/all/docker.yml`</span> file.
 </code></pre></div>
 </div>
 </div>
@@ -2478,7 +2478,7 @@ compliantkubernetes-kubespray/ck8s-kubespray<span class="w"> </span>init<span cl
 <h4 id="configure-oidc-endpoint">Configure OIDC endpoint<a class="headerlink" href="#configure-oidc-endpoint" title="Permanent link">&para;</a></h4>
 <p>Set <code>kube_oidc_url</code> in <code>${CK8S_CONFIG_PATH}/sc-config/group_vars/k8s_cluster/ck8s-k8s-cluster.yaml</code> and <code>${CK8S_CONFIG_PATH}/wc-config/group_vars/k8s_cluster/ck8s-k8s-cluster.yaml</code> based on your cluster. For example, if your domain is <code>example.com</code> then kube_oidc_url is set as <code>kube_oidc_url: https://dex.example.com</code> in both files.</p>
 <h3 id="copy-the-vms-information-to-the-inventery-files">Copy the VMs information to the inventery files<a class="headerlink" href="#copy-the-vms-information-to-the-inventery-files" title="Permanent link">&para;</a></h3>
-<p>Add the host name, user and IP address of each VM that you prepared above in <code>${CK8S_CONFIG_PATH}/sc-config/inventory.ini</code>for service cluster and <code>${CK8S_CONFIG_PATH}/sc-config/inventory.ini</code> for workload cluster. Moreover, you also need to add the host names of the master nodes under <code>[kube_control_plane]</code>, etdc nodes under <code>[etcd]</code> and worker nodes under <code>[kube_node]</code>.</p>
+<p>Add the host name, user and IP address of each VM that you prepared above in <code>${CK8S_CONFIG_PATH}/sc-config/inventory.ini</code>for Management Cluster and <code>${CK8S_CONFIG_PATH}/sc-config/inventory.ini</code> for Workload Cluster. Moreover, you also need to add the host names of the master nodes under <code>[kube_control_plane]</code>, etdc nodes under <code>[etcd]</code> and worker nodes under <code>[kube_node]</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Make sure that the user has SSH access to the VMs.</p>
@@ -2490,10 +2490,10 @@ compliantkubernetes-kubespray/ck8s-kubespray<span class="w"> </span>init<span cl
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The kubeconfig for wc <code>.state/kube_config_wc.yaml</code> will not be usable until you have installed dex in the service cluster (by deploying apps).</p>
+<p>The kubeconfig for wc <code>.state/kube_config_wc.yaml</code> will not be usable until you have installed dex in the Management Cluster (by deploying apps).</p>
 </div>
 <h3 id="set-up-rook">Set up Rook<a class="headerlink" href="#set-up-rook" title="Permanent link">&para;</a></h3>
-<p><em>Only for cloud providers that doesn't natively support storage kubernetes.</em></p>
+<p><em>Only for Infrastructure Providers that doesn't natively support storage kubernetes.</em></p>
 <p>Run the following command to set up Rook.</p>
 <div class="highlight"><pre><span></span><code><span class="w"> </span><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w">  </span>sc<span class="w"> </span>wc<span class="p">;</span><span class="w"> </span><span class="k">do</span>
 <span class="w">     </span>sops<span class="w"> </span>--decrypt<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml<span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$CLUSTER</span>.yaml
@@ -2576,7 +2576,7 @@ vim<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFI
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The default configuration for the service cluster and workload cluster are available in the directory <code>${CK8S_CONFIG_PATH}/defaults/</code> and can be used as a reference for available options.</p>
+<p>The default configuration for the Management Cluster and Workload Cluster are available in the directory <code>${CK8S_CONFIG_PATH}/defaults/</code> and can be used as a reference for available options.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -2587,7 +2587,7 @@ vim<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFI
 <div class="highlight"><pre><span></span><code>compliantkubernetes-apps/bin/ck8s<span class="w"> </span>s3cmd<span class="w"> </span>create
 </code></pre></div>
 <h3 id="install-compliant-kubernetes-apps">Install Compliant Kubernetes apps<a class="headerlink" href="#install-compliant-kubernetes-apps" title="Permanent link">&para;</a></h3>
-<p>This will set up apps, first in the service cluster and then in the workload cluster:</p>
+<p>This will set up apps, first in the Management Cluster and then in the Workload Cluster:</p>
 <div class="highlight"><pre><span></span><code>compliantkubernetes-apps/bin/ck8s<span class="w"> </span>apply<span class="w"> </span>sc
 compliantkubernetes-apps/bin/ck8s<span class="w"> </span>apply<span class="w"> </span>wc
 </code></pre></div>
@@ -2613,10 +2613,10 @@ compliantkubernetes-apps/bin/ck8s<span class="w"> </span>apply<span class="w"> <
 All resources need to have the <code>Ready</code> column <code>True</code>.</p>
 <h3 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h3>
 <p>After completing the installation step you can test if the apps are properly installed and ready using the commands below.</p>
-<p>Start with the service cluster:</p>
+<p>Start with the Management Cluster:</p>
 <div class="highlight"><pre><span></span><code>compliantkubernetes-apps/bin/ck8s<span class="w"> </span><span class="nb">test</span><span class="w"> </span>sc
 </code></pre></div>
-<p>Then the workload clusters:</p>
+<p>Then the Workload Clusters:</p>
 <div class="highlight"><pre><span></span><code>compliantkubernetes-apps/bin/ck8s<span class="w"> </span><span class="nb">test</span><span class="w"> </span>wc
 </code></pre></div>
 

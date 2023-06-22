@@ -2078,8 +2078,8 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
-  <a href="#recommendation-to-operators" class="md-nav__link">
-    Recommendation to Operators
+  <a href="#recommendation-to-platform-administrators" class="md-nav__link">
+    Recommendation to Platform Administrators
   </a>
   
 </li>
@@ -2119,12 +2119,12 @@ if(!document.__defineGetter__) {
 <li>Date: 2023-02-14</li>
 </ul>
 <h2 id="context-and-problem-statement">Context and Problem Statement<a class="headerlink" href="#context-and-problem-statement" title="Permanent link">&para;</a></h2>
-<p>We have often defaulted to using boot disks of 50GB where possible but as of late we have noticed that for some environments this is not sufficient. We also noticed that the available space is commonly filled up by customer container images.
-We would like to have same boot disk sizes for all our nodes on all the cloud providers if possible.
+<p>We have often defaulted to using boot disks of 50GB where possible but as of late we have noticed that for some environments this is not sufficient. We also noticed that the available space is commonly filled up by Application Developer container images.
+We would like to have same boot disk sizes for all our nodes on all the Infrastructure Providers if possible.
 Should we increase the boot disk size to a bigger size?</p>
 <h2 id="decision-drivers">Decision Drivers<a class="headerlink" href="#decision-drivers" title="Permanent link">&para;</a></h2>
 <ul>
-<li>We want to best serve our customer needs.</li>
+<li>We want to best serve the Application Developer needs.</li>
 <li>We want to find a solution which is scalable and minimizes administrator burden.</li>
 <li>We don't want to waste infrastructure.</li>
 </ul>
@@ -2149,11 +2149,11 @@ Should we increase the boot disk size to a bigger size?</p>
 <li>We need to replace all existing nodes for our existing environments</li>
 <li>Cost will increase depending on number of nodes and price per GB of storage</li>
 </ul>
-<h2 id="recommendation-to-operators">Recommendation to Operators<a class="headerlink" href="#recommendation-to-operators" title="Permanent link">&para;</a></h2>
+<h2 id="recommendation-to-platform-administrators">Recommendation to Platform Administrators<a class="headerlink" href="#recommendation-to-platform-administrators" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Try to use same VM flavors on all environments</li>
-<li>Use VM flavor with local disk of 100GB or whichever is closest to this size depending on cloud provider for controlplane nodes.</li>
-<li>For worker nodes use 100GB boot disk size on cloud providers that allow it and on the ones that we can't use the VM flavor with the closest disk size.</li>
+<li>Use VM flavor with local disk of 100GB or whichever is closest to this size depending on Infrastructure Provider for controlplane nodes.</li>
+<li>For worker nodes use 100GB boot disk size on Infrastructure Providers that allow it and on the ones that we can't use the VM flavor with the closest disk size.</li>
 </ul>
 <h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
 <ul>

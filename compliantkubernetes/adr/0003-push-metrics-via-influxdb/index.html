@@ -2112,39 +2112,39 @@ if(!document.__defineGetter__) {
 <li>Date: 2020-11-19</li>
 </ul>
 <h2 id="context-and-problem-statement">Context and Problem Statement<a class="headerlink" href="#context-and-problem-statement" title="Permanent link">&para;</a></h2>
-<p>We want to support workload multi-tenancy, i.e., one service cluster -- hosting the tamper-proof logging environment -- and multiple workload clusters. Currently, the service cluster exposes two end-points for workload clusters:</p>
+<p>We want to support workload multi-tenancy, i.e., one Management Cluster -- hosting the tamper-proof logging environment -- and multiple Workload Clusters. Currently, the Management Cluster exposes two end-points for Workload Clusters:</p>
 <ul>
 <li>Dex, for authentication;</li>
 <li>Elastisearch, for pushing logs (append-only).</li>
 </ul>
-<p>Currently, the service cluster pulls metrics from the workload cluster. This makes it difficult to have multiple workload clusters connected to the same service cluster.</p>
+<p>Currently, the Management Cluster pulls metrics from the Workload Cluster. This makes it difficult to have multiple Workload Clusters connected to the same Management Cluster.</p>
 <h2 id="decision-drivers">Decision Drivers<a class="headerlink" href="#decision-drivers" title="Permanent link">&para;</a></h2>
 <ul>
 <li>We want to support workload multi-tenancy.</li>
-<li>We want to untangle the life-cycle of the service cluster and workload cluster.</li>
-<li>The service cluster acts as a tamper-proof logging environment, hence it should be difficult to tamper with metrics from the workload cluster.</li>
+<li>We want to untangle the life-cycle of the Management Cluster and Workload Cluster.</li>
+<li>The Management Cluster acts as a tamper-proof logging environment, hence it should be difficult to tamper with metrics from the Workload Cluster.</li>
 </ul>
 <h2 id="considered-options">Considered Options<a class="headerlink" href="#considered-options" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Service cluster exposes InfluxDB; workload cluster pushes metrics into InfluxDB.</li>
+<li>Management Cluster exposes InfluxDB; Workload Cluster pushes metrics into InfluxDB.</li>
 <li>Migrate from InfluxDB to <a href="https://thanos.io/">Thanos</a></li>
 <li>Migrate from InfluxDB to <a href="https://github.com/cortexproject/cortex">Cortex</a></li>
 </ol>
 <h2 id="decision-outcome">Decision Outcome<a class="headerlink" href="#decision-outcome" title="Permanent link">&para;</a></h2>
-<p>We chose to push metrics from the workload cluster to the service cluster via InfluxDB, because it involves the least amount of effort and is sufficient for the current use-cases that we want to support. InfluxDB supports a writer role, which makes overwriting metrics difficult -- unfortunately, not impossible.</p>
+<p>We chose to push metrics from the Workload Cluster to the Management Cluster via InfluxDB, because it involves the least amount of effort and is sufficient for the current use-cases that we want to support. InfluxDB supports a writer role, which makes overwriting metrics difficult -- unfortunately, not impossible.</p>
 <h3 id="positive-consequences">Positive Consequences<a class="headerlink" href="#positive-consequences" title="Permanent link">&para;</a></h3>
 <ul>
-<li>All of <code>*.$opsDomain</code> can point to the service cluster workers -- optionally fronted by a load-balancer -- which considerably simplifies setup.</li>
-<li>Multiple workload clusters can push metrics to the service cluster, which paves the path to workload multi-tenancy.</li>
-<li>The service cluster can be set up first, followed by one-or-more workload clusters.</li>
-<li>Workload clusters become more "cattle"-ish.</li>
+<li>All of <code>*.$opsDomain</code> can point to the Management Cluster workers -- optionally fronted by a load-balancer -- which considerably simplifies setup.</li>
+<li>Multiple Workload Clusters can push metrics to the Management Cluster, which paves the path to workload multi-tenancy.</li>
+<li>The Management Cluster can be set up first, followed by one-or-more Workload Clusters.</li>
+<li>Workload Clusters become more "cattle"-ish.</li>
 </ul>
 <h3 id="negative-consequences">Negative Consequences<a class="headerlink" href="#negative-consequences" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Existing Compliant Kubernetes clusters will need some manual migration steps, in particular changing the <code>prometheus.$opsDomain</code> DNS entry.</li>
-<li>The service cluster exposes yet another endpoint, which should only be available to workload clusters and not the Internet. HTTP authentication (over HTTPS) feels sufficient for now, but we need a follow-up decision on how to add another layer of protection to these endpoints.</li>
-<li>The workload clusters will have to properly label their metrics.</li>
-<li>Although not easy, metrics can be overwritten from the workload cluster. We will improve on this when (a) demand for closing this risk increases, (b) we re-evaluate long-term metrics storage.</li>
+<li>The Management Cluster exposes yet another endpoint, which should only be available to Workload Clusters and not the Internet. HTTP authentication (over HTTPS) feels sufficient for now, but we need a follow-up decision on how to add another layer of protection to these endpoints.</li>
+<li>The Workload Clusters will have to properly label their metrics.</li>
+<li>Although not easy, metrics can be overwritten from the Workload Cluster. We will improve on this when (a) demand for closing this risk increases, (b) we re-evaluate long-term metrics storage.</li>
 </ul>
 <h2 id="pros-and-cons-of-the-options">Pros and Cons of the Options<a class="headerlink" href="#pros-and-cons-of-the-options" title="Permanent link">&para;</a></h2>
 <p>Both Thanos and Cortex seems worthy projects to replace InfluxDB. At the time of this writing, they were both having CNCF Incubating status. The two projects feature a healthy collaboration and are likely to merge in the future.</p>

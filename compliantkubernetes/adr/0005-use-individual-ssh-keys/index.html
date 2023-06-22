@@ -2071,8 +2071,8 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
-  <a href="#recommendations-to-operators" class="md-nav__link">
-    Recommendations to Operators
+  <a href="#recommendations-to-platform-administrators" class="md-nav__link">
+    Recommendations to Platform Administrators
   </a>
   
 </li>
@@ -2148,17 +2148,17 @@ if(!document.__defineGetter__) {
 </ul>
 <p>The administrator who creates the cluster bootstraps SSH access by providing their own public SSH key via cloud-init. Then, the Ansible role adds the public SSH keys of the other administrators.</p>
 <p>BYO-VM and BYO-metal deployments are handled similarly, except that the initial public SSH key is delivered by email/Slack to the VM/metal administrator.</p>
-<h2 id="recommendations-to-operators">Recommendations to Operators<a class="headerlink" href="#recommendations-to-operators" title="Permanent link">&para;</a></h2>
+<h2 id="recommendations-to-platform-administrators">Recommendations to Platform Administrators<a class="headerlink" href="#recommendations-to-platform-administrators" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
-<p>Operators should devise procedures for onboarding and offboarding member of the on-call team, as well as rotating SSH keys.</p>
+<p>Platform Administrators should devise procedures for onboarding and offboarding member of the on-call team, as well as rotating SSH keys.</p>
 </li>
 <li>
 <p>The public SSH keys of all on-call administrators could be stored in a repository in a single file with one key per line.
 The comment of the key should clearly identify the owner.</p>
 </li>
 <li>
-<p>Operator logs (be it stand-alone documents, git or GitOps-like repositories) should clearly list the SSH keys and identities of the administrators configured for each environment.</p>
+<p>Platform Administrator logs (be it stand-alone documents, git or GitOps-like repositories) should clearly list the SSH keys and identities of the administrators configured for each environment.</p>
 </li>
 </ul>
 <h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>

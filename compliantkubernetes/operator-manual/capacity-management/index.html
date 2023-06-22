@@ -2300,13 +2300,13 @@ Keeping the application secure means having sufficient capacity in the environme
 <h3 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h3>
 <p><a href="../troubleshooting/#node-seems-really-not-fine-i-want-a-new-one">Add a new Node</a> of the same type as the other Nodes in the cluster.</p>
 <p>If the cluster has 6 Nodes, consider consolidating to 3 Nodes of twice-the-size -- in number of CPUs or memory or both -- if the infrastructure cost is reduced.
-Before doing this, get in touch with application developers to ensure they don't have Kubernetes scheduling constraints that would cause issues on the consolidated environment.</p>
-<p>If you are about to double the number of Nodes, get in touch with application developers to ensure their application is not misbehaving, before upscaling.</p>
+Before doing this, get in touch with Application Developers to ensure they don't have Kubernetes scheduling constraints that would cause issues on the consolidated environment.</p>
+<p>If you are about to double the number of Nodes, get in touch with Application Developers to ensure their application is not misbehaving, before upscaling.</p>
 <h3 id="optimization">Optimization<a class="headerlink" href="#optimization" title="Permanent link">&para;</a></h3>
 <p>If the cluster has at least 5 Nodes, consider reducing the watermark to 80% to reduce extra capacity.</p>
 <h2 id="downscaling">Downscaling<a class="headerlink" href="#downscaling" title="Permanent link">&para;</a></h2>
 <p>We hope that the applications we host will only grow in popularity and that downscaling is never needed.
-Nevertheless, application developer trust us to keep infrastructure costs down, if their application hasn't gone viral -- yet!</p>
+Nevertheless, Application Developer trust us to keep infrastructure costs down, if their application hasn't gone viral -- yet!</p>
 <h3 id="when_1">When?<a class="headerlink" href="#when_1" title="Permanent link">&para;</a></h3>
 <p>The capacity of the environment should be regularly reviewed, for example, after a maintenance window.</p>
 <div class="admonition important">
@@ -2323,8 +2323,8 @@ Nevertheless, application developer trust us to keep infrastructure costs down, 
 <p>If any capacity dimension -- as defined above -- was below 33% for at least 3 days, then remove one Node at a time, until capacity is above 33%.
 Make sure to drain and cordon the Node before decommissioning it.</p>
 <p>If you are about to go below 3 Nodes, consider replacing the Nodes with 6 Nodes of half-the-size before downscaling.
-Before doing this, get in touch with application developers to ensure they don't have Kubernetes scheduling constraints that would  cause issues on the consolidated environment.</p>
-<p>If you are about to half the number of Nodes, get in touch with application developers to ensure their application is not misbehaving, before downscaling.</p>
+Before doing this, get in touch with Application Developers to ensure they don't have Kubernetes scheduling constraints that would  cause issues on the consolidated environment.</p>
+<p>If you are about to half the number of Nodes, get in touch with Application Developers to ensure their application is not misbehaving, before downscaling.</p>
 <h3 id="optimization_1">Optimization<a class="headerlink" href="#optimization_1" title="Permanent link">&para;</a></h3>
 <p>Removing capacity is more dangerous than having extra capacity, when it comes to application uptime.
 Furthermore, we need to avoid oscillations: Removing capacity to only add it back a few days later is no fun for the administrator.

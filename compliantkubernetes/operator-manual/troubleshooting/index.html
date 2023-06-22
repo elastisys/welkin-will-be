@@ -2597,7 +2597,7 @@ if(!document.__defineGetter__) {
 
 ssh<span class="w"> </span>-J<span class="w"> </span>ubuntu@<span class="nv">$JUMP_NODE</span><span class="w"> </span>ubuntu@<span class="nv">$UNHEALTHY_NODE</span>
 </code></pre></div>
-<p>Try rebooting the Node via cloud provider specific CLI:</p>
+<p>Try rebooting the Node via Infrastructure Provider specific CLI:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">UNHEALTHY_NODE</span><span class="o">=</span>cksc-worker-2
 
 <span class="c1"># Example for ExoScale</span>
@@ -2735,7 +2735,7 @@ journalctl<span class="w"> </span>--unit<span class="w"> </span><span class="nv"
 </code></pre></div>
 <p>Then your Kubernetes data plane Nodes cannot connect to themselves with the IP address of the load-balancer that fronts them. The easiest is to configure the load-balancer's IP address on the loopback interface of each Nodes. (See example <a href="https://github.com/kubernetes-sigs/kubespray/blob/release-2.18/contrib/terraform/exoscale/modules/kubernetes-cluster/templates/cloud-init.tmpl#L29">here</a>.)</p>
 <h2 id="how-do-i-check-if-infrastructure-drifted-due-to-manual-intervention">How do I check if infrastructure drifted due to manual intervention?<a class="headerlink" href="#how-do-i-check-if-infrastructure-drifted-due-to-manual-intervention" title="Permanent link">&para;</a></h2>
-<p>Go to the docs of the cloud provider and run Terraform <code>plan</code> instead of <code>apply</code>. For Exoscale, it looks as follows:</p>
+<p>Go to the docs of the Infrastructure Provider and run Terraform <code>plan</code> instead of <code>apply</code>. For Exoscale, it looks as follows:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">TF_SCRIPTS_DIR</span><span class="o">=</span><span class="k">$(</span>readlink<span class="w"> </span>-f<span class="w"> </span>compliantkubernetes-kubespray/kubespray/contrib/terraform/exoscale<span class="k">)</span>
 <span class="nb">pushd</span><span class="w"> </span><span class="si">${</span><span class="nv">TF_SCRIPTS_DIR</span><span class="si">}</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">TF_VAR_inventory_file</span><span class="o">=</span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>-config/inventory.ini
@@ -2748,10 +2748,10 @@ terraform<span class="w"> </span>plan<span class="w"> </span><span class="se">\<
 <h2 id="how-do-i-check-if-the-kubespray-setup-drifted-due-to-manual-intervention">How do I check if the Kubespray setup drifted due to manual intervention?<a class="headerlink" href="#how-do-i-check-if-the-kubespray-setup-drifted-due-to-manual-intervention" title="Permanent link">&para;</a></h2>
 <p>At the time of this writing, this cannot be done, but <a href="https://github.com/cristiklein/kubespray/tree/make-check-work">efforts are underway</a>.</p>
 <h2 id="how-do-i-check-if-apps-drifted-due-to-manual-intervention">How do I check if <code>apps</code> drifted due to manual intervention?<a class="headerlink" href="#how-do-i-check-if-apps-drifted-due-to-manual-intervention" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># For service cluster</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># For Management Cluster</span>
 ./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>helmfile<span class="w"> </span>sc<span class="w"> </span>diff<span class="w">  </span><span class="c1"># Respond &quot;n&quot; if you get WARN</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="c1"># For the workload clusters</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># For the Workload Clusters</span>
 ./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>helmfile<span class="w"> </span>wc<span class="w"> </span>diff<span class="w">  </span><span class="c1"># Respond &quot;n&quot; if you get WARN</span>
 </code></pre></div>
 <h2 id="velero-backup-stuck-in-progress">Velero backup stuck in progress<a class="headerlink" href="#velero-backup-stuck-in-progress" title="Permanent link">&para;</a></h2>

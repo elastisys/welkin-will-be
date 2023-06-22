@@ -2078,8 +2078,8 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
-  <a href="#recommendation-to-operators" class="md-nav__link">
-    Recommendation to Operators
+  <a href="#recommendation-to-platform-administrators" class="md-nav__link">
+    Recommendation to Platform Administrators
   </a>
   
 </li>
@@ -2117,7 +2117,7 @@ Should we enable kubelet hard eviction so as to behold the vital components?</p>
 <h2 id="decision-drivers">Decision Drivers<a class="headerlink" href="#decision-drivers" title="Permanent link">&para;</a></h2>
 <ul>
 <li>We want to ensure platform security and stability.</li>
-<li>We want to make it hard for customers to break the platform via trivial mistakes.</li>
+<li>We want to make it hard for Application Developers to break the platform via trivial mistakes.</li>
 <li>We want to make sure that the critical components are not evicted when nodes are overcommitted.</li>
 </ul>
 <h2 id="considered-options">Considered Options<a class="headerlink" href="#considered-options" title="Permanent link">&para;</a></h2>
@@ -2129,18 +2129,18 @@ Should we enable kubelet hard eviction so as to behold the vital components?</p>
 </ul>
 <h2 id="decision-outcome">Decision Outcome<a class="headerlink" href="#decision-outcome" title="Permanent link">&para;</a></h2>
 <p>Chosen options: <code>Enable kubelet hard eviction</code> &amp; <code>Setup priority class for all our apps</code> .</p>
-<p>The option <code>Adjust OOM score so that kernel does not OOM critical Pods</code> is  not viable as it can be used only if we set requests=limits on all our pods (see <a href="https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#node-out-of-memory-behavior">here</a> and <a href="https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/#create-a-pod-that-gets-assigned-a-qos-class-of-guaranteed">here</a>), and this will not allow us to benefit from the burstable capabilities of Kubernetes and have a static allocation of resources which locks the resources on the nodes even if they are not used most of the time. This reduces the available resources for the customer on the nodes.</p>
+<p>The option <code>Adjust OOM score so that kernel does not OOM critical Pods</code> is  not viable as it can be used only if we set requests=limits on all our pods (see <a href="https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#node-out-of-memory-behavior">here</a> and <a href="https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/#create-a-pod-that-gets-assigned-a-qos-class-of-guaranteed">here</a>), and this will not allow us to benefit from the burstable capabilities of Kubernetes and have a static allocation of resources which locks the resources on the nodes even if they are not used most of the time. This reduces the available resources for the Application Developer on the nodes.</p>
 <h3 id="positive-consequences">Positive Consequences<a class="headerlink" href="#positive-consequences" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Security and stability of the platform is somewhat improved.</li>
 </ul>
 <h3 id="negative-consequences">Negative Consequences<a class="headerlink" href="#negative-consequences" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Customer pods will be stuck in pending until resources are available and this might make the customer feel that their pods are less important.</li>
+<li>Application Developer pods will be stuck in pending until resources are available and this might make the Application Developer feel that their pods are less important.</li>
 <li><a href="https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#kubelet-may-not-observe-memory-pressure-right-away">kubectl may not observe pressure right away</a></li>
 </ul>
-<h2 id="recommendation-to-operators">Recommendation to Operators<a class="headerlink" href="#recommendation-to-operators" title="Permanent link">&para;</a></h2>
-<p>Test multiple comfigurations using kubelet hard eviction, priotiry classes and other option to obtain the desired behaviour where the nodes do not become unresponsive and our components are not getting evicted when the node is overcommitted by the customer.</p>
+<h2 id="recommendation-to-platform-administrators">Recommendation to Platform Administrators<a class="headerlink" href="#recommendation-to-platform-administrators" title="Permanent link">&para;</a></h2>
+<p>Test multiple comfigurations using kubelet hard eviction, priotiry classes and other option to obtain the desired behaviour where the nodes do not become unresponsive and our components are not getting evicted when the node is overcommitted by the Application Developer.</p>
 
 
 

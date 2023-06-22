@@ -2078,8 +2078,8 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
-  <a href="#recommendation-to-operators" class="md-nav__link">
-    Recommendation to Operators
+  <a href="#recommendation-to-platform-administrators" class="md-nav__link">
+    Recommendation to Platform Administrators
   </a>
   
 </li>
@@ -2153,61 +2153,61 @@ if(!document.__defineGetter__) {
 <li>Date: 2022-10-27</li>
 </ul>
 <h2 id="context-and-problem-statement">Context and Problem Statement<a class="headerlink" href="#context-and-problem-statement" title="Permanent link">&para;</a></h2>
-<p>We have received a few requests from customers to enable external replication on PostgreSQL so that they are able to create copies of the PostgreSQL cluster themselves to use for testing, development, tuning and disaster recovery purposes.
+<p>We have received a few requests from Application Developers to enable external replication on PostgreSQL so that they are able to create copies of the PostgreSQL cluster themselves to use for testing, development, tuning and disaster recovery purposes.
 Should we allow and enable external replication for PostgreSQL, or should we offer an alternative that can mimic that?</p>
 <h2 id="decision-drivers">Decision Drivers<a class="headerlink" href="#decision-drivers" title="Permanent link">&para;</a></h2>
 <ul>
-<li>We want to best serve our customer needs.</li>
-<li>We want to make the operator life easier.</li>
+<li>We want to best serve the Application Developer needs.</li>
+<li>We want to make the Platform Administrators life easier.</li>
 <li>We want to ensure platform security and stability.</li>
-<li>We want to make it hard for customers to break the platform via trivial mistakes.</li>
+<li>We want to make it hard for Application Developers to break the platform via trivial mistakes.</li>
 </ul>
 <h2 id="considered-options">Considered Options<a class="headerlink" href="#considered-options" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Allow external replication on PostgreSQL.</li>
 <li>Do not allow external replication on PostgreSQL.</li>
 <li>Allow read access to the S3 bucket containing the files that can mimic the replication.</li>
-<li>Clone the S3 bucket containing the files using rclone to another bucket in a new project preferably owned by the customer and from there the customer is free to use it.</li>
+<li>Clone the S3 bucket containing the files using rclone to another bucket in a new project preferably owned by the Application Developer and from there the Application Developer is free to use it.</li>
 </ul>
 <h2 id="decision-outcome">Decision Outcome<a class="headerlink" href="#decision-outcome" title="Permanent link">&para;</a></h2>
-<p>Chosen options: Clone the S3 bucket containing the files using rclone to another bucket in a new project preferably owned by the customer and from there the customer is free to use it.
+<p>Chosen options: Clone the S3 bucket containing the files using rclone to another bucket in a new project preferably owned by the Application Developer and from there the Application Developer is free to use it.
 We rclone the backups (once per night) in this new S3 bucket.
 We provide no SLA on the rclone job.</p>
 <p>The option <code>Allow external replication on PostgreSQL</code> is putting the platform stability and integrity at risk, because external replication is done via the replication slots and if the destination of the replication is unreachable or stopped, then the WAL files are kept on disc until the files are sent to destination and confirmed to be received. This means that the WAL files will pile up until the cluster runs out of space and crashes. This also leads to data loss and data corruption.</p>
-<p>On cloud providers that do not have native S3 support with ACL capabilities we need endpoint/credentials from the user to a S3 bucket of their choosing that we can rclone to. We rclone the backups (once per night) in this new S3 bucket and provide credentials to the customer. We provide no SLA on the rclone job.
+<p>On Infrastructure Providers that do not have native S3 support with ACL capabilities we need endpoint/credentials from the user to a S3 bucket of their choosing that we can rclone to. We rclone the backups (once per night) in this new S3 bucket and provide credentials to the Application Developer. We provide no SLA on the rclone job.
 The diagram of the solution looks like this:
 <img alt="Diagram" src="../../img/adr-0027.drawio.svg" /></p>
 <h3 id="positive-consequences">Positive Consequences<a class="headerlink" href="#positive-consequences" title="Permanent link">&para;</a></h3>
 <ul>
-<li>We make the operator life easier by offering them a possibility to clone/replicate their PostgreSQL cluster from the S3 bucket containing the basebackup and WAL files.</li>
-<li>Operator can now use 3rd party tools that can pull the basebackup and WAL files and clone the PostgreSQL cluster in another location.</li>
-<li>Increase customer autonomy</li>
+<li>We make the Platform Administrators life easier by offering them a possibility to clone/replicate their PostgreSQL cluster from the S3 bucket containing the basebackup and WAL files.</li>
+<li>Platform Administrators can now use 3rd party tools that can pull the basebackup and WAL files and clone the PostgreSQL cluster in another location.</li>
+<li>Increase Application Developer autonomy</li>
 </ul>
 <h3 id="negative-consequences">Negative Consequences<a class="headerlink" href="#negative-consequences" title="Permanent link">&para;</a></h3>
 <ul>
-<li>For providers that do not offer S3 with ACL, we need to create and maintain an rclone job that copies the files from the initial S3 backup bucket to a new S3 bucket (preferably owned by the customer)</li>
+<li>For providers that do not offer S3 with ACL, we need to create and maintain an rclone job that copies the files from the initial S3 backup bucket to a new S3 bucket (preferably owned by the Application Developer)</li>
 <li>When rclone is involved, the time to recover will be up to 24 hours old as we will rclone once per day.</li>
 </ul>
-<h2 id="recommendation-to-operators">Recommendation to Operators<a class="headerlink" href="#recommendation-to-operators" title="Permanent link">&para;</a></h2>
+<h2 id="recommendation-to-platform-administrators">Recommendation to Platform Administrators<a class="headerlink" href="#recommendation-to-platform-administrators" title="Permanent link">&para;</a></h2>
 <p>On providers that offer S3 with ACL, this can be done with small effort.
-On providers that do not offer S3 with ACL we need to clone the bucket containing the file to another S3 bucket that is preferably owned by the customer.
+On providers that do not offer S3 with ACL we need to clone the bucket containing the file to another S3 bucket that is preferably owned by the Application Developer.
 This is done with no SLA on it.
 Offer this only on request.</p>
 <h2 id="pros-and-cons-of-the-options">Pros and Cons of the Options <!-- optional --><a class="headerlink" href="#pros-and-cons-of-the-options" title="Permanent link">&para;</a></h2>
 <h3 id="option-1-allow-external-replication-on-postgresql">[option 1] - Allow external replication on PostgreSQL.<a class="headerlink" href="#option-1-allow-external-replication-on-postgresql" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Good, because we satisfy the customer need</li>
+<li>Good, because we satisfy the Application Developer need</li>
 <li>Bad, because it comes with a big risk of breaking the PostgreSQL cluster and cause downtime.</li>
 </ul>
 <h3 id="option-2-do-not-allow-external-replication-on-postgresql">[option 2] - Do not allow external replication on PostgreSQL<a class="headerlink" href="#option-2-do-not-allow-external-replication-on-postgresql" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Good, because we do not have to do any changes/work.</li>
 <li>Good, because the integrity and stability of the platform is kept intact.</li>
-<li>Bad, because we are not flexible and do not try to satisfy the customer need.</li>
+<li>Bad, because we are not flexible and do not try to satisfy the Application Developer need.</li>
 </ul>
 <h3 id="option-3-allow-read-access-to-the-s3-bucket-containing-the-files-that-can-mimic-the-replication">[option 3] - Allow read access to the S3 bucket containing the files that can mimic the replication.<a class="headerlink" href="#option-3-allow-read-access-to-the-s3-bucket-containing-the-files-that-can-mimic-the-replication" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Good, we can satisfy the custmer need and demonstrate we are flexible and customer oriented.</li>
+<li>Good, we can satisfy the custmer need and demonstrate we are flexible and Application Developer oriented.</li>
 <li>Good, because we keep the platform stability and integrity intact.</li>
 <li>Bad, because it involves extra work and some snowflakiness.</li>
 </ul>

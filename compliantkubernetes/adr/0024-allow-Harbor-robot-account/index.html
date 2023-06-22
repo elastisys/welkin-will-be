@@ -2078,8 +2078,8 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
-  <a href="#recommendations-to-operators" class="md-nav__link">
-    Recommendations to Operators
+  <a href="#recommendations-to-platform-administrators" class="md-nav__link">
+    Recommendations to Platform Administrators
   </a>
   
 </li>
@@ -2113,13 +2113,13 @@ if(!document.__defineGetter__) {
 </ul>
 <h2 id="context-and-problem-statement">Context and Problem Statement<a class="headerlink" href="#context-and-problem-statement" title="Permanent link">&para;</a></h2>
 <p>We offer UI access to Harbor with admin privileges.
-Customer uses a Harbor operator that needs an admin robot account with privileges to create other robot accounts with full privileges.
+Application Developer uses a Harbor operator that needs an admin robot account with privileges to create other robot accounts with full privileges.
 Should we allow creation of a Harbor robot account which can create other Harbor robot accounts?</p>
 <h2 id="decision-drivers">Decision Drivers<a class="headerlink" href="#decision-drivers" title="Permanent link">&para;</a></h2>
 <ul>
 <li>We want to deliver a platform that is easy to use and easy to automate.</li>
 <li>We want to ensure platform security and stability.</li>
-<li>We want to make it hard for customers to break the platform via trivial mistakes.</li>
+<li>We want to make it hard for Application Developers to break the platform via trivial mistakes.</li>
 </ul>
 <h2 id="considered-options">Considered Options<a class="headerlink" href="#considered-options" title="Permanent link">&para;</a></h2>
 <ul>
@@ -2134,10 +2134,10 @@ Should we allow creation of a Harbor robot account which can create other Harbor
 </ul>
 <h3 id="negative-consequences">Negative Consequences<a class="headerlink" href="#negative-consequences" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Increases the chances that the customer can cripple the Harbor service.</li>
+<li>Increases the chances that the Application Developer can cripple the Harbor service.</li>
 </ul>
-<h2 id="recommendations-to-operators">Recommendations to Operators<a class="headerlink" href="#recommendations-to-operators" title="Permanent link">&para;</a></h2>
-<p>Make it clear in the ticket requesting this that the customer accepts the risk of "shooting themselves in the foot"</p>
+<h2 id="recommendations-to-platform-administrators">Recommendations to Platform Administrators<a class="headerlink" href="#recommendations-to-platform-administrators" title="Permanent link">&para;</a></h2>
+<p>Make it clear in the ticket requesting this that the Application Developer accepts the risk of "shooting themselves in the foot"</p>
 
 
 

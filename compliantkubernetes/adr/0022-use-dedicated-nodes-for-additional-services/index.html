@@ -2078,8 +2078,8 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
-  <a href="#recommendations-to-operators" class="md-nav__link">
-    Recommendations to Operators
+  <a href="#recommendations-to-platform-administrators" class="md-nav__link">
+    Recommendations to Platform Administrators
   </a>
   
 </li>
@@ -2129,7 +2129,7 @@ if(!document.__defineGetter__) {
 <li>Updated: 2023-01-12</li>
 </ul>
 <h2 id="context-and-problem-statement">Context and Problem Statement<a class="headerlink" href="#context-and-problem-statement" title="Permanent link">&para;</a></h2>
-<p>We run additional services in the workload cluster, currently databases (PostgreSQL), in-memory caches (Redis), message queues (RabbitMQ) and distributed tracing (Jaeger).</p>
+<p>We run additional services in the Workload Cluster, currently databases (PostgreSQL), in-memory caches (Redis), message queues (RabbitMQ) and distributed tracing (Jaeger).</p>
 <p>On what Nodes should they run?</p>
 <h2 id="decision-drivers">Decision Drivers<a class="headerlink" href="#decision-drivers" title="Permanent link">&para;</a></h2>
 <ul>
@@ -2156,7 +2156,7 @@ elastisys.io/node-type=jaegertracing:NoSchedule
 </code></pre></div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Dedicated Nodes still contain some workload cluster components for logging, monitoring, intrusion detection, etc., so not all their capacity is available to the service.</p>
+<p>Dedicated Nodes still contain some Workload Cluster components for logging, monitoring, intrusion detection, etc., so not all their capacity is available to the service.</p>
 </div>
 <h3 id="positive-consequences">Positive Consequences<a class="headerlink" href="#positive-consequences" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2169,7 +2169,7 @@ elastisys.io/node-type=jaegertracing:NoSchedule
 <li>Forces additional services to be sized based on available Node sizes. While some commonality exists, Node sizes are specific to each infrastructure provider.</li>
 <li>Latency is somewhat increased. This is an issue mostly for Redis, as other services are a bit more latency tolerant.</li>
 </ul>
-<h2 id="recommendations-to-operators">Recommendations to Operators<a class="headerlink" href="#recommendations-to-operators" title="Permanent link">&para;</a></h2>
+<h2 id="recommendations-to-platform-administrators">Recommendations to Platform Administrators<a class="headerlink" href="#recommendations-to-platform-administrators" title="Permanent link">&para;</a></h2>
 <p>For better application performance and security, run system Deployments and StatefulSets -- such as Ingress Controllers, Prometheus, Velero, Gatekeeper and Starboard -- onto dedicated Nodes.</p>
 <p>Specifically, use the following Node label:</p>
 <div class="highlight"><pre><span></span><code>elastisys.io/node-type=elastisys

@@ -2136,7 +2136,7 @@ if(!document.__defineGetter__) {
 <li>Where load-balancing does not add value, e.g., if a deployment is planned to have only a single-node or single-worker for the foreseeable future: Point the DNS entry to the worker IP instead.</li>
 <li>Exoscale currently falls in this category, due to its Kubernetes integration being rather recent.</li>
 <li>SafeSpring falls in this category, since it is missing load balancers.</li>
-<li>If the cloud provider is missing a storage controller, it might be undesirable to perform integration "just" for load-balancing.</li>
+<li>If the Infrastructure Provider is missing a storage controller, it might be undesirable to perform integration "just" for load-balancing.</li>
 </ul>
 </li>
 <li>
@@ -2150,7 +2150,7 @@ if(!document.__defineGetter__) {
 <p>203.0.113.123 is in TEST-NET-3 and okay to use as placeholder. This approach is inspired by <a href="https://github.com/kubernetes/kops/blob/d5d08a43034dd4c7242cf1faa020cf9a8c3965e2/upup/pkg/fi/cloudup/dns.go#L41">kops</a> and should not feel astonishing.</p>
 <h3 id="positive-consequences">Positive Consequences<a class="headerlink" href="#positive-consequences" title="Permanent link">&para;</a></h3>
 <ul>
-<li>We make the best of each cloud provider.</li>
+<li>We make the best of each Infrastructure Provider.</li>
 <li>Obeys principle of least astonishment.</li>
 <li>We do not add a load balancer "just because".</li>
 </ul>

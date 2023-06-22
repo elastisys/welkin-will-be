@@ -2105,7 +2105,7 @@ if(!document.__defineGetter__) {
 <li>Date: 2022-01-20</li>
 </ul>
 <h2 id="context-and-problem-statement">Context and Problem Statement<a class="headerlink" href="#context-and-problem-statement" title="Permanent link">&para;</a></h2>
-<p>Currently, the service cluster exposes several end-points for workload clusters:</p>
+<p>Currently, the Management Cluster exposes several end-points for Workload Clusters:</p>
 <ul>
 <li>Dex, for authentication;</li>
 <li>OpenSearch, for pushing logs (append-only);</li>
@@ -2123,32 +2123,32 @@ if(!document.__defineGetter__) {
 <p>Shall we push or pull metrics using Thanos?</p>
 <h2 id="decision-drivers">Decision Drivers<a class="headerlink" href="#decision-drivers" title="Permanent link">&para;</a></h2>
 <ul>
-<li>We want to support multiple workload clusters.</li>
-<li>We want to untangle the life-cycle of the service cluster and workload cluster.</li>
-<li>The service cluster acts as a tamper-proof logging environment, hence it should be difficult to tamper with metrics from the workload cluster.</li>
+<li>We want to support multiple Workload Clusters.</li>
+<li>We want to untangle the life-cycle of the Management Cluster and Workload Cluster.</li>
+<li>The Management Cluster acts as a tamper-proof logging environment, hence it should be difficult to tamper with metrics from the Workload Cluster.</li>
 </ul>
 <h2 id="considered-options">Considered Options<a class="headerlink" href="#considered-options" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Push metrics from workload cluster to service cluster.</li>
-<li>Pull metrics from workload cluster to service cluster.</li>
+<li>Push metrics from Workload Cluster to Management Cluster.</li>
+<li>Pull metrics from Workload Cluster to Management Cluster.</li>
 </ol>
 <h2 id="decision-outcome">Decision Outcome<a class="headerlink" href="#decision-outcome" title="Permanent link">&para;</a></h2>
-<p>We chose to push metrics from the workload cluster to the service cluster via
+<p>We chose to push metrics from the Workload Cluster to the Management Cluster via
 via <a href="https://thanos.io/tip/components/receive.md/">Thanos Receive</a>,
 because it keeps the "direction" of metrics flow.
-Hence, we keep support for multiple workload clusters without any changes.</p>
+Hence, we keep support for multiple Workload Clusters without any changes.</p>
 <p>At the time of this writing, pulling metrics via <a href="https://thanos.io/tip/thanos/quick-tutorial.md/#components">Thanos sidecar</a> seems to be the preferred way to deploy Thanos. We will monitor the ecosystem and our needs, and -- if needed -- move to pulling metrics.</p>
 <p>At any rate, even if we end up with Thanos Sidecar, migrating in two steps -- first from InfluxDB to Thanos Receive, then to Thanos Sidecar -- feels less risky.</p>
 <h3 id="positive-consequences">Positive Consequences<a class="headerlink" href="#positive-consequences" title="Permanent link">&para;</a></h3>
 <ul>
-<li>All of <code>*.$opsDomain</code> can point to the service cluster workers -- optionally fronted by a load-balancer -- which considerably simplifies setup.</li>
-<li>Multiple workload clusters can push metrics to the service cluster, which paves the path to workload multi-tenancy.</li>
-<li>The service cluster can be set up first, followed by one-or-more workload clusters.</li>
-<li>Workload clusters become more "cattle"-ish.</li>
+<li>All of <code>*.$opsDomain</code> can point to the Management Cluster workers -- optionally fronted by a load-balancer -- which considerably simplifies setup.</li>
+<li>Multiple Workload Clusters can push metrics to the Management Cluster, which paves the path to workload multi-tenancy.</li>
+<li>The Management Cluster can be set up first, followed by one-or-more Workload Clusters.</li>
+<li>Workload Clusters become more "cattle"-ish.</li>
 </ul>
 <h3 id="negative-consequences">Negative Consequences<a class="headerlink" href="#negative-consequences" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Metrics are less protected than in a pull architecture. E.g., compromising the workload cluster can easier be used to mount an attack against long-term metrics storage.</li>
+<li>Metrics are less protected than in a pull architecture. E.g., compromising the Workload Cluster can easier be used to mount an attack against long-term metrics storage.</li>
 </ul>
 
 

@@ -2345,8 +2345,8 @@ if(!document.__defineGetter__) {
 <p>The private network also features a private DNS. A Service <code>my-svc</code> in the namespace <code>my-namespace</code> can be accessed from within the Kubernetes cluster as <code>my-svc.my-namespace</code>.</p>
 <p>IP addresses of Pods are not stable. For example, the rollout of a new container image creates new Pods, which will have new IP addresses. Therefore, you should always use private DNS names of Services to connect your application Pods, as well as to connect your application to <a href="../additional-services/">additional services</a>.</p>
 <h2 id="ingress">Ingress<a class="headerlink" href="#ingress" title="Permanent link">&para;</a></h2>
-<p>Your application users should never ever access the private network directly. Instead external access is enabled by creating Ingress objects. Compliant Kubernetes already comes with cert-manager and is already configured with a ClusterIssuer. A secure ACME protocol is used to issue and rotate certificates using the <a href="https://letsencrypt.org/">LetsEncrypt</a> public service.</p>
-<p>Assuming you configured a Service and a Deployment for you application, making application users access your application involves two steps:</p>
+<p>Your End Users should never ever access the private network directly. Instead external access is enabled by creating Ingress objects. Compliant Kubernetes already comes with cert-manager and is already configured with a ClusterIssuer. A secure ACME protocol is used to issue and rotate certificates using the <a href="https://letsencrypt.org/">LetsEncrypt</a> public service.</p>
+<p>Assuming you configured a Service and a Deployment for you application, making End Users access your application involves two steps:</p>
 <ol>
 <li>Create the right DNS CNAME record.</li>
 <li>Create the right Ingress resource.</li>
@@ -2410,7 +2410,7 @@ if(!document.__defineGetter__) {
 </div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>The DNS name in <code>spec.rules[0].host</code> and <code>spec.tls[0].hosts[0]</code> must be the same as the DNS entry used by your application users, in the example above <code>demo.example.com</code>. Otherwise, the application users will get a "Your connection is not private" error.</p>
+<p>The DNS name in <code>spec.rules[0].host</code> and <code>spec.tls[0].hosts[0]</code> must be the same as the DNS entry used by your End Users, in the example above <code>demo.example.com</code>. Otherwise, the End Users will get a "Your connection is not private" error.</p>
 </div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
