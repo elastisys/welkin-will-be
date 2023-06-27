@@ -1721,6 +1721,13 @@ if(!document.__defineGetter__) {
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#can-i-use-datadoglogzioelastic-cloud-with-compliant-kubernetes" class="md-nav__link">
+    Can I use Datadog/Logz.io/Elastic Cloud with Compliant Kubernetes?
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2111,6 +2118,13 @@ if(!document.__defineGetter__) {
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#can-i-use-datadoglogzioelastic-cloud-with-compliant-kubernetes" class="md-nav__link">
+    Can I use Datadog/Logz.io/Elastic Cloud with Compliant Kubernetes?
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2174,6 +2188,28 @@ if(!document.__defineGetter__) {
 <p>Certain installations of Compliant Kubernetes may use Min.io for accessing object storage on Azure or GCP. However, Compliant Kubernetes does not currently include Min.io. In brief, if Min.io is exposed via a network connection, then AGPLv3 requires all source code including modifications to be made available.</p>
 <p>The exact difference between "aggregate" and "modified version" is <a href="https://www.gnu.org/licenses/gpl-faq.en.html#MereAggregation">somewhat unclear</a>. When using Min.io with Compliant Kubernetes, we only use Min.io via its S3-compatible API. Hence, we determined that Compliant Kubernetes is an "aggregate" work and is unaffected by the <a href="https://en.wikipedia.org/wiki/Viral_license">"viral" clauses</a> of AGPLv3.</p>
 <p>As a result, Compliant Kubernetes continues to be distributed under <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a> as before.</p>
+<h2 id="can-i-use-datadoglogzioelastic-cloud-with-compliant-kubernetes">Can I use Datadog/Logz.io/Elastic Cloud with Compliant Kubernetes?<a class="headerlink" href="#can-i-use-datadoglogzioelastic-cloud-with-compliant-kubernetes" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">TL;DR</p>
+<p>Technically, yes, but legally <strong>NO</strong>. Why?</p>
+<ul>
+<li>Logs contain personal data.</li>
+<li>Personal data should NOT be shipped to US cloud providers.</li>
+</ul>
+<p>Use Compliant Kubernetes's <a href="../../user-guide/logs/">built-in OpenSearch</a> instead.</p>
+</div>
+<p>Application and platform logs are highly likely to contain personal data.
+Note that, according to <a href="https://gdpr.fan/a4">GDPR Art. 4</a> any information that can be directly or indirectly related to an individual is personal data.
+There are court rulings clarifying that:</p>
+<ul>
+<li>email addresses and user IDs are personal data;</li>
+<li><a href="http://curia.europa.eu/juris/document/document.jsf?docid=184668&amp;doclang=EN&amp;cid=1095511">IP addresses are personal data</a>;</li>
+<li><a href="https://www.judiciary.uk/wp-content/uploads/2018/10/lloyd-v-google-judgment.pdf">browser-generated information</a> (e.g., cookies, URLs, fingerprints, user agents) can be personal data.</li>
+</ul>
+<p>According to the <a href="https://www.europarl.europa.eu/RegData/etudes/ATAG/2020/652073/EPRS_ATA(2020)652073_EN.pdf">so-called "Schrems II" ruling</a>, US law -- in particular <a href="https://en.wikipedia.org/wiki/CLOUD_Act">US CLOUD Act</a> and <a href="https://en.wikipedia.org/wiki/Foreign_Intelligence_Surveillance_Act">US FISA</a> are incompatible -- with EU GDPR and personal data processing.</p>
+<p>Furthermore, according to a <a href="https://iapp.org/news/a/why-this-french-court-decision-has-far-reaching-consequences-for-many-businesses/">French court ruling</a> it doesn't matter if the data-center is located in the EU/EEA. A US company is still under US jurisdiction and considered at risk of US CLOUD Act and US FISA.</p>
+<p>Most Software-as-a-Service log management platforms -- like Datadog, Logz.io and Elastic Cloud -- are operated by US entities and run on US clouds. Hence, using them to process logs poses a high risk that personal data ends up being processed on a US cloud. Therefore, personal data is at risk of US CLOUD Act and US FISA, which is incompatible with GDPR.</p>
+<p>Fortunately, Compliant Kubernetes comes with <a href="../../user-guide/logs/">OpenSearch built-in</a>, so you can benefit from full-text search over your application logs while complying with GDPR.</p>
 
 
 
