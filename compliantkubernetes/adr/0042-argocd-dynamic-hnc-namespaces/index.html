@@ -12,7 +12,7 @@
         <meta name="author" content="Elastisys AB">
       
       
-        <link rel="canonical" href="https://elastisys.io/compliantkubernetes/adr/0041-encryption-at-rest/">
+        <link rel="canonical" href="https://elastisys.io/compliantkubernetes/adr/0042-argocd-dynamic-hnc-namespaces/">
       
       
       
@@ -21,7 +21,7 @@
     
     
       
-        <title>Rely on Infrastructure Provider for encryption-at-rest - Elastisys Compliant Kubernetes</title>
+        <title>ArgoCD with dynamic hnc namespaces - Elastisys Compliant Kubernetes</title>
       
     
     
@@ -110,7 +110,7 @@ if(!document.__defineGetter__) {
     <div data-md-component="skip">
       
         
-        <a href="#rely-on-infrastructure-provider-for-encryption-at-rest" class="md-skip">
+        <a href="#argocd-with-dynamic-hnc-namespaces" class="md-skip">
           Skip to content
         </a>
       
@@ -148,7 +148,7 @@ if(!document.__defineGetter__) {
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Rely on Infrastructure Provider for encryption-at-rest
+              ArgoCD with dynamic hnc namespaces
             
           </span>
         </div>
@@ -2038,7 +2038,7 @@ if(!document.__defineGetter__) {
       
         <li class="md-nav__item">
   <a href="#decision-drivers" class="md-nav__link">
-    Decision Drivers
+    Decision Drivers 
   </a>
   
 </li>
@@ -2054,26 +2054,6 @@ if(!document.__defineGetter__) {
   <a href="#decision-outcome" class="md-nav__link">
     Decision Outcome
   </a>
-  
-    <nav class="md-nav" aria-label="Decision Outcome">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#positive-consequences" class="md-nav__link">
-    Positive Consequences
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#negative-consequences" class="md-nav__link">
-    Negative Consequences
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2098,66 +2078,85 @@ if(!document.__defineGetter__) {
   
 
 
-<h1 id="rely-on-infrastructure-provider-for-encryption-at-rest">Rely on Infrastructure Provider for encryption-at-rest<a class="headerlink" href="#rely-on-infrastructure-provider-for-encryption-at-rest" title="Permanent link">&para;</a></h1>
+<h1 id="argocd-with-dynamic-hnc-namespaces">ArgoCD with dynamic hnc namespaces<a class="headerlink" href="#argocd-with-dynamic-hnc-namespaces" title="Permanent link">&para;</a></h1>
 <ul>
 <li>Status: accepted</li>
-<li>Deciders: arch meeting</li>
-<li>Date: 2023-05-11</li>
+<li>Deciders: product owner, DX, GoTo</li>
+<li>Date: 2023-05-23</li>
 </ul>
 <h2 id="context-and-problem-statement">Context and Problem Statement<a class="headerlink" href="#context-and-problem-statement" title="Permanent link">&para;</a></h2>
-<p>A reason why people want encryption-at-rest is to add another safeguard to data confidentiality.
-Encryption-at-rest is a must have for phones and laptops as they can easily be stolen or get lost.
-However, in our opinion, it is a nice-to-have addition for servers, which are supposed to be in a physically protected and secure data-center, with the disks being safely disposed.
-The same should be true if the Infrastructure Provideroffers object storage - the disks comprising the storage layer should be nicely tucked away deep inside a secure data-center.</p>
-<p>Anyhow, we are sometimes asked by Application Developers on why we don't simply do full-disk encryption at the VM level, using something like <a href="https://linux.die.net/man/8/cryptsetup">cryptsetup</a>, or why we don't always encrypt data before it is shipped to object storage.
-Furthermore, some Application Developers require that <em>all</em> data is encrypted-at-rest.
-How should we in Compliant Kubernetes handle encryption-at-rest both for VMs and object storage?</p>
-<h2 id="decision-drivers">Decision Drivers<a class="headerlink" href="#decision-drivers" title="Permanent link">&para;</a></h2>
+<p>Argo CD cannot create HNC namespaces and deploy services into them.
+Our current Argo offering is a namespaced installation where a cronjob patches the cluster <a href="https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#clusters">secret</a> with the list of managed namespaces every minute.
+So, when a user tries to create an Application and if part of it is a namespace and service to be deployed into the namespace.
+As the new <strong>Not yet created/patched to the cluster secret</strong> namespace is not managed, Argo CD fails at the comparison stage.</p>
+<p>Currently, upstream ArgoCD is unaware of HNC resources, and does not give subnamespaces the needed precedence, read more <a href="https://argo-cd.readthedocs.io/en/stable/user-guide/sync-waves/#how-does-it-work">here</a>.
+The cluster secret that takes a list of managed namespaces, does not take a regular expression, so it is hard for Application developers to create namespaces as part of an Application.</p>
+<p>So, do we want to let customers create and delete subnamespaces dynamically via Argo CD?
+If yes, how?</p>
+<h2 id="decision-drivers">Decision Drivers <!-- optional --><a class="headerlink" href="#decision-drivers" title="Permanent link">&para;</a></h2>
 <ul>
-<li>We want to avoid security theatre.</li>
-<li>We want to avoid operational complexity.</li>
-<li>We want to avoid cloud-provider dependent implementation sprawl.</li>
-<li>We want to make Application Developers that require encryption-at-rest happy.</li>
+<li>We want to maintain platform security and stability.</li>
+<li>We want to find a solution which is scalable and minimizes MSE burden.</li>
+<li>We want to best serve our customers.</li>
+<li>We want to make the operator life easier.</li>
 </ul>
 <h2 id="considered-options">Considered Options<a class="headerlink" href="#considered-options" title="Permanent link">&para;</a></h2>
-<p>VM disk encryption:</p>
-<ol>
-<li>Store the encryption key on the VM's /boot disk.
-    This is obvious security theatre. For example, if server disks are stolen, the VM's data is in the hands of the thief.</li>
-<li>Let admins type the encryption key on the VM's console.
-    Asking admins to do this is time-consuming, error-prone, effectively jeopardizing uptime. Instead, Compliant Kubernetes recommends automatic VM reboots during application "quiet times", such as at night, to ensure the OS is patched without sacrificing uptime.</li>
-<li>Let the VM pull the encryption key via instance metadata or instance configuration.
-    This would imply storing the encryption key on the Infrastructure Provider. If the Infrastructure Provider doesn't have encryption-at-rest, then the encryption key is also stored unencrypted, likely on the same server as the VM is running. Hence, this quickly ends up being security theatre.</li>
-<li>Let the VM pull the encryption key from an external location which features encryption-at-rest.
-    This would imply that the VM needs some kind of credentials to authenticate to the external location. Again these credentials are stored unencrypted on the Infrastructure Provider, so we are back to option 3.</li>
-<li>Rely on Infrastructure Provider to provide encryption-at-rest.</li>
-</ol>
-<p>Object storage encryption:</p>
-<ol>
-<li>Encrypt data before shipping to object storage.
-    This is not doable since not all applications that interacts with object storage in Compliant Kubernetes supports this.
-    Using a proxy gateway that can handle the encryption could have been a solution, however the only tool that we've found, MinIO Gateway, has been <a href="https://blog.min.io/deprecation-of-the-minio-gateway/">deprecated</a>.</li>
-<li>Encrypt data using server-side-encryption.
-    In Compliant Kubernetes we use Openstack Swift and the S3 API when interacting with object storage.
-    Openstack swift has no notion of server-side encryption where the data is encrypted at rest with a user provided key.
-    The S3 API has server-side encryption but again some applications in Compliant Kubernetes lacks the features necessary to leverage it.</li>
-<li>Rely on Infrastructure Provider to provide encryption-at-rest.</li>
-</ol>
+<ul>
+<li>
+<p>Wait for the Argo Project to integrate better with HNC and ask customers to only create subnamespaces manually until this is fixed upstream.</p>
+</li>
+<li>
+<p>Good, We are inline with how upstream Argo is built.</p>
+</li>
+<li>Bad, This will not give customers a smooth gitops experience</li>
+<li>
+<p>Bad, Makes it hard to use ApplicationSets to dynamically create Applications on new namespaces.</p>
+</li>
+<li>
+<p>Use OPA to restrict operations on our namespaces and give customers the ability to create/delete namespaces ?</p>
+</li>
+<li>
+<p>Giving Application developers access to create/delete namespaces has been a no-go since the beginning of compliantkubernetes for various security reasons.</p>
+</li>
+<li>
+<p>Building OPA policies to restrict operations on namespaces, would takes away from how community does things and makes it hard for us to pivot to new big changes in the future.</p>
+</li>
+<li>
+<p>To deploy all the Applications into one big namespace.</p>
+</li>
+<li>
+<p>Proposing developers to deploy different versions of their components within the same namespace goes against the goal of achieving separation and isolation through namespaces.</p>
+</li>
+<li>
+<p>Sync Waves and Phases</p>
+</li>
+<li>
+<p>Investigated this, found that sync waves are not a solution in this case, as the reconciliation is failing at the comparison stage which happens before sync waves are executed.</p>
+</li>
+<li>
+<p>Test to see if ArgoCD accepts regex in cluster secret</p>
+</li>
+<li>
+<p>Investigated this, found that the secret does not accept wildcards or regex. See the open issue <a href="https://github.com/argoproj/argo-cd/issues/10054#issue-1310861246">here</a></p>
+</li>
+<li>
+<p>Setup ArgoCD cluster-wide installation.</p>
+</li>
+<li>
+<p>Cluster wide installation would give Argo a lot of permissions and right now, there is no good solution to stop Argo from deploying applications into our system namespaces such as falco, gatekeeper-system etc, Assuming that one needs to use a wildcard as destinations in ArgoCD projects.</p>
+</li>
+<li>
+<p>Even if ArgoCD is installed clusterwide, When ArgoCD syncs by kind it does not prioritize subnamespaces first. See <a href="https://github.com/argoproj/gitops-engine/blob/bc9ce5764fa306f58cf59199a94f6c968c775a2d/pkg/sync/sync_tasks.go#L27-L66">here</a></p>
+</li>
+<li>
+<p>This would also require us to build a lot of OPA policies and later makes it hard to pivot to new ways.</p>
+</li>
+</ul>
 <h2 id="decision-outcome">Decision Outcome<a class="headerlink" href="#decision-outcome" title="Permanent link">&para;</a></h2>
-<p>Chosen options:</p>
+<p>The Decision is to let the ArgoCD project adopt practices around HNC and until then,</p>
 <ul>
-<li>VM disk encryption: "Rely on Infrastructure Provider to provide encryption-at-rest".</li>
-<li>Object storage encryption: "Rely on Infrastructure Provider to provide encryption-at-rest".</li>
-</ul>
-<h3 id="positive-consequences">Positive Consequences<a class="headerlink" href="#positive-consequences" title="Permanent link">&para;</a></h3>
-<ul>
-<li>We can offer encryption-at-rest for Application Developers that require it.</li>
-<li>We don't increase the operational complexity.</li>
-<li>We avoid security theatre.</li>
-</ul>
-<h3 id="negative-consequences">Negative Consequences<a class="headerlink" href="#negative-consequences" title="Permanent link">&para;</a></h3>
-<ul>
-<li>We limit what Infrastructure Providers Application Developers can choose if they require encryption-at-rest.</li>
+<li>Customers need to create subnamespaces manually and deploy applications into it.</li>
+<li>Customers cannot template the namespace as a value in their manifests.</li>
 </ul>
 
 
