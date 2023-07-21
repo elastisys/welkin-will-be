@@ -3327,12 +3327,13 @@ if(!document.__defineGetter__) {
 <h4 id="updated">Updated<a class="headerlink" href="#updated" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Harbor is upgraded to v2.8.2:<ul>
-<li>This version drops the support for chartmuseum. If you are using chartmuseum you will need to migrate your <a href="https://github.com/goharbor/harbor/wiki/Migrate-helm-chart-to-oci-registry-in-Harbor">charts</a></li>
+<li>This version drops the support for chartmuseum and replaces it with a OCI compatible chart storage. You can find the documentation for how to use OCI compatible chart storage <a href="https://goharbor.io/docs/2.7.0/working-with-projects/working-with-images/managing-helm-charts/#manage-helm-charts-with-the-oci-compatible-registry-of-harbor">here</a></li>
+<li>They are also replacing the Notary image signer with Cosign image signer. You can find the documentation for how to use Cosign to sign images <a href="https://goharbor.io/docs/2.7.0/working-with-projects/working-with-images/sign-images/#use-cosign-to-sign-artifacts">here</a></li>
 <li>Dex is now the default login page</li>
 </ul>
 </li>
 <li>Ingess-nginx is upgraded to v1.8.0</li>
-<li>Grafana is upgrade to v9.5.5</li>
+<li>Grafana is upgraded to v9.5.5</li>
 <li>Opensearch and Opensearch Dashboard are upgraded to v2.8.0</li>
 </ul>
 <h4 id="added">Added<a class="headerlink" href="#added" title="Permanent link">&para;</a></h4>
