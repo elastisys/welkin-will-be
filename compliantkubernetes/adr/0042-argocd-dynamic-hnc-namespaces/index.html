@@ -431,6 +431,20 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
+      <a href="../../user-guide/prepare-idp/" class="md-nav__link">
+        Prepare Your Identity Provider (IdP)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../user-guide/registry/" class="md-nav__link">
         Container registry
       </a>
@@ -2113,46 +2127,42 @@ If yes, how?</p>
 </ul>
 <h2 id="considered-options">Considered Options<a class="headerlink" href="#considered-options" title="Permanent link">&para;</a></h2>
 <ul>
-<li>
-<p>Wait for the Argo Project to integrate better with HNC and ask customers to only create subnamespaces manually until this is fixed upstream.</p>
-</li>
-<li>
-<p>Good, We are inline with how upstream Argo is built.</p>
-</li>
+<li>Wait for the Argo Project to integrate better with HNC and ask customers to only create subnamespaces manually until this is fixed upstream.</li>
+</ul>
+<ol>
+<li>Good, We are inline with how upstream Argo is built.</li>
 <li>Bad, This will not give customers a smooth gitops experience</li>
-<li>
-<p>Bad, Makes it hard to use ApplicationSets to dynamically create Applications on new namespaces.</p>
-</li>
-<li>
-<p>Use OPA to restrict operations on our namespaces and give customers the ability to create/delete namespaces ?</p>
-</li>
-<li>
-<p>Giving Application developers access to create/delete namespaces has been a no-go since the beginning of compliantkubernetes for various security reasons.</p>
-</li>
-<li>
-<p>Building OPA policies to restrict operations on namespaces, would takes away from how community does things and makes it hard for us to pivot to new big changes in the future.</p>
-</li>
-<li>
-<p>To deploy all the Applications into one big namespace.</p>
-</li>
-<li>
-<p>Proposing developers to deploy different versions of their components within the same namespace goes against the goal of achieving separation and isolation through namespaces.</p>
-</li>
-<li>
-<p>Sync Waves and Phases</p>
-</li>
-<li>
-<p>Investigated this, found that sync waves are not a solution in this case, as the reconciliation is failing at the comparison stage which happens before sync waves are executed.</p>
-</li>
-<li>
-<p>Test to see if ArgoCD accepts regex in cluster secret</p>
-</li>
-<li>
-<p>Investigated this, found that the secret does not accept wildcards or regex. See the open issue <a href="https://github.com/argoproj/argo-cd/issues/10054#issue-1310861246">here</a></p>
-</li>
-<li>
-<p>Setup ArgoCD cluster-wide installation.</p>
-</li>
+<li>Bad, Makes it hard to use ApplicationSets to dynamically create Applications on new namespaces.</li>
+</ol>
+<ul>
+<li>Use OPA to restrict operations on our namespaces and give customers the ability to create/delete namespaces ?</li>
+</ul>
+<ol>
+<li>Giving Application developers access to create/delete namespaces has been a no-go since the beginning of compliantkubernetes for various security reasons.</li>
+<li>Building OPA policies to restrict operations on namespaces, would takes away from how community does things and makes it hard for us to pivot to new big changes in the future.</li>
+</ol>
+<ul>
+<li>To deploy all the Applications into one big namespace.</li>
+</ul>
+<ol>
+<li>Proposing developers to deploy different versions of their components within the same namespace goes against the goal of achieving separation and isolation through namespaces.</li>
+</ol>
+<ul>
+<li>Sync Waves and Phases</li>
+</ul>
+<ol>
+<li>Investigated this, found that sync waves are not a solution in this case, as the reconciliation is failing at the comparison stage which happens before sync waves are executed.</li>
+</ol>
+<ul>
+<li>Test to see if ArgoCD accepts regex in cluster secret</li>
+</ul>
+<ol>
+<li>Investigated this, found that the secret does not accept wildcards or regex. See the open issue <a href="https://github.com/argoproj/argo-cd/issues/10054#issue-1310861246">here</a></li>
+</ol>
+<ul>
+<li>Setup ArgoCD cluster-wide installation.</li>
+</ul>
+<ol>
 <li>
 <p>Cluster wide installation would give Argo a lot of permissions and right now, there is no good solution to stop Argo from deploying applications into our system namespaces such as falco, gatekeeper-system etc, Assuming that one needs to use a wildcard as destinations in ArgoCD projects.</p>
 </li>
@@ -2162,7 +2172,7 @@ If yes, how?</p>
 <li>
 <p>This would also require us to build a lot of OPA policies and later makes it hard to pivot to new ways.</p>
 </li>
-</ul>
+</ol>
 <h2 id="decision-outcome">Decision Outcome<a class="headerlink" href="#decision-outcome" title="Permanent link">&para;</a></h2>
 <p>The Decision is to let the ArgoCD project adopt practices around HNC and until then,</p>
 <ul>

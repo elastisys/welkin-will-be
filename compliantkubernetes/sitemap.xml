@@ -571,6 +571,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://elastisys.io/compliantkubernetes/user-guide/prepare-idp/</loc>
+         <lastmod>2023-08-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/prepare/</loc>
          <lastmod>2023-08-11</lastmod>
          <changefreq>daily</changefreq>
