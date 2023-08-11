@@ -1203,8 +1203,8 @@ if(!document.__defineGetter__) {
 </li>
         
           <li class="md-nav__item">
-  <a href="#copy-the-vms-information-to-the-inventery-files" class="md-nav__link">
-    Copy the VMs information to the inventery files
+  <a href="#copy-the-vms-information-to-the-inventory-files" class="md-nav__link">
+    Copy the VMs information to the inventory files
   </a>
   
 </li>
@@ -2253,8 +2253,8 @@ if(!document.__defineGetter__) {
 </li>
         
           <li class="md-nav__item">
-  <a href="#copy-the-vms-information-to-the-inventery-files" class="md-nav__link">
-    Copy the VMs information to the inventery files
+  <a href="#copy-the-vms-information-to-the-inventory-files" class="md-nav__link">
+    Copy the VMs information to the inventory files
   </a>
   
 </li>
@@ -2395,7 +2395,7 @@ if(!document.__defineGetter__) {
 <p>Create a git working folder to store Compliant Kubernetes configurations in a version-controlled manner. Run the following commands from the root of the config repo.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The following steps are done from the root of the git repository you created for the cofigurations.</p>
+<p>The following steps are done from the root of the git repository you created for the configurations.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -2411,14 +2411,17 @@ if(!document.__defineGetter__) {
 </code></pre></div>
 </li>
 <li>
-<p>Add the Elastisys Compliant Kubernetes Kubespray repo as <code>git submodule</code> to the configuration repo as follows:</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>submodule<span class="w"> </span>add<span class="w">  </span>https://github.com/elastisys/compliantkubernetes-kubespray
+<p>Add the Elastisys Compliant Kubernetes Kubespray repo as a <code>git submodule</code> to the configuration repo and install pre-requisites as follows:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>submodule<span class="w"> </span>add<span class="w"> </span>https://github.com/elastisys/compliantkubernetes-kubespray.git
 git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init<span class="w"> </span>--recursive
+<span class="nb">cd</span><span class="w"> </span>compliantkubernetes-kubespray
+pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>kubespray/requirements.txt<span class="w">  </span><span class="c1"># this will install ansible</span>
+ansible-playbook<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;ansible_python_interpreter=/usr/bin/python3&#39;</span><span class="w"> </span>--ask-become-pass<span class="w"> </span>--connection<span class="w"> </span><span class="nb">local</span><span class="w"> </span>--inventory<span class="w"> </span><span class="m">127</span>.0.0.1,<span class="w"> </span>get-requirements.yaml
 </code></pre></div>
 </li>
 <li>
-<p>Add compliantkubernetes-apps as <code>git submodule</code> to the configuration repo and install pre-requisites as follows:</p>
-<div class="highlight"><pre><span></span><code>https://github.com/elastisys/compliantkubernetes-apps.git
+<p>Add the Compliant Kubernetes Apps repo as a <code>git submodule</code> to the configuration repo and install pre-requisites as follows:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>submodule<span class="w"> </span>add<span class="w"> </span>https://github.com/elastisys/compliantkubernetes-apps.git
 <span class="nb">cd</span><span class="w"> </span>compliantkubernetes-apps
 ansible-playbook<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;ansible_python_interpreter=/usr/bin/python3&#39;</span><span class="w"> </span>--ask-become-pass<span class="w"> </span>--connection<span class="w"> </span><span class="nb">local</span><span class="w"> </span>--inventory<span class="w"> </span><span class="m">127</span>.0.0.1,<span class="w"> </span>get-requirements.yaml
 </code></pre></div>
@@ -2441,8 +2444,8 @@ ansible-playbook<span class="w"> </span>-e<span class="w"> </span><span class="s
 </li>
 </ul>
 <details class="note" open="open">
-<summary>If both service and Workload Clusters are in the same subnet</summary>
-<p>If both the service and Workload Clusters are in the same subnet, it would be great to configure the following domain names to the private IP addresses of Management Cluster's worker nodes. (Replace <code>example.com</code> with your domain name.)</p>
+<summary>If both Management and Workload Clusters are in the same subnet</summary>
+<p>If both the Management and Workload Clusters are in the same subnet, it would be great to configure the following domain names to the private IP addresses of Management Cluster's worker nodes. (Replace <code>example.com</code> with your domain name.)</p>
 <ul>
 <li><code>*.thanos.ops.example.com</code></li>
 <li><code>*.opensearch.ops.example.com</code></li>
@@ -2481,22 +2484,22 @@ ansible-playbook<span class="w"> </span>-e<span class="w"> </span><span class="s
 </details>
 <h3 id="init-kubespray-config-in-your-config-path">Init Kubespray config in your config path.<a class="headerlink" href="#init-kubespray-config-in-your-config-path" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;{WORKLOAD_CLUSTERS}&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-compliantkubernetes-kubespray/ck8s-kubespray<span class="w"> </span>init<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span><span class="nv">$CK8S_CLOUD_PROVIDER</span><span class="w"> </span><span class="nv">$CK8S_PGP_FP</span>
+<span class="w">  </span>compliantkubernetes-kubespray/ck8s-kubespray<span class="w"> </span>init<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span><span class="nv">$CK8S_CLOUD_PROVIDER</span><span class="w"> </span><span class="nv">$CK8S_PGP_FP</span>
 <span class="k">done</span>
 </code></pre></div>
 <h3 id="configure-oidc">Configure OIDC<a class="headerlink" href="#configure-oidc" title="Permanent link">&para;</a></h3>
 <p>To configure OpenID access for Kubernetes API and other services, Dex should be configured with your identity provider. Check what Dex needs from <a href="https://dexidp.io/docs/connectors/">your identity provider</a>.</p>
 <h4 id="configure-oidc-endpoint">Configure OIDC endpoint<a class="headerlink" href="#configure-oidc-endpoint" title="Permanent link">&para;</a></h4>
 <p>Set <code>kube_oidc_url</code> in <code>${CK8S_CONFIG_PATH}/sc-config/group_vars/k8s_cluster/ck8s-k8s-cluster.yaml</code> and <code>${CK8S_CONFIG_PATH}/wc-config/group_vars/k8s_cluster/ck8s-k8s-cluster.yaml</code> based on your cluster. For example, if your domain is <code>example.com</code> then kube_oidc_url is set as <code>kube_oidc_url: https://dex.example.com</code> in both files.</p>
-<h3 id="copy-the-vms-information-to-the-inventery-files">Copy the VMs information to the inventery files<a class="headerlink" href="#copy-the-vms-information-to-the-inventery-files" title="Permanent link">&para;</a></h3>
-<p>Add the host name, user and IP address of each VM that you prepared above in <code>${CK8S_CONFIG_PATH}/sc-config/inventory.ini</code>for Management Cluster and <code>${CK8S_CONFIG_PATH}/sc-config/inventory.ini</code> for Workload Cluster. Moreover, you also need to add the host names of the master nodes under <code>[kube_control_plane]</code>, etdc nodes under <code>[etcd]</code> and worker nodes under <code>[kube_node]</code>.</p>
+<h3 id="copy-the-vms-information-to-the-inventory-files">Copy the VMs information to the inventory files<a class="headerlink" href="#copy-the-vms-information-to-the-inventory-files" title="Permanent link">&para;</a></h3>
+<p>Add the host name, user and IP address of each VM that you prepared above in <code>${CK8S_CONFIG_PATH}/sc-config/inventory.ini</code>for Management Cluster and <code>${CK8S_CONFIG_PATH}/sc-config/inventory.ini</code> for Workload Cluster. Moreover, you also need to add the host names of the master nodes under <code>[kube_control_plane]</code>, etcd nodes under <code>[etcd]</code> and worker nodes under <code>[kube_node]</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Make sure that the user has SSH access to the VMs.</p>
 </div>
 <h3 id="run-kubespray-to-deploy-the-kubernetes-clusters">Run Kubespray to deploy the Kubernetes clusters<a class="headerlink" href="#run-kubespray-to-deploy-the-kubernetes-clusters" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="si">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>compliantkubernetes-kubespray/bin/ck8s-kubespray<span class="w"> </span>apply<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>--flush-cache
+<span class="w">  </span>compliantkubernetes-kubespray/bin/ck8s-kubespray<span class="w"> </span>apply<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>--flush-cache
 <span class="k">done</span>
 </code></pre></div>
 <div class="admonition note">
@@ -2506,12 +2509,18 @@ compliantkubernetes-kubespray/ck8s-kubespray<span class="w"> </span>init<span cl
 <h3 id="set-up-rook">Set up Rook<a class="headerlink" href="#set-up-rook" title="Permanent link">&para;</a></h3>
 <p><em>Only for Infrastructure Providers that doesn't natively support storage kubernetes.</em></p>
 <p>Run the following command to set up Rook.</p>
-<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w">  </span>sc<span class="w"> </span>wc<span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">     </span>sops<span class="w"> </span>--decrypt<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml<span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$CLUSTER</span>.yaml
-<span class="w">     </span><span class="nb">export</span><span class="w"> </span><span class="nv">KUBECONFIG</span><span class="o">=</span><span class="nv">$CLUSTER</span>.yaml
-<span class="w">     </span>compliantkubernetes-kubespray/rook/deploy-rook.sh
-<span class="w"> </span><span class="k">done</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w">  </span>sc<span class="w"> </span>wc<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span><span class="nb">export</span><span class="w"> </span><span class="nv">KUBECONFIG</span><span class="o">=</span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml
+<span class="w">  </span>compliantkubernetes-kubespray/rook/deploy-rook.sh
+<span class="k">done</span>
 </code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the kubeconfig files for the clusters are encrypted with SOPS, you need to decrypt them before using them:
+<div class="highlight"><pre><span></span><code>sops--decrypt<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml<span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$CLUSTER</span>.yaml
+<span class="nb">export</span><span class="w"> </span><span class="nv">KUBECONFIG</span><span class="o">=</span><span class="nv">$CLUSTER</span>.yaml
+</code></pre></div></p>
+</div>
 <p>Please restart the operator pod, <code>rook-ceph-operator*</code>, if some pods stall in the initialization state as shown below:</p>
 <div class="highlight"><pre><span></span><code>rook-ceph<span class="w">     </span>rook-ceph-crashcollector-minion-0-b75b9fc64-tv2vg<span class="w">    </span><span class="m">0</span>/1<span class="w">     </span>Init:0/2<span class="w">   </span><span class="m">0</span><span class="w">          </span>24m
 rook-ceph<span class="w">     </span>rook-ceph-crashcollector-minion-1-5cfb88b66f-mggrh<span class="w">   </span><span class="m">0</span>/1<span class="w">     </span>Init:0/2<span class="w">   </span><span class="m">0</span><span class="w">          </span>36m
@@ -2527,38 +2536,38 @@ rook-ceph<span class="w">     </span>rook-ceph-crashcollector-minion-2-5c74ffffb
 <h3 id="test-rook">Test Rook<a class="headerlink" href="#test-rook" title="Permanent link">&para;</a></h3>
 <p>To test Rook, proceed as follows:</p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>sops<span class="w"> </span>exec-file<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml<span class="w"> </span><span class="s1">&#39;kubectl --kubeconfig {} apply -f https://raw.githubusercontent.com/rook/rook/release-1.5/cluster/examples/kubernetes/ceph/csi/rbd/pvc.yaml&#39;</span><span class="p">;</span>
+<span class="w">  </span>kubectl<span class="w"> </span>--kubeconfig<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/rook/rook/release-1.5/cluster/examples/kubernetes/ceph/csi/rbd/pvc.yaml
 <span class="k">done</span>
 
 <span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>sops<span class="w"> </span>exec-file<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml<span class="w"> </span><span class="s1">&#39;kubectl --kubeconfig {} get pvc&#39;</span><span class="p">;</span>
+<span class="w">  </span>kubectl<span class="w"> </span>--kubeconfig<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml<span class="w"> </span>get<span class="w"> </span>pvc
 <span class="k">done</span>
 </code></pre></div>
 <p>You should see PVCs in <code>Bound</code> state. If you want to clean the previously created PVCs:</p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>sops<span class="w"> </span>exec-file<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml<span class="w"> </span><span class="s1">&#39;kubectl --kubeconfig {} delete pvc rbd-pvc&#39;</span><span class="p">;</span>
+<span class="w">  </span>kubectl<span class="w"> </span>--kubeconfig<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml<span class="w"> </span>delete<span class="w"> </span>pvc<span class="w"> </span>rbd-pvc
 <span class="k">done</span>
 </code></pre></div>
 <h2 id="deploying-compliant-kubernetes-apps">Deploying Compliant Kubernetes Apps<a class="headerlink" href="#deploying-compliant-kubernetes-apps" title="Permanent link">&para;</a></h2>
 <details class="note" open="open">
-<summary>How to change local DNS IP if you change the default Kubebernetes subnet address</summary>
+<summary>How to change local DNS IP if you change the default Kubernetes subnet address</summary>
 <p>You need to change the default coreDNS default IP address in <code>common-config.yaml</code> file if  you change the default IP block  used for Kubernetes services above.  To get the coreDNS IP address, run the following commands.</p>
 <p><div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/compliantkubernetes-apps/bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span>sc<span class="w"> </span>get<span class="w"> </span>svc<span class="w"> </span>-n<span class="w"> </span>kube-system<span class="w"> </span>coredns
 </code></pre></div>
-Once you get the IP address edit <code>${CK8S_CONFIG_PATH}/scommon-config.yaml</code> file  and set  the value  to <code>global.clusterDns</code> field.</p>
+Once you get the IP address edit <code>${CK8S_CONFIG_PATH}/common-config.yaml</code> file  and set  the value  to <code>global.clusterDns</code> field.</p>
 </details>
 <details class="note" open="open">
 <summary>Configure the load balancer IP on the loopback interface for each worker node</summary>
-<p>The Kubernetes data planenodes (i.e., worker nodes) cannot connect to themselves with the IP address of the load balancer that fronts them. The easiest is to configure the load balancer's IP address on the loopback interface of each nodes. Create <code>/etc/netplan/20-eip-fix.yaml</code> file and add the following to it. <code>${loadblancer_ip_address}</code> should be replaced with the IP address of the load balancer for each cluster.</p>
+<p>The Kubernetes data plane nodes (i.e., worker nodes) cannot connect to themselves with the IP address of the load balancer that fronts them. The easiest is to configure the load balancer's IP address on the loopback interface of each nodes. Create <code>/etc/netplan/20-eip-fix.yaml</code> file and add the following to it. <code>${loadblancer_ip_address}</code> should be replaced with the IP address of the load balancer for each cluster.</p>
 <p><div class="highlight"><pre><span></span><code><span class="nt">network</span><span class="p">:</span>
-<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
-<span class="nt">ethernets</span><span class="p">:</span>
-<span class="w">    </span><span class="s">&quot;lo:0&quot;</span><span class="p p-Indicator">:</span>
-<span class="w">    </span><span class="nt">match</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">  </span><span class="nt">ethernets</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">lo0</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">match</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lo</span>
-<span class="w">    </span><span class="nt">dhcp4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">    </span><span class="nt">addresses</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${loadblancer_ip_address}/32</span>
+<span class="w">      </span><span class="nt">dhcp4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">      </span><span class="nt">addresses</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${loadblancer_ip_address}/32</span>
 </code></pre></div>
 After adding the above content, run the following command in each worker node:</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>netplan<span class="w"> </span>apply
@@ -2567,7 +2576,7 @@ After adding the above content, run the following command in each worker node:</
 <h3 id="initialize-the-apps-configuration">Initialize the apps configuration<a class="headerlink" href="#initialize-the-apps-configuration" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>compliantkubernetes-apps/bin/ck8s<span class="w"> </span>init
 </code></pre></div>
-<p>This will initialise the configuration in the <code>${CK8S_CONFIG_PATH}</code> directory. Generating configuration files <code>common-config.yaml</code>, <code>sc-config.yaml</code> and <code>wc-config.yaml</code>, as well as secrets with randomly generated passwords in <code>secrets.yaml</code>. This will also generate read-only default configuration under the directory <code>defaults/</code> which can be used as a guide for available and suggested options.</p>
+<p>This will initialize the configuration in the <code>${CK8S_CONFIG_PATH}</code> directory. Generating configuration files <code>common-config.yaml</code>, <code>sc-config.yaml</code> and <code>wc-config.yaml</code>, as well as secrets with randomly generated passwords in <code>secrets.yaml</code>. This will also generate read-only default configuration under the directory <code>defaults/</code> which can be used as a guide for available and suggested options.</p>
 <h3 id="configure-the-apps-and-secrets">Configure the apps and secrets<a class="headerlink" href="#configure-the-apps-and-secrets" title="Permanent link">&para;</a></h3>
 <p>The configuration files contain some predefined values. You may want to check and edit based on your current environment requirements. The configuration files that require editing are <code>${CK8S_CONFIG_PATH}/common-config.yaml</code>, <code>${CK8S_CONFIG_PATH}/sc-config.yaml</code>, <code>${CK8S_CONFIG_PATH}/wc-config.yaml</code> and <code>${CK8S_CONFIG_PATH}/secrets.yaml</code> and set the appropriate values for some of the configuration fields.
 Note that, the latter is encrypted.</p>
@@ -2580,7 +2589,7 @@ vim<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFI
 <p>Edit the secrets.yaml file and add the credentials for:</p>
 <ul>
 <li>s3 - used for backup storage</li>
-<li>dex - connectors -- check <a href="https://dexidp.io/docs/connectors/">your indentiy provider</a>.</li>
+<li>dex - connectors -- check <a href="https://dexidp.io/docs/connectors/">your identity provider</a>.</li>
 <li>On-call management tool configurations-- Check <a href="https://prometheus.io/docs/alerting/latest/configuration/">supported on-call management tools</a></li>
 </ul>
 <div class="highlight"><pre><span></span><code>sops<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/secrets.yaml
@@ -2612,7 +2621,7 @@ compliantkubernetes-apps/bin/ck8s<span class="w"> </span>apply<span class="w"> <
 </code></pre></div>
 <p>You can check if the system settled as follows.</p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w"> </span>compliantkubernetes-apps/bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>get<span class="w"> </span>--all-namespaces<span class="w"> </span>pods
+<span class="w">  </span>compliantkubernetes-apps/bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>get<span class="w"> </span>--all-namespaces<span class="w"> </span>pods
 <span class="k">done</span>
 </code></pre></div>
 <p>Check the output of the command above. All Pods need to be <code>Running</code> or <code>Completed</code> status.</p>
