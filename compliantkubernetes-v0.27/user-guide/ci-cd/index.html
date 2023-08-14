@@ -12,10 +12,16 @@
         <meta name="author" content="Elastisys AB">
       
       
-        <link rel="canonical" href="https://elastisys.io/compliantkubernetes-v0.27/user-guide/ci-cd/">
+        <link rel="canonical" href="https://elastisys.io/compliantkubernetes/user-guide/ci-cd/">
+      
+      
+        <link rel="prev" href="../backup/">
+      
+      
+        <link rel="next" href="../demarcation/">
       
       <link rel="icon" href="../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
@@ -23,11 +29,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.eebd395e.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
-        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -99,7 +104,7 @@ if(!document.__defineGetter__) {
     
     
     
-    <body dir="ltr" data-md-color-scheme="elastisys" data-md-color-primary="" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="elastisys" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     
@@ -113,14 +118,16 @@ if(!document.__defineGetter__) {
       
     </div>
     
-      <div data-md-component="outdated" hidden>
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
         
       </div>
     
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Elastisys Compliant Kubernetes" class="md-header__button md-logo" aria-label="Elastisys Compliant Kubernetes" data-md-component="logo">
       
@@ -146,6 +153,8 @@ if(!document.__defineGetter__) {
         </div>
       </div>
     </div>
+    
+      
     
     
     
@@ -175,7 +184,7 @@ if(!document.__defineGetter__) {
           <div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -188,12 +197,12 @@ if(!document.__defineGetter__) {
 
 <a
   href="https://github.com/elastisys/compliantkubernetes/"
-  title="Go to repository"
+  title=""
   style="display: block; font-size: .65rem; line-height: 1.2; white-space: nowrap; -webkit-backface-visibility: hidden; backface-visibility: hidden; transition: opacity 250ms;"
 >
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
 </a>
       </div>
@@ -237,12 +246,12 @@ if(!document.__defineGetter__) {
 
 <a
   href="https://github.com/elastisys/compliantkubernetes/"
-  title="Go to repository"
+  title=""
   style="display: block; font-size: .65rem; line-height: 1.2; white-space: nowrap; -webkit-backface-visibility: hidden; backface-visibility: hidden; transition: opacity 250ms;"
 >
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
 </a>
     </div>
@@ -277,17 +286,18 @@ if(!document.__defineGetter__) {
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2">
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
           For Application Developers
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="For Application Developers" data-md-level="1">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           For Application Developers
@@ -303,17 +313,18 @@ if(!document.__defineGetter__) {
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2_1">
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
           Getting Started
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Getting Started" data-md-level="2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_1">
           <span class="md-nav__icon md-icon"></span>
           Getting Started
@@ -380,17 +391,18 @@ if(!document.__defineGetter__) {
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2_2">
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
           Go Deeper
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Go Deeper" data-md-level="2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2_2">
           <span class="md-nav__icon md-icon"></span>
           Go Deeper
@@ -588,7 +600,7 @@ if(!document.__defineGetter__) {
   
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
       
@@ -645,17 +657,18 @@ if(!document.__defineGetter__) {
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2_3">
+        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
           Safeguards
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Safeguards" data-md-level="2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_3">
           <span class="md-nav__icon md-icon"></span>
           Safeguards
@@ -762,17 +775,18 @@ if(!document.__defineGetter__) {
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2_4">
+        <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
           Additional Services
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Additional Services" data-md-level="2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_4">
           <span class="md-nav__icon md-icon"></span>
           Additional Services
@@ -915,17 +929,18 @@ if(!document.__defineGetter__) {
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_3">
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
           For Kubernetes Administrators
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="For Kubernetes Administrators" data-md-level="1">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           For Kubernetes Administrators
@@ -1011,17 +1026,18 @@ if(!document.__defineGetter__) {
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_3_6">
+        <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
           Advanced Configuration
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Advanced Configuration" data-md-level="2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3_6">
           <span class="md-nav__icon md-icon"></span>
           Advanced Configuration
@@ -1220,17 +1236,18 @@ if(!document.__defineGetter__) {
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_4">
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
           For CISOs
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="For CISOs" data-md-level="1">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           For CISOs
@@ -1422,17 +1439,18 @@ if(!document.__defineGetter__) {
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_5">
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
           For Contributors
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="For Contributors" data-md-level="1">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
           For Contributors
@@ -1512,17 +1530,18 @@ if(!document.__defineGetter__) {
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_6">
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
           Release Notes
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Release Notes" data-md-level="1">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Release Notes
@@ -1701,10 +1720,8 @@ if(!document.__defineGetter__) {
 
 
 
-  <a href="https://github.com/elastisys/compliantkubernetes/edit/main/docs/user-guide/ci-cd.md" title="Edit this page" class="md-content__button md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
-  </a>
+  
+  
 
 
 <h1 id="cicd-integration">CI/CD Integration<a class="headerlink" href="#cicd-integration" title="Permanent link">&para;</a></h1>
@@ -1724,11 +1741,11 @@ if(!document.__defineGetter__) {
 <p>To create a <code>KUBECONFIG</code> for your CI/CD pipeline, proceed as shown below.</p>
 <h3 id="pre-verification">Pre-verification<a class="headerlink" href="#pre-verification" title="Permanent link">&para;</a></h3>
 <p>First, make sure you are in the right namespace on the right cluster:</p>
-<div class="highlight"><pre><span></span><code>kubectl get nodes
-kubectl config view --minify --output <span class="s1">&#39;jsonpath={..namespace}&#39;</span><span class="p">;</span> <span class="nb">echo</span>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>nodes
+kubectl<span class="w"> </span>config<span class="w"> </span>view<span class="w"> </span>--minify<span class="w"> </span>--output<span class="w"> </span><span class="s1">&#39;jsonpath={..namespace}&#39;</span><span class="p">;</span><span class="w"> </span><span class="nb">echo</span>
 </code></pre></div>
 <p>You can only create a Role which is as powerful as you (see <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/#privilege-escalation-prevention-and-bootstrapping">Privilege escalation prevention</a>). Therefore, check what permissions you have and ensure they are sufficient for your CI/CD:</p>
-<div class="highlight"><pre><span></span><code>kubectl auth can-i --list
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>auth<span class="w"> </span>can-i<span class="w"> </span>--list
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1736,7 +1753,7 @@ kubectl config view --minify --output <span class="s1">&#39;jsonpath={..namespac
 </div>
 <h3 id="create-a-role">Create a Role<a class="headerlink" href="#create-a-role" title="Permanent link">&para;</a></h3>
 <p>Next, create a Role for you CI/CD pipeline. If unsure, start from the <a href="https://github.com/elastisys/compliantkubernetes/blob/main/user-demo/deploy/ci-cd-role.yaml">example Role</a> that the user demo's CI/CD pipeline needs.</p>
-<div class="highlight"><pre><span></span><code>kubectl apply -f ci-cd-role.yaml
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>ci-cd-role.yaml
 </code></pre></div>
 <div class="admonition important">
 <p class="admonition-title">Dealing with Forbidden or RBAC permissions errors</p>
@@ -1748,44 +1765,44 @@ kubectl config view --minify --output <span class="s1">&#39;jsonpath={..namespac
 <h3 id="create-a-serviceaccount">Create a ServiceAccount<a class="headerlink" href="#create-a-serviceaccount" title="Permanent link">&para;</a></h3>
 <p>User accounts are for humans, service accounts for robots. See <a href="https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/#user-accounts-versus-service-accounts">User accounts versus service accounts</a>. Hence, you should employ a ServiceAccount for your CI/CD pipeline.</p>
 <p>The following command creates a ServiceAccount for your CI/CD pipeline:</p>
-<div class="highlight"><pre><span></span><code>kubectl create serviceaccount ci-cd
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>create<span class="w"> </span>serviceaccount<span class="w"> </span>ci-cd
 </code></pre></div>
 <h3 id="create-a-rolebinding">Create a RoleBinding<a class="headerlink" href="#create-a-rolebinding" title="Permanent link">&para;</a></h3>
 <p>Now create a RoleBinding to bind the CI/CD ServiceAccount to the Role, so as to grant it associated permissions:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">NAMESPACE</span><span class="o">=</span><span class="k">$(</span>kubectl config view --minify --output <span class="s1">&#39;jsonpath={..namespace}&#39;</span><span class="k">)</span>
-kubectl create rolebinding ci-cd --role ci-cd --serviceaccount<span class="o">=</span><span class="nv">$NAMESPACE</span>:ci-cd
+<div class="highlight"><pre><span></span><code><span class="nv">NAMESPACE</span><span class="o">=</span><span class="k">$(</span>kubectl<span class="w"> </span>config<span class="w"> </span>view<span class="w"> </span>--minify<span class="w"> </span>--output<span class="w"> </span><span class="s1">&#39;jsonpath={..namespace}&#39;</span><span class="k">)</span>
+kubectl<span class="w"> </span>create<span class="w"> </span>rolebinding<span class="w"> </span>ci-cd<span class="w"> </span>--role<span class="w"> </span>ci-cd<span class="w"> </span>--serviceaccount<span class="o">=</span><span class="nv">$NAMESPACE</span>:ci-cd
 </code></pre></div>
 <h3 id="extract-the-kubeconfig">Extract the KUBECONFIG<a class="headerlink" href="#extract-the-kubeconfig" title="Permanent link">&para;</a></h3>
 <p>You can now extract the <code>KUBECONFIG</code> of the ServiceAccount:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">SECRET_NAME</span><span class="o">=</span><span class="k">$(</span>kubectl get sa ci-cd -o json <span class="p">|</span> jq -r .secrets<span class="o">[]</span>.name<span class="k">)</span>
+<div class="highlight"><pre><span></span><code><span class="nv">SECRET_NAME</span><span class="o">=</span><span class="k">$(</span>kubectl<span class="w"> </span>get<span class="w"> </span>sa<span class="w"> </span>ci-cd<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span>.secrets<span class="o">[]</span>.name<span class="k">)</span>
 
-<span class="nv">server</span><span class="o">=</span><span class="k">$(</span>kubectl config view --minify --output <span class="s1">&#39;jsonpath={..cluster.server}&#39;</span><span class="k">)</span>
-<span class="nv">cluster</span><span class="o">=</span><span class="k">$(</span>kubectl config view --minify --output <span class="s1">&#39;jsonpath={..context.cluster}&#39;</span><span class="k">)</span>
+<span class="nv">server</span><span class="o">=</span><span class="k">$(</span>kubectl<span class="w"> </span>config<span class="w"> </span>view<span class="w"> </span>--minify<span class="w"> </span>--output<span class="w"> </span><span class="s1">&#39;jsonpath={..cluster.server}&#39;</span><span class="k">)</span>
+<span class="nv">cluster</span><span class="o">=</span><span class="k">$(</span>kubectl<span class="w"> </span>config<span class="w"> </span>view<span class="w"> </span>--minify<span class="w"> </span>--output<span class="w"> </span><span class="s1">&#39;jsonpath={..context.cluster}&#39;</span><span class="k">)</span>
 
-<span class="nv">ca</span><span class="o">=</span><span class="k">$(</span>kubectl get secret <span class="nv">$SECRET_NAME</span> -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.data.ca\.crt}&#39;</span><span class="k">)</span>
-<span class="nv">token</span><span class="o">=</span><span class="k">$(</span>kubectl get secret <span class="nv">$SECRET_NAME</span> -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.data.token}&#39;</span> <span class="p">|</span> base64 --decode<span class="k">)</span>
-<span class="nv">namespace</span><span class="o">=</span><span class="k">$(</span>kubectl get secret <span class="nv">$SECRET_NAME</span> -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.data.namespace}&#39;</span> <span class="p">|</span> base64 --decode<span class="k">)</span>
+<span class="nv">ca</span><span class="o">=</span><span class="k">$(</span>kubectl<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span><span class="nv">$SECRET_NAME</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.data.ca\.crt}&#39;</span><span class="k">)</span>
+<span class="nv">token</span><span class="o">=</span><span class="k">$(</span>kubectl<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span><span class="nv">$SECRET_NAME</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.data.token}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>--decode<span class="k">)</span>
+<span class="nv">namespace</span><span class="o">=</span><span class="k">$(</span>kubectl<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span><span class="nv">$SECRET_NAME</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.data.namespace}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>--decode<span class="k">)</span>
 
-<span class="nb">echo</span> <span class="s2">&quot;\</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;\</span>
 <span class="s2">apiVersion: v1</span>
 <span class="s2">kind: Config</span>
 <span class="s2">clusters:</span>
-<span class="s2">- name: </span><span class="si">${</span><span class="nv">cluster</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">- name: </span><span class="si">${</span><span class="nv">cluster</span><span class="si">}</span>
 <span class="s2">  cluster:</span>
-<span class="s2">    certificate-authority-data: </span><span class="si">${</span><span class="nv">ca</span><span class="si">}</span><span class="s2"></span>
-<span class="s2">    server: </span><span class="si">${</span><span class="nv">server</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">    certificate-authority-data: </span><span class="si">${</span><span class="nv">ca</span><span class="si">}</span>
+<span class="s2">    server: </span><span class="si">${</span><span class="nv">server</span><span class="si">}</span>
 <span class="s2">contexts:</span>
 <span class="s2">- name: default-context</span>
 <span class="s2">  context:</span>
-<span class="s2">    cluster: </span><span class="si">${</span><span class="nv">cluster</span><span class="si">}</span><span class="s2"></span>
-<span class="s2">    namespace: </span><span class="si">${</span><span class="nv">namespace</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">    cluster: </span><span class="si">${</span><span class="nv">cluster</span><span class="si">}</span>
+<span class="s2">    namespace: </span><span class="si">${</span><span class="nv">namespace</span><span class="si">}</span>
 <span class="s2">    user: default-user</span>
 <span class="s2">current-context: default-context</span>
 <span class="s2">users:</span>
 <span class="s2">- name: default-user</span>
 <span class="s2">  user:</span>
-<span class="s2">    token: </span><span class="si">${</span><span class="nv">token</span><span class="si">}</span><span class="s2"></span>
-<span class="s2">&quot;</span> &gt; kubeconfig_ci_cd.yaml
+<span class="s2">    token: </span><span class="si">${</span><span class="nv">token</span><span class="si">}</span>
+<span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>kubeconfig_ci_cd.yaml
 </code></pre></div>
 <p>The generated <code>kubeconfig_ci_cd.yaml</code> can then be used in your CI/CD pipeline.
 Note that, <code>KUBECONFIG</code>s -- especially the token -- <strong>must</strong> be treated as a secret and injected into the CI/CD pipeline via a proper secrets handing feature, such as GitLab CI's <a href="https://docs.gitlab.com/ee/ci/variables/#add-a-cicd-variable-to-a-project">protected variable</a> and GitHub Action's <a href="https://docs.github.com/en/actions/reference/encrypted-secrets#using-encrypted-secrets-in-a-workflow">secrets</a>.</p>
@@ -1807,73 +1824,73 @@ Note that, <code>KUBECONFIG</code>s -- especially the token -- <strong>must</str
 <div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">applicationset-controller</label><label for="__tabbed_1_2">dex</label><label for="__tabbed_1_3">notifications-controller</label><label for="__tabbed_1_4">redis</label><label for="__tabbed_1_5">repo-server</label><label for="__tabbed_1_6">server</label><label for="__tabbed_1_7">application-controller</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="nt">resources</span><span class="p">:</span><span class="w"></span>
-<span class="w">          </span><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
-<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;32Mi&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5m&quot;</span><span class="w"></span>
-<span class="w">          </span><span class="nt">limits</span><span class="p">:</span><span class="w"></span>
-<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;64Mi&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;10m&quot;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="nt">resources</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">requests</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;32Mi&quot;</span>
+<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5m&quot;</span>
+<span class="w">          </span><span class="nt">limits</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;64Mi&quot;</span>
+<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;10m&quot;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="nt">resources</span><span class="p">:</span><span class="w"></span>
-<span class="w">          </span><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
-<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;32Mi&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5m&quot;</span><span class="w"></span>
-<span class="w">          </span><span class="nt">limits</span><span class="p">:</span><span class="w"></span>
-<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;64Mi&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;10m&quot;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="nt">resources</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">requests</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;32Mi&quot;</span>
+<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5m&quot;</span>
+<span class="w">          </span><span class="nt">limits</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;64Mi&quot;</span>
+<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;10m&quot;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="nt">resources</span><span class="p">:</span><span class="w"></span>
-<span class="w">          </span><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
-<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;32Mi&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5m&quot;</span><span class="w"></span>
-<span class="w">          </span><span class="nt">limits</span><span class="p">:</span><span class="w"></span>
-<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;64Mi&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;10m&quot;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="nt">resources</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">requests</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;32Mi&quot;</span>
+<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5m&quot;</span>
+<span class="w">          </span><span class="nt">limits</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;64Mi&quot;</span>
+<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;10m&quot;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="nt">resources</span><span class="p">:</span><span class="w"></span>
-<span class="w">          </span><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
-<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;24Mi&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;30m&quot;</span><span class="w"></span>
-<span class="w">          </span><span class="nt">limits</span><span class="p">:</span><span class="w"></span>
-<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;48Mi&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;60m&quot;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="nt">resources</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">requests</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;24Mi&quot;</span>
+<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;30m&quot;</span>
+<span class="w">          </span><span class="nt">limits</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;48Mi&quot;</span>
+<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;60m&quot;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="nt">resources</span><span class="p">:</span><span class="w"></span>
-<span class="w">          </span><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
-<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;100Mi&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;10m&quot;</span><span class="w"></span>
-<span class="w">          </span><span class="nt">limits</span><span class="p">:</span><span class="w"></span>
-<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;200Mi&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;60m&quot;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="nt">resources</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">requests</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;100Mi&quot;</span>
+<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;10m&quot;</span>
+<span class="w">          </span><span class="nt">limits</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;200Mi&quot;</span>
+<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;60m&quot;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="nt">resources</span><span class="p">:</span><span class="w"></span>
-<span class="w">          </span><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
-<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;50Mi&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5m&quot;</span><span class="w"></span>
-<span class="w">          </span><span class="nt">limits</span><span class="p">:</span><span class="w"></span>
-<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;100Mi&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;10m&quot;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="nt">resources</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">requests</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;50Mi&quot;</span>
+<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5m&quot;</span>
+<span class="w">          </span><span class="nt">limits</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;100Mi&quot;</span>
+<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;10m&quot;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="nt">resources</span><span class="p">:</span><span class="w"></span>
-<span class="w">          </span><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
-<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;64Mi&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;25m&quot;</span><span class="w"></span>
-<span class="w">          </span><span class="nt">limits</span><span class="p">:</span><span class="w"></span>
-<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;128Mi&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;50m&quot;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="nt">resources</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">requests</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;64Mi&quot;</span>
+<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;25m&quot;</span>
+<span class="w">          </span><span class="nt">limits</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;128Mi&quot;</span>
+<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;50m&quot;</span>
 </code></pre></div>
 </div>
 </div>
@@ -1881,23 +1898,23 @@ Note that, <code>KUBECONFIG</code>s -- especially the token -- <strong>must</str
 <blockquote>
 <p><strong><em>NOTE:</em></strong> In ArgoCD version <code>v2.4.11</code> there is a role missing in the <code>namespace-install.yaml</code> manifest (non-ha manifest) You need to manually add this role to the manifest:</p>
 </blockquote>
-<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rbac.authorization.k8s.io/v1</span><span class="w"></span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Role</span><span class="w"></span>
-<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">app.kubernetes.io/component</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redis</span><span class="w"></span>
-<span class="w">    </span><span class="nt">app.kubernetes.io/name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argocd-redis</span><span class="w"></span>
-<span class="w">    </span><span class="nt">app.kubernetes.io/part-of</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argocd</span><span class="w"></span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argocd-redis</span><span class="w"></span>
-<span class="nt">rules</span><span class="p">:</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">apiGroups</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">security.openshift.io</span><span class="w"></span>
-<span class="w">  </span><span class="nt">resourceNames</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nonroot</span><span class="w"></span>
-<span class="w">  </span><span class="nt">resources</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">securitycontextconstraints</span><span class="w"></span>
-<span class="w">  </span><span class="nt">verbs</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">use</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rbac.authorization.k8s.io/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Role</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">app.kubernetes.io/component</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redis</span>
+<span class="w">    </span><span class="nt">app.kubernetes.io/name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argocd-redis</span>
+<span class="w">    </span><span class="nt">app.kubernetes.io/part-of</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argocd</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argocd-redis</span>
+<span class="nt">rules</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">apiGroups</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">security.openshift.io</span>
+<span class="w">  </span><span class="nt">resourceNames</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nonroot</span>
+<span class="w">  </span><span class="nt">resources</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">securitycontextconstraints</span>
+<span class="w">  </span><span class="nt">verbs</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">use</span>
 </code></pre></div>
 
 
@@ -1916,42 +1933,6 @@ Note that, <code>KUBECONFIG</code>s -- especially the token -- <strong>must</str
       </main>
       
         <footer class="md-footer">
-  
-    
-    <nav class="md-footer__inner md-grid" aria-label="Footer" >
-      
-        
-        <a href="../backup/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Backups" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Backups
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../demarcation/" class="md-footer__link md-footer__link--next" aria-label="Next: Demarcation" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Demarcation
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -1978,12 +1959,11 @@ Note that, <code>KUBECONFIG</code>s -- especially the token -- <strong>must</str
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
       
-    
     
   </body>
 </html>

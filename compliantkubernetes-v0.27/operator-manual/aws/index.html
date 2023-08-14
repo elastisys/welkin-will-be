@@ -12,10 +12,12 @@
         <meta name="author" content="Elastisys AB">
       
       
-        <link rel="canonical" href="https://elastisys.io/compliantkubernetes-v0.27/operator-manual/aws/">
+        <link rel="canonical" href="https://elastisys.io/compliantkubernetes/operator-manual/aws/">
+      
+      
       
       <link rel="icon" href="../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
@@ -23,11 +25,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.eebd395e.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
-        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -99,7 +100,7 @@ if(!document.__defineGetter__) {
     
     
     
-    <body dir="ltr" data-md-color-scheme="elastisys" data-md-color-primary="" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="elastisys" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     
@@ -113,14 +114,16 @@ if(!document.__defineGetter__) {
       
     </div>
     
-      <div data-md-component="outdated" hidden>
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
         
       </div>
     
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Elastisys Compliant Kubernetes" class="md-header__button md-logo" aria-label="Elastisys Compliant Kubernetes" data-md-component="logo">
       
@@ -146,6 +149,8 @@ if(!document.__defineGetter__) {
         </div>
       </div>
     </div>
+    
+      
     
     
     
@@ -175,7 +180,7 @@ if(!document.__defineGetter__) {
           <div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -188,12 +193,12 @@ if(!document.__defineGetter__) {
 
 <a
   href="https://github.com/elastisys/compliantkubernetes/"
-  title="Go to repository"
+  title=""
   style="display: block; font-size: .65rem; line-height: 1.2; white-space: nowrap; -webkit-backface-visibility: hidden; backface-visibility: hidden; transition: opacity 250ms;"
 >
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
 </a>
       </div>
@@ -237,12 +242,12 @@ if(!document.__defineGetter__) {
 
 <a
   href="https://github.com/elastisys/compliantkubernetes/"
-  title="Go to repository"
+  title=""
   style="display: block; font-size: .65rem; line-height: 1.2; white-space: nowrap; -webkit-backface-visibility: hidden; backface-visibility: hidden; transition: opacity 250ms;"
 >
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
 </a>
     </div>
@@ -275,17 +280,18 @@ if(!document.__defineGetter__) {
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2">
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
           For Application Developers
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="For Application Developers" data-md-level="1">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           For Application Developers
@@ -301,17 +307,18 @@ if(!document.__defineGetter__) {
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2_1">
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
           Getting Started
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Getting Started" data-md-level="2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_1">
           <span class="md-nav__icon md-icon"></span>
           Getting Started
@@ -376,17 +383,18 @@ if(!document.__defineGetter__) {
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2_2">
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
           Go Deeper
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Go Deeper" data-md-level="2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_2">
           <span class="md-nav__icon md-icon"></span>
           Go Deeper
@@ -633,17 +641,18 @@ if(!document.__defineGetter__) {
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2_3">
+        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
           Safeguards
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Safeguards" data-md-level="2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_3">
           <span class="md-nav__icon md-icon"></span>
           Safeguards
@@ -750,17 +759,18 @@ if(!document.__defineGetter__) {
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2_4">
+        <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
           Additional Services
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Additional Services" data-md-level="2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_4">
           <span class="md-nav__icon md-icon"></span>
           Additional Services
@@ -903,17 +913,18 @@ if(!document.__defineGetter__) {
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_3">
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
           For Kubernetes Administrators
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="For Kubernetes Administrators" data-md-level="1">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           For Kubernetes Administrators
@@ -999,17 +1010,18 @@ if(!document.__defineGetter__) {
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_3_6">
+        <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
           Advanced Configuration
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Advanced Configuration" data-md-level="2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3_6">
           <span class="md-nav__icon md-icon"></span>
           Advanced Configuration
@@ -1208,17 +1220,18 @@ if(!document.__defineGetter__) {
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_4">
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
           For CISOs
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="For CISOs" data-md-level="1">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           For CISOs
@@ -1410,17 +1423,18 @@ if(!document.__defineGetter__) {
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_5">
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
           For Contributors
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="For Contributors" data-md-level="1">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
           For Contributors
@@ -1500,17 +1514,18 @@ if(!document.__defineGetter__) {
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_6">
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
           Release Notes
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Release Notes" data-md-level="1">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Release Notes
@@ -1670,10 +1685,8 @@ if(!document.__defineGetter__) {
 
 
 
-  <a href="https://github.com/elastisys/compliantkubernetes/edit/main/docs/operator-manual/aws.md" title="Edit this page" class="md-content__button md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
-  </a>
+  
+  
 
 
 <div class="admonition bug">
@@ -1701,7 +1714,7 @@ The setup has two major parts:</p>
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
 <p>Choose names for your service cluster and workload clusters, as well as the DNS domain to expose the services inside the service cluster:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">SERVICE_CLUSTER</span><span class="o">=</span><span class="s2">&quot;testsc&quot;</span>
-<span class="nv">WORKLOAD_CLUSTERS</span><span class="o">=(</span> <span class="s2">&quot;testwc0&quot;</span> <span class="o">)</span>
+<span class="nv">WORKLOAD_CLUSTERS</span><span class="o">=(</span><span class="w"> </span><span class="s2">&quot;testwc0&quot;</span><span class="w"> </span><span class="o">)</span>
 <span class="nv">BASE_DOMAIN</span><span class="o">=</span><span class="s2">&quot;example.com&quot;</span>
 </code></pre></div>
 <div class="admonition note">
@@ -1713,8 +1726,8 @@ E.g. <code>WORKLOAD_CLUSTERS=( "testwc0" "testwc1" "testwc2" )</code></p>
 <h2 id="deploying-vanilla-kubernetes-clusters">Deploying vanilla Kubernetes clusters<a class="headerlink" href="#deploying-vanilla-kubernetes-clusters" title="Permanent link">&para;</a></h2>
 <p>We suggest to set up Kubernetes clusters using kubespray.
 If you haven't done so already, clone the Elastisys Compliant Kubernetes Kubespray repo as follows:</p>
-<div class="highlight"><pre><span></span><code>git clone --recursive https://github.com/elastisys/compliantkubernetes-kubespray
-<span class="nb">cd</span> compliantkubernetes-kubespray
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/elastisys/compliantkubernetes-kubespray
+<span class="nb">cd</span><span class="w"> </span>compliantkubernetes-kubespray
 </code></pre></div>
 <h3 id="infrastructure-setup-using-terraform">Infrastructure Setup using Terraform<a class="headerlink" href="#infrastructure-setup-using-terraform" title="Permanent link">&para;</a></h3>
 <div class="admonition note">
@@ -1723,10 +1736,10 @@ If you haven't done so already, clone the Elastisys Compliant Kubernetes Kubespr
 </div>
 <h4 id="expose-aws-credentials-to-terraform">Expose AWS credentials to Terraform<a class="headerlink" href="#expose-aws-credentials-to-terraform" title="Permanent link">&para;</a></h4>
 <p>We suggest exposing AWS credentials to Terraform via environment variables, so they are not accidentally left on the file-system:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">TF_VAR_AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="s2">&quot;xyz&quot;</span> <span class="c1"># Access key for AWS</span>
-<span class="nb">export</span> <span class="nv">TF_VAR_AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="s2">&quot;zyx&quot;</span> <span class="c1"># Secret key for AWS</span>
-<span class="nb">export</span> <span class="nv">TF_VAR_AWS_SSH_KEY_NAME</span><span class="o">=</span><span class="s2">&quot;foo&quot;</span> <span class="c1"># Name of the AWS key pair to use for the EC2 instances</span>
-<span class="nb">export</span> <span class="nv">TF_VAR_AWS_DEFAULT_REGION</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span> <span class="c1"># Region to use for all AWS resources</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">TF_VAR_AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="s2">&quot;xyz&quot;</span><span class="w"> </span><span class="c1"># Access key for AWS</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">TF_VAR_AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="s2">&quot;zyx&quot;</span><span class="w"> </span><span class="c1"># Secret key for AWS</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">TF_VAR_AWS_SSH_KEY_NAME</span><span class="o">=</span><span class="s2">&quot;foo&quot;</span><span class="w"> </span><span class="c1"># Name of the AWS key pair to use for the EC2 instances</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">TF_VAR_AWS_DEFAULT_REGION</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="w"> </span><span class="c1"># Region to use for all AWS resources</span>
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1734,26 +1747,26 @@ If you haven't done so already, clone the Elastisys Compliant Kubernetes Kubespr
 </div>
 <h4 id="customize-your-infrastructure">Customize your infrastructure<a class="headerlink" href="#customize-your-infrastructure" title="Permanent link">&para;</a></h4>
 <p>Create a configuration for the service cluster and the workload cluster:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">pushd</span> kubespray
-<span class="k">for</span> CLUSTER <span class="k">in</span> <span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">do</span>
-    cat contrib/terraform/aws/terraform.tfvars <span class="se">\</span>
-    <span class="p">|</span> sed <span class="se">\</span>
-        -e <span class="s2">&quot;s@^aws_cluster_name =.*@aws_cluster_name = \&quot;</span><span class="nv">$CLUSTER</span><span class="s2">\&quot;@&quot;</span> <span class="se">\</span>
-        -e <span class="s2">&quot;s@^inventory_file =.*@inventory_file = \&quot;../../../inventory/hosts-</span><span class="nv">$CLUSTER</span><span class="s2">\&quot;@&quot;</span> <span class="se">\</span>
-        -e <span class="s2">&quot;s@^aws_kube_worker_size =.*@aws_kube_worker_size = \&quot;t3.large\&quot;@&quot;</span> <span class="se">\</span>
-    &gt; inventory/terraform-<span class="nv">$CLUSTER</span>.tfvars
+<div class="highlight"><pre><span></span><code><span class="nb">pushd</span><span class="w"> </span>kubespray
+<span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span>cat<span class="w"> </span>contrib/terraform/aws/terraform.tfvars<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>-e<span class="w"> </span><span class="s2">&quot;s@^aws_cluster_name =.*@aws_cluster_name = \&quot;</span><span class="nv">$CLUSTER</span><span class="s2">\&quot;@&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>-e<span class="w"> </span><span class="s2">&quot;s@^inventory_file =.*@inventory_file = \&quot;../../../inventory/hosts-</span><span class="nv">$CLUSTER</span><span class="s2">\&quot;@&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>-e<span class="w"> </span><span class="s2">&quot;s@^aws_kube_worker_size =.*@aws_kube_worker_size = \&quot;t3.large\&quot;@&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>&gt;<span class="w"> </span>inventory/terraform-<span class="nv">$CLUSTER</span>.tfvars
 <span class="k">done</span>
 <span class="nb">popd</span>
 </code></pre></div>
 <p>Review and, if needed, adjust the files in <code>kubespray/inventory/</code>.</p>
 <h4 id="initialize-and-apply-terraform">Initialize and Apply Terraform<a class="headerlink" href="#initialize-and-apply-terraform" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="nb">pushd</span> kubespray/contrib/terraform/aws
-terraform init
-<span class="k">for</span> CLUSTER <span class="k">in</span> <span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">do</span>
-    terraform apply <span class="se">\</span>
-        -var-file<span class="o">=</span>../../../inventory/terraform-<span class="nv">$CLUSTER</span>.tfvars <span class="se">\</span>
-        -auto-approve <span class="se">\</span>
-        -state<span class="o">=</span>../../../inventory/tfstate-<span class="nv">$CLUSTER</span>.tfstate
+<div class="highlight"><pre><span></span><code><span class="nb">pushd</span><span class="w"> </span>kubespray/contrib/terraform/aws
+terraform<span class="w"> </span>init
+<span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span>terraform<span class="w"> </span>apply<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>-var-file<span class="o">=</span>../../../inventory/terraform-<span class="nv">$CLUSTER</span>.tfvars<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>-auto-approve<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>-state<span class="o">=</span>../../../inventory/tfstate-<span class="nv">$CLUSTER</span>.tfstate
 <span class="k">done</span>
 <span class="nb">popd</span>
 </code></pre></div>
@@ -1764,7 +1777,7 @@ It is precious.
 Consider backing it up or using <a href="https://www.terraform.io/docs/cloud/index.html">Terraform Cloud</a>.</p>
 </div>
 <h4 id="check-that-the-ansible-inventory-was-properly-generated">Check that the Ansible inventory was properly generated<a class="headerlink" href="#check-that-the-ansible-inventory-was-properly-generated" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>ls -l kubespray/inventory/hosts-*
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-l<span class="w"> </span>kubespray/inventory/hosts-*
 </code></pre></div>
 <p>You may also want to check the AWS Console if the infrastructure was created correctly:</p>
 <p><img alt="Kubespray AWS Console" src="../../img/kubespray-aws-console.png" /></p>
@@ -1772,67 +1785,67 @@ Consider backing it up or using <a href="https://www.terraform.io/docs/cloud/ind
 <p>With the infrastructure provisioned, we can now deploy both the sc and wc Kubernetes clusters using kubespray.
 Before trying any of the steps, make sure you are in the repo's root folder.</p>
 <h4 id="init-the-kubespray-config-in-your-config-path">Init the Kubespray config in your config path<a class="headerlink" href="#init-the-kubespray-config-in-your-config-path" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">CK8S_CONFIG_PATH</span><span class="o">=</span>~/.ck8s/aws
-<span class="nb">export</span> <span class="nv">CK8S_PGP_FP</span><span class="o">=</span>&lt;your GPG key fingerprint&gt;  <span class="c1"># retrieve with gpg --list-secret-keys</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_CONFIG_PATH</span><span class="o">=</span>~/.ck8s/aws
+<span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_PGP_FP</span><span class="o">=</span>&lt;your<span class="w"> </span>GPG<span class="w"> </span>key<span class="w"> </span>fingerprint&gt;<span class="w">  </span><span class="c1"># retrieve with gpg --list-secret-keys</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="k">for</span> CLUSTER <span class="k">in</span> <span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">do</span>
-    ./bin/ck8s-kubespray init <span class="nv">$CLUSTER</span> aws <span class="nv">$CK8S_PGP_FP</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span>./bin/ck8s-kubespray<span class="w"> </span>init<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>aws<span class="w"> </span><span class="nv">$CK8S_PGP_FP</span>
 <span class="k">done</span>
 </code></pre></div>
 <h4 id="copy-the-inventories-generated-by-terraform-above-in-the-right-place">Copy the inventories generated by Terraform above in the right place<a class="headerlink" href="#copy-the-inventories-generated-by-terraform-above-in-the-right-place" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="k">for</span> CLUSTER <span class="k">in</span> <span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">do</span>
-    cp kubespray/inventory/hosts-<span class="nv">$CLUSTER</span> <span class="nv">$CK8S_CONFIG_PATH</span>/<span class="nv">$CLUSTER</span>-config/inventory.ini
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span>cp<span class="w"> </span>kubespray/inventory/hosts-<span class="nv">$CLUSTER</span><span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/<span class="nv">$CLUSTER</span>-config/inventory.ini
 <span class="k">done</span>
 </code></pre></div>
 <h4 id="run-kubespray-to-deploy-the-kubernetes-clusters">Run kubespray to deploy the Kubernetes clusters<a class="headerlink" href="#run-kubespray-to-deploy-the-kubernetes-clusters" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="k">for</span> CLUSTER <span class="k">in</span> <span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">do</span>
-    ./bin/ck8s-kubespray apply <span class="nv">$CLUSTER</span> --flush-cache -e <span class="nv">ansible_user</span><span class="o">=</span>ubuntu
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span>./bin/ck8s-kubespray<span class="w"> </span>apply<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>--flush-cache<span class="w"> </span>-e<span class="w"> </span><span class="nv">ansible_user</span><span class="o">=</span>ubuntu
 <span class="k">done</span>
 </code></pre></div>
 <p>This may take up to 20 minutes per cluster.</p>
 <h4 id="correct-the-kubernetes-api-ip-addresses">Correct the Kubernetes API IP addresses<a class="headerlink" href="#correct-the-kubernetes-api-ip-addresses" title="Permanent link">&para;</a></h4>
 <p>Find the DNS names of the load balancers fronting the API servers:</p>
-<div class="highlight"><pre><span></span><code>grep apiserver_loadbalancer <span class="nv">$CK8S_CONFIG_PATH</span>/*-config/inventory.ini
+<div class="highlight"><pre><span></span><code>grep<span class="w"> </span>apiserver_loadbalancer<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/*-config/inventory.ini
 </code></pre></div>
 <p>Locate the encrypted kubeconfigs <code>kube_config_*.yaml</code> and edit them using sops.
 Copy the URL of the load balancer from inventory files shown above into <code>kube_config_*.yaml</code>.
 Do not overwrite the port.</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span> CLUSTER <span class="k">in</span> <span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">do</span>
-    sops <span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span>sops<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml
 <span class="k">done</span>
 </code></pre></div>
 <h4 id="test-access-to-the-clusters-as-follows">Test access to the clusters as follows<a class="headerlink" href="#test-access-to-the-clusters-as-follows" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="k">for</span> CLUSTER <span class="k">in</span> <span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">do</span>
-    sops exec-file <span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml <span class="se">\</span>
-        <span class="s1">&#39;kubectl --kubeconfig {} get nodes&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span>sops<span class="w"> </span>exec-file<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span><span class="s1">&#39;kubectl --kubeconfig {} get nodes&#39;</span>
 <span class="k">done</span>
 </code></pre></div>
 <h2 id="deploying-compliant-kubernetes-apps">Deploying Compliant Kubernetes Apps<a class="headerlink" href="#deploying-compliant-kubernetes-apps" title="Permanent link">&para;</a></h2>
 <p>Now that the Kubernetes clusters are up and running, we are ready to install the Compliant Kubernetes apps.</p>
 <h3 id="clone-compliantkubernetes-apps-and-install-pre-requisites">Clone <code>compliantkubernetes-apps</code> and Install Pre-requisites<a class="headerlink" href="#clone-compliantkubernetes-apps-and-install-pre-requisites" title="Permanent link">&para;</a></h3>
 <p>If you haven't done so already, clone the <code>compliantkubernetes-apps</code> repo and install pre-requisites.</p>
-<div class="highlight"><pre><span></span><code>git clone https://github.com/elastisys/compliantkubernetes-apps.git
-<span class="nb">cd</span> compliantkubernetes-apps
-ansible-playbook -e <span class="s1">&#39;ansible_python_interpreter=/usr/bin/python3&#39;</span> --ask-become-pass --connection <span class="nb">local</span> --inventory <span class="m">127</span>.0.0.1, get-requirements.yaml
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/elastisys/compliantkubernetes-apps.git
+<span class="nb">cd</span><span class="w"> </span>compliantkubernetes-apps
+ansible-playbook<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;ansible_python_interpreter=/usr/bin/python3&#39;</span><span class="w"> </span>--ask-become-pass<span class="w"> </span>--connection<span class="w"> </span><span class="nb">local</span><span class="w"> </span>--inventory<span class="w"> </span><span class="m">127</span>.0.0.1,<span class="w"> </span>get-requirements.yaml
 </code></pre></div>
 <h3 id="initialize-the-apps-configuration">Initialize the apps configuration<a class="headerlink" href="#initialize-the-apps-configuration" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">CK8S_ENVIRONMENT_NAME</span><span class="o">=</span>my-environment-name
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_ENVIRONMENT_NAME</span><span class="o">=</span>my-environment-name
 <span class="c1">#export CK8S_FLAVOR=[dev|prod] # defaults to dev</span>
-<span class="nb">export</span> <span class="nv">CK8S_CONFIG_PATH</span><span class="o">=</span>~/.ck8s/my-cluster-path
-<span class="nb">export</span> <span class="nv">CK8S_CLOUD_PROVIDER</span><span class="o">=</span><span class="c1"># [exoscale|safespring|citycloud|aws|baremetal]</span>
-<span class="nb">export</span> <span class="nv">CK8S_PGP_FP</span><span class="o">=</span>&lt;your GPG key fingerprint&gt;  <span class="c1"># retrieve with gpg --list-secret-keys</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_CONFIG_PATH</span><span class="o">=</span>~/.ck8s/my-cluster-path
+<span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_CLOUD_PROVIDER</span><span class="o">=</span><span class="c1"># [exoscale|safespring|citycloud|aws|baremetal]</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_PGP_FP</span><span class="o">=</span>&lt;your<span class="w"> </span>GPG<span class="w"> </span>key<span class="w"> </span>fingerprint&gt;<span class="w">  </span><span class="c1"># retrieve with gpg --list-secret-keys</span>
 
-./bin/ck8s init
+./bin/ck8s<span class="w"> </span>init
 </code></pre></div>
 <p>This will initialise the configuration in the <code>${CK8S_CONFIG_PATH}</code> directory. Generating configuration files <code>sc-config.yaml</code> and <code>wc-config.yaml</code>, as well as secrets with randomly generated passwords in <code>secrets.yaml</code>. This will also generate read-only default configuration under the directory <code>defaults/</code> which can be used as a guide for available and suggested options.</p>
-<div class="highlight"><pre><span></span><code>ls -l <span class="nv">$CK8S_CONFIG_PATH</span>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-l<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>
 </code></pre></div>
 <h3 id="configure-the-apps">Configure the apps<a class="headerlink" href="#configure-the-apps" title="Permanent link">&para;</a></h3>
 <p>Edit the configuration files <code>${CK8S_CONFIG_PATH}/sc-config.yaml</code>, <code>${CK8S_CONFIG_PATH}/wc-config.yaml</code> and <code>${CK8S_CONFIG_PATH}/secrets.yaml</code> and set the appropriate values for some of the configuration fields.
 Note that, the latter is encrypted.</p>
-<div class="highlight"><pre><span></span><code>vim <span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/sc-config.yaml
-vim <span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/wc-config.yaml
-sops <span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/secrets.yaml
+<div class="highlight"><pre><span></span><code>vim<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/sc-config.yaml
+vim<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/wc-config.yaml
+sops<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/secrets.yaml
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1843,41 +1856,41 @@ sops <span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span cla
 <p>Do not modify the read-only default configurations files found in the directory <code>${CK8S_CONFIG_PATH}/defaults/</code>. Instead configure the cluster by modifying the regular files <code>${CK8S_CONFIG_PATH}/sc-config.yaml</code> and <code>${CK8S_CONFIG_PATH}/wc-config.yaml</code> as they will override the default options.</p>
 </div>
 <p>The following are the minimum change you should perform:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># sc-config.yaml and wc-config.yaml</span><span class="w"></span>
-<span class="nt">global</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">baseDomain</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;set-me&quot;</span><span class="w">  </span><span class="c1"># set to $BASE_DOMAIN</span><span class="w"></span>
-<span class="w">  </span><span class="nt">opsDomain</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;set-me&quot;</span><span class="w">  </span><span class="c1"># set to ops.$BASE_DOMAIN</span><span class="w"></span>
-<span class="w">  </span><span class="nt">issuer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">letsencrypt-prod</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="c1"># sc-config.yaml and wc-config.yaml</span>
+<span class="nt">global</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">baseDomain</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;set-me&quot;</span><span class="w">  </span><span class="c1"># set to $BASE_DOMAIN</span>
+<span class="w">  </span><span class="nt">opsDomain</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;set-me&quot;</span><span class="w">  </span><span class="c1"># set to ops.$BASE_DOMAIN</span>
+<span class="w">  </span><span class="nt">issuer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">letsencrypt-prod</span>
 
-<span class="nt">objectStorage</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;s3&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="nt">s3</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;set-me&quot;</span><span class="w">  </span><span class="c1"># Region for S3 buckets, e.g, eu-central-1</span><span class="w"></span>
-<span class="w">    </span><span class="nt">regionEndpoint</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;set-me&quot;</span><span class="w">  </span><span class="c1"># e.g., https://s3.us-west-1.amazonaws.com</span><span class="w"></span>
+<span class="nt">objectStorage</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;s3&quot;</span>
+<span class="w">  </span><span class="nt">s3</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;set-me&quot;</span><span class="w">  </span><span class="c1"># Region for S3 buckets, e.g, eu-central-1</span>
+<span class="w">    </span><span class="nt">regionEndpoint</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;set-me&quot;</span><span class="w">  </span><span class="c1"># e.g., https://s3.us-west-1.amazonaws.com</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="c1"># sc-config.yaml</span><span class="w"></span>
-<span class="nt">harbor</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">oidc</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">groupClaimName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;set-me&quot;</span><span class="w"> </span><span class="c1"># set to group claim name used by OIDC provider</span><span class="w"></span>
-<span class="w">    </span><span class="nt">adminGroupName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;set-me&quot;</span><span class="w"> </span><span class="c1"># name of the group that automatically will get admin</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="c1"># sc-config.yaml</span>
+<span class="nt">harbor</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">oidc</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">groupClaimName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;set-me&quot;</span><span class="w"> </span><span class="c1"># set to group claim name used by OIDC provider</span>
+<span class="w">    </span><span class="nt">adminGroupName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;set-me&quot;</span><span class="w"> </span><span class="c1"># name of the group that automatically will get admin</span>
 
-<span class="nt">issuers</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">letsencrypt</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">prod</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;set-me&quot;</span><span class="w">  </span><span class="c1"># set this to an email to receive LetsEncrypt notifications</span><span class="w"></span>
-<span class="w">    </span><span class="nt">staging</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;set-me&quot;</span><span class="w">  </span><span class="c1"># set this to an email to receive LetsEncrypt notifications</span><span class="w"></span>
+<span class="nt">issuers</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">letsencrypt</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">prod</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;set-me&quot;</span><span class="w">  </span><span class="c1"># set this to an email to receive LetsEncrypt notifications</span>
+<span class="w">    </span><span class="nt">staging</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;set-me&quot;</span><span class="w">  </span><span class="c1"># set this to an email to receive LetsEncrypt notifications</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="c1"># secrets.yaml</span><span class="w"></span>
-<span class="nt">objectStorage</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">s3</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">accessKey</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;set-me&quot;</span><span class="w"> </span><span class="c1">#put your s3 accesskey</span><span class="w"></span>
-<span class="w">    </span><span class="nt">secretKey</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;set-me&quot;</span><span class="w"> </span><span class="c1">#put your s3 secretKey</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="c1"># secrets.yaml</span>
+<span class="nt">objectStorage</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">s3</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">accessKey</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;set-me&quot;</span><span class="w"> </span><span class="c1">#put your s3 accesskey</span>
+<span class="w">    </span><span class="nt">secretKey</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;set-me&quot;</span><span class="w"> </span><span class="c1">#put your s3 secretKey</span>
 </code></pre></div>
 <h3 id="create-placeholder-dns-entries">Create placeholder DNS entries<a class="headerlink" href="#create-placeholder-dns-entries" title="Permanent link">&para;</a></h3>
 <p>To avoid negative caching and other surprises.
 Create two placeholders as follows (feel free to use the "Import zone" feature of AWS Route53):</p>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">*.</span><span class="nv">$BASE_DOMAIN</span><span class="s2">     60s A 203.0.113.123</span>
 <span class="s2">*.ops.</span><span class="nv">$BASE_DOMAIN</span><span class="s2"> 60s A 203.0.113.123</span>
 <span class="s2">&quot;&quot;&quot;</span>
@@ -1885,13 +1898,13 @@ Create two placeholders as follows (feel free to use the "Import zone" feature o
 <p>NOTE: 203.0.113.123 is in <a href="https://en.wikipedia.org/wiki/Reserved_IP_addresses">TEST-NET-3</a> and okey to use as placeholder.</p>
 <h3 id="install-compliant-kubernetes-apps">Install Compliant Kubernetes apps<a class="headerlink" href="#install-compliant-kubernetes-apps" title="Permanent link">&para;</a></h3>
 <p>Start with the service cluster:</p>
-<div class="highlight"><pre><span></span><code>ln -sf <span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_<span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span>.yaml <span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_sc.yaml
-./bin/ck8s apply sc  <span class="c1"># Respond &quot;n&quot; if you get a WARN</span>
+<div class="highlight"><pre><span></span><code>ln<span class="w"> </span>-sf<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_<span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span>.yaml<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_sc.yaml
+./bin/ck8s<span class="w"> </span>apply<span class="w"> </span>sc<span class="w">  </span><span class="c1"># Respond &quot;n&quot; if you get a WARN</span>
 </code></pre></div>
 <p>Then the workload clusters:</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span> CLUSTER <span class="k">in</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">do</span>
-    ln -sf <span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>.yaml <span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_wc.yaml
-    ./bin/ck8s apply wc  <span class="c1"># Respond &quot;n&quot; if you get a WARN</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span>ln<span class="w"> </span>-sf<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>.yaml<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_wc.yaml
+<span class="w">    </span>./bin/ck8s<span class="w"> </span>apply<span class="w"> </span>wc<span class="w">  </span><span class="c1"># Respond &quot;n&quot; if you get a WARN</span>
 <span class="k">done</span>
 </code></pre></div>
 <h3 id="settling">Settling<a class="headerlink" href="#settling" title="Permanent link">&para;</a></h3>
@@ -1900,15 +1913,15 @@ Create two placeholders as follows (feel free to use the "Import zone" feature o
 <p>Leave sufficient time for the system to settle, e.g., request TLS certificates from LetsEncrypt, perhaps as much as 20 minutes.</p>
 </div>
 <p>You can check if the system settled as follows:</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span> CLUSTER <span class="k">in</span> <span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">do</span>
-    sops exec-file <span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml <span class="se">\</span>
-        <span class="s1">&#39;kubectl --kubeconfig {} get --all-namespaces pods&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span>sops<span class="w"> </span>exec-file<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span><span class="s1">&#39;kubectl --kubeconfig {} get --all-namespaces pods&#39;</span>
 <span class="k">done</span>
 </code></pre></div>
 <p>Check the output of the command above. All Pods needs to be Running or Completed.</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span> CLUSTER <span class="k">in</span> <span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">do</span>
-    sops exec-file <span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml <span class="se">\</span>
-        <span class="s1">&#39;kubectl --kubeconfig {} get --all-namespaces issuers,clusterissuers,certificates&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span>sops<span class="w"> </span>exec-file<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span><span class="s1">&#39;kubectl --kubeconfig {} get --all-namespaces issuers,clusterissuers,certificates&#39;</span>
 <span class="k">done</span>
 </code></pre></div>
 <p>Check the output of the command above.
@@ -1916,29 +1929,29 @@ All resources need to have the Ready column True.</p>
 <h3 id="setup-required-dns-entries">Setup required DNS entries<a class="headerlink" href="#setup-required-dns-entries" title="Permanent link">&para;</a></h3>
 <p>You will need to set up the following DNS entries.
 First, determine the public IP of the load-balancer fronting the Ingress controller of the <em>service cluster</em>:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">SC_INGRESS_LB_HOSTNAME</span><span class="o">=</span><span class="k">$(</span>sops exec-file <span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_sc.yaml <span class="s1">&#39;kubectl --kubeconfig {} get -n ingress-nginx svc ingress-nginx-controller -o jsonpath={.status.loadBalancer.ingress[0].hostname}&#39;</span><span class="k">)</span>
-<span class="nv">SC_INGRESS_LB_IP</span><span class="o">=</span><span class="k">$(</span>dig +short <span class="nv">$SC_INGRESS_LB_HOSTNAME</span> <span class="p">|</span> head -1<span class="k">)</span>
-<span class="nb">echo</span> <span class="nv">$SC_INGRESS_LB_IP</span>
+<div class="highlight"><pre><span></span><code><span class="nv">SC_INGRESS_LB_HOSTNAME</span><span class="o">=</span><span class="k">$(</span>sops<span class="w"> </span>exec-file<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_sc.yaml<span class="w"> </span><span class="s1">&#39;kubectl --kubeconfig {} get -n ingress-nginx svc ingress-nginx-controller -o jsonpath={.status.loadBalancer.ingress[0].hostname}&#39;</span><span class="k">)</span>
+<span class="nv">SC_INGRESS_LB_IP</span><span class="o">=</span><span class="k">$(</span>dig<span class="w"> </span>+short<span class="w"> </span><span class="nv">$SC_INGRESS_LB_HOSTNAME</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-1<span class="k">)</span>
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$SC_INGRESS_LB_IP</span>
 </code></pre></div>
 <p>Then, import the following zone in AWS Route53:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">*.ops.</span><span class="nv">$BASE_DOMAIN</span><span class="s2">    60s A </span><span class="nv">$SC_INGRESS_LB_IP</span><span class="s2"></span>
-<span class="s2">dex.</span><span class="nv">$BASE_DOMAIN</span><span class="s2">      60s A </span><span class="nv">$SC_INGRESS_LB_IP</span><span class="s2"></span>
-<span class="s2">grafana.</span><span class="nv">$BASE_DOMAIN</span><span class="s2">  60s A </span><span class="nv">$SC_INGRESS_LB_IP</span><span class="s2"></span>
-<span class="s2">harbor.</span><span class="nv">$BASE_DOMAIN</span><span class="s2">   60s A </span><span class="nv">$SC_INGRESS_LB_IP</span><span class="s2"></span>
-<span class="s2">kibana.</span><span class="nv">$BASE_DOMAIN</span><span class="s2">   60s A </span><span class="nv">$SC_INGRESS_LB_IP</span><span class="s2"></span>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">*.ops.</span><span class="nv">$BASE_DOMAIN</span><span class="s2">    60s A </span><span class="nv">$SC_INGRESS_LB_IP</span>
+<span class="s2">dex.</span><span class="nv">$BASE_DOMAIN</span><span class="s2">      60s A </span><span class="nv">$SC_INGRESS_LB_IP</span>
+<span class="s2">grafana.</span><span class="nv">$BASE_DOMAIN</span><span class="s2">  60s A </span><span class="nv">$SC_INGRESS_LB_IP</span>
+<span class="s2">harbor.</span><span class="nv">$BASE_DOMAIN</span><span class="s2">   60s A </span><span class="nv">$SC_INGRESS_LB_IP</span>
+<span class="s2">kibana.</span><span class="nv">$BASE_DOMAIN</span><span class="s2">   60s A </span><span class="nv">$SC_INGRESS_LB_IP</span>
 <span class="s2">&quot;&quot;&quot;</span>
 </code></pre></div>
 <h3 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h3>
 <p>After completing the installation step you can test if the apps are properly installed and ready using the commands below.</p>
 <p>Start with the service cluster:</p>
-<div class="highlight"><pre><span></span><code>ln -sf <span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_<span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span>.yaml <span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_sc.yaml
-./bin/ck8s <span class="nb">test</span> sc  <span class="c1"># Respond &quot;n&quot; if you get a WARN</span>
+<div class="highlight"><pre><span></span><code>ln<span class="w"> </span>-sf<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_<span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span>.yaml<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_sc.yaml
+./bin/ck8s<span class="w"> </span><span class="nb">test</span><span class="w"> </span>sc<span class="w">  </span><span class="c1"># Respond &quot;n&quot; if you get a WARN</span>
 </code></pre></div>
 <p>Then the workload clusters:</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span> CLUSTER <span class="k">in</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">do</span>
-    ln -sf <span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>.yaml <span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_wc.yaml
-    ./bin/ck8s <span class="nb">test</span> wc  <span class="c1"># Respond &quot;n&quot; if you get a WARN</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span>ln<span class="w"> </span>-sf<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>.yaml<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_wc.yaml
+<span class="w">    </span>./bin/ck8s<span class="w"> </span><span class="nb">test</span><span class="w"> </span>wc<span class="w">  </span><span class="c1"># Respond &quot;n&quot; if you get a WARN</span>
 <span class="k">done</span>
 </code></pre></div>
 <p>Done.
@@ -1959,11 +1972,11 @@ Navigate to the endpoints, for example <code>grafana.$BASE_DOMAIN</code>, <code>
 <p class="admonition-title">Note</p>
 <p>Even if you want to completely destroy the cluster with all its infrastructure, it is recommended to first execute the <code>clean</code> scripts described above, otherwise resources created by the cloud controller (e.g. volumes and loadbalancers) are not removed and <code>terraform destroy</code> might fail.</p>
 </div>
-<div class="highlight"><pre><span></span><code><span class="nb">pushd</span> kubespray/contrib/terraform/aws
-<span class="k">for</span> CLUSTER <span class="k">in</span> <span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">do</span>
-    terraform destroy <span class="se">\</span>
-        -auto-approve <span class="se">\</span>
-        -state<span class="o">=</span>../../../inventory/tfstate-<span class="nv">$CLUSTER</span>.tfstate
+<div class="highlight"><pre><span></span><code><span class="nb">pushd</span><span class="w"> </span>kubespray/contrib/terraform/aws
+<span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span>terraform<span class="w"> </span>destroy<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>-auto-approve<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>-state<span class="o">=</span>../../../inventory/tfstate-<span class="nv">$CLUSTER</span>.tfstate
 <span class="k">done</span>
 <span class="nb">popd</span>
 </code></pre></div>
@@ -2015,12 +2028,11 @@ Navigate to the endpoints, for example <code>grafana.$BASE_DOMAIN</code>, <code>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
       
-    
     
   </body>
 </html>
