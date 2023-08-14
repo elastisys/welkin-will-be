@@ -12,12 +12,12 @@
         <meta name="author" content="Elastisys AB">
       
       
-        <link rel="canonical" href="https://elastisys.io/compliantkubernetes-v0.29/operator-manual/safespring/">
+        <link rel="canonical" href="https://elastisys.io/compliantkubernetes/operator-manual/safespring/">
       
       
       
       <link rel="icon" href="../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
@@ -25,10 +25,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.c4a75a56.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.eebd395e.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -100,7 +100,7 @@ if(!document.__defineGetter__) {
     
     
     
-    <body dir="ltr" data-md-color-scheme="elastisys" data-md-color-primary="" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="elastisys" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     
@@ -149,6 +149,8 @@ if(!document.__defineGetter__) {
         </div>
       </div>
     </div>
+    
+      
     
     
     
@@ -1890,61 +1892,61 @@ The examples are copy-pastable, but you might want to change <code>cluster_name<
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Safespring sto1 with public IPs assigned to VMs (no floating IP)</label><label for="__tabbed_1_2">Safespring sto1 with private IPs and floating IPs assigned to VMs</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code># your Kubernetes cluster name here
-cluster_name = &quot;your-cluster-name&quot;
+<div class="highlight"><pre><span></span><code><span class="c1"># your Kubernetes cluster name here</span>
+<span class="na">cluster_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;your-cluster-name&quot;</span>
 
-# image to use for bastion, masters, standalone etcd instances, and nodes
-image = &quot;ubuntu-20.04&quot;
+<span class="c1"># image to use for bastion, masters, standalone etcd instances, and nodes</span>
+<span class="na">image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ubuntu-20.04&quot;</span>
 
-# 0|1 bastion nodes
-number_of_bastions = 0
+<span class="c1"># 0|1 bastion nodes</span>
+<span class="na">number_of_bastions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
 
-use_neutron = 0
+<span class="na">use_neutron</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
 
-# standalone etcds
-number_of_etcd = 0
+<span class="c1"># standalone etcds</span>
+<span class="na">number_of_etcd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
 
-# masters
-number_of_k8s_masters = 0
-number_of_k8s_masters_no_etcd = 0
-number_of_k8s_masters_no_floating_ip = 1
-number_of_k8s_masters_no_floating_ip_no_etcd = 0
-flavor_k8s_master = &quot;8a707999-0bce-4f2f-8243-b4253ba7c473&quot;
+<span class="c1"># masters</span>
+<span class="na">number_of_k8s_masters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+<span class="na">number_of_k8s_masters_no_etcd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+<span class="na">number_of_k8s_masters_no_floating_ip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<span class="na">number_of_k8s_masters_no_floating_ip_no_etcd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+<span class="na">flavor_k8s_master</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;8a707999-0bce-4f2f-8243-b4253ba7c473&quot;</span>
 
-# nodes
-number_of_k8s_nodes = 0
-number_of_k8s_nodes_no_floating_ip = 3
-flavor_k8s_node = &quot;5b40af67-9d11-45ed-a44f-e876766160a5&quot;
+<span class="c1"># nodes</span>
+<span class="na">number_of_k8s_nodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+<span class="na">number_of_k8s_nodes_no_floating_ip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span>
+<span class="na">flavor_k8s_node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;5b40af67-9d11-45ed-a44f-e876766160a5&quot;</span>
 
-# networking
-# ssh access to nodes
-k8s_allowed_remote_ips = [&quot;0.0.0.0/0&quot;]
-worker_allowed_ports = [
-  { # Node ports
-    &quot;protocol&quot;         = &quot;tcp&quot;
-    &quot;port_range_min&quot;   = 30000
-    &quot;port_range_max&quot;   = 32767
-    &quot;remote_ip_prefix&quot; = &quot;0.0.0.0/0&quot;
-  },
-  { # HTTP
-    &quot;protocol&quot;         = &quot;tcp&quot;
-    &quot;port_range_min&quot;   = 80
-    &quot;port_range_max&quot;   = 80
-    &quot;remote_ip_prefix&quot; = &quot;0.0.0.0/0&quot;
-  },
-  { # HTTPS
-    &quot;protocol&quot;         = &quot;tcp&quot;
-    &quot;port_range_min&quot;   = 443
-    &quot;port_range_max&quot;   = 443
-    &quot;remote_ip_prefix&quot; = &quot;0.0.0.0/0&quot;
-  }
-]
-external_net = &quot;b19680b3-c00e-40f0-ad77-4448e81ae226&quot;
-use_access_ip = 1
-network_name = &quot;public&quot;
+<span class="c1"># networking</span>
+<span class="c1"># ssh access to nodes</span>
+<span class="na">k8s_allowed_remote_ips</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;0.0.0.0/0&quot;</span><span class="p">]</span>
+<span class="na">worker_allowed_ports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="c1"> # Node ports</span>
+<span class="w">    </span><span class="s2">&quot;protocol&quot;</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;tcp&quot;</span>
+<span class="w">    </span><span class="s2">&quot;port_range_min&quot;</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="m">30000</span>
+<span class="w">    </span><span class="s2">&quot;port_range_max&quot;</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="m">32767</span>
+<span class="w">    </span><span class="s2">&quot;remote_ip_prefix&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.0.0.0/0&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="c1"> # HTTP</span>
+<span class="w">    </span><span class="s2">&quot;protocol&quot;</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;tcp&quot;</span>
+<span class="w">    </span><span class="s2">&quot;port_range_min&quot;</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="m">80</span>
+<span class="w">    </span><span class="s2">&quot;port_range_max&quot;</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="m">80</span>
+<span class="w">    </span><span class="s2">&quot;remote_ip_prefix&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.0.0.0/0&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="c1"> # HTTPS</span>
+<span class="w">    </span><span class="s2">&quot;protocol&quot;</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;tcp&quot;</span>
+<span class="w">    </span><span class="s2">&quot;port_range_min&quot;</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="m">443</span>
+<span class="w">    </span><span class="s2">&quot;port_range_max&quot;</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="m">443</span>
+<span class="w">    </span><span class="s2">&quot;remote_ip_prefix&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.0.0.0/0&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+<span class="na">external_net</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;b19680b3-c00e-40f0-ad77-4448e81ae226&quot;</span>
+<span class="na">use_access_ip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<span class="na">network_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;public&quot;</span>
 
-use_server_groups = true # Comment this out if you don&#39;t mind that the VMs are schedules on different physical machines
-                         # Also, comment this out if you run into problems on Safespring because of shortage of physical machines
+<span class="na">use_server_groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span><span class="c1"> # Comment this out if you don&#39;t mind that the VMs are schedules on different physical machines</span>
+<span class="c1">                         # Also, comment this out if you run into problems on Safespring because of shortage of physical machines</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block"></div>
@@ -2394,10 +2396,10 @@ Navigate to the endpoints, for example <code>grafana.$BASE_DOMAIN</code>, <code>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "toc.integrate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "toc.integrate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
       
     
   </body>
