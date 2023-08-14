@@ -439,6 +439,20 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
+      <a href="../prepare-idp/" class="md-nav__link">
+        Prepare Your Identity Provider (IdP)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../registry/" class="md-nav__link">
         Container registry
       </a>
@@ -2380,7 +2394,7 @@ kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> <
 </ol>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>edit<span class="w"> </span>clusterrolebinding<span class="w"> </span>user-admin-cluster-wide-delegation
 </code></pre></div>
-<ol>
+<ol start="2">
 <li>In each of your user namespaces that you want the users or groups to be admin in, edit the rolebinding <code>extra-workload-admins</code> and add the desired users or groups under <code>subjects</code>. If you have a root HNC namespace and you want the users or groups to be admin in all of <strong>your</strong> namespaces, you only need to edit the rolebinding in this root namespace and it will propagate.</li>
 </ol>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>edit<span class="w"> </span>rolebinding<span class="w"> </span>extra-workload-admins<span class="w"> </span>-n<span class="w"> </span>user-namespace

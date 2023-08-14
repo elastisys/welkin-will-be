@@ -6,33 +6,33 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Compliant Kubernetes is a Kubernetes distribution that reduces the burden for complying with Swedish Healthcare (Patientdatalagen), GDPR and ISO 27001.">
+        <meta name="description" content="How to configure your Identity Provider (IdP) for Single Sign-on (SSO) use in Compliant Kubernetes">
       
       
         <meta name="author" content="Elastisys AB">
       
       
-        <link rel="canonical" href="https://elastisys.io/compliantkubernetes-v0.32/ciso-guide/controls/bsi-it-grundschutz/">
+        <link rel="canonical" href="https://elastisys.io/compliantkubernetes-v0.32/user-guide/prepare-idp/">
       
       
-        <link rel="prev" href="../hipaa/">
+        <link rel="prev" href="../prepare-application/">
       
       
-        <link rel="next" href="../../audit-logs/">
+        <link rel="next" href="../registry/">
       
       <link rel="icon" href="https://elastisys.io/compliantkubernetes/img/favicon.ico">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
-        <title>BSI IT-Grundschutz - Elastisys Compliant Kubernetes</title>
+        <title>Prepare Your Identity Provider (IdP) - Elastisys Compliant Kubernetes</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.eebd395e.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.eebd395e.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ecc896b0.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -42,11 +42,11 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/branding.css">
+      <link rel="stylesheet" href="../../stylesheets/branding.css">
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
 
 <!-- Matomo -->
@@ -125,7 +125,7 @@ if(!document.__defineGetter__) {
     <div data-md-component="skip">
       
         
-        <a href="#bsi-it-grundschutz-controls" class="md-skip">
+        <a href="#prepare-your-identity-provider-idp" class="md-skip">
           Skip to content
         </a>
       
@@ -145,9 +145,9 @@ if(!document.__defineGetter__) {
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Elastisys Compliant Kubernetes" class="md-header__button md-logo" aria-label="Elastisys Compliant Kubernetes" data-md-component="logo">
+    <a href="../.." title="Elastisys Compliant Kubernetes" class="md-header__button md-logo" aria-label="Elastisys Compliant Kubernetes" data-md-component="logo">
       
-  <img src="../../../img/logo.png" alt="logo">
+  <img src="../../img/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -163,7 +163,7 @@ if(!document.__defineGetter__) {
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              BSI IT-Grundschutz
+              Prepare Your Identity Provider (IdP)
             
           </span>
         </div>
@@ -214,7 +214,7 @@ if(!document.__defineGetter__) {
 <ul class="header-links">
   <li>
     <a href="https://github.com/elastisys/compliantkubernetes/">
-      <img width="25px" src="../../../img/git-alt.svg" alt="Git logo" />
+      <img width="25px" src="../../img/git-alt.svg" alt="Git logo" />
     </a>
   </li>
   <li><a href="https://elastisys.com/" class="menu-callout">Try out Managed<br/>Compliant Kubernetes</a></li>
@@ -245,9 +245,9 @@ if(!document.__defineGetter__) {
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Elastisys Compliant Kubernetes" class="md-nav__button md-logo" aria-label="Elastisys Compliant Kubernetes" data-md-component="logo">
+    <a href="../.." title="Elastisys Compliant Kubernetes" class="md-nav__button md-logo" aria-label="Elastisys Compliant Kubernetes" data-md-component="logo">
       
-  <img src="../../../img/logo.png" alt="logo">
+  <img src="../../img/logo.png" alt="logo">
 
     </a>
     Elastisys Compliant Kubernetes
@@ -259,7 +259,7 @@ if(!document.__defineGetter__) {
 <ul class="header-links">
   <li>
     <a href="https://github.com/elastisys/compliantkubernetes/">
-      <img width="25px" src="../../../img/git-alt.svg" alt="Git logo" />
+      <img width="25px" src="../../img/git-alt.svg" alt="Git logo" />
     </a>
   </li>
   <li><a href="https://elastisys.com/" class="menu-callout">Try out Managed<br/>Compliant Kubernetes</a></li>
@@ -276,7 +276,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         Overview
       </a>
     </li>
@@ -289,14 +289,16 @@ if(!document.__defineGetter__) {
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
       
       
       
@@ -305,7 +307,7 @@ if(!document.__defineGetter__) {
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           For Application Developers
@@ -345,7 +347,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/prepare/" class="md-nav__link">
+      <a href="../prepare/" class="md-nav__link">
         Step 1: Prepare
       </a>
     </li>
@@ -359,7 +361,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/deploy/" class="md-nav__link">
+      <a href="../deploy/" class="md-nav__link">
         Step 2: Deploy
       </a>
     </li>
@@ -373,7 +375,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/operate/" class="md-nav__link">
+      <a href="../operate/" class="md-nav__link">
         Step 3: Operate
       </a>
     </li>
@@ -392,14 +394,16 @@ if(!document.__defineGetter__) {
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
       
       
       
@@ -408,7 +412,7 @@ if(!document.__defineGetter__) {
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2_2">
           <span class="md-nav__icon md-icon"></span>
           Go Deeper
@@ -421,7 +425,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/prepare-application/" class="md-nav__link">
+      <a href="../prepare-application/" class="md-nav__link">
         Prepare Your Application
       </a>
     </li>
@@ -433,11 +437,105 @@ if(!document.__defineGetter__) {
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../user-guide/prepare-idp/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Prepare Your Identity Provider (IdP)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Prepare Your Identity Provider (IdP)
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#azure-active-directory-ad" class="md-nav__link">
+    Azure Active Directory (AD)
+  </a>
+  
+    <nav class="md-nav" aria-label="Azure Active Directory (AD)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    Further Reading
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#google" class="md-nav__link">
+    Google
+  </a>
+  
+    <nav class="md-nav" aria-label="Google">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#further-reading_1" class="md-nav__link">
+    Further Reading
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openid-providers" class="md-nav__link">
+    OpenID Providers
+  </a>
+  
+    <nav class="md-nav" aria-label="OpenID Providers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#further-reading_2" class="md-nav__link">
+    Further Reading
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -449,7 +547,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/registry/" class="md-nav__link">
+      <a href="../registry/" class="md-nav__link">
         Container registry
       </a>
     </li>
@@ -463,7 +561,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/continous-development/" class="md-nav__link">
+      <a href="../continous-development/" class="md-nav__link">
         Continous Development
       </a>
     </li>
@@ -477,7 +575,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/network-model/" class="md-nav__link">
+      <a href="../network-model/" class="md-nav__link">
         Network Model
       </a>
     </li>
@@ -491,7 +589,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/kubernetes-api/" class="md-nav__link">
+      <a href="../kubernetes-api/" class="md-nav__link">
         Kubernetes API
       </a>
     </li>
@@ -505,7 +603,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/kubernetes-ui/" class="md-nav__link">
+      <a href="../kubernetes-ui/" class="md-nav__link">
         Kubernetes UI (Lens)
       </a>
     </li>
@@ -519,7 +617,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/namespaces/" class="md-nav__link">
+      <a href="../namespaces/" class="md-nav__link">
         Namespaces
       </a>
     </li>
@@ -533,7 +631,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/logs/" class="md-nav__link">
+      <a href="../logs/" class="md-nav__link">
         Logs
       </a>
     </li>
@@ -547,7 +645,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/log-based-alerts/" class="md-nav__link">
+      <a href="../log-based-alerts/" class="md-nav__link">
         Log-based Alerts
       </a>
     </li>
@@ -561,7 +659,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/long-term-log-retention/" class="md-nav__link">
+      <a href="../long-term-log-retention/" class="md-nav__link">
         Long-term Log Retention
       </a>
     </li>
@@ -575,7 +673,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/metrics/" class="md-nav__link">
+      <a href="../metrics/" class="md-nav__link">
         Metrics
       </a>
     </li>
@@ -589,7 +687,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/alerts/" class="md-nav__link">
+      <a href="../alerts/" class="md-nav__link">
         Metric Alerts
       </a>
     </li>
@@ -603,7 +701,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/maintenance/" class="md-nav__link">
+      <a href="../maintenance/" class="md-nav__link">
         Maintenance
       </a>
     </li>
@@ -617,7 +715,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/backup/" class="md-nav__link">
+      <a href="../backup/" class="md-nav__link">
         Backups
       </a>
     </li>
@@ -631,7 +729,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/ci-cd/" class="md-nav__link">
+      <a href="../ci-cd/" class="md-nav__link">
         CI/CD
       </a>
     </li>
@@ -645,7 +743,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/demarcation/" class="md-nav__link">
+      <a href="../demarcation/" class="md-nav__link">
         Demarcation
       </a>
     </li>
@@ -659,7 +757,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/delegation/" class="md-nav__link">
+      <a href="../delegation/" class="md-nav__link">
         How to Delegate
       </a>
     </li>
@@ -673,7 +771,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/how-many-environments/" class="md-nav__link">
+      <a href="../how-many-environments/" class="md-nav__link">
         How many environments?
       </a>
     </li>
@@ -721,7 +819,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/safeguards/" class="md-nav__link">
+      <a href="../safeguards/" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -735,7 +833,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/safeguards/enforce-no-root/" class="md-nav__link">
+      <a href="../safeguards/enforce-no-root/" class="md-nav__link">
         Enforce No Root
       </a>
     </li>
@@ -749,7 +847,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/safeguards/enforce-networkpolicies/" class="md-nav__link">
+      <a href="../safeguards/enforce-networkpolicies/" class="md-nav__link">
         Enforce NetworkPolicies
       </a>
     </li>
@@ -763,7 +861,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/safeguards/enforce-resources/" class="md-nav__link">
+      <a href="../safeguards/enforce-resources/" class="md-nav__link">
         Enforce Resources
       </a>
     </li>
@@ -777,7 +875,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/safeguards/enforce-trusted-registries/" class="md-nav__link">
+      <a href="../safeguards/enforce-trusted-registries/" class="md-nav__link">
         Enforce Trusted Registries
       </a>
     </li>
@@ -791,7 +889,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/safeguards/enforce-no-latest-tag/" class="md-nav__link">
+      <a href="../safeguards/enforce-no-latest-tag/" class="md-nav__link">
         Enforce No Latest Tag
       </a>
     </li>
@@ -805,7 +903,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/safeguards/enforce-job-ttl/" class="md-nav__link">
+      <a href="../safeguards/enforce-job-ttl/" class="md-nav__link">
         Enforce Job TTL
       </a>
     </li>
@@ -853,7 +951,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/additional-services/" class="md-nav__link">
+      <a href="../additional-services/" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -867,7 +965,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/additional-services/postgresql/" class="md-nav__link">
+      <a href="../additional-services/postgresql/" class="md-nav__link">
         PostgreSQL
       </a>
     </li>
@@ -881,7 +979,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/additional-services/timescaledb/" class="md-nav__link">
+      <a href="../additional-services/timescaledb/" class="md-nav__link">
         TimescaleDB
       </a>
     </li>
@@ -895,7 +993,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/additional-services/redis/" class="md-nav__link">
+      <a href="../additional-services/redis/" class="md-nav__link">
         Redis
       </a>
     </li>
@@ -909,7 +1007,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/additional-services/rabbitmq/" class="md-nav__link">
+      <a href="../additional-services/rabbitmq/" class="md-nav__link">
         RabbitMQ
       </a>
     </li>
@@ -923,7 +1021,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/additional-services/jaeger/" class="md-nav__link">
+      <a href="../additional-services/jaeger/" class="md-nav__link">
         Jaeger (preview)
       </a>
     </li>
@@ -937,7 +1035,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/additional-services/argocd/" class="md-nav__link">
+      <a href="../additional-services/argocd/" class="md-nav__link">
         Argo CD (preview)
       </a>
     </li>
@@ -985,7 +1083,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/self-managed-services/ferretdb/" class="md-nav__link">
+      <a href="../self-managed-services/ferretdb/" class="md-nav__link">
         FerretDB (self-managed)
       </a>
     </li>
@@ -999,7 +1097,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/self-managed-services/keycloak/" class="md-nav__link">
+      <a href="../self-managed-services/keycloak/" class="md-nav__link">
         Keycloak (self-managed)
       </a>
     </li>
@@ -1020,7 +1118,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/go-live/" class="md-nav__link">
+      <a href="../go-live/" class="md-nav__link">
         Go-live Checklist
       </a>
     </li>
@@ -1034,7 +1132,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/troubleshooting/" class="md-nav__link">
+      <a href="../troubleshooting/" class="md-nav__link">
         Troubleshooting
       </a>
     </li>
@@ -1048,7 +1146,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../user-guide/faq/" class="md-nav__link">
+      <a href="../faq/" class="md-nav__link">
         FAQ
       </a>
     </li>
@@ -1097,7 +1195,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../operator-manual/" class="md-nav__link">
+      <a href="../../operator-manual/" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -1111,7 +1209,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../operator-manual/getting-started/" class="md-nav__link">
+      <a href="../../operator-manual/getting-started/" class="md-nav__link">
         Getting Started
       </a>
     </li>
@@ -1125,7 +1223,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../operator-manual/provider-audit/" class="md-nav__link">
+      <a href="../../operator-manual/provider-audit/" class="md-nav__link">
         Provider Audit
       </a>
     </li>
@@ -1139,7 +1237,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../operator-manual/on-prem-standard/" class="md-nav__link">
+      <a href="../../operator-manual/on-prem-standard/" class="md-nav__link">
         Standard Template for on-prem Environment
       </a>
     </li>
@@ -1153,7 +1251,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../operator-manual/qa/" class="md-nav__link">
+      <a href="../../operator-manual/qa/" class="md-nav__link">
         QA
       </a>
     </li>
@@ -1194,7 +1292,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../operator-manual/configure/" class="md-nav__link">
+      <a href="../../operator-manual/configure/" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -1208,7 +1306,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../operator-manual/cluster-sizing/" class="md-nav__link">
+      <a href="../../operator-manual/cluster-sizing/" class="md-nav__link">
         Sizing
       </a>
     </li>
@@ -1222,7 +1320,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../operator-manual/ingress/" class="md-nav__link">
+      <a href="../../operator-manual/ingress/" class="md-nav__link">
         Ingress
       </a>
     </li>
@@ -1236,7 +1334,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../operator-manual/access-control/" class="md-nav__link">
+      <a href="../../operator-manual/access-control/" class="md-nav__link">
         Access Control
       </a>
     </li>
@@ -1250,7 +1348,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../operator-manual/user-alerts/" class="md-nav__link">
+      <a href="../../operator-manual/user-alerts/" class="md-nav__link">
         User Alerts
       </a>
     </li>
@@ -1271,7 +1369,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../operator-manual/disaster-recovery/" class="md-nav__link">
+      <a href="../../operator-manual/disaster-recovery/" class="md-nav__link">
         Disaster Recovery
       </a>
     </li>
@@ -1285,7 +1383,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../operator-manual/break-glass/" class="md-nav__link">
+      <a href="../../operator-manual/break-glass/" class="md-nav__link">
         Breaking the Glass
       </a>
     </li>
@@ -1299,7 +1397,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../operator-manual/cryptography/" class="md-nav__link">
+      <a href="../../operator-manual/cryptography/" class="md-nav__link">
         Use of Cryptography
       </a>
     </li>
@@ -1313,7 +1411,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../operator-manual/credentials/" class="md-nav__link">
+      <a href="../../operator-manual/credentials/" class="md-nav__link">
         Use of Credentials
       </a>
     </li>
@@ -1327,7 +1425,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../operator-manual/capacity-management/" class="md-nav__link">
+      <a href="../../operator-manual/capacity-management/" class="md-nav__link">
         Capacity Management
       </a>
     </li>
@@ -1341,7 +1439,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../operator-manual/maintenance/" class="md-nav__link">
+      <a href="../../operator-manual/maintenance/" class="md-nav__link">
         Maintenance
       </a>
     </li>
@@ -1355,7 +1453,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../operator-manual/troubleshooting/" class="md-nav__link">
+      <a href="../../operator-manual/troubleshooting/" class="md-nav__link">
         Troubleshooting
       </a>
     </li>
@@ -1369,7 +1467,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../operator-manual/faq/" class="md-nav__link">
+      <a href="../../operator-manual/faq/" class="md-nav__link">
         FAQ
       </a>
     </li>
@@ -1383,7 +1481,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../operator-manual/additional-services/" class="md-nav__link">
+      <a href="../../operator-manual/additional-services/" class="md-nav__link">
         Additional Services
       </a>
     </li>
@@ -1403,16 +1501,14 @@ if(!document.__defineGetter__) {
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
       
       
       
@@ -1421,7 +1517,7 @@ if(!document.__defineGetter__) {
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           For CISOs and DPOs
@@ -1434,7 +1530,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../" class="md-nav__link">
+      <a href="../../ciso-guide/" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -1448,7 +1544,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../iso-27001/" class="md-nav__link">
+      <a href="../../ciso-guide/controls/iso-27001/" class="md-nav__link">
         ISO 27001
       </a>
     </li>
@@ -1462,7 +1558,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../hslf-fs-201640/" class="md-nav__link">
+      <a href="../../ciso-guide/controls/hslf-fs-201640/" class="md-nav__link">
         HSLF-FS 2016:40
       </a>
     </li>
@@ -1476,7 +1572,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../msbfs-20207/" class="md-nav__link">
+      <a href="../../ciso-guide/controls/msbfs-20207/" class="md-nav__link">
         MSBFS 2020:7
       </a>
     </li>
@@ -1490,7 +1586,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../gdpr/" class="md-nav__link">
+      <a href="../../ciso-guide/controls/gdpr/" class="md-nav__link">
         GDPR
       </a>
     </li>
@@ -1504,7 +1600,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../hipaa/" class="md-nav__link">
+      <a href="../../ciso-guide/controls/hipaa/" class="md-nav__link">
         HIPAA
       </a>
     </li>
@@ -1516,190 +1612,11 @@ if(!document.__defineGetter__) {
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          BSI IT-Grundschutz
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/controls/bsi-it-grundschutz/" class="md-nav__link">
         BSI IT-Grundschutz
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#bsi-it-grundschutz-app44a1" class="md-nav__link">
-    BSI IT-Grundschutz APP.4.4.A1
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bsi-it-grundschutz-app44a2" class="md-nav__link">
-    BSI IT-Grundschutz APP.4.4.A2
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bsi-it-grundschutz-app44a3" class="md-nav__link">
-    BSI IT-Grundschutz APP.4.4.A3
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bsi-it-grundschutz-app44a5" class="md-nav__link">
-    BSI IT-Grundschutz APP.4.4.A5
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bsi-it-grundschutz-app44a7" class="md-nav__link">
-    BSI IT-Grundschutz APP.4.4.A7
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bsi-it-grundschutz-app44a10" class="md-nav__link">
-    BSI IT-Grundschutz APP.4.4.A10
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bsi-it-grundschutz-app44a13" class="md-nav__link">
-    BSI IT-Grundschutz APP.4.4.A13
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bsi-it-grundschutz-app44a14" class="md-nav__link">
-    BSI IT-Grundschutz APP.4.4.A14
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bsi-it-grundschutz-app44a15" class="md-nav__link">
-    BSI IT-Grundschutz APP.4.4.A15
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bsi-it-grundschutz-app44a16" class="md-nav__link">
-    BSI IT-Grundschutz APP.4.4.A16
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bsi-it-grundschutz-app44a18" class="md-nav__link">
-    BSI IT-Grundschutz APP.4.4.A18
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bsi-it-grundschutz-app44a21" class="md-nav__link">
-    BSI IT-Grundschutz APP.4.4.A21
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#other-it-grundschutz-controls" class="md-nav__link">
-    Other IT-Grundschutz Controls
-  </a>
-  
-    <nav class="md-nav" aria-label="Other IT-Grundschutz Controls">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#app44a17-attestierung-von-nodes-h" class="md-nav__link">
-    APP.4.4.A17 Attestierung von Nodes (H)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bsi-it-grundschutz-controls-outside-the-scope-of-compliant-kubernetes" class="md-nav__link">
-    BSI IT-Grundschutz Controls outside the scope of Compliant Kubernetes
-  </a>
-  
-    <nav class="md-nav" aria-label="BSI IT-Grundschutz Controls outside the scope of Compliant Kubernetes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#app44a6-initialisierung-von-pods-s" class="md-nav__link">
-    APP.4.4.A6 Initialisierung von Pods (S)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#app44a11-uberwachung-der-container-s" class="md-nav__link">
-    APP.4.4.A11 Überwachung der Container (S)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#app44a12-absicherung-der-infrastruktur-anwendungen-s" class="md-nav__link">
-    APP.4.4.A12 Absicherung der Infrastruktur-Anwendungen (S)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#app44a20-verschlusselte-datenhaltung-bei-pods-h" class="md-nav__link">
-    APP.4.4.A20 Verschlüsselte Datenhaltung bei Pods (H)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1738,7 +1655,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../audit-logs/" class="md-nav__link">
+      <a href="../../ciso-guide/audit-logs/" class="md-nav__link">
         Audit Logs
       </a>
     </li>
@@ -1752,7 +1669,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../backup/" class="md-nav__link">
+      <a href="../../ciso-guide/backup/" class="md-nav__link">
         Backup Dashboard
       </a>
     </li>
@@ -1766,7 +1683,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../cryptography/" class="md-nav__link">
+      <a href="../../ciso-guide/cryptography/" class="md-nav__link">
         Cryptography Dashboard
       </a>
     </li>
@@ -1780,7 +1697,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../intrusion-detection/" class="md-nav__link">
+      <a href="../../ciso-guide/intrusion-detection/" class="md-nav__link">
         Intrusion Detection Dashboard
       </a>
     </li>
@@ -1794,7 +1711,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../policy-as-code/" class="md-nav__link">
+      <a href="../../ciso-guide/policy-as-code/" class="md-nav__link">
         Policy-as-Code Dashboard
       </a>
     </li>
@@ -1808,7 +1725,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../network-security/" class="md-nav__link">
+      <a href="../../ciso-guide/network-security/" class="md-nav__link">
         Network Security Dashboard
       </a>
     </li>
@@ -1822,7 +1739,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../capacity-management/" class="md-nav__link">
+      <a href="../../ciso-guide/capacity-management/" class="md-nav__link">
         Capacity Management (Kubernetes Status) Dashboard
       </a>
     </li>
@@ -1836,7 +1753,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../vulnerability/" class="md-nav__link">
+      <a href="../../ciso-guide/vulnerability/" class="md-nav__link">
         Vulnerability Dashboard
       </a>
     </li>
@@ -1850,7 +1767,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../log-review/" class="md-nav__link">
+      <a href="../../ciso-guide/log-review/" class="md-nav__link">
         Log Review
       </a>
     </li>
@@ -1871,7 +1788,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../faq/" class="md-nav__link">
+      <a href="../../ciso-guide/faq/" class="md-nav__link">
         FAQ
       </a>
     </li>
@@ -1885,7 +1802,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../gdpr-art-17/" class="md-nav__link">
+      <a href="../../ciso-guide/gdpr-art-17/" class="md-nav__link">
         How do I comply with GDPR Art. 17 Right to erasure ("right to be forgotten")?
       </a>
     </li>
@@ -1934,7 +1851,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../contributor-guide/" class="md-nav__link">
+      <a href="../../contributor-guide/" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -1948,7 +1865,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../architecture/" class="md-nav__link">
+      <a href="../../architecture/" class="md-nav__link">
         Architecture
       </a>
     </li>
@@ -1962,7 +1879,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../adr/" class="md-nav__link">
+      <a href="../../adr/" class="md-nav__link">
         Architectural Decision Log
       </a>
     </li>
@@ -1976,7 +1893,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../tech-radar/" class="md-nav__link">
+      <a href="../../tech-radar/" class="md-nav__link">
         Tech Radar
       </a>
     </li>
@@ -2025,7 +1942,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../release-notes/ck8s/" class="md-nav__link">
+      <a href="../../release-notes/ck8s/" class="md-nav__link">
         Compliant Kubernetes
       </a>
     </li>
@@ -2039,7 +1956,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../release-notes/kubespray/" class="md-nav__link">
+      <a href="../../release-notes/kubespray/" class="md-nav__link">
         CK8S Kubespray
       </a>
     </li>
@@ -2053,7 +1970,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../release-notes/postgres/" class="md-nav__link">
+      <a href="../../release-notes/postgres/" class="md-nav__link">
         CK8S PostgreSQL
       </a>
     </li>
@@ -2067,7 +1984,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../release-notes/rabbitmq/" class="md-nav__link">
+      <a href="../../release-notes/rabbitmq/" class="md-nav__link">
         CK8S RabbitMQ
       </a>
     </li>
@@ -2081,7 +1998,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../release-notes/redis/" class="md-nav__link">
+      <a href="../../release-notes/redis/" class="md-nav__link">
         CK8S Redis
       </a>
     </li>
@@ -2095,7 +2012,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../release-notes/jaeger/" class="md-nav__link">
+      <a href="../../release-notes/jaeger/" class="md-nav__link">
         CK8S Jaeger
       </a>
     </li>
@@ -2109,7 +2026,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../release-notes/argocd/" class="md-nav__link">
+      <a href="../../release-notes/argocd/" class="md-nav__link">
         CK8S Argo CD
       </a>
     </li>
@@ -2131,7 +2048,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../glossary/" class="md-nav__link">
+      <a href="../../glossary/" class="md-nav__link">
         Glossary
       </a>
     </li>
@@ -2146,7 +2063,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../../../roadmap/" class="md-nav__link">
+      <a href="../../roadmap/" class="md-nav__link">
         Roadmap
       </a>
     </li>
@@ -2240,100 +2157,16 @@ if(!document.__defineGetter__) {
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#bsi-it-grundschutz-app44a1" class="md-nav__link">
-    BSI IT-Grundschutz APP.4.4.A1
+  <a href="#azure-active-directory-ad" class="md-nav__link">
+    Azure Active Directory (AD)
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bsi-it-grundschutz-app44a2" class="md-nav__link">
-    BSI IT-Grundschutz APP.4.4.A2
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bsi-it-grundschutz-app44a3" class="md-nav__link">
-    BSI IT-Grundschutz APP.4.4.A3
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bsi-it-grundschutz-app44a5" class="md-nav__link">
-    BSI IT-Grundschutz APP.4.4.A5
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bsi-it-grundschutz-app44a7" class="md-nav__link">
-    BSI IT-Grundschutz APP.4.4.A7
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bsi-it-grundschutz-app44a10" class="md-nav__link">
-    BSI IT-Grundschutz APP.4.4.A10
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bsi-it-grundschutz-app44a13" class="md-nav__link">
-    BSI IT-Grundschutz APP.4.4.A13
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bsi-it-grundschutz-app44a14" class="md-nav__link">
-    BSI IT-Grundschutz APP.4.4.A14
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bsi-it-grundschutz-app44a15" class="md-nav__link">
-    BSI IT-Grundschutz APP.4.4.A15
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bsi-it-grundschutz-app44a16" class="md-nav__link">
-    BSI IT-Grundschutz APP.4.4.A16
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bsi-it-grundschutz-app44a18" class="md-nav__link">
-    BSI IT-Grundschutz APP.4.4.A18
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bsi-it-grundschutz-app44a21" class="md-nav__link">
-    BSI IT-Grundschutz APP.4.4.A21
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#other-it-grundschutz-controls" class="md-nav__link">
-    Other IT-Grundschutz Controls
-  </a>
-  
-    <nav class="md-nav" aria-label="Other IT-Grundschutz Controls">
+    <nav class="md-nav" aria-label="Azure Active Directory (AD)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#app44a17-attestierung-von-nodes-h" class="md-nav__link">
-    APP.4.4.A17 Attestierung von Nodes (H)
+  <a href="#further-reading" class="md-nav__link">
+    Further Reading
   </a>
   
 </li>
@@ -2344,37 +2177,36 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
-  <a href="#bsi-it-grundschutz-controls-outside-the-scope-of-compliant-kubernetes" class="md-nav__link">
-    BSI IT-Grundschutz Controls outside the scope of Compliant Kubernetes
+  <a href="#google" class="md-nav__link">
+    Google
   </a>
   
-    <nav class="md-nav" aria-label="BSI IT-Grundschutz Controls outside the scope of Compliant Kubernetes">
+    <nav class="md-nav" aria-label="Google">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#app44a6-initialisierung-von-pods-s" class="md-nav__link">
-    APP.4.4.A6 Initialisierung von Pods (S)
+  <a href="#further-reading_1" class="md-nav__link">
+    Further Reading
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#app44a11-uberwachung-der-container-s" class="md-nav__link">
-    APP.4.4.A11 Überwachung der Container (S)
-  </a>
+      </ul>
+    </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#app44a12-absicherung-der-infrastruktur-anwendungen-s" class="md-nav__link">
-    APP.4.4.A12 Absicherung der Infrastruktur-Anwendungen (S)
+      
+        <li class="md-nav__item">
+  <a href="#openid-providers" class="md-nav__link">
+    OpenID Providers
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="OpenID Providers">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#app44a20-verschlusselte-datenhaltung-bei-pods-h" class="md-nav__link">
-    APP.4.4.A20 Verschlüsselte Datenhaltung bei Pods (H)
+  <a href="#further-reading_2" class="md-nav__link">
+    Further Reading
   </a>
   
 </li>
@@ -2399,81 +2231,137 @@ if(!document.__defineGetter__) {
                   
   
 
+  <nav class="md-tags" >
+    
+      
+      
+        <a href="../../ciso-guide/controls/hslf-fs-201640#hslf-fs-201640-4-kap-2-styrning-av-behorigheter" class="md-tag">HSLF-FS 2016:40 4 kap. 2 § Styrning av behörigheter</a>
+      
+    
+      
+      
+        <a href="../../ciso-guide/controls/msbfs-20207#msbfs-20207-4-kap-5" class="md-tag">MSBFS 2020:7 4 kap. 5 §</a>
+      
+    
+  </nav>
+
 
 
   
   
 
 
-<h1 id="bsi-it-grundschutz-controls">BSI IT-Grundschutz Controls<a class="headerlink" href="#bsi-it-grundschutz-controls" title="Permanent link">&para;</a></h1>
-<p>Click on the links below to navigate the documentation by control.</p>
-<h2 id="bsi-it-grundschutz-app44a1"><span class="md-tag">BSI IT-Grundschutz APP.4.4.A1</span><a class="headerlink" href="#bsi-it-grundschutz-app44a1" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="../../../user-guide/how-many-environments/">How many environments?</a></li>
+<h1 id="prepare-your-identity-provider-idp">Prepare your Identity Provider (IdP)<a class="headerlink" href="#prepare-your-identity-provider-idp" title="Permanent link">&para;</a></h1>
+<div class="admonition elastisys">
+<p class="admonition-title">For Elastisys Managed Services Customers</p>
+<p>Please follow these steps to configure your IdP so that we can connect a new Compliant Kubernetes environment to it.</p>
+<p>To share credentials with Elastisys, please use our <a href="https://yopass.elastisys.com">YoPass service</a>.</p>
+<p>If you get stuck, get in touch with your contact person at Elastisys.</p>
+</div>
+<p>To help you comply with various data protection regulations, Compliant Kubernetes only allows access to service endpoints (i.e., Kubernetes API, Harbor, Grafana and OpenSearch) via an IdP.
+Your organization's IdP acts as the single point to decide who gets access to what.</p>
+<p>This page describes how to configure Google Identity and Azure Active Directory so that Platform Administrators can connect a Compliant Kubernetes environment to them.
+Note, however, that Compliant Kubernetes supports any OpenID-compatible IdP, including GitHub and GitLab.</p>
+<p>This page show what information you need to send to Platform Administrators and where to find it.</p>
+<h2 id="azure-active-directory-ad">Azure Active Directory (AD)<a class="headerlink" href="#azure-active-directory-ad" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As of August 2023, Azure Active Directory is Becoming Microsoft Entra ID.</p>
+</div>
+<ol>
+<li>Sign in to the <a href="https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app">Azure portal</a>.</li>
+<li>Search for and select <strong>Azure Active Directory</strong>.</li>
+<li>Under Manage, select App registrations &gt; New registration.</li>
+<li>Under Supported account types pick <strong>Accounts in any organizational directory (Any Azure AD directory – Multitenant)</strong>.</li>
+<li>Under <strong>Redirect URI</strong> select <strong>web</strong> and insert the Dex URL that Platform Administrators provided. This is generally <code>https://dex.$DOMAIN/callback</code>.
+If unsure, ask your Platform Administrators.</li>
+<li>Go to <strong>Overview</strong> and note down the <strong>application ID</strong>.</li>
+<li>Create a secret by going to <strong>Certificates &amp; secrets</strong>.</li>
+<li>Select the tab <strong>Client secret</strong> and click <strong>New client secret</strong>.</li>
+<li>Set <strong>expiry date</strong> to <strong>24 months</strong>.</li>
+<li>For improved security, navigate to <strong>Properties</strong> and note down <strong>the tenant ID</strong>. This limits who can authenticate to your Compliant Kubernetes environment.</li>
+<li>Decide the <strong>name of the Azure AD group</strong> that should have admin privileges in the environment.</li>
+<li>Securely send, e.g., via <a href="https://yopass.elastisys.com">YoPass</a>, the following information to your Platform Administrators:<ul>
+<li>tenant ID;</li>
+<li>application ID;</li>
+<li>client secret;</li>
+<li>admin group.</li>
 </ul>
-<h2 id="bsi-it-grundschutz-app44a2"><span class="md-tag">BSI IT-Grundschutz APP.4.4.A2</span><a class="headerlink" href="#bsi-it-grundschutz-app44a2" title="Permanent link">&para;</a></h2>
+</li>
+</ol>
+<h3 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h3>
 <ul>
-<li><a href="../../../user-guide/ci-cd/">CI/CD</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app">Quickstart: Register an application with the Microsoft identity platform</a></li>
+<li><a href="https://dexidp.io/docs/connectors/microsoft/">Dex: Authentication through Microsoft</a></li>
 </ul>
-<h2 id="bsi-it-grundschutz-app44a3"><span class="md-tag">BSI IT-Grundschutz APP.4.4.A3</span><a class="headerlink" href="#bsi-it-grundschutz-app44a3" title="Permanent link">&para;</a></h2>
+<h2 id="google">Google<a class="headerlink" href="#google" title="Permanent link">&para;</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Some steps can only be done by an administrator account for a managed Google service,such as Google Workspace or Cloud Identity. (See <a href="https://support.google.com/a/answer/6375836?hl=en-GB">this Google support page</a>.)</p>
+</div>
+<ol>
+<li>Go to <a href="https://console.cloud.google.com/apis/credentials">Goole Cloud -- Credentials</a>.</li>
+<li>Create a new project through the top menu.</li>
+<li>In the new project, go to <strong>OAuth consent screen</strong> on the left side menu and create an internal consent screen.</li>
+<li>Go to <strong>Enabled APIs &amp; services</strong> on the left side menu and then click <strong>+ ENABLE APIS AND SERVICES</strong>.</li>
+<li>Search for <strong>Admin SDK API</strong> and enable the API.</li>
+<li>Go back to <strong>Credentials</strong> on the left side menu.</li>
+<li>Click <strong>+ CREATE CREDENTIALS</strong> and select <strong>OAuth client ID</strong>.</li>
+<li>Select <strong>Web Application</strong> for <strong>Application type</strong>, give it a suitable name.</li>
+<li>Set the <strong>Authorized redirect URIs</strong> to the Dex URL provided by your Administrators.
+This is generally <code>https://dex.$DOMAIN/callback</code>.
+If unsure, ask your Platform Administrators.</li>
+<li>Finally, securely send, e.g., via <a href="https://yopass.elastisys.com">YoPass</a>, the following information to your Platform Administrators:<ul>
+<li>client ID;</li>
+<li>client secret.</li>
+</ul>
+</li>
+</ol>
+<p>To set up groups follow these steps, note that steps 16-18 below can only be done by an administrator.</p>
+<!-- The sane_lists Markdown extension will make sure the list starts from 11. -->
+
+<ol start="11">
+<li>Go to <a href="https://console.cloud.google.com/iam-admin/serviceaccounts?orgonly=true">Google Cloud -- Service accounts</a>.</li>
+<li>Make sure that you are in the same project that you created previously (see top menu).</li>
+<li>Click on <strong>+ CREATE SERVICE ACCOUNT</strong> and give it a suitable name.</li>
+<li>Note down the <strong>Unique ID</strong> of the service account as you will need it soon.</li>
+<li>Go to the newly created service account and then under the <strong>KEYS</strong> tab click <strong>ADD KEY</strong> and create a new key of type <strong>JSON</strong>. Save the JSON file for the end.</li>
+<li>You need to give the service account read access to groups. Go to the <a href="https://admin.google.com">Google admin console</a>.</li>
+<li>Navigate through the menu to <strong>Security &gt; Access and data control &gt; API Controls</strong> and click <strong>Manage Domain Wide Delegation</strong> and then <strong>Add New</strong>.</li>
+<li>In the <strong>Client ID</strong> field put the <strong>Unique ID</strong> of the service account from step 4. and in the <strong>Oauth Scopes</strong> field enter this scope: <code>https://www.googleapis.com/auth/admin.directory.group.readonly</code>.</li>
+<li>Decide on the name of the Google group that should have admin privileges in the Compliant Kubernetes environment.</li>
+<li>Finally, securely send, e.g., via <a href="https://yopass.elastisys.com">YoPass</a>, the following information to your Platform Administrators:<ul>
+<li>the JSON file you downloaded;</li>
+<li>admin group you decided on.</li>
+</ul>
+</li>
+</ol>
+<h3 id="further-reading_1">Further Reading<a class="headerlink" href="#further-reading_1" title="Permanent link">&para;</a></h3>
 <ul>
-<li><a href="../../../user-guide/delegation/">How to Delegate</a></li>
-<li><a href="../../../user-guide/demarcation/">Demarcation</a></li>
+<li><a href="https://dexidp.io/docs/connectors/google/">Dex: Authentication Through Google</a></li>
+<li><a href="https://developers.google.com/identity/openid-connect/openid-connect">Google Identity: OpenID Connect</a></li>
 </ul>
-<h2 id="bsi-it-grundschutz-app44a5"><span class="md-tag">BSI IT-Grundschutz APP.4.4.A5</span><a class="headerlink" href="#bsi-it-grundschutz-app44a5" title="Permanent link">&para;</a></h2>
+<h2 id="openid-providers">OpenID Providers<a class="headerlink" href="#openid-providers" title="Permanent link">&para;</a></h2>
+<p>Compliant Kubernetes should be compatible with any OpenID provider, although full compatibility cannot be guaranteed.</p>
+<p>The general instructions are as follows:</p>
+<ol>
+<li>Check that your IdP is OpenID compatible. You can check this by pointing your browser to: <code>https://$YOUR_IDP_DOMAIN/.well-known/openid-configuration</code>. If you get a well-formed JSON page, then your provider is OpenID compatible.</li>
+<li>Register an application with your OpenID provider. The callback or redirect URL is provided by your Administrators.
+This is generally <code>https://dex.$DOMAIN/callback</code>.</li>
+<li>Allow at least the following scopes: <code>openid</code>, <code>email</code>, <code>groups</code>, <code>profile</code>.</li>
+<li>Securely send, e.g., via <a href="https://yopass.elastisys.com">YoPass</a>, the following information to your Platform Administrators:<ul>
+<li>the IdP domain, i.e., <code>$YOUR_IDP_DOMAIN</code> which you used in step 1;</li>
+<li>client ID;</li>
+<li>client secret.</li>
+</ul>
+</li>
+</ol>
+<h3 id="further-reading_2">Further Reading<a class="headerlink" href="#further-reading_2" title="Permanent link">&para;</a></h3>
 <ul>
-<li><a href="../../backup/">Backup Dashboard</a></li>
-<li><a href="../../../user-guide/backup/">Backups</a></li>
+<li><a href="https://dexidp.io/docs/connectors/oidc/">Dex: Authentication Through and OpenID Connect Provider</a></li>
+<li><a href="https://docs.gitlab.com/ee/integration/openid_connect_provider.html">GitLab as OpenID Connect identity provider</a></li>
+<li><a href="https://jumpcloud.com/support/sso-with-oidc">JumpCloud: SSO with OIDC</a></li>
 </ul>
-<h2 id="bsi-it-grundschutz-app44a7"><span class="md-tag">BSI IT-Grundschutz APP.4.4.A7</span><a class="headerlink" href="#bsi-it-grundschutz-app44a7" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="../../../user-guide/network-model/">Network Model</a></li>
-<li><a href="../../../user-guide/safeguards/enforce-networkpolicies/">Enforce NetworkPolicies</a></li>
-</ul>
-<h2 id="bsi-it-grundschutz-app44a10"><span class="md-tag">BSI IT-Grundschutz APP.4.4.A10</span><a class="headerlink" href="#bsi-it-grundschutz-app44a10" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="../../../user-guide/ci-cd/">CI/CD</a></li>
-</ul>
-<h2 id="bsi-it-grundschutz-app44a13"><span class="md-tag">BSI IT-Grundschutz APP.4.4.A13</span><a class="headerlink" href="#bsi-it-grundschutz-app44a13" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="../../../operator-manual/on-prem-standard/">Standard Template for on-prem Environment</a></li>
-<li><a href="../../../user-guide/safeguards/">Overview</a></li>
-</ul>
-<h2 id="bsi-it-grundschutz-app44a14"><span class="md-tag">BSI IT-Grundschutz APP.4.4.A14</span><a class="headerlink" href="#bsi-it-grundschutz-app44a14" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="../../../adr/0022-use-dedicated-nodes-for-additional-services/">Use Dedicated Nodes for Additional Services</a></li>
-</ul>
-<h2 id="bsi-it-grundschutz-app44a15"><span class="md-tag">BSI IT-Grundschutz APP.4.4.A15</span><a class="headerlink" href="#bsi-it-grundschutz-app44a15" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="../../../user-guide/how-many-environments/">How many environments?</a></li>
-</ul>
-<h2 id="bsi-it-grundschutz-app44a16"><span class="md-tag">BSI IT-Grundschutz APP.4.4.A16</span><a class="headerlink" href="#bsi-it-grundschutz-app44a16" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="../../../user-guide/additional-services/">Overview</a></li>
-</ul>
-<h2 id="bsi-it-grundschutz-app44a18"><span class="md-tag">BSI IT-Grundschutz APP.4.4.A18</span><a class="headerlink" href="#bsi-it-grundschutz-app44a18" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="../../../user-guide/network-model/">Network Model</a></li>
-<li><a href="../../../user-guide/safeguards/enforce-networkpolicies/">Enforce NetworkPolicies</a></li>
-</ul>
-<h2 id="bsi-it-grundschutz-app44a21"><span class="md-tag">BSI IT-Grundschutz APP.4.4.A21</span><a class="headerlink" href="#bsi-it-grundschutz-app44a21" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="../../../operator-manual/maintenance/">Maintenance</a></li>
-<li><a href="../../../user-guide/prepare-application/">Prepare Your Application</a></li>
-</ul>
-<h2 id="other-it-grundschutz-controls">Other IT-Grundschutz Controls<a class="headerlink" href="#other-it-grundschutz-controls" title="Permanent link">&para;</a></h2>
-<h3 id="app44a17-attestierung-von-nodes-h">APP.4.4.A17 Attestierung von Nodes (H)<a class="headerlink" href="#app44a17-attestierung-von-nodes-h" title="Permanent link">&para;</a></h3>
-<p>The Kubespray layer in Compliant Kubernetes ensures that Data Plane Nodes and Control Plane Nodes are mutually authenticated via mutual TLS.</p>
-<h2 id="bsi-it-grundschutz-controls-outside-the-scope-of-compliant-kubernetes">BSI IT-Grundschutz Controls outside the scope of Compliant Kubernetes<a class="headerlink" href="#bsi-it-grundschutz-controls-outside-the-scope-of-compliant-kubernetes" title="Permanent link">&para;</a></h2>
-<p>Pending official translation into English, the controls are written in German.</p>
-<h3 id="app44a6-initialisierung-von-pods-s">APP.4.4.A6 Initialisierung von Pods (S)<a class="headerlink" href="#app44a6-initialisierung-von-pods-s" title="Permanent link">&para;</a></h3>
-<p>Application Developers must make sure that initialization happens in <a href="https://kubernetes.io/docs/concepts/workloads/pods/init-containers/">init containers</a>.</p>
-<h3 id="app44a11-uberwachung-der-container-s">APP.4.4.A11 Überwachung der Container (S)<a class="headerlink" href="#app44a11-uberwachung-der-container-s" title="Permanent link">&para;</a></h3>
-<p>Application Developers must ensure that their application has a liveliness and readiness probe, which are configured in the Deployment. This is illustrated by our <a href="https://github.com/elastisys/compliantkubernetes/blob/main/user-demo/deploy/ck8s-user-demo/templates/deployment.yaml">user demo</a>.</p>
-<h3 id="app44a12-absicherung-der-infrastruktur-anwendungen-s">APP.4.4.A12 Absicherung der Infrastruktur-Anwendungen (S)<a class="headerlink" href="#app44a12-absicherung-der-infrastruktur-anwendungen-s" title="Permanent link">&para;</a></h3>
-<p>This requirement essentially states that the Compliant Kubernetes environments are only as secure as the infrastructure around them. Make sure you have a proper IT policy in place. Regularly review the systems where you store backups and configuration of Compliant Kubernetes.</p>
-<h3 id="app44a20-verschlusselte-datenhaltung-bei-pods-h">APP.4.4.A20 Verschlüsselte Datenhaltung bei Pods (H)<a class="headerlink" href="#app44a20-verschlusselte-datenhaltung-bei-pods-h" title="Permanent link">&para;</a></h3>
-<p>Compliant Kubernetes recommends disk encryption to be provided at the infrastructure level. If you have this requirement, check for full-disk encryption via the <a href="../../../operator-manual/provider-audit/">provider audit</a>.</p>
 
 
 
@@ -2522,10 +2410,10 @@ if(!document.__defineGetter__) {
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.tabs.link", "navigation.top"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.tabs.link", "navigation.top"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
       
     
   </body>

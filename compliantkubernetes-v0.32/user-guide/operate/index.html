@@ -548,6 +548,20 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
+      <a href="../prepare-idp/" class="md-nav__link">
+        Prepare Your Identity Provider (IdP)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../registry/" class="md-nav__link">
         Container registry
       </a>
@@ -2333,7 +2347,7 @@ if(!document.__defineGetter__) {
 <h2 id="automate-with-cicd">Automate with CI/CD<a class="headerlink" href="#automate-with-cicd" title="Permanent link">&para;</a></h2>
 <p>Elastisys Compliant Kubernetes currently does not dictate or recommend any particular CI/CD solution over any other. It is, however, easy to integrate with various CI/CD solutions, such as GitHub Actions.</p>
 <p>The basic steps for a generic push-style CI/CD solution (such as GitHub Actions) are to:</p>
-<ol>
+<ol start="0">
 <li>Create a limited <code>Role</code>, that has the least possible privileges required to deploy your application.</li>
 <li>Create a <code>ServiceAccount</code> and binding to the role created earlier via a <code>RoleBinding</code>, granting it the permissions needed for deploying the application.</li>
 <li>Getting the token for the ServiceAccount, so you can craft a <code>KUBECONFIG</code> to use with <code>kubectl</code> or <code>helm</code> in your CI/CD solution.</li>
