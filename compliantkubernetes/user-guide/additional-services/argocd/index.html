@@ -2179,6 +2179,11 @@ if(!document.__defineGetter__) {
 <p>You can order Managed Argo™ CD by filing a <a href="https://elastisys.atlassian.net/servicedesk/customer/portals">service ticket</a>.</p>
 <p>This is a preview feature. For more information, please read <a href="https://elastisys.com/legal/terms-of-service/#91-preview-features">ToS 9.1 Preview Features</a>.</p>
 </div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You cannot ask Argo CD to create a Namespace. This also means that you cannot template the Namespace in ApplicationSets.</p>
+<p>Why? See <a href="../../../adr/0042-argocd-dynamic-hnc-namespaces/">ADR-0042</a></p>
+</div>
 <figure>
     <img alt="Argo CD Deployment Model" src="../img/argocd.drawio.svg" >
     <figcaption>

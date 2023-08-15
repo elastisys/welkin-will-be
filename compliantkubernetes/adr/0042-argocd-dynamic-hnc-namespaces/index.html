@@ -21,7 +21,7 @@
     
     
       
-        <title>ArgoCD with dynamic hnc namespaces - Elastisys Compliant Kubernetes</title>
+        <title>ArgoCD with dynamic HNC namespaces - Elastisys Compliant Kubernetes</title>
       
     
     
@@ -159,7 +159,7 @@ if(!document.__defineGetter__) {
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ArgoCD with dynamic hnc namespaces
+              ArgoCD with dynamic HNC namespaces
             
           </span>
         </div>
@@ -2103,7 +2103,7 @@ if(!document.__defineGetter__) {
   
 
 
-<h1 id="argocd-with-dynamic-hnc-namespaces">ArgoCD with dynamic hnc namespaces<a class="headerlink" href="#argocd-with-dynamic-hnc-namespaces" title="Permanent link">&para;</a></h1>
+<h1 id="argocd-with-dynamic-hnc-namespaces">ArgoCD with dynamic HNC namespaces<a class="headerlink" href="#argocd-with-dynamic-hnc-namespaces" title="Permanent link">&para;</a></h1>
 <ul>
 <li>Status: accepted</li>
 <li>Deciders: product owner, DX, GoTo</li>
@@ -2111,73 +2111,69 @@ if(!document.__defineGetter__) {
 </ul>
 <h2 id="context-and-problem-statement">Context and Problem Statement<a class="headerlink" href="#context-and-problem-statement" title="Permanent link">&para;</a></h2>
 <p>Argo CD cannot create HNC namespaces and deploy services into them.
-Our current Argo offering is a namespaced installation where a cronjob patches the cluster <a href="https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#clusters">secret</a> with the list of managed namespaces every minute.
-So, when a user tries to create an Application and if part of it is a namespace and service to be deployed into the namespace.
-As the new <strong>Not yet created/patched to the cluster secret</strong> namespace is not managed, Argo CD fails at the comparison stage.</p>
+Our current Argo offering is a namespaced installation where a CronJob patches the cluster <a href="https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#clusters">secret</a> with the list of managed Namespaces every minute.
+An issue occurs when an Application Developer tries to create an Application which also includes a Namespace.
+As the new <strong>not yet created/patched to the cluster secret</strong> namespace is not managed, Argo CD fails at the comparison stage.</p>
 <p>Currently, upstream ArgoCD is unaware of HNC resources, and does not give subnamespaces the needed precedence, read more <a href="https://argo-cd.readthedocs.io/en/stable/user-guide/sync-waves/#how-does-it-work">here</a>.
-The cluster secret that takes a list of managed namespaces, does not take a regular expression, so it is hard for Application developers to create namespaces as part of an Application.</p>
-<p>So, do we want to let customers create and delete subnamespaces dynamically via Argo CD?
+The cluster secret that takes a list of managed namespaces, does not take a regular expression, so it is hard for Application Developers to create namespaces as part of an Application.</p>
+<p>So, do we want to let Application Developer create and delete subnamespaces dynamically via Argo CD?
 If yes, how?</p>
 <h2 id="decision-drivers">Decision Drivers <!-- optional --><a class="headerlink" href="#decision-drivers" title="Permanent link">&para;</a></h2>
 <ul>
 <li>We want to maintain platform security and stability.</li>
-<li>We want to find a solution which is scalable and minimizes MSE burden.</li>
-<li>We want to best serve our customers.</li>
+<li>We want to find a solution which is scalable and minimizes Platform Administrator burden.</li>
+<li>We want to best serve our Application Developers.</li>
 <li>We want to make the operator life easier.</li>
 </ul>
 <h2 id="considered-options">Considered Options<a class="headerlink" href="#considered-options" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Wait for the Argo Project to integrate better with HNC and ask customers to only create subnamespaces manually until this is fixed upstream.</li>
-</ul>
-<ol>
-<li>Good, We are inline with how upstream Argo is built.</li>
-<li>Bad, This will not give customers a smooth gitops experience</li>
-<li>Bad, Makes it hard to use ApplicationSets to dynamically create Applications on new namespaces.</li>
-</ol>
-<ul>
-<li>Use OPA to restrict operations on our namespaces and give customers the ability to create/delete namespaces ?</li>
-</ul>
-<ol>
-<li>Giving Application developers access to create/delete namespaces has been a no-go since the beginning of compliantkubernetes for various security reasons.</li>
-<li>Building OPA policies to restrict operations on namespaces, would takes away from how community does things and makes it hard for us to pivot to new big changes in the future.</li>
-</ol>
-<ul>
-<li>To deploy all the Applications into one big namespace.</li>
-</ul>
-<ol>
-<li>Proposing developers to deploy different versions of their components within the same namespace goes against the goal of achieving separation and isolation through namespaces.</li>
-</ol>
-<ul>
-<li>Sync Waves and Phases</li>
-</ul>
-<ol>
-<li>Investigated this, found that sync waves are not a solution in this case, as the reconciliation is failing at the comparison stage which happens before sync waves are executed.</li>
-</ol>
-<ul>
-<li>Test to see if ArgoCD accepts regex in cluster secret</li>
-</ul>
-<ol>
-<li>Investigated this, found that the secret does not accept wildcards or regex. See the open issue <a href="https://github.com/argoproj/argo-cd/issues/10054#issue-1310861246">here</a></li>
-</ol>
-<ul>
-<li>Setup ArgoCD cluster-wide installation.</li>
-</ul>
 <ol>
 <li>
-<p>Cluster wide installation would give Argo a lot of permissions and right now, there is no good solution to stop Argo from deploying applications into our system namespaces such as falco, gatekeeper-system etc, Assuming that one needs to use a wildcard as destinations in ArgoCD projects.</p>
+<p>Wait for the Argo Project to integrate better with HNC and ask customers to only create subnamespaces manually until this is fixed upstream.</p>
+<ul>
+<li>Good, because we are inline with how upstream Argo is built.</li>
+<li>Bad, because this will not give customers a smooth GitOps experience.</li>
+<li>Bad, because it makes it hard to use ApplicationSets to dynamically create Applications on new namespaces.</li>
+</ul>
 </li>
 <li>
-<p>Even if ArgoCD is installed clusterwide, When ArgoCD syncs by kind it does not prioritize subnamespaces first. See <a href="https://github.com/argoproj/gitops-engine/blob/bc9ce5764fa306f58cf59199a94f6c968c775a2d/pkg/sync/sync_tasks.go#L27-L66">here</a></p>
+<p>Use OPA to restrict operations on our namespaces and give customers the ability to create/delete namespaces?</p>
+<ul>
+<li>Bad, because giving Application developers access to create/delete namespaces has been a no-go since the beginning of compliantkubernetes for various security reasons.</li>
+<li>Bad, because building OPA policies to restrict operations on namespaces, would takes away from how community does things and makes it hard for us to pivot to new big changes in the future.</li>
+</ul>
 </li>
 <li>
-<p>This would also require us to build a lot of OPA policies and later makes it hard to pivot to new ways.</p>
+<p>To deploy all the Applications into one big namespace.</p>
+<ul>
+<li>Bad, because proposing developers to deploy different versions of their components within the same namespace goes against the goal of achieving separation and isolation through namespaces.</li>
+</ul>
+</li>
+<li>
+<p>Sync Waves and Phases.</p>
+<ul>
+<li>We investigated this, but found that sync waves are not a solution in this case, as the reconciliation is failing at the comparison stage which happens before sync waves are executed.</li>
+</ul>
+</li>
+<li>
+<p>Test to see if ArgoCD accepts regex in cluster secret.</p>
+<ul>
+<li>We investigated this, but found that the secret does not accept wildcards or regex. See the open issue <a href="https://github.com/argoproj/argo-cd/issues/10054#issue-1310861246">here</a>.</li>
+</ul>
+</li>
+<li>
+<p>Setup Argo CD cluster-wide installation.</p>
+<ul>
+<li>Bad, because cluster-wide installation would give Argo a lot of permissions and right now, there is no good solution to stop Argo from deploying applications into our system namespaces such as falco, gatekeeper-system, etc., assuming that one needs to use a wildcard as destinations in ArgoCD projects.</li>
+<li>Bad, because even if Argo CD is installed cluster-wide, When ArgoCD syncs by kind, it does not prioritize subnamespaces first. See <a href="https://github.com/argoproj/gitops-engine/blob/bc9ce5764fa306f58cf59199a94f6c968c775a2d/pkg/sync/sync_tasks.go#L27-L66">here</a>.</li>
+<li>Bad, because this would also require us to build a lot of OPA policies and later makes it hard to pivot to new ways.</li>
+</ul>
 </li>
 </ol>
 <h2 id="decision-outcome">Decision Outcome<a class="headerlink" href="#decision-outcome" title="Permanent link">&para;</a></h2>
-<p>The Decision is to let the ArgoCD project adopt practices around HNC and until then,</p>
+<p>The decision is to let the Argo CD project adopt practices around HNC. Until then:</p>
 <ul>
-<li>Customers need to create subnamespaces manually and deploy applications into it.</li>
-<li>Customers cannot template the namespace as a value in their manifests.</li>
+<li>Application Developers need to create subnamespaces manually and deploy applications into it.</li>
+<li>Application Developers cannot template the namespace as a value in their manifests.</li>
 </ul>
 
 
