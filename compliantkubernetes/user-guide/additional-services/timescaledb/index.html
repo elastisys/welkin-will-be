@@ -2287,7 +2287,7 @@ This is not usually a problem for collecting application specific metrics, since
 <p>Due to very different performance-tuning characteristics, Timescale and PostgreSQL databases should never run on the same PostgreSQL cluster.
 To comply with this, it is essential that every PostgreSQL database that gets created on the PostgreSQL cluster also has the Timescale extension created for it.</p>
 </div>
-<p>If you want to use TimescaleDB on your Compliant Kubernetes cluster, ask your administrator to <a href="./#provision-a-new-postgresql-cluster">provision a new standard PostgreSQL cluster</a> inside your Compliant Kubernetes environment. Then set up the TimescaleDB extension.</p>
+<p>If you want to use TimescaleDB on your Compliant Kubernetes cluster, ask your administrator to provision a new PostgreSQL cluster inside your Compliant Kubernetes environment. Then set up the TimescaleDB extension.</p>
 <h2 id="install-prerequisites">Install Prerequisites<a class="headerlink" href="#install-prerequisites" title="Permanent link">&para;</a></h2>
 <p>Before continuing, make sure you have access to the Kubernetes API, as describe <a href="../../prepare/">here</a>.</p>
 <p>Make sure to install the PostgreSQL client on your workstation. On Ubuntu, this can be achieved as follows:</p>

@@ -2287,7 +2287,7 @@ The audit logs cover calls to the Kubernetes API, specifically <strong>who</stro
 <ul>
 <li>A.9.2.1 User Registration and Deregistration</li>
 </ul>
-<p>Many data protection regulation will require you to <a href="http://localhost:8000/compliantkubernetes/adr/0005-use-individual-ssh-keys/">individually identify administrators</a>, hence individual SSH keys. This allows you to individually identify administrators in the SSH access log.</p>
+<p>Many data protection regulation will require you to <a href="../../adr/0005-use-individual-ssh-keys/">individually identify administrators</a>, hence individual SSH keys. This allows you to individually identify administrators in the SSH access log.</p>
 </div>
 <h2 id="audit-logs-for-additional-services">Audit Logs for Additional Services<a class="headerlink" href="#audit-logs-for-additional-services" title="Permanent link">&para;</a></h2>
 <p>The Kubernetes Audit Logs capture user access to additional services, i.e., <code>kubectl exec</code> or <code>kubectl port-forward</code> commands. Additional services usually do not have audit logging enabled, since that generates a lot of log entries. Too often the extra bandwidth, storage capacity, performance loss comes with little benefit to data security.</p>
