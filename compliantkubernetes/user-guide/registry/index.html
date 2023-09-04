@@ -563,6 +563,13 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
+  <a href="#create-tag-retention-rules" class="md-nav__link">
+    Create Tag Retention Rules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#further-reading" class="md-nav__link">
     Further reading
   </a>
@@ -2256,6 +2263,13 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
+  <a href="#create-tag-retention-rules" class="md-nav__link">
+    Create Tag Retention Rules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#further-reading" class="md-nav__link">
     Further reading
   </a>
@@ -2365,6 +2379,45 @@ docker<span class="w"> </span>push<span class="w"> </span>harbor.<span class="nv
 
 <h2 id="user-access">User access<a class="headerlink" href="#user-access" title="Permanent link">&para;</a></h2>
 <p>If OIDC was enabled (e.g. DeX) your Harbor user will be created when you first login to the web interface. That user will not have admin privileges, if you need admin rights please contact the administrator by opening a support ticket.</p>
+<h2 id="create-tag-retention-rules">Create Tag Retention Rules<a class="headerlink" href="#create-tag-retention-rules" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Elastisys recommends that you use tag retention.</p>
+</div>
+<p>Over time the number of artifacts in a repository can rapidly accumulate and can become difficult to manage them and remove the ones that might not be required after a given time, not to mention that they will use large quantities of storage.
+To address this problem Harbor offers the possibility for the application developers that are Harbor system administrators to define rules that govern how many artifacts of a given repository to retain, or for how long to retain certain artifacts. You can create several rules and specify which repositories and tags they apply to.</p>
+<p>The available options:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th style="text-align: center;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>retain the most recently pushed # artifacts</td>
+<td style="text-align: center;">Enter the maximum number of artifacts to retain, keeping the ones that have been pushed most recently. There is no maximum age for an artifact.</td>
+</tr>
+<tr>
+<td>retain the most recently pulled # artifacts</td>
+<td style="text-align: center;">Enter the maximum number of artifacts to retain, keeping only the ones that have been pulled recently. There is no maximum age for an artifact.</td>
+</tr>
+<tr>
+<td>retain the artifacts pushed within the last # days</td>
+<td style="text-align: center;">Enter the number of days to retain artifacts, keeping only the ones that have been pushed during this period. There is no maximum number of artifacts.</td>
+</tr>
+<tr>
+<td>retain the artifacts pulled within the last # days</td>
+<td style="text-align: center;">Enter the number of days to retain artifacts, keeping only the ones that have been pulled during this period. There is no maximum number of artifacts.</td>
+</tr>
+<tr>
+<td>retain always</td>
+<td style="text-align: center;">Always retain the artifacts identified by this rule.</td>
+</tr>
+</tbody>
+</table>
+<p>For instruction and examples on how to set Tag Retention Rules, please visit the <a href="https://goharbor.io/docs/2.8.0/working-with-projects/working-with-images/create-tag-retention-rules/">Harbor documentation</a>.</p>
 <h2 id="further-reading">Further reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
 <p>For more information please refer to the official <a href="https://goharbor.io/docs/2.0.0/">Harbor</a>, <a href="https://github.com/aquasecurity/trivy">Trivy</a>, <a href="https://www.openpolicyagent.org/docs/latest/">Open Policy Agent</a> and <a href="https://github.com/open-policy-agent/gatekeeper">Gatekeeper</a> documentation.</p>
 
