@@ -2592,19 +2592,22 @@ if(!document.__defineGetter__) {
 </code></pre></div>
 <h3 id="is-rook-doing-fine">Is Rook doing fine?<a class="headerlink" href="#is-rook-doing-fine" title="Permanent link">&para;</a></h3>
 <p>If Rook is installed, is Rook doing fine? You should see <code>HEALTH_OK</code>.</p>
-<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>-n<span class="w"> </span>rook-ceph<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>./compliantkubernetes-kubespray/rook/toolbox-deploy.yaml
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_KUBESPRAY_PATH</span><span class="o">=</span>/path/to/compliantkubernetes-kubespray
 
-./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>-n<span class="w"> </span>rook-ceph<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>deploy/rook-ceph-tools<span class="w"> </span>--<span class="w"> </span>ceph<span class="w"> </span>status<span class="err">&#39;</span>
+./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>-n<span class="w"> </span>rook-ceph<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span><span class="nv">$CK8S_KUBESPRAY_PATH</span>/rook/toolbox-deploy.yaml
 </code></pre></div>
+<p>Once the pod is Ready run:
+<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>-n<span class="w"> </span>rook-ceph<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>deploy/rook-ceph-tools<span class="w"> </span>--<span class="w"> </span>ceph<span class="w"> </span>status
+</code></pre></div></p>
 <h3 id="are-kubernetes-pods-doing-fine">Are Kubernetes Pods doing fine?<a class="headerlink" href="#are-kubernetes-pods-doing-fine" title="Permanent link">&para;</a></h3>
 <p>Pods should be <code>Running</code> or <code>Completed</code>, and fully <code>Ready</code> (e.g., <code>1/1</code> or <code>6/6</code>)?</p>
-<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>get<span class="w"> </span>--all-namespaces<span class="w"> </span>pods<span class="err">&#39;</span>
+<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>get<span class="w"> </span>--all-namespaces<span class="w"> </span>pods
 </code></pre></div>
 <p>Are all Deployments fine? Deployments should show all Pods Ready, Up-to-date and Available (e.g., <code>2/2 2 2</code>).</p>
-<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>get<span class="w"> </span>--all-namespaces<span class="w"> </span>deployments<span class="err">&#39;</span>
+<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>get<span class="w"> </span>--all-namespaces<span class="w"> </span>deployments
 </code></pre></div>
 <p>Are all DaemonSets fine? DaemonSets should show as many Pods Desired, Current, Ready and Up-to-date, as Desired.</p>
-<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>get<span class="w"> </span>--all-namespaces<span class="w"> </span>ds<span class="err">&#39;</span>
+<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>get<span class="w"> </span>--all-namespaces<span class="w"> </span>ds
 </code></pre></div>
 <h3 id="are-helm-releases-fine">Are Helm Releases fine?<a class="headerlink" href="#are-helm-releases-fine" title="Permanent link">&para;</a></h3>
 <p>All Releases should be <code>deployed</code>.</p>
