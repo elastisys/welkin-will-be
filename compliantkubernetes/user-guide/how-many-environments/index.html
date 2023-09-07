@@ -1583,23 +1583,37 @@ if(!document.__defineGetter__) {
   
   
   
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/controls/mdr/" class="md-nav__link">
+        MDR
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_9" >
       
       
       
-        <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
           CISO Dashboards
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_4_8">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_9">
           <span class="md-nav__icon md-icon"></span>
           CISO Dashboards
         </label>
@@ -2156,6 +2170,11 @@ if(!document.__defineGetter__) {
         <a href="../../ciso-guide/controls/bsi-it-grundschutz#bsi-it-grundschutz-app44a15" class="md-tag">BSI IT-Grundschutz APP.4.4.A15</a>
       
     
+      
+      
+        <a href="../../ciso-guide/controls/mdr#mdr-annex-vi-udi-related" class="md-tag">MDR Annex VI UDI-related</a>
+      
+    
   </nav>
 
 
@@ -2164,12 +2183,19 @@ if(!document.__defineGetter__) {
   
 
 
+<div class="admonition elastisys">
+<p class="admonition-title">For Elastisys Managed Services Customers</p>
+<p>You can order a new environment by filing a <a href="https://elastisys.atlassian.net/servicedesk/customer/portals">service ticket</a>.</p>
+<p>If you have multiple Environments, and one or more have been clearly designated to be non-production Environments, Elastisys will apply major and minor updates to your non-production Environment(s) at least five working days before applying said update to your production Environment(s).</p>
+<p>For more information, please read <a href="https://elastisys.com/legal/terms-of-service/#35-updates-and-upgrades">ToS 3.5 Updates and Upgrades</a>.</p>
+</div>
 <p>Compliant Kubernetes recommends to setting up at least two separate environments: one for testing and one for production.</p>
 <hr />
 <h1 id="how-many-environments">How Many Environments?<a class="headerlink" href="#how-many-environments" title="Permanent link">&para;</a></h1>
 <p>Many regulations require strict separation between testing and production environments.
-In particular, production data should not be compromised, no matter what happens in testing environments.
-Therefore, Compliant Kubernetes recommends setting up <strong>at least two environments</strong>:</p>
+In particular, production data should not be compromised, no matter what happens in testing environments.</p>
+<p>Similarly, some regulations -- such as Medical Devices Regulation (MDR) -- require you to take a risk-based approach to changing the tech stack. Depending on your risk assessment, this implies verifying changes in a non-production environment before going into production.</p>
+<p>Therefore, Compliant Kubernetes recommends setting up <strong>at least two environments</strong>:</p>
 <ul>
 <li>staging;</li>
 <li>production.</li>
