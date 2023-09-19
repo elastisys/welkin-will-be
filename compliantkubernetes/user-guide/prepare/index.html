@@ -82,7 +82,7 @@ if(!document.__defineGetter__) {
 <meta content="#2b5797" name="msapplication-TileColor"/>
 <meta content="https://elastisys.io/compliantkubernetes/img/browserconfig.xml?v=1" name="msapplication-config"/>
 <meta content="#ffffff" name="theme-color"/>
-<link href="../../assets/stylesheets/extra-style.ozezcm8m.min.css" rel="stylesheet"/></head>
+<link href="../../assets/stylesheets/extra-style.9_n_dbho.min.css" rel="stylesheet"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="elastisys" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -885,7 +885,7 @@ if(!document.__defineGetter__) {
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="https://elastisys.com/privacy-policy/">
+<a class="md-nav__link" href="https://elastisys.com/legal/privacy-policy/">
         Privacy Policy
       </a>
 </li>
@@ -962,7 +962,7 @@ if(!document.__defineGetter__) {
 </ul>
 <p>Your cluster management software of choice, of which you can choose either or both:</p>
 <ul>
-<li><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">kubectl</a>, a command-line tool to help manage your Kubernetes resources</li>
+<li><a href="https://kubernetes.io/docs/tasks/tools/">kubectl</a>, a command-line tool to help manage your Kubernetes resources</li>
 <li><a href="https://github.com/MuhammedKalkan/OpenLens/releases">OpenLens</a>, a graphical user interface to help manage your Kubernetes resources (see also our <a href="../kubernetes-ui/">dedicated page on Lens integration</a>)</li>
 </ul>
 <p>Optional, but very useful, tools for developers and DevOps engineers:</p>
@@ -1010,7 +1010,7 @@ curl<span class="w"> </span>--insecure<span class="w"> </span>--head<span class=
 <p>There are additional safeguards in place that reflect the security posture of Elastisys Compliant Kubernetes that impact your application. These prevent users from doing potentially unsafe things. In particular, users are not allowed to:</p>
 <ul>
 <li>change the Kubernetes API through <a href="https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/">CustomResourceDefinitions</a> or <a href="https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/#what-are-admission-webhooks">Dynamic Webhooks</a>;</li>
-<li>gain more container execution permissions by mutating <a href="https://kubernetes.io/docs/concepts/policy/pod-security-policy/">PodSecurityPolicies</a>; this implies that you cannot run container images as root or mount <a href="https://kubernetes.io/docs/concepts/storage/volumes/#hostpath">hostPaths</a>;</li>
+<li>gain more container execution permissions by mutating <a href="https://kubernetes.io/docs/concepts/security/pod-security-policy/">PodSecurityPolicies</a>; this implies that you cannot run container images as root or mount <a href="https://kubernetes.io/docs/concepts/storage/volumes/#hostpath">hostPaths</a>;</li>
 <li>mutate ClusterRoles or Roles so as to <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/#privilege-escalation-prevention-and-bootstrapping">escalate privileges</a>;</li>
 <li>mutate Kubernetes resources in administrator-owned namespaces, such as <code>monitoring</code> or <code>kube-system</code>;</li>
 <li>re-configure system Pods, such as Prometheus or fluentd;</li>

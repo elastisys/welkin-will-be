@@ -82,7 +82,7 @@ if(!document.__defineGetter__) {
 <meta content="#2b5797" name="msapplication-TileColor"/>
 <meta content="https://elastisys.io/compliantkubernetes/img/browserconfig.xml?v=1" name="msapplication-config"/>
 <meta content="#ffffff" name="theme-color"/>
-<link href="../../assets/stylesheets/extra-style.ozezcm8m.min.css" rel="stylesheet"/></head>
+<link href="../../assets/stylesheets/extra-style.9_n_dbho.min.css" rel="stylesheet"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="elastisys" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -900,7 +900,7 @@ if(!document.__defineGetter__) {
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="https://elastisys.com/privacy-policy/">
+<a class="md-nav__link" href="https://elastisys.com/legal/privacy-policy/">
         Privacy Policy
       </a>
 </li>
@@ -961,8 +961,8 @@ if(!document.__defineGetter__) {
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <nav class="md-tags">
-<a class="md-tag" href="../../ciso-guide/controls/hipaa#hipaa-s47-access-control-encryption-and-decryption-164312a2iv">HIPAA S47 - Access Control - Encryption and Decryption - § 164.312(a)(2)(iv)</a>
-<a class="md-tag" href="../../ciso-guide/controls/msbfs-20207#msbfs-20207-4-kap-7">MSBFS 2020:7 4 kap. 7 §</a>
+<a class="md-tag" href="../../ciso-guide/controls/hipaa/#hipaa-s47-access-control-encryption-and-decryption-164312a2iv">HIPAA S47 - Access Control - Encryption and Decryption - § 164.312(a)(2)(iv)</a>
+<a class="md-tag" href="../../ciso-guide/controls/msbfs-20207/#msbfs-20207-4-kap-7">MSBFS 2020:7 4 kap. 7 §</a>
 </nav>
 <h1 id="application-developer-faq">Application Developer FAQ<a class="headerlink" href="#application-developer-faq" title="Permanent link">¶</a></h1>
 <h2 id="why-cant-i-kubectl-run">Why can't I <code>kubectl run</code>?<a class="headerlink" href="#why-cant-i-kubectl-run" title="Permanent link">¶</a></h2>
@@ -1064,7 +1064,7 @@ Here is an example command (please replace the <code>$MY_HARBOR_IMAGE</code>):</
 <p>Non-option 2: Let admins type the encryption key on the VM's console. Asking admins to do this is time-consuming, error-prone, effectivly jeopardizing uptime. Instead, Compliant Kubernetes recommends automatic VM reboots during application "quiet times", such as at night, to ensure the OS is patched without sacrificing uptime.</p>
 </li>
 <li>
-<p>Non-option 3: Let the VM pull the encryption key via instance metadata or <a href="https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data">instance configuration</a>. This would imply storing the encryption key on the Infrastructure Provider. If the Infrastructure Provider doesn't have encryption-at-rest, then the encryption key is also stored unencrypted, likely on the same server as the VM is running. Hence, this quickly ends up being security theatre.</p>
+<p>Non-option 3: Let the VM pull the encryption key via instance metadata or <a href="https://cloudinit.readthedocs.io/en/latest/explanation/format.html#cloud-config-data">instance configuration</a>. This would imply storing the encryption key on the Infrastructure Provider. If the Infrastructure Provider doesn't have encryption-at-rest, then the encryption key is also stored unencrypted, likely on the same server as the VM is running. Hence, this quickly ends up being security theatre.</p>
 </li>
 <li>
 <p>Non-option 4: Let the VM pull the encryption key from an external location which features encryption-at-rest. This would imply that the VM needs some kind of credentials to authenticate to the external location. Again these credentials are stored unencrypted on the Infrastructure Provider, so we are back to non-option 3.</p>

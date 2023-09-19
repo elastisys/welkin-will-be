@@ -82,7 +82,7 @@ if(!document.__defineGetter__) {
 <meta content="#2b5797" name="msapplication-TileColor"/>
 <meta content="https://elastisys.io/compliantkubernetes/img/browserconfig.xml?v=1" name="msapplication-config"/>
 <meta content="#ffffff" name="theme-color"/>
-<link href="../../assets/stylesheets/extra-style.ozezcm8m.min.css" rel="stylesheet"/></head>
+<link href="../../assets/stylesheets/extra-style.9_n_dbho.min.css" rel="stylesheet"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="elastisys" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -880,7 +880,7 @@ if(!document.__defineGetter__) {
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="https://elastisys.com/privacy-policy/">
+<a class="md-nav__link" href="https://elastisys.com/legal/privacy-policy/">
         Privacy Policy
       </a>
 </li>
@@ -926,9 +926,9 @@ if(!document.__defineGetter__) {
 <p>In theory, any vanilla Kubernetes cluster can be used for Compliant Kubernetes. We suggest the <a href="https://github.com/kubernetes-sigs/kubespray">kubespray</a> way. To this end, you need:</p>
 <ul>
 <li><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Git</a></li>
-<li><a href="https://packaging.python.org/guides/installing-using-linux-tools/#installing-pip-setuptools-wheel-with-linux-package-managers">Python3 pip</a></li>
-<li><a href="https://learn.hashicorp.com/tutorials/terraform/install-cli#install-terraform">Terraform</a></li>
-<li><a href="https://ansible.com">Ansible</a></li>
+<li><a href="https://packaging.python.org/en/latest/guides/installing-using-linux-tools/">Python3 pip</a></li>
+<li><a href="https://developer.hashicorp.com/terraform/downloads">Terraform</a></li>
+<li><a href="https://ansible.com/">Ansible</a></li>
 <li><a href="https://manpages.ubuntu.com/manpages/trusty/man1/pwgen.1.html">pwgen</a></li>
 </ul>
 <p>Ansible is best installed as follows:</p>
@@ -953,7 +953,7 @@ ansible-playbook<span class="w"> </span>-e<span class="w"> </span><span class="s
 <p>Compliant Kubernetes relies on SSH for accessing nodes. If you haven't already done so, generate an SSH key as follows:</p>
 <div class="highlight"><pre><span></span><code>ssh-keygen
 </code></pre></div>
-<p>Configuration secrets in Compliant Kubernetes are encrypted using <a href="https://github.com/mozilla/sops">SOPS</a>.
+<p>Configuration secrets in Compliant Kubernetes are encrypted using <a href="https://github.com/getsops/sops">SOPS</a>.
 We currently only support using PGP when encrypting secrets.
 If you haven't already done so, generate your own PGP key as follows:</p>
 <div class="highlight"><pre><span></span><code>gpg<span class="w"> </span>--full-generate-key
