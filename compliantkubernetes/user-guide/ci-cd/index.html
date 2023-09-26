@@ -82,13 +82,13 @@ if(!document.__defineGetter__) {
 <meta content="#2b5797" name="msapplication-TileColor"/>
 <meta content="https://elastisys.io/compliantkubernetes/img/browserconfig.xml?v=1" name="msapplication-config"/>
 <meta content="#ffffff" name="theme-color"/>
-<link href="../../assets/stylesheets/extra-style.9_n_dbho.min.css" rel="stylesheet"/></head>
+<link href="../../assets/stylesheets/extra-style.as2yqfm4.min.css" rel="stylesheet"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="elastisys" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#cicd-integration">
+<a class="md-skip" href="#external-cicd-integration">
           Skip to content
         </a>
 </div>
@@ -341,10 +341,10 @@ if(!document.__defineGetter__) {
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#push-style-cicd">
-    Push-style CI/CD
+<a class="md-nav__link" href="#external-cicd">
+    External CI/CD
   </a>
-<nav aria-label="Push-style CI/CD" class="md-nav">
+<nav aria-label="External CI/CD" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#pre-verification">
@@ -382,16 +382,6 @@ if(!document.__defineGetter__) {
 <li class="md-nav__item">
 <a class="md-nav__link" href="#example-github-actions">
     Example: GitHub Actions
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#flux-v1">
-    Flux v1
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#flux-v2">
-    Flux v2
   </a>
 </li>
 </ul>
@@ -666,8 +656,18 @@ if(!document.__defineGetter__) {
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../operator-manual/clock-synchronization/">
+        Clock Synchronization
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../operator-manual/maintenance/">
         Maintenance
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../operator-manual/clean-up/">
+        Clean Up
       </a>
 </li>
 <li class="md-nav__item">
@@ -948,10 +948,10 @@ if(!document.__defineGetter__) {
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#push-style-cicd">
-    Push-style CI/CD
+<a class="md-nav__link" href="#external-cicd">
+    External CI/CD
   </a>
-<nav aria-label="Push-style CI/CD" class="md-nav">
+<nav aria-label="External CI/CD" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#pre-verification">
@@ -991,16 +991,6 @@ if(!document.__defineGetter__) {
     Example: GitHub Actions
   </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#flux-v1">
-    Flux v1
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#flux-v2">
-    Flux v2
-  </a>
-</li>
 </ul>
 </nav>
 </div>
@@ -1013,8 +1003,14 @@ if(!document.__defineGetter__) {
 <a class="md-tag" href="../../ciso-guide/controls/bsi-it-grundschutz/#bsi-it-grundschutz-app44a10">BSI IT-Grundschutz APP.4.4.A10</a>
 <a class="md-tag" href="../../ciso-guide/controls/hipaa/#hipaa-s44-access-control-unique-user-identification-164312a2i">HIPAA S44 - Access Control - Unique User Identification - § 164.312(a)(2)(i)</a>
 </nav>
-<h1 id="cicd-integration">CI/CD Integration<a class="headerlink" href="#cicd-integration" title="Permanent link">¶</a></h1>
-<p>Compliant Kubernetes does not come with a <a href="https://en.wikipedia.org/wiki/CI/CD">CI/CD</a> solution. Fortunately, it can be easily integrated with your existing CI/CD solution.</p>
+<h1 id="external-cicd-integration">External CI/CD Integration<a class="headerlink" href="#external-cicd-integration" title="Permanent link">¶</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Compliant Kubernetes comes with <a href="../additional-services/argocd/">Argo CD</a> as an Additional Service.
+Integration with an external CI/CD is non-trivial and time-consuming.
+Therefore, we only recommend to read this page if you have an existing CI/CD solution in place and determined that migrating to Argo CD is impractical.</p>
+</div>
+<p>This page discusses integration between Compliant Kubernetes and external CI/CD solutions.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Access control is an extremely important topic for passing an audit for compliance with data privacy and data security regulations. For example, Swedish patient data law requires all persons to be identified with individual credentials and that logs should capture who did what.</p>
@@ -1023,10 +1019,11 @@ if(!document.__defineGetter__) {
 <h2 id="background">Background<a class="headerlink" href="#background" title="Permanent link">¶</a></h2>
 <p><img alt="Styles of CI/CD pipelines" src="../img/ci-cd.drawio.svg"/></p>
 <p>For the purpose of Compliant Kubernetes, one can distinguish between two "styles" of CI/CD: push-style and pull-style.</p>
-<p><strong>Push-style CI/CD</strong> -- like <a href="https://docs.gitlab.com/ee/ci/">GitLab CI</a> or <a href="https://docs.github.com/en/actions">GitHub Actions</a> -- means that a commit will trigger some commands on a CI/CD worker, which will push changes into the Compliant Kubernetes cluster. The CI/CD worker generally runs outside the Kubernetes cluster. Push-style CI/CD solutions should work out-of-the-box and require no special considerations for Compliant Kubernetes.</p>
-<p><strong>Pull-styles CI/CD</strong> -- like <a href="https://argo-cd.readthedocs.io/en/stable/">ArgoCD</a> or <a href="https://fluxcd.io/">Flux</a> -- means that a special controller is installed inside the cluster, which monitors a Git repository. When a change is detected the controller "pulls" changes into the cluster from the Git repository. The special controller often requires considerable permissions and introduces a new notion of access control, which is problematic from a compliance perspective. As shown below, some pull-style CI/CD solutions can be used with Compliant Kubernetes, others not.</p>
-<h2 id="push-style-cicd">Push-style CI/CD<a class="headerlink" href="#push-style-cicd" title="Permanent link">¶</a></h2>
-<p>Push-style CI/CD works pretty much as if you would access Compliant Kubernetes from your laptop, running <code>kubectl</code> or <code>helm</code> against the cluster, as required to deploy your application. However, for improved access control, the <code>KUBECONFIG</code> provided to your CI/CD pipeline should employ a ServiceAccount which is used only by your CI/CD pipeline. This ServiceAccount should be bound to a Role which gets the least permissions possible. For example, if your application only consists of a Deployment, Service and Ingress, those should be the only resources available to the Role.</p>
+<p><strong>Push-style or external CI/CD</strong> -- like <a href="https://docs.gitlab.com/ee/ci/">GitLab CI</a> or <a href="https://docs.github.com/en/actions">GitHub Actions</a> -- means that a commit will trigger some commands on a CI/CD worker, which will push changes into the Compliant Kubernetes cluster. The CI/CD worker generally runs outside the Kubernetes cluster. Push-style CI/CD solutions should work out-of-the-box and require no special considerations for Compliant Kubernetes.</p>
+<p><strong>Pull-styles or in-cluster CI/CD</strong> -- like <a href="https://argo-cd.readthedocs.io/en/stable/">ArgoCD</a> or <a href="https://fluxcd.io/">Flux</a> -- means that a special controller is installed inside the cluster, which monitors a Git repository. When a change is detected the controller "pulls" changes into the cluster from the Git repository. The special controller often requires considerable permissions and introduces a new notion of access control, which is problematic from a compliance perspective.</p>
+<p>Below we show how to use external CI/CD solutions.</p>
+<h2 id="external-cicd">External CI/CD<a class="headerlink" href="#external-cicd" title="Permanent link">¶</a></h2>
+<p>External CI/CD works pretty much as if you would access Compliant Kubernetes from your laptop, running <code>kubectl</code> or <code>helm</code> against the cluster, as required to deploy your application. However, for improved access control, the <code>KUBECONFIG</code> provided to your CI/CD pipeline should employ a ServiceAccount which is used only by your CI/CD pipeline. This ServiceAccount should be bound to a Role which gets the least permissions possible. For example, if your application only consists of a Deployment, Service and Ingress, those should be the only resources available to the Role.</p>
 <p>To create a <code>KUBECONFIG</code> for your CI/CD pipeline, proceed as shown below.</p>
 <h3 id="pre-verification">Pre-verification<a class="headerlink" href="#pre-verification" title="Permanent link">¶</a></h3>
 <p>First, make sure you are in the right namespace on the right cluster:</p>
@@ -1110,10 +1107,6 @@ Note that, <code>KUBECONFIG</code>s -- especially the token -- <strong>must</str
 <h2 id="example-github-actions">Example: GitHub Actions<a class="headerlink" href="#example-github-actions" title="Permanent link">¶</a></h2>
 <p>Please find a concrete example for GitHub Actions <a href="https://github.com/elastisys/compliantkubernetes/blob/main/.github/workflows/user-demo.yml.example">here</a>. Below is the produced output:</p>
 <p><img alt="GitHub Actions Example Output" src="../img/github-actions-screenshot.png"/></p>
-<h2 id="flux-v1">Flux v1<a class="headerlink" href="#flux-v1" title="Permanent link">¶</a></h2>
-<p>Flux v1 is <a href="https://github.com/fluxcd/flux/issues/3320">in maintenance mode</a> and might become obsolete soon.</p>
-<h2 id="flux-v2">Flux v2<a class="headerlink" href="#flux-v2" title="Permanent link">¶</a></h2>
-<p>Flux v2 brings is own notion of access control and requires <a href="https://github.com/fluxcd/flux2-multi-tenancy#enforce-tenant-isolation">special considerations</a> to ensure it obey Compliant Kubernetes access control. Installing it can only be done by the administrator of the Compliant Kubernetes cluster, after having made a thorough risk-reward analysis. At the time of this writing, due to these special considerations, we discourage Flux v2.</p>
 </article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
