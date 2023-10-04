@@ -1,0 +1,1158 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Learn how to operate your application on Elastisys Compliant Kubernetes, the security-hardened Kubernetes distribution" name="description"/>
+<meta content="Elastisys AB" name="author"/>
+<link href="https://elastisys.io/compliantkubernetes/user-guide/operate/" rel="canonical"/>
+<link href="../deploy/" rel="prev"/>
+<link href="../prepare-application/" rel="next"/>
+<link href="https://elastisys.io/compliantkubernetes/img/favicon.ico" rel="icon"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.1.21" name="generator"/>
+<title>Step 3: Operate - Elastisys Compliant Kubernetes</title>
+<link href="../../assets/stylesheets/main.eebd395e.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ecc896b0.min.css" rel="stylesheet"/>
+<link href="../../stylesheets/branding.css" rel="stylesheet"/>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://matomo.elastisys.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '2']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+<meta content="website" property="og:type"/>
+<meta content="Step 3: Operate - Elastisys Compliant Kubernetes" property="og:title"/>
+<meta content="Learn how to operate your application on Elastisys Compliant Kubernetes, the security-hardened Kubernetes distribution" property="og:description"/>
+<meta content="https://elastisys.io/compliantkubernetes/assets/images/social/user-guide/operate.png" property="og:image"/>
+<meta content="image/png" property="og:image:type"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="https://elastisys.io/compliantkubernetes/user-guide/operate/" property="og:url"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Step 3: Operate - Elastisys Compliant Kubernetes" name="twitter:title"/>
+<meta content="Learn how to operate your application on Elastisys Compliant Kubernetes, the security-hardened Kubernetes distribution" name="twitter:description"/>
+<meta content="https://elastisys.io/compliantkubernetes/assets/images/social/user-guide/operate.png" name="twitter:image"/>
+<meta content="
+  default-src 'self';
+  style-src 'self' 'unsafe-inline';
+  img-src 'self' data:;
+  connect-src 'self' https://matomo.elastisys.com/;
+  script-src 'self' 'unsafe-inline' https://matomo.elastisys.com/;
+" http-equiv="Content-Security-Policy"/>
+<!-- Disable localStorage, sessionStorage and cookies -->
+<script>
+if (window.localStorage) {
+  window.localStorage.setItem = function() { };
+  window.localStorage.clear();
+}
+if (window.sessionStorage) {
+  window.sessionStorage.setItem = function() { }
+  window.sessionStorage.clear();
+}
+if(!document.__defineGetter__) {
+  Object.defineProperty(document, 'cookie', {
+    get: function(){return ''},
+    set: function(){return true},
+  });
+} else {
+  document.__defineGetter__("cookie", function() { return '';} );
+  document.__defineSetter__("cookie", function() {} );
+}
+</script>
+<!-- See https://realfavicongenerator.net -->
+<link href="https://elastisys.io/compliantkubernetes/img/apple-touch-icon.png?v=1" rel="apple-touch-icon" sizes="180x180"/>
+<link href="https://elastisys.io/compliantkubernetes/img/favicon-32x32.png?v=1" rel="icon" sizes="32x32" type="image/png"/>
+<link href="https://elastisys.io/compliantkubernetes/img/favicon-16x16.png?v=1" rel="icon" sizes="16x16" type="image/png"/>
+<link href="https://elastisys.io/compliantkubernetes/img/site.webmanifest?v=1" rel="manifest"/>
+<link color="#5bbad5" href="https://elastisys.io/compliantkubernetes/img/safari-pinned-tab.svg?v=1" rel="mask-icon"/>
+<link href="https://elastisys.io/compliantkubernetes/img/favicon.ico?v=1" rel="shortcut icon"/>
+<meta content="#2b5797" name="msapplication-TileColor"/>
+<meta content="https://elastisys.io/compliantkubernetes/img/browserconfig.xml?v=1" name="msapplication-config"/>
+<meta content="#ffffff" name="theme-color"/>
+<link href="../../assets/stylesheets/extra-style.a08rxxh6.min.css" rel="stylesheet"/></head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="elastisys" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#step-3-operate">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Elastisys Compliant Kubernetes" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Elastisys Compliant Kubernetes">
+<img alt="logo" src="../../img/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Elastisys Compliant Kubernetes
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Step 3: Operate
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<ul class="header-links">
+<li>
+<a href="https://github.com/elastisys/compliantkubernetes/">
+<img alt="Git logo" src="../../img/git-alt.svg" width="25px">
+</img></a>
+</li>
+<li><a class="menu-callout" href="https://elastisys.com/">Try out Managed<br/>Compliant Kubernetes</a></li>
+</ul>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Elastisys Compliant Kubernetes" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Elastisys Compliant Kubernetes">
+<img alt="logo" src="../../img/logo.png"/>
+</a>
+    Elastisys Compliant Kubernetes
+  </label>
+<div class="md-nav__source">
+<ul class="header-links">
+<li>
+<a href="https://github.com/elastisys/compliantkubernetes/">
+<img alt="Git logo" src="../../img/git-alt.svg" width="25px">
+</img></a>
+</li>
+<li><a class="menu-callout" href="https://elastisys.com/">Try out Managed<br/>Compliant Kubernetes</a></li>
+</ul>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Overview
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          For Application Developers
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          For Application Developers
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_1">
+<span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../prepare/">
+        Step 1: Prepare
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../deploy/">
+        Step 2: Deploy
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Step 3: Operate
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Step 3: Operate
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configure-dashboards-and-alerts">
+    Configure Dashboards and Alerts
+  </a>
+<nav aria-label="Configure Dashboards and Alerts" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#monitor-your-application">
+    Monitor your Application
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#alert-on-application-metrics">
+    Alert on Application Metrics
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#alert-on-log-contents">
+    Alert on Log Contents
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#test-backups-and-capacity-management">
+    Test Backups and Capacity Management
+  </a>
+<nav aria-label="Test Backups and Capacity Management" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#back-up-application-data">
+    Back up Application Data
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#capacity-management">
+    Capacity Management
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#automate-with-cicd">
+    Automate with CI/CD
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#next-step-going-deeper">
+    Next step? Going deeper!
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          Go Deeper
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+          Go Deeper
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../prepare-application/">
+        Prepare Your Application
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../prepare-idp/">
+        Prepare Your Identity Provider (IdP)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../registry/">
+        Container registry
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../continous-development/">
+        Continous Development
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../network-model/">
+        Network Model
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../kubernetes-api/">
+        Kubernetes API
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../kubernetes-ui/">
+        Kubernetes UI (Lens)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../namespaces/">
+        Namespaces
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../logs/">
+        Logs
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../log-based-alerts/">
+        Log-based Alerts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../long-term-log-retention/">
+        Long-term Log Retention
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../metrics/">
+        Metrics
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../alerts/">
+        Metric Alerts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../maintenance/">
+        Maintenance
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../backup/">
+        Backups
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ci-cd/">
+        CI/CD
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../demarcation/">
+        Demarcation
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../delegation/">
+        How to Delegate
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../how-many-environments/">
+        How many environments?
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          Safeguards
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+          Safeguards
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../safeguards/">
+        Overview
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../safeguards/enforce-no-root/">
+        Enforce No Root
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../safeguards/enforce-podsecuritypolicies/">
+        Enforce Restricted Privileges
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../safeguards/enforce-networkpolicies/">
+        Enforce NetworkPolicies
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../safeguards/enforce-resources/">
+        Enforce Resources
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../safeguards/enforce-trusted-registries/">
+        Enforce Trusted Registries
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../safeguards/enforce-no-latest-tag/">
+        Enforce No Latest Tag
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../safeguards/enforce-job-ttl/">
+        Enforce Job TTL
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+          Additional Services
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
+          Additional Services
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../additional-services/">
+        Overview
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../additional-services/postgresql/">
+        PostgreSQL
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../additional-services/timescaledb/">
+        TimescaleDB
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../additional-services/redis/">
+        Redis
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../additional-services/rabbitmq/">
+        RabbitMQ
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../additional-services/jaeger/">
+        Jaeger (preview)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../additional-services/argocd/">
+        Argo CD (preview)
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+          Self-Managed Services
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
+          Self-Managed Services
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../self-managed-services/ferretdb/">
+        FerretDB (self-managed)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../self-managed-services/keycloak/">
+        Keycloak (self-managed)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../self-managed-services/jupyterhub/">
+        JupyterHub (self-managed)
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../go-live/">
+        Go-live Checklist
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../troubleshooting/">
+        Troubleshooting
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../faq/">
+        FAQ
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          For Platform Administrators
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          For Platform Administrators
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../operator-manual/">
+        Overview
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../operator-manual/getting-started/">
+        Getting Started
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../operator-manual/provider-audit/">
+        Provider Audit
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../operator-manual/on-prem-standard/">
+        Standard Template for on-prem Environment
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../operator-manual/qa/">
+        QA
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+          Advanced Configuration
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_6">
+<span class="md-nav__icon md-icon"></span>
+          Advanced Configuration
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../operator-manual/configure/">
+        Overview
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../operator-manual/cluster-sizing/">
+        Sizing
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../operator-manual/ingress/">
+        Ingress
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../operator-manual/access-control/">
+        Access Control
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../operator-manual/user-alerts/">
+        User Alerts
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../operator-manual/disaster-recovery/">
+        Disaster Recovery
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../operator-manual/break-glass/">
+        Breaking the Glass
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../operator-manual/cryptography/">
+        Use of Cryptography
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../operator-manual/credentials/">
+        Use of Credentials
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../operator-manual/capacity-management/">
+        Capacity Management
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../operator-manual/clock-synchronization/">
+        Clock Synchronization
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../operator-manual/maintenance/">
+        Maintenance
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../operator-manual/clean-up/">
+        Clean Up
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../operator-manual/troubleshooting/">
+        Troubleshooting
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../operator-manual/faq/">
+        FAQ
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../operator-manual/additional-services/">
+        Additional Services
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          For CISOs and DPOs
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          For CISOs and DPOs
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ciso-guide/">
+        Overview
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ciso-guide/controls/iso-27001/">
+        ISO 27001
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ciso-guide/controls/hslf-fs-201640/">
+        HSLF-FS 2016:40
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ciso-guide/controls/msbfs-20207/">
+        MSBFS 2020:7
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ciso-guide/controls/gdpr/">
+        GDPR
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ciso-guide/controls/hipaa/">
+        HIPAA
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ciso-guide/controls/bsi-it-grundschutz/">
+        BSI IT-Grundschutz
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ciso-guide/controls/mdr/">
+        MDR
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+          CISO Dashboards
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_9_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_9">
+<span class="md-nav__icon md-icon"></span>
+          CISO Dashboards
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ciso-guide/audit-logs/">
+        Audit Logs
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ciso-guide/backup/">
+        Backup Dashboard
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ciso-guide/cryptography/">
+        Cryptography Dashboard
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ciso-guide/intrusion-detection/">
+        Intrusion Detection Dashboard
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ciso-guide/policy-as-code/">
+        Policy-as-Code Dashboard
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ciso-guide/network-security/">
+        Network Security Dashboard
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ciso-guide/capacity-management/">
+        Capacity Management (Kubernetes Status) Dashboard
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ciso-guide/vulnerability/">
+        Vulnerability Dashboard
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ciso-guide/log-review/">
+        Log Review
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ciso-guide/faq/">
+        FAQ
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ciso-guide/gdpr-art-17/">
+        How do I comply with GDPR Art. 17 Right to erasure ("right to be forgotten")?
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          For Contributors
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          For Contributors
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../contributor-guide/">
+        Overview
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/">
+        Architecture
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../adr/">
+        Architectural Decision Log
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tech-radar/">
+        Tech Radar
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Release Notes
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          Release Notes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../release-notes/ck8s/">
+        Compliant Kubernetes
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../release-notes/kubespray/">
+        CK8S Kubespray
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../release-notes/postgres/">
+        CK8S PostgreSQL
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../release-notes/rabbitmq/">
+        CK8S RabbitMQ
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../release-notes/redis/">
+        CK8S Redis
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../release-notes/jaeger/">
+        CK8S Jaeger
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../release-notes/argocd/">
+        CK8S Argo CD
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../glossary/">
+        Glossary
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../roadmap/">
+        Roadmap
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://elastisys.com/">
+        Support
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://elastisys.com/training/">
+        Training
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://elastisys.com/blog/">
+        Blog
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://elastisys.com/legal/privacy-policy/">
+        Privacy Policy
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configure-dashboards-and-alerts">
+    Configure Dashboards and Alerts
+  </a>
+<nav aria-label="Configure Dashboards and Alerts" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#monitor-your-application">
+    Monitor your Application
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#alert-on-application-metrics">
+    Alert on Application Metrics
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#alert-on-log-contents">
+    Alert on Log Contents
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#test-backups-and-capacity-management">
+    Test Backups and Capacity Management
+  </a>
+<nav aria-label="Test Backups and Capacity Management" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#back-up-application-data">
+    Back up Application Data
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#capacity-management">
+    Capacity Management
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#automate-with-cicd">
+    Automate with CI/CD
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#next-step-going-deeper">
+    Next step? Going deeper!
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="step-3-operate">Step 3: Operate<a class="headerlink" href="#step-3-operate" title="Permanent link">¶</a></h1>
+<p>Welcome to the third and final step, Application Developer!</p>
+<p>In this step, you will learn how to operate your application on Elastisys Compliant Kubernetes.</p>
+<h2 id="configure-dashboards-and-alerts">Configure Dashboards and Alerts<a class="headerlink" href="#configure-dashboards-and-alerts" title="Permanent link">¶</a></h2>
+<h3 id="monitor-your-application">Monitor your Application<a class="headerlink" href="#monitor-your-application" title="Permanent link">¶</a></h3>
+<p>To monitor your application, you will log in to your Grafana. Recall how to log in to your web portals from <a href="../prepare/">Step 1: Prepare</a>.</p>
+<p>Grafana visually displays the monitoring data that Prometheus has collected on your behalf. A significant amount of metrics are already collected for you, out of the box, on Elastisys Compliant Kubernetes. This means you can visualize data about the cluster immediately.</p>
+<p>But Prometheus can also be instructed to collect specific metrics from your own application. Perhaps this is more useful to you than monitoring metrics that relate to cluster health (in particular if somebody else managed Elastisys Compliant Kubernetes for you).</p>
+<p>To instruct Promethus on how to do this, you create a <a href="https://blog.container-solutions.com/prometheus-operator-beginners-guide">ServiceMonitor</a>. This is a Kubernetes resource that configures Prometheus and specifies how to collect metrics from a particular application.</p>
+<p>The user demo already includes a <a href="https://github.com/elastisys/compliantkubernetes/blob/main/user-demo/deploy/ck8s-user-demo/templates/servicemonitor.yaml">ServiceMonitor</a>, as required for Compliant Kubernetes to collect metrics from its <code>/metrics</code> endpoint:</p>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">{{</span><span class="nv">- if .Values.serviceMonitor.enabled -</span><span class="p p-Indicator">}}</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">monitoring.coreos.com/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ServiceMonitor</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{{</span><span class="w"> </span><span class="nv">include "ck8s-user-demo.fullname" .</span><span class="w"> </span><span class="p p-Indicator">}}</span>
+<span class="w">  </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">{{</span><span class="nv">- include "ck8s-user-demo.labels" . | nindent 4</span><span class="w"> </span><span class="p p-Indicator">}}</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">{{</span><span class="nv">- include "ck8s-user-demo.selectorLabels" . | nindent 6</span><span class="w"> </span><span class="p p-Indicator">}}</span>
+<span class="w">  </span><span class="nt">endpoints</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http</span>
+<span class="p p-Indicator">{{</span><span class="nv">- end</span><span class="w"> </span><span class="p p-Indicator">}}</span>
+</code></pre></div>
+<p>The screenshot below shows Grafana in "Explore" mode (the compass icon to the left) featuring the query <code>rate(http_request_duration_seconds_count[1m])</code>. It shows the request rate for the user demo application for each path and status code. As can be seen in the graph, the <code>/users</code> endpoint is getting more traffic than the other endpoints.</p>
+<p><img alt="Example of User Demo Metrics" src="../../img/user-demo-metrics.jpeg"/></p>
+<p>The "Explore" mode is great for developing queries and exploring the data set. If you want to save a query so you can refer back to it, you can create a Dashboard instead. Dashboards consist of multiple Panels, each of which, can display the results of running queries. Learn more <a href="https://grafana.com/docs/grafana/latest/panels-visualizations/">about Grafana panels</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may want to save frequently used Dashboards. Compliant Kubernetes saves and backs these up for you.</p>
+</div>
+<p>Go deeper into <a href="../metrics/">metrics</a>.</p>
+<h3 id="alert-on-application-metrics">Alert on Application Metrics<a class="headerlink" href="#alert-on-application-metrics" title="Permanent link">¶</a></h3>
+<p>Visualizing monitoring metrics is one thing. Sometimes, you may need to act on what they show, immediately. For that reason, the Prometheus monitoring system includes AlertManager.</p>
+<ul>
+<li>Prometheus is responsible for maintaining a set of Rules, which express trigger conditions via expressions. Once a rule has triggered, it has entered an alerting state.</li>
+<li>AlertManager is responsible for forwarding information about any rules in the alerting state to your chosen destination, which could be your company's Slack or similar. <a href="https://prometheus.io/docs/alerting/latest/configuration/">A number of integrations are available</a>.</li>
+</ul>
+<p>If you wish to create rules based on application-specific monitoring metrics, you must first create appropriate ServiceMonitors as described above.</p>
+<p>The user demo already includes a <a href="https://github.com/elastisys/compliantkubernetes/blob/main/user-demo/deploy/ck8s-user-demo/templates/prometheusrule.yaml">PrometheusRule</a>, to configure an alert:</p>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">{{</span><span class="nv">- if .Values.prometheusRule.enabled -</span><span class="p p-Indicator">}}</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">monitoring.coreos.com/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PrometheusRule</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{{</span><span class="w"> </span><span class="nv">include "ck8s-user-demo.fullname" .</span><span class="w"> </span><span class="p p-Indicator">}}</span>
+<span class="w">  </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">{{</span><span class="nv">- include "ck8s-user-demo.labels" . | nindent 4</span><span class="w"> </span><span class="p p-Indicator">}}</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">groups</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./example.rules</span>
+<span class="w">    </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">alert</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ApplicationIsActuallyUsed</span>
+<span class="w">      </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rate(http_request_duration_seconds_count[1m])&gt;1</span>
+<span class="p p-Indicator">{{</span><span class="nv">- end</span><span class="w"> </span><span class="p p-Indicator">}}</span>
+</code></pre></div>
+<p>The screenshot below gives an example of the application alert, as seen in AlertManager.</p>
+<p><img alt="Example of User Demo Alerts" src="../../img/user-demo-alerts.png"/></p>
+<p>Go deeper into <a href="../alerts/">metric alerts</a>.</p>
+<h3 id="alert-on-log-contents">Alert on Log Contents<a class="headerlink" href="#alert-on-log-contents" title="Permanent link">¶</a></h3>
+<p>Similar to alerting based on monitoring metrics, you may need to alert based on application log contents. For instance, it might make sense to send any log line of the <code>FATAL</code> log level to your Slack channel for immediate attention.</p>
+<p>The process of setting up log-based alerts is highly graphical, and supported by your OpenSearch Dashboards that is part of Elastisys Compliant Kubernetes. Recall how to log in to your web portals from <a href="../prepare/">Step 1: Prepare</a>.</p>
+<p>Go deeper into <a href="../log-based-alerts/">log-based alerts</a>.</p>
+<h2 id="test-backups-and-capacity-management">Test Backups and Capacity Management<a class="headerlink" href="#test-backups-and-capacity-management" title="Permanent link">¶</a></h2>
+<p>Disaster recovery is about so much more than backing up and restoring data. Backing up data is a necessary, but not sufficient, part of that.</p>
+<p>Not having sufficient capacity is also a kind of disaster, albeit, one that is easy to mitigate.</p>
+<h3 id="back-up-application-data">Back up Application Data<a class="headerlink" href="#back-up-application-data" title="Permanent link">¶</a></h3>
+<p>Compliant Kubernetes takes a daily backup of all Kubernetes Resources in all user namespaces. Persistent Volumes will be backed up if they are tied to a Pod. If backups are not wanted the label <code>compliantkubernetes.io/nobackup</code> can be added to opt-out of the daily backups.</p>
+<p>Application metrics (Grafana) and application log (Kibana) dashboards are also backup up by default.</p>
+<p>By default, backups are stored for 720 hours (30 days).</p>
+<p>Restoring from a backup with Velero is meant to be a type of disaster recovery. <strong>Velero will not overwrite existing Resources when restoring.</strong> As such, if you want to restore the state of a Resource that is still running, the Resource must be deleted first.</p>
+<p>To restore a backup on demand, contact your Compliant Kubernetes administrator.</p>
+<p>Go deeper into <a href="../backup/">backups</a>.</p>
+<h3 id="capacity-management">Capacity Management<a class="headerlink" href="#capacity-management" title="Permanent link">¶</a></h3>
+<p>Capacity management is about having sufficient capacity for your needs, be they in terms of storage or computational power.</p>
+<p>Your Elastisys Compliant Kubernetes administrator should perform capacity management <em>of the platform</em>, to ensure that there is a sufficient amount of spare capacity on a cluster level.</p>
+<p>As an Application Developer, you should perform capacity management on a Pod level. This primarily means setting <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/">resource requests</a> correctly for containers inside Pods, making use of multiple instances in your Deployments and Stateful Sets (possibly via <a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/">horizontal Pod autoscaling</a>). The use of resource requests and limits is enforced via an Elastisys Compliant Kubernetes <a href="../safeguards/enforce-resources/">safeguard</a>.</p>
+<h2 id="automate-with-cicd">Automate with CI/CD<a class="headerlink" href="#automate-with-cicd" title="Permanent link">¶</a></h2>
+<p>Elastisys Compliant Kubernetes comes with <a href="../additional-services/argocd/">Argo CD</a> as an Additional Service.</p>
+<p>Compliant Kubernetes can also be integrated with an <a href="../ci-cd/">external CI/CD</a>, such as GitHub Actions.</p>
+<h2 id="next-step-going-deeper">Next step? Going deeper!<a class="headerlink" href="#next-step-going-deeper" title="Permanent link">¶</a></h2>
+<p>By now, you're fully up and running! You have an application, updating it is a breeze, and you can monitor it and look at its logs. The next step is to open the "Go deeper" section of this documentation and read up on more topics that interest you.</p>
+<p>Thank you for starting your journey beyond the clouds with Elastisys Compliant Kubernetes!</p>
+</article>
+</div>
+<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            Back to top
+          </button>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Step 2: Deploy" class="md-footer__link md-footer__link--prev" href="../deploy/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                Step 2: Deploy
+              </div>
+</div>
+</a>
+<a aria-label="Next: Prepare Your Application" class="md-footer__link md-footer__link--next" href="../prepare-application/" rel="next">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Next
+              </span>
+<div class="md-ellipsis">
+                Prepare Your Application
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Copyright © Elastisys AB <br/> The Linux Foundation has the following registered trademarks in the United States and/or other countries: Certified Kubernetes®, containerd®, fluentd®, Helm®, Istio®, K8s®, Kubernetes®, Prometheus®, PromQL®, Rook®, The Linux Foundation®. <br/> The Linux Foundation has registrations pending or trademarks in use for the following marks in the United States and/or other countries: Argo™, CoreDNS™, Falco™, Harbor™, Jaeger™, Linux Foundation™, OpenTelemetry™, OpenTracing™, Open Policy Agent™, Tekton™, Thanos™. <br/> Postgres and PostgreSQL and the Elephant Logo (Slonik) are all registered trademarks of the PostgreSQL Community Association of Canada. <br/> Redis is a trademark of Redis Ltd. Any rights therein are reserved to Redis Ltd. Any use by the Compliant Kubernetes project is for referential purposes only and does not indicate any sponsorship, endorsement or affiliation between Redis and Compliant Kubernetes project. <br/> RabbitMQ is a trademark of VMware, Inc. in the U.S. and other countries. <br/> TimescaleDB and the EON mascot are trademarks of <a href="https://www.timescale.com/">Timescale, Inc.</a> <br/> FerretDB® is a registered trademark of FerretDB, Inc. FerretDB Inc. is not affiliated, associated, authorized, endorsed by, or in any way officially connected with MongoDB Inc., or any of its subsidiaries or its affiliates. <br/> MongoDB, Mongo, and the leaf logo are registered trademarks of MongoDB, Inc. <br/> Keycloak™ is a trademark of Red Hat Inc. <br/> OpenSearch is a registered trademark of Amazon Web Services. <br/> NGINX is a registered trademark of F5 Inc.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "navigation.footer", "navigation.top"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+<script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
+</body>
+</html>
