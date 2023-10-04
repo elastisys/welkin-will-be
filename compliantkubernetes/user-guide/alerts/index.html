@@ -82,7 +82,7 @@ if(!document.__defineGetter__) {
 <meta content="#2b5797" name="msapplication-TileColor"/>
 <meta content="https://elastisys.io/compliantkubernetes/img/browserconfig.xml?v=1" name="msapplication-config"/>
 <meta content="#ffffff" name="theme-color"/>
-<link href="../../assets/stylesheets/extra-style.1iof6wgs.min.css" rel="stylesheet"/></head>
+<link href="../../assets/stylesheets/extra-style.b2n942l8.min.css" rel="stylesheet"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="elastisys" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1017,13 +1017,16 @@ if(!document.__defineGetter__) {
 <p>User alerts are handled by a project called <a href="https://prometheus.io/docs/alerting/latest/alertmanager/">AlertManager</a>, which needs to be enabled by the administrator. Get in touch with the administrator and they will be happy to help.</p>
 <h2 id="configuring-user-alerts">Configuring user alerts<a class="headerlink" href="#configuring-user-alerts" title="Permanent link">¶</a></h2>
 <p>User alerts are configured via the Secret <code>alertmanager-alertmanager</code> located in the <code>alertmanager</code> namespace. This configuration file is specified <a href="https://prometheus.io/docs/alerting/latest/configuration/#configuration-file">here</a>.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># retrieve the old configuration</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># retrieve the old configuration:</span>
 kubectl<span class="w"> </span>get<span class="w"> </span>-n<span class="w"> </span>alertmanager<span class="w"> </span>secret<span class="w"> </span>alertmanager-alertmanager<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">'{.data.alertmanager\.yaml}'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-d<span class="w"> </span>&gt;<span class="w"> </span>alertmanager.yaml
 
 <span class="c1"># edit alertmanager.yaml as needed</span>
 
-<span class="c1"># patch the new configuration</span>
-kubectl<span class="w"> </span>patch<span class="w"> </span>-n<span class="w"> </span>alertmanager<span class="w"> </span>secret<span class="w"> </span>alertmanager-alertmanager<span class="w"> </span>-p<span class="w"> </span><span class="s2">"'{\"data\":{\"alertmanager.yaml\":\"</span><span class="k">$(</span>base64<span class="w"> </span>-w<span class="w"> </span><span class="m">0</span><span class="w"> </span>&lt;<span class="w"> </span>alertmanager.yaml<span class="k">)</span><span class="s2">\"}}'"</span>
+<span class="c1"># patch the new configuration:</span>
+kubectl<span class="w"> </span>patch<span class="w"> </span>-n<span class="w"> </span>alertmanager<span class="w"> </span>secret<span class="w"> </span>alertmanager-alertmanager<span class="w"> </span>-p<span class="w"> </span><span class="s2">"{\"data\":{\"alertmanager.yaml\":\"</span><span class="k">$(</span>base64<span class="w"> </span>-w<span class="w"> </span><span class="m">0</span><span class="w"> </span>&lt;<span class="w"> </span>alertmanager.yaml<span class="k">)</span><span class="s2">\"}}"</span>
+
+<span class="c1"># mac users may need to omit -w 0 arguments to base64:</span>
+kubectl<span class="w"> </span>patch<span class="w"> </span>-n<span class="w"> </span>alertmanager<span class="w"> </span>secret<span class="w"> </span>alertmanager-alertmanager<span class="w"> </span>-p<span class="w"> </span><span class="s2">"{\"data\":{\"alertmanager.yaml\":\"</span><span class="k">$(</span>base64<span class="w"> </span>&lt;<span class="w"> </span>alertmanager.yaml<span class="k">)</span><span class="s2">\"}}"</span>
 </code></pre></div>
 <p>Make sure to configure <strong>and test</strong> a receiver for you alerts, e.g., Slack or OpsGenie.</p>
 <div class="admonition note">
