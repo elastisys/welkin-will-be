@@ -82,7 +82,7 @@ if(!document.__defineGetter__) {
 <meta content="#2b5797" name="msapplication-TileColor"/>
 <meta content="https://elastisys.io/compliantkubernetes/img/browserconfig.xml?v=1" name="msapplication-config"/>
 <meta content="#ffffff" name="theme-color"/>
-<link href="../../../assets/stylesheets/extra-style.p4jijv9_.min.css" rel="stylesheet"/></head>
+<link href="../../../assets/stylesheets/extra-style._rd3cnok.min.css" rel="stylesheet"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="elastisys" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -960,6 +960,11 @@ if(!document.__defineGetter__) {
 <p class="admonition-title">For Elastisys Managed Services Customers</p>
 <p>You can order Managed Jaeger™ by filing a <a href="https://elastisys.atlassian.net/servicedesk/">service ticket</a>.</p>
 <p>This is a preview feature. For more information, please read <a href="https://elastisys.com/legal/terms-of-service/#91-preview-features">ToS 9.1 Preview Features</a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since <code>jaeger-agent</code> is deprecated in <a href="https://www.jaegertracing.io/docs/1.44/architecture/#agent">upstream</a> and If you are using <code>Jaeger SDK</code> client libraries , we recommend migrating the client libraries from <code>Jaeger SDK</code> to <code>OTEL(OpenTelemetry) SDK</code> and send traces directly to Jaeger collector using <code>OTLP</code> protocol. You can read more information <a href="https://www.jaegertracing.io/docs/1.49/architecture/#direct-to-storage">here</a></p>
+<p>We will remove <code>jaeger-agent</code> from our future releases too.</p>
 </div>
 <figure>
 <img alt="Jaeger Deployment Model" src="../img/jaeger.drawio.svg"/>
