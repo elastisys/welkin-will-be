@@ -82,7 +82,7 @@ if(!document.__defineGetter__) {
 <meta content="#2b5797" name="msapplication-TileColor"/>
 <meta content="https://elastisys.io/compliantkubernetes/img/browserconfig.xml?v=1" name="msapplication-config"/>
 <meta content="#ffffff" name="theme-color"/>
-<link href="../../../assets/stylesheets/extra-style._rd3cnok.min.css" rel="stylesheet"/></head>
+<link href="../../../assets/stylesheets/extra-style.k_gh67hg.min.css" rel="stylesheet"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="elastisys" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -453,6 +453,11 @@ if(!document.__defineGetter__) {
 <li class="md-nav__item">
 <a class="md-nav__link" href="#create-a-configmap">
     Create a ConfigMap
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#allow-your-pods-to-communicate-with-the-redis-cluster">
+    Allow your Pods to communicate with the Redis cluster
   </a>
 </li>
 <li class="md-nav__item">
@@ -954,6 +959,11 @@ if(!document.__defineGetter__) {
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#allow-your-pods-to-communicate-with-the-redis-cluster">
+    Allow your Pods to communicate with the Redis cluster
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#expose-redis-connection-parameters-to-your-application">
     Expose Redis Connection Parameters to Your Application
   </a>
@@ -1006,12 +1016,12 @@ if(!document.__defineGetter__) {
 </figure>
 <p>This page will help you succeed in connecting your application to a low-latency in-memory cache Redis which meets your security and compliance requirements.</p>
 <div class="admonition important">
-<p class="admonition-title">Important: Improve Access Control with NetworkPolicies</p>
+<p class="admonition-title">Important: Access Control with NetworkPolicies</p>
 <p>Please note the follow information about <a href="https://redis.io/topics/security/">Redis access control</a> from the upstream documentation:</p>
 <blockquote>
 <p>Redis is designed to be accessed by trusted clients inside trusted environments.</p>
 </blockquote>
-<p>For improved security, discuss with your service-specific administrator what Pods and/or Namespaces need access to the Redis cluster. They can then set up the necessary <a href="../../safeguards/enforce-networkpolicies/">NetworkPolicies</a>.</p>
+<p>Redis access is protected by <a href="../../safeguards/enforce-networkpolicies/">NetworkPolicies</a>. To allow your applications access to a Redis cluster the Pods need to be labeled with <code>elastisys.io/redis-&lt;cluster_name&gt;-access: allow</code>.</p>
 </div>
 <div class="admonition important">
 <p class="admonition-title">Important: No Disaster Recovery</p>
@@ -1039,6 +1049,9 @@ The ConfigMap has the following shape:</p>
 <span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$CONFIG_MAP</span>
 <span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$NAMESPACE</span>
 <span class="nt">data</span><span class="p">:</span>
+<span class="w">  </span><span class="c1"># REDIS_CLUSTER_NAME is the name of the Redis Cluster. You need to know the name to label your Pods correctly for network access.</span>
+<span class="w">  </span><span class="nt">REDIS_CLUSTER_NAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$REDIS_CLUSTER_NAME</span>
+
 <span class="w">  </span><span class="c1"># REDIS_SENTINEL_HOST represents a cluster-scoped Redis Sentinel host, which only makes sense inside the Kubernetes cluster.</span>
 <span class="w">  </span><span class="c1"># E.g., rfs-redis-cluster.redis-system</span>
 <span class="w">  </span><span class="nt">REDIS_SENTINEL_HOST</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$REDIS_SENTINEL_HOST</span>
@@ -1073,6 +1086,11 @@ kubectl<span class="w"> </span>config<span class="w"> </span>view<span class="w"
 <span class="s">    REDIS_SENTINEL_HOST: $REDIS_SENTINEL_HOST</span>
 <span class="s">    REDIS_SENTINEL_PORT: "$REDIS_SENTINEL_PORT"</span>
 <span class="s">EOF</span>
+</code></pre></div>
+<h2 id="allow-your-pods-to-communicate-with-the-redis-cluster">Allow your Pods to communicate with the Redis cluster<a class="headerlink" href="#allow-your-pods-to-communicate-with-the-redis-cluster" title="Permanent link">¶</a></h2>
+<p>The Redis cluster is protected by Network Policies. Add the following label to your Pods: <code>elastisys.io/redis-&lt;cluster_name&gt;-access: allow</code></p>
+<p><code>cluster_name</code> can be retrieved from the ConfigMap provided by your administrator:</p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>-n<span class="w"> </span><span class="nv">$NAMESPACE</span><span class="w"> </span>get<span class="w"> </span>configmap<span class="w"> </span><span class="nv">$CONFIG_MAP</span><span class="w"> </span>-o<span class="w"> </span><span class="s1">'jsonpath={.data.REDIS_CLUSTER_NAME}'</span>
 </code></pre></div>
 <h2 id="expose-redis-connection-parameters-to-your-application">Expose Redis Connection Parameters to Your Application<a class="headerlink" href="#expose-redis-connection-parameters-to-your-application" title="Permanent link">¶</a></h2>
 <p>To expose the Redis cluster to your application, follow one of the following upstream documentation:</p>
