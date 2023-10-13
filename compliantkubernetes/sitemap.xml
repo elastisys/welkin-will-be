@@ -176,6 +176,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://elastisys.io/compliantkubernetes/adr/0029-expose-jaeger-ui/</loc>
+         <lastmod>2023-10-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0030-run-argocd-on-elastisys-nodes/</loc>
          <lastmod>2023-10-13</lastmod>
          <changefreq>daily</changefreq>
