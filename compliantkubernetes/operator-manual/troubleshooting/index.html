@@ -82,7 +82,7 @@ if(!document.__defineGetter__) {
 <meta content="#2b5797" name="msapplication-TileColor"/>
 <meta content="https://elastisys.io/compliantkubernetes/img/browserconfig.xml?v=1" name="msapplication-config"/>
 <meta content="#ffffff" name="theme-color"/>
-<link href="../../assets/stylesheets/extra-style.rr7hfl7e.min.css" rel="stylesheet"/></head>
+<link href="../../assets/stylesheets/extra-style.4_k0z41i.min.css" rel="stylesheet"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="elastisys" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1630,7 +1630,7 @@ exo<span class="w"> </span>vm<span class="w"> </span>reboot<span class="w"> </sp
 <h2 id="a-node-has-incorrect-time">A Node has incorrect time<a class="headerlink" href="#a-node-has-incorrect-time" title="Permanent link">¶</a></h2>
 <p>Incorrect time on a Node can have sever consequences with replication and monitoring.
 In fact, if you follow ISO 27001, <a href="https://www.isms.online/iso-27001/annex-a-12-operations-security/">A.12.4.4 Clock Synchronisation</a> requires you to ensure clocks are synchronized.</p>
-<p>These days, Linux distributions should come out-of-the-box with <a href="https://www.freedesktop.org/software/systemd/man/systemd-timesyncd.service.html">timesyncd</a> for time synchronization via NTP.</p>
+<p>These days, Linux distributions should come out-of-the-box with <a href="https://www.freedesktop.org/software/systemd/man/latest/systemd-timesyncd.service.html">timesyncd</a> for time synchronization via NTP.</p>
 <p>To figure out what is wrong, SSH into the target Node and try the following:</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>systemd-timesyncd
 sudo<span class="w"> </span>journalctl<span class="w"> </span>--unit<span class="w"> </span>systemd-timesyncd
