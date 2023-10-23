@@ -1,23 +1,60 @@
 
-<!DOCTYPE html>
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Kubernetes platform to comply with Swedish Healthcare (Patientdatalagen), GDPR and ISO 27001.">
+      
+      
+        <meta name="author" content="Elastisys AB">
+      
+      
+        <link rel="canonical" href="https://elastisys.io/compliantkubernetes/release-notes/ck8s/">
+      
+      
+        <link rel="prev" href="../../tech-radar/">
+      
+      
+        <link rel="next" href="../kubespray/">
+      
+      
+      <link rel="icon" href="https://elastisys.io/compliantkubernetes/img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
+    
+    
+      
+        <title>Compliant Kubernetes - Elastisys Compliant Kubernetes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.35e1ed30.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
 
-<html class="no-js" lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Kubernetes platform to comply with Swedish Healthcare (Patientdatalagen), GDPR and ISO 27001." name="description"/>
-<meta content="Elastisys AB" name="author"/>
-<link href="https://elastisys.io/compliantkubernetes/release-notes/ck8s/" rel="canonical"/>
-<link href="../../tech-radar/" rel="prev"/>
-<link href="../kubespray/" rel="next"/>
-<link href="https://elastisys.io/compliantkubernetes/img/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.4.6" name="generator"/>
-<title>Compliant Kubernetes - Elastisys Compliant Kubernetes</title>
-<link href="../../assets/stylesheets/main.35e1ed30.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
-<link href="../../stylesheets/branding.css" rel="stylesheet"/>
-<link href="../../stylesheets/extra.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/branding.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/style.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+
 <!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
@@ -33,25 +70,43 @@
   })();
 </script>
 <!-- End Matomo Code -->
-<meta content="website" property="og:type"/>
-<meta content="Compliant Kubernetes - Elastisys Compliant Kubernetes" property="og:title"/>
-<meta content="Kubernetes platform to comply with Swedish Healthcare (Patientdatalagen), GDPR and ISO 27001." property="og:description"/>
-<meta content="https://elastisys.io/compliantkubernetes/assets/images/social/release-notes/ck8s.png" property="og:image"/>
-<meta content="image/png" property="og:image:type"/>
-<meta content="1200" property="og:image:width"/>
-<meta content="630" property="og:image:height"/>
-<meta content="https://elastisys.io/compliantkubernetes/release-notes/ck8s/" property="og:url"/>
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="Compliant Kubernetes - Elastisys Compliant Kubernetes" name="twitter:title"/>
-<meta content="Kubernetes platform to comply with Swedish Healthcare (Patientdatalagen), GDPR and ISO 27001." name="twitter:description"/>
-<meta content="https://elastisys.io/compliantkubernetes/assets/images/social/release-notes/ck8s.png" name="twitter:image"/>
-<meta content="
+
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Compliant Kubernetes - Elastisys Compliant Kubernetes" >
+      
+        <meta  property="og:description"  content="Kubernetes platform to comply with Swedish Healthcare (Patientdatalagen), GDPR and ISO 27001." >
+      
+        <meta  property="og:image"  content="https://elastisys.io/compliantkubernetes/assets/images/social/release-notes/ck8s.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://elastisys.io/compliantkubernetes/release-notes/ck8s/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Compliant Kubernetes - Elastisys Compliant Kubernetes" >
+      
+        <meta  name="twitter:description"  content="Kubernetes platform to comply with Swedish Healthcare (Patientdatalagen), GDPR and ISO 27001." >
+      
+        <meta  name="twitter:image"  content="https://elastisys.io/compliantkubernetes/assets/images/social/release-notes/ck8s.png" >
+      
+    
+    
+<meta http-equiv="Content-Security-Policy" content="
   default-src 'self';
   style-src 'self' 'unsafe-inline';
   img-src 'self' data:;
   connect-src 'self' https://matomo.elastisys.com/;
   script-src 'self' 'unsafe-inline' https://matomo.elastisys.com/;
-" http-equiv="Content-Security-Policy"/>
+">
+
 <!-- Disable localStorage, sessionStorage and cookies -->
 <script>
 if (window.localStorage) {
@@ -72,2113 +127,4408 @@ if(!document.__defineGetter__) {
   document.__defineSetter__("cookie", function() {} );
 }
 </script>
+
 <!-- See https://realfavicongenerator.net -->
-<link href="https://elastisys.io/compliantkubernetes/img/apple-touch-icon.png?v=1" rel="apple-touch-icon" sizes="180x180"/>
-<link href="https://elastisys.io/compliantkubernetes/img/favicon-32x32.png?v=1" rel="icon" sizes="32x32" type="image/png"/>
-<link href="https://elastisys.io/compliantkubernetes/img/favicon-16x16.png?v=1" rel="icon" sizes="16x16" type="image/png"/>
-<link href="https://elastisys.io/compliantkubernetes/img/site.webmanifest?v=1" rel="manifest"/>
-<link color="#5bbad5" href="https://elastisys.io/compliantkubernetes/img/safari-pinned-tab.svg?v=1" rel="mask-icon"/>
-<link href="https://elastisys.io/compliantkubernetes/img/favicon.ico?v=1" rel="shortcut icon"/>
-<meta content="#2b5797" name="msapplication-TileColor"/>
-<meta content="https://elastisys.io/compliantkubernetes/img/browserconfig.xml?v=1" name="msapplication-config"/>
-<meta content="#ffffff" name="theme-color"/>
-<link href="../../assets/stylesheets/extra-style.3e26a3r5.min.css" rel="stylesheet"/></head>
-<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="elastisys" dir="ltr">
-<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
-<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
-<label class="md-overlay" for="__drawer"></label>
-<div data-md-component="skip">
-<a class="md-skip" href="#release-notes">
+<link rel="apple-touch-icon" sizes="180x180" href="https://elastisys.io/compliantkubernetes/img/apple-touch-icon.png?v=1">
+<link rel="icon" type="image/png" sizes="32x32" href="https://elastisys.io/compliantkubernetes/img/favicon-32x32.png?v=1">
+<link rel="icon" type="image/png" sizes="16x16" href="https://elastisys.io/compliantkubernetes/img/favicon-16x16.png?v=1">
+<link rel="manifest" href="https://elastisys.io/compliantkubernetes/img/site.webmanifest?v=1">
+<link rel="mask-icon" href="https://elastisys.io/compliantkubernetes/img/safari-pinned-tab.svg?v=1" color="#5bbad5">
+<link rel="shortcut icon" href="https://elastisys.io/compliantkubernetes/img/favicon.ico?v=1">
+<meta name="msapplication-TileColor" content="#2b5797">
+<meta name="msapplication-config" content="https://elastisys.io/compliantkubernetes/img/browserconfig.xml?v=1">
+<meta name="theme-color" content="#ffffff">
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="elastisys" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#release-notes" class="md-skip">
           Skip to content
         </a>
-</div>
-<div data-md-component="announce">
-</div>
-<div data-md-color-scheme="default" data-md-component="outdated" hidden="">
-</div>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
 <header class="md-header md-header--shadow" data-md-component="header">
-<nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Elastisys Compliant Kubernetes" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Elastisys Compliant Kubernetes">
-<img alt="logo" src="../../img/logo.png"/>
-</a>
-<label class="md-header__button md-icon" for="__drawer">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
-</label>
-<div class="md-header__title" data-md-component="header-title">
-<div class="md-header__ellipsis">
-<div class="md-header__topic">
-<span class="md-ellipsis">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Elastisys Compliant Kubernetes" class="md-header__button md-logo" aria-label="Elastisys Compliant Kubernetes" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
             Elastisys Compliant Kubernetes
           </span>
-</div>
-<div class="md-header__topic" data-md-component="header-topic">
-<span class="md-ellipsis">
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
             
               Compliant Kubernetes
             
           </span>
-</div>
-</div>
-</div>
-<label class="md-header__button md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
-</label>
-<div class="md-search" data-md-component="search" role="dialog">
-<label class="md-search__overlay" for="__search"></label>
-<div class="md-search__inner" role="search">
-<form class="md-search__form" name="search">
-<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
-<label class="md-search__icon md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
-</label>
-<nav aria-label="Search" class="md-search__options">
-<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
-</button>
-</nav>
-</form>
-<div class="md-search__output">
-<div class="md-search__scrollwrap" data-md-scrollfix="">
-<div class="md-search-result" data-md-component="search-result">
-<div class="md-search-result__meta">
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
             Initializing search
           </div>
-<ol class="md-search-result__list" role="presentation"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="md-header__source">
+    
+    
+      <div class="md-header__source">
+        
+
 <ul class="header-links">
-<li>
-<a href="https://github.com/elastisys/compliantkubernetes/">
-<img alt="Git logo" src="../../img/git-alt.svg" width="25px">
-</img></a>
-</li>
-<li><a class="menu-callout" href="https://elastisys.com/">Try out Managed<br/>Compliant Kubernetes</a></li>
+  <li>
+    <a href="https://github.com/elastisys/compliantkubernetes/">
+      <img width="25px" src="../../img/git-alt.svg" alt="Git logo" />
+    </a>
+  </li>
+  <li><a href="https://elastisys.com/" class="menu-callout">Try out Managed<br/>Compliant Kubernetes</a></li>
 </ul>
-</div>
-</nav>
+      </div>
+    
+  </nav>
+  
 </header>
-<div class="md-container" data-md-component="container">
-<main class="md-main" data-md-component="main">
-<div class="md-main__inner md-grid">
-<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
-<label class="md-nav__title" for="__drawer">
-<a aria-label="Elastisys Compliant Kubernetes" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Elastisys Compliant Kubernetes">
-<img alt="logo" src="../../img/logo.png"/>
-</a>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Elastisys Compliant Kubernetes" class="md-nav__button md-logo" aria-label="Elastisys Compliant Kubernetes" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
     Elastisys Compliant Kubernetes
   </label>
-<div class="md-nav__source">
+  
+    <div class="md-nav__source">
+      
+
 <ul class="header-links">
-<li>
-<a href="https://github.com/elastisys/compliantkubernetes/">
-<img alt="Git logo" src="../../img/git-alt.svg" width="25px">
-</img></a>
-</li>
-<li><a class="menu-callout" href="https://elastisys.com/">Try out Managed<br/>Compliant Kubernetes</a></li>
+  <li>
+    <a href="https://github.com/elastisys/compliantkubernetes/">
+      <img width="25px" src="../../img/git-alt.svg" alt="Git logo" />
+    </a>
+  </li>
+  <li><a href="https://elastisys.com/" class="menu-callout">Try out Managed<br/>Compliant Kubernetes</a></li>
 </ul>
-</div>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../..">
-<span class="md-ellipsis">
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Overview
   </span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     For Application Developers
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_2">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
             For Application Developers
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_1" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     Getting Started
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_1_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_1">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
             Getting Started
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/prepare/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/prepare/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Step 1: Prepare
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/deploy/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/deploy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Step 2: Deploy
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/operate/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/operate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Step 3: Operate
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     Go Deeper
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_2">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
             Go Deeper
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/prepare-application/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/prepare-application/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Prepare Your Application
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/prepare-idp/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/prepare-idp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Prepare Your Identity Provider (IdP)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/registry/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/registry/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Container registry
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/continous-development/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/continous-development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Continous Development
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/network-model/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/network-model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Network Model
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/kubernetes-api/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/kubernetes-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Kubernetes API
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/kubernetes-ui/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/kubernetes-ui/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Kubernetes UI (Lens)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/namespaces/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/namespaces/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Namespaces
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/logs/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/logs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Logs
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/log-based-alerts/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/log-based-alerts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Log-based Alerts
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/long-term-log-retention/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/long-term-log-retention/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Long-term Log Retention
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/metrics/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/metrics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Metrics
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/alerts/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/alerts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Metric Alerts
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/maintenance/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/maintenance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Maintenance
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/backup/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/backup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Backups
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/ci-cd/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/ci-cd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     CI/CD
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/demarcation/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/demarcation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Demarcation
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/delegation/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/delegation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     How to Delegate
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/how-many-environments/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/how-many-environments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     How many environments?
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     Safeguards
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_3">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
             Safeguards
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/safeguards/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/safeguards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Overview
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/safeguards/enforce-no-root/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/safeguards/enforce-no-root/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Enforce No Root
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/safeguards/enforce-podsecuritypolicies/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/safeguards/enforce-podsecuritypolicies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Enforce Restricted Privileges
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/safeguards/enforce-networkpolicies/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/safeguards/enforce-networkpolicies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Enforce NetworkPolicies
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/safeguards/enforce-resources/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/safeguards/enforce-resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Enforce Resources
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/safeguards/enforce-trusted-registries/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/safeguards/enforce-trusted-registries/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Enforce Trusted Registries
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/safeguards/enforce-no-latest-tag/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/safeguards/enforce-no-latest-tag/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Enforce No Latest Tag
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/safeguards/enforce-job-ttl/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/safeguards/enforce-job-ttl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Enforce Job TTL
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     Additional Services
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_4">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
             Additional Services
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/additional-services/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/additional-services/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Overview
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/additional-services/postgresql/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/additional-services/postgresql/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     PostgreSQL
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/additional-services/timescaledb/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/additional-services/timescaledb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     TimescaleDB
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/additional-services/redis/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/additional-services/redis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Redis
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/additional-services/rabbitmq/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/additional-services/rabbitmq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     RabbitMQ
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/additional-services/jaeger/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/additional-services/jaeger/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Jaeger (preview)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/additional-services/argocd/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/additional-services/argocd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Argo CD (preview)
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     Self-Managed Services
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_5">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
             Self-Managed Services
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/self-managed-services/ferretdb/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/self-managed-services/ferretdb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     FerretDB (self-managed)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/self-managed-services/keycloak/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/self-managed-services/keycloak/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Keycloak (self-managed)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/self-managed-services/jupyterhub/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/self-managed-services/jupyterhub/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     JupyterHub (self-managed)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/self-managed-services/sealedsecrets/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/self-managed-services/sealedsecrets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     SealedSecrets (self-managed)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/self-managed-services/mongodb/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/self-managed-services/mongodb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     MongoDB (self-managed)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/self-managed-services/sjunet/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/self-managed-services/sjunet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Sjunet (self-managed)
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/go-live/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/go-live/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Go-live Checklist
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/troubleshooting/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/troubleshooting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Troubleshooting
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../user-guide/faq/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     FAQ
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     For Platform Administrators
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_3">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
             For Platform Administrators
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Overview
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/getting-started/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Getting Started
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/provider-audit/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/provider-audit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Provider Audit
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/on-prem-standard/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/on-prem-standard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Standard Template for on-prem Environment
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/qa/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/qa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     QA
   </span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3_6" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     Advanced Configuration
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_3_6_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_3_6">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
             Advanced Configuration
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/configure/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/configure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Overview
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/cluster-sizing/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/cluster-sizing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Sizing
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/ingress/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/ingress/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Ingress
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/access-control/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/access-control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Access Control
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/user-alerts/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/user-alerts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     User Alerts
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/user-manged-crds/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/user-manged-crds/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     User Managed CRDs (preview)
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/disaster-recovery/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/disaster-recovery/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Disaster Recovery
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/break-glass/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/break-glass/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Breaking the Glass
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/cryptography/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/cryptography/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Use of Cryptography
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/credentials/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/credentials/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Use of Credentials
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/capacity-management/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/capacity-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Capacity Management
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/clock-synchronization/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/clock-synchronization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Clock Synchronization
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/maintenance/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/maintenance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Maintenance
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/clean-up/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/clean-up/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Clean Up
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/troubleshooting/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/troubleshooting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Troubleshooting
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/faq/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     FAQ
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/additional-services/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/additional-services/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Additional Services
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     For CISOs and DPOs
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_4">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
             For CISOs and DPOs
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Overview
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/controls/gdpr/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/controls/gdpr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     GDPR (EU)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/controls/iso-27001/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/controls/iso-27001/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     ISO 27001 (EU)
   </span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     Healthcare
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_4_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_4_4">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
             Healthcare
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/controls/hslf-fs-201640/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/controls/hslf-fs-201640/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     HSLF-FS 2016:40 (SE)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/controls/hipaa/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/controls/hipaa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     HIPAA (US)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/controls/mdr/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/controls/mdr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     MDR (EU)
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     Public sector
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_5_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_4_5">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
             Public sector
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/controls/msbfs-20207/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/controls/msbfs-20207/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     MSBFS 2020:7 (SE)
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4_6" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     NIS2
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_6_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_4_6">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
             NIS2
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/controls/kritis/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/controls/kritis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     KRITIS (DE)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/controls/bsi-it-grundschutz/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/controls/bsi-it-grundschutz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     BSI IT-Grundschutz (DE)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/controls/msbfs-20188/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/controls/msbfs-20188/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     MSBFS 2018:8 (SE)
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4_7" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     CISO Dashboards
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_7_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_4_7">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
             CISO Dashboards
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/audit-logs/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/audit-logs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Audit Logs
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/backup/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/backup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Backup Dashboard
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/cryptography/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/cryptography/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Cryptography Dashboard
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/intrusion-detection/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/intrusion-detection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Intrusion Detection Dashboard
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/policy-as-code/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/policy-as-code/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Policy-as-Code Dashboard
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/network-security/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/network-security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Network Security Dashboard
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/capacity-management/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/capacity-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Capacity Management (Kubernetes Status) Dashboard
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/vulnerability/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/vulnerability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Vulnerability Dashboard
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/log-review/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/log-review/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Log Review
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/faq/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     FAQ
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/gdpr-art-17/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/gdpr-art-17/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     How do I comply with GDPR Art. 17 Right to erasure ("right to be forgotten")?
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     For Contributors
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_5">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
             For Contributors
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../contributor-guide/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributor-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Overview
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../architecture/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Architecture
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../adr/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Architectural Decision Log
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../tech-radar/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech-radar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Tech Radar
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
-<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     Release Notes
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="true" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_6">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
             Release Notes
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
     Compliant Kubernetes
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
-<span class="md-ellipsis">
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
     Compliant Kubernetes
   </span>
-</a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#compliant-kubernetes">
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#compliant-kubernetes" class="md-nav__link">
     Compliant Kubernetes
   </a>
-<nav aria-label="Compliant Kubernetes" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0330">
+  
+    <nav class="md-nav" aria-label="Compliant Kubernetes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#v0330" class="md-nav__link">
     v0.33.0
   </a>
-<nav aria-label="v0.33.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changed">
+  
+    <nav class="md-nav" aria-label="v0.33.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed" class="md-nav__link">
     Changed
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#fixed">
+        
+          <li class="md-nav__item">
+  <a href="#fixed" class="md-nav__link">
     Fixed
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#removed">
+        
+          <li class="md-nav__item">
+  <a href="#removed" class="md-nav__link">
     Removed
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0320">
+        
+          <li class="md-nav__item">
+  <a href="#v0320" class="md-nav__link">
     v0.32.0
   </a>
-<nav aria-label="v0.32.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#updated">
+  
+    <nav class="md-nav" aria-label="v0.32.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#updated" class="md-nav__link">
     Updated
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#added">
+        
+          <li class="md-nav__item">
+  <a href="#added" class="md-nav__link">
     Added
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changed_1">
+        
+          <li class="md-nav__item">
+  <a href="#changed_1" class="md-nav__link">
     Changed
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#fixed_1">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_1" class="md-nav__link">
     Fixed
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0310">
+        
+          <li class="md-nav__item">
+  <a href="#v0310" class="md-nav__link">
     v0.31.0
   </a>
-<nav aria-label="v0.31.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#updated_1">
+  
+    <nav class="md-nav" aria-label="v0.31.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#updated_1" class="md-nav__link">
     Updated
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#added_1">
+        
+          <li class="md-nav__item">
+  <a href="#added_1" class="md-nav__link">
     Added
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0301">
+        
+          <li class="md-nav__item">
+  <a href="#v0301" class="md-nav__link">
     v0.30.1
   </a>
-<nav aria-label="v0.30.1" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#updated_2">
+  
+    <nav class="md-nav" aria-label="v0.30.1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#updated_2" class="md-nav__link">
     Updated
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changed_2">
+        
+          <li class="md-nav__item">
+  <a href="#changed_2" class="md-nav__link">
     Changed
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0300">
+        
+          <li class="md-nav__item">
+  <a href="#v0300" class="md-nav__link">
     v0.30.0
   </a>
-<nav aria-label="v0.30.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#added_2">
+  
+    <nav class="md-nav" aria-label="v0.30.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_2" class="md-nav__link">
     Added
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#updated_3">
+        
+          <li class="md-nav__item">
+  <a href="#updated_3" class="md-nav__link">
     Updated
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changed_3">
+        
+          <li class="md-nav__item">
+  <a href="#changed_3" class="md-nav__link">
     Changed
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#removed_1">
+        
+          <li class="md-nav__item">
+  <a href="#removed_1" class="md-nav__link">
     Removed
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0290">
+        
+          <li class="md-nav__item">
+  <a href="#v0290" class="md-nav__link">
     v0.29.0
   </a>
-<nav aria-label="v0.29.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#added_3">
+  
+    <nav class="md-nav" aria-label="v0.29.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_3" class="md-nav__link">
     Added
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changed_4">
+        
+          <li class="md-nav__item">
+  <a href="#changed_4" class="md-nav__link">
     Changed
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#updated_4">
+        
+          <li class="md-nav__item">
+  <a href="#updated_4" class="md-nav__link">
     Updated
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0281">
+        
+          <li class="md-nav__item">
+  <a href="#v0281" class="md-nav__link">
     v0.28.1
   </a>
-<nav aria-label="v0.28.1" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#added_4">
+  
+    <nav class="md-nav" aria-label="v0.28.1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_4" class="md-nav__link">
     Added
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0280">
+        
+          <li class="md-nav__item">
+  <a href="#v0280" class="md-nav__link">
     v0.28.0
   </a>
-<nav aria-label="v0.28.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changed_5">
+  
+    <nav class="md-nav" aria-label="v0.28.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_5" class="md-nav__link">
     Changed
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#fixed_2">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_2" class="md-nav__link">
     Fixed
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#added_5">
+        
+          <li class="md-nav__item">
+  <a href="#added_5" class="md-nav__link">
     Added
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0270">
+        
+          <li class="md-nav__item">
+  <a href="#v0270" class="md-nav__link">
     v0.27.0
   </a>
-<nav aria-label="v0.27.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#updated_5">
+  
+    <nav class="md-nav" aria-label="v0.27.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#updated_5" class="md-nav__link">
     Updated
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changed_6">
+        
+          <li class="md-nav__item">
+  <a href="#changed_6" class="md-nav__link">
     Changed
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#fixed_3">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_3" class="md-nav__link">
     Fixed
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#added_6">
+        
+          <li class="md-nav__item">
+  <a href="#added_6" class="md-nav__link">
     Added
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0260">
+        
+          <li class="md-nav__item">
+  <a href="#v0260" class="md-nav__link">
     v0.26.0
   </a>
-<nav aria-label="v0.26.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#updated_6">
+  
+    <nav class="md-nav" aria-label="v0.26.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#updated_6" class="md-nav__link">
     Updated
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#fixed_4">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_4" class="md-nav__link">
     Fixed
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#added_7">
+        
+          <li class="md-nav__item">
+  <a href="#added_7" class="md-nav__link">
     Added
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0250">
+        
+          <li class="md-nav__item">
+  <a href="#v0250" class="md-nav__link">
     v0.25.0
   </a>
-<nav aria-label="v0.25.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#added_8">
+  
+    <nav class="md-nav" aria-label="v0.25.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_8" class="md-nav__link">
     Added
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#updated_7">
+        
+          <li class="md-nav__item">
+  <a href="#updated_7" class="md-nav__link">
     Updated
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changed_7">
+        
+          <li class="md-nav__item">
+  <a href="#changed_7" class="md-nav__link">
     Changed
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0241">
+        
+          <li class="md-nav__item">
+  <a href="#v0241" class="md-nav__link">
     v0.24.1
   </a>
-<nav aria-label="v0.24.1" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#fixed_5">
+  
+    <nav class="md-nav" aria-label="v0.24.1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_5" class="md-nav__link">
     Fixed
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0240">
+        
+          <li class="md-nav__item">
+  <a href="#v0240" class="md-nav__link">
     v0.24.0
   </a>
-<nav aria-label="v0.24.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#updated_8">
+  
+    <nav class="md-nav" aria-label="v0.24.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#updated_8" class="md-nav__link">
     Updated
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changed_8">
+        
+          <li class="md-nav__item">
+  <a href="#changed_8" class="md-nav__link">
     Changed
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#added_9">
+        
+          <li class="md-nav__item">
+  <a href="#added_9" class="md-nav__link">
     Added
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0230">
+        
+          <li class="md-nav__item">
+  <a href="#v0230" class="md-nav__link">
     v0.23.0
   </a>
-<nav aria-label="v0.23.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#updated_9">
+  
+    <nav class="md-nav" aria-label="v0.23.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#updated_9" class="md-nav__link">
     Updated
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changed_9">
+        
+          <li class="md-nav__item">
+  <a href="#changed_9" class="md-nav__link">
     Changed
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#added_10">
+        
+          <li class="md-nav__item">
+  <a href="#added_10" class="md-nav__link">
     Added
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#fixed_6">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_6" class="md-nav__link">
     Fixed
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0220">
+        
+          <li class="md-nav__item">
+  <a href="#v0220" class="md-nav__link">
     v0.22.0
   </a>
-<nav aria-label="v0.22.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#added_11">
+  
+    <nav class="md-nav" aria-label="v0.22.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_11" class="md-nav__link">
     Added
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#fixed_7">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_7" class="md-nav__link">
     Fixed
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0210">
+        
+          <li class="md-nav__item">
+  <a href="#v0210" class="md-nav__link">
     v0.21.0
   </a>
-<nav aria-label="v0.21.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changed_10">
+  
+    <nav class="md-nav" aria-label="v0.21.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_10" class="md-nav__link">
     Changed
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#updated_10">
+        
+          <li class="md-nav__item">
+  <a href="#updated_10" class="md-nav__link">
     Updated
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0200">
+        
+          <li class="md-nav__item">
+  <a href="#v0200" class="md-nav__link">
     v0.20.0
   </a>
-<nav aria-label="v0.20.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#added_12">
+  
+    <nav class="md-nav" aria-label="v0.20.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_12" class="md-nav__link">
     Added
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changed_11">
+        
+          <li class="md-nav__item">
+  <a href="#changed_11" class="md-nav__link">
     Changed
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#updated_11">
+        
+          <li class="md-nav__item">
+  <a href="#updated_11" class="md-nav__link">
     Updated
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#removed_2">
+        
+          <li class="md-nav__item">
+  <a href="#removed_2" class="md-nav__link">
     Removed
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0191">
+        
+          <li class="md-nav__item">
+  <a href="#v0191" class="md-nav__link">
     v0.19.1
   </a>
-<nav aria-label="v0.19.1" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#fixed_8">
+  
+    <nav class="md-nav" aria-label="v0.19.1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_8" class="md-nav__link">
     Fixed
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0190">
+        
+          <li class="md-nav__item">
+  <a href="#v0190" class="md-nav__link">
     v0.19.0
   </a>
-<nav aria-label="v0.19.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#added_13">
+  
+    <nav class="md-nav" aria-label="v0.19.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_13" class="md-nav__link">
     Added
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changed_12">
+        
+          <li class="md-nav__item">
+  <a href="#changed_12" class="md-nav__link">
     Changed
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#updated_12">
+        
+          <li class="md-nav__item">
+  <a href="#updated_12" class="md-nav__link">
     Updated
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0182">
+        
+          <li class="md-nav__item">
+  <a href="#v0182" class="md-nav__link">
     v0.18.2
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0172">
+        
+          <li class="md-nav__item">
+  <a href="#v0172" class="md-nav__link">
     v0.17.2
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0181">
+        
+          <li class="md-nav__item">
+  <a href="#v0181" class="md-nav__link">
     v0.18.1
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0171">
+        
+          <li class="md-nav__item">
+  <a href="#v0171" class="md-nav__link">
     v0.17.1
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0180">
+        
+          <li class="md-nav__item">
+  <a href="#v0180" class="md-nav__link">
     v0.18.0
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0170">
+        
+          <li class="md-nav__item">
+  <a href="#v0170" class="md-nav__link">
     v0.17.0
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0160">
+        
+          <li class="md-nav__item">
+  <a href="#v0160" class="md-nav__link">
     v0.16.0
   </a>
+  
 </li>
-</ul>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../kubespray/">
-<span class="md-ellipsis">
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubespray/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     CK8S Kubespray
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../postgres/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../postgres/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     CK8S PostgreSQL
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../rabbitmq/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rabbitmq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     CK8S RabbitMQ
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../redis/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     CK8S Redis
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../jaeger/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jaeger/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     CK8S Jaeger
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../argocd/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../argocd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     CK8S Argo CD
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../glossary/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Glossary
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../roadmap/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roadmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Roadmap
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="https://elastisys.com/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://elastisys.com/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Support
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="https://elastisys.com/training/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://elastisys.com/training/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Training
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="https://elastisys.com/blog/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://elastisys.com/blog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Blog
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="https://elastisys.com/legal/privacy-policy/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://elastisys.com/legal/privacy-policy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Privacy Policy
   </span>
-</a>
-</li>
-</ul>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
 </nav>
-</div>
-</div>
-</div>
-<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#compliant-kubernetes">
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#compliant-kubernetes" class="md-nav__link">
     Compliant Kubernetes
   </a>
-<nav aria-label="Compliant Kubernetes" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0330">
+  
+    <nav class="md-nav" aria-label="Compliant Kubernetes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#v0330" class="md-nav__link">
     v0.33.0
   </a>
-<nav aria-label="v0.33.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changed">
+  
+    <nav class="md-nav" aria-label="v0.33.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed" class="md-nav__link">
     Changed
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#fixed">
+        
+          <li class="md-nav__item">
+  <a href="#fixed" class="md-nav__link">
     Fixed
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#removed">
+        
+          <li class="md-nav__item">
+  <a href="#removed" class="md-nav__link">
     Removed
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0320">
+        
+          <li class="md-nav__item">
+  <a href="#v0320" class="md-nav__link">
     v0.32.0
   </a>
-<nav aria-label="v0.32.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#updated">
+  
+    <nav class="md-nav" aria-label="v0.32.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#updated" class="md-nav__link">
     Updated
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#added">
+        
+          <li class="md-nav__item">
+  <a href="#added" class="md-nav__link">
     Added
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changed_1">
+        
+          <li class="md-nav__item">
+  <a href="#changed_1" class="md-nav__link">
     Changed
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#fixed_1">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_1" class="md-nav__link">
     Fixed
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0310">
+        
+          <li class="md-nav__item">
+  <a href="#v0310" class="md-nav__link">
     v0.31.0
   </a>
-<nav aria-label="v0.31.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#updated_1">
+  
+    <nav class="md-nav" aria-label="v0.31.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#updated_1" class="md-nav__link">
     Updated
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#added_1">
+        
+          <li class="md-nav__item">
+  <a href="#added_1" class="md-nav__link">
     Added
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0301">
+        
+          <li class="md-nav__item">
+  <a href="#v0301" class="md-nav__link">
     v0.30.1
   </a>
-<nav aria-label="v0.30.1" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#updated_2">
+  
+    <nav class="md-nav" aria-label="v0.30.1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#updated_2" class="md-nav__link">
     Updated
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changed_2">
+        
+          <li class="md-nav__item">
+  <a href="#changed_2" class="md-nav__link">
     Changed
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0300">
+        
+          <li class="md-nav__item">
+  <a href="#v0300" class="md-nav__link">
     v0.30.0
   </a>
-<nav aria-label="v0.30.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#added_2">
+  
+    <nav class="md-nav" aria-label="v0.30.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_2" class="md-nav__link">
     Added
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#updated_3">
+        
+          <li class="md-nav__item">
+  <a href="#updated_3" class="md-nav__link">
     Updated
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changed_3">
+        
+          <li class="md-nav__item">
+  <a href="#changed_3" class="md-nav__link">
     Changed
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#removed_1">
+        
+          <li class="md-nav__item">
+  <a href="#removed_1" class="md-nav__link">
     Removed
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0290">
+        
+          <li class="md-nav__item">
+  <a href="#v0290" class="md-nav__link">
     v0.29.0
   </a>
-<nav aria-label="v0.29.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#added_3">
+  
+    <nav class="md-nav" aria-label="v0.29.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_3" class="md-nav__link">
     Added
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changed_4">
+        
+          <li class="md-nav__item">
+  <a href="#changed_4" class="md-nav__link">
     Changed
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#updated_4">
+        
+          <li class="md-nav__item">
+  <a href="#updated_4" class="md-nav__link">
     Updated
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0281">
+        
+          <li class="md-nav__item">
+  <a href="#v0281" class="md-nav__link">
     v0.28.1
   </a>
-<nav aria-label="v0.28.1" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#added_4">
+  
+    <nav class="md-nav" aria-label="v0.28.1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_4" class="md-nav__link">
     Added
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0280">
+        
+          <li class="md-nav__item">
+  <a href="#v0280" class="md-nav__link">
     v0.28.0
   </a>
-<nav aria-label="v0.28.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changed_5">
+  
+    <nav class="md-nav" aria-label="v0.28.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_5" class="md-nav__link">
     Changed
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#fixed_2">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_2" class="md-nav__link">
     Fixed
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#added_5">
+        
+          <li class="md-nav__item">
+  <a href="#added_5" class="md-nav__link">
     Added
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0270">
+        
+          <li class="md-nav__item">
+  <a href="#v0270" class="md-nav__link">
     v0.27.0
   </a>
-<nav aria-label="v0.27.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#updated_5">
+  
+    <nav class="md-nav" aria-label="v0.27.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#updated_5" class="md-nav__link">
     Updated
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changed_6">
+        
+          <li class="md-nav__item">
+  <a href="#changed_6" class="md-nav__link">
     Changed
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#fixed_3">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_3" class="md-nav__link">
     Fixed
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#added_6">
+        
+          <li class="md-nav__item">
+  <a href="#added_6" class="md-nav__link">
     Added
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0260">
+        
+          <li class="md-nav__item">
+  <a href="#v0260" class="md-nav__link">
     v0.26.0
   </a>
-<nav aria-label="v0.26.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#updated_6">
+  
+    <nav class="md-nav" aria-label="v0.26.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#updated_6" class="md-nav__link">
     Updated
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#fixed_4">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_4" class="md-nav__link">
     Fixed
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#added_7">
+        
+          <li class="md-nav__item">
+  <a href="#added_7" class="md-nav__link">
     Added
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0250">
+        
+          <li class="md-nav__item">
+  <a href="#v0250" class="md-nav__link">
     v0.25.0
   </a>
-<nav aria-label="v0.25.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#added_8">
+  
+    <nav class="md-nav" aria-label="v0.25.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_8" class="md-nav__link">
     Added
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#updated_7">
+        
+          <li class="md-nav__item">
+  <a href="#updated_7" class="md-nav__link">
     Updated
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changed_7">
+        
+          <li class="md-nav__item">
+  <a href="#changed_7" class="md-nav__link">
     Changed
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0241">
+        
+          <li class="md-nav__item">
+  <a href="#v0241" class="md-nav__link">
     v0.24.1
   </a>
-<nav aria-label="v0.24.1" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#fixed_5">
+  
+    <nav class="md-nav" aria-label="v0.24.1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_5" class="md-nav__link">
     Fixed
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0240">
+        
+          <li class="md-nav__item">
+  <a href="#v0240" class="md-nav__link">
     v0.24.0
   </a>
-<nav aria-label="v0.24.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#updated_8">
+  
+    <nav class="md-nav" aria-label="v0.24.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#updated_8" class="md-nav__link">
     Updated
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changed_8">
+        
+          <li class="md-nav__item">
+  <a href="#changed_8" class="md-nav__link">
     Changed
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#added_9">
+        
+          <li class="md-nav__item">
+  <a href="#added_9" class="md-nav__link">
     Added
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0230">
+        
+          <li class="md-nav__item">
+  <a href="#v0230" class="md-nav__link">
     v0.23.0
   </a>
-<nav aria-label="v0.23.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#updated_9">
+  
+    <nav class="md-nav" aria-label="v0.23.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#updated_9" class="md-nav__link">
     Updated
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changed_9">
+        
+          <li class="md-nav__item">
+  <a href="#changed_9" class="md-nav__link">
     Changed
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#added_10">
+        
+          <li class="md-nav__item">
+  <a href="#added_10" class="md-nav__link">
     Added
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#fixed_6">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_6" class="md-nav__link">
     Fixed
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0220">
+        
+          <li class="md-nav__item">
+  <a href="#v0220" class="md-nav__link">
     v0.22.0
   </a>
-<nav aria-label="v0.22.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#added_11">
+  
+    <nav class="md-nav" aria-label="v0.22.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_11" class="md-nav__link">
     Added
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#fixed_7">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_7" class="md-nav__link">
     Fixed
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0210">
+        
+          <li class="md-nav__item">
+  <a href="#v0210" class="md-nav__link">
     v0.21.0
   </a>
-<nav aria-label="v0.21.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changed_10">
+  
+    <nav class="md-nav" aria-label="v0.21.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_10" class="md-nav__link">
     Changed
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#updated_10">
+        
+          <li class="md-nav__item">
+  <a href="#updated_10" class="md-nav__link">
     Updated
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0200">
+        
+          <li class="md-nav__item">
+  <a href="#v0200" class="md-nav__link">
     v0.20.0
   </a>
-<nav aria-label="v0.20.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#added_12">
+  
+    <nav class="md-nav" aria-label="v0.20.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_12" class="md-nav__link">
     Added
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changed_11">
+        
+          <li class="md-nav__item">
+  <a href="#changed_11" class="md-nav__link">
     Changed
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#updated_11">
+        
+          <li class="md-nav__item">
+  <a href="#updated_11" class="md-nav__link">
     Updated
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#removed_2">
+        
+          <li class="md-nav__item">
+  <a href="#removed_2" class="md-nav__link">
     Removed
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0191">
+        
+          <li class="md-nav__item">
+  <a href="#v0191" class="md-nav__link">
     v0.19.1
   </a>
-<nav aria-label="v0.19.1" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#fixed_8">
+  
+    <nav class="md-nav" aria-label="v0.19.1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_8" class="md-nav__link">
     Fixed
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0190">
+        
+          <li class="md-nav__item">
+  <a href="#v0190" class="md-nav__link">
     v0.19.0
   </a>
-<nav aria-label="v0.19.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#added_13">
+  
+    <nav class="md-nav" aria-label="v0.19.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added_13" class="md-nav__link">
     Added
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#changed_12">
+        
+          <li class="md-nav__item">
+  <a href="#changed_12" class="md-nav__link">
     Changed
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#updated_12">
+        
+          <li class="md-nav__item">
+  <a href="#updated_12" class="md-nav__link">
     Updated
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0182">
+        
+          <li class="md-nav__item">
+  <a href="#v0182" class="md-nav__link">
     v0.18.2
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0172">
+        
+          <li class="md-nav__item">
+  <a href="#v0172" class="md-nav__link">
     v0.17.2
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0181">
+        
+          <li class="md-nav__item">
+  <a href="#v0181" class="md-nav__link">
     v0.18.1
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0171">
+        
+          <li class="md-nav__item">
+  <a href="#v0171" class="md-nav__link">
     v0.17.1
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0180">
+        
+          <li class="md-nav__item">
+  <a href="#v0180" class="md-nav__link">
     v0.18.0
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0170">
+        
+          <li class="md-nav__item">
+  <a href="#v0170" class="md-nav__link">
     v0.17.0
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#v0160">
+        
+          <li class="md-nav__item">
+  <a href="#v0160" class="md-nav__link">
     v0.16.0
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-</ul>
+      
+    </ul>
+  
 </nav>
-</div>
-</div>
-</div>
-<div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset">
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
 <!--apps-release-notes-start-->
-<h1 id="release-notes">Release Notes<a class="headerlink" href="#release-notes" title="Permanent link">¶</a></h1>
-<h2 id="compliant-kubernetes">Compliant Kubernetes<a class="headerlink" href="#compliant-kubernetes" title="Permanent link">¶</a></h2>
+<h1 id="release-notes">Release Notes<a class="headerlink" href="#release-notes" title="Permanent link">&para;</a></h1>
+<h2 id="compliant-kubernetes">Compliant Kubernetes<a class="headerlink" href="#compliant-kubernetes" title="Permanent link">&para;</a></h2>
 <!-- BEGIN TOC -->
 <ul>
 <li><a href="#v0330">v0.33.0</a> - 2023-09-28</li>
@@ -2209,51 +4559,52 @@ if(!document.__defineGetter__) {
 <li><a href="#v0160">v0.16.0</a> - 2021-05-27</li>
 </ul>
 <!-- END TOC -->
+
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For a more detailed look check out the full <a href="https://github.com/elastisys/compliantkubernetes-apps/blob/main/CHANGELOG.md">changelog</a>.</p>
 </div>
-<h3 id="v0330">v0.33.0<a class="headerlink" href="#v0330" title="Permanent link">¶</a></h3>
+<h3 id="v0330">v0.33.0<a class="headerlink" href="#v0330" title="Permanent link">&para;</a></h3>
 <p>Released 2023-09-28</p>
-<h4 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">¶</a></h4>
+<h4 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Increased the default <code>proxy-buffer-size</code> setting in ingress-nginx to <code>8k</code>.</strong></li>
 </ul>
-<h4 id="fixed">Fixed<a class="headerlink" href="#fixed" title="Permanent link">¶</a></h4>
+<h4 id="fixed">Fixed<a class="headerlink" href="#fixed" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Refer to Grafana, OpenSearch and Harbor as Web Portals in Grafana and OpenSearch welcome dashboards</strong></li>
 </ul>
-<h4 id="removed">Removed<a class="headerlink" href="#removed" title="Permanent link">¶</a></h4>
+<h4 id="removed">Removed<a class="headerlink" href="#removed" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Removed the deprecated grafana dashboard Image vulnerabilities.</strong></li>
 </ul>
-<h3 id="v0320">v0.32.0<a class="headerlink" href="#v0320" title="Permanent link">¶</a></h3>
+<h3 id="v0320">v0.32.0<a class="headerlink" href="#v0320" title="Permanent link">&para;</a></h3>
 <p>Released 2023-08-07</p>
-<h4 id="updated">Updated<a class="headerlink" href="#updated" title="Permanent link">¶</a></h4>
+<h4 id="updated">Updated<a class="headerlink" href="#updated" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Upgraded Falco chart version to <code>3.3.0</code> and app version to <code>0.35.1</code>.</strong></li>
 </ul>
-<h4 id="added">Added<a class="headerlink" href="#added" title="Permanent link">¶</a></h4>
+<h4 id="added">Added<a class="headerlink" href="#added" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Added support to turn off trailing dots for grafana.</strong></li>
 <li>This fixes an issue with the certificate for Grafana appearing not to be valid on some browsers.</li>
 </ul>
-<h4 id="changed_1">Changed<a class="headerlink" href="#changed_1" title="Permanent link">¶</a></h4>
+<h4 id="changed_1">Changed<a class="headerlink" href="#changed_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Increased window for <code>FrequentPacketsDroppedFromWorkload</code> and <code>FrequentPacketsDroppedToWorkload</code> alerts.</strong></li>
 <li>To make it less sensitive to semi-consistent blocked network traffic.</li>
 <li><strong>Reduced CPU requests for some components in the service cluster.</strong></li>
 </ul>
-<h4 id="fixed_1">Fixed<a class="headerlink" href="#fixed_1" title="Permanent link">¶</a></h4>
+<h4 id="fixed_1">Fixed<a class="headerlink" href="#fixed_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Added some default annotations for harbor that will fix issues with not being able to upload larger images.</strong></li>
 <li><strong>Fixed the Gatekeeper Grafana dashboard.</strong></li>
 <li>Updated queries to produce correct numbers</li>
 <li>Removed broken/duplicate panels</li>
 </ul>
-<h3 id="v0310">v0.31.0<a class="headerlink" href="#v0310" title="Permanent link">¶</a></h3>
+<h3 id="v0310">v0.31.0<a class="headerlink" href="#v0310" title="Permanent link">&para;</a></h3>
 <p>Released 2023-07-17</p>
-<h4 id="updated_1">Updated<a class="headerlink" href="#updated_1" title="Permanent link">¶</a></h4>
+<h4 id="updated_1">Updated<a class="headerlink" href="#updated_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Harbor is upgraded to <code>v2.8.2</code>.</strong><ul>
 <li>This version drops the support for chartmuseum and replaces it with a OCI compatible chart storage. You can find the documentation for how to use OCI compatible chart storage <a href="https://goharbor.io/docs/2.7.0/working-with-projects/working-with-images/managing-helm-charts/#manage-helm-charts-with-the-oci-compatible-registry-of-harbor">here</a>.</li>
@@ -2265,39 +4616,39 @@ if(!document.__defineGetter__) {
 <li><strong>Grafana is upgraded to <code>v9.5.5</code>.</strong></li>
 <li><strong>Opensearch and Opensearch Dashboard are upgraded to <code>v2.8.0</code>.</strong></li>
 </ul>
-<h4 id="added_1">Added<a class="headerlink" href="#added_1" title="Permanent link">¶</a></h4>
+<h4 id="added_1">Added<a class="headerlink" href="#added_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Added RBAC for admin users to view events and logs.</strong></li>
 <li><strong>Possibility to add custom config for node-local-dns.</strong></li>
 <li><strong>Harbor GC is enabled by default and will run every Sunday at midnight UTC.</strong></li>
 </ul>
-<h3 id="v0301">v0.30.1<a class="headerlink" href="#v0301" title="Permanent link">¶</a></h3>
+<h3 id="v0301">v0.30.1<a class="headerlink" href="#v0301" title="Permanent link">&para;</a></h3>
 <p>Released 2023-06-05</p>
-<h4 id="updated_2">Updated<a class="headerlink" href="#updated_2" title="Permanent link">¶</a></h4>
+<h4 id="updated_2">Updated<a class="headerlink" href="#updated_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Update Trivy Operator Dashboard to improve the user experience.</strong></li>
 <li><strong>Another network policy fix for Harbor to allow garbage collection.</strong></li>
 <li><strong>Fixed duplicate exception for falco alerts.</strong></li>
 <li><strong>Update Falco rules and falco alert exceptions.</strong></li>
 </ul>
-<h4 id="changed_2">Changed<a class="headerlink" href="#changed_2" title="Permanent link">¶</a></h4>
+<h4 id="changed_2">Changed<a class="headerlink" href="#changed_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Change Trivy Operator Dashboard to only count image states once per image instead for each namespace and resource.</strong></li>
 </ul>
-<h3 id="v0300">v0.30.0<a class="headerlink" href="#v0300" title="Permanent link">¶</a></h3>
+<h3 id="v0300">v0.30.0<a class="headerlink" href="#v0300" title="Permanent link">&para;</a></h3>
 <p>Released 2023-05-16</p>
-<h4 id="added_2">Added<a class="headerlink" href="#added_2" title="Permanent link">¶</a></h4>
+<h4 id="added_2">Added<a class="headerlink" href="#added_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Kubernetes Jobs will now have a default TTL of 7 days if unset to ensure resources are cleaned up.</strong></li>
 </ul>
-<h4 id="updated_3">Updated<a class="headerlink" href="#updated_3" title="Permanent link">¶</a></h4>
+<h4 id="updated_3">Updated<a class="headerlink" href="#updated_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>kube-prometheus-stack chart to <code>v45.2.0</code>.</strong></li>
 <li>the portName for alertmanager and prometheus have been renamed from web to http-web. If this port names are used by you application or to port-forward to prometheus/alertmanager, you will need to update them to http-web or use the port numbers instead (e.g 9090 for prometheus and 9093 for alertmanager);</li>
 <li>added default metric relabeling for cAdvisor and apiserver metrics to reduce cardinality;</li>
 <li>alertmanager, using regex field from the Matcher type is deprecated and it will be removed in a future version.</li>
 </ul>
-<h4 id="changed_3">Changed<a class="headerlink" href="#changed_3" title="Permanent link">¶</a></h4>
+<h4 id="changed_3">Changed<a class="headerlink" href="#changed_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Kubernetes PodSecurityPolcies have been replaced with Kubernetes Pod Security Standards and additional Gatekeeper Constraints and Mutations.</strong></li>
 <li>This should not affect user applications as the default behavior is kept, and the new default restricted Pod Security Standard is slightly less restricted than the previous restricted PodSecurityPolicy following the upstream changes;</li>
@@ -2307,7 +4658,7 @@ if(!document.__defineGetter__) {
 <li><strong>Both <code>responseObject</code> and <code>requestObject</code> are no longer dropped in Fluentd from Kubernetes audit events.</strong></li>
 <li><strong>Changed timekey to stageTimestamp for Kubernetes audit logs. Use auditID to correlate stages of the same request.</strong></li>
 </ul>
-<h4 id="removed_1">Removed<a class="headerlink" href="#removed_1" title="Permanent link">¶</a></h4>
+<h4 id="removed_1">Removed<a class="headerlink" href="#removed_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Remove HNC admin-rbac from admin (attached to user admins).</strong></li>
 <li>User admins will now only have the HNC user-rbac instead.</li>
@@ -2315,38 +4666,38 @@ if(!document.__defineGetter__) {
 <li>HierarchyConfiguration controls the Pod Security Standard level, and as such should not be allowed to be changed by a user.</li>
 <li><strong>Disable Non sudo setuid falco rule.</strong></li>
 </ul>
-<h3 id="v0290">v0.29.0<a class="headerlink" href="#v0290" title="Permanent link">¶</a></h3>
+<h3 id="v0290">v0.29.0<a class="headerlink" href="#v0290" title="Permanent link">&para;</a></h3>
 <p>Released 2023-03-16</p>
-<h4 id="added_3">Added<a class="headerlink" href="#added_3" title="Permanent link">¶</a></h4>
+<h4 id="added_3">Added<a class="headerlink" href="#added_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Static users can now be added in OpenSearch.</strong></li>
 </ul>
-<h4 id="changed_4">Changed<a class="headerlink" href="#changed_4" title="Permanent link">¶</a></h4>
+<h4 id="changed_4">Changed<a class="headerlink" href="#changed_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>The Fluentd deployment has changed considerably and users must ensure that their custom filters continue to work as expected.</strong></li>
 </ul>
-<h4 id="updated_4">Updated<a class="headerlink" href="#updated_4" title="Permanent link">¶</a></h4>
+<h4 id="updated_4">Updated<a class="headerlink" href="#updated_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Cert-manager updated to <code>v1.11.0</code>.</strong></li>
 <li>The containers in pods created by cert-manager have been renamed to better reflect what they do. This can be breaking for automation that relies on these names being static.</li>
 <li>The cert-manager Gateway API integration now uses the v1beta1 API version. ExperimentalGatewayAPISupport alpha feature users must upgrade to v1beta of Gateway API.</li>
 </ul>
-<h3 id="v0281">v0.28.1<a class="headerlink" href="#v0281" title="Permanent link">¶</a></h3>
+<h3 id="v0281">v0.28.1<a class="headerlink" href="#v0281" title="Permanent link">&para;</a></h3>
 <p>Released 2023-03-02</p>
-<h4 id="added_4">Added<a class="headerlink" href="#added_4" title="Permanent link">¶</a></h4>
+<h4 id="added_4">Added<a class="headerlink" href="#added_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Added falco rules to ignore redis operator related alerts.</strong></li>
 </ul>
-<h3 id="v0280">v0.28.0<a class="headerlink" href="#v0280" title="Permanent link">¶</a></h3>
+<h3 id="v0280">v0.28.0<a class="headerlink" href="#v0280" title="Permanent link">&para;</a></h3>
 <p>Released 2023-01-30</p>
-<h4 id="changed_5">Changed<a class="headerlink" href="#changed_5" title="Permanent link">¶</a></h4>
+<h4 id="changed_5">Changed<a class="headerlink" href="#changed_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Updated Rook alerts to <code>v1.10.5</code>.</strong></li>
 <li><strong>Nginx ingress controller service can now have multiple annotations instead of just one.</strong></li>
 <li><strong>Synced all grafana dashboards to use the default organization timezone.</strong></li>
 <li><strong>Several default resource requests and limits have changed for the included services.</strong></li>
 </ul>
-<h4 id="fixed_2">Fixed<a class="headerlink" href="#fixed_2" title="Permanent link">¶</a></h4>
+<h4 id="fixed_2">Fixed<a class="headerlink" href="#fixed_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Use FQDN for services connecting from the Workload Cluster to the service cluster to prevent resolve timeouts.</strong></li>
 <li><strong>Fixed <code>KubeletDown</code> alert rule not alerting if a kubelet was missing.</strong></li>
@@ -2354,15 +4705,15 @@ if(!document.__defineGetter__) {
 <li><strong>Added <code>fluent-plugin-record-modifier</code> to the fluentd image to prevent mapping errors.</strong></li>
 <li><strong>Various fixes to network policies.</strong></li>
 </ul>
-<h4 id="added_5">Added<a class="headerlink" href="#added_5" title="Permanent link">¶</a></h4>
+<h4 id="added_5">Added<a class="headerlink" href="#added_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Improved security posture by adding network policies for some of the networking and storage components.</strong></li>
 <li><strong>Added alert for less kubelets than nodes in the cluster.</strong></li>
 <li><strong>Added alert for object limits in buckets.</strong></li>
 </ul>
-<h3 id="v0270">v0.27.0<a class="headerlink" href="#v0270" title="Permanent link">¶</a></h3>
+<h3 id="v0270">v0.27.0<a class="headerlink" href="#v0270" title="Permanent link">&para;</a></h3>
 <p>Released 2022-11-17</p>
-<h4 id="updated_5">Updated<a class="headerlink" href="#updated_5" title="Permanent link">¶</a></h4>
+<h4 id="updated_5">Updated<a class="headerlink" href="#updated_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Updated Dex helm chart to <code>v0.12.0</code>, which also upgrades Dex to <code>v2.35.1</code>.</strong></li>
 <li><strong>Updated Falco helm chart to <code>2.2.0</code>, which also upgrades Falco to <code>0.33.0</code> and Falco Sidekick to <code>2.26.0</code>.</strong></li>
@@ -2370,7 +4721,7 @@ if(!document.__defineGetter__) {
 <li><strong>Updated Velero helm chart to <code>v2.31.8</code>, which also upgrades Velero to <code>v1.9.2</code>.</strong></li>
 <li><strong>Updated Grafana helm chart to <code>v6.43.4</code>, which also upgrades Grafana to <code>v9.2.4</code>.</strong></li>
 </ul>
-<h4 id="changed_6">Changed<a class="headerlink" href="#changed_6" title="Permanent link">¶</a></h4>
+<h4 id="changed_6">Changed<a class="headerlink" href="#changed_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Improved Network security by adding Network policies to a lot of the included services.</strong></li>
 <li><strong>NetworkPolicies are now automatically propagated from a parent namespace to its subnamespaces in HNC.</strong></li>
@@ -2379,12 +4730,12 @@ if(!document.__defineGetter__) {
 <li><strong>Made dex ID Token expiration time configurable.</strong></li>
 <li><strong>User alertmanager is now enabled by default.</strong></li>
 </ul>
-<h4 id="fixed_3">Fixed<a class="headerlink" href="#fixed_3" title="Permanent link">¶</a></h4>
+<h4 id="fixed_3">Fixed<a class="headerlink" href="#fixed_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Fixed an issue with the "Kubernetes cluster status" Grafana dashboard not loading data for some panels</strong></li>
 <li><strong>Rclone can now be configured to run every x minutes/hours/days/week/month/year.</strong></li>
 </ul>
-<h4 id="added_6">Added<a class="headerlink" href="#added_6" title="Permanent link">¶</a></h4>
+<h4 id="added_6">Added<a class="headerlink" href="#added_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Added RBAC for admin users to view Gatekeeper constraints.</strong></li>
 <li><strong>New section in the welcoming dashboards, displaying the most relevant features and changes for the user added in the last two releases.</strong></li>
@@ -2392,18 +4743,18 @@ if(!document.__defineGetter__) {
 <li><strong>The settings for this might need to be tweaked to better suit the environment.</strong></li>
 <li><strong>Added an alert for failed evicted pods (KubeFailedEvictedPods).</strong></li>
 </ul>
-<h3 id="v0260">v0.26.0<a class="headerlink" href="#v0260" title="Permanent link">¶</a></h3>
+<h3 id="v0260">v0.26.0<a class="headerlink" href="#v0260" title="Permanent link">&para;</a></h3>
 <p>Released 2022-09-19</p>
-<h4 id="updated_6">Updated<a class="headerlink" href="#updated_6" title="Permanent link">¶</a></h4>
+<h4 id="updated_6">Updated<a class="headerlink" href="#updated_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Harbor upgraded to <code>v2.6.0</code></strong></li>
 <li><strong>Upgraded Opensearch helm chart to <code>2.6.0</code>, this upgrades Opensearch to <code>2.3.0</code>. For more information about the upgrade, check out their <a href="https://opensearch.org/blog/releases/2022/09/opensearch-2-3-is-ready-for-download/">2.3 Launch Announcement</a>.</strong></li>
 </ul>
-<h4 id="fixed_4">Fixed<a class="headerlink" href="#fixed_4" title="Permanent link">¶</a></h4>
+<h4 id="fixed_4">Fixed<a class="headerlink" href="#fixed_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Fixed the welcome dashboard template for OpenSearch Dashboards</strong></li>
 </ul>
-<h4 id="added_7">Added<a class="headerlink" href="#added_7" title="Permanent link">¶</a></h4>
+<h4 id="added_7">Added<a class="headerlink" href="#added_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Option to create custom solvers for letsencrypt issuers, including a simple way to add secrets</strong></li>
 <li><strong>Kube-bench runs on every node</strong>
@@ -2412,15 +4763,15 @@ if(!document.__defineGetter__) {
 <li><strong>Added option for kured to notify to slack when draning and rebooting nodes</strong></li>
 <li><strong>Allow users to proxy and port-forward to prometheus running in the Workload Cluster</strong></li>
 </ul>
-<h3 id="v0250">v0.25.0<a class="headerlink" href="#v0250" title="Permanent link">¶</a></h3>
+<h3 id="v0250">v0.25.0<a class="headerlink" href="#v0250" title="Permanent link">&para;</a></h3>
 <p>Released 2022-08-25</p>
-<h4 id="added_8">Added<a class="headerlink" href="#added_8" title="Permanent link">¶</a></h4>
+<h4 id="added_8">Added<a class="headerlink" href="#added_8" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Added Hierarchical Namespace Controller</strong><br/> Allowing users to create and manage subnamespaces, namespaces within namespaces. You can read more about this in our <a href="../../user-guide/faq/#how-do-i-add-a-new-namespace">FAQ</a>.</li>
 <li><strong>Added support for custom solvers in cluster issuers</strong> <br/> Allowing DNS01 challenges for certificate requests.</li>
 <li><strong>Added support for running Harbor in High Availability</strong></li>
 </ul>
-<h4 id="updated_7">Updated<a class="headerlink" href="#updated_7" title="Permanent link">¶</a></h4>
+<h4 id="updated_7">Updated<a class="headerlink" href="#updated_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p><strong>Updated cert-manager from v1.6.1 to v1.8.2</strong> <br/> API versions <code>v1alpha2</code>, <code>v1alpha3</code>, and <code>v1beta1</code> have been removed from the custom resource definitions (CRDs), certificate rotation policy will now be validated. See their <a href="https://github.com/cert-manager/cert-manager/releases">changelog</a> for more details.</p>
@@ -2429,22 +4780,22 @@ if(!document.__defineGetter__) {
 <p><strong>Updated OpenSearch with new usability improvements and features</strong> <br/> Checkout their <a href="https://opensearch.org/blog/releases/2022/03/launch-announcement-1-3-0/">launch announcement</a>.</p>
 </li>
 </ul>
-<h4 id="changed_7">Changed<a class="headerlink" href="#changed_7" title="Permanent link">¶</a></h4>
+<h4 id="changed_7">Changed<a class="headerlink" href="#changed_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>New additions to the Kubernetes cluster status Grafana dashboard</strong> <br/> It now shows information about resource requests and limits per node, and resource usage vs request per pod.</li>
 </ul>
-<h3 id="v0241">v0.24.1<a class="headerlink" href="#v0241" title="Permanent link">¶</a></h3>
+<h3 id="v0241">v0.24.1<a class="headerlink" href="#v0241" title="Permanent link">&para;</a></h3>
 <p>Released 2022-08-01</p>
 <ul>
 <li><strong>Required patch to be able to use release <code>v0.24.0</code></strong><br/></li>
 </ul>
-<h4 id="fixed_5">Fixed<a class="headerlink" href="#fixed_5" title="Permanent link">¶</a></h4>
+<h4 id="fixed_5">Fixed<a class="headerlink" href="#fixed_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Fixed a formatting issue with harbor s3 configuration.</li>
 </ul>
-<h3 id="v0240">v0.24.0<a class="headerlink" href="#v0240" title="Permanent link">¶</a></h3>
+<h3 id="v0240">v0.24.0<a class="headerlink" href="#v0240" title="Permanent link">&para;</a></h3>
 <p>Released 2022-07-25</p>
-<h4 id="updated_8">Updated<a class="headerlink" href="#updated_8" title="Permanent link">¶</a></h4>
+<h4 id="updated_8">Updated<a class="headerlink" href="#updated_8" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p><strong>Upgraded Helm stack</strong><br/>
@@ -2454,37 +4805,37 @@ if(!document.__defineGetter__) {
 <p><strong>Image upgrade to node-local-dns</strong><br/></p>
 </li>
 </ul>
-<h4 id="changed_8">Changed<a class="headerlink" href="#changed_8" title="Permanent link">¶</a></h4>
+<h4 id="changed_8">Changed<a class="headerlink" href="#changed_8" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Improved stability to automatic node reboots</strong><br/></li>
 </ul>
-<h4 id="added_9">Added<a class="headerlink" href="#added_9" title="Permanent link">¶</a></h4>
+<h4 id="added_9">Added<a class="headerlink" href="#added_9" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Further configurability to ingress-nginx</strong><br/></li>
 </ul>
-<h3 id="v0230">v0.23.0<a class="headerlink" href="#v0230" title="Permanent link">¶</a></h3>
+<h3 id="v0230">v0.23.0<a class="headerlink" href="#v0230" title="Permanent link">&para;</a></h3>
 <p>Released 2022-07-06</p>
-<h4 id="updated_9">Updated<a class="headerlink" href="#updated_9" title="Permanent link">¶</a></h4>
+<h4 id="updated_9">Updated<a class="headerlink" href="#updated_9" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Updated the ingress controller <code>ingress-nginx</code> to image version v1.2.1</strong><br/></li>
 <li>You can find the changelog <a href="https://github.com/kubernetes/ingress-nginx/releases/tag/controller-v1.2.1">here</a>.</li>
 </ul>
-<h4 id="changed_9">Changed<a class="headerlink" href="#changed_9" title="Permanent link">¶</a></h4>
+<h4 id="changed_9">Changed<a class="headerlink" href="#changed_9" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Added support for accessing Alertmanager via port-forward</strong><br/></li>
 </ul>
-<h4 id="added_10">Added<a class="headerlink" href="#added_10" title="Permanent link">¶</a></h4>
+<h4 id="added_10">Added<a class="headerlink" href="#added_10" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Backups can now be encrypted before they are replicated to an off-site S3 service.</strong><br/></li>
 <li><strong>Improved metrics and alerting for OpenSearch.</strong><br/></li>
 </ul>
-<h4 id="fixed_6">Fixed<a class="headerlink" href="#fixed_6" title="Permanent link">¶</a></h4>
+<h4 id="fixed_6">Fixed<a class="headerlink" href="#fixed_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>The deployment of Dex is now properly configured to be HA, ensuring that the Dex instances are placed on different Kubernetes worker nodes.</strong><br/></li>
 </ul>
-<h3 id="v0220">v0.22.0<a class="headerlink" href="#v0220" title="Permanent link">¶</a></h3>
+<h3 id="v0220">v0.22.0<a class="headerlink" href="#v0220" title="Permanent link">&para;</a></h3>
 <p>Released 2022-06-01</p>
-<h4 id="added_11">Added<a class="headerlink" href="#added_11" title="Permanent link">¶</a></h4>
+<h4 id="added_11">Added<a class="headerlink" href="#added_11" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p><strong>Added support for Elastx and UpCloud!</strong><br/></p>
@@ -2502,7 +4853,7 @@ if(!document.__defineGetter__) {
   Falco now alerts less on operations that are expected out of these services.</p>
 </li>
 </ul>
-<h4 id="fixed_7">Fixed<a class="headerlink" href="#fixed_7" title="Permanent link">¶</a></h4>
+<h4 id="fixed_7">Fixed<a class="headerlink" href="#fixed_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p><strong>Fixed a bug where users couldn't silence alerts when portforwarding to alertmanager.</strong><br/></p>
@@ -2511,9 +4862,9 @@ if(!document.__defineGetter__) {
 <p><strong>Improved logging stack and fixed a number of issues to ensure reliability.</strong><br/></p>
 </li>
 </ul>
-<h3 id="v0210">v0.21.0<a class="headerlink" href="#v0210" title="Permanent link">¶</a></h3>
+<h3 id="v0210">v0.21.0<a class="headerlink" href="#v0210" title="Permanent link">&para;</a></h3>
 <p>Released 2022-05-04</p>
-<h4 id="changed_10">Changed<a class="headerlink" href="#changed_10" title="Permanent link">¶</a></h4>
+<h4 id="changed_10">Changed<a class="headerlink" href="#changed_10" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p><strong>Users can now view ClusterIssuers.</strong><br/></p>
@@ -2534,14 +4885,14 @@ if(!document.__defineGetter__) {
   Dex now runs with two replicas and has been updated.</p>
 </li>
 </ul>
-<h4 id="updated_10">Updated<a class="headerlink" href="#updated_10" title="Permanent link">¶</a></h4>
+<h4 id="updated_10">Updated<a class="headerlink" href="#updated_10" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Image upgrades to reduce number of vulnerabilities</strong><br/>
   Upgrades for fluentd, grafana, and harbor chartmuseum.</li>
 </ul>
-<h3 id="v0200">v0.20.0<a class="headerlink" href="#v0200" title="Permanent link">¶</a></h3>
+<h3 id="v0200">v0.20.0<a class="headerlink" href="#v0200" title="Permanent link">&para;</a></h3>
 <p>Released 2022-03-21</p>
-<h4 id="added_12">Added<a class="headerlink" href="#added_12" title="Permanent link">¶</a></h4>
+<h4 id="added_12">Added<a class="headerlink" href="#added_12" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p><strong>Added kured - Kubernetes Reboot Daemon.</strong><br/>
@@ -2558,7 +4909,7 @@ if(!document.__defineGetter__) {
 <p><strong>Added containerd support for fluentd.</strong><br/></p>
 </li>
 </ul>
-<h4 id="changed_11">Changed<a class="headerlink" href="#changed_11" title="Permanent link">¶</a></h4>
+<h4 id="changed_11">Changed<a class="headerlink" href="#changed_11" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p><strong>Added the new OPA policy.</strong><br/>
@@ -2575,7 +4926,7 @@ if(!document.__defineGetter__) {
 <p><strong>Thanos is now enabled by default.</strong><br/></p>
 </li>
 </ul>
-<h4 id="updated_11">Updated<a class="headerlink" href="#updated_11" title="Permanent link">¶</a></h4>
+<h4 id="updated_11">Updated<a class="headerlink" href="#updated_11" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p><strong>Upgraded nginx-ingress helm chart to v4.0.17</strong><br/>
@@ -2586,19 +4937,19 @@ if(!document.__defineGetter__) {
   This is upgrading starboard-operator to v0.14.1</p>
 </li>
 </ul>
-<h4 id="removed_2">Removed<a class="headerlink" href="#removed_2" title="Permanent link">¶</a></h4>
+<h4 id="removed_2">Removed<a class="headerlink" href="#removed_2" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong>Removed influxDB and dependent helm charts.</strong><br/></li>
 </ul>
-<h3 id="v0191">v0.19.1<a class="headerlink" href="#v0191" title="Permanent link">¶</a></h3>
+<h3 id="v0191">v0.19.1<a class="headerlink" href="#v0191" title="Permanent link">&para;</a></h3>
 <p>Released 2022-03-01</p>
-<h4 id="fixed_8">Fixed<a class="headerlink" href="#fixed_8" title="Permanent link">¶</a></h4>
+<h4 id="fixed_8">Fixed<a class="headerlink" href="#fixed_8" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Fixed critical stability issue related to Prometheus rules being evaluated without metrics.</li>
 </ul>
-<h3 id="v0190">v0.19.0<a class="headerlink" href="#v0190" title="Permanent link">¶</a></h3>
+<h3 id="v0190">v0.19.0<a class="headerlink" href="#v0190" title="Permanent link">&para;</a></h3>
 <p>Released 2022-02-01</p>
-<h4 id="added_13">Added<a class="headerlink" href="#added_13" title="Permanent link">¶</a></h4>
+<h4 id="added_13">Added<a class="headerlink" href="#added_13" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p><strong>Added Thanos as a new metrics backend.</strong><br/>
@@ -2611,16 +4962,16 @@ if(!document.__defineGetter__) {
 </li>
 <li>
 <p><strong>Added a new feature to create and log into separate indices per namespace.</strong><br/>
-<em>Currently considered to be an alpha feature.</em></p>
+  <em>Currently considered to be an alpha feature.</em></p>
 </li>
 </ul>
-<h4 id="changed_12">Changed<a class="headerlink" href="#changed_12" title="Permanent link">¶</a></h4>
+<h4 id="changed_12">Changed<a class="headerlink" href="#changed_12" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p><strong>Replacing Open Distro for Elasticsearch with OpenSearch.</strong><br/>
   In this release, since <a href="https://opendistro.github.io/for-elasticsearch/">the Open Distro project has reached end of life</a>, Elasticsearch is replaced with OpenSearch and Kibana with OpenSearch Dashboards.
   OpenSearch is a fully open source fork of Elasticsearch with a compatible API and familiar User Experience.<br/>
-<em>Note that recent versions of official Elasticsearch clients and tools will not work with OpenSearch as they employ a product check, compatible versions can be found <a href="https://opensearch.org/docs/latest/clients/index/">here</a>.</em></p>
+  <em>Note that recent versions of official Elasticsearch clients and tools will not work with OpenSearch as they employ a product check, compatible versions can be found <a href="https://opensearch.org/docs/latest/clients/index/">here</a>.</em></p>
 </li>
 <li>
 <p><strong>Enforcing OPA policies by default.</strong><br/>
@@ -2634,35 +4985,35 @@ if(!document.__defineGetter__) {
 <p><strong>Setting Fluentd to log the reason why when it can't push logs to OpenSearch.</strong></p>
 </li>
 </ul>
-<h4 id="updated_12">Updated<a class="headerlink" href="#updated_12" title="Permanent link">¶</a></h4>
+<h4 id="updated_12">Updated<a class="headerlink" href="#updated_12" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Large number of application and service updates, keeping up to date with new security fixes and changes.</li>
 </ul>
-<h3 id="v0182">v0.18.2<a class="headerlink" href="#v0182" title="Permanent link">¶</a></h3>
+<h3 id="v0182">v0.18.2<a class="headerlink" href="#v0182" title="Permanent link">&para;</a></h3>
 <p>Released 2021-12-16.</p>
 <p>Changes:</p>
 <ul>
 <li>Updated Open Distro for Elasticsearch to 1.13.3 to mitigate <a href="https://opendistro.github.io/for-elasticsearch/blog/2021/12/update-to-1-13-3/">CVE-2021-44228 &amp; CVE-2021-45046</a></li>
 </ul>
-<h3 id="v0172">v0.17.2<a class="headerlink" href="#v0172" title="Permanent link">¶</a></h3>
+<h3 id="v0172">v0.17.2<a class="headerlink" href="#v0172" title="Permanent link">&para;</a></h3>
 <p>Released 2021-12-16.</p>
 <p>Changes:</p>
 <ul>
 <li>Updated Open Distro for Elasticsearch to 1.13.3 to mitigate <a href="https://opendistro.github.io/for-elasticsearch/blog/2021/12/update-to-1-13-3/">CVE-2021-44228 &amp; CVE-2021-45046</a></li>
 </ul>
-<h3 id="v0181">v0.18.1<a class="headerlink" href="#v0181" title="Permanent link">¶</a></h3>
+<h3 id="v0181">v0.18.1<a class="headerlink" href="#v0181" title="Permanent link">&para;</a></h3>
 <p>Released 2021-12-08.</p>
 <p>Changes:</p>
 <ul>
 <li>updated Grafana to 8.0.7 in order to fix <a href="https://grafana.com/blog/2021/12/07/grafana-8.3.1-8.2.7-8.1.8-and-8.0.7-released-with-high-severity-security-fix/">CVE-2021-43798</a></li>
 </ul>
-<h3 id="v0171">v0.17.1<a class="headerlink" href="#v0171" title="Permanent link">¶</a></h3>
+<h3 id="v0171">v0.17.1<a class="headerlink" href="#v0171" title="Permanent link">&para;</a></h3>
 <p>Released 2021-12-08.</p>
 <p>Changes:</p>
 <ul>
 <li>updated Grafana to 8.0.7 in order to fix <a href="https://grafana.com/blog/2021/12/07/grafana-8.3.1-8.2.7-8.1.8-and-8.0.7-released-with-high-severity-security-fix/">CVE-2021-43798</a></li>
 </ul>
-<h3 id="v0180">v0.18.0<a class="headerlink" href="#v0180" title="Permanent link">¶</a></h3>
+<h3 id="v0180">v0.18.0<a class="headerlink" href="#v0180" title="Permanent link">&para;</a></h3>
 <p>Released 2021-11-04.</p>
 <p>Changes:</p>
 <ul>
@@ -2672,7 +5023,7 @@ if(!document.__defineGetter__) {
 </li>
 <li>Fixes, minor version upgrades, improvements to resource requests and limits for applications, improvements to stability.</li>
 </ul>
-<h3 id="v0170">v0.17.0<a class="headerlink" href="#v0170" title="Permanent link">¶</a></h3>
+<h3 id="v0170">v0.17.0<a class="headerlink" href="#v0170" title="Permanent link">&para;</a></h3>
 <p>Released 2021-06-29.</p>
 <p>Changes:</p>
 <ul>
@@ -2680,7 +5031,7 @@ if(!document.__defineGetter__) {
 <li>The single-sign-on service Dex has been updated, bringing small changes and better consistency to the UI.</li>
 <li>Fixes, improvements to resource limits, resource usage, and stability.</li>
 </ul>
-<h3 id="v0160">v0.16.0<a class="headerlink" href="#v0160" title="Permanent link">¶</a></h3>
+<h3 id="v0160">v0.16.0<a class="headerlink" href="#v0160" title="Permanent link">&para;</a></h3>
 <p>Released 2021-05-27.</p>
 <p>Changes:</p>
 <ul>
@@ -2688,65 +5039,101 @@ if(!document.__defineGetter__) {
 <li>Updates, fixes, and features to improve the security of the platform.</li>
 </ul>
 <!--apps-release-notes-end-->
-</article>
-</div>
-<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
-</div>
-<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
   Back to top
 </button>
-</main>
-<footer class="md-footer">
-<nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Tech Radar" class="md-footer__link md-footer__link--prev" href="../../tech-radar/">
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
-</div>
-<div class="md-footer__title">
-<span class="md-footer__direction">
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../tech-radar/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Tech Radar">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
                 Previous
               </span>
-<div class="md-ellipsis">
+              <div class="md-ellipsis">
                 Tech Radar
               </div>
-</div>
-</a>
-<a aria-label="Next: CK8S Kubespray" class="md-footer__link md-footer__link--next" href="../kubespray/">
-<div class="md-footer__title">
-<span class="md-footer__direction">
+            </div>
+          </a>
+        
+        
+          
+          <a href="../kubespray/" class="md-footer__link md-footer__link--next" aria-label="Next: CK8S Kubespray">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
                 Next
               </span>
-<div class="md-ellipsis">
+              <div class="md-ellipsis">
                 CK8S Kubespray
               </div>
-</div>
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
-</div>
-</a>
-</nav>
-<div class="md-footer-meta md-typeset">
-<div class="md-footer-meta__inner md-grid">
-<div class="md-copyright">
-<div class="md-copyright__highlight">
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
       Copyright © Elastisys AB <br/> The Linux Foundation has the following registered trademarks in the United States and/or other countries: Certified Kubernetes®, containerd®, fluentd®, Helm®, Istio®, K8s®, Kubernetes®, Prometheus®, PromQL®, Rook®, The Linux Foundation®. <br/> The Linux Foundation has registrations pending or trademarks in use for the following marks in the United States and/or other countries: Argo™, CoreDNS™, Falco™, Harbor™, Jaeger™, Linux Foundation™, OpenTelemetry™, OpenTracing™, Open Policy Agent™, Tekton™, Thanos™. <br/> Postgres and PostgreSQL and the Elephant Logo (Slonik) are all registered trademarks of the PostgreSQL Community Association of Canada. <br/> Redis is a trademark of Redis Ltd. Any rights therein are reserved to Redis Ltd. Any use by the Compliant Kubernetes project is for referential purposes only and does not indicate any sponsorship, endorsement or affiliation between Redis and Compliant Kubernetes project. <br/> RabbitMQ is a trademark of VMware, Inc. in the U.S. and other countries. <br/> TimescaleDB and the EON mascot are trademarks of <a href="https://www.timescale.com/">Timescale, Inc.</a> <br/> FerretDB® is a registered trademark of FerretDB, Inc. FerretDB Inc. is not affiliated, associated, authorized, endorsed by, or in any way officially connected with MongoDB Inc., or any of its subsidiaries or its affiliates. <br/> MongoDB, Mongo, and the leaf logo are registered trademarks of MongoDB, Inc. <br/> Keycloak™ is a trademark of Red Hat Inc. <br/> OpenSearch is a registered trademark of Amazon Web Services. <br/> NGINX is a registered trademark of F5 Inc.
     </div>
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
       Material for MkDocs
     </a>
+  
 </div>
-</div>
-</div>
+      
+    </div>
+  </div>
 </footer>
-</div>
-<div class="md-dialog" data-md-component="dialog">
-<div class="md-dialog__inner md-typeset"></div>
-</div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "navigation.footer", "navigation.top"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
-<script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
-</body>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "navigation.footer", "navigation.top"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
 </html>

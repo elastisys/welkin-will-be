@@ -1,23 +1,60 @@
 
-<!DOCTYPE html>
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Kubernetes platform to comply with Swedish Healthcare (Patientdatalagen), GDPR and ISO 27001.">
+      
+      
+        <meta name="author" content="Elastisys AB">
+      
+      
+        <link rel="canonical" href="https://elastisys.io/compliantkubernetes/user-guide/long-term-log-retention/">
+      
+      
+        <link rel="prev" href="../log-based-alerts/">
+      
+      
+        <link rel="next" href="../metrics/">
+      
+      
+      <link rel="icon" href="https://elastisys.io/compliantkubernetes/img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
+    
+    
+      
+        <title>Long-term Log Retention - Elastisys Compliant Kubernetes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.35e1ed30.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
 
-<html class="no-js" lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Kubernetes platform to comply with Swedish Healthcare (Patientdatalagen), GDPR and ISO 27001." name="description"/>
-<meta content="Elastisys AB" name="author"/>
-<link href="https://elastisys.io/compliantkubernetes/user-guide/long-term-log-retention/" rel="canonical"/>
-<link href="../log-based-alerts/" rel="prev"/>
-<link href="../metrics/" rel="next"/>
-<link href="https://elastisys.io/compliantkubernetes/img/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.4.6" name="generator"/>
-<title>Long-term Log Retention - Elastisys Compliant Kubernetes</title>
-<link href="../../assets/stylesheets/main.35e1ed30.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
-<link href="../../stylesheets/branding.css" rel="stylesheet"/>
-<link href="../../stylesheets/extra.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/branding.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/style.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+
 <!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
@@ -33,25 +70,43 @@
   })();
 </script>
 <!-- End Matomo Code -->
-<meta content="website" property="og:type"/>
-<meta content="Long-term Log Retention - Elastisys Compliant Kubernetes" property="og:title"/>
-<meta content="Kubernetes platform to comply with Swedish Healthcare (Patientdatalagen), GDPR and ISO 27001." property="og:description"/>
-<meta content="https://elastisys.io/compliantkubernetes/assets/images/social/user-guide/long-term-log-retention.png" property="og:image"/>
-<meta content="image/png" property="og:image:type"/>
-<meta content="1200" property="og:image:width"/>
-<meta content="630" property="og:image:height"/>
-<meta content="https://elastisys.io/compliantkubernetes/user-guide/long-term-log-retention/" property="og:url"/>
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="Long-term Log Retention - Elastisys Compliant Kubernetes" name="twitter:title"/>
-<meta content="Kubernetes platform to comply with Swedish Healthcare (Patientdatalagen), GDPR and ISO 27001." name="twitter:description"/>
-<meta content="https://elastisys.io/compliantkubernetes/assets/images/social/user-guide/long-term-log-retention.png" name="twitter:image"/>
-<meta content="
+
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Long-term Log Retention - Elastisys Compliant Kubernetes" >
+      
+        <meta  property="og:description"  content="Kubernetes platform to comply with Swedish Healthcare (Patientdatalagen), GDPR and ISO 27001." >
+      
+        <meta  property="og:image"  content="https://elastisys.io/compliantkubernetes/assets/images/social/user-guide/long-term-log-retention.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://elastisys.io/compliantkubernetes/user-guide/long-term-log-retention/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Long-term Log Retention - Elastisys Compliant Kubernetes" >
+      
+        <meta  name="twitter:description"  content="Kubernetes platform to comply with Swedish Healthcare (Patientdatalagen), GDPR and ISO 27001." >
+      
+        <meta  name="twitter:image"  content="https://elastisys.io/compliantkubernetes/assets/images/social/user-guide/long-term-log-retention.png" >
+      
+    
+    
+<meta http-equiv="Content-Security-Policy" content="
   default-src 'self';
   style-src 'self' 'unsafe-inline';
   img-src 'self' data:;
   connect-src 'self' https://matomo.elastisys.com/;
   script-src 'self' 'unsafe-inline' https://matomo.elastisys.com/;
-" http-equiv="Content-Security-Policy"/>
+">
+
 <!-- Disable localStorage, sessionStorage and cookies -->
 <script>
 if (window.localStorage) {
@@ -72,1215 +127,3149 @@ if(!document.__defineGetter__) {
   document.__defineSetter__("cookie", function() {} );
 }
 </script>
+
 <!-- See https://realfavicongenerator.net -->
-<link href="https://elastisys.io/compliantkubernetes/img/apple-touch-icon.png?v=1" rel="apple-touch-icon" sizes="180x180"/>
-<link href="https://elastisys.io/compliantkubernetes/img/favicon-32x32.png?v=1" rel="icon" sizes="32x32" type="image/png"/>
-<link href="https://elastisys.io/compliantkubernetes/img/favicon-16x16.png?v=1" rel="icon" sizes="16x16" type="image/png"/>
-<link href="https://elastisys.io/compliantkubernetes/img/site.webmanifest?v=1" rel="manifest"/>
-<link color="#5bbad5" href="https://elastisys.io/compliantkubernetes/img/safari-pinned-tab.svg?v=1" rel="mask-icon"/>
-<link href="https://elastisys.io/compliantkubernetes/img/favicon.ico?v=1" rel="shortcut icon"/>
-<meta content="#2b5797" name="msapplication-TileColor"/>
-<meta content="https://elastisys.io/compliantkubernetes/img/browserconfig.xml?v=1" name="msapplication-config"/>
-<meta content="#ffffff" name="theme-color"/>
-<link href="../../assets/stylesheets/extra-style.3e26a3r5.min.css" rel="stylesheet"/></head>
-<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="elastisys" dir="ltr">
-<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
-<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
-<label class="md-overlay" for="__drawer"></label>
-<div data-md-component="skip">
-<a class="md-skip" href="#long-term-log-retention">
+<link rel="apple-touch-icon" sizes="180x180" href="https://elastisys.io/compliantkubernetes/img/apple-touch-icon.png?v=1">
+<link rel="icon" type="image/png" sizes="32x32" href="https://elastisys.io/compliantkubernetes/img/favicon-32x32.png?v=1">
+<link rel="icon" type="image/png" sizes="16x16" href="https://elastisys.io/compliantkubernetes/img/favicon-16x16.png?v=1">
+<link rel="manifest" href="https://elastisys.io/compliantkubernetes/img/site.webmanifest?v=1">
+<link rel="mask-icon" href="https://elastisys.io/compliantkubernetes/img/safari-pinned-tab.svg?v=1" color="#5bbad5">
+<link rel="shortcut icon" href="https://elastisys.io/compliantkubernetes/img/favicon.ico?v=1">
+<meta name="msapplication-TileColor" content="#2b5797">
+<meta name="msapplication-config" content="https://elastisys.io/compliantkubernetes/img/browserconfig.xml?v=1">
+<meta name="theme-color" content="#ffffff">
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="elastisys" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#long-term-log-retention" class="md-skip">
           Skip to content
         </a>
-</div>
-<div data-md-component="announce">
-</div>
-<div data-md-color-scheme="default" data-md-component="outdated" hidden="">
-</div>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
 <header class="md-header md-header--shadow" data-md-component="header">
-<nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Elastisys Compliant Kubernetes" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Elastisys Compliant Kubernetes">
-<img alt="logo" src="../../img/logo.png"/>
-</a>
-<label class="md-header__button md-icon" for="__drawer">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
-</label>
-<div class="md-header__title" data-md-component="header-title">
-<div class="md-header__ellipsis">
-<div class="md-header__topic">
-<span class="md-ellipsis">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Elastisys Compliant Kubernetes" class="md-header__button md-logo" aria-label="Elastisys Compliant Kubernetes" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
             Elastisys Compliant Kubernetes
           </span>
-</div>
-<div class="md-header__topic" data-md-component="header-topic">
-<span class="md-ellipsis">
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
             
               Long-term Log Retention
             
           </span>
-</div>
-</div>
-</div>
-<label class="md-header__button md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
-</label>
-<div class="md-search" data-md-component="search" role="dialog">
-<label class="md-search__overlay" for="__search"></label>
-<div class="md-search__inner" role="search">
-<form class="md-search__form" name="search">
-<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
-<label class="md-search__icon md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
-</label>
-<nav aria-label="Search" class="md-search__options">
-<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
-</button>
-</nav>
-</form>
-<div class="md-search__output">
-<div class="md-search__scrollwrap" data-md-scrollfix="">
-<div class="md-search-result" data-md-component="search-result">
-<div class="md-search-result__meta">
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
             Initializing search
           </div>
-<ol class="md-search-result__list" role="presentation"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="md-header__source">
+    
+    
+      <div class="md-header__source">
+        
+
 <ul class="header-links">
-<li>
-<a href="https://github.com/elastisys/compliantkubernetes/">
-<img alt="Git logo" src="../../img/git-alt.svg" width="25px">
-</img></a>
-</li>
-<li><a class="menu-callout" href="https://elastisys.com/">Try out Managed<br/>Compliant Kubernetes</a></li>
+  <li>
+    <a href="https://github.com/elastisys/compliantkubernetes/">
+      <img width="25px" src="../../img/git-alt.svg" alt="Git logo" />
+    </a>
+  </li>
+  <li><a href="https://elastisys.com/" class="menu-callout">Try out Managed<br/>Compliant Kubernetes</a></li>
 </ul>
-</div>
-</nav>
+      </div>
+    
+  </nav>
+  
 </header>
-<div class="md-container" data-md-component="container">
-<main class="md-main" data-md-component="main">
-<div class="md-main__inner md-grid">
-<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
-<label class="md-nav__title" for="__drawer">
-<a aria-label="Elastisys Compliant Kubernetes" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Elastisys Compliant Kubernetes">
-<img alt="logo" src="../../img/logo.png"/>
-</a>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Elastisys Compliant Kubernetes" class="md-nav__button md-logo" aria-label="Elastisys Compliant Kubernetes" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
     Elastisys Compliant Kubernetes
   </label>
-<div class="md-nav__source">
+  
+    <div class="md-nav__source">
+      
+
 <ul class="header-links">
-<li>
-<a href="https://github.com/elastisys/compliantkubernetes/">
-<img alt="Git logo" src="../../img/git-alt.svg" width="25px">
-</img></a>
-</li>
-<li><a class="menu-callout" href="https://elastisys.com/">Try out Managed<br/>Compliant Kubernetes</a></li>
+  <li>
+    <a href="https://github.com/elastisys/compliantkubernetes/">
+      <img width="25px" src="../../img/git-alt.svg" alt="Git logo" />
+    </a>
+  </li>
+  <li><a href="https://elastisys.com/" class="menu-callout">Try out Managed<br/>Compliant Kubernetes</a></li>
 </ul>
-</div>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../..">
-<span class="md-ellipsis">
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Overview
   </span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     For Application Developers
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_2">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
             For Application Developers
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_1" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     Getting Started
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_1_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_1">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
             Getting Started
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../prepare/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prepare/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Step 1: Prepare
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../deploy/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Step 2: Deploy
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../operate/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Step 3: Operate
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     Go Deeper
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="true" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_2">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
             Go Deeper
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../prepare-application/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prepare-application/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Prepare Your Application
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../prepare-idp/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prepare-idp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Prepare Your Identity Provider (IdP)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../registry/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../registry/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Container registry
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../continous-development/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../continous-development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Continous Development
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../network-model/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network-model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Network Model
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../kubernetes-api/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Kubernetes API
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../kubernetes-ui/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes-ui/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Kubernetes UI (Lens)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../namespaces/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../namespaces/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Namespaces
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../logs/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Logs
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../log-based-alerts/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../log-based-alerts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Log-based Alerts
   </span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
     Long-term Log Retention
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
-<span class="md-ellipsis">
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
     Long-term Log Retention
   </span>
-</a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#exporting-logs-for-long-term-storage">
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exporting-logs-for-long-term-storage" class="md-nav__link">
     Exporting logs for long-term storage
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#accessing-opensearch">
+      
+        <li class="md-nav__item">
+  <a href="#accessing-opensearch" class="md-nav__link">
     Accessing OpenSearch
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#discovering-aliases-and-indices">
+      
+        <li class="md-nav__item">
+  <a href="#discovering-aliases-and-indices" class="md-nav__link">
     Discovering aliases and indices
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#exporting-indices">
+      
+        <li class="md-nav__item">
+  <a href="#exporting-indices" class="md-nav__link">
     Exporting indices
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#deploying-cronjobs">
+      
+        <li class="md-nav__item">
+  <a href="#deploying-cronjobs" class="md-nav__link">
     Deploying CronJobs
   </a>
+  
 </li>
-</ul>
+      
+    </ul>
+  
 </nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../metrics/">
-<span class="md-ellipsis">
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metrics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Metrics
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../alerts/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../alerts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Metric Alerts
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../maintenance/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maintenance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Maintenance
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../backup/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Backups
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../ci-cd/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ci-cd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     CI/CD
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../demarcation/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../demarcation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Demarcation
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../delegation/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../delegation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     How to Delegate
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../how-many-environments/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-many-environments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     How many environments?
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     Safeguards
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_3">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
             Safeguards
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../safeguards/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../safeguards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Overview
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../safeguards/enforce-no-root/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../safeguards/enforce-no-root/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Enforce No Root
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../safeguards/enforce-podsecuritypolicies/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../safeguards/enforce-podsecuritypolicies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Enforce Restricted Privileges
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../safeguards/enforce-networkpolicies/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../safeguards/enforce-networkpolicies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Enforce NetworkPolicies
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../safeguards/enforce-resources/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../safeguards/enforce-resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Enforce Resources
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../safeguards/enforce-trusted-registries/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../safeguards/enforce-trusted-registries/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Enforce Trusted Registries
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../safeguards/enforce-no-latest-tag/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../safeguards/enforce-no-latest-tag/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Enforce No Latest Tag
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../safeguards/enforce-job-ttl/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../safeguards/enforce-job-ttl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Enforce Job TTL
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     Additional Services
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_4">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
             Additional Services
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../additional-services/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../additional-services/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Overview
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../additional-services/postgresql/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../additional-services/postgresql/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     PostgreSQL
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../additional-services/timescaledb/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../additional-services/timescaledb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     TimescaleDB
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../additional-services/redis/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../additional-services/redis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Redis
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../additional-services/rabbitmq/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../additional-services/rabbitmq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     RabbitMQ
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../additional-services/jaeger/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../additional-services/jaeger/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Jaeger (preview)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../additional-services/argocd/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../additional-services/argocd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Argo CD (preview)
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     Self-Managed Services
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_5">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
             Self-Managed Services
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../self-managed-services/ferretdb/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-managed-services/ferretdb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     FerretDB (self-managed)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../self-managed-services/keycloak/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-managed-services/keycloak/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Keycloak (self-managed)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../self-managed-services/jupyterhub/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-managed-services/jupyterhub/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     JupyterHub (self-managed)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../self-managed-services/sealedsecrets/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-managed-services/sealedsecrets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     SealedSecrets (self-managed)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../self-managed-services/mongodb/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-managed-services/mongodb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     MongoDB (self-managed)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../self-managed-services/sjunet/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-managed-services/sjunet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Sjunet (self-managed)
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../go-live/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../go-live/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Go-live Checklist
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../troubleshooting/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Troubleshooting
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../faq/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     FAQ
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     For Platform Administrators
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_3">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
             For Platform Administrators
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Overview
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/getting-started/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Getting Started
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/provider-audit/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/provider-audit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Provider Audit
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/on-prem-standard/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/on-prem-standard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Standard Template for on-prem Environment
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/qa/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/qa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     QA
   </span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3_6" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     Advanced Configuration
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_3_6_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_3_6">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
             Advanced Configuration
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/configure/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/configure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Overview
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/cluster-sizing/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/cluster-sizing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Sizing
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/ingress/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/ingress/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Ingress
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/access-control/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/access-control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Access Control
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/user-alerts/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/user-alerts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     User Alerts
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/user-manged-crds/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/user-manged-crds/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     User Managed CRDs (preview)
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/disaster-recovery/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/disaster-recovery/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Disaster Recovery
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/break-glass/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/break-glass/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Breaking the Glass
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/cryptography/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/cryptography/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Use of Cryptography
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/credentials/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/credentials/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Use of Credentials
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/capacity-management/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/capacity-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Capacity Management
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/clock-synchronization/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/clock-synchronization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Clock Synchronization
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/maintenance/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/maintenance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Maintenance
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/clean-up/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/clean-up/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Clean Up
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/troubleshooting/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/troubleshooting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Troubleshooting
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/faq/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     FAQ
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../operator-manual/additional-services/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator-manual/additional-services/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Additional Services
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     For CISOs and DPOs
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_4">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
             For CISOs and DPOs
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Overview
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/controls/gdpr/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/controls/gdpr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     GDPR (EU)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/controls/iso-27001/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/controls/iso-27001/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     ISO 27001 (EU)
   </span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     Healthcare
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_4_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_4_4">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
             Healthcare
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/controls/hslf-fs-201640/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/controls/hslf-fs-201640/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     HSLF-FS 2016:40 (SE)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/controls/hipaa/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/controls/hipaa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     HIPAA (US)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/controls/mdr/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/controls/mdr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     MDR (EU)
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     Public sector
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_5_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_4_5">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
             Public sector
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/controls/msbfs-20207/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/controls/msbfs-20207/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     MSBFS 2020:7 (SE)
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4_6" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     NIS2
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_6_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_4_6">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
             NIS2
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/controls/kritis/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/controls/kritis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     KRITIS (DE)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/controls/bsi-it-grundschutz/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/controls/bsi-it-grundschutz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     BSI IT-Grundschutz (DE)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/controls/msbfs-20188/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/controls/msbfs-20188/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     MSBFS 2018:8 (SE)
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4_7" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     CISO Dashboards
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_7_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_4_7">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
             CISO Dashboards
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/audit-logs/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/audit-logs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Audit Logs
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/backup/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/backup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Backup Dashboard
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/cryptography/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/cryptography/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Cryptography Dashboard
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/intrusion-detection/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/intrusion-detection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Intrusion Detection Dashboard
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/policy-as-code/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/policy-as-code/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Policy-as-Code Dashboard
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/network-security/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/network-security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Network Security Dashboard
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/capacity-management/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/capacity-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Capacity Management (Kubernetes Status) Dashboard
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/vulnerability/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/vulnerability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Vulnerability Dashboard
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/log-review/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/log-review/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Log Review
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/faq/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     FAQ
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ciso-guide/gdpr-art-17/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ciso-guide/gdpr-art-17/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     How do I comply with GDPR Art. 17 Right to erasure ("right to be forgotten")?
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     For Contributors
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_5">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
             For Contributors
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../contributor-guide/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributor-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Overview
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../architecture/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Architecture
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../adr/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Architectural Decision Log
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../tech-radar/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech-radar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Tech Radar
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
-<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     Release Notes
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_6">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
             Release Notes
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../release-notes/ck8s/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/ck8s/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Compliant Kubernetes
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../release-notes/kubespray/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/kubespray/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     CK8S Kubespray
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../release-notes/postgres/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/postgres/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     CK8S PostgreSQL
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../release-notes/rabbitmq/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/rabbitmq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     CK8S RabbitMQ
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../release-notes/redis/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/redis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     CK8S Redis
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../release-notes/jaeger/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/jaeger/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     CK8S Jaeger
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../release-notes/argocd/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/argocd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     CK8S Argo CD
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../glossary/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Glossary
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../roadmap/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roadmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Roadmap
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="https://elastisys.com/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://elastisys.com/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Support
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="https://elastisys.com/training/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://elastisys.com/training/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Training
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="https://elastisys.com/blog/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://elastisys.com/blog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Blog
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="https://elastisys.com/legal/privacy-policy/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://elastisys.com/legal/privacy-policy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Privacy Policy
   </span>
-</a>
-</li>
-</ul>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
 </nav>
-</div>
-</div>
-</div>
-<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#exporting-logs-for-long-term-storage">
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exporting-logs-for-long-term-storage" class="md-nav__link">
     Exporting logs for long-term storage
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#accessing-opensearch">
+      
+        <li class="md-nav__item">
+  <a href="#accessing-opensearch" class="md-nav__link">
     Accessing OpenSearch
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#discovering-aliases-and-indices">
+      
+        <li class="md-nav__item">
+  <a href="#discovering-aliases-and-indices" class="md-nav__link">
     Discovering aliases and indices
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#exporting-indices">
+      
+        <li class="md-nav__item">
+  <a href="#exporting-indices" class="md-nav__link">
     Exporting indices
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#deploying-cronjobs">
+      
+        <li class="md-nav__item">
+  <a href="#deploying-cronjobs" class="md-nav__link">
     Deploying CronJobs
   </a>
+  
 </li>
-</ul>
+      
+    </ul>
+  
 </nav>
-</div>
-</div>
-</div>
-<div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset">
-<nav class="md-tags">
-<a class="md-tag" href="../../ciso-guide/controls/hipaa/#hipaa-s48-audit-controls-164312b">HIPAA S48 - Audit Controls - § 164.312(b)</a>
-<a class="md-tag" href="../../ciso-guide/controls/gdpr/#gdpr-art-17-right-to-erasure-right-to-be-forgotten">GDPR Art. 17 Right to erasure ("right to be forgotten")</a>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+<nav class="md-tags" >
+  
+    
+    
+    
+      <a href="../../ciso-guide/controls/hipaa/#hipaa-s48-audit-controls-164312b" class="md-tag">HIPAA S48 - Audit Controls - § 164.312(b)</a>
+    
+  
+    
+    
+    
+      <a href="../../ciso-guide/controls/gdpr/#gdpr-art-17-right-to-erasure-right-to-be-forgotten" class="md-tag">GDPR Art. 17 Right to erasure ("right to be forgotten")</a>
+    
+  
 </nav>
-<h1 id="long-term-log-retention">Long-term log retention<a class="headerlink" href="#long-term-log-retention" title="Permanent link">¶</a></h1>
+
+
+  
+  
+
+
+<h1 id="long-term-log-retention">Long-term log retention<a class="headerlink" href="#long-term-log-retention" title="Permanent link">&para;</a></h1>
 <p>Compliant Kubernetes by default sets an retention of 30 days for logs.
 Many regulators, including Swedish Healthcare, require a minimum of 5 year log retention.</p>
 <p>This is not provided at the platform level by Compliant Kubernetes as it runs the risk of GDPR non-complicance.
@@ -1288,13 +3277,13 @@ Logs may include sensitive information like personal data, which requires that t
 Specifically, this includes that the retention scheme ensures that erased personal data can not be accidentally restored, as per <a href="https://gdpr.fan/a17">Art. 17 GDPR Right to erasure (‘right to be forgotten’)</a>.</p>
 <p>Using application-specific knowledge would also make it possible to reduce the amount of logs stored, by filtering out so only the required logs are kept.
 Minimising the kept data, storage costs and storage management.</p>
-<h2 id="exporting-logs-for-long-term-storage">Exporting logs for long-term storage<a class="headerlink" href="#exporting-logs-for-long-term-storage" title="Permanent link">¶</a></h2>
+<h2 id="exporting-logs-for-long-term-storage">Exporting logs for long-term storage<a class="headerlink" href="#exporting-logs-for-long-term-storage" title="Permanent link">&para;</a></h2>
 <p>To enable long-term log retention we instead recommend using <a href="https://github.com/elasticsearch-dump/elasticsearch-dump">Elasticdump</a>.
 This tool can export logs from OpenSearch within Compliant Kubernetes on a per document basis in either CSV or JSON format, allowing other tools to process the logs and ship them somewhere else.
 It can also perform transformations, compress using Gzip, and write them into a file or send them to S3 object storage.</p>
 <p>Using this tool, along with the REST API of OpenSearch, then it is possible to create scripts to export logs for long-term storage using a Kubernetes CronJob.
 Down below are some examples how to discover indices to export from OpenSearch, some commands to use with Elasticdump, and an example Dockerfile and some Kubernetes manifests.</p>
-<h2 id="accessing-opensearch">Accessing OpenSearch<a class="headerlink" href="#accessing-opensearch" title="Permanent link">¶</a></h2>
+<h2 id="accessing-opensearch">Accessing OpenSearch<a class="headerlink" href="#accessing-opensearch" title="Permanent link">&para;</a></h2>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>To access OpenSearch contact your Compliant Kubernetes administrator and ask them to create a user with suitable permissions listed here below.</p>
@@ -1306,7 +3295,7 @@ Down below are some examples how to discover indices to export from OpenSearch, 
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">indices:data/read/scroll/clear</span>
 <span class="nt">index_permissions</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">index_patterns</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'*'</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;*&#39;</span>
 <span class="w">  </span><span class="nt">allowed_actions</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">indices:admin/aliases/get</span><span class="w"> </span><span class="c1"># Can be omitted when aliases is not used</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">indices:monitor/*</span>
@@ -1320,19 +3309,19 @@ Down below are some examples how to discover indices to export from OpenSearch, 
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">search</span>
 </code></pre></div>
 <p>With <code>${DOMAIN}</code> set to the domain of your environment, the variables then needed to connect the becomes:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">OS_PROTOCOL</span><span class="o">=</span><span class="s2">"https"</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">OS_ENDPOINT</span><span class="o">=</span><span class="s2">"opensearch.ops.</span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="s2">"</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">OS_USERNAME</span><span class="o">=</span><span class="s2">"&lt;provided-by-admin&gt;"</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">OS_PASSWORD</span><span class="o">=</span><span class="s2">"&lt;provided-by-admin&gt;"</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">OS_PROTOCOL</span><span class="o">=</span><span class="s2">&quot;https&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">OS_ENDPOINT</span><span class="o">=</span><span class="s2">&quot;opensearch.ops.</span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">OS_USERNAME</span><span class="o">=</span><span class="s2">&quot;&lt;provided-by-admin&gt;&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">OS_PASSWORD</span><span class="o">=</span><span class="s2">&quot;&lt;provided-by-admin&gt;&quot;</span>
 
-<span class="c1"># The index pattern we want to export, normally "kubernetes*"</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">OS_PATTERN</span><span class="o">=</span><span class="s2">"kubernetes*"</span>
+<span class="c1"># The index pattern we want to export, normally &quot;kubernetes*&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">OS_PATTERN</span><span class="o">=</span><span class="s2">&quot;kubernetes*&quot;</span>
 </code></pre></div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>These variables will be used later on in the example snippets.</p>
 </div>
-<h2 id="discovering-aliases-and-indices">Discovering aliases and indices<a class="headerlink" href="#discovering-aliases-and-indices" title="Permanent link">¶</a></h2>
+<h2 id="discovering-aliases-and-indices">Discovering aliases and indices<a class="headerlink" href="#discovering-aliases-and-indices" title="Permanent link">&para;</a></h2>
 <p>In OpenSearch logs are stored into <em>indices</em>.
 These indices are managed in a way that will limit them both in time and size, to make them more manageable.
 Each index typically represents a days worth of logs, but if the size of the index exceeds a set threshold a new one will be created to limit their maximum size.</p>
@@ -1344,16 +3333,16 @@ This way there is no need to check and update indices in case they've changed si
 <p class="admonition-title">Example: List all indices using a pattern</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># call as: get_indices &lt;pattern&gt;</span>
 get_indices<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="nv">pattern</span><span class="o">=</span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
+<span class="w">    </span><span class="nv">pattern</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
 
-<span class="w">    </span><span class="nv">res</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>curl<span class="w"> </span>-u<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">OS_USERNAME</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">OS_PASSWORD</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>-XGET<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">OS_PROTOCOL</span><span class="si">}</span><span class="s2">://</span><span class="si">${</span><span class="nv">OS_ENDPOINT</span><span class="si">}</span><span class="s2">/_cat/indices?h=index"</span><span class="k">)</span><span class="s2">"</span>
+<span class="w">    </span><span class="nv">res</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OS_USERNAME</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">OS_PASSWORD</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>-XGET<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OS_PROTOCOL</span><span class="si">}</span><span class="s2">://</span><span class="si">${</span><span class="nv">OS_ENDPOINT</span><span class="si">}</span><span class="s2">/_cat/indices?h=index&quot;</span><span class="k">)</span><span class="s2">&quot;</span>
 
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">res</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">"error"</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">res</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
 <span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
-<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">res</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">"fail"</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">res</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;fail&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
 <span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
 <span class="w">    </span><span class="k">else</span>
-<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">res</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-n<span class="w"> </span><span class="s2">"/</span><span class="si">${</span><span class="nv">pattern</span><span class="si">}</span><span class="s2">/p"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">res</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;/</span><span class="si">${</span><span class="nv">pattern</span><span class="si">}</span><span class="s2">/p&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort
 <span class="w">    </span><span class="k">fi</span>
 <span class="o">}</span>
 </code></pre></div>
@@ -1364,16 +3353,16 @@ get_indices<span class="o">()</span><span class="w"> </span><span class="o">{</s
 <p class="admonition-title">Example: List all write indices using a pattern</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># call as: get_write_index &lt;pattern&gt;</span>
 get_write_index<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="nv">pattern</span><span class="o">=</span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
+<span class="w">    </span><span class="nv">pattern</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
 
-<span class="w">    </span><span class="nv">res</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>curl<span class="w"> </span>-u<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">OS_USERNAME</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">OS_PASSWORD</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>-XGET<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">OS_PROTOCOL</span><span class="si">}</span><span class="s2">://</span><span class="si">${</span><span class="nv">OS_ENDPOINT</span><span class="si">}</span><span class="s2">/_cat/aliases?h=alias,index,is_write_index"</span><span class="k">)</span><span class="s2">"</span>
+<span class="w">    </span><span class="nv">res</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OS_USERNAME</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">OS_PASSWORD</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>-XGET<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OS_PROTOCOL</span><span class="si">}</span><span class="s2">://</span><span class="si">${</span><span class="nv">OS_ENDPOINT</span><span class="si">}</span><span class="s2">/_cat/aliases?h=alias,index,is_write_index&quot;</span><span class="k">)</span><span class="s2">&quot;</span>
 
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">res</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">"error"</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">res</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
 <span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
-<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">res</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">"fail"</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">res</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;fail&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
 <span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
 <span class="w">    </span><span class="k">else</span>
-<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">res</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">"true"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-n<span class="w"> </span><span class="s2">"/</span><span class="si">${</span><span class="nv">pattern</span><span class="si">}</span><span class="s2">/p"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{print $2}'</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">true</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">res</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;/</span><span class="si">${</span><span class="nv">pattern</span><span class="si">}</span><span class="s2">/p&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $2}&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">true</span>
 <span class="w">    </span><span class="k">fi</span>
 <span class="o">}</span>
 </code></pre></div>
@@ -1384,35 +3373,35 @@ get_write_index<span class="o">()</span><span class="w"> </span><span class="o">
 <p>Using these two example functions we can now fetch the indices for a pattern and find the write index for any matching alias, meaning we can iterate over them, filter out the write index, and perform our backup:</p>
 <div class="admonition example">
 <p class="admonition-title">Example: Iterating over indices, filtering out the write index, and perform export action</p>
-<div class="highlight"><pre><span></span><code><span class="nv">indices</span><span class="o">=</span><span class="k">$(</span>get_indices<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">OS_PATTERN</span><span class="si">}</span><span class="s2">"</span><span class="k">)</span>
-<span class="nv">write_index</span><span class="o">=</span><span class="k">$(</span>get_write_index<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">OS_PATTERN</span><span class="si">}</span><span class="s2">"</span><span class="k">)</span>
+<div class="highlight"><pre><span></span><code><span class="nv">indices</span><span class="o">=</span><span class="k">$(</span>get_indices<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OS_PATTERN</span><span class="si">}</span><span class="s2">&quot;</span><span class="k">)</span>
+<span class="nv">write_index</span><span class="o">=</span><span class="k">$(</span>get_write_index<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OS_PATTERN</span><span class="si">}</span><span class="s2">&quot;</span><span class="k">)</span>
 
 <span class="k">for</span><span class="w"> </span>index<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">indices</span><span class="si">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">write_index</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">write_index</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
 <span class="w">        </span><span class="k">continue</span><span class="w"> </span><span class="c1"># skipping as it is the write index</span>
 <span class="w">    </span><span class="k">fi</span>
 
-<span class="w">    </span>perform_export<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">"</span>
+<span class="w">    </span>perform_export<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="k">done</span>
 </code></pre></div>
 </div>
 <p>For more complex tasks checkout <a href="https://opensearch.org/docs/latest/opensearch/rest-api/index/">the OpenSearch REST API reference</a>.</p>
-<h2 id="exporting-indices">Exporting indices<a class="headerlink" href="#exporting-indices" title="Permanent link">¶</a></h2>
+<h2 id="exporting-indices">Exporting indices<a class="headerlink" href="#exporting-indices" title="Permanent link">&para;</a></h2>
 <p>With Elasticdump it is possible to export logs out to the console, to file, or to S3.
 In these example snippets we well export them to S3.
 To be able to do some management functions we will also use <a href="https://github.com/s3tools/s3cmd">s3cmd</a>, most importantly to be able to check for existing exports.</p>
 <p>Using S3 both for Elasticdump and s3cmd will require the following variables:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">S3_BUCKET</span><span class="o">=</span><span class="s2">"&lt;bucket&gt;"</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">S3_REGION</span><span class="o">=</span><span class="s2">"&lt;region&gt;"</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">S3_ENDPOINT</span><span class="o">=</span><span class="s2">"&lt;region-endpoint&gt;"</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">S3_FORCE_PATH_STYLE</span><span class="o">=</span><span class="s2">"&lt;false|true&gt;"</span><span class="w"> </span><span class="c1"># Generally "false" for AWS and Exoscale, else "true"</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="s2">"&lt;access-key&gt;"</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="s2">"&lt;secret-key&gt;"</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">S3_BUCKET</span><span class="o">=</span><span class="s2">&quot;&lt;bucket&gt;&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">S3_REGION</span><span class="o">=</span><span class="s2">&quot;&lt;region&gt;&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">S3_ENDPOINT</span><span class="o">=</span><span class="s2">&quot;&lt;region-endpoint&gt;&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">S3_FORCE_PATH_STYLE</span><span class="o">=</span><span class="s2">&quot;&lt;false|true&gt;&quot;</span><span class="w"> </span><span class="c1"># Generally &quot;false&quot; for AWS and Exoscale, else &quot;true&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="s2">&quot;&lt;access-key&gt;&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="s2">&quot;&lt;secret-key&gt;&quot;</span>
 
-<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">"</span><span class="nv">$S3_FORCE_PATH_STYLE</span><span class="s2">"</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"true"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">S3_BUCKET_ENDPOINT</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">S3_ENDPOINT</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$S3_FORCE_PATH_STYLE</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">S3_BUCKET_ENDPOINT</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">S3_ENDPOINT</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="k">else</span>
-<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">S3_BUCKET_ENDPOINT</span><span class="o">=</span><span class="s2">"%(bucket)s.</span><span class="si">${</span><span class="nv">S3_ENDPOINT</span><span class="si">}</span><span class="s2">"</span>
+<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">S3_BUCKET_ENDPOINT</span><span class="o">=</span><span class="s2">&quot;%(bucket)s.</span><span class="si">${</span><span class="nv">S3_ENDPOINT</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="k">fi</span>
 </code></pre></div>
 <div class="admonition important">
@@ -1423,8 +3412,8 @@ To be able to do some management functions we will also use <a href="https://git
 <p class="admonition-title">Example: Export entire index to S3</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># With ${index} set to the index to export.</span>
 elasticdump<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--input<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">OS_PROTOCOL</span><span class="si">}</span><span class="s2">://</span><span class="si">${</span><span class="nv">OS_USERNAME</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">OS_PASSWORD</span><span class="si">}</span><span class="s2">@</span><span class="si">${</span><span class="nv">OS_ENDPOINT</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--output<span class="w"> </span><span class="s2">"s3://</span><span class="nv">$S3_BUCKET</span><span class="s2">/</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">.json.gz"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--input<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OS_PROTOCOL</span><span class="si">}</span><span class="s2">://</span><span class="si">${</span><span class="nv">OS_USERNAME</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">OS_PASSWORD</span><span class="si">}</span><span class="s2">@</span><span class="si">${</span><span class="nv">OS_ENDPOINT</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--output<span class="w"> </span><span class="s2">&quot;s3://</span><span class="nv">$S3_BUCKET</span><span class="s2">/</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">.json.gz&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--s3Region<span class="w"> </span><span class="si">${</span><span class="nv">S3_REGION</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--s3Endpoint<span class="w"> </span><span class="si">${</span><span class="nv">S3_ENDPOINT</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--s3ForcePathStyle<span class="w"> </span><span class="si">${</span><span class="nv">S3_FORCE_PATH_STYLE</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
@@ -1443,12 +3432,12 @@ By default it will not try to delete, replace or update any resources, so this m
 <div class="highlight"><pre><span></span><code>s3cmd<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--host<span class="o">=</span><span class="si">${</span><span class="nv">S3_ENDPOINT</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--host-bucket<span class="o">=</span><span class="si">${</span><span class="nv">S3_BUCKET_ENDPOINT</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>multipart<span class="w"> </span><span class="s2">"s3://</span><span class="si">${</span><span class="nv">S3_BUCKET</span><span class="si">}</span><span class="s2">"</span>
+<span class="w">    </span>multipart<span class="w"> </span><span class="s2">&quot;s3://</span><span class="si">${</span><span class="nv">S3_BUCKET</span><span class="si">}</span><span class="s2">&quot;</span>
 
 s3cmd<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--host<span class="o">=</span><span class="si">${</span><span class="nv">S3_ENDPOINT</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--host-bucket<span class="o">=</span><span class="si">${</span><span class="nv">S3_BUCKET_ENDPOINT</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>abortmp<span class="w"> </span><span class="s2">"s3://</span><span class="si">${</span><span class="nv">S3_BUCKET</span><span class="si">}</span><span class="s2">/&lt;multipart-upload-path&gt;"</span><span class="w"> </span><span class="s2">"&lt;multipart-upload-id&gt;"</span>
+<span class="w">    </span>abortmp<span class="w"> </span><span class="s2">&quot;s3://</span><span class="si">${</span><span class="nv">S3_BUCKET</span><span class="si">}</span><span class="s2">/&lt;multipart-upload-path&gt;&quot;</span><span class="w"> </span><span class="s2">&quot;&lt;multipart-upload-id&gt;&quot;</span>
 </code></pre></div></p>
 </div>
 </div>
@@ -1456,9 +3445,9 @@ s3cmd<span class="w"> </span><span class="se">\</span>
 This way it is possible to filter on certain labels to only export logs for a particular namespace, deployment, or even using identifier within structured logs.
 An example for a specific namespace would be:
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="nt">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">"term"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">"kubernetes.namespace_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"production"</span>
+<span class="w">    </span><span class="nt">&quot;query&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;term&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;kubernetes.namespace_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;production&quot;</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -1468,19 +3457,19 @@ Since the Query DSL is in JSON format it must be properly quoted or escaped to k
 <p class="admonition-title">Example: Putting it all together</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># call as: perform_export &lt;index&gt;</span>
 perform_export<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="nv">index</span><span class="o">=</span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
+<span class="w">    </span><span class="nv">index</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
 
-<span class="w">    </span><span class="nv">check</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>s3cmd<span class="w"> </span><span class="s2">"--host=</span><span class="si">${</span><span class="nv">S3_ENDPOINT</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="s2">"--host-bucket=</span><span class="si">${</span><span class="nv">S3_BUCKET_ENDPOINT</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>ls<span class="w"> </span><span class="s2">"s3://</span><span class="si">${</span><span class="nv">S3_BUCKET</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">.json.gz"</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">check</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nv">check</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>s3cmd<span class="w"> </span><span class="s2">&quot;--host=</span><span class="si">${</span><span class="nv">S3_ENDPOINT</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;--host-bucket=</span><span class="si">${</span><span class="nv">S3_BUCKET_ENDPOINT</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>ls<span class="w"> </span><span class="s2">&quot;s3://</span><span class="si">${</span><span class="nv">S3_BUCKET</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">.json.gz&quot;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">check</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="c1"># skipping as it is already exported</span>
 <span class="w">    </span><span class="k">fi</span>
 
 <span class="w">    </span><span class="c1"># Just as an example</span>
-<span class="w">    </span><span class="nv">query</span><span class="o">=</span><span class="s1">'{"query": {"term": {"kubernetes.namespace_name": "production"}}}'</span>
+<span class="w">    </span><span class="nv">query</span><span class="o">=</span><span class="s1">&#39;{&quot;query&quot;: {&quot;term&quot;: {&quot;kubernetes.namespace_name&quot;: &quot;production&quot;}}}&#39;</span>
 
 <span class="w">    </span>elasticdump<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--input<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">OS_PROTOCOL</span><span class="si">}</span><span class="s2">://</span><span class="si">${</span><span class="nv">OS_USERNAME</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">OS_PASSWORD</span><span class="si">}</span><span class="s2">@</span><span class="si">${</span><span class="nv">OS_ENDPOINT</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--output<span class="w"> </span><span class="s2">"s3://</span><span class="nv">$S3_BUCKET</span><span class="s2">/</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">.json.gz"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--input<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OS_PROTOCOL</span><span class="si">}</span><span class="s2">://</span><span class="si">${</span><span class="nv">OS_USERNAME</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">OS_PASSWORD</span><span class="si">}</span><span class="s2">@</span><span class="si">${</span><span class="nv">OS_ENDPOINT</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--output<span class="w"> </span><span class="s2">&quot;s3://</span><span class="nv">$S3_BUCKET</span><span class="s2">/</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">.json.gz&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">        </span>--s3Region<span class="w"> </span><span class="si">${</span><span class="nv">S3_REGION</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
 <span class="w">        </span>--s3Endpoint<span class="w"> </span><span class="si">${</span><span class="nv">S3_ENDPOINT</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
 <span class="w">        </span>--s3ForcePathStyle<span class="w"> </span><span class="si">${</span><span class="nv">S3_FORCE_PATH_STYLE</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
@@ -1489,11 +3478,11 @@ perform_export<span class="o">()</span><span class="w"> </span><span class="o">{
 <span class="w">        </span>--concurrencyInterval<span class="w"> </span><span class="m">1000</span><span class="w"> </span><span class="se">\</span>
 <span class="w">        </span>--intervalCap<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="se">\</span>
 <span class="w">        </span>--limit<span class="w"> </span><span class="m">1000</span><span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--searchBody<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">query</span><span class="si">}</span><span class="s2">"</span>
+<span class="w">        </span>--searchBody<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">query</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="o">}</span>
 </code></pre></div>
 </div>
-<h2 id="deploying-cronjobs">Deploying CronJobs<a class="headerlink" href="#deploying-cronjobs" title="Permanent link">¶</a></h2>
+<h2 id="deploying-cronjobs">Deploying CronJobs<a class="headerlink" href="#deploying-cronjobs" title="Permanent link">&para;</a></h2>
 <p>The simplest way to prepare this for deployment is to build a container image including Bash, Elasticdump and s3cmd, and set up a CronJob to run this on a preferred schedule.</p>
 <p>Here are some examples of how to build and deploy them:</p>
 <div class="admonition example">
@@ -1510,7 +3499,7 @@ perform_export<span class="o">()</span><span class="w"> </span><span class="o">{
 
 <span class="k">RUN</span><span class="w"> </span>npm<span class="w"> </span>install<span class="w"> </span>elasticdump@v6.88.0<span class="w"> </span>-g
 
-<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">"elasticdump"</span><span class="p">]</span>
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;elasticdump&quot;</span><span class="p">]</span>
 </code></pre></div>
 </div>
 <div class="admonition example">
@@ -1531,26 +3520,26 @@ perform_export<span class="o">()</span><span class="w"> </span><span class="o">{
 <span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Opaque</span>
 <span class="nt">stringData</span><span class="p">:</span>
 <span class="w">  </span><span class="c1"># OpenSearch</span>
-<span class="w">  </span><span class="nt">OS_PROTOCOL</span><span class="p">:</span><span class="w"> </span><span class="s">"${OS_PROTOCOL}"</span>
-<span class="w">  </span><span class="nt">OS_ENDPOINT</span><span class="p">:</span><span class="w"> </span><span class="s">"${OS_ENDPOINT}"</span>
-<span class="w">  </span><span class="nt">OS_USERNAME</span><span class="p">:</span><span class="w"> </span><span class="s">"${OS_USERNAME}"</span>
-<span class="w">  </span><span class="nt">OS_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="s">"${OS_PASSWORD}"</span>
-<span class="w">  </span><span class="nt">OS_PATTERN</span><span class="p">:</span><span class="w"> </span><span class="s">"${OS_PATTERN}"</span>
+<span class="w">  </span><span class="nt">OS_PROTOCOL</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${OS_PROTOCOL}&quot;</span>
+<span class="w">  </span><span class="nt">OS_ENDPOINT</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${OS_ENDPOINT}&quot;</span>
+<span class="w">  </span><span class="nt">OS_USERNAME</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${OS_USERNAME}&quot;</span>
+<span class="w">  </span><span class="nt">OS_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${OS_PASSWORD}&quot;</span>
+<span class="w">  </span><span class="nt">OS_PATTERN</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${OS_PATTERN}&quot;</span>
 <span class="w">  </span><span class="c1"># S3</span>
-<span class="w">  </span><span class="nt">S3_BUCKET</span><span class="p">:</span><span class="w"> </span><span class="s">"${S3_BUCKET}"</span>
-<span class="w">  </span><span class="nt">S3_REGION</span><span class="p">:</span><span class="w"> </span><span class="s">"${S3_REGION}"</span>
-<span class="w">  </span><span class="nt">S3_ENDPOINT</span><span class="p">:</span><span class="w"> </span><span class="s">"${S3_ENDPOINT}"</span>
-<span class="w">  </span><span class="nt">S3_BUCKET_ENDPOINT</span><span class="p">:</span><span class="w"> </span><span class="s">"${S3_BUCKET_ENDPOINT}"</span>
-<span class="w">  </span><span class="nt">S3_FORCE_PATH_STYLE</span><span class="p">:</span><span class="w"> </span><span class="s">"${S3_FORCE_PATH_STYLE}"</span>
-<span class="w">  </span><span class="nt">AWS_ACCESS_KEY_ID</span><span class="p">:</span><span class="w"> </span><span class="s">"${AWS_ACCESS_KEY_ID}"</span>
-<span class="w">  </span><span class="nt">AWS_SECRET_ACCESS_KEY</span><span class="p">:</span><span class="w"> </span><span class="s">"${AWS_SECRET_ACCESS_KEY}"</span>
+<span class="w">  </span><span class="nt">S3_BUCKET</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${S3_BUCKET}&quot;</span>
+<span class="w">  </span><span class="nt">S3_REGION</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${S3_REGION}&quot;</span>
+<span class="w">  </span><span class="nt">S3_ENDPOINT</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${S3_ENDPOINT}&quot;</span>
+<span class="w">  </span><span class="nt">S3_BUCKET_ENDPOINT</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${S3_BUCKET_ENDPOINT}&quot;</span>
+<span class="w">  </span><span class="nt">S3_FORCE_PATH_STYLE</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${S3_FORCE_PATH_STYLE}&quot;</span>
+<span class="w">  </span><span class="nt">AWS_ACCESS_KEY_ID</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${AWS_ACCESS_KEY_ID}&quot;</span>
+<span class="w">  </span><span class="nt">AWS_SECRET_ACCESS_KEY</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${AWS_SECRET_ACCESS_KEY}&quot;</span>
 <span class="nn">---</span>
 <span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">batch/v1</span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CronJob</span>
 <span class="nt">metadata</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">export</span>
 <span class="nt">spec</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">schedule</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;schedule&gt;</span><span class="w"> </span><span class="c1"># example "@daily"</span>
+<span class="w">  </span><span class="nt">schedule</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;schedule&gt;</span><span class="w"> </span><span class="c1"># example &quot;@daily&quot;</span>
 <span class="w">  </span><span class="nt">concurrencyPolicy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Forbid</span>
 <span class="w">  </span><span class="nt">jobTemplate</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
@@ -1598,65 +3587,101 @@ perform_export<span class="o">()</span><span class="w"> </span><span class="o">{
 </code></pre></div>
 </div>
 <p>For more information about CronJobs checkout the Kubernetes <a href="https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/">documentation</a> and <a href="https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/cron-job-v1/">reference</a> about the subject.</p>
-</article>
-</div>
-<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
-</div>
-<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
   Back to top
 </button>
-</main>
-<footer class="md-footer">
-<nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Log-based Alerts" class="md-footer__link md-footer__link--prev" href="../log-based-alerts/">
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
-</div>
-<div class="md-footer__title">
-<span class="md-footer__direction">
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../log-based-alerts/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Log-based Alerts">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
                 Previous
               </span>
-<div class="md-ellipsis">
+              <div class="md-ellipsis">
                 Log-based Alerts
               </div>
-</div>
-</a>
-<a aria-label="Next: Metrics" class="md-footer__link md-footer__link--next" href="../metrics/">
-<div class="md-footer__title">
-<span class="md-footer__direction">
+            </div>
+          </a>
+        
+        
+          
+          <a href="../metrics/" class="md-footer__link md-footer__link--next" aria-label="Next: Metrics">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
                 Next
               </span>
-<div class="md-ellipsis">
+              <div class="md-ellipsis">
                 Metrics
               </div>
-</div>
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
-</div>
-</a>
-</nav>
-<div class="md-footer-meta md-typeset">
-<div class="md-footer-meta__inner md-grid">
-<div class="md-copyright">
-<div class="md-copyright__highlight">
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
       Copyright © Elastisys AB <br/> The Linux Foundation has the following registered trademarks in the United States and/or other countries: Certified Kubernetes®, containerd®, fluentd®, Helm®, Istio®, K8s®, Kubernetes®, Prometheus®, PromQL®, Rook®, The Linux Foundation®. <br/> The Linux Foundation has registrations pending or trademarks in use for the following marks in the United States and/or other countries: Argo™, CoreDNS™, Falco™, Harbor™, Jaeger™, Linux Foundation™, OpenTelemetry™, OpenTracing™, Open Policy Agent™, Tekton™, Thanos™. <br/> Postgres and PostgreSQL and the Elephant Logo (Slonik) are all registered trademarks of the PostgreSQL Community Association of Canada. <br/> Redis is a trademark of Redis Ltd. Any rights therein are reserved to Redis Ltd. Any use by the Compliant Kubernetes project is for referential purposes only and does not indicate any sponsorship, endorsement or affiliation between Redis and Compliant Kubernetes project. <br/> RabbitMQ is a trademark of VMware, Inc. in the U.S. and other countries. <br/> TimescaleDB and the EON mascot are trademarks of <a href="https://www.timescale.com/">Timescale, Inc.</a> <br/> FerretDB® is a registered trademark of FerretDB, Inc. FerretDB Inc. is not affiliated, associated, authorized, endorsed by, or in any way officially connected with MongoDB Inc., or any of its subsidiaries or its affiliates. <br/> MongoDB, Mongo, and the leaf logo are registered trademarks of MongoDB, Inc. <br/> Keycloak™ is a trademark of Red Hat Inc. <br/> OpenSearch is a registered trademark of Amazon Web Services. <br/> NGINX is a registered trademark of F5 Inc.
     </div>
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
       Material for MkDocs
     </a>
+  
 </div>
-</div>
-</div>
+      
+    </div>
+  </div>
 </footer>
-</div>
-<div class="md-dialog" data-md-component="dialog">
-<div class="md-dialog__inner md-typeset"></div>
-</div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "navigation.footer", "navigation.top"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
-<script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
-</body>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "navigation.footer", "navigation.top"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
 </html>

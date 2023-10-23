@@ -1,23 +1,60 @@
 
-<!DOCTYPE html>
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Kubernetes platform to comply with Swedish Healthcare (Patientdatalagen), GDPR and ISO 27001.">
+      
+      
+        <meta name="author" content="Elastisys AB">
+      
+      
+        <link rel="canonical" href="https://elastisys.io/compliantkubernetes/glossary/">
+      
+      
+        <link rel="prev" href="../release-notes/argocd/">
+      
+      
+        <link rel="next" href="../roadmap/">
+      
+      
+      <link rel="icon" href="https://elastisys.io/compliantkubernetes/img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
+    
+    
+      
+        <title>Glossary - Elastisys Compliant Kubernetes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.35e1ed30.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
 
-<html class="no-js" lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Kubernetes platform to comply with Swedish Healthcare (Patientdatalagen), GDPR and ISO 27001." name="description"/>
-<meta content="Elastisys AB" name="author"/>
-<link href="https://elastisys.io/compliantkubernetes/glossary/" rel="canonical"/>
-<link href="../release-notes/argocd/" rel="prev"/>
-<link href="../roadmap/" rel="next"/>
-<link href="https://elastisys.io/compliantkubernetes/img/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.4.6" name="generator"/>
-<title>Glossary - Elastisys Compliant Kubernetes</title>
-<link href="../assets/stylesheets/main.35e1ed30.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
-<link href="../stylesheets/branding.css" rel="stylesheet"/>
-<link href="../stylesheets/extra.css" rel="stylesheet"/>
-<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/branding.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../stylesheets/style.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+
 <!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
@@ -33,25 +70,43 @@
   })();
 </script>
 <!-- End Matomo Code -->
-<meta content="website" property="og:type"/>
-<meta content="Glossary - Elastisys Compliant Kubernetes" property="og:title"/>
-<meta content="Kubernetes platform to comply with Swedish Healthcare (Patientdatalagen), GDPR and ISO 27001." property="og:description"/>
-<meta content="https://elastisys.io/compliantkubernetes/assets/images/social/glossary.png" property="og:image"/>
-<meta content="image/png" property="og:image:type"/>
-<meta content="1200" property="og:image:width"/>
-<meta content="630" property="og:image:height"/>
-<meta content="https://elastisys.io/compliantkubernetes/glossary/" property="og:url"/>
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="Glossary - Elastisys Compliant Kubernetes" name="twitter:title"/>
-<meta content="Kubernetes platform to comply with Swedish Healthcare (Patientdatalagen), GDPR and ISO 27001." name="twitter:description"/>
-<meta content="https://elastisys.io/compliantkubernetes/assets/images/social/glossary.png" name="twitter:image"/>
-<meta content="
+
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Glossary - Elastisys Compliant Kubernetes" >
+      
+        <meta  property="og:description"  content="Kubernetes platform to comply with Swedish Healthcare (Patientdatalagen), GDPR and ISO 27001." >
+      
+        <meta  property="og:image"  content="https://elastisys.io/compliantkubernetes/assets/images/social/glossary.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://elastisys.io/compliantkubernetes/glossary/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Glossary - Elastisys Compliant Kubernetes" >
+      
+        <meta  name="twitter:description"  content="Kubernetes platform to comply with Swedish Healthcare (Patientdatalagen), GDPR and ISO 27001." >
+      
+        <meta  name="twitter:image"  content="https://elastisys.io/compliantkubernetes/assets/images/social/glossary.png" >
+      
+    
+    
+<meta http-equiv="Content-Security-Policy" content="
   default-src 'self';
   style-src 'self' 'unsafe-inline';
   img-src 'self' data:;
   connect-src 'self' https://matomo.elastisys.com/;
   script-src 'self' 'unsafe-inline' https://matomo.elastisys.com/;
-" http-equiv="Content-Security-Policy"/>
+">
+
 <!-- Disable localStorage, sessionStorage and cookies -->
 <script>
 if (window.localStorage) {
@@ -72,1301 +127,3254 @@ if(!document.__defineGetter__) {
   document.__defineSetter__("cookie", function() {} );
 }
 </script>
+
 <!-- See https://realfavicongenerator.net -->
-<link href="https://elastisys.io/compliantkubernetes/img/apple-touch-icon.png?v=1" rel="apple-touch-icon" sizes="180x180"/>
-<link href="https://elastisys.io/compliantkubernetes/img/favicon-32x32.png?v=1" rel="icon" sizes="32x32" type="image/png"/>
-<link href="https://elastisys.io/compliantkubernetes/img/favicon-16x16.png?v=1" rel="icon" sizes="16x16" type="image/png"/>
-<link href="https://elastisys.io/compliantkubernetes/img/site.webmanifest?v=1" rel="manifest"/>
-<link color="#5bbad5" href="https://elastisys.io/compliantkubernetes/img/safari-pinned-tab.svg?v=1" rel="mask-icon"/>
-<link href="https://elastisys.io/compliantkubernetes/img/favicon.ico?v=1" rel="shortcut icon"/>
-<meta content="#2b5797" name="msapplication-TileColor"/>
-<meta content="https://elastisys.io/compliantkubernetes/img/browserconfig.xml?v=1" name="msapplication-config"/>
-<meta content="#ffffff" name="theme-color"/>
-<link href="../assets/stylesheets/extra-style.3e26a3r5.min.css" rel="stylesheet"/></head>
-<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="elastisys" dir="ltr">
-<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
-<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
-<label class="md-overlay" for="__drawer"></label>
-<div data-md-component="skip">
-<a class="md-skip" href="#glossary">
+<link rel="apple-touch-icon" sizes="180x180" href="https://elastisys.io/compliantkubernetes/img/apple-touch-icon.png?v=1">
+<link rel="icon" type="image/png" sizes="32x32" href="https://elastisys.io/compliantkubernetes/img/favicon-32x32.png?v=1">
+<link rel="icon" type="image/png" sizes="16x16" href="https://elastisys.io/compliantkubernetes/img/favicon-16x16.png?v=1">
+<link rel="manifest" href="https://elastisys.io/compliantkubernetes/img/site.webmanifest?v=1">
+<link rel="mask-icon" href="https://elastisys.io/compliantkubernetes/img/safari-pinned-tab.svg?v=1" color="#5bbad5">
+<link rel="shortcut icon" href="https://elastisys.io/compliantkubernetes/img/favicon.ico?v=1">
+<meta name="msapplication-TileColor" content="#2b5797">
+<meta name="msapplication-config" content="https://elastisys.io/compliantkubernetes/img/browserconfig.xml?v=1">
+<meta name="theme-color" content="#ffffff">
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="elastisys" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#glossary" class="md-skip">
           Skip to content
         </a>
-</div>
-<div data-md-component="announce">
-</div>
-<div data-md-color-scheme="default" data-md-component="outdated" hidden="">
-</div>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
 <header class="md-header md-header--shadow" data-md-component="header">
-<nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Elastisys Compliant Kubernetes" class="md-header__button md-logo" data-md-component="logo" href=".." title="Elastisys Compliant Kubernetes">
-<img alt="logo" src="../img/logo.png"/>
-</a>
-<label class="md-header__button md-icon" for="__drawer">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
-</label>
-<div class="md-header__title" data-md-component="header-title">
-<div class="md-header__ellipsis">
-<div class="md-header__topic">
-<span class="md-ellipsis">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Elastisys Compliant Kubernetes" class="md-header__button md-logo" aria-label="Elastisys Compliant Kubernetes" data-md-component="logo">
+      
+  <img src="../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
             Elastisys Compliant Kubernetes
           </span>
-</div>
-<div class="md-header__topic" data-md-component="header-topic">
-<span class="md-ellipsis">
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
             
               Glossary
             
           </span>
-</div>
-</div>
-</div>
-<label class="md-header__button md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
-</label>
-<div class="md-search" data-md-component="search" role="dialog">
-<label class="md-search__overlay" for="__search"></label>
-<div class="md-search__inner" role="search">
-<form class="md-search__form" name="search">
-<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
-<label class="md-search__icon md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
-</label>
-<nav aria-label="Search" class="md-search__options">
-<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
-</button>
-</nav>
-</form>
-<div class="md-search__output">
-<div class="md-search__scrollwrap" data-md-scrollfix="">
-<div class="md-search-result" data-md-component="search-result">
-<div class="md-search-result__meta">
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
             Initializing search
           </div>
-<ol class="md-search-result__list" role="presentation"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="md-header__source">
+    
+    
+      <div class="md-header__source">
+        
+
 <ul class="header-links">
-<li>
-<a href="https://github.com/elastisys/compliantkubernetes/">
-<img alt="Git logo" src="../img/git-alt.svg" width="25px">
-</img></a>
-</li>
-<li><a class="menu-callout" href="https://elastisys.com/">Try out Managed<br/>Compliant Kubernetes</a></li>
+  <li>
+    <a href="https://github.com/elastisys/compliantkubernetes/">
+      <img width="25px" src="../img/git-alt.svg" alt="Git logo" />
+    </a>
+  </li>
+  <li><a href="https://elastisys.com/" class="menu-callout">Try out Managed<br/>Compliant Kubernetes</a></li>
 </ul>
-</div>
-</nav>
+      </div>
+    
+  </nav>
+  
 </header>
-<div class="md-container" data-md-component="container">
-<main class="md-main" data-md-component="main">
-<div class="md-main__inner md-grid">
-<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
-<label class="md-nav__title" for="__drawer">
-<a aria-label="Elastisys Compliant Kubernetes" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Elastisys Compliant Kubernetes">
-<img alt="logo" src="../img/logo.png"/>
-</a>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Elastisys Compliant Kubernetes" class="md-nav__button md-logo" aria-label="Elastisys Compliant Kubernetes" data-md-component="logo">
+      
+  <img src="../img/logo.png" alt="logo">
+
+    </a>
     Elastisys Compliant Kubernetes
   </label>
-<div class="md-nav__source">
+  
+    <div class="md-nav__source">
+      
+
 <ul class="header-links">
-<li>
-<a href="https://github.com/elastisys/compliantkubernetes/">
-<img alt="Git logo" src="../img/git-alt.svg" width="25px">
-</img></a>
-</li>
-<li><a class="menu-callout" href="https://elastisys.com/">Try out Managed<br/>Compliant Kubernetes</a></li>
+  <li>
+    <a href="https://github.com/elastisys/compliantkubernetes/">
+      <img width="25px" src="../img/git-alt.svg" alt="Git logo" />
+    </a>
+  </li>
+  <li><a href="https://elastisys.com/" class="menu-callout">Try out Managed<br/>Compliant Kubernetes</a></li>
 </ul>
-</div>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="..">
-<span class="md-ellipsis">
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Overview
   </span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     For Application Developers
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_2">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
             For Application Developers
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_1" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     Getting Started
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_1_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_1">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
             Getting Started
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/prepare/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/prepare/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Step 1: Prepare
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/deploy/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/deploy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Step 2: Deploy
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/operate/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/operate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Step 3: Operate
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     Go Deeper
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_2">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
             Go Deeper
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/prepare-application/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/prepare-application/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Prepare Your Application
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/prepare-idp/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/prepare-idp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Prepare Your Identity Provider (IdP)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/registry/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/registry/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Container registry
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/continous-development/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/continous-development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Continous Development
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/network-model/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/network-model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Network Model
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/kubernetes-api/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/kubernetes-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Kubernetes API
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/kubernetes-ui/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/kubernetes-ui/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Kubernetes UI (Lens)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/namespaces/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/namespaces/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Namespaces
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/logs/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/logs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Logs
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/log-based-alerts/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/log-based-alerts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Log-based Alerts
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/long-term-log-retention/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/long-term-log-retention/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Long-term Log Retention
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/metrics/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/metrics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Metrics
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/alerts/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/alerts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Metric Alerts
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/maintenance/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/maintenance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Maintenance
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/backup/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/backup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Backups
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/ci-cd/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/ci-cd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     CI/CD
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/demarcation/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/demarcation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Demarcation
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/delegation/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/delegation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     How to Delegate
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/how-many-environments/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/how-many-environments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     How many environments?
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     Safeguards
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_3">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
             Safeguards
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/safeguards/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/safeguards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Overview
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/safeguards/enforce-no-root/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/safeguards/enforce-no-root/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Enforce No Root
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/safeguards/enforce-podsecuritypolicies/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/safeguards/enforce-podsecuritypolicies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Enforce Restricted Privileges
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/safeguards/enforce-networkpolicies/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/safeguards/enforce-networkpolicies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Enforce NetworkPolicies
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/safeguards/enforce-resources/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/safeguards/enforce-resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Enforce Resources
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/safeguards/enforce-trusted-registries/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/safeguards/enforce-trusted-registries/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Enforce Trusted Registries
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/safeguards/enforce-no-latest-tag/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/safeguards/enforce-no-latest-tag/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Enforce No Latest Tag
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/safeguards/enforce-job-ttl/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/safeguards/enforce-job-ttl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Enforce Job TTL
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     Additional Services
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_4">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
             Additional Services
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/additional-services/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/additional-services/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Overview
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/additional-services/postgresql/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/additional-services/postgresql/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     PostgreSQL
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/additional-services/timescaledb/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/additional-services/timescaledb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     TimescaleDB
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/additional-services/redis/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/additional-services/redis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Redis
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/additional-services/rabbitmq/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/additional-services/rabbitmq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     RabbitMQ
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/additional-services/jaeger/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/additional-services/jaeger/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Jaeger (preview)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/additional-services/argocd/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/additional-services/argocd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Argo CD (preview)
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     Self-Managed Services
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_5">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
             Self-Managed Services
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/self-managed-services/ferretdb/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/self-managed-services/ferretdb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     FerretDB (self-managed)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/self-managed-services/keycloak/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/self-managed-services/keycloak/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Keycloak (self-managed)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/self-managed-services/jupyterhub/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/self-managed-services/jupyterhub/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     JupyterHub (self-managed)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/self-managed-services/sealedsecrets/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/self-managed-services/sealedsecrets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     SealedSecrets (self-managed)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/self-managed-services/mongodb/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/self-managed-services/mongodb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     MongoDB (self-managed)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/self-managed-services/sjunet/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/self-managed-services/sjunet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Sjunet (self-managed)
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/go-live/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/go-live/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Go-live Checklist
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/troubleshooting/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/troubleshooting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Troubleshooting
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../user-guide/faq/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     FAQ
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     For Platform Administrators
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_3">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
             For Platform Administrators
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../operator-manual/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operator-manual/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Overview
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../operator-manual/getting-started/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operator-manual/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Getting Started
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../operator-manual/provider-audit/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operator-manual/provider-audit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Provider Audit
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../operator-manual/on-prem-standard/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operator-manual/on-prem-standard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Standard Template for on-prem Environment
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../operator-manual/qa/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operator-manual/qa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     QA
   </span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3_6" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     Advanced Configuration
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_3_6_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_3_6">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
             Advanced Configuration
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../operator-manual/configure/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operator-manual/configure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Overview
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../operator-manual/cluster-sizing/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operator-manual/cluster-sizing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Sizing
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../operator-manual/ingress/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operator-manual/ingress/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Ingress
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../operator-manual/access-control/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operator-manual/access-control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Access Control
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../operator-manual/user-alerts/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operator-manual/user-alerts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     User Alerts
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../operator-manual/user-manged-crds/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operator-manual/user-manged-crds/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     User Managed CRDs (preview)
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../operator-manual/disaster-recovery/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operator-manual/disaster-recovery/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Disaster Recovery
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../operator-manual/break-glass/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operator-manual/break-glass/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Breaking the Glass
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../operator-manual/cryptography/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operator-manual/cryptography/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Use of Cryptography
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../operator-manual/credentials/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operator-manual/credentials/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Use of Credentials
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../operator-manual/capacity-management/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operator-manual/capacity-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Capacity Management
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../operator-manual/clock-synchronization/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operator-manual/clock-synchronization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Clock Synchronization
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../operator-manual/maintenance/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operator-manual/maintenance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Maintenance
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../operator-manual/clean-up/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operator-manual/clean-up/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Clean Up
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../operator-manual/troubleshooting/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operator-manual/troubleshooting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Troubleshooting
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../operator-manual/faq/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operator-manual/faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     FAQ
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../operator-manual/additional-services/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operator-manual/additional-services/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Additional Services
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     For CISOs and DPOs
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_4">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
             For CISOs and DPOs
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../ciso-guide/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ciso-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Overview
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../ciso-guide/controls/gdpr/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ciso-guide/controls/gdpr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     GDPR (EU)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../ciso-guide/controls/iso-27001/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ciso-guide/controls/iso-27001/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     ISO 27001 (EU)
   </span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     Healthcare
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_4_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_4_4">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
             Healthcare
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../ciso-guide/controls/hslf-fs-201640/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ciso-guide/controls/hslf-fs-201640/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     HSLF-FS 2016:40 (SE)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../ciso-guide/controls/hipaa/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ciso-guide/controls/hipaa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     HIPAA (US)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../ciso-guide/controls/mdr/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ciso-guide/controls/mdr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     MDR (EU)
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     Public sector
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_5_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_4_5">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
             Public sector
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../ciso-guide/controls/msbfs-20207/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ciso-guide/controls/msbfs-20207/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     MSBFS 2020:7 (SE)
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4_6" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     NIS2
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_6_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_4_6">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
             NIS2
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../ciso-guide/controls/kritis/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ciso-guide/controls/kritis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     KRITIS (DE)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../ciso-guide/controls/bsi-it-grundschutz/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ciso-guide/controls/bsi-it-grundschutz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     BSI IT-Grundschutz (DE)
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../ciso-guide/controls/msbfs-20188/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ciso-guide/controls/msbfs-20188/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     MSBFS 2018:8 (SE)
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4_7" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     CISO Dashboards
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_7_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_4_7">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
             CISO Dashboards
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../ciso-guide/audit-logs/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ciso-guide/audit-logs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Audit Logs
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../ciso-guide/backup/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ciso-guide/backup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Backup Dashboard
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../ciso-guide/cryptography/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ciso-guide/cryptography/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Cryptography Dashboard
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../ciso-guide/intrusion-detection/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ciso-guide/intrusion-detection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Intrusion Detection Dashboard
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../ciso-guide/policy-as-code/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ciso-guide/policy-as-code/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Policy-as-Code Dashboard
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../ciso-guide/network-security/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ciso-guide/network-security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Network Security Dashboard
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../ciso-guide/capacity-management/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ciso-guide/capacity-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Capacity Management (Kubernetes Status) Dashboard
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../ciso-guide/vulnerability/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ciso-guide/vulnerability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Vulnerability Dashboard
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../ciso-guide/log-review/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ciso-guide/log-review/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Log Review
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../ciso-guide/faq/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ciso-guide/faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     FAQ
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../ciso-guide/gdpr-art-17/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ciso-guide/gdpr-art-17/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     How do I comply with GDPR Art. 17 Right to erasure ("right to be forgotten")?
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     For Contributors
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_5">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
             For Contributors
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../contributor-guide/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributor-guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Overview
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../architecture/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Architecture
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../adr/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Architectural Decision Log
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../tech-radar/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tech-radar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Tech Radar
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
-<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
     Release Notes
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_6">
-<span class="md-nav__icon md-icon"></span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
             Release Notes
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../release-notes/ck8s/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes/ck8s/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Compliant Kubernetes
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../release-notes/kubespray/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes/kubespray/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     CK8S Kubespray
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../release-notes/postgres/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes/postgres/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     CK8S PostgreSQL
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../release-notes/rabbitmq/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes/rabbitmq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     CK8S RabbitMQ
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../release-notes/redis/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes/redis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     CK8S Redis
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../release-notes/jaeger/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes/jaeger/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     CK8S Jaeger
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../release-notes/argocd/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-notes/argocd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     CK8S Argo CD
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
     Glossary
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
-<span class="md-ellipsis">
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
     Glossary
   </span>
-</a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#application-developer">
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#application-developer" class="md-nav__link">
     Application Developer
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#cluster">
+      
+        <li class="md-nav__item">
+  <a href="#cluster" class="md-nav__link">
     Cluster
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#contributor">
+      
+        <li class="md-nav__item">
+  <a href="#contributor" class="md-nav__link">
     Contributor
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#customer">
+      
+        <li class="md-nav__item">
+  <a href="#customer" class="md-nav__link">
     Customer
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#end-user">
+      
+        <li class="md-nav__item">
+  <a href="#end-user" class="md-nav__link">
     End User
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#environment">
+      
+        <li class="md-nav__item">
+  <a href="#environment" class="md-nav__link">
     Environment
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#kubernetes-cluster">
+      
+        <li class="md-nav__item">
+  <a href="#kubernetes-cluster" class="md-nav__link">
     Kubernetes Cluster
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#identity-provider">
+      
+        <li class="md-nav__item">
+  <a href="#identity-provider" class="md-nav__link">
     Identity Provider
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#infrastructure-provider">
+      
+        <li class="md-nav__item">
+  <a href="#infrastructure-provider" class="md-nav__link">
     Infrastructure Provider
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#management-cluster">
+      
+        <li class="md-nav__item">
+  <a href="#management-cluster" class="md-nav__link">
     Management Cluster
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#maintainer">
+      
+        <li class="md-nav__item">
+  <a href="#maintainer" class="md-nav__link">
     Maintainer
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#platform-administrator">
+      
+        <li class="md-nav__item">
+  <a href="#platform-administrator" class="md-nav__link">
     Platform Administrator
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#service-endpoint">
+      
+        <li class="md-nav__item">
+  <a href="#service-endpoint" class="md-nav__link">
     Service Endpoint
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#workload-cluster">
+      
+        <li class="md-nav__item">
+  <a href="#workload-cluster" class="md-nav__link">
     Workload Cluster
   </a>
+  
 </li>
-</ul>
+      
+    </ul>
+  
 </nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../roadmap/">
-<span class="md-ellipsis">
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roadmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Roadmap
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="https://elastisys.com/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://elastisys.com/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Support
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="https://elastisys.com/training/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://elastisys.com/training/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Training
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="https://elastisys.com/blog/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://elastisys.com/blog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Blog
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="https://elastisys.com/legal/privacy-policy/">
-<span class="md-ellipsis">
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://elastisys.com/legal/privacy-policy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
     Privacy Policy
   </span>
-</a>
-</li>
-</ul>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
 </nav>
-</div>
-</div>
-</div>
-<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#application-developer">
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#application-developer" class="md-nav__link">
     Application Developer
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#cluster">
+      
+        <li class="md-nav__item">
+  <a href="#cluster" class="md-nav__link">
     Cluster
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#contributor">
+      
+        <li class="md-nav__item">
+  <a href="#contributor" class="md-nav__link">
     Contributor
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#customer">
+      
+        <li class="md-nav__item">
+  <a href="#customer" class="md-nav__link">
     Customer
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#end-user">
+      
+        <li class="md-nav__item">
+  <a href="#end-user" class="md-nav__link">
     End User
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#environment">
+      
+        <li class="md-nav__item">
+  <a href="#environment" class="md-nav__link">
     Environment
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#kubernetes-cluster">
+      
+        <li class="md-nav__item">
+  <a href="#kubernetes-cluster" class="md-nav__link">
     Kubernetes Cluster
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#identity-provider">
+      
+        <li class="md-nav__item">
+  <a href="#identity-provider" class="md-nav__link">
     Identity Provider
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#infrastructure-provider">
+      
+        <li class="md-nav__item">
+  <a href="#infrastructure-provider" class="md-nav__link">
     Infrastructure Provider
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#management-cluster">
+      
+        <li class="md-nav__item">
+  <a href="#management-cluster" class="md-nav__link">
     Management Cluster
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#maintainer">
+      
+        <li class="md-nav__item">
+  <a href="#maintainer" class="md-nav__link">
     Maintainer
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#platform-administrator">
+      
+        <li class="md-nav__item">
+  <a href="#platform-administrator" class="md-nav__link">
     Platform Administrator
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#service-endpoint">
+      
+        <li class="md-nav__item">
+  <a href="#service-endpoint" class="md-nav__link">
     Service Endpoint
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#workload-cluster">
+      
+        <li class="md-nav__item">
+  <a href="#workload-cluster" class="md-nav__link">
     Workload Cluster
   </a>
+  
 </li>
-</ul>
+      
+    </ul>
+  
 </nav>
-</div>
-</div>
-</div>
-<div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset">
-<h1 id="glossary">Glossary<a class="headerlink" href="#glossary" title="Permanent link">¶</a></h1>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="glossary">Glossary<a class="headerlink" href="#glossary" title="Permanent link">&para;</a></h1>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Harmonization of documentation with this glossary is underway. (See <a href="https://github.com/elastisys/compliantkubernetes/issues/609">#609</a>)</p>
@@ -1403,7 +3411,8 @@ See also:
 
 * link 1
 -->
-<h2 id="application-developer">Application Developer<a class="headerlink" href="#application-developer" title="Permanent link">¶</a></h2>
+
+<h2 id="application-developer">Application Developer<a class="headerlink" href="#application-developer" title="Permanent link">&para;</a></h2>
 <p>A person who writes an application that runs in a Kubernetes cluster.</p>
 <p>Usage notes:</p>
 <ul>
@@ -1422,7 +3431,7 @@ See also:
 <li><a href="https://kubernetes.io/docs/reference/glossary/?all=true#term-application-developer">Application Developer on Kubernetes Glossary</a></li>
 <li><a href="https://www.cncf.io/certification/ckad/">Certified Kubernetes Application Developer (CKAD)</a></li>
 </ul>
-<h2 id="cluster">Cluster<a class="headerlink" href="#cluster" title="Permanent link">¶</a></h2>
+<h2 id="cluster">Cluster<a class="headerlink" href="#cluster" title="Permanent link">&para;</a></h2>
 <p>Can refer to a <a href="#kubernetes-cluster">Kubernetes Cluster</a>, a PostgreSQL cluster, a Redis cluster, a RabbitMQ cluster, an OpenSearch Cluster, etc.</p>
 <p>Usage notes:</p>
 <ul>
@@ -1436,13 +3445,13 @@ See also:
 <li><a href="https://redis.io/docs/management/scaling/">Redis Cluster</a></li>
 <li><a href="https://www.rabbitmq.com/clustering.html">RabbitMQ Clustering Guide</a></li>
 </ul>
-<h2 id="contributor">Contributor<a class="headerlink" href="#contributor" title="Permanent link">¶</a></h2>
+<h2 id="contributor">Contributor<a class="headerlink" href="#contributor" title="Permanent link">&para;</a></h2>
 <p>Someone who makes Compliant Kubernetes better by providing code, documentation, feedback. Contributors make their work visible by raising issues and creating pull requests.</p>
 <p>See also:</p>
 <ul>
 <li><a href="../contributor-guide/">Contributor Guide</a></li>
 </ul>
-<h2 id="customer">Customer<a class="headerlink" href="#customer" title="Permanent link">¶</a></h2>
+<h2 id="customer">Customer<a class="headerlink" href="#customer" title="Permanent link">&para;</a></h2>
 <p>Someone who benefits from Compliant Kubernetes via a commercial agreement.</p>
 <p>Usage notes:</p>
 <ul>
@@ -1456,7 +3465,7 @@ See also:
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Customer">Customer on Wikipedia</a>.</li>
 </ul>
-<h2 id="end-user">End User<a class="headerlink" href="#end-user" title="Permanent link">¶</a></h2>
+<h2 id="end-user">End User<a class="headerlink" href="#end-user" title="Permanent link">&para;</a></h2>
 <p>Ultimate user of the Application deployed on top of Kubernetes.</p>
 <p>Usage notes:</p>
 <ul>
@@ -1468,13 +3477,13 @@ See also:
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/End_user">End User on Wikipedia</a></li>
 </ul>
-<h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">¶</a></h2>
+<h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">&para;</a></h2>
 <p>One instance of a Compliant Kubernetes deployment. One Environment is compose of two <a href="#kubernetes-cluster">Kubernetes Clusters</a>, the <a href="#management-cluster">Management Cluster</a> and <a href="#workload-cluster">Workload Cluster</a>.</p>
 <p>Usage notes:</p>
 <ul>
 <li>Make sure to distinguish between Environment and Cluster.</li>
 </ul>
-<h2 id="kubernetes-cluster">Kubernetes Cluster<a class="headerlink" href="#kubernetes-cluster" title="Permanent link">¶</a></h2>
+<h2 id="kubernetes-cluster">Kubernetes Cluster<a class="headerlink" href="#kubernetes-cluster" title="Permanent link">&para;</a></h2>
 <p>A set of worker machines, called nodes, that run containerized applications. Every cluster has at least one worker node.</p>
 <p>Usage notes:</p>
 <ul>
@@ -1485,7 +3494,7 @@ See also:
 <li><a href="../architecture/#level-2-clusters">Architecture Diagram Level 2: Clusters</a></li>
 <li><a href="https://kubernetes.io/docs/reference/glossary/?all=true#term-cluster">Cluster on Kubernetes Glossary</a></li>
 </ul>
-<h2 id="identity-provider">Identity Provider<a class="headerlink" href="#identity-provider" title="Permanent link">¶</a></h2>
+<h2 id="identity-provider">Identity Provider<a class="headerlink" href="#identity-provider" title="Permanent link">&para;</a></h2>
 <p>An Identity Provider (IdP) is a system that offers user authentication as a service. Examples include:</p>
 <ul>
 <li><a href="https://www.keycloak.org/">Keycloak</a></li>
@@ -1502,7 +3511,7 @@ See also:
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Identity_provider">Identity provider on Wikipedia</a></li>
 </ul>
-<h2 id="infrastructure-provider">Infrastructure Provider<a class="headerlink" href="#infrastructure-provider" title="Permanent link">¶</a></h2>
+<h2 id="infrastructure-provider">Infrastructure Provider<a class="headerlink" href="#infrastructure-provider" title="Permanent link">&para;</a></h2>
 <p>A supplier of Virtual or Bare-metal Machines, networks, load balancers, block storage and object storage.</p>
 <p>Usage notes:</p>
 <ul>
@@ -1517,7 +3526,7 @@ See also:
 <ul>
 <li>Do NOT use "Cloud Provider", as this is easily confused with "Platform-as-a-Service Cloud Provider".</li>
 </ul>
-<h2 id="management-cluster">Management Cluster<a class="headerlink" href="#management-cluster" title="Permanent link">¶</a></h2>
+<h2 id="management-cluster">Management Cluster<a class="headerlink" href="#management-cluster" title="Permanent link">&para;</a></h2>
 <p>A Kubernetes cluster hosting some platform components.</p>
 <p>Usage notes:</p>
 <ul>
@@ -1529,7 +3538,7 @@ See also:
 <li><a href="https://cluster-api.sigs.k8s.io/user/concepts.html#management-cluster">Management Cluster on The Cluster API Book</a></li>
 <li><a href="../architecture/#level-2-clusters">Architecture Diagram Level 2: Clusters</a></li>
 </ul>
-<h2 id="maintainer">Maintainer<a class="headerlink" href="#maintainer" title="Permanent link">¶</a></h2>
+<h2 id="maintainer">Maintainer<a class="headerlink" href="#maintainer" title="Permanent link">&para;</a></h2>
 <p>"Those <a href="#contributor">contributors</a> who lead an open source project." <a href="https://elastisys.com">Elastisys</a> is Maintainer of Compliant Kubernetes.</p>
 <p>Usage notes:</p>
 <ul>
@@ -1539,7 +3548,7 @@ See also:
 <ul>
 <li><a href="https://www.linuxfoundation.org/blog/open-source-Maintainers-what-they-need-and-how-to-support-them">Open source Maintainers on Linux Foundation</a></li>
 </ul>
-<h2 id="platform-administrator">Platform Administrator<a class="headerlink" href="#platform-administrator" title="Permanent link">¶</a></h2>
+<h2 id="platform-administrator">Platform Administrator<a class="headerlink" href="#platform-administrator" title="Permanent link">&para;</a></h2>
 <p>The people who operate Compliant Kubernetes and Additional Platform Services.</p>
 <p>Usage notes:</p>
 <ul>
@@ -1550,7 +3559,7 @@ See also:
 <ul>
 <li><a href="https://www.cncf.io/certification/cka/">Certified Kubernetes Administrator (CKA)</a></li>
 </ul>
-<h2 id="service-endpoint">Service Endpoint<a class="headerlink" href="#service-endpoint" title="Permanent link">¶</a></h2>
+<h2 id="service-endpoint">Service Endpoint<a class="headerlink" href="#service-endpoint" title="Permanent link">&para;</a></h2>
 <p>Interface exposed via the network for accessing Compliant Kubernetes functionality. Endpoints include Harbor, OpenSearch, Grafana, Dex and the <a href="#workload-cluster">Workload Cluster</a> Kubernetes API.</p>
 <p>Usage notes:</p>
 <ul>
@@ -1560,72 +3569,108 @@ See also:
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/API">API on Wikipedia</a></li>
 </ul>
-<h2 id="workload-cluster">Workload Cluster<a class="headerlink" href="#workload-cluster" title="Permanent link">¶</a></h2>
+<h2 id="workload-cluster">Workload Cluster<a class="headerlink" href="#workload-cluster" title="Permanent link">&para;</a></h2>
 <p>A Kubernetes cluster hosting the Application which is used by the <a href="#end-user">End User</a>.</p>
 <p>See also:</p>
 <ul>
 <li><a href="https://cluster-api.sigs.k8s.io/user/concepts.html#workload-cluster">Workload Cluster on The Cluster API Book</a></li>
 <li><a href="../architecture/#level-2-clusters">Architecture Diagram Level 2: Clusters</a></li>
 </ul>
-</article>
-</div>
-<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
-</div>
-<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
   Back to top
 </button>
-</main>
-<footer class="md-footer">
-<nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: CK8S Argo CD" class="md-footer__link md-footer__link--prev" href="../release-notes/argocd/">
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
-</div>
-<div class="md-footer__title">
-<span class="md-footer__direction">
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../release-notes/argocd/" class="md-footer__link md-footer__link--prev" aria-label="Previous: CK8S Argo CD">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
                 Previous
               </span>
-<div class="md-ellipsis">
+              <div class="md-ellipsis">
                 CK8S Argo CD
               </div>
-</div>
-</a>
-<a aria-label="Next: Roadmap" class="md-footer__link md-footer__link--next" href="../roadmap/">
-<div class="md-footer__title">
-<span class="md-footer__direction">
+            </div>
+          </a>
+        
+        
+          
+          <a href="../roadmap/" class="md-footer__link md-footer__link--next" aria-label="Next: Roadmap">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
                 Next
               </span>
-<div class="md-ellipsis">
+              <div class="md-ellipsis">
                 Roadmap
               </div>
-</div>
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
-</div>
-</a>
-</nav>
-<div class="md-footer-meta md-typeset">
-<div class="md-footer-meta__inner md-grid">
-<div class="md-copyright">
-<div class="md-copyright__highlight">
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
       Copyright © Elastisys AB <br/> The Linux Foundation has the following registered trademarks in the United States and/or other countries: Certified Kubernetes®, containerd®, fluentd®, Helm®, Istio®, K8s®, Kubernetes®, Prometheus®, PromQL®, Rook®, The Linux Foundation®. <br/> The Linux Foundation has registrations pending or trademarks in use for the following marks in the United States and/or other countries: Argo™, CoreDNS™, Falco™, Harbor™, Jaeger™, Linux Foundation™, OpenTelemetry™, OpenTracing™, Open Policy Agent™, Tekton™, Thanos™. <br/> Postgres and PostgreSQL and the Elephant Logo (Slonik) are all registered trademarks of the PostgreSQL Community Association of Canada. <br/> Redis is a trademark of Redis Ltd. Any rights therein are reserved to Redis Ltd. Any use by the Compliant Kubernetes project is for referential purposes only and does not indicate any sponsorship, endorsement or affiliation between Redis and Compliant Kubernetes project. <br/> RabbitMQ is a trademark of VMware, Inc. in the U.S. and other countries. <br/> TimescaleDB and the EON mascot are trademarks of <a href="https://www.timescale.com/">Timescale, Inc.</a> <br/> FerretDB® is a registered trademark of FerretDB, Inc. FerretDB Inc. is not affiliated, associated, authorized, endorsed by, or in any way officially connected with MongoDB Inc., or any of its subsidiaries or its affiliates. <br/> MongoDB, Mongo, and the leaf logo are registered trademarks of MongoDB, Inc. <br/> Keycloak™ is a trademark of Red Hat Inc. <br/> OpenSearch is a registered trademark of Amazon Web Services. <br/> NGINX is a registered trademark of F5 Inc.
     </div>
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
       Material for MkDocs
     </a>
+  
 </div>
-</div>
-</div>
+      
+    </div>
+  </div>
 </footer>
-</div>
-<div class="md-dialog" data-md-component="dialog">
-<div class="md-dialog__inner md-typeset"></div>
-</div>
-<script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "navigation.footer", "navigation.top"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
-<script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
-</body>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "navigation.footer", "navigation.top"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
 </html>
