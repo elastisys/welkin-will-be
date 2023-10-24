@@ -12,7 +12,7 @@
         <meta name="author" content="Elastisys AB">
       
       
-        <link rel="canonical" href="https://elastisys.io/compliantkubernetes/operator-manual/user-manged-crds/">
+        <link rel="canonical" href="https://elastisys.io/compliantkubernetes/operator-manual/user-managed-crds/">
       
       
         <link rel="prev" href="../user-alerts/">
@@ -79,7 +79,7 @@
       
         <meta  property="og:description"  content="Kubernetes platform to comply with Swedish Healthcare (Patientdatalagen), GDPR and ISO 27001." >
       
-        <meta  property="og:image"  content="https://elastisys.io/compliantkubernetes/assets/images/social/operator-manual/user-manged-crds.png" >
+        <meta  property="og:image"  content="https://elastisys.io/compliantkubernetes/assets/images/social/operator-manual/user-managed-crds.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -87,7 +87,7 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://elastisys.io/compliantkubernetes/operator-manual/user-manged-crds/" >
+        <meta  property="og:url"  content="https://elastisys.io/compliantkubernetes/operator-manual/user-managed-crds/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
@@ -95,7 +95,7 @@
       
         <meta  name="twitter:description"  content="Kubernetes platform to comply with Swedish Healthcare (Patientdatalagen), GDPR and ISO 27001." >
       
-        <meta  name="twitter:image"  content="https://elastisys.io/compliantkubernetes/assets/images/social/operator-manual/user-manged-crds.png" >
+        <meta  name="twitter:image"  content="https://elastisys.io/compliantkubernetes/assets/images/social/operator-manual/user-managed-crds.png" >
       
     
     
@@ -1424,6 +1424,26 @@ if(!document.__defineGetter__) {
   
   <span class="md-ellipsis">
     Sjunet (self-managed)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/self-managed-services/flux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flux (self-managed)
   </span>
   
 
@@ -3221,6 +3241,7 @@ The list of currently supported applications for self-management is:</p>
 <ul>
 <li>SealedSecrets</li>
 <li>MongoDB</li>
+<li>Flux</li>
 </ul>
 <h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h2>
 <p>Compliant Kubernetes does not allow application developers to install ClusterRoles and ClusterRoleBindings.
@@ -3231,11 +3252,14 @@ The installation of self-managed cluster resources can be limited to a pre-defin
 <p>By default, this feature is disabled.
 To enable it, add the following snippet to the environments <code>wc-config.yaml</code> file</p>
 <div class="highlight"><pre><span></span><code><span class="nt">user</span><span class="p">:</span>
-<span class="w"> </span><span class="c1"># Enable Sealed Secrets</span>
+<span class="w">  </span><span class="c1"># Enable Sealed Secrets</span>
 <span class="w">  </span><span class="nt">sealedSecrets</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="c1"># Enable MongoDB</span>
 <span class="w">  </span><span class="nt">mongodb</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="c1"># Enable Flux</span>
+<span class="w">  </span><span class="nt">fluxv2</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 
 <span class="nt">gatekeeper</span><span class="p">:</span>
