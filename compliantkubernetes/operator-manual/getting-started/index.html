@@ -3266,10 +3266,10 @@ pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </
 <li><a href="https://github.com/vmware/govmomi">VMware vSphere CLI (govmomi)</a></li>
 </ul>
 <h2 id="pre-requisites-for-compliantkubernetes-apps">Pre-requisites for compliantkubernetes-apps<a class="headerlink" href="#pre-requisites-for-compliantkubernetes-apps" title="Permanent link">&para;</a></h2>
-<p>Using Ansible, these can be retrieved as follows:</p>
+<p>Install pre-requisites for compliantkubernetes-apps:</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/elastisys/compliantkubernetes-apps
 <span class="nb">cd</span><span class="w"> </span>compliantkubernetes-apps
-ansible-playbook<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;ansible_python_interpreter=/usr/bin/python3&#39;</span><span class="w"> </span>--ask-become-pass<span class="w"> </span>--connection<span class="w"> </span><span class="nb">local</span><span class="w"> </span>--inventory<span class="w"> </span><span class="m">127</span>.0.0.1,<span class="w"> </span>get-requirements.yaml
+./bin/ck8s<span class="w"> </span>install-requirements
 </code></pre></div>
 <h2 id="misc">Misc<a class="headerlink" href="#misc" title="Permanent link">&para;</a></h2>
 <p>Compliant Kubernetes relies on SSH for accessing nodes. If you haven't already done so, generate an SSH key as follows:</p>

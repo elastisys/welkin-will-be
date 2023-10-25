@@ -3276,7 +3276,7 @@ if(!document.__defineGetter__) {
 <p>If you haven't done so already, clone the <code>compliantkubernetes-apps</code> repo and install pre-requisites.</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/elastisys/compliantkubernetes-apps.git
 <span class="nb">cd</span><span class="w"> </span>compliantkubernetes-apps
-ansible-playbook<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;ansible_python_interpreter=/usr/bin/python3&#39;</span><span class="w"> </span>--ask-become-pass<span class="w"> </span>--connection<span class="w"> </span><span class="nb">local</span><span class="w"> </span>--inventory<span class="w"> </span><span class="m">127</span>.0.0.1,<span class="w"> </span>get-requirements.yaml
+./bin/ck8s<span class="w"> </span>install-requirements
 </code></pre></div>
 <!--clone-apps-stop-->
 

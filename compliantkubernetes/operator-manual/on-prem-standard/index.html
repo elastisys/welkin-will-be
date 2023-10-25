@@ -1802,6 +1802,13 @@ if(!document.__defineGetter__) {
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#operate" class="md-nav__link">
+    Operate
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3437,6 +3444,13 @@ if(!document.__defineGetter__) {
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#operate" class="md-nav__link">
+    Operate
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3527,7 +3541,7 @@ ansible-playbook<span class="w"> </span>-e<span class="w"> </span><span class="s
 <p>Add the Compliant Kubernetes Apps repo as a <code>git submodule</code> to the configuration repo and install pre-requisites as follows:</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>submodule<span class="w"> </span>add<span class="w"> </span>https://github.com/elastisys/compliantkubernetes-apps.git
 <span class="nb">cd</span><span class="w"> </span>compliantkubernetes-apps
-ansible-playbook<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;ansible_python_interpreter=/usr/bin/python3&#39;</span><span class="w"> </span>--ask-become-pass<span class="w"> </span>--connection<span class="w"> </span><span class="nb">local</span><span class="w"> </span>--inventory<span class="w"> </span><span class="m">127</span>.0.0.1,<span class="w"> </span>get-requirements.yaml
+./bin/ck8s<span class="w"> </span>install-requirements
 </code></pre></div>
 </li>
 <li>
@@ -3743,6 +3757,27 @@ All resources need to have the <code>Ready</code> column <code>True</code>.</p>
 <p>Then the Workload Clusters:</p>
 <div class="highlight"><pre><span></span><code>compliantkubernetes-apps/bin/ck8s<span class="w"> </span><span class="nb">test</span><span class="w"> </span>wc
 </code></pre></div>
+<h3 id="operate">Operate<a class="headerlink" href="#operate" title="Permanent link">&para;</a></h3>
+<p>The following endpoints can be probed to ensure Compliant Kubernetes services are up and running:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>--head<span class="w"> </span>https://dex.<span class="nv">$DOMAIN</span>/healthz
+curl<span class="w"> </span>--head<span class="w"> </span>https://harbor.<span class="nv">$DOMAIN</span>/healthz
+curl<span class="w"> </span>--head<span class="w"> </span>https://grafana.<span class="nv">$DOMAIN</span>/healthz
+curl<span class="w"> </span>--head<span class="w"> </span>https://grafana.ops.<span class="nv">$DOMAIN</span>/healthz
+curl<span class="w"> </span>--head<span class="w"> </span>app.<span class="nv">$DOMAIN</span>/healthz<span class="w">  </span><span class="c1"># Pokes the WC Ingress Controller</span>
+curl<span class="w"> </span>--head<span class="w"> </span>app.ops.<span class="nv">$DOMAIN</span>/healthz<span class="w">  </span><span class="c1"># Pokes the SC Ingress Controller</span>
+<span class="c1"># All commands above should return &#39;HTTP/2 200&#39;</span>
+
+curl<span class="w"> </span>--head<span class="w"> </span>-k<span class="w"> </span>https://kube-apiserver.<span class="nv">$DOMAIN</span>
+curl<span class="w"> </span>--head<span class="w"> </span>https://notary.harbor.<span class="nv">$DOMAIN</span>
+curl<span class="w"> </span>--head<span class="w"> </span>https://thanos-receiver.ops.<span class="nv">$DOMAIN</span>
+curl<span class="w"> </span>--head<span class="w"> </span>https://opensearch.ops.<span class="nv">$DOMAIN</span>
+curl<span class="w"> </span>--head<span class="w"> </span>https://opensearch.<span class="nv">$DOMAIN</span>/api/status
+<span class="c1"># The two commands above should return &#39;HTTP/2 401&#39;</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some of these subdomains can be overwritten in config (see example <a href="https://github.com/elastisys/compliantkubernetes-apps/blob/v0.33.0/config/config/common-config.yaml#L260">here</a>)</p>
+</div>
 
 
 
