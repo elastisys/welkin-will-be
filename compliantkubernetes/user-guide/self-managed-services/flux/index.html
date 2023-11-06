@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="https://elastisys.io/compliantkubernetes/img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
     
     
       
@@ -3554,6 +3554,10 @@ This is a preview feature. For more information, please read <a href="https://el
 <p>Flux is an open-source tool for continuous delivery (CD) and GitOps in Kubernetes. It allows you to automate and manage the deployment of applications and configurations in a Kubernetes cluster using a Git repository as the source of truth.</p>
 <p>Flux is a <a href="https://www.cncf.io/projects/flux/">CNCF Graduated project</a>.</p>
 <p>This page will help you install Flux in a Compliant Kubernetes environment.</p>
+<div class="admonition note">
+<p class="admonition-title">Supported versions</p>
+<p>This installation guide has been tested with Flux version <a href="https://github.com/fluxcd/flux2/tree/v2.1.2">2.1.2</a>.</p>
+</div>
 <h2 id="initial-prep">Initial Prep<a class="headerlink" href="#initial-prep" title="Permanent link">&para;</a></h2>
 <h3 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h3>
 <p>This guide depends on the <a href="../../../operator-manual/user-managed-crds/">self-managed cluster resources</a> feature to be enabled. This is so Flux gets the necessary CRDs and ClusterRoles installed.</p>
@@ -3584,8 +3588,8 @@ After you have generated an SSH Key, you want to add it as a deploy key in your 
 <p>You need to apply the Custom Resource Definitions (CRDs) required by Flux. This is typically not allowed in a Compliant Kubernetes Environment, but with Flux enabled with the self-managed cluster resources feature, this allows you to apply these yourself.</p>
 <div class="highlight"><pre><span></span><code>mkdir crds
 
-# Fetches latest Flux CRDs and saves it in the crds directory
-curl https://raw.githubusercontent.com/fluxcd/flux2/main/manifests/crds/kustomization.yaml &gt; crds/kustomization.yaml
+# Fetches Flux CRDs for v2.1.2 and saves it in the crds directory
+curl https://raw.githubusercontent.com/fluxcd/flux2/v2.1.2/manifests/crds/kustomization.yaml &gt; crds/kustomization.yaml
 
 kubectl apply -k crds
 </code></pre></div>
@@ -3799,7 +3803,7 @@ curl https://raw.githubusercontent.com/elastisys/compliantkubernetes/main/docs/u
     <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "navigation.footer", "navigation.top"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.81fa17fe.min.js"></script>
       
     
   </body>

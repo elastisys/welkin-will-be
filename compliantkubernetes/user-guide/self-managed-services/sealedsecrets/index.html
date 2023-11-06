@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="https://elastisys.io/compliantkubernetes/img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
     
     
       
@@ -3256,7 +3256,7 @@ This is a preview feature. For more information, please read <a href="https://el
 <!-- END INCLUDE -->
 
 <p>This page will help you to install <a href="https://github.com/bitnami-labs/sealed-secrets">Sealed Secrets</a>, so that you are allowed to install the cluster-wide resources that are required by Sealed Secrets.</p>
-<p>This guide is a complement to <a href="https://github.com/bitnami-labs/sealed-secrets/tree/v0.23.1">Sealed Secrets</a> own documentation.</p>
+<p>This guide is a complement to <a href="https://github.com/bitnami-labs/sealed-secrets/tree/v0.24.2">Sealed Secrets</a> own documentation.</p>
 <h1 id="preparation">Preparation<a class="headerlink" href="#preparation" title="Permanent link">&para;</a></h1>
 <p>The self-managed cluster-wide resources feature adds specific Roles, ServiceAccounts, etc. for you.
 This enables you to install and manage the resources that Sealed Secrets needs.
@@ -3270,7 +3270,11 @@ If you do not know which root namespace you should use, ask your platform admini
 <span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;root namespace&gt;</span>
 </code></pre></div>
 <h2 id="install-sealed-secrets">Install Sealed Secrets<a class="headerlink" href="#install-sealed-secrets" title="Permanent link">&para;</a></h2>
-<p>Sealed Secrets have a section in their documentation about installing Sealed Secrets into a <a href="https://github.com/bitnami-labs/sealed-secrets/tree/v0.23.1#helm-chart-on-a-restricted-environment">restricted environment</a>, where they give a <code>config.yaml</code> that defines what should be installed.</p>
+<div class="admonition note">
+<p class="admonition-title">Supported versions</p>
+<p>This installation guide has been tested with Sealed Secrets version <a href="https://github.com/bitnami-labs/sealed-secrets/tree/release/v0.24.2">0.24.2</a> and Helm Chart version <a href="https://github.com/bitnami-labs/sealed-secrets/tree/helm-v2.13.1/helm/sealed-secrets">2.13.1</a>.</p>
+</div>
+<p>Sealed Secrets have a section in their documentation about installing Sealed Secrets into a <a href="https://github.com/bitnami-labs/sealed-secrets/tree/v0.24.2#helm-chart-on-a-restricted-environment">restricted environment</a>, where they give a <code>config.yaml</code> that defines what should be installed.</p>
 <p>The following <code>config.yaml</code> is an example of what is required to install Sealed Secrets into Compliant Kubernetes.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">serviceAccount</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">create</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
@@ -3278,6 +3282,7 @@ If you do not know which root namespace you should use, ask your platform admini
 <span class="nt">rbac</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">create</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">  </span><span class="nt">clusterRole</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="c1">## Add your namespace(s) here</span>
 <span class="nt">additionalNamespaces</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
 <span class="nt">resources</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">requests</span><span class="p">:</span>
@@ -3288,20 +3293,21 @@ If you do not know which root namespace you should use, ask your platform admini
 <span class="w">    </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">256Mi</span>
 </code></pre></div>
 <p>You are now ready to install Sealed Secrets</p>
-<div class="highlight"><pre><span></span><code><span class="go">helm upgrade --install sealed-secrets -n sealed-secrets sealed-secrets/sealed-secrets -f config.yaml</span>
+<div class="highlight"><pre><span></span><code><span class="go">helm repo add sealed-secrets https://bitnami-labs.github.io/sealed-secrets</span>
+<span class="go">helm upgrade --install sealed-secrets -n sealed-secrets --version 2.13.1 sealed-secrets/sealed-secrets -f config.yaml</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note about <code>kubeseal</code></p>
 <p>The Sealed Secrets cli tool <code>kubeseal</code> expects the controller to be installed in the namespace <code>kube-system</code>.
 However the controller is installed in the namespace <code>sealed-secrets</code>.
-As such you need to follow this <a href="https://github.com/bitnami-labs/sealed-secrets#how-to-use-kubeseal-if-the-controller-is-not-running-within-the-kube-system-namespace">guide</a> to use <code>kubeseal</code></p>
+As such you need to follow this <a href="https://github.com/bitnami-labs/sealed-secrets/tree/release/v0.24.2#how-to-use-kubeseal-if-the-controller-is-not-running-within-the-kube-system-namespace">guide</a> to use <code>kubeseal</code></p>
 </div>
 <h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
 <p>Please refer to the official documentation how to operate and use Sealed Secrets.</p>
 <ul>
-<li><a href="https://github.com/bitnami-labs/sealed-secrets#usage">Documentation</a></li>
+<li><a href="https://github.com/bitnami-labs/sealed-secrets/tree/release/v0.24.2#usage">Documentation</a></li>
 <li><a href="https://docs.bitnami.com/tutorials/sealed-secrets">Tutorials</a></li>
-<li><a href="https://github.com/bitnami-labs/sealed-secrets/blob/main/docs/developer/crypto.md">Crypto</a></li>
+<li><a href="https://github.com/bitnami-labs/sealed-secrets/blob/release/v0.24.2/docs/developer/crypto.md">Crypto</a></li>
 </ul>
 
 
@@ -3396,7 +3402,7 @@ As such you need to follow this <a href="https://github.com/bitnami-labs/sealed-
     <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "navigation.footer", "navigation.top"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.81fa17fe.min.js"></script>
       
     
   </body>
