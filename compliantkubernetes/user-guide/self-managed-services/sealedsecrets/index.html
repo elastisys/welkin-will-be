@@ -3292,6 +3292,10 @@ If you do not know which root namespace you should use, ask your platform admini
 <span class="w">    </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">150m</span>
 <span class="w">    </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">256Mi</span>
 </code></pre></div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Add the namespaces that should support creation of SealedSecrets to the <code>additionalNamespaces</code> list. If this list is empty the SealedSecrets controller will output an error when attempting to create a SealedSecret as it attempts to get secrets at cluster level.</p>
+</div>
 <p>You are now ready to install Sealed Secrets</p>
 <div class="highlight"><pre><span></span><code><span class="go">helm repo add sealed-secrets https://bitnami-labs.github.io/sealed-secrets</span>
 <span class="go">helm upgrade --install sealed-secrets -n sealed-secrets --version 2.13.1 sealed-secrets/sealed-secrets -f config.yaml</span>
@@ -3308,6 +3312,7 @@ As such you need to follow this <a href="https://github.com/bitnami-labs/sealed-
 <li><a href="https://github.com/bitnami-labs/sealed-secrets/tree/release/v0.24.2#usage">Documentation</a></li>
 <li><a href="https://docs.bitnami.com/tutorials/sealed-secrets">Tutorials</a></li>
 <li><a href="https://github.com/bitnami-labs/sealed-secrets/blob/release/v0.24.2/docs/developer/crypto.md">Crypto</a></li>
+<li><a href="../../additional-services/argocd/#with-sealedsecrets">SealedSecrets with Elastisys Managed Argo CD</a></li>
 </ul>
 
 

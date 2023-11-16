@@ -1322,6 +1322,40 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
+  <a href="#secret-management" class="md-nav__link">
+    Secret Management
+  </a>
+  
+    <nav class="md-nav" aria-label="Secret Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with-helm-secrets" class="md-nav__link">
+    With Helm Secrets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-sealedsecrets" class="md-nav__link">
+    With SealedSecrets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-use-hashicorp-vault-for-secret-management" class="md-nav__link">
+    Can I use HashiCorp Vault for secret management?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#further-reading" class="md-nav__link">
     Further Reading
   </a>
@@ -3288,6 +3322,40 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
+  <a href="#secret-management" class="md-nav__link">
+    Secret Management
+  </a>
+  
+    <nav class="md-nav" aria-label="Secret Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with-helm-secrets" class="md-nav__link">
+    With Helm Secrets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-sealedsecrets" class="md-nav__link">
+    With SealedSecrets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-use-hashicorp-vault-for-secret-management" class="md-nav__link">
+    Can I use HashiCorp Vault for secret management?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#further-reading" class="md-nav__link">
     Further Reading
   </a>
@@ -3357,9 +3425,120 @@ if(!document.__defineGetter__) {
 Before going into production, don't forget to go through the <a href="../../go-live/">go-live checklist</a>.</p>
 <h2 id="ck8s-argo-cd-release-notes">CK8S Argo CD Release Notes<a class="headerlink" href="#ck8s-argo-cd-release-notes" title="Permanent link">&para;</a></h2>
 <p>Check out the <a href="../../../release-notes/argocd/">release notes</a> for the Argo CD setup that runs in Compliant Kubernetes environments!</p>
+<h2 id="secret-management">Secret Management<a class="headerlink" href="#secret-management" title="Permanent link">&para;</a></h2>
+<p>Secret values should never be stored in plain-text in code repositories. The following sections will describe two supported approaches on how Application Developers can do secret management with Elastisys Managed Argo CD.</p>
+<h3 id="with-helm-secrets">With Helm Secrets<a class="headerlink" href="#with-helm-secrets" title="Permanent link">&para;</a></h3>
+<p>Argo CD can be configured to decrypt files encrypted with <code>sops</code> using <a href="https://github.com/jkroepke/helm-secrets#helm-secrets">Helm Secrets</a>. To be able to use Helm-secrets with Argo CD, you will need to contact your Platform Administrator requesting that you want to use this feature and for which OIDC group, users or ServiceAccounts (otherwise the Application Developer group used for accessing the cluster is assumed). Once your Platform Administrator has approved your request, you should be able to create and manage a Kubernetes Secret resource in the <code>argocd-system</code> namespace as instructed below.</p>
+<p>The following steps will show how to get started with encrypting files using <code>sops</code> and <code>gpg</code>, storing the encrypted files in a Helm chart, and lastly deploying the Helm chart with Argo CD.</p>
+<ol>
+<li>
+<p>Generate a new GPG key-pair (make sure not to add a passphrase as otherwise Argo CD will not be able to use the key) and then export the private key. The following example will create a GPG key and export the private key to a file named <code>private.asc</code>:</p>
+<div class="highlight"><pre><span></span><code>gpg<span class="w"> </span>--batch<span class="w"> </span>--rfc4880<span class="w"> </span>--passphrase<span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span>--quick-generate-key<span class="w"> </span><span class="s2">&quot;set-me@example.com&quot;</span><span class="w"> </span>default<span class="w"> </span>default
+<span class="nv">fpr</span><span class="o">=</span><span class="k">$(</span>gpg<span class="w"> </span>--with-colons<span class="w"> </span>--list-keys<span class="w"> </span><span class="s2">&quot;set-me@example.com&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F:<span class="w"> </span><span class="s1">&#39;$1 == &quot;fpr&quot; {print $10; exit}&#39;</span><span class="k">)</span>
+gpg<span class="w"> </span>--output<span class="w"> </span><span class="s2">&quot;private.asc&quot;</span><span class="w"> </span>--armor<span class="w"> </span>--export-secret-key<span class="w"> </span><span class="nv">$fpr</span>
+</code></pre></div>
+</li>
+<li>
+<p>For Argo CD to be able to use this key for decrypting <code>sops</code> encrypted values files in your Helm charts, you will need to create a Kubernetes Secret in the <code>argocd-system</code> namespace named <code>helm-secrets-private-keys</code>. This secret will then be mounted and read by the Argo CD repo server. Create the Secret using the private key file created in the previous step:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">PRIVATE_KEY_FILE</span><span class="o">=</span><span class="s2">&quot;private.asc&quot;</span>
+kubectl<span class="w"> </span>-n<span class="w"> </span>argocd-system<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>helm-secrets-private-keys<span class="w"> </span>--from-file<span class="o">=</span>key.asc<span class="o">=</span><span class="nv">$PRIVATE_KEY_FILE</span><span class="w"> </span>--dry-run<span class="o">=</span>client<span class="w"> </span>-oyaml<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>kubectl<span class="w"> </span>label<span class="w"> </span>-f-<span class="w"> </span>-oyaml<span class="w"> </span>argocd.argoproj.io/secret-type<span class="o">=</span>repository<span class="w"> </span>--dry-run<span class="o">=</span>client<span class="w"> </span>--local<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>kubectl<span class="w"> </span>create<span class="w"> </span>-f-
+</code></pre></div>
+<p>Deploy the Secret:</p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>helm-secrets-private-keys.yaml
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Once your Platform Administrator has enabled Helm-secrets with Argo CD, the Argo CD repo server pod will not be able to initialize if this secret does not exist. Check pods in the <code>argocd-system</code> namespace after creating the secret to confirm that the secret got mounted properly by the repo server:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>argocd-system<span class="w"> </span>-l<span class="w"> </span>app.kubernetes.io/component<span class="o">=</span>repo-server
+<span class="go">NAME                                  READY   STATUS    RESTARTS   AGE</span>
+<span class="go">argocd-repo-server-77fd58b498-kjm95   1/1     Running   0          3m45s</span>
+</code></pre></div>
+</div>
+</li>
+<li>
+<p>Create a <code>.sops.yaml</code> file in the Helm chart in which you want to use Helm Secrets. Add your GPG <strong>public</strong> key to this file. You can get the public key with:</p>
+<div class="highlight"><pre><span></span><code>gpg<span class="w"> </span>--list-key<span class="w"> </span><span class="s2">&quot;set-me@example.com&quot;</span>
+</code></pre></div>
+<p>The <code>.sops.yaml</code> file should look something like this:</p>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">creation_rules</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">pgp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;public-gpg-key&gt;</span>
+</code></pre></div>
+</li>
+<li>
+<p>Create a values file in your Helm chart repository and put values that should be encrypted into this file:</p>
+<div class="highlight"><pre><span></span><code>touch<span class="w"> </span>secrets.yaml
+</code></pre></div>
+<p>These values can then be referenced in templates as any other Helm values.</p>
+</li>
+<li>
+<p>Encrypt the values file using <code>sops</code> (as long as there is a <code>.sops.yaml</code> file in the same folder containing your public GPG key you do not have to specify the GPG key when running the following command):</p>
+<div class="highlight"><pre><span></span><code>sops<span class="w"> </span>--encrypt<span class="w"> </span>--in-place<span class="w"> </span>secrets.yaml
+</code></pre></div>
+<p>To test using the now encrypted <code>secrets.yaml</code> file together with the Helm chart, <a href="https://github.com/jkroepke/helm-secrets/wiki/Installation">install the Helm Secrets plugin</a>, and then run the following from the root folder of the Helm chart to template the Helm chart:</p>
+<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>template<span class="w"> </span>.<span class="w"> </span>--values<span class="w"> </span>secrets://secrets.yaml
+</code></pre></div>
+</li>
+<li>
+<p>The file <code>secrets.yaml</code> can now safely be stored in a code repository as long as it is encrypted.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To edit values in the encrypted values file, you can use <code>sops</code> which will open the file in clear text in a configured editor:</p>
+<div class="highlight"><pre><span></span><code>sops<span class="w"> </span>secrets.yaml
+</code></pre></div>
+<p>There is also a <a href="https://marketplace.visualstudio.com/items?itemName=signageos.signageos-vscode-sops">VSCode plugin</a> which can simplify editing <code>sops</code> encrypted files directly in the VSCode editor.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Add a <a href="https://github.com/yuvipanda/pre-commit-hook-ensure-sops">pre-commit hook</a> to ensure to not push files containing sensitive data that are not encrypted with <code>sops</code>.</p>
+</div>
+</li>
+<li>
+<p>In Argo CD, when you create your Application, add the secret values file (<code>secrets.yaml</code>) as follow:</p>
+<p><img alt="argocd-helm-secrets" src="../img/argocd-helm-secrets.png" /></p>
+<p>Here, <code>secrets.yaml</code> is the relative path and name of the file containing encrypted values.</p>
+</li>
+</ol>
+<h3 id="with-sealedsecrets">With SealedSecrets<a class="headerlink" href="#with-sealedsecrets" title="Permanent link">&para;</a></h3>
+<p>The following steps assumes SealedSecrets is installed in the cluster. For installing SealedSecrets in a Compliant Kubernetes cluster, refer to <a href="../../self-managed-services/sealedsecrets/">the self-managed guide</a>. You will need to contact your Platform Administrator requesting that you want to use SealedSecrets together with Argo CD.</p>
+<ol>
+<li>
+<p>Create a SealedSecret, the following steps will create a SealedSecret for the namespace in the current Kubernetes context:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SEALED_SECRETS_CONTROLLER_NAMESPACE</span><span class="o">=</span>sealed-secrets<span class="w"> </span><span class="c1"># set this to the namespace in which the controller is running in</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">SECRET_VALUE</span><span class="o">=</span>&lt;secret-data&gt;<span class="w"> </span><span class="c1"># this will be a value that should be encrypted/sealed</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">KEY</span><span class="o">=</span>foo<span class="w"> </span><span class="c1"># the key used for referencing SECRET_VALUE in the secret</span>
+
+kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>mysecret<span class="w"> </span>--dry-run<span class="o">=</span>client<span class="w"> </span>--from-literal<span class="o">=</span><span class="nv">$KEY</span><span class="o">=</span><span class="nv">$SECRET_VALUE</span><span class="w"> </span>-o<span class="w"> </span>yaml<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>kubeseal<span class="w"> </span>--format<span class="w"> </span>yaml<span class="w"> </span>&gt;<span class="w"> </span>mysealedsecret.yaml
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>With SealedSecrets it is possible to set a <em>scope</em> of a secret. By default this scope is set to <code>strict</code> in which the SealedSecret controller uses the name and namespace of the secret as attributes during encryption, hence, the SealedSecret needs to be created with the same values for these attributes if the controller is to be able to decrypt the SealedSecret. It is possible to change the scope with the <code>--scope</code> flag for <code>kubeseal</code>, refer to the <a href="https://github.com/bitnami-labs/sealed-secrets#scopes">official documentation for SealedSecrets</a> for possible scopes.</p>
+</div>
+</li>
+<li>
+<p>The generated SealedSecret manifest file <code>mysealedsecret.yaml</code> will contain the encrypted <code>$SECRET_VALUE</code> and is safe to store on, for example, GitHub. Push this manifest file to the repository containing the rest of your application manifests.</p>
+</li>
+<li>
+<p>Deploy the application containing the SealedSecret with Argo CD as any other application.</p>
+</li>
+</ol>
+<h3 id="can-i-use-hashicorp-vault-for-secret-management">Can I use HashiCorp Vault for secret management?<a class="headerlink" href="#can-i-use-hashicorp-vault-for-secret-management" title="Permanent link">&para;</a></h3>
+<p>Currently, Elastisys Managed Argo CD does not support using HashiCorp's Vault for secret management in Argo CD, and there is no plan to support it, here are some of the reasoning behind this decision:</p>
+<ul>
+<li><a href="https://www.hashicorp.com/license-faq">Vault is not open-source</a></li>
+<li><a href="https://developer.hashicorp.com/vault/tutorials/db-credentials/database-root-rotation#challenge">Vault tends to want to centralize very powerful credentials</a></li>
+<li><a href="https://developer.hashicorp.com/vault/tutorials/operations/production-hardening#baseline-recommendations">Vault is recommended to run on dedicated machines (see <strong>Single Tenancy</strong>)</a></li>
+<li><a href="https://developer.hashicorp.com/vault/docs/internals/security">Vault considers its own storage to be outside of its threat model, and thus, Vault has no defenses in place if its backend is attacked</a></li>
+<li><a href="https://developer.hashicorp.com/vault/docs/internals/security">Vault also considers memory analysis attacks outside of its threat model, so Vault has no defense against it</a></li>
+</ul>
 <h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://argo-cd.readthedocs.io/en/stable/">ArgoCD documentation</a></li>
+<li><a href="https://argo-cd.readthedocs.io/en/stable/">Argo CD documentation</a></li>
+<li><a href="https://github.com/jkroepke/helm-secrets/wiki/Usage">Helm Secrets usage</a></li>
+<li><a href="https://github.com/getsops/sops#sops-secrets-operations">SOPS</a></li>
 </ul>
 
 
