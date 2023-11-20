@@ -2,762 +2,762 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://elastisys.io/compliantkubernetes/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/architecture/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/compliance/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/glossary/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/roadmap/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0000-use-markdown-architectural-decision-records/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0001-use-rook-storage-orchestrator/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0002-use-kubespray-for-cluster-lifecycle/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0003-push-metrics-via-influxdb/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0004-plan-for-usage-without-wrapper-scripts/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0005-use-individual-ssh-keys/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0006-use-standard-kubeconfig-mechanisms/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0007-make-monitoring-forwarders-storage-independent/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0008-use-hostnetwork-or-loadbalancer-for-ingress/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0009-use-cluster-issuers-for-letsencrypt/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0010-run-managed-services-in-workload-cluster/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0011-let-upstream-projects-handle-crds/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0012-do-not-persist-dex/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0013-configure-alerts-in-omt/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0014-use-bats-for-testing-bash-wrappers/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0015-we-believe-in-community-driven-open-source/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0016-gid-0-is-okey-but-not-by-default/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0017-persist-dex/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0018-use-probe-to-measure-internal-uptime/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0019-push-metrics-via-thanos/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0020-filter-by-cluster-label-then-data-source/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0021-tls-for-additional-services/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0022-use-dedicated-nodes-for-additional-services/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0023-allow-snippets-annotations/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0024-allow-Harbor-robot-account/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0025-local-storage/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0026-hnc/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0027-postgresql-external-replication/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0028-harder-pod-eviction-when-node-goes-OOM/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0029-expose-jaeger-ui/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0030-run-argocd-on-elastisys-nodes/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0031-run-csi-cinder-controllerplugin-on-elastisys-nodes/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0032-boot-disk-size/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0033-run-cluster-api-controllers-on-service-cluster/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0034-how-to-run-multiple-ams-packages-of-the-same-type/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0035-run-tekton-on-service-cluster/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0036-run-ingress-nginx-as-daemonset/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0037-enforce-ttl-on-jobs/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0038-replace-starboard-operator-with-trivy-operator/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0040-allow-group-id-0/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0041-encryption-at-rest/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0042-argocd-dynamic-hnc-namespaces/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0043-rclone-and-encryption-adhere-cryptography-policy/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0044-argocd-managing-its-own-namespace/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/template/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/ciso-guide/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/ciso-guide/audit-logs/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/ciso-guide/backup/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/ciso-guide/capacity-management/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/ciso-guide/cryptography/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/ciso-guide/faq/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/ciso-guide/gdpr-art-17/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/ciso-guide/intrusion-detection/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/ciso-guide/log-review/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/ciso-guide/network-security/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/ciso-guide/nis2/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/ciso-guide/policy-as-code/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/ciso-guide/vulnerability/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/contributor-guide/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/access-control/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/additional-services/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/break-glass/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/capacity-management/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/clean-up/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/clock-synchronization/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/cluster-sizing/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/common/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/configure/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/credentials/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/cryptography/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/disaster-recovery/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/faq/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/getting-started/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/ingress/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/maintenance/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/on-prem-standard/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/provider-audit/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/qa/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/troubleshooting/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/user-alerts/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/user-managed-crds/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/release-notes/argocd/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/release-notes/ck8s/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/release-notes/jaeger/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/release-notes/kubespray/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/release-notes/postgres/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/release-notes/rabbitmq/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/release-notes/redis/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/alerts/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/backup/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/ci-cd/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/continous-development/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/delegation/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/demarcation/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/deploy/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/faq/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/go-live/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/how-many-environments/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/kubernetes-api/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/kubernetes-ui/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/log-based-alerts/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/logs/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/long-term-log-retention/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/maintenance/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/metrics/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/namespaces/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/network-model/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/operate/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/prepare-application/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/prepare-idp/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/prepare/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/registry/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/troubleshooting/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/additional-services/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/additional-services/argocd/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/additional-services/jaeger/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/additional-services/postgresql/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/additional-services/rabbitmq/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/additional-services/redis/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/additional-services/timescaledb/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/safeguards/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/safeguards/enforce-job-ttl/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/safeguards/enforce-networkpolicies/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/safeguards/enforce-no-latest-tag/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/safeguards/enforce-no-root/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/safeguards/enforce-podsecuritypolicies/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/safeguards/enforce-resources/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/safeguards/enforce-trusted-registries/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/self-managed-services/ferretdb/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/self-managed-services/flux/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/self-managed-services/jupyterhub/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/self-managed-services/keycloak/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/self-managed-services/mongodb/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/self-managed-services/sealedsecrets/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/self-managed-services/sjunet/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/ciso-guide/controls/bsi-it-grundschutz/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/ciso-guide/controls/gdpr/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/ciso-guide/controls/hipaa/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/ciso-guide/controls/hslf-fs-201640/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/ciso-guide/controls/iso-27001/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/ciso-guide/controls/kritis/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/ciso-guide/controls/mdr/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/ciso-guide/controls/msbfs-20188/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/ciso-guide/controls/msbfs-20207/</loc>
-         <lastmod>2023-11-16</lastmod>
+         <lastmod>2023-11-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

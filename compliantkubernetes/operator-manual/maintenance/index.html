@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="https://elastisys.io/compliantkubernetes/img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.10">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.4b4a2bd9.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fad675c6.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
@@ -1999,14 +1999,18 @@ if(!document.__defineGetter__) {
       
         <li class="md-nav__item">
   <a href="#compliance-needs" class="md-nav__link">
-    Compliance needs
+    <span class="md-ellipsis">
+      Compliance needs
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#what-maintenance-do-i-need-to-do-and-how" class="md-nav__link">
-    What maintenance do I need to do and how?
+    <span class="md-ellipsis">
+      What maintenance do I need to do and how?
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="What maintenance do I need to do and how?">
@@ -2014,42 +2018,54 @@ if(!document.__defineGetter__) {
         
           <li class="md-nav__item">
   <a href="#patching-the-nodes" class="md-nav__link">
-    Patching the nodes
+    <span class="md-ellipsis">
+      Patching the nodes
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#upgrading-the-compliant-kubernetes-application-stack" class="md-nav__link">
-    Upgrading the Compliant Kubernetes application stack
+    <span class="md-ellipsis">
+      Upgrading the Compliant Kubernetes application stack
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
-    Prerequisites
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#upgrading-compliantkubernetes-apps" class="md-nav__link">
-    Upgrading compliantkubernetes-apps
+    <span class="md-ellipsis">
+      Upgrading compliantkubernetes-apps
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#upgrading-kubespraykubernetes" class="md-nav__link">
-    Upgrading Kubespray/Kubernetes
+    <span class="md-ellipsis">
+      Upgrading Kubespray/Kubernetes
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#after-doing-any-upgrades-or-maintenance" class="md-nav__link">
-    After doing any upgrades or maintenance
+    <span class="md-ellipsis">
+      After doing any upgrades or maintenance
+    </span>
   </a>
   
 </li>
@@ -3300,14 +3316,18 @@ if(!document.__defineGetter__) {
       
         <li class="md-nav__item">
   <a href="#compliance-needs" class="md-nav__link">
-    Compliance needs
+    <span class="md-ellipsis">
+      Compliance needs
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#what-maintenance-do-i-need-to-do-and-how" class="md-nav__link">
-    What maintenance do I need to do and how?
+    <span class="md-ellipsis">
+      What maintenance do I need to do and how?
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="What maintenance do I need to do and how?">
@@ -3315,42 +3335,54 @@ if(!document.__defineGetter__) {
         
           <li class="md-nav__item">
   <a href="#patching-the-nodes" class="md-nav__link">
-    Patching the nodes
+    <span class="md-ellipsis">
+      Patching the nodes
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#upgrading-the-compliant-kubernetes-application-stack" class="md-nav__link">
-    Upgrading the Compliant Kubernetes application stack
+    <span class="md-ellipsis">
+      Upgrading the Compliant Kubernetes application stack
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
-    Prerequisites
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#upgrading-compliantkubernetes-apps" class="md-nav__link">
-    Upgrading compliantkubernetes-apps
+    <span class="md-ellipsis">
+      Upgrading compliantkubernetes-apps
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#upgrading-kubespraykubernetes" class="md-nav__link">
-    Upgrading Kubespray/Kubernetes
+    <span class="md-ellipsis">
+      Upgrading Kubespray/Kubernetes
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#after-doing-any-upgrades-or-maintenance" class="md-nav__link">
-    After doing any upgrades or maintenance
+    <span class="md-ellipsis">
+      After doing any upgrades or maintenance
+    </span>
   </a>
   
 </li>
@@ -3442,7 +3474,7 @@ It will cordon and reboot the nodes one by one.</p>
 In order to free you of the burden of keeping track of when to upgrade the various components, new versions of Complaint Kubernetes are regularly release.
 When a new version is released, it becomes available as a <a href="https://github.com/elastisys/compliantkubernetes-apps/tags">tagged release</a> in the GitHub repo.</p>
 <blockquote>
-<p>Before upgrading to a new release, please review the <a href="https://github.com/elastisys/compliantkubernetes-apps/blob/main/CHANGELOG.md">changelog</a> if possible, apply the upgrade to a staging environment before upgrading any environments with production data.</p>
+<p>Before upgrading to a new release, please review the <a href="https://github.com/elastisys/compliantkubernetes-apps/tree/main/changelog">changelog</a> if possible, apply the upgrade to a staging environment before upgrading any environments with production data.</p>
 </blockquote>
 <h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
 <ul class="task-list">
@@ -3654,7 +3686,7 @@ git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w
     <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "navigation.footer", "navigation.top"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.81fa17fe.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6c14ae12.min.js"></script>
       
     
   </body>
