@@ -226,6 +226,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://elastisys.io/compliantkubernetes/adr/0039-application-dev-permissions/</loc>
+         <lastmod>2023-11-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0040-allow-group-id-0/</loc>
          <lastmod>2023-11-24</lastmod>
          <changefreq>daily</changefreq>
