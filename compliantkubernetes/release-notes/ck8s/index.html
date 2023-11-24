@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="https://elastisys.io/compliantkubernetes/img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.10">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.12">
     
     
       
@@ -2933,6 +2933,33 @@ if(!document.__defineGetter__) {
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#v0340" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.34.0
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feature(s)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Improvement(s)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#v0331" class="md-nav__link">
     <span class="md-ellipsis">
       v0.33.1
@@ -4126,6 +4153,33 @@ if(!document.__defineGetter__) {
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#v0340" class="md-nav__link">
+    <span class="md-ellipsis">
+      v0.34.0
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feature(s)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Improvement(s)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#v0331" class="md-nav__link">
     <span class="md-ellipsis">
       v0.33.1
@@ -5017,6 +5071,7 @@ if(!document.__defineGetter__) {
 <h2 id="compliant-kubernetes">Compliant Kubernetes<a class="headerlink" href="#compliant-kubernetes" title="Permanent link">&para;</a></h2>
 <!-- BEGIN TOC -->
 <ul>
+<li><a href="#v0331">v0.34.0</a> - 2023-11-21</li>
 <li><a href="#v0331">v0.33.1</a> - 2023-10-20</li>
 <li><a href="#v0322">v0.32.2</a> - 2023-10-20</li>
 <li><a href="#v0330">v0.33.0</a> - 2023-09-28</li>
@@ -5052,6 +5107,29 @@ if(!document.__defineGetter__) {
 <p class="admonition-title">Note</p>
 <p>For a more detailed look check out the full <a href="https://github.com/elastisys/compliantkubernetes-apps/tree/main/changelog">changelog</a>.</p>
 </div>
+<h3 id="v0340">v0.34.0<a class="headerlink" href="#v0340" title="Permanent link">&para;</a></h3>
+<p>Released 2023-11-23</p>
+<div class="admonition danger">
+<p class="admonition-title">Security Notice(s)</p>
+<ul>
+<li>New curl release (CVE-2023-38545 and CVE-2023-38546)</li>
+<li>New Go release (https://github.com/advisories/GHSA-qppj-fm5r-hxr3 and https://github.com/advisories/GHSA-4374-p667-p6c8)</li>
+<li>Fix for HTTP/2 Rapid Reset Attack <a href="https://nvd.nist.gov/vuln/detail/CVE-2023-44487">CVE-2023-44487</a></li>
+</ul>
+</div>
+<h3 id="features">Feature(s)<a class="headerlink" href="#features" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Dashboard for visualizing how spread-out pods are across nodes</li>
+<li>Application developers can now self manage CRDs for MongoDB, SealedSecrets and Flux</li>
+<li>Upgrade HNC and expose opt-in propagation</li>
+</ul>
+<h3 id="improvements">Improvement(s)<a class="headerlink" href="#improvements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Update Gatekeeper violation messages</li>
+<li>Add Network Policies for hnc</li>
+<li>Upgrade Ingress-NGINX controller to 1.8.4 and chart to 4.7.3</li>
+<li>Upgrade Falco chart and rework exceptions</li>
+</ul>
 <h3 id="v0331">v0.33.1<a class="headerlink" href="#v0331" title="Permanent link">&para;</a></h3>
 <p>Released 2023-10-20</p>
 <h4 id="updated">Updated<a class="headerlink" href="#updated" title="Permanent link">&para;</a></h4>
