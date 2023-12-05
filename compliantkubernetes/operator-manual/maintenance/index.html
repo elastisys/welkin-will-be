@@ -3614,7 +3614,7 @@ In order to reboot the nodes, you can either use a tool like <a href="https://gi
 When doing that, reboot one node at the time and make sure that the rebooted node is 'Ready' and that pods are scheduled to it before you move on to the next, or you risk downtime.</p>
 <p>There is a playbook in the compliantkubernetes-kubespray repo that can assist with the reboot of nodes.
 It will cordon and reboot the nodes one by one.</p>
-<div class="highlight"><pre><span></span><code>./bin/ck8s-kubespray<span class="w"> </span>reboot-nodes<span class="w"> </span>&lt;prefix&gt;<span class="w"> </span><span class="o">[</span>--extra-vars<span class="w"> </span><span class="nv">manual_prompt</span><span class="o">=</span>true<span class="o">]</span><span class="w"> </span><span class="o">[</span>&lt;options&gt;<span class="o">]</span>
+<div class="highlight"><pre><span></span><code>./bin/ck8s-kubespray<span class="w"> </span>reboot-nodes<span class="w"> </span>&lt;wc<span class="p">|</span>sc&gt;<span class="w"> </span><span class="o">[</span>--extra-vars<span class="w"> </span><span class="nv">manual_prompt</span><span class="o">=</span>true<span class="o">]</span><span class="w"> </span><span class="o">[</span>&lt;options&gt;<span class="o">]</span>
 </code></pre></div>
 <h3 id="upgrading-the-compliant-kubernetes-application-stack">Upgrading the Compliant Kubernetes application stack<a class="headerlink" href="#upgrading-the-compliant-kubernetes-application-stack" title="Permanent link">&para;</a></h3>
 <p>Compliant Kubernetes consists of a multitude of open source components that interact to form a smooth End User experience.
@@ -3656,7 +3656,7 @@ git<span class="w"> </span>switch<span class="w"> </span>-d<span class="w"> </sp
 <li>
 <p>Update apps configuration:</p>
 <p>This will take a backup into <code>backups/</code> before modifying any files.</p>
-<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>init
+<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>init<span class="w"> </span>both
 </code></pre></div>
 </li>
 <li>

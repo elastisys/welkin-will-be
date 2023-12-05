@@ -3456,39 +3456,51 @@ if(!document.__defineGetter__) {
 
 <!--deploy-rook-start-->
 <h3 id="deploy-rook">Deploy Rook<a class="headerlink" href="#deploy-rook" title="Permanent link">&para;</a></h3>
-<p>To deploy Rook, please go to the <code>compliantkubernetes-kubespray</code> repo root directory and run the following.</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>sops<span class="w"> </span>--decrypt<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml<span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$CLUSTER</span>.yaml
-<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">KUBECONFIG</span><span class="o">=</span><span class="nv">$CLUSTER</span>.yaml
-<span class="w">    </span>./rook/deploy-rook.sh
-<span class="w">    </span>shred<span class="w"> </span>-zu<span class="w"> </span><span class="nv">$CLUSTER</span>.yaml
-<span class="k">done</span>
+<p>To deploy Rook, go to the <code>compliantkubernetes-kubespray</code> repo, change directory to <code>rook</code> and follow the instructions <a href="https://github.com/elastisys/compliantkubernetes-kubespray/tree/main/rook#rook-ceph">here</a> for each cluster.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the kubeconfig files for the clusters are encrypted with SOPS, you need to decrypt them before using them:</p>
+<div class="highlight"><pre><span></span><code>sops<span class="w"> </span>--decrypt<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml<span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$CLUSTER</span>.yaml
+<span class="nb">export</span><span class="w"> </span><span class="nv">KUBECONFIG</span><span class="o">=</span><span class="nv">$CLUSTER</span>.yaml
 </code></pre></div>
+</div>
 <p>Please restart the operator pod, <code>rook-ceph-operator*</code>, if some pods stalls in initialization state as shown below:</p>
 <div class="highlight"><pre><span></span><code><span class="go">rook-ceph     rook-ceph-crashcollector-minion-0-b75b9fc64-tv2vg    0/1     Init:0/2   0          24m</span>
 <span class="go">rook-ceph     rook-ceph-crashcollector-minion-1-5cfb88b66f-mggrh   0/1     Init:0/2   0          36m</span>
 <span class="go">rook-ceph     rook-ceph-crashcollector-minion-2-5c74ffffb6-jwk55   0/1     Init:0/2   0          14m</span>
 </code></pre></div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>Pods in pending state usually indicate resource shortage. In such cases you need to use bigger instances.</p>
 </div>
 <!--deploy-rook-stop-->
 
 <!--test-rook-start-->
 <h3 id="test-rook">Test Rook<a class="headerlink" href="#test-rook" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the Workload Cluster kubeconfig is configured with authentication to Dex running in the Management Cluster, part of apps needs to be deployed before it is possible to run the commands below for <code>wc</code>.</p>
+</div>
 <p>To test Rook, proceed as follows:</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>sops<span class="w"> </span>exec-file<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml<span class="w"> </span><span class="s1">&#39;kubectl --kubeconfig {} apply -f https://raw.githubusercontent.com/rook/rook/release-1.5/cluster/examples/kubernetes/ceph/csi/rbd/pvc.yaml&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span>sc<span class="w"> </span>wc<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span>kubectl<span class="w"> </span>--kubeconfig<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>.yaml<span class="w"> </span>-n<span class="w"> </span>default<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/rook/rook/v1.11.9/deploy/examples/csi/rbd/pvc.yaml
+<span class="w">    </span>kubectl<span class="w"> </span>--kubeconfig<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>.yaml<span class="w"> </span>-n<span class="w"> </span>default<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/rook/rook/v1.11.9/deploy/examples/csi/rbd/pod.yaml
 <span class="k">done</span>
 
-<span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>sops<span class="w"> </span>exec-file<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml<span class="w"> </span><span class="s1">&#39;kubectl --kubeconfig {} get pvc&#39;</span><span class="p">;</span>
+<span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span>sc<span class="w"> </span>wc<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span>kubectl<span class="w"> </span>--kubeconfig<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>.yaml<span class="w"> </span>-n<span class="w"> </span>default<span class="w"> </span>get<span class="w"> </span>pvc<span class="w"> </span>rbd-pvc
+<span class="w">    </span>kubectl<span class="w"> </span>--kubeconfig<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>.yaml<span class="w"> </span>-n<span class="w"> </span>default<span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>csirbd-demo-pod
 <span class="k">done</span>
 </code></pre></div>
-<p>You should see PVCs in Bound state. If you want to clean the previously created PVCs:</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>sops<span class="w"> </span>exec-file<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml<span class="w"> </span><span class="s1">&#39;kubectl --kubeconfig {} delete pvc rbd-pvc&#39;</span><span class="p">;</span>
+<p>You should see PVCs in Bound state, and that the pods which mounts the volumes are running.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If you have taints on certain nodes which should support running pods that mounts <code>rook-ceph</code> PVCs, you need to ensure these nodes are tolerated by the rook-ceph DaemonSet <code>csi-rbdplugin</code>, otherwise, pods on these nodes will not be able to attach or mount the volumes.</p>
+</div>
+<p>If you want to clean the previously created PVCs:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span>sc<span class="w"> </span>wc<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span>kubectl<span class="w"> </span>--kubeconfig<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>.yaml<span class="w"> </span>-n<span class="w"> </span>default<span class="w"> </span>delete<span class="w"> </span>pvc<span class="w"> </span>rbd-pvc
+<span class="w">    </span>kubectl<span class="w"> </span>--kubeconfig<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>.yaml<span class="w"> </span>-n<span class="w"> </span>default<span class="w"> </span>delete<span class="w"> </span>pod<span class="w"> </span>csirbd-demo-pod
 <span class="k">done</span>
 </code></pre></div>
 <!--test-rook-stop-->
@@ -3499,19 +3511,20 @@ if(!document.__defineGetter__) {
 <p>If you haven't done so already, clone the <code>compliantkubernetes-apps</code> repo and install pre-requisites.</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/elastisys/compliantkubernetes-apps.git
 <span class="nb">cd</span><span class="w"> </span>compliantkubernetes-apps
-./bin/ck8s<span class="w"> </span>install-requirements
+compliantkubernetes-apps/bin/ck8s<span class="w"> </span>install-requirements
+</code></pre></div>
+<p>Export the following variables before initializing apps config:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_ENVIRONMENT_NAME</span><span class="o">=</span>my-environment-name
+<span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_FLAVOR</span><span class="o">=</span><span class="c1"># [dev|prod] # defaults to dev</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_CONFIG_PATH</span><span class="o">=</span>~/.ck8s/my-cluster-path
+<span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_CLOUD_PROVIDER</span><span class="o">=</span><span class="c1"># [exoscale|safespring|citycloud|aws|baremetal]</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_PGP_FP</span><span class="o">=</span>&lt;your<span class="w"> </span>GPG<span class="w"> </span>key<span class="w"> </span>fingerprint&gt;<span class="w">  </span><span class="c1"># retrieve with gpg --list-secret-keys</span>
 </code></pre></div>
 <!--clone-apps-stop-->
 
 <!--init-apps-start-->
 <h3 id="initialize-the-apps-configuration">Initialize the apps configuration<a class="headerlink" href="#initialize-the-apps-configuration" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_ENVIRONMENT_NAME</span><span class="o">=</span>my-environment-name
-<span class="c1">#export CK8S_FLAVOR=[dev|prod] # defaults to dev</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_CONFIG_PATH</span><span class="o">=</span>~/.ck8s/my-cluster-path
-<span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_CLOUD_PROVIDER</span><span class="o">=</span><span class="c1"># [exoscale|safespring|citycloud|aws|baremetal]</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_PGP_FP</span><span class="o">=</span>&lt;your<span class="w"> </span>GPG<span class="w"> </span>key<span class="w"> </span>fingerprint&gt;<span class="w">  </span><span class="c1"># retrieve with gpg --list-secret-keys</span>
-
-./bin/ck8s<span class="w"> </span>init
+<div class="highlight"><pre><span></span><code>compliantkubernetes-apps/bin/ck8s<span class="w"> </span>init<span class="w"> </span>both
 </code></pre></div>
 <p>This will initialise the configuration in the <code>${CK8S_CONFIG_PATH}</code> directory. Generating configuration files <code>sc-config.yaml</code> and <code>wc-config.yaml</code>, as well as secrets with randomly generated passwords in <code>secrets.yaml</code>. This will also generate read-only default configuration under the directory <code>defaults/</code> which can be used as a guide for available and suggested options.</p>
 <div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-l<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>
@@ -3523,8 +3536,18 @@ if(!document.__defineGetter__) {
 <p>Edit the configuration files <code>${CK8S_CONFIG_PATH}/sc-config.yaml</code>, <code>${CK8S_CONFIG_PATH}/wc-config.yaml</code> and <code>${CK8S_CONFIG_PATH}/secrets.yaml</code> and set the appropriate values for some of the configuration fields.
 Note that, the latter is encrypted.</p>
 <div class="highlight"><pre><span></span><code>vim<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/sc-config.yaml
+
 vim<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/wc-config.yaml
-sops<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/secrets.yaml
+
+vim<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/common-config.yaml
+</code></pre></div>
+<p>Edit the secrets.yaml file and add the credentials for:</p>
+<ul>
+<li>s3 - used for backup storage</li>
+<li>dex - connectors -- check <a href="https://dexidp.io/docs/connectors/">your identity provider</a>.</li>
+<li>On-call management tool configurations-- Check <a href="https://prometheus.io/docs/alerting/latest/configuration/">supported on-call management tools</a></li>
+</ul>
+<div class="highlight"><pre><span></span><code>sops<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/secrets.yaml
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -3539,14 +3562,10 @@ sops<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONF
 <!--install-apps-start-->
 <h3 id="install-compliant-kubernetes-apps">Install Compliant Kubernetes apps<a class="headerlink" href="#install-compliant-kubernetes-apps" title="Permanent link">&para;</a></h3>
 <p>Start with the Management Cluster:</p>
-<div class="highlight"><pre><span></span><code>ln<span class="w"> </span>-sf<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_<span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span>.yaml<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_sc.yaml
-./bin/ck8s<span class="w"> </span>apply<span class="w"> </span>sc<span class="w">  </span><span class="c1"># Respond &quot;n&quot; if you get a WARN</span>
+<div class="highlight"><pre><span></span><code>compliantkubernetes-apps/bin/ck8s<span class="w"> </span>apply<span class="w"> </span>sc
 </code></pre></div>
-<p>Then the Workload Clusters:</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>ln<span class="w"> </span>-sf<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>.yaml<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_wc.yaml
-<span class="w">    </span>./bin/ck8s<span class="w"> </span>apply<span class="w"> </span>wc<span class="w">  </span><span class="c1"># Respond &quot;n&quot; if you get a WARN</span>
-<span class="k">done</span>
+<p>Then the Workload Cluster:</p>
+<div class="highlight"><pre><span></span><code>compliantkubernetes-apps/bin/ck8s<span class="w"> </span>apply<span class="w"> </span>wc
 </code></pre></div>
 <!--install-apps-stop-->
 
@@ -3556,16 +3575,17 @@ sops<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONF
 <p class="admonition-title">Important</p>
 <p>Leave sufficient time for the system to settle, e.g., request TLS certificates from LetsEncrypt, perhaps as much as 20 minutes.</p>
 </div>
+<p>Check if all helm charts succeeded.</p>
+<div class="highlight"><pre><span></span><code>compliantkubernetes-apps/bin/ck8s<span class="w"> </span>ops<span class="w"> </span>helm<span class="w"> </span>wc<span class="w"> </span>list<span class="w"> </span>-A<span class="w"> </span>--all
+</code></pre></div>
 <p>You can check if the system settled as follows:</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>sops<span class="w"> </span>exec-file<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span><span class="s1">&#39;kubectl --kubeconfig {} get --all-namespaces pods&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span>sc<span class="w"> </span>wc<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span>compliantkubernetes-apps/bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span><span class="w"> </span>get<span class="w"> </span>--all-namespaces<span class="w"> </span>pods
 <span class="k">done</span>
 </code></pre></div>
 <p>Check the output of the command above. All Pods needs to be Running or Completed.</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>sops<span class="w"> </span>exec-file<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="nv">$CLUSTER</span>.yaml<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span><span class="s1">&#39;kubectl --kubeconfig {} get --all-namespaces issuers,clusterissuers,certificates&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span>sc<span class="w"> </span>wc<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span>compliantkubernetes-apps/bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span><span class="w"> </span>get<span class="w"> </span>--all-namespaces<span class="w"> </span>issuers,clusterissuers,certificates
 <span class="k">done</span>
 </code></pre></div>
 <p>Check the output of the command above.
@@ -3574,15 +3594,9 @@ All resources need to have the Ready column True.</p>
 
 <!--testing-start-->
 <h3 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h3>
-<p>After completing the installation step you can test if the apps are properly installed and ready using the commands below.</p>
-<p>Start with the Management Cluster:</p>
-<div class="highlight"><pre><span></span><code>ln<span class="w"> </span>-sf<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_<span class="si">${</span><span class="nv">SERVICE_CLUSTER</span><span class="si">}</span>.yaml<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_sc.yaml
-./bin/ck8s<span class="w"> </span><span class="nb">test</span><span class="w"> </span>sc<span class="w">  </span><span class="c1"># Respond &quot;n&quot; if you get a WARN</span>
-</code></pre></div>
-<p>Then the Workload Clusters:</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">WORKLOAD_CLUSTERS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>ln<span class="w"> </span>-sf<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>.yaml<span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>/.state/kube_config_wc.yaml
-<span class="w">    </span>./bin/ck8s<span class="w"> </span><span class="nb">test</span><span class="w"> </span>wc<span class="w">  </span><span class="c1"># Respond &quot;n&quot; if you get a WARN</span>
+<p>After completing the installation step you can test if the apps are properly installed and ready using the commands below:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span>sc<span class="w"> </span>wc<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span>compliantkubernetes-apps/bin/ck8s<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>
 <span class="k">done</span>
 </code></pre></div>
 <p>Done.
@@ -3609,10 +3623,10 @@ The script uses <code>s3cmd</code> in the background and gets configuration and 
 <div class="highlight"><pre><span></span><code><span class="c1"># Use your default s3cmd config file: ${HOME}/.s3cfg</span>
 scripts/S3/entry.sh<span class="w"> </span>create
 </code></pre></div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>You should not use your own credentials for S3.
-Rather create a new set of credentials with write-only access, when supported by the object storage provider (<a href="../disaster-recovery/#feature-matrix">check a feature matrix</a>).</p>
+Rather create a new set of credentials with write-only access, when supported by the object storage provider.</p>
 </div>
 <!--create-s3-buckets-stop-->
 
