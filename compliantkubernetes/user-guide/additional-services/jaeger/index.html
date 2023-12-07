@@ -1338,6 +1338,30 @@ if(!document.__defineGetter__) {
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Prepare your application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-otel-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using OTEL SDK
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-jaeger-agent-deprecated" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Jaeger-agent (deprecated)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3446,6 +3470,30 @@ if(!document.__defineGetter__) {
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Prepare your application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-otel-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using OTEL SDK
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-jaeger-agent-deprecated" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Jaeger-agent (deprecated)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3499,10 +3547,9 @@ if(!document.__defineGetter__) {
 <p>You can order Managed Jaeger™ by filing a <a href="https://elastisys.atlassian.net/servicedesk/">service ticket</a>.</p>
 <p>This is a preview feature. For more information, please read <a href="https://elastisys.com/legal/terms-of-service/#91-preview-features">ToS 9.1 Preview Features</a>.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Since <code>jaeger-agent</code> is deprecated in <a href="https://www.jaegertracing.io/docs/1.44/architecture/#agent">upstream</a> and If you are using <code>Jaeger SDK</code> client libraries , we recommend migrating the client libraries from <code>Jaeger SDK</code> to <code>OTEL(OpenTelemetry) SDK</code> and send traces directly to Jaeger collector using <code>OTLP</code> protocol. You can read more information <a href="https://www.jaegertracing.io/docs/1.49/architecture/#direct-to-storage">here</a></p>
-<p>We will remove <code>jaeger-agent</code> from our future releases too.</p>
+<div class="admonition warning">
+<p class="admonition-title">Deprecation notice: Jaeger Agent</p>
+<p><code>jaeger-agent</code> is deprecated in <a href="https://www.jaegertracing.io/docs/1.52/architecture/#agent">upstream</a> and will get removed in the future. The new method is using <code>OTEL(OpenTelemetry) SDK</code> and send traces directly to Jaeger collector using <code>OTLP</code> protocol.</p>
 </div>
 <figure>
     <img alt="Jaeger Deployment Model" src="../img/jaeger.drawio.svg" >
@@ -3517,6 +3564,46 @@ if(!document.__defineGetter__) {
 <h2 id="getting-access">Getting Access<a class="headerlink" href="#getting-access" title="Permanent link">&para;</a></h2>
 <p>Your administrator will set up the authentication reverse proxy inside Compliant Kubernetes, which will give you access to Jaeger UI.</p>
 <h2 id="prepare-your-application">Prepare your application<a class="headerlink" href="#prepare-your-application" title="Permanent link">&para;</a></h2>
+<h3 id="using-otel-sdk">Using OTEL SDK<a class="headerlink" href="#using-otel-sdk" title="Permanent link">&para;</a></h3>
+<p>You need to use the <code>OTEL(OpenTelemetry) SDK</code> client library and send the traces directly to the Jaeger collector using <a href="https://opentelemetry.io/docs/specs/otel/protocol/">OTLP protocol</a>. The application need to send the traces to the Jaeger collector endpoint, which in this case is <code>http://jaeger-operator-jaeger-collector.jaeger-system.svc.cluster.local:4318/v1/traces</code>.</p>
+<p>Here is an example using python:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">opentelemetry</span> <span class="kn">import</span> <span class="n">trace</span>
+<span class="kn">from</span> <span class="nn">opentelemetry.sdk.trace</span> <span class="kn">import</span> <span class="n">TracerProvider</span>
+<span class="kn">from</span> <span class="nn">opentelemetry.sdk.trace.export</span> <span class="kn">import</span> <span class="n">BatchSpanProcessor</span>
+<span class="kn">from</span> <span class="nn">opentelemetry.exporter.otlp.proto.http.trace_exporter</span> <span class="kn">import</span> <span class="n">OTLPSpanExporter</span>
+
+<span class="n">collector_endpoint</span> <span class="o">=</span> <span class="s2">&quot;http://jaeger-operator-jaeger-collector.jaeger-system.svc.cluster.local:4318/v1/traces&quot;</span>
+<span class="n">otlp_exporter</span> <span class="o">=</span> <span class="n">OTLPSpanExporter</span><span class="p">(</span><span class="n">endpoint</span><span class="o">=</span><span class="n">collector_endpoint</span><span class="p">)</span>
+
+<span class="n">trace</span><span class="o">.</span><span class="n">set_tracer_provider</span><span class="p">(</span><span class="n">TracerProvider</span><span class="p">())</span>
+<span class="n">trace</span><span class="o">.</span><span class="n">get_tracer_provider</span><span class="p">()</span><span class="o">.</span><span class="n">add_span_processor</span><span class="p">(</span>
+    <span class="n">BatchSpanProcessor</span><span class="p">(</span><span class="n">otlp_exporter</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">tracer</span> <span class="o">=</span> <span class="n">trace</span><span class="o">.</span><span class="n">get_tracer</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">tracer</span><span class="o">.</span><span class="n">start_as_current_span</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Next you need to assign the environment variable <code>OTEL_SERVICE_NAME</code> in your Deployment, which will become its name in collected traces.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">  </span><span class="nt">template</span><span class="p">:</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">spec</span><span class="p p-Indicator">:</span>
+<span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-app</span>
+<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-app:my-version</span>
+<span class="w">        </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OTEL_SERVICE_NAME</span>
+<span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;service-name&gt;</span>
+</code></pre></div>
+<h3 id="using-jaeger-agent-deprecated">Using Jaeger-agent (deprecated)<a class="headerlink" href="#using-jaeger-agent-deprecated" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This method is deprecated and will be removed in the future.</p>
+</div>
 <p>The Jaeger agent is exposed as a DaemonSet. Your application needs to be told where the agent is located by setting the environment variable JAEGER_AGENT_HOST to the value of the Kubernetes node’s IP:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
