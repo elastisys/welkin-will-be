@@ -1434,6 +1434,57 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
+  <a href="#argo-cd-notifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Argo CD Notifications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Argo CD Notifications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#triggers-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Triggers &amp; Templates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notification-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notification Services
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscriptions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#further-reading" class="md-nav__link">
     <span class="md-ellipsis">
       Further Reading
@@ -3575,6 +3626,57 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
+  <a href="#argo-cd-notifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Argo CD Notifications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Argo CD Notifications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#triggers-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Triggers &amp; Templates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notification-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notification Services
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscriptions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#further-reading" class="md-nav__link">
     <span class="md-ellipsis">
       Further Reading
@@ -3755,6 +3857,132 @@ kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="
 <li><a href="https://developer.hashicorp.com/vault/docs/internals/security">Vault considers its own storage to be outside of its threat model, and thus, Vault has no defenses in place if its backend is attacked</a></li>
 <li><a href="https://developer.hashicorp.com/vault/docs/internals/security">Vault also considers memory analysis attacks outside of its threat model, so Vault has no defense against it</a></li>
 </ul>
+<h2 id="argo-cd-notifications">Argo CD Notifications<a class="headerlink" href="#argo-cd-notifications" title="Permanent link">&para;</a></h2>
+<p>Argo CD Notifications continuously monitors Argo CD applications and provides a flexible way to notify users about important changes in the application state. Using a flexible mechanism of <a href="https://argocd-notifications.readthedocs.io/en/stable/triggers/">triggers</a> and <a href="https://argocd-notifications.readthedocs.io/en/stable/templates/">templates</a> you can configure when the notification should be sent as well as notification content.</p>
+<p>To configure Argo CD notifications, make sure you are allowed to update the current Kubernetes objects:</p>
+<ul>
+<li><code>secret/argocd-notifications-secret</code></li>
+<li><code>configmap/argocd-notifications-cm</code></li>
+</ul>
+<p>For Elastisys Managed Argo CD, you should be able to modify those objects if you belong to any customer admin group, or if you are a customer admin user.</p>
+<p>In case you're not, ask your platform administrator to add you accordingly.</p>
+<h3 id="triggers-templates">Triggers &amp; Templates<a class="headerlink" href="#triggers-templates" title="Permanent link">&para;</a></h3>
+<p>The trigger defines the condition when the notification should be sent. The definition includes name, condition and notification templates reference.</p>
+<p>The notification template is used to generate the notification content. Templates are meant to be reusable and can be referenced by multiple triggers.</p>
+<p>Both triggers &amp; notification templates can be configured in <code>argocd-notifications-cm</code> ConfigMap.</p>
+<p>Argo CD Notifications includes the <a href="https://argocd-notifications.readthedocs.io/en/stable/catalog/">catalog</a> of useful triggers and templates. So you can just use them instead of reinventing new ones.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The catalog triggers and templates can be found in the <strong>argocd-notifications-cm</strong> ConfigMap.</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>edit<span class="w"> </span>cm/argocd-notifications-cm<span class="w"> </span>-n<span class="w"> </span>argocd-system
+</code></pre></div>
+<p>If you don't have any triggers or templates defined, you can add the <a href="https://raw.githubusercontent.com/argoproj-labs/argocd-notifications/release-1.0/catalog/install.yaml">catalog template and trigger definitions</a></p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argocd-notifications-cm</span>
+<span class="nt">data</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">argocdUrl: &quot;https://argocd.example.com&quot;</span>
+<span class="w">    </span><span class="nt">template.app-deployed</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">...</span>
+<span class="w">    </span><span class="nt">template.app-health-degraded</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">...</span>
+<span class="w">    </span><span class="nt">template.app-sync-failed</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">...</span>
+<span class="w">    </span><span class="nt">template.app-sync-running</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">...</span>
+<span class="w">    </span><span class="nt">template.app-sync-status-unknown</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">...</span>
+<span class="w">    </span><span class="nt">template.app-sync-succeeded</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">...</span>
+<span class="w">    </span><span class="nt">trigger.on-deployed</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">...</span>
+<span class="w">    </span><span class="nt">trigger.on-sync-failed</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">...</span>
+<span class="w">    </span><span class="nt">trigger.on-sync-running</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">...</span>
+<span class="w">    </span><span class="nt">trigger.on-sync-status-unknown</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">...</span>
+<span class="w">    </span><span class="nt">trigger.on-sync-succeeded</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">...</span>
+</code></pre></div>
+</div>
+<h3 id="notification-services">Notification Services<a class="headerlink" href="#notification-services" title="Permanent link">&para;</a></h3>
+<p>The notification services represent integration with services such as slack, email or custom webhook. Services are configured in <code>argocd-notifications-cm</code> ConfigMap using <code>service.&lt;type&gt;.(&lt;custom-name&gt;)</code> keys and might reference sensitive data from <code>argocd-notifications-secret</code> Secret.</p>
+<p>Argo CD Notifications support multiple <a href="https://argocd-notifications.readthedocs.io/en/stable/services/overview/#service-types">service types</a>, and provide detailed steps on how to configure each service. To learn more, see <a href="https://argocd-notifications.readthedocs.io/en/stable/services/overview/">Notification services</a>.</p>
+<h3 id="subscriptions">Subscriptions<a class="headerlink" href="#subscriptions" title="Permanent link">&para;</a></h3>
+<p>The subscription to Argo CD application events can be defined using <code>notifications.argoproj.io/subscribe.&lt;trigger&gt;.&lt;service&gt;: &lt;recipient&gt;</code> annotation. For example, the following annotation subscribes two Slack channels to notifications about every successful synchronization of the Argo CD application:</p>
+<p><div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>edit<span class="w"> </span>Application<span class="w"> </span>my-argo-application
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argoproj.io/v1alpha1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Application</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-argo-application</span>
+<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">notifications.argoproj.io/subscribe.on-sync-succeeded.slack</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-channel1;my-channel2</span>
+</code></pre></div></p>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<p>To configure Email service for example:</p>
+<ol>
+<li>
+<p>Add Email username and password token to <code>argocd-notifications-secret</code> secret</p>
+<p><div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;sender@example.com&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-w0<span class="w"> </span><span class="c1"># c2VuZGVyQGV4YW1wbGUuY29t</span>
+<span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;secretPassword&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-w0<span class="w"> </span><span class="c1">#  c2VjcmV0UGFzc3dvcmQ=</span>
+<span class="gp">$ </span>kubectl<span class="w"> </span>edit<span class="w"> </span>-n<span class="w"> </span>argocd-system<span class="w"> </span>argocd-notifications-secret
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argocd-notifications-secret</span>
+<span class="w">    </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argocd-system</span>
+<span class="nt">data</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">email-username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">c2VuZGVyQGV4YW1wbGUuY29t</span>
+<span class="w">    </span><span class="nt">email-password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">c2VjcmV0UGFzc3dvcmQ=</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Register Email notification service</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>edit<span class="w"> </span>-n<span class="w"> </span>argocd-system<span class="w"> </span>argocd-notifications-cm
+</code></pre></div>
+<p>Add the service under the ConfigMap data</p>
+<p><div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argocd-notifications-cm</span>
+<span class="nt">data</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">service.email.gmail</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">username: $email-username</span>
+<span class="w">        </span><span class="no">password: $email-password</span>
+<span class="w">        </span><span class="no">host: smtp.gmail.com</span>
+<span class="w">        </span><span class="no">port: 465</span>
+<span class="w">        </span><span class="no">from: $email-username</span>
+</code></pre></div>
+In case you want to use a separate SMTP server instead of gmail
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argocd-notifications-cm</span>
+<span class="nt">data</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">service.email.custom</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">username: $email-username</span>
+<span class="w">        </span><span class="no">password: $email-password</span>
+<span class="w">        </span><span class="no">host: smtp.custom.com</span>
+<span class="w">        </span><span class="no">port: 587</span>
+<span class="w">        </span><span class="no">from: $email-username</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Subscribe to notifications by adding the notifications.argoproj.io/subscribe.on-sync-succeeded.gmail annotation to the Argo CD application:</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>patch<span class="w"> </span>app<span class="w"> </span>my-argo-application<span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;{&quot;metadata&quot;: {&quot;annotations&quot;: {&quot;notifications.argoproj.io/subscribe.on-sync-succeeded.gmail&quot;:&quot;receiver@example.com&quot;}}}&#39;</span><span class="w"> </span>--type<span class="w"> </span>merge
+</code></pre></div>
+<p>Now, if we try syncing an application, we will get the notification once sync is completed.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Email notification will not work if the sender has 2FA enabled.</p>
+</div>
 <h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://argo-cd.readthedocs.io/en/stable/">Argo CD documentation</a></li>
