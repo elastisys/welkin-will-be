@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="https://elastisys.io/compliantkubernetes/img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.4">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.5">
     
     
       
@@ -3450,15 +3450,6 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
-  <a href="#removing-compliant-kubernetes-apps-from-your-cluster" class="md-nav__link">
-    <span class="md-ellipsis">
-      Removing Compliant Kubernetes Apps from your cluster
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#create-s3-buckets" class="md-nav__link">
     <span class="md-ellipsis">
       Create S3 buckets
@@ -3645,19 +3636,6 @@ All resources need to have the Ready column True.</p>
 Navigate to the endpoints, for example <code>grafana.$BASE_DOMAIN</code>, <code>kibana.$BASE_DOMAIN</code>, <code>harbor.$BASE_DOMAIN</code>, etc. to discover Compliant Kubernetes's features.</p>
 <!--testing-stop-->
 
-<!--clean-apps-start-->
-<h3 id="removing-compliant-kubernetes-apps-from-your-cluster">Removing Compliant Kubernetes Apps from your cluster<a class="headerlink" href="#removing-compliant-kubernetes-apps-from-your-cluster" title="Permanent link">&para;</a></h3>
-<p>To remove the applications added by Compliant Kubernetes you can use the two scripts <code>clean-sc.sh</code> and <code>clean-wc.sh</code>, they are located here in the <a href="https://github.com/elastisys/compliantkubernetes-apps/tree/main/scripts">scripts folder</a>.</p>
-<p>They perform the following actions:</p>
-<ol>
-<li>Delete the added helm charts</li>
-<li>Delete the added namespaces</li>
-<li>Delete any remaining PersistentVolumes</li>
-<li>Delete the added CustomResourceDefinitions</li>
-</ol>
-<p>Note: if user namespaces are managed by Compliant Kubernetes apps then they will also be deleted if you clean up the Workload Cluster.</p>
-<!--clean-apps-stop-->
-
 <!--create-s3-buckets-start-->
 <h3 id="create-s3-buckets">Create S3 buckets<a class="headerlink" href="#create-s3-buckets" title="Permanent link">&para;</a></h3>
 <p>You can use the following script to create required S3 buckets.
@@ -3807,10 +3785,10 @@ that documentation public, this page is out-of-date.</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "navigation.footer", "navigation.top"], "search": "../../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "navigation.footer", "navigation.top"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.7389ff0e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.c18c5fb9.min.js"></script>
       
         <script src="../../javascripts/feedback.js"></script>
       
