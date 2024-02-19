@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="https://elastisys.io/compliantkubernetes/img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.9">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.f2e4d321.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -3537,7 +3537,7 @@ if(!document.__defineGetter__) {
 <p>Use Service Type LoadBalancer when available. This includes: AWS, Azure, GCP and CityCloud.</p>
 </li>
 </ol>
-<p>Additional considerations: This means that, generally, it will not be possible to set up the correct DNS entries until <em>after</em> we apply Compliant Kubernetes Apps. There is a risk for "the Internet" -- LetsEncrypt specifically -- to perform DNS lookups too soon and cause negative DNS caches with a long lifetime. Therefore, placeholder IP addresses must be used, e.g.:</p>
+<p>Additional considerations: This means that, generally, it will not be possible to set up the correct DNS entries until <em>after</em> we apply Compliant Kubernetes Apps. There is a risk for "the Internet" -- Let's Encrypt specifically -- to perform DNS lookups too soon and cause negative DNS caches with a long lifetime. Therefore, placeholder IP addresses must be used, e.g.:</p>
 <div class="highlight"><pre><span></span><code>*.$BASE_DOMAIN     60s A 203.0.113.123
 *.ops.$BASE_DOMAIN 60s A 203.0.113.123
 </code></pre></div>

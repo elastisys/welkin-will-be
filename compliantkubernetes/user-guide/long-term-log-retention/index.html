@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="https://elastisys.io/compliantkubernetes/img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.9">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.f2e4d321.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -3624,7 +3624,7 @@ Down below are some examples how to discover indices to export from OpenSearch, 
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">read</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">search</span>
 </code></pre></div>
-<p>With <code>${DOMAIN}</code> set to the domain of your environment, the variables then needed to connect the becomes:</p>
+<p>With <code>${DOMAIN}</code> set to the domain of your environment, the variables then needed to connect becomes:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">OS_PROTOCOL</span><span class="o">=</span><span class="s2">&quot;https&quot;</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">OS_ENDPOINT</span><span class="o">=</span><span class="s2">&quot;opensearch.ops.</span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">OS_USERNAME</span><span class="o">=</span><span class="s2">&quot;&lt;provided-by-admin&gt;&quot;</span>
@@ -3704,7 +3704,7 @@ get_write_index<span class="o">()</span><span class="w"> </span><span class="o">
 <p>For more complex tasks checkout <a href="https://opensearch.org/docs/latest/opensearch/rest-api/index/">the OpenSearch REST API reference</a>.</p>
 <h2 id="exporting-indices">Exporting indices<a class="headerlink" href="#exporting-indices" title="Permanent link">&para;</a></h2>
 <p>With Elasticdump it is possible to export logs out to the console, to file, or to S3.
-In these example snippets we well export them to S3.
+In these example snippets we will export them to S3.
 To be able to do some management functions we will also use <a href="https://github.com/s3tools/s3cmd">s3cmd</a>, most importantly to be able to check for existing exports.</p>
 <p>Using S3 both for Elasticdump and s3cmd will require the following variables:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">S3_BUCKET</span><span class="o">=</span><span class="s2">&quot;&lt;bucket&gt;&quot;</span>

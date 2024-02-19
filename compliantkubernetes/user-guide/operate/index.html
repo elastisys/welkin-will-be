@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="https://elastisys.io/compliantkubernetes/img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.9">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.f2e4d321.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -3672,7 +3672,7 @@ if(!document.__defineGetter__) {
 <p>To monitor your application, you will log in to your Grafana. Recall how to log in to your web portals from <a href="../prepare/">Step 1: Prepare</a>.</p>
 <p>Grafana visually displays the monitoring data that Prometheus has collected on your behalf. A significant amount of metrics are already collected for you, out of the box, on Elastisys Compliant Kubernetes. This means you can visualize data about the cluster immediately.</p>
 <p>But Prometheus can also be instructed to collect specific metrics from your own application. Perhaps this is more useful to you than monitoring metrics that relate to cluster health (in particular if somebody else managed Elastisys Compliant Kubernetes for you).</p>
-<p>To instruct Promethus on how to do this, you create a <a href="https://blog.container-solutions.com/prometheus-operator-beginners-guide">ServiceMonitor</a>. This is a Kubernetes resource that configures Prometheus and specifies how to collect metrics from a particular application.</p>
+<p>To instruct Prometheus on how to do this, you create a <a href="https://blog.container-solutions.com/prometheus-operator-beginners-guide">ServiceMonitor</a>. This is a Kubernetes resource that configures Prometheus and specifies how to collect metrics from a particular application.</p>
 <p>The user demo already includes a <a href="https://github.com/elastisys/compliantkubernetes/blob/main/user-demo/deploy/ck8s-user-demo/templates/servicemonitor.yaml">ServiceMonitor</a>, as required for Compliant Kubernetes to collect metrics from its <code>/metrics</code> endpoint:</p>
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">{{</span><span class="nv">- if .Values.serviceMonitor.enabled -</span><span class="p p-Indicator">}}</span>
 <span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">monitoring.coreos.com/v1</span>
@@ -3732,7 +3732,7 @@ if(!document.__defineGetter__) {
 <p>Not having sufficient capacity is also a kind of disaster, albeit, one that is easy to mitigate.</p>
 <h3 id="back-up-application-data">Back up Application Data<a class="headerlink" href="#back-up-application-data" title="Permanent link">&para;</a></h3>
 <p>Compliant Kubernetes takes a daily backup of all Kubernetes Resources in all user namespaces. Persistent Volumes will be backed up if they are tied to a Pod. If backups are not wanted the label <code>compliantkubernetes.io/nobackup</code> can be added to opt-out of the daily backups.</p>
-<p>Application metrics (Grafana) and application log (Kibana) dashboards are also backup up by default.</p>
+<p>Application metrics (Grafana) and application log (OpenSearch) dashboards are also backed up by default.</p>
 <p>By default, backups are stored for 720 hours (30 days).</p>
 <p>Restoring from a backup with Velero is meant to be a type of disaster recovery. <strong>Velero will not overwrite existing Resources when restoring.</strong> As such, if you want to restore the state of a Resource that is still running, the Resource must be deleted first.</p>
 <p>To restore a backup on demand, contact your Compliant Kubernetes administrator.</p>
@@ -3745,7 +3745,7 @@ if(!document.__defineGetter__) {
 <p>Elastisys Compliant Kubernetes comes with <a href="../additional-services/argocd/">Argo CD</a> as an Additional Service.</p>
 <p>Compliant Kubernetes can also be integrated with an <a href="../ci-cd/">external CI/CD</a>, such as GitHub Actions.</p>
 <h2 id="next-step-going-deeper">Next step? Going deeper!<a class="headerlink" href="#next-step-going-deeper" title="Permanent link">&para;</a></h2>
-<p>By now, you're fully up and running! You have an application, updating it is a breeze, and you can monitor it and look at its logs. The next step is to open the "Go deeper" section of this documentation and read up on more topics that interest you.</p>
+<p>By now, you're fully up and running! You have an application, updating it is a breeze, and you can monitor it and look at its logs. The next step is to open the "Go Deeper" section of this documentation and read up on more topics that interest you.</p>
 <p>Thank you for starting your journey beyond the clouds with Elastisys Compliant Kubernetes!</p>
 
 

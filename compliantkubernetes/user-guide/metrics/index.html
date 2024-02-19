@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="https://elastisys.io/compliantkubernetes/img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.9">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.f2e4d321.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -3841,7 +3841,7 @@ if(!document.__defineGetter__) {
 <h3 id="capacity-management">Capacity management<a class="headerlink" href="#capacity-management" title="Permanent link">&para;</a></h3>
 <p>Article A.12.1.3 states that "The use of resources must be monitored, tuned and projections made of future capacity requirements to ensure the required system performance to meet the business objectives."</p>
 <ul>
-<li>Promethus and Grafana helps with this as the resource usage, such as storage capacity, CPU, and network usage can be monitored. Using visualization in Grafana, projections can be made as to future capacity requirements.</li>
+<li>Prometheus and Grafana helps with this as the resource usage, such as storage capacity, CPU, and network usage can be monitored. Using visualization in Grafana, projections can be made as to future capacity requirements.</li>
 </ul>
 <p>The article goes on to say that "Capacity management also needs to be: Pro-active – for example, using capacity considerations as part of change management; Re-active – e.g. triggers and alerts for when capacity usage is reaching a critical point so that timely increases, temporary or permanent can be made."</p>
 <ul>
@@ -3852,7 +3852,7 @@ if(!document.__defineGetter__) {
 <p>Prometheus and Grafana can help with this by making it easier to:</p>
 <ul>
 <li>collect evidence as soon as possible after the occurrence.</li>
-<li>conduct an information security forensics analysis</li>
+<li>conduct an information security forensics analysis.</li>
 <li>communicate the existence of the information security incident or any relevant details to the leadership.</li>
 </ul>
 <h2 id="prometheus-and-grafana-in-compliant-kubernetes">Prometheus and Grafana in Compliant Kubernetes<a class="headerlink" href="#prometheus-and-grafana-in-compliant-kubernetes" title="Permanent link">&para;</a></h2>
@@ -3908,8 +3908,8 @@ if(!document.__defineGetter__) {
 </table>
 <h4 id="accessing-prometheus">Accessing Prometheus<a class="headerlink" href="#accessing-prometheus" title="Permanent link">&para;</a></h4>
 <p>If you want to access the web interface of Prometheus, proceed as follows:
-    1. Type: <code>kubectl proxy</code>
-    2. Open <a href="http://127.0.0.1:8001/api/v1/namespaces/monitoring/services/kube-prometheus-stack-prometheus:9090/proxy/">this link</a> in your browser</p>
+1. Type: <code>kubectl proxy</code>
+2. Open <a href="http://127.0.0.1:8001/api/v1/namespaces/monitoring/services/kube-prometheus-stack-prometheus:9090/proxy/">this link</a> in your browser</p>
 <p>The Prometheus UI is only available by default starting in Compliant Kubernetes version 0.26.</p>
 <h3 id="grafana">Grafana<a class="headerlink" href="#grafana" title="Permanent link">&para;</a></h3>
 <p>Grafana can be accessed at the endpoint provided by the Compliant Kubernetes install scripts. If you have configured dex you can login with a connected account.</p>
@@ -3952,7 +3952,7 @@ if(!document.__defineGetter__) {
 <!--user-demo-metrics-end-->
 
 <h3 id="troubleshooting-metrics-collection">Troubleshooting metrics collection<a class="headerlink" href="#troubleshooting-metrics-collection" title="Permanent link">&para;</a></h3>
-<p>It is possible to see if monitors are picked up by <a href="#accessing-prometheus">accessing Prometheus' web interface</a>. Navigating to "Status" &gt; "Service Discovery" will show all monitors picked by Prometheus, and the "(x/y active targets)" will show how many targets of those monitors are active. Active targets are actively scraped by Prometheus and inactive targets are those that fail to match the selectors of the monitor.</p>
+<p>It is possible to see if monitors are picked up by <a href="#accessing-prometheus">accessing Prometheus web interface</a>. Navigating to "Status" &gt; "Service Discovery" will show all monitors picked by Prometheus, and the "(x/y active targets)" will show how many targets of those monitors are active. Active targets are actively scraped by Prometheus and inactive targets are those that fail to match the selectors of the monitor.</p>
 <p>Monitors can be expanded further down to list and inspect its targets, within each one the "Discovered Labels" column will list information about the object in Kubernetes and in the "Target Labels" it will show the labels recorded from the target.</p>
 <p>If the "Target Labels" is "Dropped" for a target then it means that it has been excluded from scraping since it doesn't match the monitor. There are three key things to check to make sure a target is properly picked up by a monitor:</p>
 <ol>

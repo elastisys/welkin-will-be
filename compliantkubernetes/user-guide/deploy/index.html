@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="https://elastisys.io/compliantkubernetes/img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.9">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.f2e4d321.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -3757,7 +3757,7 @@ if(!document.__defineGetter__) {
 <h1 id="step-2-deploy">Step 2: Deploy<a class="headerlink" href="#step-2-deploy" title="Permanent link">&para;</a></h1>
 <p>Hello again, Application Developer! In this step, we will walk you through what is needed to deploy your application on Elastisys Compliant Kubernetes.</p>
 <h2 id="demo-application-available">Demo Application Available<a class="headerlink" href="#demo-application-available" title="Permanent link">&para;</a></h2>
-<p>In case you are just reading along, or do not already have a <a href="../prepare/">containerized application prepared</a>, we have developed a demo application which allows you to quickly explore the benfits of Elastisys Compliant Kubernetes.</p>
+<p>In case you are just reading along, or do not already have a <a href="../prepare/">containerized application prepared</a>, we have developed a demo application which allows you to quickly explore the benefits of Elastisys Compliant Kubernetes.</p>
 <p>The provided artifacts, including Dockerfile and Helm Chart, allow you to quickly get started on your journey to become an agile organization with zero compromise on compliance with data protection regulations.</p>
 <p>We have versions of it for <a href="https://github.com/elastisys/compliantkubernetes/tree/main/user-demo">Node JS</a> and <a href="https://github.com/elastisys/compliantkubernetes/tree/main/user-demo-dotnet">.NET</a> available. You will note that once built and containerized, they deploy exactly the same.</p>
 <h2 id="push-your-container-images">Push Your Container Images<a class="headerlink" href="#push-your-container-images" title="Permanent link">&para;</a></h2>
@@ -3808,7 +3808,7 @@ kubectl<span class="w"> </span>config<span class="w"> </span>view<span class="w"
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Using your own registry credentials as an image pull secret, instead of creating a robot account, is against best practices and may violate data privacy regulations.</p>
-<p>Your registry credentials identify <strong>you</strong> and allow you to both push and pull images. A robot account should identify the Kubernetes cluster and be only allowed to pull images.</p>
+<p>Your registry credentials identify <strong>you</strong> and allow you to both push and pull images. A robot account should identify the Kubernetes cluster and only be allowed to pull images.</p>
 </div>
 <div class="highlight"><pre><span></span><code><span class="nv">DOCKER_USER</span><span class="o">=</span><span class="s1">&#39;robot$name&#39;</span><span class="w">       </span><span class="c1"># enter robot account name</span>
 <span class="nv">DOCKER_PASSWORD</span><span class="o">=</span><span class="w">               </span><span class="c1"># enter robot secret</span>
@@ -3836,7 +3836,7 @@ kubectl<span class="w"> </span>patch<span class="w"> </span>serviceaccount<span 
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/elastisys/compliantkubernetes/
 <span class="nb">cd</span><span class="w"> </span>compliantkubernetes/user-demo
 </code></pre></div>
-<p>Ensure you use the right registry project and image tag, i.e., those that you pushed in the <a href="../registry/#build-and-push-the-image">previous example</a></p>
+<p>Ensure you use the right registry project and image tag, i.e., those that you pushed in the <a href="../registry/#build-and-push-the-image">previous example</a>:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">REGISTRY_PROJECT</span><span class="o">=</span>demo
 <span class="nv">TAG</span><span class="o">=</span>v1
 </code></pre></div>

@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="https://elastisys.io/compliantkubernetes/img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.9">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.f2e4d321.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e359304.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -3593,7 +3593,7 @@ if(!document.__defineGetter__) {
 <p>NetworkPolicies are useful in two cases: segregating tenants hosted in the same environment and further segregating application components. Both help you achieve better data protection.</p>
 <h2 id="segregating-tenants-hosted-in-the-same-environment">Segregating tenants hosted in the same environment<a class="headerlink" href="#segregating-tenants-hosted-in-the-same-environment" title="Permanent link">&para;</a></h2>
 <p>Say you want to host a separate instance of your application for each tenant. For example, your end-users may belong to different -- potentially competing -- organizations, and you promised them to take extra care of not mixing their data. Say you want to reduce complexity by hosting all tenants inside the same environment, but without compromising data protection.</p>
-<p>Each application instance could be installed as a separate Helm Release, perhaps even in its own Namespace. These instances should be segregated from other application instances using NetworkPolicies. This insures that network traffic from one application instance cannot reach another application instance. Besides reducing attack surface, it also prevents embarrassing mistakes, like connecting one application to the database of another.</p>
+<p>Each application instance could be installed as a separate Helm Release, perhaps even in its own Namespace. These instances should be segregated from other application instances using NetworkPolicies. This ensures that network traffic from one application instance cannot reach another application instance. Besides reducing attack surface, it also prevents embarrassing mistakes, like connecting one application to the database of another.</p>
 <h2 id="further-segregation-of-application-components">Further segregation of application components<a class="headerlink" href="#further-segregation-of-application-components" title="Permanent link">&para;</a></h2>
 <p>If you run several applications -- e.g., frontend, backend, backoffice, database, message queue -- in a single Kubernetes cluster, it is a best practice to segregrate them.
 By segregating your applications and only allowing required ingress and egress network traffic, you further reduce blast radius in case of an attack.</p>
@@ -3604,7 +3604,7 @@ By segregating your applications and only allowing required ingress and egress n
 <div class="highlight"><pre><span></span><code>Error: admission webhook &quot;validation.gatekeeper.sh&quot; denied the request: [denied by require-networkpolicy] No matching networkpolicy found
 </code></pre></div>
 <p>Then you are missing NetworkPolicies which select your Pods. The <a href="https://github.com/elastisys/compliantkubernetes/blob/main/user-demo/deploy/ck8s-user-demo/templates/networkpolicy.yaml">user demo</a> gives a good example to get you started.</p>
-<p>If your administrator has not enforced this policy yet, you can view current violations of the policy by running
+<p>If your administrator has not enforced this policy yet, you can view current violations of the policy by running:
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>k8srequirenetworkpolicy.constraints.gatekeeper.sh<span class="w"> </span>require-networkpolicy<span class="w"> </span>-ojson<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>.status.violations
 </code></pre></div></p>
 <h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>

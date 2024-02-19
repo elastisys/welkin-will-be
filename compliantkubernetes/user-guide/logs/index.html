@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="https://elastisys.io/compliantkubernetes/img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.9">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.f2e4d321.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -3884,7 +3884,7 @@ if(!document.__defineGetter__) {
 </ul>
 <p>In Compliant Kubernetes, OpenSearch is separate from the production workload, hence it complies with A.12.4.2 "Protection of Log Information". The Infrastructure Provider should ensure that the clock of Kubernetes nodes is synchronized, hence complying with A.12.4.4 "Clock Synchronisation".</p>
 <h2 id="opensearch">OpenSearch<a class="headerlink" href="#opensearch" title="Permanent link">&para;</a></h2>
-<p>Raw logs in CK8s are normalized, filtered, and processed by <a href="https://www.fluentd.org/">fluentd</a> and shipped to <a href="https://opensearch.org/">OpenSearch</a> for storage and analysis. OpenSearch is derived from the fully open source version of Elasticsearch called  <a href="https://logz.io/blog/open-distro-for-elasticsearch/">Open Distro for Elasticsearch</a>.</p>
+<p>Raw logs in CK8s are normalized, filtered, and processed by <a href="https://www.fluentd.org/">Fluentd</a> and shipped to <a href="https://opensearch.org/">OpenSearch</a> for storage and analysis. OpenSearch is derived from the fully open source version of Elasticsearch called  <a href="https://logz.io/blog/open-distro-for-elasticsearch/">Open Distro for Elasticsearch</a>.</p>
 <p>OpenSearch provides a powerful, easy-to-use event monitoring and alerting system, enabling you to monitor, search, visualize your data among other things. OpenSearch Dashboards is used as visualization and analysis interface for OpenSearch for all your logs.</p>
 <h2 id="visualization-using-opensearch-dashboards">Visualization using OpenSearch Dashboards<a class="headerlink" href="#visualization-using-opensearch-dashboards" title="Permanent link">&para;</a></h2>
 <p>OpenSearch Dashboards is used as a data visualization and exploration tool for log time-series  and aggregate analytics. It offers powerful and easy-to-use features such as histograms, line graphs, pie charts, heat maps, and built-in geospatial support.</p>
@@ -3893,7 +3893,7 @@ if(!document.__defineGetter__) {
 <p>From here click "Visualize &amp; analyze" to continue and you will be greeted with the options to go forward to either <strong>Dashboard</strong> or <strong>Discover</strong>. Opening the sidebar in the top left will also provide navigation to OpenSearch Dashboards features, and here <strong>Visualize</strong> can be found in addition to the two former two outlined in the page shown below.</p>
 <p><img alt="OpenSearch Dashboards Sidebar" src="../../img/osd-sidebar.png" /></p>
 <p>Since we are concerned with searching logs and their visualization, we will focus on these three features indicated by the red rectangle in the figure above. If you are interested to know more about the rest please visit the <a href="https://opensearch.org/docs/latest/dashboards/index/">official OpenSearch Dashboards documentation</a>.</p>
-<p>Before we dive in further, let us discuss the type of logs ingested into OpenSearch. Logs in CK8s cluster are filtered and indexed by fluentd into four categories.</p>
+<p>Before we dive in further, let us discuss the type of logs ingested into OpenSearch. Logs in CK8s cluster are filtered and indexed by Fluentd into four categories.</p>
 <p><strong>Application level logs</strong></p>
 <ul>
 <li>
@@ -3918,7 +3918,7 @@ if(!document.__defineGetter__) {
 </div>
 <p>Let us dive into it then.</p>
 <h3 id="data-visualization-and-exploration">Data Visualization and Exploration<a class="headerlink" href="#data-visualization-and-exploration" title="Permanent link">&para;</a></h3>
-<p>As you can see in the figure above, data visualization and exploration in OpenSearch Dashboards has three components: <strong>Discover</strong>, <strong>Visualize</strong> and <strong>Dashboard</strong>. The following section describes each components using examples.</p>
+<p>As you can see in the figure above, data visualization and exploration in OpenSearch Dashboards has three components: <strong>Discover</strong>, <strong>Visualize</strong> and <strong>Dashboard</strong>. The following section describes each component using examples.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>These following examples were created for Open Distro for Elasticsearch and Kibana, however the user experience is the same when using OpenSearch Dashboards.</p>
@@ -4110,7 +4110,7 @@ docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </
 <li>
 <h3 id="authlog">authlog<a class="headerlink" href="#authlog" title="Permanent link">&para;</a></h3>
 <ul>
-<li>number of authlog seassions = Authlog seassions</li>
+<li>number of authlog sessions = Authlog sessions</li>
 </ul>
 </li>
 </ul>

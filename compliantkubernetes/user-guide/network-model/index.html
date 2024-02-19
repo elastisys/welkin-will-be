@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="https://elastisys.io/compliantkubernetes/img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.9">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.f2e4d321.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -681,13 +681,13 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
-  <a href="#letsencrypt" class="md-nav__link">
+  <a href="#lets-encrypt" class="md-nav__link">
     <span class="md-ellipsis">
-      LetsEncrypt
+      Let's Encrypt
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="LetsEncrypt">
+    <nav class="md-nav" aria-label="Let's Encrypt">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3605,13 +3605,13 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
-  <a href="#letsencrypt" class="md-nav__link">
+  <a href="#lets-encrypt" class="md-nav__link">
     <span class="md-ellipsis">
-      LetsEncrypt
+      Let's Encrypt
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="LetsEncrypt">
+    <nav class="md-nav" aria-label="Let's Encrypt">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3813,7 +3813,7 @@ if(!document.__defineGetter__) {
 <p>The private network also features a private DNS. A Service <code>my-svc</code> in the namespace <code>my-namespace</code> can be accessed from within the Kubernetes cluster as <code>my-svc.my-namespace</code>.</p>
 <p>IP addresses of Pods are not stable. For example, the rollout of a new container image creates new Pods, which will have new IP addresses. Therefore, you should always use private DNS names of Services to connect your application Pods, as well as to connect your application to <a href="../additional-services/">additional services</a>.</p>
 <h2 id="ingress">Ingress<a class="headerlink" href="#ingress" title="Permanent link">&para;</a></h2>
-<p>Your End Users should never ever access the private network directly. Instead external access is enabled by creating Ingress objects. Compliant Kubernetes already comes with cert-manager and is already configured with a ClusterIssuer. A secure ACME protocol is used to issue and rotate certificates using the <a href="https://letsencrypt.org/">LetsEncrypt</a> public service.</p>
+<p>Your End Users should never ever access the private network directly. Instead external access is enabled by creating Ingress objects. Compliant Kubernetes already comes with cert-manager and is already configured with a ClusterIssuer. A secure ACME protocol is used to issue and rotate certificates using the <a href="https://letsencrypt.org/">Let's Encrypt</a> public service.</p>
 <p>Assuming you configured a Service and a Deployment for you application, making End Users access your application involves two steps:</p>
 <ol>
 <li>Create the right DNS CNAME record.</li>
@@ -3825,7 +3825,7 @@ if(!document.__defineGetter__) {
 <div class="highlight"><pre><span></span><code>demo.example.com. 900 CNAME app.$DOMAIN.
 </code></pre></div>
 <p>where <code>$DOMAIN</code> is the environment-specific variable <a href="../prepare/#access-your-web-portals">you received from the administrator</a>. The line above is presented in <a href="https://en.wikipedia.org/wiki/Zone_file">DNS Zone file</a> format and is widely accepted by DNS providers.</p>
-<p>After configuration, make sure the DNS record is properly configured and propagaged, by typing:</p>
+<p>After configuration, make sure the DNS record is properly configured and propagated, by typing:</p>
 <div class="highlight"><pre><span></span><code>host<span class="w"> </span>-a<span class="w"> </span>demo.example.com.
 </code></pre></div>
 <div class="admonition important">
@@ -3886,7 +3886,7 @@ if(!document.__defineGetter__) {
 <p>To check if source IP is preserved, check the HTTP request headers received by your application, specifically <code>x-forwarded-for</code> and <code>x-real-ip</code>. The <a href="https://github.com/elastisys/compliantkubernetes/blob/main/user-demo/app.js#L24">user demo</a> logs all HTTP request headers, as shown in the screenshot below.</p>
 <p><img alt="HTTP request headers shown in the user demo" src="../img/http-request-headers.png" /></p>
 </div>
-<h2 id="letsencrypt">LetsEncrypt<a class="headerlink" href="#letsencrypt" title="Permanent link">&para;</a></h2>
+<h2 id="lets-encrypt">Let's Encrypt<a class="headerlink" href="#lets-encrypt" title="Permanent link">&para;</a></h2>
 <p>Let’s Encrypt is a certificate authority that provides free SSL/TLS certificates via an automated process. Their certificates are accepted by most of today’s browsers.</p>
 <p>On Compliant Kubernetes, we provide a cert-manager setup which you can use to create, sign, install and renew certificates for your domains/apps running in CK8S.</p>
 <h3 id="issuing-a-certificate">Issuing a Certificate<a class="headerlink" href="#issuing-a-certificate" title="Permanent link">&para;</a></h3>
@@ -3908,7 +3908,7 @@ if(!document.__defineGetter__) {
 <li>Reference to the issuer to use.</li>
 <li>The created certificate is stored in this secret.</li>
 </ol>
-<p>And you can directly link a certificate to an Ingress object :</p>
+<p>And you can directly link a certificate to an Ingress object:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">networking.k8s.io/v1</span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ingress</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -3940,19 +3940,19 @@ if(!document.__defineGetter__) {
 <li>The created certificate is stored in this secret.</li>
 </ol>
 <h3 id="lets-encrypt-environments">Let's Encrypt Environments<a class="headerlink" href="#lets-encrypt-environments" title="Permanent link">&para;</a></h3>
-<p>LetsEncrypt provides two environments as part of their ACME V2 standardization: Staging &amp; Production.</p>
-<p>The ACME URL for LetsEncrypt ACME v2 staging environment is: https://acme-staging-v02.api.letsencrypt.org/directory</p>
-<p>The ACME URL for LetsEncrypt ACME v2 production environment is: https://acme-v02.api.letsencrypt.org/directory</p>
+<p>Let's Encrypt provides two environments as part of their ACME V2 standardization: Staging &amp; Production.</p>
+<p>The ACME URL for Let's Encrypt ACME v2 staging environment is: https://acme-staging-v02.api.letsencrypt.org/directory</p>
+<p>The ACME URL for Let's Encrypt ACME v2 production environment is: https://acme-v02.api.letsencrypt.org/directory</p>
 <p>Both environments serve to issue valid certificates, the difference is the CA, on staging, the CA is not trusted by any application, web browser ..</p>
 <p>We highly recommend testing against the Let’s Encrypt staging environment and use it for any non-production workloads. This will allow you to get things right before issuing trusted certificates and reduce the chance of you running up against rate limits. It should be to test that your client is working fine and can generate the challenges, certificates…</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Certificates issued by the LetsEncrypt staging environment are signed by untrusted authorities, similar to self-signed certificates. They are typically not used in production environments.</p>
+<p>Certificates issued by the Let's Encrypt staging environment are signed by untrusted authorities, similar to self-signed certificates. They are typically not used in production environments.</p>
 </div>
 <h3 id="rate-limits">Rate Limits<a class="headerlink" href="#rate-limits" title="Permanent link">&para;</a></h3>
-<p>LetsEncrypt provides rate-limits on generated certificates to ensure fair usage across all clients. The production environment limits can be exceeded more frequently in environments certificates are installed or reinstalled frequently. This can result in failed installations due to rate limit exceptions on certificate generation.</p>
-<p>In such environments, it is better to use the LetsEncrypt staging environment, which has much higher limits than the production environment.</p>
-<p>The default rate limits for the production environment are listed in the following page by letencrypt : <a href="https://letsencrypt.org/docs/rate-limits/">Production Rate Limits</a>.</p>
+<p>Let's Encrypt provides rate-limits on generated certificates to ensure fair usage across all clients. The production environment limits can be exceeded more frequently in environments certificates are installed or reinstalled frequently. This can result in failed installations due to rate limit exceptions on certificate generation.</p>
+<p>In such environments, it is better to use the Let's Encrypt staging environment, which has much higher limits than the production environment.</p>
+<p>The default rate limits for the production environment are listed in the following page by Let's Encrypt: <a href="https://letsencrypt.org/docs/rate-limits/">Production Rate Limits</a>.</p>
 <p>The staging environment uses the same rate limits as described for the production environment with some exceptions that are listed here : <a href="https://letsencrypt.org/docs/staging-environment/">Staging Rate Limits</a>.</p>
 <h2 id="demarcation-of-responsibilities">Demarcation of Responsibilities<a class="headerlink" href="#demarcation-of-responsibilities" title="Permanent link">&para;</a></h2>
 <p>You are responsible for:</p>

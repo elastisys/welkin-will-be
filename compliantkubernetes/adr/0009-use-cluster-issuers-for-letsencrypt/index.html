@@ -18,15 +18,15 @@
       
       
       <link rel="icon" href="https://elastisys.io/compliantkubernetes/img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.9">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
     
     
       
-        <title>Use ClusterIssuers for LetsEncrypt - Elastisys Compliant Kubernetes</title>
+        <title>Use ClusterIssuers for Let's Encrypt - Elastisys Compliant Kubernetes</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.f2e4d321.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -67,7 +67,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Use ClusterIssuers for LetsEncrypt - Elastisys Compliant Kubernetes" >
+        <meta  property="og:title"  content="Use ClusterIssuers for Let's Encrypt - Elastisys Compliant Kubernetes" >
       
         <meta  property="og:description"  content="Kubernetes platform designed for security and compliance with ISO27001 and EU regulations: GDPR, NIS2, …" >
       
@@ -83,7 +83,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Use ClusterIssuers for LetsEncrypt - Elastisys Compliant Kubernetes" >
+        <meta  name="twitter:title"  content="Use ClusterIssuers for Let's Encrypt - Elastisys Compliant Kubernetes" >
       
         <meta  name="twitter:description"  content="Kubernetes platform designed for security and compliance with ISO27001 and EU regulations: GDPR, NIS2, …" >
       
@@ -148,7 +148,7 @@ if(!document.__defineGetter__) {
     <div data-md-component="skip">
       
         
-        <a href="#use-clusterissuers-for-letsencrypt" class="md-skip">
+        <a href="#use-clusterissuers-for-lets-encrypt" class="md-skip">
           Skip to content
         </a>
       
@@ -187,7 +187,7 @@ if(!document.__defineGetter__) {
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Use ClusterIssuers for LetsEncrypt
+              Use ClusterIssuers for Let's Encrypt
             
           </span>
         </div>
@@ -3459,9 +3459,9 @@ if(!document.__defineGetter__) {
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#direct-letsencrypt-emails-to-a-logging-mailbox" class="md-nav__link">
+  <a href="#direct-lets-encrypt-emails-to-a-logging-mailbox" class="md-nav__link">
     <span class="md-ellipsis">
-      Direct LetsEncrypt emails to a "logging" mailbox
+      Direct Let's Encrypt emails to a "logging" mailbox
     </span>
   </a>
   
@@ -3499,7 +3499,7 @@ if(!document.__defineGetter__) {
   
 
 
-<h1 id="use-clusterissuers-for-letsencrypt">Use ClusterIssuers for LetsEncrypt<a class="headerlink" href="#use-clusterissuers-for-letsencrypt" title="Permanent link">&para;</a></h1>
+<h1 id="use-clusterissuers-for-lets-encrypt">Use ClusterIssuers for Let's Encrypt<a class="headerlink" href="#use-clusterissuers-for-lets-encrypt" title="Permanent link">&para;</a></h1>
 <ul>
 <li>Status: accepted</li>
 <li>Deciders: Cristian, Lennart</li>
@@ -3511,7 +3511,7 @@ if(!document.__defineGetter__) {
 <p>There are two ways to configure Let's Encrypt as an issuers for cert-manager: <a href="https://cert-manager.io/docs/concepts/issuer/">Issuer and ClusterIssuer</a>. The former is namespaced, whereas the latter is cluster-wide. Should we use Issuer or ClusterIssuer?</p>
 <h2 id="decision-drivers">Decision Drivers<a class="headerlink" href="#decision-drivers" title="Permanent link">&para;</a></h2>
 <ul>
-<li>We want to make compliantkubernetes-apps less fragile, and LetsEncrypt ratelimiting is a cause of fragility.</li>
+<li>We want to make compliantkubernetes-apps less fragile, and Let's Encrypt ratelimiting is a cause of fragility.</li>
 <li>We want to make it easy for users to get started with Compliant Kubernetes in a "secure by default" manner.</li>
 <li>We want to have a clear separation between user and administrator resources, responsibilities and privileges.</li>
 <li>We want to keep the option open for "light" renderings, i.e., a single Kubernetes clusters that hosts both Management Cluster and Workload Cluster components.</li>
@@ -3524,12 +3524,12 @@ if(!document.__defineGetter__) {
 </ul>
 <h2 id="decision-outcome">Decision Outcome<a class="headerlink" href="#decision-outcome" title="Permanent link">&para;</a></h2>
 <p>Chosen option: "Use ClusterIssuers in the Management Cluster; optionally enable ClusterIssuers in the Workload Cluster(s)", because it reduces fragility, clarifies responsibilities, makes it easy to get started securely.</p>
-<p>Each cluster is configured with an optional ClusterIssuer called <code>letsencrypt-prod</code> for LetsEncrypt production and <code>letsencrypt-staging</code> for LetsEncrypt staging. The email address for the ClusterIssuers is configured by the administrator.</p>
+<p>Each cluster is configured with an optional ClusterIssuer called <code>letsencrypt-prod</code> for Let's Encrypt production and <code>letsencrypt-staging</code> for Let's Encrypt staging. The email address for the ClusterIssuers is configured by the administrator.</p>
 <h2 id="recommendations-to-platform-administrators">Recommendations to Platform Administrators<a class="headerlink" href="#recommendations-to-platform-administrators" title="Permanent link">&para;</a></h2>
-<h3 id="direct-letsencrypt-emails-to-a-logging-mailbox">Direct LetsEncrypt emails to a "logging" mailbox<a class="headerlink" href="#direct-letsencrypt-emails-to-a-logging-mailbox" title="Permanent link">&para;</a></h3>
-<p>Although LetsEncrypt does not require an email address, cert-managers seems to require all ClusterIssuers/Issuers to be configured with a syntactically valid email address. Said email address will receive notifications when certificates are close to expiry. Given that Compliant Kubernetes comes with <a href="../../ciso-guide/cryptography/">Cryptography</a> dashboards, these emails do not seem useful. <strong>Hence, ClusterIssuer emails should be directed to an address that has "logging" but not "alerting" status.</strong></p>
+<h3 id="direct-lets-encrypt-emails-to-a-logging-mailbox">Direct Let's Encrypt emails to a "logging" mailbox<a class="headerlink" href="#direct-lets-encrypt-emails-to-a-logging-mailbox" title="Permanent link">&para;</a></h3>
+<p>Although Let's Encrypt does not require an email address, cert-managers seems to require all ClusterIssuers/Issuers to be configured with a syntactically valid email address. Said email address will receive notifications when certificates are close to expiry. Given that Compliant Kubernetes comes with <a href="../../ciso-guide/cryptography/">Cryptography</a> dashboards, these emails do not seem useful. <strong>Hence, ClusterIssuer emails should be directed to an address that has "logging" but not "alerting" status.</strong></p>
 <h3 id="separate-registered-domains">Separate registered domains<a class="headerlink" href="#separate-registered-domains" title="Permanent link">&para;</a></h3>
-<p>LetsEncrypt production has a rate limit of <a href="https://letsencrypt.org/docs/rate-limits/">50 certificates per week per registered domain</a>. For example, if <code>awesome-website.workload-cluster.environment.elastisys.se</code> points to the Workload Cluster's Ingress controller, then an excessive creation and destruction of Ingress resources may trigger rate limiting for all of <code>elastisys.se</code>.</p>
+<p>Let's Encrypt production has a rate limit of <a href="https://letsencrypt.org/docs/rate-limits/">50 certificates per week per registered domain</a>. For example, if <code>awesome-website.workload-cluster.environment.elastisys.se</code> points to the Workload Cluster's Ingress controller, then an excessive creation and destruction of Ingress resources may trigger rate limiting for all of <code>elastisys.se</code>.</p>
 <p>It is therefore advisable to:</p>
 <ul>
 <li>Use separate registered domains for development and production environments.</li>
