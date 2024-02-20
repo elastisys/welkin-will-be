@@ -896,6 +896,17 @@ if(!document.__defineGetter__) {
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    How many environments?
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -905,6 +916,61 @@ if(!document.__defineGetter__) {
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definitions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#levels-of-isolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Levels of Isolation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relevant-regulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relevant Regulations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommendations
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -3424,6 +3490,50 @@ if(!document.__defineGetter__) {
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definitions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#levels-of-isolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Levels of Isolation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relevant-regulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relevant Regulations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommendations
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3501,22 +3611,40 @@ if(!document.__defineGetter__) {
 
 <div class="admonition elastisys">
 <p class="admonition-title">For Elastisys Managed Services Customers</p>
-<p>You can order a new environment by filing a <a href="https://elastisys.atlassian.net/servicedesk/">service ticket</a>.</p>
+<p>You can order a new Environment by filing a <a href="https://elastisys.atlassian.net/servicedesk/">service ticket</a>.</p>
 <p>If you have multiple Environments, and one or more have been clearly designated to be non-production Environments, Elastisys will apply major and minor updates to your non-production Environment(s) at least five working days before applying said update to your production Environment(s).</p>
 <p>For more information, please read <a href="https://elastisys.com/legal/terms-of-service/#35-updates-and-upgrades">ToS 3.5 Updates and Upgrades</a>.</p>
 </div>
-<p>Compliant Kubernetes recommends to setting up at least two separate environments: one for testing and one for production.</p>
+<p>Compliant Kubernetes recommends setting up at least two separate environments: one for non-production use (e.g. development and testing) and one for production use.</p>
 <hr />
 <h1 id="how-many-environments">How Many Environments?<a class="headerlink" href="#how-many-environments" title="Permanent link">&para;</a></h1>
-<p>Many regulations require strict separation between testing and production environments.
-In particular, production data should not be compromised, no matter what happens in testing environments.</p>
-<p>Similarly, some regulations -- such as Medical Devices Regulation (MDR) -- require you to take a risk-based approach to changing the tech stack. Depending on your risk assessment, this implies verifying changes in a non-production environment before going into production.</p>
-<p>Therefore, Compliant Kubernetes recommends setting up <strong>at least two environments</strong>:</p>
+<h2 id="definitions">Definitions<a class="headerlink" href="#definitions" title="Permanent link">&para;</a></h2>
+<p>For the purpose of this document we use the following distinction:</p>
 <ul>
-<li>staging;</li>
-<li>production.</li>
+<li><strong>Application Deployment</strong> - One instance of a customer's application. Commonly, multiple application deployments are used in the software development life cycles, such as: local, development, integration, testing, staging, and production.</li>
+<li><strong>Environment</strong> - One instance of a Compliant Kubernetes deployment. One Environment is composed of two Kubernetes Clusters, the Management Cluster and Workload Cluster.</li>
 </ul>
-<p>However, the exact number of environments will depend on your needs.
+<h2 id="levels-of-isolation">Levels of Isolation<a class="headerlink" href="#levels-of-isolation" title="Permanent link">&para;</a></h2>
+<p>Various levels of isolation between Application Deployments can be achieved while using Kubernetes:</p>
+<ul>
+<li><strong>Labels</strong>: in which Application Deployments reside in the same Namespace and are separated "only" by e.g. Helm Releases or Argo CD Application labels. Network Policies can apply here, but e.g. Secrets will be accessible throughout the entire Namespace.</li>
+<li><strong>Namespace isolation</strong>: in which Application Deployments share a Workload Cluster, but are separated logically using Namespaces. Network Policies work here, too, and Namespaces are a Kubernetes trust boundary when it comes to access to Secrets. Namespaces can also be used for resource quotas, for soft capacity allocation limitations.</li>
+<li><strong>Node isolation</strong>: in which Application Deployments share an environment, but are deployed on different Nodes. On this level, both performance and security isolation is greater than in the previous, since the underlying virtual machines are separate. This is what Compliant Kubernetes does with additional services, such as PostgreSQL and RabbitMQ. Node isolation can be done both with and without Namespace isolation.</li>
+<li><strong>Cluster isolation</strong>: in which Application Deployments share an Environment, but are deployed on separate Workload Clusters.</li>
+<li><strong>Separate Environments</strong>: in which Application Deployments share nothing. This level of isolation is the highest, which implies total isolation for access control, credentials, network traffic, performance, and there are no shared platform components.</li>
+</ul>
+<h2 id="relevant-regulations">Relevant Regulations<a class="headerlink" href="#relevant-regulations" title="Permanent link">&para;</a></h2>
+<p>Many regulations require strict separation between testing and production Application Deployments.
+In particular, production data should not be compromised, no matter what happens in testing Application Deployments.</p>
+<p>Similarly, some regulations -- such as Medical Devices Regulation (MDR) -- require you to take a risk-based approach to changing the tech stack.
+Depending on your risk assessment, this implies <strong>verifying</strong> changes in a non-production Application Deployment before going into production.</p>
+<h2 id="recommendations">Recommendations<a class="headerlink" href="#recommendations" title="Permanent link">&para;</a></h2>
+<p>Taking into account the relevant regulations, Compliant Kubernetes recommends setting up <strong>at least two Environments</strong>:</p>
+<ul>
+<li>non-production Environment hosting Application Deployments from development up to staging;</li>
+<li>production Environment hosting the production Application Deployment.</li>
+</ul>
+<p>However, the exact number of Application Deployments and Environments will depend on your needs.
 Please use the two figures below to reason about environments, trading developer productivity and data security:</p>
 <p><img alt="Ideal Developer Experience" src="../img/environments/ideal-dx.svg" /></p>
 <p><img alt="Ideal Promotion" src="../img/environments/ideal-promotion.svg" /></p>
