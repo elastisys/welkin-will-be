@@ -686,6 +686,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://elastisys.io/compliantkubernetes/user-guide/safeguards/enforce-no-load-balancer-service/</loc>
+         <lastmod>2024-02-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://elastisys.io/compliantkubernetes/user-guide/safeguards/enforce-no-root/</loc>
          <lastmod>2024-02-20</lastmod>
          <changefreq>daily</changefreq>
