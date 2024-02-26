@@ -2128,6 +2128,15 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
+  <a href="#defining-node-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defining Node Groups
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#upscaling" class="md-nav__link">
     <span class="md-ellipsis">
       Upscaling
@@ -3582,6 +3591,15 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
+  <a href="#defining-node-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defining Node Groups
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#upscaling" class="md-nav__link">
     <span class="md-ellipsis">
       Upscaling
@@ -3706,6 +3724,11 @@ Keeping the application secure means having sufficient capacity in the environme
 </ul>
 <p>Node resilient environments are set up with enough resources allocated to withstand a single Node failure on a per Node Group basis (e.g., control-plane, worker). In other words, the environment should be able to withstand a control-plane Node and worker Node failing simultaneously.</p>
 <p>Zone resilient environments are set up over three Zones. All components that have HA capabilities will be spread across all three Zones, such that the environment can withstand a complete Zone failure (e.g., Kubernetes Control Plane, Ceph Mon, Opensearch etc.).</p>
+<h2 id="defining-node-groups">Defining Node Groups<a class="headerlink" href="#defining-node-groups" title="Permanent link">&para;</a></h2>
+<p>Node Groups are meant to represent a logical grouping of Nodes, for example the worker Nodes in a Cluster. In practice, these Node Groups are defined by labeling all Nodes with the name of the Node Group that they belong to:</p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>label<span class="w"> </span>node<span class="w"> </span>&lt;node-name&gt;<span class="w"> </span>elastisys.io/node-group<span class="o">=</span>&lt;node-group&gt;
+</code></pre></div>
+<p>These labels are required for the monitoring and alerting described on this page to function.</p>
 <h2 id="upscaling">Upscaling<a class="headerlink" href="#upscaling" title="Permanent link">&para;</a></h2>
 <p>Compliant Kubernetes uses a combination of alerts for both individual Nodes as well as Node Groups, which are also monitored and visualized in a Grafana dashboard.</p>
 <h3 id="when">When?<a class="headerlink" href="#when" title="Permanent link">&para;</a></h3>
