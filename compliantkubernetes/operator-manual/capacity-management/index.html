@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="https://elastisys.io/compliantkubernetes/img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.11">
     
     
       
@@ -2147,18 +2147,18 @@ if(!document.__defineGetter__) {
 </li>
         
           <li class="md-nav__item">
-  <a href="#how" class="md-nav__link">
+  <a href="#metrics" class="md-nav__link">
     <span class="md-ellipsis">
-      How?
+      Metrics
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#optimization" class="md-nav__link">
+  <a href="#how" class="md-nav__link">
     <span class="md-ellipsis">
-      Optimization
+      How?
     </span>
   </a>
   
@@ -2198,7 +2198,7 @@ if(!document.__defineGetter__) {
 </li>
         
           <li class="md-nav__item">
-  <a href="#optimization_1" class="md-nav__link">
+  <a href="#optimization" class="md-nav__link">
     <span class="md-ellipsis">
       Optimization
     </span>
@@ -3601,18 +3601,18 @@ if(!document.__defineGetter__) {
 </li>
         
           <li class="md-nav__item">
-  <a href="#how" class="md-nav__link">
+  <a href="#metrics" class="md-nav__link">
     <span class="md-ellipsis">
-      How?
+      Metrics
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#optimization" class="md-nav__link">
+  <a href="#how" class="md-nav__link">
     <span class="md-ellipsis">
-      Optimization
+      How?
     </span>
   </a>
   
@@ -3652,7 +3652,7 @@ if(!document.__defineGetter__) {
 </li>
         
           <li class="md-nav__item">
-  <a href="#optimization_1" class="md-nav__link">
+  <a href="#optimization" class="md-nav__link">
     <span class="md-ellipsis">
       Optimization
     </span>
@@ -3701,26 +3701,45 @@ Keeping the application secure means having sufficient capacity in the environme
 <h2 id="types-of-failure">Types of Failure<a class="headerlink" href="#types-of-failure" title="Permanent link">&para;</a></h2>
 <p>Compliant Kubernetes environments are set up to withstand either:</p>
 <ul>
-<li>a single Node failure (Node resilient); or</li>
+<li>a single Node failure per Node Group (Node resilient); or</li>
 <li>a single Zone failure (Zone resilient).</li>
 </ul>
-<p>Zone resilient environments are set up over three Zones, two active and one arbiter. The arbiter only runs some control-plane components (e.g., Kubernetes Data Plane, Ceph Mon), whereas the active Zones run both control-plane and data-plane components (e.g., Ceph OSD, Kubernetes data plane Nodes).</p>
+<p>Node resilient environments are set up with enough resources allocated to withstand a single Node failure on a per Node Group basis (e.g., control-plane, worker). In other words, the environment should be able to withstand a control-plane Node and worker Node failing simultaneously.</p>
+<p>Zone resilient environments are set up over three Zones. All components that have HA capabilities will be spread across all three Zones, such that the environment can withstand a complete Zone failure (e.g., Kubernetes Control Plane, Ceph Mon, Opensearch etc.).</p>
 <h2 id="upscaling">Upscaling<a class="headerlink" href="#upscaling" title="Permanent link">&para;</a></h2>
+<p>Compliant Kubernetes uses a combination of alerts for both individual Nodes as well as Node Groups, which are also monitored and visualized in a Grafana dashboard.</p>
 <h3 id="when">When?<a class="headerlink" href="#when" title="Permanent link">&para;</a></h3>
-<p>Compliant Kubernetes triggers a P2 alert when any capacity dimension is predicted to exceed 66% (for Node resilient) or 50% (for Zone resilient) within 3 days.</p>
-<p>That was very information dense, so let's break it down.</p>
+<p>Compliant Kubernetes triggers a P1 alert when:</p>
 <ul>
-<li><strong>Why a P2 alert?</strong> P2 alerts are events that need to be dealt with within a business day. Capacity can be easily predicted and added in advance. Excess capacity is cheaper than frustrated administrators. There is no need to disturb anyone's sleep.</li>
-<li><strong>What capacity dimensions?</strong><ul>
+<li>The average CPU usage for a Node or Node Group, over one hour, is above 95%.</li>
+<li>
+<p>The average memory usage for a Node or Node Group, over one hour, is above 85%.</p>
+</li>
+<li>
+<p><strong>Why a P1 alert?</strong> P1 alerts are events that need immediate attention, which makes them suitable for scenarios with a higher usage threshold over a shorter timespan. If the alert is triggered for a single Node, the administrator can attempt to redistribute the workload more evenly across the Node Group. If the alert is triggered for a Node Group, that Node Group needs to be scaled up.</p>
+</li>
+</ul>
+<p>Compliant Kubernetes triggers a P2 alert when:</p>
+<ul>
+<li>
+<p>The average CPU or memory usage for a Node Group, over 24 hours, is above 75%.</p>
+</li>
+<li>
+<p><strong>Why a P2 alert?</strong> P2 alerts are events that need to be dealt with within a business day. This makes them suitable for scenarios with a lower usage threshold over a longer timespan, giving administrators enough time to take action. Excess capacity is cheaper than frustrated administrators. There is no need to disturb anyone's sleep.</p>
+</li>
+</ul>
+<h3 id="metrics">Metrics<a class="headerlink" href="#metrics" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Why memory and CPU usage?</strong></li>
+<li>These are the resource metrics that are directly tied to the Nodes, and represent how much of the resource is actually used and how much is available. If usage gets close to 100% of capacity, it will start impacting applications.</li>
+<li>That isn't to say that these are the only capacity metrics to take into account. Other metrics are useful too, but are often not cause for an immediate scale-up and instead require further investigation. These other metrics include:<ul>
 <li>CPU:<ul>
 <li>sum of (Kubernetes) CPU requests to CPU allocatable;</li>
-<li>sum of CPU used to CPU allocatable;</li>
-<li>load average: since this is not a percentage, scale up when above 3;</li>
+<li>load average;</li>
 </ul>
 </li>
 <li>Memory:<ul>
 <li>sum of (Kubernetes) memory request to memory allocatable;</li>
-<li>sum of memory <a href="https://superuser.com/questions/980820/what-is-the-difference-between-memfree-and-memavailable-in-proc-meminfo">non-available</a> to memory total;</li>
 </ul>
 </li>
 <li>Storage:<ul>
@@ -3731,8 +3750,6 @@ Keeping the application secure means having sufficient capacity in the environme
 </li>
 </ul>
 </li>
-<li><strong>Why 66% or 50%?</strong> Most Node-resilient Kubernetes clusters will feature 3 Nodes (see discussion below about too many Nodes). Hence, 1 extra Node means 66% capacity. Zone-resilient environments need 50% extra capacity, so that each active Zone can take over the load of the other active Zone.</li>
-<li><strong>Why within 3 days?</strong> This should ensure sufficient time to act on the capacity shortage, without ruining anyone's weekend.</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -3747,8 +3764,6 @@ Keeping the application secure means having sufficient capacity in the environme
 <p>If the cluster has 6 Nodes, consider consolidating to 3 Nodes of twice-the-size -- in number of CPUs or memory or both -- if the infrastructure cost is reduced.
 Before doing this, get in touch with Application Developers to ensure they don't have Kubernetes scheduling constraints that would cause issues on the consolidated environment.</p>
 <p>If you are about to double the number of Nodes, get in touch with Application Developers to ensure their application is not misbehaving, before upscaling.</p>
-<h3 id="optimization">Optimization<a class="headerlink" href="#optimization" title="Permanent link">&para;</a></h3>
-<p>If the cluster has at least 5 Nodes, consider reducing the watermark to 80% to reduce extra capacity.</p>
 <h2 id="downscaling">Downscaling<a class="headerlink" href="#downscaling" title="Permanent link">&para;</a></h2>
 <p>We hope that the applications we host will only grow in popularity and that downscaling is never needed.
 Nevertheless, Application Developer trust us to keep infrastructure costs down, if their application hasn't gone viral -- yet!</p>
@@ -3765,12 +3780,11 @@ Nevertheless, Application Developer trust us to keep infrastructure costs down, 
 </ul>
 </div>
 <h3 id="how_1">How?<a class="headerlink" href="#how_1" title="Permanent link">&para;</a></h3>
-<p>If any capacity dimension -- as defined above -- was below 33% for at least 3 days, then remove one Node at a time, until capacity is above 33%.
-Make sure to drain and cordon the Node before decommissioning it.</p>
+<p>If a decision has been made to downscale, make sure to drain and cordon the Node before decommissioning it.</p>
 <p>If you are about to go below 3 Nodes, consider replacing the Nodes with 6 Nodes of half-the-size before downscaling.
 Before doing this, get in touch with Application Developers to ensure they don't have Kubernetes scheduling constraints that would  cause issues on the consolidated environment.</p>
 <p>If you are about to half the number of Nodes, get in touch with Application Developers to ensure their application is not misbehaving, before downscaling.</p>
-<h3 id="optimization_1">Optimization<a class="headerlink" href="#optimization_1" title="Permanent link">&para;</a></h3>
+<h3 id="optimization">Optimization<a class="headerlink" href="#optimization" title="Permanent link">&para;</a></h3>
 <p>Removing capacity is more dangerous than having extra capacity, when it comes to application uptime.
 Furthermore, we need to avoid oscillations: Removing capacity to only add it back a few days later is no fun for the administrator.
 Therefore, downscaling should only be performed periodically, whereas upscaling should be performed as soon as predictions show it is needed.</p>
