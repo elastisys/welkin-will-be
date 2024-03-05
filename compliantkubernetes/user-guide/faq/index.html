@@ -3645,7 +3645,7 @@ if(!document.__defineGetter__) {
 <p>To increase security, Compliance Kubernetes does not allow by default to run containers as root.
 Additionally, the container image is not allowed to be pulled from a public docker hub registry and all Pods are required to be selected by some NetworkPolicy.
 This ensures that an active decision has been made for what network access the Pod should have and helps avoid running "obscure things found on the internet".</p>
-<p>Considering the above, you should start by pushing the container image you want to use to Harbor and <a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user">make sure it doesn't run as root</a>.
+<p>Considering the above, you should start by pushing the container image you want to use to Harbor and <a href="https://docs.docker.com/develop/develop-images/instructions/#user">make sure it doesn't run as root</a>.
 See <a href="https://goharbor.io/docs/1.10/administration/configure-authentication/oidc-auth/#using-oidc-from-the-docker-or-helm-cli">this document</a> for how to use OIDC with docker.
 With that in place, you will need to create a NetworkPolicy for the Pod you want to run.
 Here is an example of how to create a NetworkPolicy that allows all TCP traffic (in and out) for Pods with the label <code>run: blah</code>.</p>
