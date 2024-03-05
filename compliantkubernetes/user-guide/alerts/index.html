@@ -3690,7 +3690,7 @@ if(!document.__defineGetter__) {
 <h2 id="enabling-user-alerts">Enabling user alerts<a class="headerlink" href="#enabling-user-alerts" title="Permanent link">&para;</a></h2>
 <p>User alerts are handled by a project called <a href="https://prometheus.io/docs/alerting/latest/alertmanager/">AlertManager</a>, which needs to be enabled by the administrator. Get in touch with the administrator and they will be happy to help.</p>
 <h2 id="configuring-user-alerts">Configuring user alerts<a class="headerlink" href="#configuring-user-alerts" title="Permanent link">&para;</a></h2>
-<p>User alerts are configured via the Secret <code>alertmanager-alertmanager</code> located in the <code>alertmanager</code> namespace. This configuration file is specified <a href="https://prometheus.io/docs/alerting/latest/configuration/#configuration-file">here</a>.</p>
+<p>User alerts are configured via the Secret <code>alertmanager-alertmanager</code> located in the <code>alertmanager</code> namespace. This configuration file is specified <a href="https://prometheus.io/docs/alerting/latest/configuration/#file-layout-and-global-settings">here</a>.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># retrieve the old configuration:</span>
 kubectl<span class="w"> </span>get<span class="w"> </span>-n<span class="w"> </span>alertmanager<span class="w"> </span>secret<span class="w"> </span>alertmanager-alertmanager<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.data.alertmanager\.yaml}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-d<span class="w"> </span>&gt;<span class="w"> </span>alertmanager.yaml
 

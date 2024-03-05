@@ -3808,7 +3808,7 @@ kubectl<span class="w"> </span>create<span class="w"> </span>rolebinding<span cl
 <span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>kubeconfig_ci_cd.yaml
 </code></pre></div>
 <p>The generated <code>kubeconfig_ci_cd.yaml</code> can then be used in your CI/CD pipeline.
-Note that, <code>KUBECONFIG</code>s -- especially the token -- <strong>must</strong> be treated as a secret and injected into the CI/CD pipeline via a proper secrets handing feature, such as GitLab CI's <a href="https://docs.gitlab.com/ee/ci/variables/#protect-a-cicd-variable">protected variable</a> and GitHub Action's <a href="https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#using-encrypted-secrets-in-a-workflow">secrets</a>.</p>
+Note that, <code>KUBECONFIG</code>s -- especially the token -- <strong>must</strong> be treated as a secret and injected into the CI/CD pipeline via a proper secrets handing feature, such as GitLab CI's <a href="https://docs.gitlab.com/ee/ci/variables/#protect-a-cicd-variable">protected variable</a> and GitHub Action's <a href="https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#using-secrets-in-a-workflow">secrets</a>.</p>
 <h2 id="example-github-actions">Example: GitHub Actions<a class="headerlink" href="#example-github-actions" title="Permanent link">&para;</a></h2>
 <p>Please find a concrete example for GitHub Actions <a href="https://github.com/elastisys/compliantkubernetes/blob/main/.github/workflows/user-demo.yml.example">here</a>. Below is the produced output:</p>
 <p><img alt="GitHub Actions Example Output" src="../img/github-actions-screenshot.png" /></p>
