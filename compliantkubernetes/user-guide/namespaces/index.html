@@ -726,6 +726,21 @@ if(!document.__defineGetter__) {
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Resource Propagation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opt-in-propagation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opt-in Propagation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3542,6 +3557,21 @@ if(!document.__defineGetter__) {
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Resource Propagation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opt-in-propagation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opt-in Propagation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3630,14 +3660,12 @@ kubectl<span class="w"> </span>hns<span class="w"> </span>tree<span class="w"> <
 </code></pre></div></p>
 </div>
 <h2 id="resource-propagation">Resource Propagation<a class="headerlink" href="#resource-propagation" title="Permanent link">&para;</a></h2>
-<p>When a subnamespace is created all <code>Roles</code> and <code>RoleBindings</code> will propagate from the parent namespace to the descendant namespace to ensure that correct access is set. This is what lets you apply namespace-scoped RBAC resources to multiple namespaces at once.
+<p>When a subnamespace is created all <code>Roles</code>, <code>RoleBindings</code> and <code>NetworkPolicies</code> will propagate from the parent namespace to the descendant namespace to ensure that correct access is set. This is what lets you apply namespace-scoped RBAC resources to multiple namespaces at once.
 Propagated copies cannot be modified, these types of resources cannot be created in a parent namespace if it conflicts with a resource in a descendant namespace.
-To put an exception annotate the <code>Role</code> or <code>RoleBinding</code> with <code>propagate.hnc.x-k8s.io/none: "true"</code> to prevent if from being propagated at all.
+To put an exception, annotate the <code>Role</code>, <code>RoleBinding</code> or <code>NetworkPolicy</code> with <code>propagate.hnc.x-k8s.io/none: "true"</code> to prevent it from being propagated at all.
 Another option is to only propagate to selected descendant namespaces use <code>propagate.hnc.x-k8s.io/treeSelect: ...</code>, include descendant namespaces with <code>&lt;descendant-namespace&gt;</code> or exclude namespaces with <code>!&lt;descendant-namespace&gt;</code>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>In Compliant Kubernetes <code>v0.27.0</code> and later <code>NetworkPolicies</code> will also propagate from the parent namespace to the descendant namespace just like <code>Roles</code> and <code>Rolebindings</code>.</p>
-</div>
+<h3 id="opt-in-propagation">Opt-in Propagation<a class="headerlink" href="#opt-in-propagation" title="Permanent link">&para;</a></h3>
+<p>HNC has the option to enable opt-in propagation for additional resources such as <code>Secrets</code>. This allows you to specify additional resources that you want propagated, but only if the object has a valid <a href="https://github.com/kubernetes-sigs/hierarchical-namespaces/blob/master/docs/user-guide/how-to.md#limit-the-propagation-of-an-object-to-descendant-namespaces">selector annotation</a> set, while ignoring others. If you want to enable this feature, you can file a service ticket or contact your Platform Administrator with a list of resources that you want it enabled for.</p>
 <h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://github.com/kubernetes-sigs/hierarchical-namespaces/tree/master/docs/user-guide">HNC User Documentation</a></li>
