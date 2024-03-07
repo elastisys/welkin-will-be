@@ -3719,10 +3719,10 @@ if(!document.__defineGetter__) {
 </div>
 <p>Go deeper into <a href="../metrics/">metrics</a>.</p>
 <h3 id="alert-on-application-metrics">Alert on Application Metrics<a class="headerlink" href="#alert-on-application-metrics" title="Permanent link">&para;</a></h3>
-<p>Visualizing monitoring metrics is one thing. Sometimes, you may need to act on what they show, immediately. For that reason, the Prometheus monitoring system includes AlertManager.</p>
+<p>Visualizing monitoring metrics is one thing. Sometimes, you may need to act on what they show, immediately. For that reason, the Prometheus monitoring system includes Alertmanager.</p>
 <ul>
 <li>Prometheus is responsible for maintaining a set of Rules, which express trigger conditions via expressions. Once a rule has triggered, it has entered an alerting state.</li>
-<li>AlertManager is responsible for forwarding information about any rules in the alerting state to your chosen destination, which could be your company's Slack or similar. <a href="https://prometheus.io/docs/alerting/latest/configuration/">A number of integrations are available</a>.</li>
+<li>Alertmanager is responsible for forwarding information about any rules in the alerting state to your chosen destination, which could be your company's Slack or similar. <a href="https://prometheus.io/docs/alerting/latest/configuration/">A number of integrations are available</a>.</li>
 </ul>
 <p>If you wish to create rules based on application-specific monitoring metrics, you must first create appropriate ServiceMonitors as described above.</p>
 <p>The user demo already includes a <a href="https://github.com/elastisys/compliantkubernetes/blob/main/user-demo/deploy/ck8s-user-demo/templates/prometheusrule.yaml">PrometheusRule</a>, to configure an alert:</p>
@@ -3741,7 +3741,7 @@ if(!document.__defineGetter__) {
 <span class="w">      </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rate(http_request_duration_seconds_count[1m])&gt;1</span>
 <span class="p p-Indicator">{{</span><span class="nv">- end</span><span class="w"> </span><span class="p p-Indicator">}}</span>
 </code></pre></div>
-<p>The screenshot below gives an example of the application alert, as seen in AlertManager.</p>
+<p>The screenshot below gives an example of the application alert, as seen in Alertmanager.</p>
 <p><img alt="Example of User Demo Alerts" src="../../img/user-demo-alerts.png" /></p>
 <p>Go deeper into <a href="../alerts/">metric alerts</a>.</p>
 <h3 id="alert-on-log-contents">Alert on Log Contents<a class="headerlink" href="#alert-on-log-contents" title="Permanent link">&para;</a></h3>
