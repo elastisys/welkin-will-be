@@ -12,13 +12,9 @@
         <meta name="author" content="Elastisys AB">
       
       
-        <link rel="canonical" href="https://elastisys.io/compliantkubernetes/adr/">
+        <link rel="canonical" href="https://elastisys.io/compliantkubernetes/adr/0045-use-specialised-prebuilt-images/">
       
       
-        <link rel="prev" href="../architecture/">
-      
-      
-        <link rel="next" href="../tech-radar/">
       
       
       <link rel="icon" href="https://elastisys.io/compliantkubernetes/img/favicon.ico">
@@ -26,14 +22,14 @@
     
     
       
-        <title>Architectural Decision Log - Elastisys Compliant Kubernetes</title>
+        <title>Use specialised prebuilt images - Elastisys Compliant Kubernetes</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.7e359304.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,13 +42,13 @@
       
     
     
-      <link rel="stylesheet" href="../stylesheets/branding.css">
+      <link rel="stylesheet" href="../../stylesheets/branding.css">
     
-      <link rel="stylesheet" href="../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-      <link rel="stylesheet" href="../stylesheets/style.css">
+      <link rel="stylesheet" href="../../stylesheets/style.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
 
 <!-- Matomo Tag Manager -->
@@ -71,11 +67,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Architectural Decision Log - Elastisys Compliant Kubernetes" >
+        <meta  property="og:title"  content="Use specialised prebuilt images - Elastisys Compliant Kubernetes" >
       
         <meta  property="og:description"  content="Kubernetes platform designed for security and compliance with ISO27001 and EU regulations: GDPR, NIS2, …" >
       
-        <meta  property="og:image"  content="https://elastisys.io/compliantkubernetes/assets/images/social/adr/index.png" >
+        <meta  property="og:image"  content="https://elastisys.io/compliantkubernetes/assets/images/social/adr/0045-use-specialised-prebuilt-images.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -83,15 +79,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://elastisys.io/compliantkubernetes/adr/" >
+        <meta  property="og:url"  content="https://elastisys.io/compliantkubernetes/adr/0045-use-specialised-prebuilt-images/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Architectural Decision Log - Elastisys Compliant Kubernetes" >
+        <meta  name="twitter:title"  content="Use specialised prebuilt images - Elastisys Compliant Kubernetes" >
       
         <meta  name="twitter:description"  content="Kubernetes platform designed for security and compliance with ISO27001 and EU regulations: GDPR, NIS2, …" >
       
-        <meta  name="twitter:image"  content="https://elastisys.io/compliantkubernetes/assets/images/social/adr/index.png" >
+        <meta  name="twitter:image"  content="https://elastisys.io/compliantkubernetes/assets/images/social/adr/0045-use-specialised-prebuilt-images.png" >
       
     
     
@@ -152,7 +148,7 @@ if(!document.__defineGetter__) {
     <div data-md-component="skip">
       
         
-        <a href="#architectural-decision-log" class="md-skip">
+        <a href="#use-specialised-prebuilt-images" class="md-skip">
           Skip to content
         </a>
       
@@ -172,9 +168,9 @@ if(!document.__defineGetter__) {
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Elastisys Compliant Kubernetes" class="md-header__button md-logo" aria-label="Elastisys Compliant Kubernetes" data-md-component="logo">
+    <a href="../.." title="Elastisys Compliant Kubernetes" class="md-header__button md-logo" aria-label="Elastisys Compliant Kubernetes" data-md-component="logo">
       
-  <img src="../img/logo.png" alt="logo">
+  <img src="../../img/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -191,7 +187,7 @@ if(!document.__defineGetter__) {
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Architectural Decision Log
+              Use specialised prebuilt images
             
           </span>
         </div>
@@ -247,7 +243,7 @@ if(!document.__defineGetter__) {
 <ul class="header-links">
   <li>
     <a href="https://github.com/elastisys/compliantkubernetes/">
-      <img width="25px" src="../img/git-alt.svg" alt="Git logo" />
+      <img width="25px" src="../../img/git-alt.svg" alt="Git logo" />
     </a>
   </li>
   <li><a href="https://elastisys.com/" class="menu-callout">Try out Managed<br/>Compliant Kubernetes</a></li>
@@ -279,9 +275,9 @@ if(!document.__defineGetter__) {
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Elastisys Compliant Kubernetes" class="md-nav__button md-logo" aria-label="Elastisys Compliant Kubernetes" data-md-component="logo">
+    <a href="../.." title="Elastisys Compliant Kubernetes" class="md-nav__button md-logo" aria-label="Elastisys Compliant Kubernetes" data-md-component="logo">
       
-  <img src="../img/logo.png" alt="logo">
+  <img src="../../img/logo.png" alt="logo">
 
     </a>
     Elastisys Compliant Kubernetes
@@ -293,7 +289,7 @@ if(!document.__defineGetter__) {
 <ul class="header-links">
   <li>
     <a href="https://github.com/elastisys/compliantkubernetes/">
-      <img width="25px" src="../img/git-alt.svg" alt="Git logo" />
+      <img width="25px" src="../../img/git-alt.svg" alt="Git logo" />
     </a>
   </li>
   <li><a href="https://elastisys.com/" class="menu-callout">Try out Managed<br/>Compliant Kubernetes</a></li>
@@ -309,7 +305,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -399,7 +395,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/prepare/" class="md-nav__link">
+      <a href="../../user-guide/prepare/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -420,7 +416,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/deploy/" class="md-nav__link">
+      <a href="../../user-guide/deploy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -441,7 +437,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/operate/" class="md-nav__link">
+      <a href="../../user-guide/operate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -505,7 +501,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/prepare-application/" class="md-nav__link">
+      <a href="../../user-guide/prepare-application/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -526,7 +522,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/prepare-idp/" class="md-nav__link">
+      <a href="../../user-guide/prepare-idp/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -547,7 +543,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/registry/" class="md-nav__link">
+      <a href="../../user-guide/registry/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -568,7 +564,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/continous-development/" class="md-nav__link">
+      <a href="../../user-guide/continous-development/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -589,7 +585,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/network-model/" class="md-nav__link">
+      <a href="../../user-guide/network-model/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -610,7 +606,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/kubernetes-api/" class="md-nav__link">
+      <a href="../../user-guide/kubernetes-api/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -631,7 +627,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/kubernetes-ui/" class="md-nav__link">
+      <a href="../../user-guide/kubernetes-ui/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -652,7 +648,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/namespaces/" class="md-nav__link">
+      <a href="../../user-guide/namespaces/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -673,7 +669,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/logs/" class="md-nav__link">
+      <a href="../../user-guide/logs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -694,7 +690,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/log-based-alerts/" class="md-nav__link">
+      <a href="../../user-guide/log-based-alerts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -715,7 +711,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/long-term-log-retention/" class="md-nav__link">
+      <a href="../../user-guide/long-term-log-retention/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -736,7 +732,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/metrics/" class="md-nav__link">
+      <a href="../../user-guide/metrics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -757,7 +753,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/alerts/" class="md-nav__link">
+      <a href="../../user-guide/alerts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -778,7 +774,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/maintenance/" class="md-nav__link">
+      <a href="../../user-guide/maintenance/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -799,7 +795,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/backup/" class="md-nav__link">
+      <a href="../../user-guide/backup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -820,7 +816,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/ci-cd/" class="md-nav__link">
+      <a href="../../user-guide/ci-cd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -841,7 +837,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/demarcation/" class="md-nav__link">
+      <a href="../../user-guide/demarcation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -862,7 +858,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/delegation/" class="md-nav__link">
+      <a href="../../user-guide/delegation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -883,7 +879,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/how-many-environments/" class="md-nav__link">
+      <a href="../../user-guide/how-many-environments/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -904,7 +900,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/cluster-api/" class="md-nav__link">
+      <a href="../../user-guide/cluster-api/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -968,7 +964,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/safeguards/" class="md-nav__link">
+      <a href="../../user-guide/safeguards/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -989,7 +985,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/safeguards/enforce-no-root/" class="md-nav__link">
+      <a href="../../user-guide/safeguards/enforce-no-root/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1010,7 +1006,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/safeguards/enforce-podsecuritypolicies/" class="md-nav__link">
+      <a href="../../user-guide/safeguards/enforce-podsecuritypolicies/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1031,7 +1027,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/safeguards/enforce-networkpolicies/" class="md-nav__link">
+      <a href="../../user-guide/safeguards/enforce-networkpolicies/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1052,7 +1048,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/safeguards/enforce-resources/" class="md-nav__link">
+      <a href="../../user-guide/safeguards/enforce-resources/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1073,7 +1069,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/safeguards/enforce-trusted-registries/" class="md-nav__link">
+      <a href="../../user-guide/safeguards/enforce-trusted-registries/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1094,7 +1090,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/safeguards/enforce-no-latest-tag/" class="md-nav__link">
+      <a href="../../user-guide/safeguards/enforce-no-latest-tag/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1115,7 +1111,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/safeguards/enforce-job-ttl/" class="md-nav__link">
+      <a href="../../user-guide/safeguards/enforce-job-ttl/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1136,7 +1132,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/safeguards/enforce-no-load-balancer-service/" class="md-nav__link">
+      <a href="../../user-guide/safeguards/enforce-no-load-balancer-service/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1200,7 +1196,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/additional-services/" class="md-nav__link">
+      <a href="../../user-guide/additional-services/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1221,7 +1217,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/additional-services/postgresql/" class="md-nav__link">
+      <a href="../../user-guide/additional-services/postgresql/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1242,7 +1238,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/additional-services/timescaledb/" class="md-nav__link">
+      <a href="../../user-guide/additional-services/timescaledb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1263,7 +1259,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/additional-services/redis/" class="md-nav__link">
+      <a href="../../user-guide/additional-services/redis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1284,7 +1280,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/additional-services/rabbitmq/" class="md-nav__link">
+      <a href="../../user-guide/additional-services/rabbitmq/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1305,7 +1301,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/additional-services/jaeger/" class="md-nav__link">
+      <a href="../../user-guide/additional-services/jaeger/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1326,7 +1322,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/additional-services/argocd/" class="md-nav__link">
+      <a href="../../user-guide/additional-services/argocd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1390,7 +1386,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/self-managed-services/ferretdb/" class="md-nav__link">
+      <a href="../../user-guide/self-managed-services/ferretdb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1411,7 +1407,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/self-managed-services/keycloak/" class="md-nav__link">
+      <a href="../../user-guide/self-managed-services/keycloak/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1432,7 +1428,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/self-managed-services/jupyterhub/" class="md-nav__link">
+      <a href="../../user-guide/self-managed-services/jupyterhub/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1453,7 +1449,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/self-managed-services/sealedsecrets/" class="md-nav__link">
+      <a href="../../user-guide/self-managed-services/sealedsecrets/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1474,7 +1470,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/self-managed-services/mongodb/" class="md-nav__link">
+      <a href="../../user-guide/self-managed-services/mongodb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1495,7 +1491,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/self-managed-services/sjunet/" class="md-nav__link">
+      <a href="../../user-guide/self-managed-services/sjunet/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1516,7 +1512,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/self-managed-services/flux/" class="md-nav__link">
+      <a href="../../user-guide/self-managed-services/flux/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1537,7 +1533,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/self-managed-services/kafka/" class="md-nav__link">
+      <a href="../../user-guide/self-managed-services/kafka/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1566,7 +1562,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/go-live/" class="md-nav__link">
+      <a href="../../user-guide/go-live/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1587,7 +1583,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/troubleshooting/" class="md-nav__link">
+      <a href="../../user-guide/troubleshooting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1608,7 +1604,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/faq/" class="md-nav__link">
+      <a href="../../user-guide/faq/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1671,7 +1667,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../operator-manual/" class="md-nav__link">
+      <a href="../../operator-manual/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1692,7 +1688,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../operator-manual/getting-started/" class="md-nav__link">
+      <a href="../../operator-manual/getting-started/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1713,7 +1709,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../operator-manual/provider-audit/" class="md-nav__link">
+      <a href="../../operator-manual/provider-audit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1734,7 +1730,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../operator-manual/on-prem-standard/" class="md-nav__link">
+      <a href="../../operator-manual/on-prem-standard/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1755,7 +1751,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../operator-manual/air-gapped-environment/" class="md-nav__link">
+      <a href="../../operator-manual/air-gapped-environment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1776,7 +1772,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../operator-manual/qa/" class="md-nav__link">
+      <a href="../../operator-manual/qa/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1832,7 +1828,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../operator-manual/configure/" class="md-nav__link">
+      <a href="../../operator-manual/configure/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1853,7 +1849,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../operator-manual/cluster-sizing/" class="md-nav__link">
+      <a href="../../operator-manual/cluster-sizing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1874,7 +1870,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../operator-manual/ingress/" class="md-nav__link">
+      <a href="../../operator-manual/ingress/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1895,7 +1891,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../operator-manual/access-control/" class="md-nav__link">
+      <a href="../../operator-manual/access-control/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1916,7 +1912,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../operator-manual/opensearch-mappings/" class="md-nav__link">
+      <a href="../../operator-manual/opensearch-mappings/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1937,7 +1933,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../operator-manual/user-alerts/" class="md-nav__link">
+      <a href="../../operator-manual/user-alerts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1958,7 +1954,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../operator-manual/user-managed-crds/" class="md-nav__link">
+      <a href="../../operator-manual/user-managed-crds/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1987,7 +1983,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../operator-manual/disaster-recovery/" class="md-nav__link">
+      <a href="../../operator-manual/disaster-recovery/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2008,7 +2004,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../operator-manual/break-glass/" class="md-nav__link">
+      <a href="../../operator-manual/break-glass/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2029,7 +2025,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../operator-manual/cryptography/" class="md-nav__link">
+      <a href="../../operator-manual/cryptography/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2050,7 +2046,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../operator-manual/credentials/" class="md-nav__link">
+      <a href="../../operator-manual/credentials/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2071,7 +2067,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../operator-manual/capacity-management/" class="md-nav__link">
+      <a href="../../operator-manual/capacity-management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2092,7 +2088,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../operator-manual/clock-synchronization/" class="md-nav__link">
+      <a href="../../operator-manual/clock-synchronization/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2113,7 +2109,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../operator-manual/maintenance/" class="md-nav__link">
+      <a href="../../operator-manual/maintenance/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2134,7 +2130,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../operator-manual/clean-up/" class="md-nav__link">
+      <a href="../../operator-manual/clean-up/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2155,7 +2151,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../operator-manual/troubleshooting/" class="md-nav__link">
+      <a href="../../operator-manual/troubleshooting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2176,7 +2172,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../operator-manual/faq/" class="md-nav__link">
+      <a href="../../operator-manual/faq/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2197,7 +2193,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../operator-manual/additional-services/" class="md-nav__link">
+      <a href="../../operator-manual/additional-services/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2260,7 +2256,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../ciso-guide/" class="md-nav__link">
+      <a href="../../ciso-guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2281,7 +2277,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../ciso-guide/controls/gdpr/" class="md-nav__link">
+      <a href="../../ciso-guide/controls/gdpr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2302,7 +2298,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../ciso-guide/controls/iso-27001/" class="md-nav__link">
+      <a href="../../ciso-guide/controls/iso-27001/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2358,7 +2354,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../ciso-guide/controls/hslf-fs-201640/" class="md-nav__link">
+      <a href="../../ciso-guide/controls/hslf-fs-201640/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2379,7 +2375,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../ciso-guide/controls/hipaa/" class="md-nav__link">
+      <a href="../../ciso-guide/controls/hipaa/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2400,7 +2396,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../ciso-guide/controls/mdr/" class="md-nav__link">
+      <a href="../../ciso-guide/controls/mdr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2464,7 +2460,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../ciso-guide/controls/msbfs-20207/" class="md-nav__link">
+      <a href="../../ciso-guide/controls/msbfs-20207/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2528,7 +2524,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../ciso-guide/nis2/" class="md-nav__link">
+      <a href="../../ciso-guide/nis2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2549,7 +2545,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../ciso-guide/controls/kritis/" class="md-nav__link">
+      <a href="../../ciso-guide/controls/kritis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2570,7 +2566,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../ciso-guide/controls/bsi-it-grundschutz/" class="md-nav__link">
+      <a href="../../ciso-guide/controls/bsi-it-grundschutz/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2591,7 +2587,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../ciso-guide/controls/msbfs-20188/" class="md-nav__link">
+      <a href="../../ciso-guide/controls/msbfs-20188/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2620,7 +2616,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../ciso-guide/controls/nist-sp-800-171/" class="md-nav__link">
+      <a href="../../ciso-guide/controls/nist-sp-800-171/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2676,7 +2672,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../ciso-guide/audit-logs/" class="md-nav__link">
+      <a href="../../ciso-guide/audit-logs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2697,7 +2693,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../ciso-guide/backup/" class="md-nav__link">
+      <a href="../../ciso-guide/backup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2718,7 +2714,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../ciso-guide/cryptography/" class="md-nav__link">
+      <a href="../../ciso-guide/cryptography/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2739,7 +2735,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../ciso-guide/intrusion-detection/" class="md-nav__link">
+      <a href="../../ciso-guide/intrusion-detection/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2760,7 +2756,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../ciso-guide/policy-as-code/" class="md-nav__link">
+      <a href="../../ciso-guide/policy-as-code/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2781,7 +2777,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../ciso-guide/network-security/" class="md-nav__link">
+      <a href="../../ciso-guide/network-security/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2802,7 +2798,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../ciso-guide/capacity-management/" class="md-nav__link">
+      <a href="../../ciso-guide/capacity-management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2823,7 +2819,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../ciso-guide/vulnerability/" class="md-nav__link">
+      <a href="../../ciso-guide/vulnerability/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2844,7 +2840,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../ciso-guide/log-review/" class="md-nav__link">
+      <a href="../../ciso-guide/log-review/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2873,7 +2869,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../ciso-guide/faq/" class="md-nav__link">
+      <a href="../../ciso-guide/faq/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2894,7 +2890,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../ciso-guide/gdpr-art-17/" class="md-nav__link">
+      <a href="../../ciso-guide/gdpr-art-17/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2919,19 +2915,17 @@ if(!document.__defineGetter__) {
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -2945,7 +2939,7 @@ if(!document.__defineGetter__) {
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             For Contributors
@@ -2959,7 +2953,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../contributor-guide/" class="md-nav__link">
+      <a href="../../contributor-guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2980,7 +2974,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../architecture/" class="md-nav__link">
+      <a href="../../architecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2998,30 +2992,10 @@ if(!document.__defineGetter__) {
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Architectural Decision Log
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3030,98 +3004,6 @@ if(!document.__defineGetter__) {
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#mapping-to-iso-27001-controls" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mapping to ISO 27001 Controls
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-are-architectural-decisions" class="md-nav__link">
-    <span class="md-ellipsis">
-      What are architectural decisions?
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-triggers-an-architectural-decision" class="md-nav__link">
-    <span class="md-ellipsis">
-      What triggers an architectural decision?
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-are-architectural-decisions-captured" class="md-nav__link">
-    <span class="md-ellipsis">
-      How are architectural decisions captured?
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-are-architectural-decisions-taken" class="md-nav__link">
-    <span class="md-ellipsis">
-      How are architectural decisions taken?
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-are-these-risks-mitigated" class="md-nav__link">
-    <span class="md-ellipsis">
-      How are these risks mitigated?
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#adrs" class="md-nav__link">
-    <span class="md-ellipsis">
-      ADRs
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#index-regeneration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Index Regeneration
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3134,7 +3016,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../tech-radar/" class="md-nav__link">
+      <a href="../../tech-radar/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3197,7 +3079,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../release-notes/ck8s/" class="md-nav__link">
+      <a href="../../release-notes/ck8s/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3218,7 +3100,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../release-notes/kubespray/" class="md-nav__link">
+      <a href="../../release-notes/kubespray/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3239,7 +3121,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../release-notes/capi/" class="md-nav__link">
+      <a href="../../release-notes/capi/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3260,7 +3142,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../release-notes/postgres/" class="md-nav__link">
+      <a href="../../release-notes/postgres/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3281,7 +3163,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../release-notes/rabbitmq/" class="md-nav__link">
+      <a href="../../release-notes/rabbitmq/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3302,7 +3184,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../release-notes/redis/" class="md-nav__link">
+      <a href="../../release-notes/redis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3323,7 +3205,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../release-notes/jaeger/" class="md-nav__link">
+      <a href="../../release-notes/jaeger/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3344,7 +3226,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../release-notes/argocd/" class="md-nav__link">
+      <a href="../../release-notes/argocd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3372,7 +3254,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../glossary/" class="md-nav__link">
+      <a href="../../glossary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3392,7 +3274,7 @@ if(!document.__defineGetter__) {
   
   
     <li class="md-nav__item">
-      <a href="../roadmap/" class="md-nav__link">
+      <a href="../../roadmap/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3552,74 +3434,104 @@ if(!document.__defineGetter__) {
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#mapping-to-iso-27001-controls" class="md-nav__link">
+  <a href="#context-and-problem-statement" class="md-nav__link">
     <span class="md-ellipsis">
-      Mapping to ISO 27001 Controls
+      Context and Problem Statement
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-are-architectural-decisions" class="md-nav__link">
+  <a href="#decision-drivers" class="md-nav__link">
     <span class="md-ellipsis">
-      What are architectural decisions?
+      Decision Drivers 
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-triggers-an-architectural-decision" class="md-nav__link">
+  <a href="#considered-options" class="md-nav__link">
     <span class="md-ellipsis">
-      What triggers an architectural decision?
+      Considered Options
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-are-architectural-decisions-captured" class="md-nav__link">
+  <a href="#decision-outcome" class="md-nav__link">
     <span class="md-ellipsis">
-      How are architectural decisions captured?
+      Decision Outcome
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Decision Outcome">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#positive-consequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      Positive Consequences 
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#how-are-architectural-decisions-taken" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#negative-consequences" class="md-nav__link">
     <span class="md-ellipsis">
-      How are architectural decisions taken?
+      Negative Consequences 
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#how-are-these-risks-mitigated" class="md-nav__link">
-    <span class="md-ellipsis">
-      How are these risks mitigated?
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#adrs" class="md-nav__link">
+  <a href="#pros-and-cons-of-the-options" class="md-nav__link">
     <span class="md-ellipsis">
-      ADRs
+      Pros and Cons of the Options 
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pros and Cons of the Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-build-specialised-images-one-for-all-required-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 1: Build specialised images one for all required configurations
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#index-regeneration" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#option-2-build-specialised-images-one-for-each-required-configuration" class="md-nav__link">
     <span class="md-ellipsis">
-      Index Regeneration
+      Option 2: Build specialised images one for each required configuration
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-3-build-no-specialised-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 3: Build no specialised images
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3636,159 +3548,72 @@ if(!document.__defineGetter__) {
               <article class="md-content__inner md-typeset">
                 
                   
-  
-<nav class="md-tags" >
-  
-    
-    
-    
-      <a href="../ciso-guide/controls/iso-27001/#iso-27001-a1411-information-security-requirements-analysis-specification" class="md-tag">ISO 27001 A.14.1.1 Information Security Requirements Analysis & Specification</a>
-    
-  
-    
-    
-    
-      <a href="../ciso-guide/controls/iso-27001/#iso-27001-a1424-restrictions-on-changes-to-software-packages" class="md-tag">ISO 27001 A.14.2.4 Restrictions on Changes to Software Packages</a>
-    
-  
-    
-    
-    
-      <a href="../ciso-guide/controls/nist-sp-800-171/#nist-sp-800-171-3132" class="md-tag">NIST SP 800-171 3.13.2</a>
-    
-  
-    
-    
-    
-      <a href="../ciso-guide/controls/nist-sp-800-171/#nist-sp-800-171-3133" class="md-tag">NIST SP 800-171 3.13.3</a>
-    
-  
-</nav>
-
 
   
   
 
 
-<h1 id="architectural-decision-log">Architectural Decision Log<a class="headerlink" href="#architectural-decision-log" title="Permanent link">&para;</a></h1>
-<h2 id="mapping-to-iso-27001-controls">Mapping to ISO 27001 Controls<a class="headerlink" href="#mapping-to-iso-27001-controls" title="Permanent link">&para;</a></h2>
+<h1 id="use-specialised-prebuilt-images">Use specialised prebuilt images<a class="headerlink" href="#use-specialised-prebuilt-images" title="Permanent link">&para;</a></h1>
 <ul>
-<li>A.14.1.1 "Information security requirements analysis and specification"</li>
-<li>A.14.2.4 "Restrictions on Changes to Software Packages"</li>
+<li>Status: Accepted</li>
+<li>Deciders: Architecture meeting</li>
+<li>Date: 2024-01-18</li>
 </ul>
-<h2 id="what-are-architectural-decisions">What are architectural decisions?<a class="headerlink" href="#what-are-architectural-decisions" title="Permanent link">&para;</a></h2>
-<p>Architectural decisions are high-level technical decisions that affect most stakeholders, in particular Compliant Kubernetes developers, administrators and users.
-A non-exhaustive list of architectural decisions is as follows:</p>
+<h2 id="context-and-problem-statement">Context and Problem Statement<a class="headerlink" href="#context-and-problem-statement" title="Permanent link">&para;</a></h2>
+<p>Some of the upstream images we include relies on package or plugins managers to enable support during runtime for different infrastructure providers.</p>
+<p>This is a security concern as a malicious actor could modify the packages or plugins to compromise the workload, and a reliability concern as even a good actor could take down packages which would render the workload unavailable.</p>
+<p>To improve both the security and reliability of the platform we should therefore take better control over the workloads it includes to provide the images it needs, without external reliance on packages or plugins.</p>
+<h2 id="decision-drivers">Decision Drivers <!-- optional --><a class="headerlink" href="#decision-drivers" title="Permanent link">&para;</a></h2>
 <ul>
-<li>adding or removing tools;</li>
-<li>adding or removing components;</li>
-<li>changing what component talks to what other component;</li>
-<li>major (in the <a href="https://semver.org/">SemVer</a> sense) component upgrades.</li>
+<li>Improve the security of the platform by preventing malicious packages and plugins to be installed during runtime.</li>
+<li>Improve the reliability of the platform by ensuring required packages and plugins are provided in the images.</li>
 </ul>
-<p>Architectural decisions should be taken as directions to follow for future development and not issues to be fixed immediately.</p>
-<h2 id="what-triggers-an-architectural-decision">What triggers an architectural decision?<a class="headerlink" href="#what-triggers-an-architectural-decision" title="Permanent link">&para;</a></h2>
-<p>An architectural decision generally starts with one of the following:</p>
+<h2 id="considered-options">Considered Options<a class="headerlink" href="#considered-options" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Build specialised images one for all required configurations</li>
+<li>Build specialised images one for each required configuration</li>
+<li>Build no specialised images</li>
+</ol>
+<h2 id="decision-outcome">Decision Outcome<a class="headerlink" href="#decision-outcome" title="Permanent link">&para;</a></h2>
+<p>Chosen option 2, since it will improve upon the two issues above and provide each configuration with images using minimal software.</p>
+<p>The tagging should follow the following scheme:</p>
+<div class="highlight"><pre><span></span><code>&lt;registry&gt;/&lt;repository&gt;/&lt;application&gt;:&lt;application-version&gt;-&lt;variant-identifier&gt;&lt;variant-version&gt;
+</code></pre></div>
+<p>With variant matching the configuration variant to support, example different object storage services AWS/S3, OpenStack/Swift, etc., and the version of the plugin supporting it.</p>
+<p>Example for Velero with AWS/S3 support:</p>
+<div class="highlight"><pre><span></span><code>ghcr.io/elastisys/compliantkubernetes-apps/velero:1.12.3-aws1.8.2
+</code></pre></div>
+<p>The application version should not have any version prefix and the variant identifier and variant version should not have any separator.
+This is similar to the version scheme used by the Docker Community and how they identify different base image variants.</p>
+<h3 id="positive-consequences">Positive Consequences <!-- optional --><a class="headerlink" href="#positive-consequences" title="Permanent link">&para;</a></h3>
 <ul>
-<li>A new features was requested by product management.</li>
-<li>An improvement was requested by engineering management.</li>
-<li>A new risk was discovered, usually by the architect, but also by any stakeholder.</li>
-<li>A new technology was discovered, that may help with a new feature, an improvement or to mitigate a risk.</li>
+<li>Increased control over the software supply chain.</li>
+<li>Increased platform security and reliability.</li>
+<li>Starts the process to better manage, update, and verify images used as part of the platform.</li>
 </ul>
-<h2 id="how-are-architectural-decisions-captured">How are architectural decisions captured?<a class="headerlink" href="#how-are-architectural-decisions-captured" title="Permanent link">&para;</a></h2>
-<p>Architectural decisions are captured via <a href="#adrs">Architectural Decision Records</a> or the <a href="../tech-radar/">tech radar</a>.
-Both are stored in Git, hence a decision log is also captured as part of the Git commit messages.</p>
-<h2 id="how-are-architectural-decisions-taken">How are architectural decisions taken?<a class="headerlink" href="#how-are-architectural-decisions-taken" title="Permanent link">&para;</a></h2>
-<p>Architectural decisions need to mitigate the following information security risks:</p>
+<h3 id="negative-consequences">Negative Consequences <!-- optional --><a class="headerlink" href="#negative-consequences" title="Permanent link">&para;</a></h3>
 <ul>
-<li>a component might not fulfill advertised expectations;</li>
-<li>a component might be abandoned;</li>
-<li>a component might change direction and deviate from expectations;</li>
-<li>a component might require a lot of (initial or ongoing) training;</li>
-<li>a component might not take security seriously;</li>
-<li>a component might change its license, prohibiting its reuse or making its use expensive.</li>
+<li>Additional maintenance burden to manage images in addition to charts.</li>
+<li>Departs from the upstream charts and images.</li>
 </ul>
-<p>The Compliant Kubernetes architect is overall responsible for this risk.</p>
-<h2 id="how-are-these-risks-mitigated">How are these risks mitigated?<a class="headerlink" href="#how-are-these-risks-mitigated" title="Permanent link">&para;</a></h2>
-<p>Before taking in any new component to Compliant Kubernetes, we investigate and evaluate them. We prefer components that are:</p>
+<h2 id="pros-and-cons-of-the-options">Pros and Cons of the Options <!-- optional --><a class="headerlink" href="#pros-and-cons-of-the-options" title="Permanent link">&para;</a></h2>
+<h3 id="option-1-build-specialised-images-one-for-all-required-configurations">Option 1: <em>Build specialised images one for all required configurations</em><a class="headerlink" href="#option-1-build-specialised-images-one-for-all-required-configurations" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>community-driven open-source projects</strong>, to reduce the risk of a component becoming abandoned, changing its license or changing direction in the interest of a single entity; as far as possible, we choose <a href="https://landscape.cncf.io/?project=hosted">CNCF projects</a> (preferably graduated ones) or projects which are governed by at least 3 different entities;</li>
-<li><strong>projects with a good security track record</strong>, to avoid unexpected security vulnerabilities or delays in fixing security vulnerabilities; as far as possible, we choose projects with a clear security disclosure process and a clear security announcement process;</li>
-<li><strong>projects that are popular</strong>, both from a usage and contribution perspective; as far as possible, we choose projects featuring well-known users and many Maintainers;</li>
-<li><strong>projects that rely on technologies that our team is already trained on</strong>, to reduce the risk of requiring a lot of (initial or ongoing) training; as far as possible, we choose projects that overlap with the projects already on our <a href="../tech-radar/">tech radar</a>;</li>
-<li><strong>projects that are simple to install and manage</strong>, to reduce required training and burden on administrators.</li>
+<li>Good, removes reliance on external packages and plugins during runtime.</li>
+<li>Bad, requires larger images that might contain vulnerabilities that affect all configurations.</li>
+<li>Bad, requires modifications to upstream images and potentially charts to support it.</li>
 </ul>
-<p>Often, it is not possible to fulfill the above criteria. In that case, we take the following mitigations:</p>
+<h3 id="option-2-build-specialised-images-one-for-each-required-configuration">Option 2: <em>Build specialised images one for each required configuration</em><a class="headerlink" href="#option-2-build-specialised-images-one-for-each-required-configuration" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Architectural Decision Records include recommendations on training to be taken by administrators.</li>
-<li>Closed-source or "as-a-Service" alternatives are used, if they are easy to replace thanks to broad API compatibility or standardization.</li>
+<li>Good, removes reliance on external packages and plugins during runtime.</li>
+<li>Good, allows minimal images that might isolate vulnerabilities to only affect certain configurations.</li>
+<li>Bad, requires modifications to upstream images and potentially charts to support it.</li>
 </ul>
-<p>These mitigations may be relaxed for components that are part of alpha or beta features, as these features -- and required components -- can be removed at our discretion.</p>
-<h2 id="adrs">ADRs<a class="headerlink" href="#adrs" title="Permanent link">&para;</a></h2>
-<p>This log lists the architectural decisions for Compliant Kubernetes.</p>
-<!-- adrlog -- Regenerate the content by using "adr-log -i". You can install it via "npm install -g adr-log" -->
-
+<h3 id="option-3-build-no-specialised-images">Option 3: <em>Build no specialised images</em><a class="headerlink" href="#option-3-build-no-specialised-images" title="Permanent link">&para;</a></h3>
 <ul>
-<li><a href="0000-use-markdown-architectural-decision-records/">ADR-0000</a> - Use Markdown Architectural Decision Records</li>
-<li><a href="0001-use-rook-storage-orchestrator/">ADR-0001</a> - Use Rook for Storage Orchestrator</li>
-<li><a href="0002-use-kubespray-for-cluster-lifecycle/">ADR-0002</a> - Use Kubespray for Cluster Life-cycle</li>
-<li><a href="0003-push-metrics-via-influxdb/">ADR-0003</a> - [Superseded by <a href="0019-push-metrics-via-thanos/">ADR-0019</a>] Push Metrics via InfluxDB</li>
-<li><a href="0004-plan-for-usage-without-wrapper-scripts/">ADR-0004</a> - Plan for Usage without Wrapper Scripts</li>
-<li><a href="0005-use-individual-ssh-keys/">ADR-0005</a> - Use Individual SSH Keys</li>
-<li><a href="0006-use-standard-kubeconfig-mechanisms/">ADR-0006</a> - Use Standard Kubeconfig Mechanisms</li>
-<li><a href="0007-make-monitoring-forwarders-storage-independent/">ADR-0007</a> - Make Monitoring Forwarders Storage Independent</li>
-<li><a href="0008-use-hostnetwork-or-loadbalancer-for-ingress/">ADR-0008</a> - Use HostNetwork or LoadBalancer for Ingress</li>
-<li><a href="0009-use-cluster-issuers-for-letsencrypt/">ADR-0009</a> - Use ClusterIssuers for Let's Encrypt</li>
-<li><a href="0010-run-managed-services-in-workload-cluster/">ADR-0010</a> - Run managed services in Workload Cluster</li>
-<li><a href="0011-let-upstream-projects-handle-crds/">ADR-0011</a> - [Superseded by <a href="0046-handle-crds/">ADR-0046</a>] Let upstream projects handle CRDs</li>
-<li><a href="0012-do-not-persist-dex/">ADR-0012</a> - [Superseded by <a href="0017-persist-dex/">ADR-0017</a>] Do not persist Dex</li>
-<li><a href="0013-configure-alerts-in-omt/">ADR-0013</a> - Configure Alerts in On-call Management Tool (e.g., Opsgenie)</li>
-<li><a href="0014-use-bats-for-testing-bash-wrappers/">ADR-0014</a> - Use bats for testing bash wrappers</li>
-<li><a href="0015-we-believe-in-community-driven-open-source/">ADR-0015</a> - We believe in community-driven open source</li>
-<li><a href="0016-gid-0-is-okey-but-not-by-default/">ADR-0016</a> - [Superseded by <a href="0040-allow-group-id-0/">ADR-0040</a>] gid=0 is okay, but not by default</li>
-<li><a href="0017-persist-dex/">ADR-0017</a> - Persist Dex</li>
-<li><a href="0018-use-probe-to-measure-internal-uptime/">ADR-0018</a> - Use Probe to Measure Uptime of Internal Compliant Kubernetes Services</li>
-<li><a href="0019-push-metrics-via-thanos/">ADR-0019</a> - Push Metrics via Thanos</li>
-<li><a href="0020-filter-by-cluster-label-then-data-source/">ADR-0020</a> - Filter by cluster label then data source</li>
-<li><a href="0021-tls-for-additional-services/">ADR-0021</a> - Default to TLS for performance-insensitive additional services</li>
-<li><a href="0022-use-dedicated-nodes-for-additional-services/">ADR-0022</a> - Use Dedicated Nodes for Additional Services</li>
-<li><a href="0023-allow-snippets-annotations/">ADR-0023</a> - Only allow Ingress Configuration Snippet Annotations after Proper Risk Acceptance</li>
-<li><a href="0024-allow-Harbor-robot-account/">ADR-0024</a> - Allow a Harbor robot account that can create other robot accounts with full privileges</li>
-<li><a href="0025-local-storage/">ADR-0025</a> - Use local-volume-provisioner for Managed Services that requires high-speed disks.</li>
-<li><a href="0026-hnc/">ADR-0026</a> - Use <code>environment-name</code> as the default root of Hierarchical Namespace Controller (HNC)</li>
-<li><a href="0027-postgresql-external-replication/">ADR-0027</a> - PostgreSQL - Enable external replication</li>
-<li><a href="0028-harder-pod-eviction-when-node-goes-OOM/">ADR-0028</a> - Harder pod eviction when nodes are going OOM</li>
-<li><a href="0029-expose-jaeger-ui/">ADR-0029</a> - Expose Jaeger UI in WC</li>
-<li><a href="0030-run-argocd-on-elastisys-nodes/">ADR-0030</a> - Run ArgoCD on the Elastisys nodes</li>
-<li><a href="0031-run-csi-cinder-controllerplugin-on-elastisys-nodes/">ADR-0031</a> - Run csi-cinder-controllerplugin on the Elastisys nodes</li>
-<li><a href="0032-boot-disk-size/">ADR-0032</a> - Boot disk size on nodes</li>
-<li><a href="0033-run-cluster-api-controllers-on-service-cluster/">ADR-0033</a> - Run Cluster API controllers on Management Cluster</li>
-<li><a href="0034-how-to-run-multiple-ams-packages-of-the-same-type/">ADR-0034</a> - How to run multiple AMS packages of the same type in the same environment</li>
-<li><a href="0035-run-tekton-on-service-cluster/">ADR-0035</a> - Run Tekton on Management Cluster</li>
-<li><a href="0036-run-ingress-nginx-as-daemonset/">ADR-0036</a> - Run ingress-nginx as a daemonSet</li>
-<li><a href="0037-enforce-ttl-on-jobs/">ADR-0037</a> - Enforce TTL on Jobs</li>
-<li><a href="0038-replace-starboard-operator-with-trivy-operator/">ADR-0038</a> - Replace the starboard-operator with the trivy-operator</li>
-<li><a href="0039-application-dev-permissions/">ADR-0039</a> - Application developer privilege elevation</li>
-<li><a href="0040-allow-group-id-0/">ADR-0040</a> - Allow running containers with primary and supplementary group id 0</li>
-<li><a href="0041-encryption-at-rest/">ADR-0041</a> - Rely on Infrastructure Provider for encryption-at-rest</li>
-<li><a href="0042-argocd-dynamic-hnc-namespaces/">ADR-0042</a> - ArgoCD with dynamic HNC namespaces</li>
-<li><a href="0043-rclone-and-encryption-adhere-cryptography-policy/">ADR-0043</a> - Rclone and Encryption adheres Cryptography Policy</li>
-<li><a href="0044-argocd-managing-its-own-namespace/">ADR-0044</a> - ArgoCD is not allowed to manage its own namespace.</li>
-<li><a href="0045-use-specialised-prebuilt-images/">ADR-0045</a> - Use specialised, prebuilt images</li>
-<li><a href="0046-handle-crds/">ADR-0046</a> - Handle all CRDs with the standard Helm CRD management</li>
+<li>Bad, requires external packages and plugins during runtime.</li>
+<li>Good, allows use of upstream images and charts as is.</li>
 </ul>
-<!-- adrlogstop -->
-
-<p>For new ADRs, please use <a href="template/">template.md</a> as basis.
-More information on MADR is available at <a href="https://adr.github.io/madr/">https://adr.github.io/madr/</a>.
-General information about architectural decision records is available at <a href="https://adr.github.io/">https://adr.github.io/</a>.</p>
-<h2 id="index-regeneration">Index Regeneration<a class="headerlink" href="#index-regeneration" title="Permanent link">&para;</a></h2>
-<p>Pre-requisites:</p>
-<ul>
-<li>Install <a href="https://www.npmjs.com/">npm</a></li>
-<li>Install <a href="https://github.com/adr/adr-log#install">adr-log</a></li>
-<li>Install <a href="https://packages.ubuntu.com/search?keywords=make">make</a></li>
-</ul>
-<p>Run <code>make -C docs/adr</code></p>
 
 
 
@@ -3867,44 +3692,6 @@ General information about architectural decision records is available at <a href
         <footer class="md-footer">
   
     
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-          
-          <a href="../architecture/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Architecture">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              <div class="md-ellipsis">
-                Architecture
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../tech-radar/" class="md-footer__link md-footer__link--next" aria-label="Next: Tech Radar">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Tech Radar
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -3932,12 +3719,12 @@ General information about architectural decision records is available at <a href
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "navigation.footer", "navigation.top"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "navigation.footer", "navigation.top"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.c8d2eff1.min.js"></script>
+      <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
       
-        <script src="../javascripts/feedback.js"></script>
+        <script src="../../javascripts/feedback.js"></script>
       
     
   </body>
