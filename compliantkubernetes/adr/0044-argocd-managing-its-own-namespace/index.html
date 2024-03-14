@@ -3521,7 +3521,7 @@ if(!document.__defineGetter__) {
 <p>Currently, ArgoCD is setup in namespaced mode.
 We give it a <a href="https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#clusters">list of Namespaces</a> that ArgoCD should manage and a list of permissions that it has on those namespaces through ArgoCD's <a href="https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#resource-exclusioninclusion">inclusions</a> and Kubernetes RBAC to the service account to back this.
 This service account has a larger set of permissions than a developer's most privileged accounts do.</p>
-<p>If an Application Developer wants to deploy resources other than ArgoCD <code>apps</code>, <code>applicationSets</code>, and <code>appProjects</code> into the <code>argocd-system</code> namespace via ArgoCD itself, it will fail since <code>argocd-system</code> is not a managed namespace in ArgoCD.</p>
+<p>If an Application Developer wants to deploy ArgoCD resources such as <code>apps</code>, <code>applicationSets</code>, and <code>appProjects</code> into the <code>argocd-system</code> namespace via ArgoCD itself, it will fail since <code>argocd-system</code> is not a managed namespace in ArgoCD. This restriction prevents users from using features like Apps of Apps.</p>
 <p>Do we want to make <code>argocd-system</code> a managed namespace in our ArgoCD offering?</p>
 <h2 id="decision-drivers">Decision Drivers<a class="headerlink" href="#decision-drivers" title="Permanent link">&para;</a></h2>
 <ul>
@@ -3560,6 +3560,7 @@ This service account has a larger set of permissions than a developer's most pri
 <li>This should not count as a negative consequence, because our current security stance is that Application Developers should not be supposed to deploy into the <code>argocd-system</code> Namespace at all.</li>
 </ul>
 </li>
+<li>Features such as Apps of Apps will not be available in our offering.</li>
 </ul>
 
 
