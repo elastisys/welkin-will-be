@@ -4083,6 +4083,10 @@ Correcting this issue will require re-indexing your data.
 
 <h2 id="exporting-logs">Exporting logs<a class="headerlink" href="#exporting-logs" title="Permanent link">&para;</a></h2>
 <p>At the moment the reporting feature in OpenSearch doesn't work so instead we recommend you to use <a href="https://github.com/elasticsearch-dump/elasticsearch-dump">elasticsearch-dump</a>.</p>
+<div class="admonition elastisys">
+<p class="admonition-title">For Elastisys Managed Services Customers</p>
+<p>Elasticsearch-dump is not enabled by default, but can be requested by filing a <a href="https://elastisys.atlassian.net/servicedesk/">service ticket</a>.</p>
+</div>
 <p>Example of exporting the <code>kubernetes-*</code> index pattern to a folder <code>opensearch-dump</code>:</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>elasticdump/elasticsearch-dump
 mkdir<span class="w"> </span>opensearch-dump
