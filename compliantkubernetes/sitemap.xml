@@ -21,6 +21,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://elastisys.io/compliantkubernetes/quality-criteria/</loc>
+         <lastmod>2024-03-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://elastisys.io/compliantkubernetes/roadmap/</loc>
          <lastmod>2024-03-19</lastmod>
          <changefreq>daily</changefreq>
@@ -447,11 +452,6 @@
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/provider-audit/</loc>
-         <lastmod>2024-03-19</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://elastisys.io/compliantkubernetes/operator-manual/qa/</loc>
          <lastmod>2024-03-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
