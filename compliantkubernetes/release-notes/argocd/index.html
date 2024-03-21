@@ -3288,6 +3288,39 @@ if(!document.__defineGetter__) {
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#v299-ck8s1" class="md-nav__link">
+    <span class="md-ellipsis">
+      v2.9.9-ck8s1
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v2.9.9-ck8s1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Improvement(s)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#others" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other(s)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#v295-ck8s1" class="md-nav__link">
     <span class="md-ellipsis">
       v2.9.5-ck8s1
@@ -3589,6 +3622,39 @@ if(!document.__defineGetter__) {
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#v299-ck8s1" class="md-nav__link">
+    <span class="md-ellipsis">
+      v2.9.9-ck8s1
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="v2.9.9-ck8s1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Improvement(s)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#others" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other(s)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#v295-ck8s1" class="md-nav__link">
     <span class="md-ellipsis">
       v2.9.5-ck8s1
@@ -3699,12 +3765,34 @@ if(!document.__defineGetter__) {
 <h2 id="compliant-kubernetes-argo-cd">Compliant Kubernetes Argo CD<a class="headerlink" href="#compliant-kubernetes-argo-cd" title="Permanent link">&para;</a></h2>
 <!-- BEGIN TOC -->
 <ul>
+<li><a href="#v299-ck8s1">v2.9.9-ck8s1</a> - 2024-03-20</li>
 <li><a href="#v295-ck8s1">v2.9.5-ck8s1</a> - 2024-01-30</li>
 <li><a href="#v2714-ck8s1">v2.7.14-ck8s1</a> - 2023-10-31</li>
 <li><a href="#v2420-ck8s1">v2.4.20-ck8s1</a> - 2023-03-29</li>
 </ul>
 <!-- END TOC -->
 
+<h3 id="v299-ck8s1">v2.9.9-ck8s1<a class="headerlink" href="#v299-ck8s1" title="Permanent link">&para;</a></h3>
+<p>Released 2024-03-20</p>
+<div class="admonition danger">
+<p class="admonition-title">Security Notice(s)</p>
+<ul>
+<li>This upgrade mitigates the following high and medium security vulnerabilities:</li>
+<li><a href="https://github.com/argoproj/argo-cd/security/advisories/GHSA-6v85-wr92-q4p7">Denial of Service (DoS) Vulnerability Due to Unsafe Array Modification in Multi-threaded Environment</a></li>
+<li><a href="https://github.com/argoproj/argo-cd/security/advisories/GHSA-2vgg-9h6w-m454">Bypassing Rate Limit and Brute Force Protection Using Cache Overflow</a></li>
+<li><a href="https://github.com/argoproj/argo-cd/security/advisories/GHSA-x32m-mvfj-52xv">Bypassing Brute Force Protection via Application Crash and In-Memory Data Loss</a></li>
+</ul>
+</div>
+<h4 id="improvements">Improvement(s)<a class="headerlink" href="#improvements" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Patch ArgoCD to v2.9.9 - See security notice above.</li>
+<li>Allow application developers to delete and watch ArgoCD resources they create declaratively.</li>
+</ul>
+<h4 id="others">Other(s)<a class="headerlink" href="#others" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Correct network policies for applicationset controller and repo server to allow ApplicationSets to be created.</li>
+<li>Correct Gatekeeper policies to allow ArgoCD secrets to be restored.</li>
+</ul>
 <h3 id="v295-ck8s1">v2.9.5-ck8s1<a class="headerlink" href="#v295-ck8s1" title="Permanent link">&para;</a></h3>
 <p>Released 2024-01-30</p>
 <h4 id="updated">Updated<a class="headerlink" href="#updated" title="Permanent link">&para;</a></h4>
