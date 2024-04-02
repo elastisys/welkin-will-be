@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="https://elastisys.io/compliantkubernetes/img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.15">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e359304.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.bcfcd587.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -1451,9 +1451,9 @@ if(!document.__defineGetter__) {
 </li>
         
           <li class="md-nav__item">
-  <a href="#can-i-use-hashicorp-vault-for-secret-management" class="md-nav__link">
+  <a href="#using-vals-with-hashicorps-vault" class="md-nav__link">
     <span class="md-ellipsis">
-      Can I use HashiCorp Vault for secret management?
+      Using vals with HashiCorp's Vault
     </span>
   </a>
   
@@ -3686,9 +3686,9 @@ if(!document.__defineGetter__) {
 </li>
         
           <li class="md-nav__item">
-  <a href="#can-i-use-hashicorp-vault-for-secret-management" class="md-nav__link">
+  <a href="#using-vals-with-hashicorps-vault" class="md-nav__link">
     <span class="md-ellipsis">
-      Can I use HashiCorp Vault for secret management?
+      Using vals with HashiCorp's Vault
     </span>
   </a>
   
@@ -3938,15 +3938,70 @@ kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="
 <p>Deploy the application containing the SealedSecret with Argo CD as any other application.</p>
 </li>
 </ol>
-<h3 id="can-i-use-hashicorp-vault-for-secret-management">Can I use HashiCorp Vault for secret management?<a class="headerlink" href="#can-i-use-hashicorp-vault-for-secret-management" title="Permanent link">&para;</a></h3>
-<p>Currently, Elastisys Managed Argo CD does not support using HashiCorp's Vault for secret management in Argo CD, and there is no plan to support it, here are some of the reasoning behind this decision:</p>
-<ul>
-<li><a href="https://www.hashicorp.com/license-faq">Vault is not open-source</a></li>
-<li><a href="https://developer.hashicorp.com/vault/tutorials/db-credentials/database-root-rotation#challenge">Vault tends to want to centralize very powerful credentials</a></li>
-<li><a href="https://developer.hashicorp.com/vault/tutorials/operations/production-hardening#baseline-recommendations">Vault is recommended to run on dedicated machines (see <strong>Single Tenancy</strong>)</a></li>
-<li><a href="https://developer.hashicorp.com/vault/docs/internals/security">Vault considers its own storage to be outside of its threat model, and thus, Vault has no defenses in place if its backend is attacked</a></li>
-<li><a href="https://developer.hashicorp.com/vault/docs/internals/security">Vault also considers memory analysis attacks outside of its threat model, so Vault has no defense against it</a></li>
-</ul>
+<h3 id="using-vals-with-hashicorps-vault">Using vals with HashiCorp's Vault<a class="headerlink" href="#using-vals-with-hashicorps-vault" title="Permanent link">&para;</a></h3>
+<p>If you want to use <a href="https://github.com/helmfile/vals">vals</a> with <a href="https://www.vaultproject.io/">Vault</a>, you will need to contact your Platform Administrator requesting that you want to use vals with Vault together with Argo CD.</p>
+<ol>
+<li>
+<p>Create a secret in the <code>argocd-system</code> Namespace called <code>vals-secret</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vals-secret</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argocd-system</span>
+<span class="w">  </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">argocd.argoproj.io/secret-type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vals-secret</span>
+<span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Opaque</span>
+<span class="nt">data</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">VAULT_ADDR</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+<span class="w">  </span><span class="nt">VAULT_NAMESPACE</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+<span class="w">  </span><span class="nt">VAULT_AUTH_METHOD</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+<span class="w">  </span><span class="nt">VAULT_ROLE_ID</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+<span class="w">  </span><span class="nt">VAULT_SECRET_ID</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+<span class="w">  </span><span class="nt">VAULT_TOKEN</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+</code></pre></div>
+<p>Fill out required data in secret to connect it to your Vault.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When encoding your data, make sure to use <code>echo -n &lt;data&gt; | base64</code> to avoid adding a new line at the end of your encoded secret.</p>
+</div>
+</li>
+<li>
+<p>Contact your Platform Administrator to restart the <code>argocd-repo-server</code>. It is needed to load your secret environment variables so that Argo CD can connect to your Vault.</p>
+</li>
+<li>
+<p>Argo CD should now be able to connect to your Vault, to replace a value with a secret from your Vault, use the following syntax:</p>
+<div class="highlight"><pre><span></span><code>secrets+literal://vals!ref+vault://path/to/#/secret
+</code></pre></div>
+<p>Here's an example of an Argo CD Application manifest:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argoproj.io/v1alpha1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Application</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argocd-application</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argocd-system</span>
+<span class="w">  </span><span class="nt">finalizers</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">resources-finalizer.argocd.argoproj.io</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">destination</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">staging</span>
+<span class="w">      </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://kubernetes.default.svc</span>
+<span class="w">  </span><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="w">  </span><span class="nt">source</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">helm</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">valueFiles</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">values.yaml</span>
+<span class="w">      </span><span class="nt">fileParameters</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secrets+literal://vals!ref+vault://secret/user/#/password</span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deploy/helm/app</span>
+<span class="w">    </span><span class="nt">repoURL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/username/repoistory.git</span>
+<span class="w">    </span><span class="nt">targetRevision</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HEAD</span>
+<span class="w">  </span><span class="nt">syncPolicy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">automated</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">prune</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">selfHeal</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div>
+</li>
+</ol>
 <h2 id="argo-cd-notifications">Argo CD Notifications<a class="headerlink" href="#argo-cd-notifications" title="Permanent link">&para;</a></h2>
 <p>Argo CD Notifications continuously monitors Argo CD applications and provides a flexible way to notify users about important changes in the application state. Using a flexible mechanism of <a href="https://argocd-notifications.readthedocs.io/en/stable/triggers/">triggers</a> and <a href="https://argocd-notifications.readthedocs.io/en/stable/templates/">templates</a> you can configure when the notification should be sent as well as notification content.</p>
 <p>To configure Argo CD notifications, make sure you are allowed to update the current Kubernetes objects:</p>
@@ -4225,7 +4280,7 @@ In case you want to use a separate SMTP server instead of gmail
     <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "navigation.footer", "navigation.top"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.bd41221c.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.1e8ae164.min.js"></script>
       
         <script src="../../../javascripts/feedback.js"></script>
       
