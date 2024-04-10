@@ -4004,9 +4004,9 @@ if(!document.__defineGetter__) {
 <h2 id="object-storage-providers">Object storage providers<a class="headerlink" href="#object-storage-providers" title="Permanent link">&para;</a></h2>
 <h2 id="off-site-backups">Off-site backups<a class="headerlink" href="#off-site-backups" title="Permanent link">&para;</a></h2>
 <p>Backups can be set up to be replicated off-site using CronJobs.</p>
-<p>In version v0.23 these can be <strong>encrypted</strong> before they are sent off-site, which means they must first be restored to be usable. <br/>
-It is possible to restore services directly from <strong>unencrypted</strong> off-site backups with some additional steps.</p>
-<p>See <a href="https://github.com/elastisys/compliantkubernetes-apps/tree/main/scripts/restore-sync">the instructions in <code>compliantkubernetes-apps</code></a> for how to restore off-site backups.</p>
+<p>If these are <strong>encrypted</strong> then these off-site backups must first be restored themselves before they can be used to restore other services.</p>
+<p>If these are <strong>unencrypted</strong> then these off-site backups can be used directly to restore other services by reconfiguring which object storage service they are using.</p>
+<p>See <a href="https://github.com/elastisys/compliantkubernetes-apps/blob/main/docs/restore/rclone.md">the instructions in <code>compliantkubernetes-apps</code> for how to restore off-site backups</a>.</p>
 <h2 id="when-a-new-regioninfrastructure-provider-is-used">When a new region/Infrastructure Provider is used<a class="headerlink" href="#when-a-new-regioninfrastructure-provider-is-used" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Configure and set base ck8s-configs:</li>
