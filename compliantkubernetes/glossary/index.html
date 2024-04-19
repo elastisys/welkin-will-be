@@ -3379,6 +3379,15 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
+  <a href="#critical-entity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Critical Entity
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#customer" class="md-nav__link">
     <span class="md-ellipsis">
       Customer
@@ -3400,6 +3409,15 @@ if(!document.__defineGetter__) {
   <a href="#environment" class="md-nav__link">
     <span class="md-ellipsis">
       Environment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#essential-entity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Essential Entity
     </span>
   </a>
   
@@ -3445,6 +3463,24 @@ if(!document.__defineGetter__) {
   <a href="#maintainer" class="md-nav__link">
     <span class="md-ellipsis">
       Maintainer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#personal-data-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      Personal Data Controller
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#personal-data-processor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Personal Data Processor
     </span>
   </a>
   
@@ -3668,6 +3704,15 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
+  <a href="#critical-entity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Critical Entity
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#customer" class="md-nav__link">
     <span class="md-ellipsis">
       Customer
@@ -3689,6 +3734,15 @@ if(!document.__defineGetter__) {
   <a href="#environment" class="md-nav__link">
     <span class="md-ellipsis">
       Environment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#essential-entity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Essential Entity
     </span>
   </a>
   
@@ -3734,6 +3788,24 @@ if(!document.__defineGetter__) {
   <a href="#maintainer" class="md-nav__link">
     <span class="md-ellipsis">
       Maintainer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#personal-data-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      Personal Data Controller
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#personal-data-processor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Personal Data Processor
     </span>
   </a>
   
@@ -3871,6 +3943,19 @@ See also:
 <ul>
 <li><a href="../contributor-guide/">Contributor Guide</a></li>
 </ul>
+<h2 id="critical-entity">Critical Entity<a class="headerlink" href="#critical-entity" title="Permanent link">&para;</a></h2>
+<p>To quote the <a href="https://eur-lex.europa.eu/eli/dir/2022/2557/oj#d1e32-193-1">EU Critical Entities Resilience (CER) Directive</a>:</p>
+<blockquote>
+<p>Critical entities, as providers of essential services, play an indispensable role in the maintenance of vital societal functions or economic activities in the internal market in an increasingly interdependent Union economy.</p>
+</blockquote>
+<p>In particular, they all need to take various measures related to physical and staff security.</p>
+<p>However, there is no single clear definition for Critical Entities.
+Instead, EU Member States must implement a process for identifying critical entities based on categories of entities published in EU CER Directive.</p>
+<p>All entities identified as critical under CER are considered <a href="#essential-entity">essential entities</a> under the <a href="https://eur-lex.europa.eu/eli/dir/2022/2555">EU NIS2 Directive</a>.</p>
+<p>See also:</p>
+<ul>
+<li><a href="https://eur-lex.europa.eu/eli/dir/2022/2557/oj#d1e32-193-1">EU Critical Entities Resilience (CER) Directive: Categories of Entities</a></li>
+</ul>
 <h2 id="customer">Customer<a class="headerlink" href="#customer" title="Permanent link">&para;</a></h2>
 <p>Someone who benefits from Compliant Kubernetes via a commercial agreement.</p>
 <p>Usage notes:</p>
@@ -3902,6 +3987,22 @@ See also:
 <p>Usage notes:</p>
 <ul>
 <li>Make sure to distinguish between Environment and Cluster.</li>
+</ul>
+<h2 id="essential-entity">Essential Entity<a class="headerlink" href="#essential-entity" title="Permanent link">&para;</a></h2>
+<p>Essential Entities are organizations which are considered to provide essential services to society and have obligations according to the <a href="https://eur-lex.europa.eu/eli/dir/2022/2555/oj/">EU NIS2 Directive</a>.
+In particular, they need to take certain measures related to information security and cybersecurity.</p>
+<p>There is no clear definition for Essential Entities.
+Instead, EU Member States must implement a process for identifying essential entities based on a list of sectors of high criticality published in NIS2.</p>
+<p>This process is currently under development in most EU Member States.
+As an example on how this process could look like, please refer to the NIS-era <a href="https://www.msb.se/contentassets/b15833b9aaa0425ca0c898cc0a120c81/myndigheten-for-samhallsskydd-och-beredskaps-foreskrifter-om-anmalan-och-identifiering-av-leverantorer-av-samhallsviktiga-tjanster-2024-4-pdf.pdf">MSBFS 2024:4 rule</a>.</p>
+<p>Usage notes:</p>
+<ul>
+<li>The EU NIS2 Directive also introduces "important entities". These organizations have somewhat lower obligations under NIS2 and are subject to lower maximum fines.</li>
+</ul>
+<p>See also:</p>
+<ul>
+<li><a href="https://eur-lex.europa.eu/eli/dir/2022/2555/oj#d1e32-143-1">EU NIS2 Directive: Sectors of High Criticality</a></li>
+<li><a href="https://www.msb.se/contentassets/b15833b9aaa0425ca0c898cc0a120c81/myndigheten-for-samhallsskydd-och-beredskaps-foreskrifter-om-anmalan-och-identifiering-av-leverantorer-av-samhallsviktiga-tjanster-2024-4-pdf.pdf">Swedish MSBFS 2024:4 Rules on identification of providers of essential services</a></li>
 </ul>
 <h2 id="kubernetes-cluster">Kubernetes Cluster<a class="headerlink" href="#kubernetes-cluster" title="Permanent link">&para;</a></h2>
 <p>A set of worker machines, called nodes, that run containerized applications. Every cluster has at least one worker node.</p>
@@ -3964,6 +4065,34 @@ See also:
 <p>See also:</p>
 <ul>
 <li><a href="https://www.linuxfoundation.org/blog/open-source-Maintainers-what-they-need-and-how-to-support-them">Open source Maintainers on Linux Foundation</a></li>
+</ul>
+<h2 id="personal-data-controller">Personal Data Controller<a class="headerlink" href="#personal-data-controller" title="Permanent link">&para;</a></h2>
+<p>Defined in <a href="https://gdpr.fan/a4">Art. 4 GDPR</a> as:</p>
+<blockquote>
+<p>the natural or legal person, public authority, agency or other body which, alone or jointly with others, determines the purposes and means of the processing of personal data; where the purposes and means of such processing are determined by Union or Member State law, the controller or the specific criteria for its nomination may be provided for by Union or Member State law;</p>
+</blockquote>
+<p>In brief, this is the organization which decides or influences what goes in the privacy policy.</p>
+<p>Usage notes:</p>
+<ul>
+<li>"Controller" can also refer to the <a href="https://kubernetes.io/docs/concepts/architecture/controller/">Controller pattern</a> in Kubernetes. Only use "controller" (without "personal data" or "Kubernetes") if the reader can understand from the context which one you refer to.</li>
+</ul>
+<p>See also:</p>
+<ul>
+<li><a href="https://gdpr.fan/a4">Art. 4 GDPR</a></li>
+</ul>
+<h2 id="personal-data-processor">Personal Data Processor<a class="headerlink" href="#personal-data-processor" title="Permanent link">&para;</a></h2>
+<p>Defined in <a href="https://gdpr.fan/a4">Art. 4 GDPR</a> as:</p>
+<blockquote>
+<p>a natural or legal person, public authority, agency or other body which processes personal data on behalf of the controller;</p>
+</blockquote>
+<p>In brief, this is the organization that receives instructions from the data controller and -- with few exceptions -- can only process personal data as instructed.</p>
+<p>Usage notes:</p>
+<ul>
+<li>The GDPR <strong>does not</strong> define the concept of "sub-processor". In practice, the term "sub-processor" is employed to denote a processor acting under the authority of another processor. For example, it is typical to hear something along the lines of: "The healthcare provider is the data controller, their healthcare booking software provider a data processor and the cloud provider their data sub-processor". However, legally speaking and according to GDPR definitions (where there is no such thing as a sub-processor), the cloud provider would also be a data processor.</li>
+</ul>
+<p>See also:</p>
+<ul>
+<li><a href="https://gdpr.fan/a4">Art. 4 GDPR</a></li>
 </ul>
 <h2 id="platform-administrator">Platform Administrator<a class="headerlink" href="#platform-administrator" title="Permanent link">&para;</a></h2>
 <p>The people who operate Compliant Kubernetes and Additional Platform Services.</p>
