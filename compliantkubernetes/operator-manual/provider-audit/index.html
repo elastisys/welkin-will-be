@@ -3851,6 +3851,7 @@ Failing to due your due diligence will end up in <a href="https://en.wikipedia.o
 <li>[For NFS] How did you configure <a href="https://linux.die.net/man/5/exports#:~:text=User%20ID%20Mapping">User ID Mapping</a>, specifically <code>root_squash</code>, <code>no_root_squash</code>, <code>all_squash</code>, <code>anonuid</code> and <code>anongid</code>? Mapping the root UID to values typically used by containers, e.g., 1000, will lead to permission denied errors. For example, OpenSearch's init containers do <code>chown 1000</code> which fails with <code>squash_root</code> and <code>anonuid=1000</code>.</li>
 <li>Is BSaaS stretched across zones?</li>
 <li>Is block storage replicated across zones?</li>
+<li>Does the CSI driver support the Snapshot feature? This is needed for more consistent Velero backups.</li>
 </ol>
 </li>
 <li>Do you offer encryption-at-rest?<ol>
