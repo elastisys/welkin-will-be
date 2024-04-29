@@ -592,7 +592,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3621,8 +3621,7 @@ controller can be exposed with a Service of type LoadBalancer. This will create 
 provider with an external ip-address. Any dns records should be pointed to the ip-address of the load balancer.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This is only currently supported in CK8s for AWS. It is however possible to configure this for Azure and Google cloud as well
-but it's not done by default</p>
+<p>This is only currently supported in CK8s for AWS. It is however possible to configure this for Azure and Google cloud as well but it's not done by default</p>
 </div>
 <h2 id="using-the-host-network">Using the host network<a class="headerlink" href="#using-the-host-network" title="Permanent link">&para;</a></h2>
 <p>For any Infrastructure Provider (or bare metal) not supporting these kind of public load balancers the Ingress controller
@@ -3640,14 +3639,14 @@ is selected by the dns. Another option is to use any existing load balancer serv
 <a href="https://github.com/elastisys/compliantkubernetes-apps">compliantkubernetes-apps</a> repository.
 The configuration is set in
 <a href="https://github.com/elastisys/compliantkubernetes-apps/blob/main/config/config/sc-config.yaml#L526-L530">sc-config.yaml</a>
-and <a href="https://github.com/elastisys/compliantkubernetes-apps/blob/main/config/config/wc-config.yaml#L322-L334">wc-config.yaml</a> under:
+and <a href="https://github.com/elastisys/compliantkubernetes-apps/blob/main/config/config/wc-config.yaml#L322-L334">wc-config.yaml</a> under:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">ingressNginx</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">useHostPort</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
 <span class="w">  </span><span class="nt">service</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
 <span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
 </code></pre></div>
-If the apps repository is initiated with the correct Infrastructure Provider these config options will get the
+<p>If the apps repository is initiated with the correct Infrastructure Provider these config options will get the
 correct defaults.</p>
 <p>For more ways to install the Nginx Ingress controller see <a href="https://kubernetes.github.io/ingress-nginx/deploy/">the upstream documentation</a>.</p>
 <h2 id="ingress-resource">Ingress resource<a class="headerlink" href="#ingress-resource" title="Permanent link">&para;</a></h2>

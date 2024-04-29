@@ -594,7 +594,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3796,7 +3796,7 @@ This is a preview feature. For more information, please read <a href="https://el
 <p>Create ServiceAccount and ConfigMap for Strimzi Kafka Operator.</p>
 </li>
 </ol>
-<h4 id="crds">CRDs<a class="headerlink" href="#crds" title="Permanent link">&para;</a></h4>
+<h3 id="crds">CRDs<a class="headerlink" href="#crds" title="Permanent link">&para;</a></h3>
 <p>You need to apply the Custom Resource Definitions (CRDs) required by Strimzi Kafka Operator. This is typically not allowed in a Compliant Kubernetes Environment, but with Kafka enabled with the self-managed cluster resources feature, this allows you to apply these yourself.</p>
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>crds
 
@@ -3805,10 +3805,10 @@ curl<span class="w"> </span>-L<span class="w"> </span>https://github.com/strimzi
 
 kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>crds/kafka-crds.yaml
 </code></pre></div>
-<h4 id="namespace">Namespace<a class="headerlink" href="#namespace" title="Permanent link">&para;</a></h4>
+<h3 id="namespace">Namespace<a class="headerlink" href="#namespace" title="Permanent link">&para;</a></h3>
 <p>You need to create a Namespace where Strimzi Kafka Operator will work. This Namespace should be called <code>kafka</code>. Create this <a href="../../namespaces/">sub-namespace</a> under eg. <code>production</code>.</p>
 <p><code>kubectl hns create -n production kafka</code></p>
-<h4 id="roles-and-rolebindings">Roles and RoleBindings<a class="headerlink" href="#roles-and-rolebindings" title="Permanent link">&para;</a></h4>
+<h3 id="roles-and-rolebindings">Roles and RoleBindings<a class="headerlink" href="#roles-and-rolebindings" title="Permanent link">&para;</a></h3>
 <p>You need to create the necessary Roles for Strimzi Kafka Operator to function. This needs to be done in every Namespace that you want Strimzi Kafka Operator to work in.</p>
 <p>Since Compliant Kubernetes uses the Hierarchical Namespace Controller, the easiest way to achieve this is to place the Roles and RoleBindings in the parent Namespace where <code>kafka</code> was created from. By doing so, all Namespaces created under the same parent Namespace will inherit the Roles and RoleBindings.</p>
 <p>If you have multiple Namespaces that ought to be targets for Strimzi Kafka Operator, you can add the Roles and RoleBindings to more than one "parent" Namespace. For instance, to <code>staging</code>, to get Strimzi Kafka Operator to work with the <code>staging</code> Namespace and any Namespace anchored to it.</p>
@@ -3823,7 +3823,7 @@ curl<span class="w"> </span>https://raw.githubusercontent.com/elastisys/complian
 
 kubectl<span class="w"> </span>apply<span class="w"> </span>-k<span class="w"> </span>roles
 </code></pre></div>
-<h4 id="serviceaccount-and-configmap">ServiceAccount and ConfigMap<a class="headerlink" href="#serviceaccount-and-configmap" title="Permanent link">&para;</a></h4>
+<h3 id="serviceaccount-and-configmap">ServiceAccount and ConfigMap<a class="headerlink" href="#serviceaccount-and-configmap" title="Permanent link">&para;</a></h3>
 <p>You need to create the ServiceAccount and ConfigMap that Strimzi Kafka Operator will use.</p>
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>sa-cm
 
@@ -3840,7 +3840,7 @@ kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> <
 <span class="w">  </span><span class="nt">allowPrivilegeEscalation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">  </span><span class="nt">capabilities</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">drop</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ALL</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ALL</span>
 <span class="w">  </span><span class="nt">readOnlyRootFilesystem</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">runAsNonRoot</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">seccompProfile</span><span class="p">:</span>

@@ -594,7 +594,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3680,9 +3680,9 @@ Note to contributors: Aim for the following format.
 <p class="admonition-title">Important</p>
 <p>Instead of adding a not-really-trusted registry to the set of trusted registries, prefer mirroring some public images in your Compliant Kubernetes registry.</p>
 </div>
-<p>If your administrator has not enforced this policy yet, you can view current violations of the policy by running:
+<p>If your administrator has not enforced this policy yet, you can view current violations of the policy by running:</p>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>k8sallowedrepos.constraints.gatekeeper.sh<span class="w"> </span>require-harbor-repo<span class="w"> </span>-ojson<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>.status.violations
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://kubernetes.io/docs/concepts/containers/images/">Container Images</a></li>

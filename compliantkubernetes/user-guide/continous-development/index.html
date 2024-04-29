@@ -26,7 +26,7 @@
     
     
       
-        <title>Continous Development - Elastisys Compliant Kubernetes</title>
+        <title>Continuous Development - Elastisys Compliant Kubernetes</title>
       
     
     
@@ -71,7 +71,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Continous Development - Elastisys Compliant Kubernetes" >
+        <meta  property="og:title"  content="Continuous Development - Elastisys Compliant Kubernetes" >
       
         <meta  property="og:description"  content="How to use Continuous Development in Elastisys Compliant Kubernetes, the security-focused Kubernetes distribution." >
       
@@ -87,7 +87,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Continous Development - Elastisys Compliant Kubernetes" >
+        <meta  name="twitter:title"  content="Continuous Development - Elastisys Compliant Kubernetes" >
       
         <meta  name="twitter:description"  content="How to use Continuous Development in Elastisys Compliant Kubernetes, the security-focused Kubernetes distribution." >
       
@@ -191,7 +191,7 @@ if(!document.__defineGetter__) {
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Continous Development
+              Continuous Development
             
           </span>
         </div>
@@ -605,7 +605,7 @@ if(!document.__defineGetter__) {
           
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -616,7 +616,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3789,7 +3789,7 @@ to the local workstation:</p>
 shows the logs of the application, and starts listening for changes in the source-files.</p>
 <p><img alt="Skaffold Output1" src="../img/skaffold-output1.png" /></p>
 <p>When visiting the URL to the application or the portforwarded URL the following output can be seen:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;hostname&quot;</span><span class="p">:</span><span class="s2">&quot;ck8s-user-demo-dd9c58979-rm9rv&quot;</span><span class="p">,</span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="s2">&quot;0.0.1&quot;</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">&quot;hostname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ck8s-user-demo-dd9c58979-rm9rv&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.0.1&quot;</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 <p>If you inside the <code>routes/index.js</code> file add the following:</p>
 <div class="highlight"><pre><span></span><code>...
@@ -3802,7 +3802,7 @@ res.send({
 </code></pre></div>
 <p>And then save the file, Skaffold will automatically detect the change, build a new image, and deploy the new image
 to the cluster. After the deployment has stabilized, when visiting the same URL, the output is now:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;hostname&quot;</span><span class="p">:</span><span class="s2">&quot;ck8s-user-demo-54bbdcf6fc-gthsc&quot;</span><span class="p">,</span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="s2">&quot;0.0.1&quot;</span><span class="p">,</span><span class="nt">&quot;hello&quot;</span><span class="p">:</span><span class="s2">&quot;world&quot;</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">&quot;hostname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ck8s-user-demo-54bbdcf6fc-gthsc&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.0.1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;hello&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;world&quot;</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 <h3 id="configuration-updates">Configuration updates<a class="headerlink" href="#configuration-updates" title="Permanent link">&para;</a></h3>
 <p>To see the amount of pods, run (inside another terminal):</p>

@@ -588,7 +588,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3600,10 +3600,12 @@ What do we do for Infra Providers that do not have service type loadbalancer?</p
 <li>For Infra Providers without service type loadbalancer start using service type NodePort for nginx and also use the external load balancer to route traffic from ports 80/443 to node ports 30080/30443.</li>
 </ol>
 <h2 id="decision-outcome">Decision Outcome<a class="headerlink" href="#decision-outcome" title="Permanent link">&para;</a></h2>
-<p>Chosen options: 1 &amp; 3 &amp; 5
-* "Keep running ingress-nginx as a daemonSet."
-* "Do not run ingress-nginx on the AMS nodes."
-* "For Infra Providers without service type loadbalancer start using service type NodePort for nginx and also use the external load balancer to route traffic from ports 80/443 to node ports 30080/30443" -&gt; This superseeds adr0008.</p>
+<p>Chosen options: 1 &amp; 3 &amp; 5</p>
+<ul>
+<li>"Keep running ingress-nginx as a daemonSet."</li>
+<li>"Do not run ingress-nginx on the AMS nodes."</li>
+<li>"For Infra Providers without service type loadbalancer start using service type NodePort for nginx and also use the external load balancer to route traffic from ports 80/443 to node ports 30080/30443" -&gt; This superseeds adr0008.</li>
+</ul>
 <h3 id="positive-consequences">Positive Consequences<a class="headerlink" href="#positive-consequences" title="Permanent link">&para;</a></h3>
 <ul>
 <li>We keep things simple and have the same solution on all Infrastructure Providers.</li>

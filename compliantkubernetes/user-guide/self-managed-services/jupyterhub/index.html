@@ -594,7 +594,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3685,10 +3685,10 @@ At the very least, you must:</p>
 <p>JupyterHub brings Jupyter Notebooks to the cloud. It gives the users access to computational environments and resources without burdening users with installation and maintenance tasks. This documents shows a guide on how to setup JupyterHub in a Compliant Kubernetes environment.</p>
 <p><img alt="Keycloak Image" src="../img/jupyter.gif" /></p>
 <h2 id="configure-and-deploy-jupyterhub">Configure and Deploy JupyterHub<a class="headerlink" href="#configure-and-deploy-jupyterhub" title="Permanent link">&para;</a></h2>
-<p>We chose to work with <a href="https://hub.jupyter.org/helm-chart/">official Helm charts</a> provided by JupyterHub. They can be downloaded via the webpage or added to your local repository by running:
+<p>We chose to work with <a href="https://hub.jupyter.org/helm-chart/">official Helm charts</a> provided by JupyterHub. They can be downloaded via the webpage or added to your local repository by running:</p>
 <div class="highlight"><pre><span></span><code>helm<span class="w"> </span>repo<span class="w"> </span>add<span class="w"> </span>jupyterhub<span class="w"> </span>https://hub.jupyter.org/helm-chart/
 helm<span class="w"> </span>repo<span class="w"> </span>update
-</code></pre></div></p>
+</code></pre></div>
 <h3 id="configuring-jupyterhub">Configuring JupyterHub<a class="headerlink" href="#configuring-jupyterhub" title="Permanent link">&para;</a></h3>
 <p>Below is a sample <code>values.yaml</code> file that can be used to deploy JupyterHub, please read the notes and change what is necessary. This sample uses <a href="https://z2jh.jupyter.org/en/stable/administrator/authentication.html#google">Google OAuth</a> for authentication and authorization.</p>
 <div class="admonition note">
@@ -3702,13 +3702,13 @@ helm<span class="w"> </span>repo<span class="w"> </span>update
 <span class="w">  </span><span class="nt">revisionHistoryLimit</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">config</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">GoogleOAuthenticator</span><span class="p">:</span><span class="w"> </span><span class="c1">#(5)</span>
-<span class="w">        </span><span class="nt">client_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$YOUR_CLIENT_ID</span><span class="w"> </span><span class="c1"># replace this</span>
-<span class="w">        </span><span class="nt">client_secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$YOUR_CLIENT_SECRET</span><span class="w"> </span><span class="c1"># (6) replace this</span>
-<span class="w">        </span><span class="nt">oauth_callback_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://$PROJECT_DOMAIN/hub/oauth_callback</span><span class="w"> </span><span class="c1"># replace this</span>
-<span class="w">        </span><span class="nt">hosted_domain</span><span class="p">:</span>
-<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example.com</span><span class="w"> </span><span class="c1"># replace this the email domain which are allowed to log in to JupyterHub</span>
-<span class="w">        </span><span class="nt">login_service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Google</span>
-<span class="w">        </span><span class="nt">allow_all</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">client_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$YOUR_CLIENT_ID</span><span class="w"> </span><span class="c1"># replace this</span>
+<span class="w">      </span><span class="nt">client_secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$YOUR_CLIENT_SECRET</span><span class="w"> </span><span class="c1"># (6) replace this</span>
+<span class="w">      </span><span class="nt">oauth_callback_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://$PROJECT_DOMAIN/hub/oauth_callback</span><span class="w"> </span><span class="c1"># replace this</span>
+<span class="w">      </span><span class="nt">hosted_domain</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example.com</span><span class="w"> </span><span class="c1"># replace this the email domain which are allowed to log in to JupyterHub</span>
+<span class="w">      </span><span class="nt">login_service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Google</span>
+<span class="w">      </span><span class="nt">allow_all</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">JupyterHub</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">admin_access</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">      </span><span class="nt">authenticator_class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">google</span>
@@ -3840,9 +3840,9 @@ sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s|nam
 <span class="k">done</span>
 </code></pre></div>
 <h3 id="deploying-jupyterhub">Deploying JupyterHub<a class="headerlink" href="#deploying-jupyterhub" title="Permanent link">&para;</a></h3>
-<p>To deploy simply use this command in combination with the modified <code>values.yaml</code> as provided above.
+<p>To deploy simply use this command in combination with the modified <code>values.yaml</code> as provided above.</p>
 <div class="highlight"><pre><span></span><code>helm<span class="w"> </span>upgrade<span class="w"> </span>--install<span class="w"> </span>jupyterhub<span class="w"> </span>jupyterhub/jupyterhub<span class="w"> </span>--values<span class="w"> </span>values.yaml
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="known-issues-limitations">Known Issues / Limitations<a class="headerlink" href="#known-issues-limitations" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
@@ -3860,13 +3860,11 @@ sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s|nam
 </ul>
 <h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://z2jh.jupyter.org/en/stable/index.html">General Documentation on Setting Up JupyterHub on Kubernetes</a><ul>
+<li><a href="https://z2jh.jupyter.org/en/stable/index.html">General Documentation on Setting Up JupyterHub on Kubernetes</a></li>
 <li><a href="https://z2jh.jupyter.org/en/stable/administrator/authentication.html">Customizing User Management</a></li>
 <li><a href="https://z2jh.jupyter.org/en/stable/jupyterhub/customizing/user-storage.html">Customizing User Storage</a></li>
 <li><a href="https://z2jh.jupyter.org/en/stable/jupyterhub/customizing/user-environment.html">Customizing User Environment</a></li>
 <li><a href="https://z2jh.jupyter.org/en/stable/jupyterhub/customizing/user-resources.html">Customizing User Resources</a></li>
-</ul>
-</li>
 </ul>
 
 

@@ -592,7 +592,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3872,9 +3872,11 @@ sudo<span class="w"> </span><span class="si">${</span><span class="nv">RUNTIME</
 sudo<span class="w"> </span><span class="si">${</span><span class="nv">RUNTIME</span><span class="si">}</span><span class="w"> </span>push<span class="w"> </span><span class="si">${</span><span class="nv">PRIVATE_REGISTRY</span><span class="si">}</span>/<span class="si">${</span><span class="nv">IMAGE_NAME</span><span class="si">}</span>
 </code></pre></div>
 <p>Configure the container registry mirror for the container runtime. If you are using Kubespray and <code>containerd</code> you can configure mirrors as follows:</p>
+<!-- prettier-ignore-start -->
+
 <div class="highlight"><pre><span></span><code><span class="nt">registry_addr</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;registry.air-gapped.internal&quot;</span>
 <span class="nt">registry_host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://registry.air-gapped.internal&quot;</span><span class="w"> </span><span class="c1"># change to http:// if not available over HTTPS</span>
-<span class="nt">registry_insecure</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w">  </span><span class="c1"># set to true if HTTP</span>
+<span class="nt">registry_insecure</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"> </span><span class="c1"># set to true if HTTP</span>
 
 <span class="nt">containerd_registries_mirrors</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">registry_addr</span><span class="nv"> </span><span class="s">}}&quot;</span>
@@ -3908,6 +3910,8 @@ sudo<span class="w"> </span><span class="si">${</span><span class="nv">RUNTIME</
 <span class="w">        </span><span class="nt">capabilities</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;pull&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;resolve&quot;</span><span class="p p-Indicator">]</span>
 <span class="w">        </span><span class="nt">skip_verify</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{{</span><span class="w"> </span><span class="nv">registry_verify</span><span class="w"> </span><span class="p p-Indicator">}}</span>
 </code></pre></div>
+<!-- prettier-ignore-end -->
+
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>If using e.g. Harbor as private container registry mirror, you may run into issues with non-namespaced images (e.g. <code>registry.k8s.io/pause</code>) as this is currently not supported with Harbor. In Kubespray it is possible to override some images, such as the <code>pause</code> image by setting <code>pod_infra_image_repo: "{{ registry_addr }}/library/pause"</code> and pushing the <code>pause</code> image to the <code>library</code> namespace/project in the Harbor registry.</p>
@@ -3974,7 +3978,7 @@ wget<span class="w"> </span><span class="s2">&quot;https://artifacts.opensearch.
 <span class="w">  </span><span class="nt">plugins</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">installExternalObjectStoragePlugin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">additionalPlugins</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fileserver.air-gapped.internal:8080/repository-s3-${OPENSEARCH_VERSION}.zip</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fileserver.air-gapped.internal:8080/repository-s3-${OPENSEARCH_VERSION}.zip</span>
 </code></pre></div>
 <h3 id="trivy">Trivy<a class="headerlink" href="#trivy" title="Permanent link">&para;</a></h3>
 <p>Trivy checks for vulnerabilities from a vulnerability database as well as a Java index database which are usually downloaded directly from GitHub (<code>ghcr.io</code>). In an air-gapped network, you can download these databases manually and push them to a private registry inside the air-gapped network. Please <a href="https://aquasecurity.github.io/trivy/v0.47/docs/advanced/air-gap/#download-the-vulnerability-database">read the air-gapped documentation for Trivy</a> on how to download and copy over this database. The tool <a href="https://oras.land/docs/"><code>oras</code></a> can be useful for working with and managing OCI repositories.</p>
@@ -4015,31 +4019,31 @@ wget<span class="w"> </span><span class="s2">&quot;https://artifacts.opensearch.
 <span class="w">      </span><span class="nt">ips</span><span class="p">:</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.65.131.137/32</span><span class="w"> </span><span class="c1"># set this to the IP of fileserver.air-gapped.internal</span>
 <span class="w">      </span><span class="nt">ports</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span><span class="w">  </span><span class="c1"># the file-server is hosted on port 8080</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span><span class="w"> </span><span class="c1"># the file-server is hosted on port 8080</span>
 </code></pre></div>
 <h3 id="custom-alerting-receiver">Custom alerting receiver<a class="headerlink" href="#custom-alerting-receiver" title="Permanent link">&para;</a></h3>
 <p>It is possible to configure your own alerting receivers for Alertmanager, which you can use to configure alerting to a on-call service that is available in your air-gapped network. The following shows a simplified example on how to configure a custom email receiver in <code>sc-config.yaml</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">alerts</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">alertsTo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">email</span>
 <span class="w">  </span><span class="nt">customReceivers</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;email&#39;</span>
-<span class="w">    </span><span class="nt">email_configs</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;admin@example.com&#39;</span>
-<span class="w">      </span><span class="nt">from</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;prometheus@example.com&#39;</span>
-<span class="w">      </span><span class="nt">require_tls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">      </span><span class="nt">send_resolved</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;email&quot;</span>
+<span class="w">      </span><span class="nt">email_configs</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;admin@example.com&quot;</span>
+<span class="w">          </span><span class="nt">from</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;prometheus@example.com&quot;</span>
+<span class="w">          </span><span class="nt">require_tls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">          </span><span class="nt">send_resolved</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 <h2 id="demo">Demo<a class="headerlink" href="#demo" title="Permanent link">&para;</a></h2>
 <p>Following are some screenshots of an air-gapped Compliant Kubernetes Environment, accessing Service Endpoints on the local air-gapped domain by using a <a href="https://en.wikipedia.org/wiki/SOCKS">SOCKS proxy</a> in Firefox over an SSH tunnel. Accessing Grafana Dashboards:</p>
-<p><img alt="" src="../../img/air-gapped-grafana.png" /></p>
+<p><img alt="Air-gapped Grafana" src="../../img/air-gapped-grafana.png" /></p>
 <p>Signing in with Dex will redirect to the Dex Service Endpoint for authentication (in this case a static user is used):</p>
-<p><img alt="" src="../../img/air-gapped-dex.png" /></p>
+<p><img alt="Air-gapped Dex" src="../../img/air-gapped-dex.png" /></p>
 <p>Checking the endpoint of the <a href="https://github.com/elastisys/compliantkubernetes/tree/main/user-demo">user demo</a> application:</p>
-<p><img alt="" src="../../img/air-gapped-demo.png" /></p>
+<p><img alt="Air-gapped User Demo" src="../../img/air-gapped-demo.png" /></p>
 <p>Seeing HTTP metrics for the <code>/users</code> endpoint of the user demo in Grafana Dashboards:</p>
-<p><img alt="" src="../../img/air-gapped-grafana-demo.png" /></p>
+<p><img alt="Air-gapped User Demo metrics in Grafana" src="../../img/air-gapped-grafana-demo.png" /></p>
 <p>Seeing logs from the user demo pods in OpenSearch Dashboards:</p>
-<p><img alt="" src="../../img/air-gapped-opensearch-demo.png" /></p>
+<p><img alt="Air-gapped User Demo logs in OpenSearch Dashboards" src="../../img/air-gapped-opensearch-demo.png" /></p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Air_gap_(networking)">Air gap (networking) on Wikipedia</a></li>

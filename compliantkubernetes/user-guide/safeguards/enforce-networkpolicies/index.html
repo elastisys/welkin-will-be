@@ -594,7 +594,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3667,9 +3667,9 @@ By segregating your applications and only allowing required ingress and egress n
 <div class="highlight"><pre><span></span><code>Error: admission webhook &quot;validation.gatekeeper.sh&quot; denied the request: [denied by require-networkpolicy] No matching networkpolicy found
 </code></pre></div>
 <p>Then you are missing NetworkPolicies which select your Pods. The <a href="https://github.com/elastisys/compliantkubernetes/blob/main/user-demo/deploy/ck8s-user-demo/templates/networkpolicy.yaml">user demo</a> gives a good example to get you started.</p>
-<p>If your administrator has not enforced this policy yet, you can view current violations of the policy by running:
+<p>If your administrator has not enforced this policy yet, you can view current violations of the policy by running:</p>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>k8srequirenetworkpolicy.constraints.gatekeeper.sh<span class="w"> </span>require-networkpolicy<span class="w"> </span>-ojson<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>.status.violations
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://kubernetes.io/docs/concepts/services-networking/network-policies/">NetworkPolicies</a></li>

@@ -596,7 +596,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -999,7 +999,7 @@ if(!document.__defineGetter__) {
           <li class="md-nav__item">
   <a href="#steps" class="md-nav__link">
     <span class="md-ellipsis">
-      Steps:
+      Steps
     </span>
   </a>
   
@@ -3693,7 +3693,7 @@ if(!document.__defineGetter__) {
           <li class="md-nav__item">
   <a href="#steps" class="md-nav__link">
     <span class="md-ellipsis">
-      Steps:
+      Steps
     </span>
   </a>
   
@@ -3885,17 +3885,19 @@ kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> <
 </code></pre></div>
 <h3 id="add-a-user-admin">Add a User admin<a class="headerlink" href="#add-a-user-admin" title="Permanent link">&para;</a></h3>
 <p>Since Compliant Kubernetes v0.21.0 User admins can now add more <code>User admins</code> themselves.</p>
-<h4 id="steps">Steps:<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h4>
+<h4 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h4>
 <ol>
-<li>Edit the clusterrolebinding <code>extra-user-view</code> and add the desired users or groups under <code>subjects</code>. If unsure, look at an <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/#referring-to-subjects">example subject</a> from the official Kubernetes documentation.</li>
-</ol>
+<li>
+<p>Edit the clusterrolebinding <code>extra-user-view</code> and add the desired users or groups under <code>subjects</code>. If unsure, look at an <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/#referring-to-subjects">example subject</a> from the official Kubernetes documentation.</p>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>edit<span class="w"> </span>clusterrolebinding<span class="w"> </span>user-admin-cluster-wide-delegation
 </code></pre></div>
-<ol start="2">
-<li>In each of your user namespaces that you want the users or groups to be admin in, edit the rolebinding <code>extra-workload-admins</code> and add the desired users or groups under <code>subjects</code>. If you have a root HNC namespace and you want the users or groups to be admin in all of <strong>your</strong> namespaces, you only need to edit the rolebinding in this root namespace and it will propagate.</li>
-</ol>
+</li>
+<li>
+<p>In each of your user namespaces that you want the users or groups to be admin in, edit the rolebinding <code>extra-workload-admins</code> and add the desired users or groups under <code>subjects</code>. If you have a root HNC namespace and you want the users or groups to be admin in all of <strong>your</strong> namespaces, you only need to edit the rolebinding in this root namespace and it will propagate.</p>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>edit<span class="w"> </span>rolebinding<span class="w"> </span>extra-workload-admins<span class="w"> </span>-n<span class="w"> </span>user-namespace
 </code></pre></div>
+</li>
+</ol>
 <h2 id="application-metrics-grafana">Application Metrics (Grafana)<a class="headerlink" href="#application-metrics-grafana" title="Permanent link">&para;</a></h2>
 <p>Your administrator will have mapped your IdP groups to the Grafana viewer, editor and admin roles.
 Please read the <a href="https://grafana.com/docs/grafana/latest/administration/roles-and-permissions/">upstream documentation</a> to learn more.</p>

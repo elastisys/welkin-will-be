@@ -594,7 +594,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3723,7 +3723,7 @@ Here is an example command (please replace the <code>$MY_HARBOR_IMAGE</code>):</
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>run<span class="w"> </span>blah<span class="w"> </span>--rm<span class="w"> </span>-ti<span class="w"> </span>--image<span class="o">=</span><span class="nv">$MY_HARBOR_IMAGE</span>
 </code></pre></div>
 <p>If your image runs as root by defaults, but can handle running as another user, you may override the user by adding a flag like this to the above command:</p>
-<div class="highlight"><pre><span></span><code>--overrides=&#39;{ &quot;spec&quot;: { &quot;securityContext&quot;: &quot;runAsUser&quot;: 1000, &quot;runAsGroup&quot;: 1000 } }&#39;
+<div class="highlight"><pre><span></span><code>--overrides<span class="o">=</span><span class="s1">&#39;{ &quot;spec&quot;: { &quot;securityContext&quot;: &quot;runAsUser&quot;: 1000, &quot;runAsGroup&quot;: 1000 } }&#39;</span>
 </code></pre></div>
 <h2 id="how-do-i-give-access-to-a-new-application-developer-to-a-compliant-kubernetes-environment">How do I give access to a new Application Developer to a Compliant Kubernetes environment?<a class="headerlink" href="#how-do-i-give-access-to-a-new-application-developer-to-a-compliant-kubernetes-environment" title="Permanent link">&para;</a></h2>
 <p>Add the new user to the correct <strong>group via your Identity Provider (IdP)</strong>, and Compliant Kubernetes will automatically pick it up.</p>
@@ -3737,14 +3737,14 @@ Here is an example command (please replace the <code>$MY_HARBOR_IMAGE</code>):</
 <h2 id="why-cant-i-access-my-cluster-bad-request-unregistered-redirect_uri-httplocalhost18000">Why can't I access my cluster? 'Bad Request Unregistered redirect_uri ("http://localhost:18000").'<a class="headerlink" href="#why-cant-i-access-my-cluster-bad-request-unregistered-redirect_uri-httplocalhost18000" title="Permanent link">&para;</a></h2>
 <p>Port 8000 is the only allowed port for OpenID callback URL and is needed by the <code>kubectl</code> OpenID plugin. If that port is used locally, then <code>kubectl</code> will try to bind to port 18000 which is not allowed due to security concerns. Make sure that nothing is running locally that is using port 8000.</p>
 <h2 id="connection-reset-by-peer-when-port-forwarding-to-postgres">"Connection reset by peer" when port-forwarding to postgres?<a class="headerlink" href="#connection-reset-by-peer-when-port-forwarding-to-postgres" title="Permanent link">&para;</a></h2>
-<p>You may have seen this error when port-forwarding to postgres:
+<p>You may have seen this error when port-forwarding to postgres:</p>
 <div class="highlight"><pre><span></span><code><span class="go">Forwarding from 127.0.0.1:5432 -&gt; 5432</span>
 <span class="go">Forwarding from [::1]:5432 -&gt; 5432</span>
 <span class="go">Handling connection for 5432</span>
 <span class="go">Handling connection for 5432</span>
 <span class="go">portforward.go:406] an error occurred forwarding 5432 -&gt; 5432: error forwarding port 5432 to pod, uid : failed to execute portforward in network namespace &quot;&quot;: read tcp4 127.0.0.1:5432-&gt;127.0.0.1:5432: read: connection reset by peer</span>
 <span class="go">portforward.go:234] lost connection to pod</span>
-</code></pre></div></p>
+</code></pre></div>
 <p>You have two options to resolve this issue:</p>
 <ol>
 <li>
@@ -3757,9 +3757,9 @@ Here is an example command (please replace the <code>$MY_HARBOR_IMAGE</code>):</
 <li>
 <p>A workaround for the issue is to use an older version of <code>kubectl</code> when making this request, specifically <code>v1.21.14</code> or lower.</p>
 <p>To avoid always using an old <code>kubectl</code> version, you can give the binary another name when downloading the <code>v1.21.14</code> version, e.g. <code>kubectl-1.21</code>. This way your normal <code>kubectl</code> binary can be kept up to date.</p>
-<p>Then use that specific binary when making the port-forward request:
+<p>Then use that specific binary when making the port-forward request:</p>
 <div class="highlight"><pre><span></span><code>kubectl-1.21<span class="w"> </span>-n<span class="w"> </span><span class="nv">$NAMESPACE</span><span class="w"> </span>port-forward<span class="w"> </span>svc/<span class="nv">$USER_ACCESS</span><span class="w"> </span><span class="m">5432</span>
-</code></pre></div></p>
+</code></pre></div>
 </li>
 </ol>
 <p>You can read more about this issue <a href="https://github.com/kubernetes/kubernetes/issues/111825">here</a>.</p>

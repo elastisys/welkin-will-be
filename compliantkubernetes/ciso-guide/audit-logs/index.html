@@ -592,7 +592,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3743,10 +3743,12 @@ The audit logs cover calls to the Kubernetes API, specifically <strong>who</stro
 <p>Your change management or incident management process should ensure that you also cover <strong>why</strong>.</p>
 <p>Both users (Application Developers) and administrators will show in the audit log. The former will change resources related to their application, whereas the latter will change Compliant Kubernetes system components.</p>
 <p>The exact configuration of the Kubernetes audit logs can be found <a href="https://github.com/elastisys/compliantkubernetes-kubespray/blob/main/config/common/group_vars/k8s_cluster/ck8s-k8s-cluster.yaml">here</a>.</p>
-<p>To view the audit logs for a specific user:
-   1. Open the <code>Audit user</code> dashboard in Opensearch;
-   2. Under <code>User selector</code> add the name of the user you want to audit (e.g admin@example.com);
-   3. Apply changes;</p>
+<p>To view the audit logs for a specific user:</p>
+<ol>
+<li>Open the <code>Audit user</code> dashboard in Opensearch;</li>
+<li>Under <code>User selector</code> add the name of the user you want to audit (e.g <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#100;&#109;&#105;&#110;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;">&#97;&#100;&#109;&#105;&#110;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;</a>);</li>
+<li>Apply changes;</li>
+</ol>
 <p><img alt="Example of Audit Logs" src="../img/audit-logs.png" /></p>
 <h2 id="ssh-access-logs">SSH Access Logs<a class="headerlink" href="#ssh-access-logs" title="Permanent link">&para;</a></h2>
 <p>Compliant Kubernetes also captures highly privileged SSH access to the worker Nodes in the <code>authlog*</code> index pattern. Only administrators should have such access.</p>

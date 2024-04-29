@@ -594,7 +594,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3672,13 +3672,13 @@ At the very least, you must:</p>
 
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
-<p>FerretDB® tries to be a drop-in replacement for MongoDB®. However:</p>
-<ul>
-<li>There are <a href="https://docs.ferretdb.io/diff/">known differences</a>.</li>
-<li>There might also be performance implications.</li>
-</ul>
-<p>Make sure to load-test your application with FerretDB before going into production.</p>
 </div>
+<p>FerretDB® tries to be a drop-in replacement for MongoDB®. However:</p>
+<div class="highlight"><pre><span></span><code>* There are [known differences](https://docs.ferretdb.io/diff/).
+* There might also be performance implications.
+
+Make sure to load-test your application with FerretDB before going into production.
+</code></pre></div>
 <p><a href="https://www.ferretdb.com/">FerretDB</a> is a database that is an open-source alternative to MongoDB that uses PostgreSQL as its backend database. This documentation details how to run FerretDB in a Compliant Kubernetes cluster using the Managed <a href="../../additional-services/postgresql/">PostgreSQL service</a>.</p>
 <h2 id="pushing-ferretdb-image-to-harbor">Pushing FerretDB image to Harbor<a class="headerlink" href="#pushing-ferretdb-image-to-harbor" title="Permanent link">&para;</a></h2>
 <p>These instructions will pull the FerretDB container image and push it to another registry. If you are using managed Harbor as your container registry, please follow <a href="../../deploy/">these instructions</a> on how to authenticate, create a new project, and how to create a robot account and using it in a pull-secret to be able to pull an image from Harbor to your cluster safely:</p>
@@ -3692,10 +3692,10 @@ docker<span class="w"> </span>push<span class="w"> </span><span class="nv">$REGI
 </code></pre></div>
 <h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
 <p>In a managed CK8s environment, follow <a href="../../additional-services/postgresql/#getting-access">these instructions</a> on how to access the Managed PostgreSQL service and how to create an application user and database.</p>
-<p>Create secret containing a PostgreSQL URL to authenticate to the Managed PostgreSQL service and newly created database with the application user credentials:
+<p>Create secret containing a PostgreSQL URL to authenticate to the Managed PostgreSQL service and newly created database with the application user credentials:</p>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>--from-literal<span class="o">=</span>ferretdb-url<span class="o">=</span><span class="s2">&quot;postgresql://</span><span class="nv">$APP_USERNAME</span><span class="s2">:</span><span class="nv">$APP_PASSWORD</span><span class="s2">@</span><span class="nv">$PGHOST</span><span class="s2">:</span><span class="nv">$PGPORT</span><span class="s2">/</span><span class="nv">$APP_DATABASE</span><span class="s2">&quot;</span><span class="w"> </span>ferretdb-postgres-credentials
-</code></pre></div></p>
-<p>Deploy:
+</code></pre></div>
+<p>Deploy:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -3713,36 +3713,36 @@ docker<span class="w"> </span>push<span class="w"> </span><span class="nv">$REGI
 <span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ferretdb</span>
 <span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ferretdb</span>
-<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$REGISTRY/$REGISTRY_PROJECT/ferretdb:$TAG</span><span class="w"> </span><span class="c1"># replace this</span>
-<span class="w">        </span><span class="nt">args</span><span class="p">:</span>
-<span class="w">         </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--listen-addr=0.0.0.0:27017</span>
-<span class="w">         </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--telemetry=disable</span>
-<span class="w">         </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--postgresql-url=$(FERRETDB_URL)</span>
-<span class="w">        </span><span class="nt">env</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FERRETDB_URL</span>
-<span class="w">          </span><span class="nt">valueFrom</span><span class="p">:</span>
-<span class="w">            </span><span class="nt">secretKeyRef</span><span class="p">:</span>
-<span class="w">              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ferretdb-postgres-credentials</span>
-<span class="w">              </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ferretdb-url</span>
-<span class="w">        </span><span class="nt">resources</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">requests</span><span class="p">:</span>
-<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1000m&quot;</span>
-<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;15M&quot;</span>
-<span class="w">        </span><span class="nt">securityContext</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">capabilities</span><span class="p">:</span>
-<span class="w">            </span><span class="nt">drop</span><span class="p">:</span>
-<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ALL</span>
-<span class="w">          </span><span class="nt">runAsNonRoot</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">          </span><span class="nt">runAsUser</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1001</span>
-<span class="w">        </span><span class="nt">volumeMounts</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/state</span>
-<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">state</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ferretdb</span>
+<span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$REGISTRY/$REGISTRY_PROJECT/ferretdb:$TAG</span><span class="w"> </span><span class="c1"># replace this</span>
+<span class="w">          </span><span class="nt">args</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--listen-addr=0.0.0.0:27017</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--telemetry=disable</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--postgresql-url=$(FERRETDB_URL)</span>
+<span class="w">          </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FERRETDB_URL</span>
+<span class="w">              </span><span class="nt">valueFrom</span><span class="p">:</span>
+<span class="w">                </span><span class="nt">secretKeyRef</span><span class="p">:</span>
+<span class="w">                  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ferretdb-postgres-credentials</span>
+<span class="w">                  </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ferretdb-url</span>
+<span class="w">          </span><span class="nt">resources</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">requests</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1000m&quot;</span>
+<span class="w">              </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;15M&quot;</span>
+<span class="w">          </span><span class="nt">securityContext</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">capabilities</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">drop</span><span class="p">:</span>
+<span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ALL</span>
+<span class="w">            </span><span class="nt">runAsNonRoot</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">            </span><span class="nt">runAsUser</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1001</span>
+<span class="w">          </span><span class="nt">volumeMounts</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/state</span>
+<span class="w">              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">state</span>
 <span class="w">      </span><span class="nt">securityContext</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">fsGroup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1001</span>
 <span class="w">      </span><span class="nt">volumes</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">state</span>
-<span class="w">        </span><span class="nt">emptyDir</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">state</span>
+<span class="w">          </span><span class="nt">emptyDir</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
 <span class="nn">---</span>
 <span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span>
@@ -3753,12 +3753,12 @@ docker<span class="w"> </span>push<span class="w"> </span><span class="nv">$REGI
 <span class="nt">spec</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClusterIP</span>
 <span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
-<span class="w">   </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ferretdb</span>
+<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ferretdb</span>
 <span class="w">  </span><span class="nt">ports</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
 <span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">27017</span>
 <span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">27017</span>
-</code></pre></div></p>
+</code></pre></div>
 <p>Check that FerretDB started properly:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>get<span class="w"> </span>svc,deploy,pod<span class="w"> </span>-l<span class="w"> </span><span class="nv">run</span><span class="o">=</span>ferretdb
 <span class="go">NAME                       TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)     AGE</span>
@@ -3771,11 +3771,11 @@ docker<span class="w"> </span>push<span class="w"> </span><span class="nv">$REGI
 <span class="go">pod/ferretdb-5887cc848c-brwjf   1/1     Running   0          75s</span>
 </code></pre></div>
 <p>The Deployment should show <code>STATUS</code> is <code>Running</code>. The Pod(s) should have <code>STATUS</code> is <code>Running</code>.</p>
-<p>To try out access to FerretDB, you can port-forward the Service to localhost and connect using mongosh:
+<p>To try out access to FerretDB, you can port-forward the Service to localhost and connect using mongosh:</p>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>port-forward<span class="w"> </span>svc/ferretdb-service<span class="w"> </span><span class="m">27017</span>
 
 mongosh<span class="w"> </span>mongodb://localhost:27017
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="python-client-example">Python client example<a class="headerlink" href="#python-client-example" title="Permanent link">&para;</a></h2>
 <p>The following is an example of how to connect to FerretDB using the <a href="https://pymongo.readthedocs.io/en/stable/">PyMongo</a> Python library (using the localhost port-forwarding described above).</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pymongo</span> <span class="kn">import</span> <span class="n">MongoClient</span>
@@ -3890,6 +3890,7 @@ mongosh<span class="w"> </span>mongodb://localhost:27017
 <span class="c1">-- PostgreSQL database dump complete</span>
 <span class="c1">--</span>
 </code></pre></div>
+
 </details>
 
 <h2 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h2>

@@ -596,7 +596,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3664,7 +3664,7 @@ if(!document.__defineGetter__) {
 <h2 id="hnc">HNC<a class="headerlink" href="#hnc" title="Permanent link">&para;</a></h2>
 <p><a href="https://github.com/kubernetes-sigs/hierarchical-namespaces">Hierarchical Namespace Controller</a> (HNC) is included in Compliant Kubernetes. It allows the Application Developer to manage namespaces as subnamespaces and delegates access automatically. From the perspective of Kubernetes these are regular namespaces, but these can be modified via a namespaced resource by the user. Building a good namespace structure will enable you to apply namespace-scoped RBAC resources to multiple namespaces at once.</p>
 <h2 id="namespace-management">Namespace Management<a class="headerlink" href="#namespace-management" title="Permanent link">&para;</a></h2>
-<p>Creating a subnamespace:
+<p>Creating a subnamespace:</p>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>-<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
 <span class="s">apiVersion: hnc.x-k8s.io/v1alpha2</span>
 <span class="s">kind: SubnamespaceAnchor</span>
@@ -3672,22 +3672,22 @@ if(!document.__defineGetter__) {
 <span class="s">  name: &lt;descendant-namespace&gt;</span>
 <span class="s">  namespace: &lt;parent-namespace&gt;</span>
 <span class="s">EOF</span>
-</code></pre></div></p>
-<p>Verify that it gets created:
+</code></pre></div>
+<p>Verify that it gets created:</p>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>ns<span class="w"> </span>&lt;descendant-namespace&gt;
-</code></pre></div></p>
-<p>Verify that it gets configured:
+</code></pre></div>
+<p>Verify that it gets configured:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>get<span class="w"> </span>subns<span class="w"> </span>-n<span class="w"> </span>&lt;parent-namespace&gt;<span class="w"> </span>&lt;descendant-namespace&gt;<span class="w"> </span>-o<span class="w"> </span>yaml
 <span class="go">apiVersion: hnc.x-k8s.io/v1alpha2</span>
 <span class="go">kind: SubnamespaceAnchor</span>
 <span class="go">metadata:</span>
-<span class="go">    ...</span>
+<span class="go">  ...</span>
 <span class="go">  name: &lt;descendant-namespace&gt;</span>
 <span class="go">  namespace: &lt;parent-namespace&gt;</span>
 <span class="go">...</span>
 <span class="go">status:</span>
 <span class="go">  status: Ok</span>
-</code></pre></div></p>
+</code></pre></div>
 <p>If the status is <code>Ok</code> then the subnamespace is ready to go.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>

@@ -596,7 +596,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3970,9 +3970,11 @@ if(!document.__defineGetter__) {
 </tbody>
 </table>
 <h4 id="accessing-prometheus">Accessing Prometheus<a class="headerlink" href="#accessing-prometheus" title="Permanent link">&para;</a></h4>
-<p>If you want to access the web interface of Prometheus, proceed as follows:
-1. Type: <code>kubectl proxy</code>
-2. Open <a href="http://127.0.0.1:8001/api/v1/namespaces/monitoring/services/kube-prometheus-stack-prometheus:9090/proxy/">this link</a> in your browser</p>
+<p>If you want to access the web interface of Prometheus, proceed as follows:</p>
+<ol>
+<li>Type: <code>kubectl proxy</code></li>
+<li>Open <a href="http://127.0.0.1:8001/api/v1/namespaces/monitoring/services/kube-prometheus-stack-prometheus:9090/proxy/">this link</a> in your browser</li>
+</ol>
 <p>The Prometheus UI is only available by default starting in Compliant Kubernetes version 0.26.</p>
 <h3 id="grafana">Grafana<a class="headerlink" href="#grafana" title="Permanent link">&para;</a></h3>
 <p>Grafana can be accessed at the endpoint provided by the Compliant Kubernetes install scripts. If you have configured dex you can login with a connected account.</p>
@@ -4010,8 +4012,8 @@ if(!document.__defineGetter__) {
 <p>The "Explore" mode is great for developing queries and exploring the data set. If you want to save a query so you can refer back to it, you can create a Dashboard instead. Dashboards consist of multiple Panels, each of which, can display the results of running queries. Learn more <a href="https://grafana.com/docs/grafana/latest/panels-visualizations/">about Grafana panels</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You may want to save frequently used Dashboards. Compliant Kubernetes saves and backs these up for you.</p>
 </div>
+<p>You may want to save frequently used Dashboards. Compliant Kubernetes saves and backs these up for you.</p>
 <!--user-demo-metrics-end-->
 
 <h3 id="troubleshooting-metrics-collection">Troubleshooting metrics collection<a class="headerlink" href="#troubleshooting-metrics-collection" title="Permanent link">&para;</a></h3>
@@ -4020,69 +4022,69 @@ if(!document.__defineGetter__) {
 <p>If the "Target Labels" is "Dropped" for a target then it means that it has been excluded from scraping since it doesn't match the monitor. There are three key things to check to make sure a target is properly picked up by a monitor:</p>
 <ol>
 <li>
-<p>Make sure either that the monitor is in the same namespace as the target, or that the monitor has the correct namespace selector for the target:
-  <div class="highlight"><pre><span></span><code><span class="w"> </span>apiVersion: monitoring.coreos.com/v1
-<span class="w"> </span>kind: ServiceMonitor
-<span class="w"> </span>metadata:
-<span class="w"> </span>  ...
-<span class="w"> </span>spec:
-<span class="w"> </span>  ...
+<p>Make sure either that the monitor is in the same namespace as the target, or that the monitor has the correct namespace selector for the target:</p>
+<div class="highlight"><pre><span></span><code>apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+<span class="w"> </span> ...
+spec:
+<span class="w"> </span> ...
 <span class="gi">+  namespaceSelector:</span>
 <span class="gi">+    matchNames:</span>
 <span class="gi">+      - &lt;namespace&gt;</span>
-<span class="w"> </span>  ...
-</code></pre></div></p>
+<span class="w"> </span> ...
+</code></pre></div>
 </li>
 <li>
-<p>Make sure that the selector of the monitor matches the target:
-  <div class="highlight"><pre><span></span><code><span class="w"> </span>apiVersion: v1
-<span class="w"> </span>kind: Service
-<span class="w"> </span>metadata:
-<span class="w"> </span>  ...
+<p>Make sure that the selector of the monitor matches the target:</p>
+<div class="highlight"><pre><span></span><code>apiVersion: v1
+kind: Service
+metadata:
+<span class="w"> </span> ...
 <span class="gi">+  labels:</span>
 <span class="gi">+    app: target</span>
-<span class="w"> </span>  ...
-<span class="w"> </span>spec:
-<span class="w"> </span>  ...
-<span class="w"> </span>---
-<span class="w"> </span>apiVersion: monitoring.coreos.com/v1
-<span class="w"> </span>kind: ServiceMonitor
-<span class="w"> </span>metadata:
-<span class="w"> </span>  ...
-<span class="w"> </span>spec:
-<span class="w"> </span>  ...
+<span class="w"> </span> ...
+spec:
+<span class="w"> </span> ...
+<span class="gs">---</span>
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+<span class="w"> </span> ...
+spec:
+<span class="w"> </span> ...
 <span class="gi">+  selector:</span>
 <span class="gi">+    matchLabels:</span>
 <span class="gi">+      app: target</span>
-<span class="w"> </span>  ...
-</code></pre></div></p>
+<span class="w"> </span> ...
+</code></pre></div>
 </li>
 <li>
-<p>Make sure that the port of the monitor matches the target:
-  <div class="highlight"><pre><span></span><code><span class="w"> </span>apiVersion: v1
-<span class="w"> </span>kind: Service
-<span class="w"> </span>metadata:
-<span class="w"> </span>  ...
-<span class="w"> </span>spec:
-<span class="w"> </span>  ...
+<p>Make sure that the port of the monitor matches the target:</p>
+<div class="highlight"><pre><span></span><code>apiVersion: v1
+kind: Service
+metadata:
+<span class="w"> </span> ...
+spec:
+<span class="w"> </span> ...
 <span class="gi">+  ports:</span>
 <span class="gi">+    - name: target</span>
 <span class="gi">+      port: 9000</span>
-<span class="w"> </span>  ...
-<span class="w"> </span>---
-<span class="w"> </span>apiVersion: monitoring.coreos.com/v1
-<span class="w"> </span>kind: ServiceMonitor
-<span class="w"> </span>metadata:
-<span class="w"> </span>  ...
-<span class="w"> </span>spec:
-<span class="w"> </span>  ...
+<span class="w"> </span> ...
+<span class="gs">---</span>
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+<span class="w"> </span> ...
+spec:
+<span class="w"> </span> ...
 <span class="gi">+  endpoints:</span>
-<span class="w"> </span>    # either
+<span class="w"> </span>   # either
 <span class="gi">+    - port: target</span>
-<span class="w"> </span>    # or
+<span class="w"> </span>   # or
 <span class="gi">+    - port: 9000</span>
-<span class="w"> </span>  ...
-</code></pre></div></p>
+<span class="w"> </span> ...
+</code></pre></div>
 </li>
 </ol>
 <p>The same concept applies to PodMonitors and Pods.</p>

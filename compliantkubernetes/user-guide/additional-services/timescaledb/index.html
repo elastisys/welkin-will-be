@@ -594,7 +594,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3868,13 +3868,15 @@ To get the intended mode for <code>require</code> set the variable to <code>no-v
 </ul>
 <h2 id="set-up-the-timescaledb-extension-on-postgresql">Set up the TimescaleDB extension on PostgreSQL<a class="headerlink" href="#set-up-the-timescaledb-extension-on-postgresql" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Connect to the created database:
-<div class="highlight"><pre><span></span><code><span class="se">\c</span><span class="w"> </span><span class="nv">$APP_DATABASE</span>
-</code></pre></div></li>
-<li>Add the TimescaleDB extension:
-<div class="highlight"><pre><span></span><code>CREATE<span class="w"> </span>EXTENSION<span class="w"> </span>IF<span class="w"> </span>NOT<span class="w"> </span>EXISTS<span class="w"> </span>timescaledb<span class="p">;</span>
-</code></pre></div></li>
+<li>Connect to the created database:</li>
 </ul>
+<div class="highlight"><pre><span></span><code><span class="se">\c</span><span class="w"> </span><span class="nv">$APP_DATABASE</span>
+</code></pre></div>
+<ul>
+<li>Add the TimescaleDB extension:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>CREATE<span class="w"> </span>EXTENSION<span class="w"> </span>IF<span class="w"> </span>NOT<span class="w"> </span>EXISTS<span class="w"> </span>timescaledb<span class="p">;</span>
+</code></pre></div>
 <h2 id="follow-the-go-live-checklist">Follow the Go-Live Checklist<a class="headerlink" href="#follow-the-go-live-checklist" title="Permanent link">&para;</a></h2>
 <p>You should be all set.
 Before going into production, don't forget to go through the <a href="../../go-live/">go-live checklist</a>.</p>

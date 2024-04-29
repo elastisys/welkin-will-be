@@ -594,7 +594,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3682,15 +3682,15 @@ At the very least, you must:</p>
 <p>The following environment variables:</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code>echo $PGHOST
-echo $APP_USERNAME
-echo $APP_DATABASE
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nv">$PGHOST</span>
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$APP_USERNAME</span>
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$APP_DATABASE</span>
 </code></pre></div>
 <h2 id="configure-keycloak-with-managed-postgresql">Configure Keycloak with managed PostgreSQL<a class="headerlink" href="#configure-keycloak-with-managed-postgresql" title="Permanent link">&para;</a></h2>
 <p>We chose Bitnami's Helm chart for <a href="https://github.com/bitnami/charts/tree/main/bitnami/keycloak">Keycloak</a> due to its open-source nature, ease of deployment, security optimization, and active maintenance.</p>
 <p>Bitnami is a well known provider of pre-configured, open-source application stacks that simplify deployment and management in various environments, such as Kubernetes. They offer a Helm chart for Keycloak, which streamlines deployment while adhering to Kubernetes best practices for security.</p>
 <h3 id="deploying-keycloak">Deploying Keycloak<a class="headerlink" href="#deploying-keycloak" title="Permanent link">&para;</a></h3>
-<p>Below is a sample <strong>values.yaml</strong> file that can be used to deploy Keycloak, please read the notes and change what is necessary.
+<p>Below is a sample <strong>values.yaml</strong> file that can be used to deploy Keycloak, please read the notes and change what is necessary.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">resources</span><span class="p">:</span><span class="w"> </span><span class="c1"># (1)</span>
 <span class="w">  </span><span class="nt">limits</span><span class="p">:</span>
 <span class="w">    </span><span class="c1">#cpu: 1000m</span>
@@ -3706,7 +3706,7 @@ echo $APP_DATABASE
 <span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;PGHOST&gt;&quot;</span>
 <span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5432</span>
 <span class="w">  </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;APP_USERNAME&gt;</span>
-<span class="w">  </span><span class="nt">database</span><span class="p">:</span><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">&lt;APP_DATABASE&gt;</span>
+<span class="w">  </span><span class="nt">database</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;APP_DATABASE&gt;</span>
 <span class="w">  </span><span class="nt">existingSecret</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;secret-name&gt;&quot;</span>
 <span class="w">  </span><span class="nt">existingSecretPasswordKey</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;PGPASSWORD&quot;</span>
 
@@ -3728,7 +3728,7 @@ echo $APP_DATABASE
 
 <span class="nt">production</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"> </span><span class="c1"># (4)</span>
 <span class="nt">proxy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">edge</span>
-</code></pre></div></p>
+</code></pre></div>
 <ol>
 <li>The example provided serves as a starting point for configuring resource requests and limits for your Keycloak deployment. Be sure to tailor these values to your specific requirements, and monitor your deployment to optimize resource allocation for your unique use case.</li>
 <li>Insert the variables that you got from initial preparation.</li>
@@ -3742,12 +3742,12 @@ The shape of the values files and the required configuration may have changed wi
 Prefer installing the latest version to make sure you get all security updates.
 If you understand the security risks and only want to "kick-the-tires" then add <code>--version 16.1.5</code> in the command below.</p>
 </div>
-<p>With the above values you can deploy Keycloak with:
-<div class="highlight"><pre><span></span><code>helm repo add bitnami https://charts.bitnami.com/bitnami
-helm upgrade --install keycloak bitnami/keycloak --values values.yaml
-</code></pre></div></p>
+<p>With the above values you can deploy Keycloak with:</p>
+<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>repo<span class="w"> </span>add<span class="w"> </span>bitnami<span class="w"> </span>https://charts.bitnami.com/bitnami
+helm<span class="w"> </span>upgrade<span class="w"> </span>--install<span class="w"> </span>keycloak<span class="w"> </span>bitnami/keycloak<span class="w"> </span>--values<span class="w"> </span>values.yaml
+</code></pre></div>
 <p>It might take up to 2 minutes for Keycloak to start. You can check progress as follows:</p>
-<div class="highlight"><pre><span></span><code><span class="go">kubectl get pods --watch</span>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>--watch
 </code></pre></div>
 <p>Make sure you see <code>READY 1/1</code> for the Keycloak Pod.</p>
 <h3 id="accessing-keycloak">Accessing Keycloak<a class="headerlink" href="#accessing-keycloak" title="Permanent link">&para;</a></h3>
@@ -3755,7 +3755,7 @@ helm upgrade --install keycloak bitnami/keycloak --values values.yaml
 <p><a href="https://www.keycloak.org/getting-started/getting-started-kube">Login as admin and configure realms, users, and clients.</a></p>
 <p>The default admin user is <code>user</code>.</p>
 <p>The initial admin password can be fetched using the command below (assuming default namespace):</p>
-<div class="highlight"><pre><span></span><code><span class="go">kubectl get secret keycloak -o jsonpath=&quot;{.data.admin-password}&quot; | base64 -d</span>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>keycloak<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s2">&quot;{.data.admin-password}&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-d
 </code></pre></div>
 <p>Note: If you uninstall and install Keycloak the initial admin password will be regenerated but the previous initial admin password may still be used unless you clear the PostgreSQL database.</p>
 <p>For more information about using Keycloak to secure/protect your applications, see “Securing your applications” and “Reverse Proxy” in the further reading section.</p>
@@ -3764,13 +3764,11 @@ helm upgrade --install keycloak bitnami/keycloak --values values.yaml
 <li><a href="https://www.keycloak.org/documentation">Documentation</a></li>
 <li><a href="https://www.keycloak.org/guides">Guides</a></li>
 <li><a href="https://www.keycloak.org/server/configuration-production">Production Configuration</a></li>
-<li><a href="https://www.keycloak.org/server/reverseproxy">Reverse Proxy</a><ul>
+<li><a href="https://www.keycloak.org/server/reverseproxy">Reverse Proxy</a></li>
 <li><a href="https://kubernetes.github.io/ingress-nginx/examples/auth/oauth-external-auth/">Ingress Nginx</a></li>
 <li><a href="https://oauth2-proxy.github.io/oauth2-proxy/configuration/providers/keycloak">Oauth2-Proxy</a><ul>
 <li>Note: the “oidc-issuer-url” may be outdated in the guide. See <a href="https://stackoverflow.com/questions/70577004/keycloak-could-not-find-resource-for-full-path">this issue.</a></li>
 <li>Note: Keycloak realm steps may be different if you are using the new admin console. Instructions for that can be found on their <a href="https://github.com/oauth2-proxy/oauth2-proxy/blob/master/docs/docs/configuration/providers/keycloak_oidc.md">github</a>.</li>
-</ul>
-</li>
 </ul>
 </li>
 <li><a href="https://www.keycloak.org/docs/latest/securing_apps/index.html">Securing your applications</a></li>

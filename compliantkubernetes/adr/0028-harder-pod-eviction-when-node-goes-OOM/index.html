@@ -588,7 +588,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3586,7 +3586,7 @@ Should we enable kubelet hard eviction so as to behold the vital components?</p>
 </ul>
 <h2 id="decision-outcome">Decision Outcome<a class="headerlink" href="#decision-outcome" title="Permanent link">&para;</a></h2>
 <p>Chosen options: <code>Enable kubelet hard eviction</code> &amp; <code>Setup priority class for all our apps</code> .</p>
-<p>The option <code>Adjust OOM score so that kernel does not OOM critical Pods</code> is  not viable as it can be used only if we set requests=limits on all our pods (see <a href="https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#node-out-of-memory-behavior">here</a> and <a href="https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/#create-a-pod-that-gets-assigned-a-qos-class-of-guaranteed">here</a>), and this will not allow us to benefit from the burstable capabilities of Kubernetes and have a static allocation of resources which locks the resources on the nodes even if they are not used most of the time. This reduces the available resources for the Application Developer on the nodes.</p>
+<p>The option <code>Adjust OOM score so that kernel does not OOM critical Pods</code> is not viable as it can be used only if we set requests=limits on all our pods (see <a href="https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#node-out-of-memory-behavior">here</a> and <a href="https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/#create-a-pod-that-gets-assigned-a-qos-class-of-guaranteed">here</a>), and this will not allow us to benefit from the burstable capabilities of Kubernetes and have a static allocation of resources which locks the resources on the nodes even if they are not used most of the time. This reduces the available resources for the Application Developer on the nodes.</p>
 <h3 id="positive-consequences">Positive Consequences<a class="headerlink" href="#positive-consequences" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Security and stability of the platform is somewhat improved.</li>

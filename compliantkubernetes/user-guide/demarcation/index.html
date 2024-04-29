@@ -596,7 +596,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3672,6 +3672,8 @@ if(!document.__defineGetter__) {
   
 
 
+<!-- markdownlint-disable-file first-line-h1 -->
+
 <div class="admonition danger">
 <p class="admonition-title">TL;DR: You <strong>cannot</strong> install:</p>
 <ul>
@@ -3704,6 +3706,7 @@ The mission of administrators is to make you, the Compliant Kubernetes user, suc
 <p>To stick to the general principles above, Compliant Kubernetes puts the following technical safeguards. This list may be updated in the future to take into account the fast evolving risk and technological landscape.</p>
 <p>More technically, Compliant Kubernetes does not allow users to:</p>
 <!--safeguards-start-->
+
 <ul>
 <li>change the Kubernetes API through <a href="https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/">CustomResourceDefinitions</a> or <a href="https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/#what-are-admission-webhooks">Dynamic Webhooks</a>;</li>
 <li>gain more container execution permissions by mutating <a href="https://kubernetes.io/docs/concepts/security/pod-security-policy/">PodSecurityPolicies</a>; this implies that you cannot run container images as root or mount <a href="https://kubernetes.io/docs/concepts/storage/volumes/#hostpath">hostPaths</a>;</li>

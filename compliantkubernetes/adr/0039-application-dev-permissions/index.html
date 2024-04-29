@@ -588,7 +588,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3575,12 +3575,16 @@ How should we manage such requests and when should the core permissions granted 
 </ul>
 <h2 id="considered-options">Considered Options<a class="headerlink" href="#considered-options" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Never elevate privileges for application developers.
-   - Application developer privileges are strictly tied to the running version of Compliant Kubernetes.</li>
-<li>Elevate privileges on a case-by-case basis
-   - Application developers can request additional privileges.
-     The request can be accepted or rejected by the Platform administrators.
-     If accepted, the elevated privileges should, if possible, be implemented into the core platform.</li>
+<li>Never elevate privileges for application developers.<ul>
+<li>Application developer privileges are strictly tied to the running version of Compliant Kubernetes.</li>
+</ul>
+</li>
+<li>Elevate privileges on a case-by-case basis<ul>
+<li>Application developers can request additional privileges.
+  The request can be accepted or rejected by the Platform administrators.
+  If accepted, the elevated privileges should, if possible, be implemented into the core platform.</li>
+</ul>
+</li>
 </ol>
 <h2 id="decision-outcome">Decision Outcome<a class="headerlink" href="#decision-outcome" title="Permanent link">&para;</a></h2>
 <ul>

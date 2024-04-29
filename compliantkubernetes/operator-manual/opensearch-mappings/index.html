@@ -592,7 +592,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3678,7 +3678,7 @@ However this might be too strict in some cases, so an alternative is still to al
 <p><img alt="Ignore Fields" src="../../img/explicit_mapping_5.png" /></p>
 <p>Now we won't get an error when we index with the same document, and the field is not in the mapping for the index</p>
 <p><img alt="Get Mapping" src="../../img/explicit_mapping_6.png" /></p>
-<p>One thing worth mentioning is that while the <em>producer</em> field was not indexed, and can't be used for queries, it is still there if we get the document, and the <em>_source</em>:</p>
+<p>One thing worth mentioning is that while the <em>producer</em> field was not indexed, and can't be used for queries, it is still there if we get the document, and the <em>source</em>:</p>
 <p><img alt="Source" src="../../img/explicit_mapping_7.png" /></p>
 <p>While this new field is not usable for queries as said before, but if we saw the need, we can create a new index with the <em>producer</em> field in the explicit mapping, then re-index the documents in <strong>movies</strong> index to where the new index is.</p>
 <h2 id="mapping-constraints">Mapping constraints<a class="headerlink" href="#mapping-constraints" title="Permanent link">&para;</a></h2>

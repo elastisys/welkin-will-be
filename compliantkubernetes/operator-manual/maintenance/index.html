@@ -592,7 +592,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3736,7 +3736,7 @@ if(!document.__defineGetter__) {
   
 
 
-<h1 id="maintaining-and-upgrading-your-compliant-kubernetes-environment">Maintaining and Upgrading your Compliant Kubernetes environment.<a class="headerlink" href="#maintaining-and-upgrading-your-compliant-kubernetes-environment" title="Permanent link">&para;</a></h1>
+<h1 id="maintaining-and-upgrading-your-compliant-kubernetes-environment">Maintaining and Upgrading your Compliant Kubernetes environment<a class="headerlink" href="#maintaining-and-upgrading-your-compliant-kubernetes-environment" title="Permanent link">&para;</a></h1>
 <p>In order to keep your Compliant Kubernetes environment running smoothly, and to assure that you are up to date with the latest patches you need to perform regular maintenance on it.</p>
 <p>This guide assumes that:</p>
 <ul>
@@ -3811,7 +3811,7 @@ git<span class="w"> </span>switch<span class="w"> </span>-d<span class="w"> </sp
 </li>
 <li>
 <p>Check if there is a <a href="https://github.com/elastisys/compliantkubernetes-apps/tree/main/migration">migration document</a> for the release you want to upgrade to, (e.g. <a href="https://github.com/elastisys/compliantkubernetes-apps/blob/5d8f4f1b3cc053b3b515711549ab80df9617f2f4/migration/v0.10.x-v0.11.x/upgrade-apps.md">for upgrade to 0.11.0</a> ) and follow the instructions there.
-Note that you should check the documentation at the release tag instead of <code>main</code> to be sure that it's correct.</p>
+    Note that you should check the documentation at the release tag instead of <code>main</code> to be sure that it's correct.</p>
 </li>
 <li>
 <p>If there is no relevant migration document, first do a dry-run.</p>
@@ -3827,9 +3827,11 @@ Note that you should check the documentation at the release tag instead of <code
 </li>
 <li>
 <p>Verify that everything is running after the upgrade.
-At the minimum, at least run the tests in compliantkubernetes-apps.</p>
-<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span><span class="nb">test</span><span class="w"> </span>sc
-./bin/ck8s<span class="w"> </span><span class="nb">test</span><span class="w"> </span>wc
+    At the minimum, at least run the tests in compliantkubernetes-apps.</p>
+<div class="highlight"><pre><span></span><code>```bash
+./bin/ck8s test sc
+./bin/ck8s test wc
+```
 </code></pre></div>
 </li>
 <li>
@@ -3841,12 +3843,12 @@ At the minimum, at least run the tests in compliantkubernetes-apps.</p>
 <ol>
 <li>
 <p>Note what version of Kubespray that is currently used in the cluster and the Kubespray version we want to upgrade to.
-Then check the release notes for each version in between to see if there are anything that might cause any problems, if so then consult the rest of the operations team before proceeding.
-Also check if the newer Kubespray version would upgrade Kubernetes to a new minor version, if so then the Application Developer should get a notice of x weeks before proceeding to let them check for any deprecated APIs that they might be using.
-You should never upgrade more than one patch version of Kubespray at a time.
-E.g. if you are at Kubespray version 2.13.3 and are going to 2.15.0 then the upgrade path would be 2.13.3 -&gt; 2.13.4 -&gt; 2.14.0 -&gt; 2.14.1 -&gt; 2.14.2 -&gt; 2.15.0.
-Patches that are released to an older minor version can be skipped, e.g. new patches to 2.14 after 2.15 has been released.
-Read more about Kubespray upgrades in their <a href="https://kubespray.io/#/docs/upgrades">documentation</a>.</p>
+    Then check the release notes for each version in between to see if there are anything that might cause any problems, if so then consult the rest of the operations team before proceeding.
+    Also check if the newer Kubespray version would upgrade Kubernetes to a new minor version, if so then the Application Developer should get a notice of x weeks before proceeding to let them check for any deprecated APIs that they might be using.
+    You should never upgrade more than one patch version of Kubespray at a time.
+    E.g. if you are at Kubespray version 2.13.3 and are going to 2.15.0 then the upgrade path would be 2.13.3 -&gt; 2.13.4 -&gt; 2.14.0 -&gt; 2.14.1 -&gt; 2.14.2 -&gt; 2.15.0.
+    Patches that are released to an older minor version can be skipped, e.g. new patches to 2.14 after 2.15 has been released.
+    Read more about Kubespray upgrades in their <a href="https://kubespray.io/#/docs/upgrades">documentation</a>.</p>
 </li>
 <li>
 <p>Checkout the next Kubespray version by checking out the last compliantkubernetes-kubespray commit (the commit is <code>next-version</code> in the snippet below) that used that version and updating the submodule.</p>

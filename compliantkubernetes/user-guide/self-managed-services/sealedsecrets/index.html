@@ -594,7 +594,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -1486,6 +1486,17 @@ if(!document.__defineGetter__) {
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    SealedSecrets (self-managed)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1495,6 +1506,52 @@ if(!document.__defineGetter__) {
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preparation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-sealed-secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install Sealed Secrets
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Further Reading
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -3487,6 +3544,41 @@ if(!document.__defineGetter__) {
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preparation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-sealed-secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install Sealed Secrets
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Further Reading
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3542,7 +3634,7 @@ This is a preview feature. For more information, please read <a href="https://el
 
 <p>This page will help you to install <a href="https://github.com/bitnami-labs/sealed-secrets">Sealed Secrets</a>, so that you are allowed to install the cluster-wide resources that are required by Sealed Secrets.</p>
 <p>This guide is a complement to <a href="https://github.com/bitnami-labs/sealed-secrets/tree/v0.24.2">Sealed Secrets</a> own documentation.</p>
-<h1 id="preparation">Preparation<a class="headerlink" href="#preparation" title="Permanent link">&para;</a></h1>
+<h2 id="preparation">Preparation<a class="headerlink" href="#preparation" title="Permanent link">&para;</a></h2>
 <p>The self-managed cluster-wide resources feature adds specific Roles, ServiceAccounts, etc. for you.
 This enables you to install and manage the resources that Sealed Secrets needs.
 These pre-installed resources are propagated via HNC from your root Namespace (<a href="../../namespaces/">recall the documentation of this feature</a>).</p>

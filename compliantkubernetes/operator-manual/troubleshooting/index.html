@@ -592,7 +592,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -2327,7 +2327,7 @@ if(!document.__defineGetter__) {
         <li class="md-nav__item">
   <a href="#node-seems-really-not-fine-i-want-a-new-one" class="md-nav__link">
     <span class="md-ellipsis">
-      Node seems really not fine. I want a new one.
+      Node seems really not fine. I want a new one
     </span>
   </a>
   
@@ -2336,7 +2336,7 @@ if(!document.__defineGetter__) {
         <li class="md-nav__item">
   <a href="#okay-i-want-to-add-a-new-node" class="md-nav__link">
     <span class="md-ellipsis">
-      Okay, I want to add a new Node.
+      Okay, I want to add a new Node
     </span>
   </a>
   
@@ -3902,7 +3902,7 @@ if(!document.__defineGetter__) {
         <li class="md-nav__item">
   <a href="#node-seems-really-not-fine-i-want-a-new-one" class="md-nav__link">
     <span class="md-ellipsis">
-      Node seems really not fine. I want a new one.
+      Node seems really not fine. I want a new one
     </span>
   </a>
   
@@ -3911,7 +3911,7 @@ if(!document.__defineGetter__) {
         <li class="md-nav__item">
   <a href="#okay-i-want-to-add-a-new-node" class="md-nav__link">
     <span class="md-ellipsis">
-      Okay, I want to add a new Node.
+      Okay, I want to add a new Node
     </span>
   </a>
   
@@ -4123,9 +4123,9 @@ We need to look both at the commands you typed and their output.</p>
 
 ./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>-n<span class="w"> </span>rook-ceph<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span><span class="nv">$CK8S_KUBESPRAY_PATH</span>/rook/toolbox-deploy.yaml
 </code></pre></div>
-<p>Once the pod is Ready run:
+<p>Once the pod is Ready run:</p>
 <div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>-n<span class="w"> </span>rook-ceph<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>deploy/rook-ceph-tools<span class="w"> </span>--<span class="w"> </span>ceph<span class="w"> </span>status
-</code></pre></div></p>
+</code></pre></div>
 <h3 id="are-kubernetes-pods-doing-fine">Are Kubernetes Pods doing fine?<a class="headerlink" href="#are-kubernetes-pods-doing-fine" title="Permanent link">&para;</a></h3>
 <p>Pods should be <code>Running</code> or <code>Completed</code>, and fully <code>Ready</code> (e.g., <code>1/1</code> or <code>6/6</code>)?</p>
 <div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>get<span class="w"> </span>--all-namespaces<span class="w"> </span>pods
@@ -4197,17 +4197,19 @@ For reminder, NTP works over UDP port 123.</p>
 ssh<span class="w"> </span>ubuntu@<span class="nv">$UNHEALTHY_NODE</span><span class="w"> </span>sudo<span class="w"> </span>reboot
 </code></pre></div>
 <p>If using Rook make sure its health goes back to <code>HEALTH_OK</code>.</p>
-<h2 id="node-seems-really-not-fine-i-want-a-new-one">Node seems really not fine. I want a new one.<a class="headerlink" href="#node-seems-really-not-fine-i-want-a-new-one" title="Permanent link">&para;</a></h2>
+<h2 id="node-seems-really-not-fine-i-want-a-new-one">Node seems really not fine. I want a new one<a class="headerlink" href="#node-seems-really-not-fine-i-want-a-new-one" title="Permanent link">&para;</a></h2>
 <p>Is it 2AM? Do not replace Nodes, instead simply add a new one. You might run out of capacity, you might lose redundancy, you might replace the wrong Node. Prefer to add a Node and see if that solves the problem.</p>
-<h2 id="okay-i-want-to-add-a-new-node">Okay, I want to add a new Node.<a class="headerlink" href="#okay-i-want-to-add-a-new-node" title="Permanent link">&para;</a></h2>
+<h2 id="okay-i-want-to-add-a-new-node">Okay, I want to add a new Node<a class="headerlink" href="#okay-i-want-to-add-a-new-node" title="Permanent link">&para;</a></h2>
 <p>Prefer this option if you "quickly" need to add CPU, memory or storage (i.e., Rook) capacity.</p>
 <p>First, check for infrastructure drift, as shown <a href="#how-do-i-check-if-infrastructure-drifted-due-to-manual-intervention">here</a>.</p>
 <p>Depending on your provider:
-If the infrastructure is not managed by terraform you can skip to step 3:
-1. Add a new Node by editing the <code>*.tfvars</code>.
-2. Re-apply Terraform.
-3. Add the new node to the <code>inventory.ini</code> (skip this step if the cluster is using a dynamic inventory).
-4. Re-apply Kubespray only for the new node.
+If the infrastructure is not managed by terraform you can skip to step 3:</p>
+<ol>
+<li>Add a new Node by editing the <code>*.tfvars</code>.</li>
+<li>Re-apply Terraform.</li>
+<li>Add the new node to the <code>inventory.ini</code> (skip this step if the cluster is using a dynamic inventory).</li>
+<li>
+<p>Re-apply Kubespray only for the new node.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="o">[</span>compliantkubernetes-kubespray-root-dir<span class="o">]</span>
 
 <span class="nv">CLUSTER</span><span class="o">=[</span>sc<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="o">]</span>
@@ -4215,10 +4217,14 @@ If the infrastructure is not managed by terraform you can skip to step 3:
 ./bin/ck8s-kubespray<span class="w"> </span>run-playbook<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>facts.yml
 ./bin/ck8s-kubespray<span class="w"> </span>run-playbook<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>scale.yml<span class="w"> </span>-b<span class="w"> </span>--limit<span class="o">=[</span>new_node_name<span class="o">]</span>
 </code></pre></div>
-5. Add ssh keys to the new node if necessary
+</li>
+<li>
+<p>Add ssh keys to the new node if necessary</p>
 <div class="highlight"><pre><span></span><code>./bin/ck8s-kubespray<span class="w"> </span>apply-ssh<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>--limit<span class="o">=[</span>new_node_name<span class="o">]</span>
 </code></pre></div>
-6. Update network policies
+</li>
+<li>
+<p>Update network policies</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="o">[</span>compliatkubernetes-apps-root-dir<span class="o">]</span>
 
 ./bin/ck8s<span class="w"> </span>update-ips<span class="w"> </span>sc<span class="w"> </span>update
@@ -4230,8 +4236,10 @@ If the infrastructure is not managed by terraform you can skip to step 3:
 ./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>helmfile<span class="w"> </span>sc<span class="w"> </span>-l<span class="w"> </span><span class="nv">app</span><span class="o">=</span>service-cluster-np<span class="w"> </span>-i<span class="w"> </span>apply
 <span class="c1"># or</span>
 ./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>helmfile<span class="w"> </span>wc<span class="w"> </span>-l<span class="w"> </span><span class="nv">app</span><span class="o">=</span>workload-cluster-np<span class="w"> </span>-i<span class="w"> </span>apply
-</code></pre></div></p>
+</code></pre></div>
 <p>Check that the new Node joined the cluster, as shown <a href="#are-the-kubernetes-clusters-doing-fine">here</a>.</p>
+</li>
+</ol>
 <h2 id="a-systemd-unit-failed">A systemd unit failed<a class="headerlink" href="#a-systemd-unit-failed" title="Permanent link">&para;</a></h2>
 <p>SSH into the Node. Check which systemd unit is failing:</p>
 <div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>--failed
@@ -4264,7 +4272,7 @@ journalctl<span class="w"> </span>--unit<span class="w"> </span><span class="nv"
 <div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>describe<span class="w"> </span>pod<span class="w"> </span>-n<span class="w"> </span><span class="nv">$UNHEALTHY_POD_NAMESPACE</span><span class="w"> </span><span class="nv">$UNHEALTHY_POD</span>
 ./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>logs<span class="w"> </span>-n<span class="w"> </span><span class="nv">$UNHEALTHY_POD_NAMESPACE</span><span class="w"> </span><span class="nv">$UNHEALTHY_POD</span>
 </code></pre></div>
-<p>Try to kill  and check if the underlying Deployment, StatefulSet or DaemonSet will restart it:</p>
+<p>Try to kill and check if the underlying Deployment, StatefulSet or DaemonSet will restart it:</p>
 <div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>delete<span class="w"> </span>pod<span class="w"> </span>-n<span class="w"> </span><span class="nv">$UNHEALTHY_POD_NAMESPACE</span><span class="w"> </span><span class="nv">$UNHEALTHY_POD</span>
 ./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>-A<span class="w"> </span>--watch
 </code></pre></div>
@@ -4273,16 +4281,16 @@ journalctl<span class="w"> </span>--unit<span class="w"> </span><span class="nv"
 <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nv">$CK8S_CONFIG_PATH</span>
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$CLUSTER</span>
 </code></pre></div>
-<p>Find the failed Release:
+<p>Find the failed Release:</p>
 <div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>helm<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>ls<span class="w"> </span>--all-namespaces<span class="w"> </span>--all
 
 <span class="nv">FAILED_RELEASE</span><span class="o">=</span>user-rbac
 <span class="nv">FAILED_RELEASE_NAMESPACE</span><span class="o">=</span>kube-system
-</code></pre></div></p>
+</code></pre></div>
 <p>Just to make sure, do a drift check, as shown <a href="#how-do-i-check-if-apps-drifted-due-to-manual-intervention">here</a>.</p>
-<p>Remove the failed Release:
+<p>Remove the failed Release:</p>
 <div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>helm<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>uninstall<span class="w"> </span>-n<span class="w"> </span><span class="nv">$FAILED_RELEASE_NAMESPACE</span><span class="w"> </span><span class="nv">$FAILED_RELEASE</span>
-</code></pre></div></p>
+</code></pre></div>
 <p>Re-apply <code>apps</code> according to documentation.</p>
 <h2 id="cert-manager-is-not-fine">cert-manager is not fine<a class="headerlink" href="#cert-manager-is-not-fine" title="Permanent link">&para;</a></h2>
 <p>Follow cert-manager's troubleshooting, specifically:</p>
@@ -4333,14 +4341,14 @@ velero-daily-backup-20211005143248<span class="w">   </span>InProgress<span clas
 <p>First try to delete the backup</p>
 <div class="highlight"><pre><span></span><code>./velero<span class="w"> </span>backup<span class="w"> </span>delete<span class="w"> </span>velero-daily-backup-20211005143248
 </code></pre></div>
-<p>Then kill all the pods under the velero namespace
+<p>Then kill all the pods under the velero namespace</p>
 <div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span>wc<span class="w"> </span>delete<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>velero<span class="w"> </span>--all
-</code></pre></div></p>
-<p>Check that the backup is gone
+</code></pre></div>
+<p>Check that the backup is gone</p>
 <div class="highlight"><pre><span></span><code>velero<span class="w"> </span>backup<span class="w"> </span>get
 
 NAME<span class="w">                                 </span>STATUS<span class="w">             </span>ERRORS<span class="w">   </span>WARNINGS<span class="w">   </span>CREATED<span class="w">                          </span>EXPIRES<span class="w">   </span>STORAGE<span class="w"> </span>LOCATION<span class="w">   </span>SELECTOR
-</code></pre></div></p>
+</code></pre></div>
 <p>Recreate the backup from a schedule</p>
 <div class="highlight"><pre><span></span><code>velero<span class="w"> </span>backup<span class="w"> </span>create<span class="w"> </span>--from-schedule<span class="w"> </span>velero-daily-backup
 </code></pre></div>

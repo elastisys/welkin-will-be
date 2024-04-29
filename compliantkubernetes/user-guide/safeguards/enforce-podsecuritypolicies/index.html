@@ -594,7 +594,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3596,12 +3596,12 @@ if(!document.__defineGetter__) {
 <span class="go">    runAsNonRoot != true (container &quot;&lt;container-name&gt;&quot; must not set securityContext.runAsNonRoot=false),</span>
 <span class="go">    seccompProfile (pod or container &quot;&lt;container-name&gt;&quot; must set securityContext.seccompProfile.type to &quot;RuntimeDefault&quot; or &quot;Localhost&quot;)</span>
 </code></pre></div>
-<p>Additionally, why pods are not scheduled and events are emitted from workloads similar to:
+<p>Additionally, why pods are not scheduled and events are emitted from workloads similar to:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>-n<span class="w"> </span>&lt;namespace&gt;<span class="w"> </span>get<span class="w"> </span>events
 <span class="go">...</span>
 <span class="go">&lt;time&gt;    Warning    FailedCreate    replicaset/&lt;replicaset-name&gt;    Error creating: pods &quot;&lt;pod-name&gt;&quot; is forbidden: violates PodSecurity &quot;restricted:latest&quot;: runAsNonRoot != true (container &quot;&lt;container-name&gt;&quot; must not set securityContext.runAsNonRoot=false)</span>
 <span class="go">...</span>
-</code></pre></div></p>
+</code></pre></div>
 <div class="admonition elastisys">
 <p class="admonition-title">For Elastisys Managed Services Customers</p>
 <p>These restrictions are put in place to protect <strong>your</strong> data. They are meant to help you comply with GDPR. For more details, please read our Terms of Service, specifically:</p>
@@ -3614,14 +3614,10 @@ if(!document.__defineGetter__) {
 <p>Kubernetes by default allows any Pod to run with any privileges it requests, which easily allows an application to take full control over a cluster and everything in it.
 To minimise this risk Compliant Kubernetes employs two systems to restrict what privileges an application can request:</p>
 <ul>
-<li><a href="https://kubernetes.io/docs/concepts/security/pod-security-admission/">Kubernetes - Pod Security Admission</a> (PSA)<ul>
+<li><a href="https://kubernetes.io/docs/concepts/security/pod-security-admission/">Kubernetes - Pod Security Admission</a> (PSA)</li>
 <li>Coarse-grained enforcement built into Kubernetes</li>
-</ul>
-</li>
-<li><a href="https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/pod-security-policy/">Open Policy Agent Gatekeeper - Pod Security Policies</a> (PSP)<ul>
+<li><a href="https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/pod-security-policy/">Open Policy Agent Gatekeeper - Pod Security Policies</a> (PSP)</li>
 <li>Fine-grained enforcement built with OPA Gatekeeper</li>
-</ul>
-</li>
 </ul>
 <p>In addition to enforcement Compliant Kubernetes also employ OPA Gatekeeper mutations to modify security contexts of applications to make it easier to comply with the enforced rules.
 This modification happens at the stage when Pods are created, which means that their security context may contain additional content compared to the resource they were created for.
@@ -3640,30 +3636,32 @@ Example of this will follow below.</p>
 <p>The default enforcement in Compliant Kubernetes follows the upstream <a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">Restricted Pod Security Standard as defined by Kubernetes</a>.
 This standard includes the following:</p>
 <ul>
-<li>
-<p>Escalation and privileged mode are disallowed.</p>
+<li>Escalation and privileged mode are disallowed.</li>
+</ul>
 <p>Usually applications don't need this unless they need to have low-level access to the nodes to access and manage hardware.</p>
-</li>
-<li>
-<p>Host namespaces, host networks, host ports, and host paths are disallowed.</p>
+<ul>
+<li>Host namespaces, host networks, host ports, and host paths are disallowed.</li>
+</ul>
 <p>Usually applications don't need this unless they need to have low-level access to the nodes to access and manage system resources.</p>
-</li>
-<li>
-<p>Running with the seccomp profile <code>Localhost</code> or <code>RuntimeDefault</code> (set by default).</p>
+<ul>
+<li>Running with the seccomp profile <code>Localhost</code> or <code>RuntimeDefault</code> (set by default).</li>
+</ul>
 <p>This restricts the system call applications can make, <a href="https://github.com/containerd/containerd/blob/main/contrib/seccomp/seccomp_default.go#L55">the <code>RuntimeDefault</code> profile is provided by containerd</a>, the container runtime, with sane defaults that should not be an issue for most applications.</p>
-</li>
-<li>
-<p>Running as non root user (with a non-zero UID).</p>
+<ul>
+<li>Running as non root user (with a non-zero UID).</li>
+</ul>
 <p>Recommended is to run a high UID and GID over 10000 that doesn't match with other running software.</p>
-</li>
-<li>
-<p>Running with the <code>NET_BIND_SERVICE</code> capability added and <code>ALL</code> capabilities dropped (set by default).</p>
+<ul>
+<li>Running with the <code>NET_BIND_SERVICE</code> capability added and <code>ALL</code> capabilities dropped (set by default).</li>
+</ul>
 <p>Usually applications don't need any capabilities unless they need to have low-level access to the nodes to access and manage system resources. The <code>NET_BIND_SERVICE</code> is an exception that allows processes to bind ports under 1024.</p>
-</li>
+<ul>
 <li>
 <p>Running with the following volume types:</p>
-<ul>
-<li>configMap</li>
+</li>
+<li>
+<p>configMap</p>
+</li>
 <li>csi</li>
 <li>downwardAPI</li>
 <li>emptyDir</li>
@@ -3671,8 +3669,6 @@ This standard includes the following:</p>
 <li>persistentVolumeClaim</li>
 <li>projected</li>
 <li>secret</li>
-</ul>
-</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -3736,7 +3732,7 @@ This standard includes the following:</p>
 <h2 id="custom-pod-security-policy">Custom Pod Security Policy<a class="headerlink" href="#custom-pod-security-policy" title="Permanent link">&para;</a></h2>
 <p>Certain applications may need more privileges than what is allowed from the restricted standard, and platform administrators may configure custom policies to allow application developers more freedom to applications in certain namespaces.</p>
 <p>To do so application developers should put together a Pod Security Policy to be evaluated and accepted by the platform administrator, which then can allow access to these privileges in a certain namespace for resources with a certain label.
-The format should be as follows:
+The format should be as follows:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">podSelectorLabels</span><span class="p">:</span><span class="w"> </span><span class="c1"># Must be provided</span>
 <span class="w">  </span><span class="nt">&lt;key&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;value&gt;</span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
@@ -3783,7 +3779,7 @@ The format should be as follows:
 <span class="w">  </span><span class="nt">runAsUser</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;UID&gt;</span><span class="w"> </span><span class="c1"># Default none (3)</span>
 <span class="w">  </span><span class="nt">runAsGroup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;GID&gt;</span><span class="w"> </span><span class="c1"># Default 1</span>
 <span class="w">  </span><span class="nt">fsGroup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;GID&gt;</span><span class="w"> </span><span class="c1"># Default 1</span>
-</code></pre></div></p>
+</code></pre></div>
 <ol>
 <li>Sysctls may still be denied by the kubelet.</li>
 <li>Allows both host network and host ports.</li>

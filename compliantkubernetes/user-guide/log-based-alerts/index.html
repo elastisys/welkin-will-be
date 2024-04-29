@@ -596,7 +596,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3601,46 +3601,50 @@ if(!document.__defineGetter__) {
 <p><img alt="OpenSearch Dashboards" src="../../img/osd-home.png" /></p>
 <p>From here click <strong>Visualize &amp; analyze</strong> to continue and you will be greeted with the options to go forward to either <strong>Dashboard</strong> or <strong>Discover</strong>. Opening the sidebar in the top left will also provide navigation to <strong>OpenSearch Dashboards Plugins</strong>, and here <strong>Alerting</strong> and <strong>Notifications</strong> can be found in the page shown below.</p>
 <p><img alt="OpenSearch Alert Sidebar" src="../../img/osd-alerting-sidebar.png" /></p>
-<p><strong>Step 1 - Create Notification Channel</strong></p>
+<p><strong>Step 1 - Create Notification Channel</strong>:</p>
 <p>We start with creating a notification channel, which enables sending messages directly to a designated Slack channel.</p>
 <ul>
-<li>
-<p>Go to <strong>Notifications</strong> page, then <strong>Channels</strong> tab as shown below.</p>
+<li>Go to <strong>Notifications</strong> page, then <strong>Channels</strong> tab as shown below.</li>
+</ul>
 <p><img alt="OpenSearch Notification Channels" src="../../img/osd-notifications-channels-tab.png" /></p>
-</li>
+<ul>
 <li>
 <p>Click on <strong>Create channel</strong></p>
 </li>
 <li>
 <p>Fill in <strong>Channel details</strong></p>
+</li>
+</ul>
 <p><img alt="OpenSearch Notification" src="../../img/add-notifications-channel.png" /></p>
 <ul>
 <li><strong>Name</strong> - Name of the destination - for example <strong>user-demo-404-slack-notify</strong></li>
 <li><strong>Channel type</strong> - choose <strong>Slack</strong></li>
-<li><strong>Slack webhook URL</strong> - Create a Slack Webhook following <a href="https://api.slack.com/messaging/webhooks">Slack documentation</a>. Paste the webhook URL</li>
-</ul>
+<li>
+<p><strong>Slack webhook URL</strong> - Create a Slack Webhook following <a href="https://api.slack.com/messaging/webhooks">Slack documentation</a>. Paste the webhook URL</p>
 </li>
 <li>
 <p>Test that the Slack integration works by clicking <strong>Send test message</strong> button and check if you receive a test message in your Slack Channel.</p>
-<p><img alt="OpenSearch Notification Test" src="../../img/notifications-channel-slack-test.png" /></p>
-</li>
-<li>
-<p>Finally, save the Notification channel by clicking <strong>Create</strong> button.</p>
-<p><img alt="OpenSearch Monitor Create" src="../../img/create-channel-button.png" /></p>
 </li>
 </ul>
-<p>Next, we can proceed with creating a monitor that will use our newly created channel.</p>
-<p><strong>Step 2 - Create Monitors</strong></p>
+<p><img alt="OpenSearch Notification Test" src="../../img/notifications-channel-slack-test.png" /></p>
 <ul>
-<li>
-<p>Go to <strong>Alerting</strong> page, then <strong>Monitors</strong> tab as shown below.</p>
+<li>Finally, save the Notification channel by clicking <strong>Create</strong> button.</li>
+</ul>
+<p><img alt="OpenSearch Monitor Create" src="../../img/create-channel-button.png" /></p>
+<p>Next, we can proceed with creating a monitor that will use our newly created channel.</p>
+<p><strong>Step 2 - Create Monitors</strong>:</p>
+<ul>
+<li>Go to <strong>Alerting</strong> page, then <strong>Monitors</strong> tab as shown below.</li>
+</ul>
 <p><img alt="OpenSearch Notification Channels" src="../../img/osd-alerting-monitors-tab.png" /></p>
-</li>
+<ul>
 <li>
 <p>Click on <strong>Create monitor</strong> button</p>
 </li>
 <li>
 <p>Fill in <strong>Monitor details</strong></p>
+</li>
+</ul>
 <p><img alt="OpenSearch Monitor 1" src="../../img/monitor-creation-1.png" /></p>
 <ul>
 <li><strong>Monitor name</strong> - Name of the monitor, for example <strong>user-demo-404-error</strong></li>
@@ -3661,28 +3665,32 @@ if(!document.__defineGetter__) {
 </li>
 </ul>
 </li>
-</ul>
-</li>
 <li>
 <p>Continue with <strong>Query</strong> details</p>
+</li>
+</ul>
 <p><img alt="OpenSearch Monitor 2" src="../../img/monitor-creation-2.png" /></p>
 <ul>
 <li><strong>Metrics</strong> - optional</li>
 <li><strong>Time range for the last</strong> - Time frame of data the plugin should monitor - <strong>1 minute(s)</strong></li>
-<li><strong>Data filter</strong> - <strong>status-code is 404</strong></li>
-</ul>
+<li>
+<p><strong>Data filter</strong> - <strong>status-code is 404</strong></p>
 </li>
 <li>
 <p>Continue with <strong>Triggers</strong> details</p>
+</li>
+</ul>
 <p><img alt="OpenSearch Trigger" src="../../img/trigger.png" /></p>
 <ul>
 <li><strong>Trigger name</strong> - Name of the trigger - <strong>404-error occurred &gt;5 times in last 1 minute</strong></li>
 <li><strong>Severity level</strong> - Select the severity level <strong>1(Highest)</strong></li>
-<li><strong>Trigger condition</strong> - Select the condition according to your applications - <strong>IS ABOVE 5</strong></li>
-</ul>
+<li>
+<p><strong>Trigger condition</strong> - Select the condition according to your applications - <strong>IS ABOVE 5</strong></p>
 </li>
 <li>
 <p>Continue with <strong>Actions</strong> details</p>
+</li>
+</ul>
 <p><img alt="OpenSearch Action" src="../../img/action.png" /></p>
 <ul>
 <li>Create an action with name, destination and customized message notification accordingly.</li>
@@ -3690,36 +3698,32 @@ if(!document.__defineGetter__) {
 <p>Test the action by clicking <strong>Send test message</strong> and check if you receive a test message in your Slack Channel.</p>
 <p><img alt="OpenSearch Test Trigger" src="../../img/trigger-notification-slack-test.png" /></p>
 </li>
-</ul>
-</li>
 <li>
 <p>Finally click <strong>Create</strong> button to complete the creation of the monitor.</p>
+</li>
+</ul>
 <p><img alt="OpenSearch Monitor Create" src="../../img/create-monitor-button.png" /></p>
-</li>
-<li>
-<p>You can see the status of the monitor under <strong>Alerting &gt; Monitors &gt; user-demo-404-error</strong> as shown below.</p>
-<p><img alt="OpenSearch Monitor View" src="../../img/monitor-view.png" /></p>
-</li>
-</ul>
-<p><strong>Test alert notification to Slack</strong></p>
 <ul>
-<li>
-<p>Demo application deployed and users get 404 errors many times (5 is the condition set before) as shown below.</p>
-<p><img alt="OpenSearch User Request" src="../../img/404-user-request.png" /></p>
-</li>
-<li>
-<p>We get the Slack notifications as shown below.</p>
-<p><img alt="OpenSearch Slack Notify" src="../../img/slack-notify.png" /></p>
-</li>
-<li>
-<p>Users can view the alert status under the <strong>Alerting</strong> tab as shown below and accordingly take the required action.</p>
-<p><img alt="OpenSearch Alert List" src="../../img/alert-list.png" /></p>
-</li>
-<li>
-<p>Users can <strong>acknowledge</strong> the alerts under the <strong>Alerting</strong> tab as shown below.</p>
-<p><img alt="OpenSearch Acknowledge Alert" src="../../img/acknowledge-alert.png" /></p>
-</li>
+<li>You can see the status of the monitor under <strong>Alerting &gt; Monitors &gt; user-demo-404-error</strong> as shown below.</li>
 </ul>
+<p><img alt="OpenSearch Monitor View" src="../../img/monitor-view.png" /></p>
+<p><strong>Test alert notification to Slack</strong>:</p>
+<ul>
+<li>Demo application deployed and users get 404 errors many times (5 is the condition set before) as shown below.</li>
+</ul>
+<p><img alt="OpenSearch User Request" src="../../img/404-user-request.png" /></p>
+<ul>
+<li>We get the Slack notifications as shown below.</li>
+</ul>
+<p><img alt="OpenSearch Slack Notify" src="../../img/slack-notify.png" /></p>
+<ul>
+<li>Users can view the alert status under the <strong>Alerting</strong> tab as shown below and accordingly take the required action.</li>
+</ul>
+<p><img alt="OpenSearch Alert List" src="../../img/alert-list.png" /></p>
+<ul>
+<li>Users can <strong>acknowledge</strong> the alerts under the <strong>Alerting</strong> tab as shown below.</li>
+</ul>
+<p><img alt="OpenSearch Acknowledge Alert" src="../../img/acknowledge-alert.png" /></p>
 <h2 id="alert-state">Alert state<a class="headerlink" href="#alert-state" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Active</strong> - The alert is ongoing and unacknowledged. Alerts remain in this state until you acknowledge them, delete the trigger associated with the alert, or delete the monitor entirely.</li>

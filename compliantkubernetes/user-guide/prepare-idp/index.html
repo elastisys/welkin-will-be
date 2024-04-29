@@ -708,7 +708,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3737,14 +3737,18 @@ Note, however, that Compliant Kubernetes supports any OpenID-compatible IdP, inc
 <li>Under Manage, select App registrations &gt; New registration.</li>
 <li>Under Supported account types pick <strong>Accounts in any organizational directory (Any Azure AD directory – Multitenant)</strong>.</li>
 <li>Under <strong>Redirect URI</strong> select <strong>web</strong> and insert the Dex URL that Platform Administrators provided. This is generally <code>https://dex.$DOMAIN/callback</code>.
-If unsure, ask your Platform Administrators.</li>
+    If unsure, ask your Platform Administrators.</li>
 <li>Go to <strong>Overview</strong> and note down the <strong>application ID</strong>.</li>
 <li>Create a secret by going to <strong>Certificates &amp; secrets</strong>.</li>
 <li>Select the tab <strong>Client secret</strong> and click <strong>New client secret</strong>.</li>
 <li>Set <strong>expiry date</strong> to <strong>24 months</strong>.</li>
 <li>For improved security, navigate to <strong>Properties</strong> and note down <strong>the tenant ID</strong>. This limits who can authenticate to your Compliant Kubernetes environment.</li>
 <li>Decide the <strong>name of the Azure AD group</strong> that should have admin privileges in the environment.</li>
-<li>Securely send, e.g., via <a href="https://yopass.elastisys.com">YoPass</a>, the following information to your Platform Administrators:<ul>
+<li>
+<p>Securely send, e.g., via <a href="https://yopass.elastisys.com">YoPass</a>, the following information to your Platform Administrators:
+    <!-- markdownlint-enable ol-prefix -->
+    <!-- markdownlint-enable list-marker-space --></p>
+<ul>
 <li>tenant ID;</li>
 <li>application ID;</li>
 <li>client secret;</li>
@@ -3772,9 +3776,11 @@ If unsure, ask your Platform Administrators.</li>
 <li>Click <strong>+ CREATE CREDENTIALS</strong> and select <strong>OAuth client ID</strong>.</li>
 <li>Select <strong>Web Application</strong> for <strong>Application type</strong>, give it a suitable name.</li>
 <li>Set the <strong>Authorized redirect URIs</strong> to the Dex URL provided by your Administrators.
-This is generally <code>https://dex.$DOMAIN/callback</code>.
-If unsure, ask your Platform Administrators.</li>
-<li>Finally, securely send, e.g., via <a href="https://yopass.elastisys.com">YoPass</a>, the following information to your Platform Administrators:<ul>
+    This is generally <code>https://dex.$DOMAIN/callback</code>.
+    If unsure, ask your Platform Administrators.</li>
+<li>
+<p>Finally, securely send, e.g., via <a href="https://yopass.elastisys.com">YoPass</a>, the following information to your Platform Administrators:</p>
+<ul>
 <li>client ID;</li>
 <li>client secret.</li>
 </ul>
@@ -3782,6 +3788,8 @@ If unsure, ask your Platform Administrators.</li>
 </ol>
 <p>To set up groups follow these steps, note that steps 16-18 below can only be done by an administrator.</p>
 <!-- The sane_lists Markdown extension will make sure the list starts from 11. -->
+<!-- markdownlint-disable ol-prefix -->
+<!-- markdownlint-disable list-marker-space -->
 
 <ol start="11">
 <li>Go to <a href="https://console.cloud.google.com/iam-admin/serviceaccounts?orgonly=true">Google Cloud -- Service accounts</a>.</li>
@@ -3793,7 +3801,11 @@ If unsure, ask your Platform Administrators.</li>
 <li>Navigate through the menu to <strong>Security &gt; Access and data control &gt; API Controls</strong> and click <strong>Manage Domain Wide Delegation</strong> and then <strong>Add New</strong>.</li>
 <li>In the <strong>Client ID</strong> field put the <strong>Unique ID</strong> of the service account from step 4. and in the <strong>Oauth Scopes</strong> field enter this scope: <code>https://www.googleapis.com/auth/admin.directory.group.readonly</code>.</li>
 <li>Decide on the name of the Google group that should have admin privileges in the Compliant Kubernetes environment.</li>
-<li>Finally, securely send, e.g., via <a href="https://yopass.elastisys.com">YoPass</a>, the following information to your Platform Administrators:<ul>
+<li>
+<p>Finally, securely send, e.g., via <a href="https://yopass.elastisys.com">YoPass</a>, the following information to your Platform Administrators:
+    <!-- markdownlint-enable ol-prefix -->
+    <!-- markdownlint-enable list-marker-space --></p>
+<ul>
 <li>the JSON file you downloaded;</li>
 <li>admin group you decided on.</li>
 </ul>
@@ -3810,15 +3822,15 @@ If unsure, ask your Platform Administrators.</li>
 <ol>
 <li>Check that your IdP is OpenID compatible. You can check this by pointing your browser to: <code>https://$YOUR_IDP_DOMAIN/.well-known/openid-configuration</code>. If you get a well-formed JSON page, then your provider is OpenID compatible.</li>
 <li>Register an application with your OpenID provider. The callback or redirect URL is provided by your Administrators.
-This is generally <code>https://dex.$DOMAIN/callback</code>.</li>
+    This is generally <code>https://dex.$DOMAIN/callback</code>.</li>
 <li>Allow at least the following scopes: <code>openid</code>, <code>email</code>, <code>groups</code>, <code>profile</code>.</li>
-<li>Securely send, e.g., via <a href="https://yopass.elastisys.com">YoPass</a>, the following information to your Platform Administrators:<ul>
+<li>Securely send, e.g., via <a href="https://yopass.elastisys.com">YoPass</a>, the following information to your Platform Administrators:</li>
+</ol>
+<ul>
 <li>the IdP domain, i.e., <code>$YOUR_IDP_DOMAIN</code> which you used in step 1;</li>
 <li>client ID;</li>
 <li>client secret.</li>
 </ul>
-</li>
-</ol>
 <h3 id="further-reading_2">Further Reading<a class="headerlink" href="#further-reading_2" title="Permanent link">&para;</a></h3>
 <ul>
 <li><a href="https://dexidp.io/docs/connectors/oidc/">Dex: Authentication Through and OpenID Connect Provider</a></li>

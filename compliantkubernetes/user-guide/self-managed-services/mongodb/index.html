@@ -594,7 +594,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -1507,6 +1507,17 @@ if(!document.__defineGetter__) {
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    MongoDB (self-managed)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1516,6 +1527,52 @@ if(!document.__defineGetter__) {
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preparation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-mongodb-community-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install MongoDB Community Operator
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Further Reading
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -3487,6 +3544,41 @@ if(!document.__defineGetter__) {
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preparation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-mongodb-community-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install MongoDB Community Operator
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Further Reading
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3542,7 +3634,7 @@ This is a preview feature. For more information, please read <a href="https://el
 
 <p>This page will help you to install <a href="https://github.com/mongodb/mongodb-kubernetes-operator">MongoDB Community Operator</a>, so that you are allowed to install the cluster-wide resources that are required by MongoDB.</p>
 <p>This guide is a complement to the <a href="https://github.com/mongodb/mongodb-kubernetes-operator/tree/v0.8.3">MongoDB Community Operator's</a> own documentation.</p>
-<h1 id="preparation">Preparation<a class="headerlink" href="#preparation" title="Permanent link">&para;</a></h1>
+<h2 id="preparation">Preparation<a class="headerlink" href="#preparation" title="Permanent link">&para;</a></h2>
 <p>The self-managed cluster-wide resources feature adds specific Roles, ServiceAccounts, etc. for you.
 This enables you to install and manage the resources that the MongoDB Community Operator needs.
 These pre-installed resources are propagated via HNC from your root Namespace (<a href="../../namespaces/">recall the documentation of this feature</a>).</p>
@@ -3562,8 +3654,8 @@ If you do not know which root namespace you should use, ask your platform admini
 <p>Please follow the official documentation for the <a href="https://github.com/mongodb/mongodb-kubernetes-operator/blob/v0.8.3/docs/install-upgrade.md">MongoDB Community Operator</a>.
 Be sure to read through the documentation fully.</p>
 <p>If default configuration choices are to your liking, you should be able to install the MongoDB Community Operator as follows:</p>
-<div class="highlight"><pre><span></span><code>helm repo add mongodb https://mongodb.github.io/helm-charts
-helm upgrade --install community-operator mongodb/community-operator --namespace mongodb --version 0.8.3
+<div class="highlight"><pre><span></span><code>helm<span class="w"> </span>repo<span class="w"> </span>add<span class="w"> </span>mongodb<span class="w"> </span>https://mongodb.github.io/helm-charts
+helm<span class="w"> </span>upgrade<span class="w"> </span>--install<span class="w"> </span>community-operator<span class="w"> </span>mongodb/community-operator<span class="w"> </span>--namespace<span class="w"> </span>mongodb<span class="w"> </span>--version<span class="w"> </span><span class="m">0</span>.8.3
 </code></pre></div>
 <h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
 <p>Please refer to the official documentation how to operate and connect to MongoDB.</p>

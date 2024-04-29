@@ -592,7 +592,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3576,8 +3576,10 @@ When we say "quality", we really refer to the following quality criteria.</p>
 <ul>
 <li>
 <p>... at scale</p>
+</li>
+<li>
+<p>Feature has good developer-facing documentation. The documentation includes:</p>
 <ul>
-<li>Feature has good developer-facing documentation. The documentation includes:<ul>
 <li>the <a href="https://en.wikipedia.org/wiki/Happy_path">happy path</a>;</li>
 <li>a running example based on the <a href="https://github.com/elastisys/compliantkubernetes/tree/main/user-demo">user demo</a>, if applicable;</li>
 <li>limitations, if applicable;</li>
@@ -3593,13 +3595,15 @@ When we say "quality", we really refer to the following quality criteria.</p>
 <li>Feature has well understood packaging and pricing</li>
 <li>Feature can be billed easily</li>
 <li>Feature integrates well with application developer observability (alerting, logging, metrics)</li>
-<li>Feature integrates well with application developer authentication</li>
-</ul>
+<li>
+<p>Feature integrates well with application developer authentication</p>
 </li>
 <li>
 <p>... without ruining admin's life</p>
-<ul>
-<li>At least 2 admins have required training</li>
+</li>
+<li>
+<p>At least 2 admins have required training</p>
+</li>
 <li>Feature has good admin-facing documentation (2nd day ops, all processes in place and documented, etc.)</li>
 <li>Feature triggers a manageable number of P1 alerts</li>
 <li>Feature triggers a manageable number of P2 alerts</li>
@@ -3608,13 +3612,15 @@ When we say "quality", we really refer to the following quality criteria.</p>
 <li>(In case of a new supplier) Supplier collaborates directly with Elastisys admins</li>
 <li>Feature is covered by QA</li>
 <li>Feature is sufficiently redundant to be able to operate in degraded state upon faults</li>
-<li>Feature integrates well with Ops observability (alerting, logging, metrics)</li>
-</ul>
+<li>
+<p>Feature integrates well with Ops observability (alerting, logging, metrics)</p>
 </li>
 <li>
 <p>... without compromising our security posture</p>
-<ul>
-<li>Feature has good and well-understood access control towards Application Developer</li>
+</li>
+<li>
+<p>Feature has good and well-understood access control towards Application Developer</p>
+</li>
 <li>Feature does not expose platform to additional risk (needs escalated privilegies that were not analyzed, etc.)</li>
 <li>Feature has good and well-understood security patching</li>
 <li>Feature has good and well-understood upgrades</li>
@@ -3623,8 +3629,6 @@ When we say "quality", we really refer to the following quality criteria.</p>
 <li>Feature does not impair ability to upgrade underlying infrastructure and base OS</li>
 <li>(In case of a new supplier) Supplier provides sufficient security for our needs</li>
 <li>Feature has good and well understood way of measuring SLA fulfillment</li>
-</ul>
-</li>
 </ul>
 <p>These criteria should be taken as a direction, not a "task list".
 For some features, some of these criteria won't apply.

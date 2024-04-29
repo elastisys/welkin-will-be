@@ -645,7 +645,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3578,24 +3578,21 @@ if(!document.__defineGetter__) {
 
 <h1 id="prepare-your-application">Prepare Your Application<a class="headerlink" href="#prepare-your-application" title="Permanent link">&para;</a></h1>
 <!--user-demo-overview-start-->
+
 <p>To make the most out of Compliant Kubernetes, prepare your application so it features:</p>
 <ul>
 <li>some REST endpoints: <a href="https://github.com/elastisys/compliantkubernetes/blob/main/user-demo/app.js#L38">NodeJS</a>, <a href="https://github.com/elastisys/compliantkubernetes/blob/main/user-demo-dotnet/Program.cs#L19">.NET</a>;</li>
 <li>structured logging: <a href="https://github.com/elastisys/compliantkubernetes/blob/main/user-demo/app.js#L18">NodeJS</a>, <a href="https://github.com/elastisys/compliantkubernetes/blob/main/user-demo-dotnet/Program.cs#L45">.NET</a>;</li>
 <li>metrics endpoint: <a href="https://github.com/elastisys/compliantkubernetes/blob/main/user-demo/app.js#L34">NodeJS</a>, <a href="https://github.com/elastisys/compliantkubernetes/blob/main/user-demo-dotnet/Program.cs#L44">.NET</a>;</li>
-<li>Dockerfile, which showcases:<ul>
+<li>Dockerfile, which showcases:</li>
 <li>How to run as non-root: <a href="https://github.com/elastisys/compliantkubernetes/blob/main/user-demo/Dockerfile#L10-L13">NodeJS</a>, <a href="https://github.com/elastisys/compliantkubernetes/blob/main/user-demo-dotnet/Dockerfile#L17">.NET</a>;</li>
-</ul>
-</li>
-<li><a href="https://github.com/elastisys/compliantkubernetes/tree/main/user-demo/deploy/ck8s-user-demo">Helm Chart</a>, which showcases:<ul>
+<li><a href="https://github.com/elastisys/compliantkubernetes/tree/main/user-demo/deploy/ck8s-user-demo">Helm Chart</a>, which showcases:</li>
 <li><a href="https://github.com/elastisys/compliantkubernetes/blob/main/user-demo/deploy/ck8s-user-demo/values.yaml#L37-L40">HTTPS Ingresses</a>;</li>
 <li><a href="https://github.com/elastisys/compliantkubernetes/blob/main/user-demo/deploy/ck8s-user-demo/templates/servicemonitor.yaml">ServiceMonitor for metrics collection</a>;</li>
 <li><a href="https://github.com/elastisys/compliantkubernetes/blob/main/user-demo/deploy/ck8s-user-demo/templates/prometheusrule.yaml">PrometheusRule for alerting</a>;</li>
 <li><a href="https://github.com/elastisys/compliantkubernetes/blob/main/user-demo/deploy/ck8s-user-demo/values.yaml#L76-L82">topologySpreadConstraints for tolerating single Node or single Zone failure</a>;</li>
 <li><a href="https://github.com/elastisys/compliantkubernetes/blob/main/user-demo/deploy/ck8s-user-demo/values.yaml#L42-L51">resources for capacity management</a>;</li>
 <li><a href="https://github.com/elastisys/compliantkubernetes/blob/main/user-demo/deploy/ck8s-user-demo/values.yaml#L83-L94">NetworkPolicies for network segmentation</a>;</li>
-</ul>
-</li>
 <li><a href="https://github.com/elastisys/compliantkubernetes/tree/main/user-demo/deploy/ck8s-user-demo/dashboards">Grafana dashboards for metrics visualization</a>;</li>
 <li><a href="https://github.com/elastisys/compliantkubernetes/tree/main/user-demo/scripts">script for local development and testing</a>;</li>
 </ul>

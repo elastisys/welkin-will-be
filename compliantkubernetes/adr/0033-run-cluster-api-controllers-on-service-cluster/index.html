@@ -588,7 +588,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3555,16 +3555,16 @@ if(!document.__defineGetter__) {
 </li>
         
           <li class="md-nav__item">
-  <a href="#management-cluster" class="md-nav__link">
+  <a href="#controller-cluster" class="md-nav__link">
     <span class="md-ellipsis">
-      Management Cluster
+      Controller Cluster
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#management-cluster_1" class="md-nav__link">
+  <a href="#management-cluster" class="md-nav__link">
     <span class="md-ellipsis">
       Management Cluster
     </span>
@@ -3615,8 +3615,8 @@ if(!document.__defineGetter__) {
 <ul>
 <li>Independent clusters</li>
 <li>All clusters run the Cluster API controllers and all clusters manage themselves independently.</li>
-<li>Management Cluster</li>
-<li>A new separate Management Cluster runs the Cluster API controllers and manages all clusters in the environment.</li>
+<li>Controller Cluster</li>
+<li>A new separate Controller Cluster runs the Cluster API controllers and manages all clusters in the environment.</li>
 <li>Management Cluster</li>
 <li>The Management Cluster runs the Cluster API controllers and manages all clusters in the environment.</li>
 </ul>
@@ -3649,12 +3649,12 @@ if(!document.__defineGetter__) {
 <li>Bad, all clusters have to be bootstrapped</li>
 <li>Bad, will contain Kubernetes admin credentials in Workload Cluster</li>
 </ul>
-<h3 id="management-cluster">Management Cluster<a class="headerlink" href="#management-cluster" title="Permanent link">&para;</a></h3>
+<h3 id="controller-cluster">Controller Cluster<a class="headerlink" href="#controller-cluster" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Bad, requires additional resources</li>
 <li>Bad, requires additional supporting services</li>
-<li>Bad, service and Workload Cluster lose management (auto healing and auto scaling) on Management Cluster failure, although...</li>
-<li>Good, service and Workload Cluster state can be backed up and restored</li>
+<li>Bad, Management and Workload Cluster lose management (auto healing and auto scaling) on Controller Cluster failure, although...</li>
+<li>Good, Management and Workload Cluster state can be backed up and restored</li>
 <li>Good, environment can be managed as a group or individually if needed, although...</li>
 <li>Bad, all cluster can be impacted by configuration mistakes, although...</li>
 <li>Good, it is harder for configuration mistakes</li>
@@ -3662,7 +3662,7 @@ if(!document.__defineGetter__) {
 <li>Good, single cluster has to be bootstrapped</li>
 <li>Good, will not contain Kubernetes admin credentials in Workload Cluster</li>
 </ul>
-<h3 id="management-cluster_1">Management Cluster<a class="headerlink" href="#management-cluster_1" title="Permanent link">&para;</a></h3>
+<h3 id="management-cluster">Management Cluster<a class="headerlink" href="#management-cluster" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Good, no additional resource requirements</li>
 <li>Good, Management Cluster has required supporting services</li>

@@ -594,7 +594,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3921,34 +3921,32 @@ kubectl<span class="w"> </span>config<span class="w"> </span>view<span class="w"
 <h3 id="queue-selection">Queue Selection<a class="headerlink" href="#queue-selection" title="Permanent link">&para;</a></h3>
 <p>RabbitMQ supports three different types of queues which all have different pro's and con's:</p>
 <ul>
-<li>
-<p><strong>Classic Queues</strong> - <em>Best for high performance with transient messages.</em></p>
-<p>This is the standard choice for transient queues and messages since they consume little resources and offer high performance.</p>
-<div class="admonition danger">
-<p class="admonition-title">Danger</p>
-<p>Classic queues are not replicated by default and should not be used with replication since mirrored classic queues are deprecated.</p>
-<p>Durable classic queues are tied to the server they are created on and will become unavailable if that server is unavailable.</p>
-</div>
-</li>
-<li>
-<p><a href="https://www.rabbitmq.com/quorum-queues.html"><strong>Quorum Queues</strong></a> - <em>Best for high availability with durable messages.</em></p>
-<p>This is the standard choice for durable queues and messages since they are replicated by default and offer high availability.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Similar to connections and channels quorum queues are intended to be long-lived, avoid scenarios where quorum queues are frequently removed and redeclared as it may lock internal resources within RabbitMQ.</p>
-<p>Keep the queues small and use multiple queues when possible for best performance.</p>
-</div>
-</li>
-<li>
-<p><a href="https://www.rabbitmq.com/streams.html"><strong>Stream Queues</strong></a> - <em>Best for high volume with durable messages.</em></p>
-<p>This is the standard choice for high volume durable queues and messages since they store messages as a persistent replicated log. This allows for messages to persist after they are consumed to be recalled or replayed, or with the stream protocol efficiently processed in batches.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>When using stream queues you must set reasonable retention to keep them from filling up RabbitMQ as it will prevent it from accepting new messages.</p>
-<p>Also note that messages in RabbitMQ are not backed up in the case of disaster.</p>
-</div>
-</li>
+<li><strong>Classic Queues</strong> - <em>Best for high performance with transient messages.</em></li>
 </ul>
+<p>This is the standard choice for transient queues and messages since they consume little resources and offer high performance.</p>
+<p>!!!danger</p>
+<div class="highlight"><pre><span></span><code>  Classic queues are not replicated by default and should not be used with replication since mirrored classic queues are deprecated.
+
+  Durable classic queues are tied to the server they are created on and will become unavailable if that server is unavailable.
+</code></pre></div>
+<ul>
+<li><a href="https://www.rabbitmq.com/quorum-queues.html"><strong>Quorum Queues</strong></a> - <em>Best for high availability with durable messages.</em></li>
+</ul>
+<p>This is the standard choice for durable queues and messages since they are replicated by default and offer high availability.</p>
+<p>!!!warning</p>
+<div class="highlight"><pre><span></span><code>  Similar to connections and channels quorum queues are intended to be long-lived, avoid scenarios where quorum queues are frequently removed and redeclared as it may lock internal resources within RabbitMQ.
+
+  Keep the queues small and use multiple queues when possible for best performance.
+</code></pre></div>
+<ul>
+<li><a href="https://www.rabbitmq.com/streams.html"><strong>Stream Queues</strong></a> - <em>Best for high volume with durable messages.</em></li>
+</ul>
+<p>This is the standard choice for high volume durable queues and messages since they store messages as a persistent replicated log. This allows for messages to persist after they are consumed to be recalled or replayed, or with the stream protocol efficiently processed in batches.</p>
+<p>!!!warning</p>
+<div class="highlight"><pre><span></span><code>  When using stream queues you must set reasonable retention to keep them from filling up RabbitMQ as it will prevent it from accepting new messages.
+
+  Also note that messages in RabbitMQ are not backed up in the case of disaster.
+</code></pre></div>
 <h2 id="follow-the-go-live-checklist">Follow the Go-Live Checklist<a class="headerlink" href="#follow-the-go-live-checklist" title="Permanent link">&para;</a></h2>
 <p>You should be all set.
 Before going into production, don't forget to go through the <a href="../../go-live/">go-live checklist</a>.</p>

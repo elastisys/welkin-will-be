@@ -588,7 +588,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3584,6 +3584,9 @@ if(!document.__defineGetter__) {
   <h1>Common</h1>
 
 <!--deploy-rook-start-->
+
+<!-- markdownlint-disable-file first-line-h1 -->
+
 <h3 id="deploy-rook">Deploy Rook<a class="headerlink" href="#deploy-rook" title="Permanent link">&para;</a></h3>
 <p>To deploy Rook, go to the <code>compliantkubernetes-kubespray</code> repo, change directory to <code>rook</code> and follow the instructions <a href="https://github.com/elastisys/compliantkubernetes-kubespray/tree/main/rook#rook-ceph">here</a> for each cluster.</p>
 <div class="admonition note">
@@ -3605,6 +3608,7 @@ if(!document.__defineGetter__) {
 <!--deploy-rook-stop-->
 
 <!--test-rook-start-->
+
 <h3 id="test-rook">Test Rook<a class="headerlink" href="#test-rook" title="Permanent link">&para;</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -3635,6 +3639,7 @@ if(!document.__defineGetter__) {
 <!--test-rook-stop-->
 
 <!--clone-apps-start-->
+
 <p>Now that the Kubernetes clusters are up and running, we are ready to install the Compliant Kubernetes apps.</p>
 <h3 id="clone-compliantkubernetes-apps-and-install-pre-requisites">Clone <code>compliantkubernetes-apps</code> and Install Pre-requisites<a class="headerlink" href="#clone-compliantkubernetes-apps-and-install-pre-requisites" title="Permanent link">&para;</a></h3>
 <p>If you haven't done so already, clone the <code>compliantkubernetes-apps</code> repo and install pre-requisites.</p>
@@ -3652,6 +3657,7 @@ compliantkubernetes-apps/bin/ck8s<span class="w"> </span>install-requirements
 <!--clone-apps-stop-->
 
 <!--init-apps-start-->
+
 <h3 id="initialize-the-apps-configuration">Initialize the apps configuration<a class="headerlink" href="#initialize-the-apps-configuration" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>compliantkubernetes-apps/bin/ck8s<span class="w"> </span>init<span class="w"> </span>both
 </code></pre></div>
@@ -3661,6 +3667,7 @@ compliantkubernetes-apps/bin/ck8s<span class="w"> </span>install-requirements
 <!--init-apps-stop-->
 
 <!--configure-apps-start-->
+
 <h3 id="configure-the-apps">Configure the apps<a class="headerlink" href="#configure-the-apps" title="Permanent link">&para;</a></h3>
 <p>Edit the configuration files <code>${CK8S_CONFIG_PATH}/sc-config.yaml</code>, <code>${CK8S_CONFIG_PATH}/wc-config.yaml</code> and <code>${CK8S_CONFIG_PATH}/secrets.yaml</code> and set the appropriate values for some of the configuration fields.
 Note that, the latter is encrypted.</p>
@@ -3689,6 +3696,7 @@ vim<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFI
 <!--configure-apps-stop-->
 
 <!--install-apps-start-->
+
 <h3 id="install-compliant-kubernetes-apps">Install Compliant Kubernetes apps<a class="headerlink" href="#install-compliant-kubernetes-apps" title="Permanent link">&para;</a></h3>
 <p>Start with the Management Cluster:</p>
 <div class="highlight"><pre><span></span><code>compliantkubernetes-apps/bin/ck8s<span class="w"> </span>apply<span class="w"> </span>sc
@@ -3699,11 +3707,12 @@ vim<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFI
 <!--install-apps-stop-->
 
 <!--settling-start-->
+
 <h3 id="settling">Settling<a class="headerlink" href="#settling" title="Permanent link">&para;</a></h3>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Leave sufficient time for the system to settle, e.g., request TLS certificates from Let's Encrypt, perhaps as much as 20 minutes.</p>
 </div>
+<p>Leave sufficient time for the system to settle, e.g., request TLS certificates from Let's Encrypt, perhaps as much as 20 minutes.</p>
 <p>Check if all helm charts succeeded.</p>
 <div class="highlight"><pre><span></span><code>compliantkubernetes-apps/bin/ck8s<span class="w"> </span>ops<span class="w"> </span>helm<span class="w"> </span>wc<span class="w"> </span>list<span class="w"> </span>-A<span class="w"> </span>--all
 </code></pre></div>
@@ -3718,14 +3727,16 @@ vim<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFI
 <span class="k">done</span>
 </code></pre></div>
 <p>Check the output of the command above.
-All resources need to have the Ready column True.</p>
+All resources need to have the Ready column True.
+n</p>
 <!--settling-stop-->
 
 <!--testing-start-->
+
 <h3 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h3>
 <p>After completing the installation step you can test if the apps are properly installed and ready using the commands below:</p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span>sc<span class="w"> </span>wc<span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>compliantkubernetes-apps/bin/ck8s<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>
+<span class="w">  </span>compliantkubernetes-apps/bin/ck8s<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>
 <span class="k">done</span>
 </code></pre></div>
 <p>Done.
@@ -3733,6 +3744,7 @@ Navigate to the endpoints, for example <code>grafana.$BASE_DOMAIN</code>, <code>
 <!--testing-stop-->
 
 <!--create-s3-buckets-start-->
+
 <h3 id="create-s3-buckets">Create S3 buckets<a class="headerlink" href="#create-s3-buckets" title="Permanent link">&para;</a></h3>
 <p>You can use the following script to create required S3 buckets.
 The script uses <code>s3cmd</code> in the background and gets configuration and credentials for your S3 provider from <code>${HOME}/.s3cfg</code> file.</p>
@@ -3747,6 +3759,7 @@ Rather create a new set of credentials with write-only access, when supported by
 <!--create-s3-buckets-stop-->
 
 <!--test-s3-buckets-start-->
+
 <h3 id="test-s3">Test S3<a class="headerlink" href="#test-s3" title="Permanent link">&para;</a></h3>
 <p>To ensure that you have configured S3 correctly, run the following snippet:</p>
 <div class="highlight"><pre><span></span><code><span class="o">(</span>
@@ -3767,6 +3780,7 @@ Rather create a new set of credentials with write-only access, when supported by
 <!--test-s3-buckets-stop-->
 
 <!--out-of-date-start-->
+
 <div class="admonition bug">
 <p class="admonition-title">This page is out of date</p>
 <p>We are currently working on internal documentation to streamline

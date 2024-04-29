@@ -596,7 +596,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3676,23 +3676,23 @@ For Elastisys managed services customers this can be done by filing a <a href="h
 </div>
 <p>This is the permissions required for the OpenSearch API snippets and the permissions required by Elasticdump:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">cluster_permissions</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cluster_monitor</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">indices:data/read/scroll</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">indices:data/read/scroll/clear</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cluster_monitor</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">indices:data/read/scroll</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">indices:data/read/scroll/clear</span>
 <span class="nt">index_permissions</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">index_patterns</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;*&#39;</span>
-<span class="w">  </span><span class="nt">allowed_actions</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">indices:admin/aliases/get</span><span class="w"> </span><span class="c1"># Can be omitted when aliases is not used</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">indices:monitor/*</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">index_patterns</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kubernetes*</span>
-<span class="w">  </span><span class="nt">allowed_actions</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">indices:admin/get</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">indices:admin/mappings/get</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">indices_monitor</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">read</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">search</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">index_patterns</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;*&quot;</span>
+<span class="w">    </span><span class="nt">allowed_actions</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">indices:admin/aliases/get</span><span class="w"> </span><span class="c1"># Can be omitted when aliases is not used</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">indices:monitor/*</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">index_patterns</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kubernetes*</span>
+<span class="w">    </span><span class="nt">allowed_actions</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">indices:admin/get</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">indices:admin/mappings/get</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">indices_monitor</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">read</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">search</span>
 </code></pre></div>
 <p>With <code>${DOMAIN}</code> set to the domain of your environment, the variables then needed to connect becomes:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">OS_PROTOCOL</span><span class="o">=</span><span class="s2">&quot;https&quot;</span>
@@ -3719,17 +3719,17 @@ This way there is no need to check and update indices in case they've changed si
 <p class="admonition-title">Example: List all indices using a pattern</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># call as: get_indices &lt;pattern&gt;</span>
 get_indices<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="nv">pattern</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="nv">pattern</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
 
-<span class="w">    </span><span class="nv">res</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OS_USERNAME</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">OS_PASSWORD</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>-XGET<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OS_PROTOCOL</span><span class="si">}</span><span class="s2">://</span><span class="si">${</span><span class="nv">OS_ENDPOINT</span><span class="si">}</span><span class="s2">/_cat/indices?h=index&quot;</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="nv">res</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OS_USERNAME</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">OS_PASSWORD</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>-XGET<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OS_PROTOCOL</span><span class="si">}</span><span class="s2">://</span><span class="si">${</span><span class="nv">OS_ENDPOINT</span><span class="si">}</span><span class="s2">/_cat/indices?h=index&quot;</span><span class="k">)</span><span class="s2">&quot;</span>
 
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">res</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
-<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">res</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;fail&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
-<span class="w">    </span><span class="k">else</span>
-<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">res</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;/</span><span class="si">${</span><span class="nv">pattern</span><span class="si">}</span><span class="s2">/p&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort
-<span class="w">    </span><span class="k">fi</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">res</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="w">  </span><span class="k">elif</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">res</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;fail&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">res</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;/</span><span class="si">${</span><span class="nv">pattern</span><span class="si">}</span><span class="s2">/p&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort
+<span class="w">  </span><span class="k">fi</span>
 <span class="o">}</span>
 </code></pre></div>
 <p>This will generate a list of all indices within OpenSearch for the specified pattern.</p>
@@ -3739,17 +3739,17 @@ get_indices<span class="o">()</span><span class="w"> </span><span class="o">{</s
 <p class="admonition-title">Example: List all write indices using a pattern</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># call as: get_write_index &lt;pattern&gt;</span>
 get_write_index<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="nv">pattern</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="nv">pattern</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
 
-<span class="w">    </span><span class="nv">res</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OS_USERNAME</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">OS_PASSWORD</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>-XGET<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OS_PROTOCOL</span><span class="si">}</span><span class="s2">://</span><span class="si">${</span><span class="nv">OS_ENDPOINT</span><span class="si">}</span><span class="s2">/_cat/aliases?h=alias,index,is_write_index&quot;</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="nv">res</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OS_USERNAME</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">OS_PASSWORD</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>-XGET<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OS_PROTOCOL</span><span class="si">}</span><span class="s2">://</span><span class="si">${</span><span class="nv">OS_ENDPOINT</span><span class="si">}</span><span class="s2">/_cat/aliases?h=alias,index,is_write_index&quot;</span><span class="k">)</span><span class="s2">&quot;</span>
 
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">res</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
-<span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">res</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;fail&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
-<span class="w">    </span><span class="k">else</span>
-<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">res</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;/</span><span class="si">${</span><span class="nv">pattern</span><span class="si">}</span><span class="s2">/p&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $2}&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">true</span>
-<span class="w">    </span><span class="k">fi</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">res</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="w">  </span><span class="k">elif</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">res</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;fail&quot;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">res</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;/</span><span class="si">${</span><span class="nv">pattern</span><span class="si">}</span><span class="s2">/p&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $2}&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">true</span>
+<span class="w">  </span><span class="k">fi</span>
 <span class="o">}</span>
 </code></pre></div>
 <p>This will generate a list of all write indices within OpenSearch for the specified pattern.</p>
@@ -3763,11 +3763,11 @@ get_write_index<span class="o">()</span><span class="w"> </span><span class="o">
 <span class="nv">write_index</span><span class="o">=</span><span class="k">$(</span>get_write_index<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OS_PATTERN</span><span class="si">}</span><span class="s2">&quot;</span><span class="k">)</span>
 
 <span class="k">for</span><span class="w"> </span>index<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">indices</span><span class="si">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">write_index</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">        </span><span class="k">continue</span><span class="w"> </span><span class="c1"># skipping as it is the write index</span>
-<span class="w">    </span><span class="k">fi</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">write_index</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="k">continue</span><span class="w"> </span><span class="c1"># skipping as it is the write index</span>
+<span class="w">  </span><span class="k">fi</span>
 
-<span class="w">    </span>perform_export<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">  </span>perform_export<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="k">done</span>
 </code></pre></div>
 </div>
@@ -3785,9 +3785,9 @@ To be able to do some management functions we will also use <a href="https://git
 <span class="nb">export</span><span class="w"> </span><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="s2">&quot;&lt;secret-key&gt;&quot;</span>
 
 <span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$S3_FORCE_PATH_STYLE</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">S3_BUCKET_ENDPOINT</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">S3_ENDPOINT</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="nb">export</span><span class="w"> </span><span class="nv">S3_BUCKET_ENDPOINT</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">S3_ENDPOINT</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="k">else</span>
-<span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">S3_BUCKET_ENDPOINT</span><span class="o">=</span><span class="s2">&quot;%(bucket)s.</span><span class="si">${</span><span class="nv">S3_ENDPOINT</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="nb">export</span><span class="w"> </span><span class="nv">S3_BUCKET_ENDPOINT</span><span class="o">=</span><span class="s2">&quot;%(bucket)s.</span><span class="si">${</span><span class="nv">S3_ENDPOINT</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="k">fi</span>
 </code></pre></div>
 <div class="admonition important">
@@ -3798,6 +3798,62 @@ To be able to do some management functions we will also use <a href="https://git
 <p class="admonition-title">Example: Export entire index to S3</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># With ${index} set to the index to export.</span>
 elasticdump<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--input<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OS_PROTOCOL</span><span class="si">}</span><span class="s2">://</span><span class="si">${</span><span class="nv">OS_USERNAME</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">OS_PASSWORD</span><span class="si">}</span><span class="s2">@</span><span class="si">${</span><span class="nv">OS_ENDPOINT</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output<span class="w"> </span><span class="s2">&quot;s3://</span><span class="nv">$S3_BUCKET</span><span class="s2">/</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">.json.gz&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--s3Region<span class="w"> </span><span class="si">${</span><span class="nv">S3_REGION</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--s3Endpoint<span class="w"> </span><span class="si">${</span><span class="nv">S3_ENDPOINT</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--s3ForcePathStyle<span class="w"> </span><span class="si">${</span><span class="nv">S3_FORCE_PATH_STYLE</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--s3Compress<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--concurrency<span class="w"> </span><span class="m">40</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--concurrencyInterval<span class="w"> </span><span class="m">1000</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--intervalCap<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--limit<span class="w"> </span><span class="m">1000</span>
+</code></pre></div>
+<p>This process will take a while depending on the size of the index.
+By default it will not try to delete, replace or update any resources, so this must be enabled using the <a href="https://github.com/elasticsearch-dump/elasticsearch-dump#options">appropriate flags</a> or it should be managed by other means like s3cmd.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>If this process is aborted it will leave multipart uploads after itself that should be cleared, else they will still use storage on the S3 service!</p>
+<p>These can be listed and then removed with s3cmd:
+<div class="highlight"><pre><span></span><code>s3cmd<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--host<span class="o">=</span><span class="si">${</span><span class="nv">S3_ENDPOINT</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--host-bucket<span class="o">=</span><span class="si">${</span><span class="nv">S3_BUCKET_ENDPOINT</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>multipart<span class="w"> </span><span class="s2">&quot;s3://</span><span class="si">${</span><span class="nv">S3_BUCKET</span><span class="si">}</span><span class="s2">&quot;</span>
+
+s3cmd<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--host<span class="o">=</span><span class="si">${</span><span class="nv">S3_ENDPOINT</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--host-bucket<span class="o">=</span><span class="si">${</span><span class="nv">S3_BUCKET_ENDPOINT</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>abortmp<span class="w"> </span><span class="s2">&quot;s3://</span><span class="si">${</span><span class="nv">S3_BUCKET</span><span class="si">}</span><span class="s2">/&lt;multipart-upload-path&gt;&quot;</span><span class="w"> </span><span class="s2">&quot;&lt;multipart-upload-id&gt;&quot;</span>
+</code></pre></div></p>
+</div>
+</div>
+<p>In the example above only certain logs can be exported by adding a query using <a href="https://opensearch.org/docs/latest/opensearch/query-dsl/index/">OpenSearch Query DSL</a> with the <code>--searchBody '&lt;query&gt;'</code> flag.
+This way it is possible to filter on certain labels to only export logs for a particular namespace, deployment, or even using identifier within structured logs.
+An example for a specific namespace would be:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;query&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;term&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;kubernetes.namespace_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;production&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Since the Query DSL is in JSON format it must be properly quoted or escaped to keep its format, preferably the whitespace should be stripped before sending it as an argument to Elasticdump.</p>
+<div class="admonition example">
+<p class="admonition-title">Example: Putting it all together</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># call as: perform_export &lt;index&gt;</span>
+perform_export<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="nv">index</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+
+<span class="w">  </span><span class="nv">check</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>s3cmd<span class="w"> </span><span class="s2">&quot;--host=</span><span class="si">${</span><span class="nv">S3_ENDPOINT</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;--host-bucket=</span><span class="si">${</span><span class="nv">S3_BUCKET_ENDPOINT</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>ls<span class="w"> </span><span class="s2">&quot;s3://</span><span class="si">${</span><span class="nv">S3_BUCKET</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">.json.gz&quot;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">check</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="c1"># skipping as it is already exported</span>
+<span class="w">  </span><span class="k">fi</span>
+
+<span class="w">  </span><span class="c1"># Just as an example</span>
+<span class="w">  </span><span class="nv">query</span><span class="o">=</span><span class="s1">&#39;{&quot;query&quot;: {&quot;term&quot;: {&quot;kubernetes.namespace_name&quot;: &quot;production&quot;}}}&#39;</span>
+
+<span class="w">  </span>elasticdump<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--input<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OS_PROTOCOL</span><span class="si">}</span><span class="s2">://</span><span class="si">${</span><span class="nv">OS_USERNAME</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">OS_PASSWORD</span><span class="si">}</span><span class="s2">@</span><span class="si">${</span><span class="nv">OS_ENDPOINT</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--output<span class="w"> </span><span class="s2">&quot;s3://</span><span class="nv">$S3_BUCKET</span><span class="s2">/</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">.json.gz&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--s3Region<span class="w"> </span><span class="si">${</span><span class="nv">S3_REGION</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
@@ -3807,64 +3863,8 @@ elasticdump<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--concurrency<span class="w"> </span><span class="m">40</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--concurrencyInterval<span class="w"> </span><span class="m">1000</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--intervalCap<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--limit<span class="w"> </span><span class="m">1000</span>
-</code></pre></div>
-<p>This process will take a while depending on the size of the index.
-By default it will not try to delete, replace or update any resources, so this must be enabled using the <a href="https://github.com/elasticsearch-dump/elasticsearch-dump#options">appropriate flags</a> or it should be managed by other means like s3cmd.</p>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<p>If this process is aborted it will leave multipart uploads after itself that should be cleared, else they will still use storage on the S3 service!</p>
-<p>These can be listed and then removed with s3cmd:
-<div class="highlight"><pre><span></span><code>s3cmd<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--host<span class="o">=</span><span class="si">${</span><span class="nv">S3_ENDPOINT</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--host-bucket<span class="o">=</span><span class="si">${</span><span class="nv">S3_BUCKET_ENDPOINT</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>multipart<span class="w"> </span><span class="s2">&quot;s3://</span><span class="si">${</span><span class="nv">S3_BUCKET</span><span class="si">}</span><span class="s2">&quot;</span>
-
-s3cmd<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--host<span class="o">=</span><span class="si">${</span><span class="nv">S3_ENDPOINT</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--host-bucket<span class="o">=</span><span class="si">${</span><span class="nv">S3_BUCKET_ENDPOINT</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>abortmp<span class="w"> </span><span class="s2">&quot;s3://</span><span class="si">${</span><span class="nv">S3_BUCKET</span><span class="si">}</span><span class="s2">/&lt;multipart-upload-path&gt;&quot;</span><span class="w"> </span><span class="s2">&quot;&lt;multipart-upload-id&gt;&quot;</span>
-</code></pre></div></p>
-</div>
-</div>
-<p>In the example above only certain logs can be exported by adding a query using <a href="https://opensearch.org/docs/latest/opensearch/query-dsl/index/">OpenSearch Query DSL</a> with the <code>--searchBody '&lt;query&gt;'</code> flag.
-This way it is possible to filter on certain labels to only export logs for a particular namespace, deployment, or even using identifier within structured logs.
-An example for a specific namespace would be:
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;query&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;term&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;kubernetes.namespace_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;production&quot;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-Since the Query DSL is in JSON format it must be properly quoted or escaped to keep its format, preferably the whitespace should be stripped before sending it as an argument to Elasticdump.</p>
-<div class="admonition example">
-<p class="admonition-title">Example: Putting it all together</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># call as: perform_export &lt;index&gt;</span>
-perform_export<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="nv">index</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
-
-<span class="w">    </span><span class="nv">check</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>s3cmd<span class="w"> </span><span class="s2">&quot;--host=</span><span class="si">${</span><span class="nv">S3_ENDPOINT</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;--host-bucket=</span><span class="si">${</span><span class="nv">S3_BUCKET_ENDPOINT</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>ls<span class="w"> </span><span class="s2">&quot;s3://</span><span class="si">${</span><span class="nv">S3_BUCKET</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">.json.gz&quot;</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">check</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="c1"># skipping as it is already exported</span>
-<span class="w">    </span><span class="k">fi</span>
-
-<span class="w">    </span><span class="c1"># Just as an example</span>
-<span class="w">    </span><span class="nv">query</span><span class="o">=</span><span class="s1">&#39;{&quot;query&quot;: {&quot;term&quot;: {&quot;kubernetes.namespace_name&quot;: &quot;production&quot;}}}&#39;</span>
-
-<span class="w">    </span>elasticdump<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--input<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">OS_PROTOCOL</span><span class="si">}</span><span class="s2">://</span><span class="si">${</span><span class="nv">OS_USERNAME</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">OS_PASSWORD</span><span class="si">}</span><span class="s2">@</span><span class="si">${</span><span class="nv">OS_ENDPOINT</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--output<span class="w"> </span><span class="s2">&quot;s3://</span><span class="nv">$S3_BUCKET</span><span class="s2">/</span><span class="si">${</span><span class="nv">index</span><span class="si">}</span><span class="s2">.json.gz&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--s3Region<span class="w"> </span><span class="si">${</span><span class="nv">S3_REGION</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--s3Endpoint<span class="w"> </span><span class="si">${</span><span class="nv">S3_ENDPOINT</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--s3ForcePathStyle<span class="w"> </span><span class="si">${</span><span class="nv">S3_FORCE_PATH_STYLE</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--s3Compress<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--concurrency<span class="w"> </span><span class="m">40</span><span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--concurrencyInterval<span class="w"> </span><span class="m">1000</span><span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--intervalCap<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--limit<span class="w"> </span><span class="m">1000</span><span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>--searchBody<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">query</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">    </span>--limit<span class="w"> </span><span class="m">1000</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--searchBody<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">query</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="o">}</span>
 </code></pre></div>
 </div>
@@ -3879,9 +3879,9 @@ perform_export<span class="o">()</span><span class="w"> </span><span class="o">{
 <span class="k">ARG</span><span class="w"> </span><span class="nv">TZ</span><span class="o">=</span>Etc/UTC
 
 <span class="k">RUN</span><span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--no-install-recommends<span class="w"> </span>ca-certificates<span class="w"> </span>curl<span class="w"> </span>npm<span class="w"> </span>s3cmd<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>apt<span class="w"> </span>clean<span class="w"> </span>-y<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/apt
+apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--no-install-recommends<span class="w"> </span>ca-certificates<span class="w"> </span>curl<span class="w"> </span>npm<span class="w"> </span>s3cmd<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+apt<span class="w"> </span>clean<span class="w"> </span>-y<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/apt
 
 <span class="k">RUN</span><span class="w"> </span>npm<span class="w"> </span>install<span class="w"> </span>elasticdump@v6.88.0<span class="w"> </span>-g
 

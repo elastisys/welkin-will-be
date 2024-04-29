@@ -592,7 +592,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3798,21 +3798,15 @@ Keeping the application secure means having sufficient capacity in the environme
 <li><strong>Why memory and CPU usage?</strong></li>
 <li>These are the resource metrics that are directly tied to the Nodes, and represent how much of the resource is actually used and how much is available. If usage gets close to 100% of capacity, it will start impacting applications.</li>
 <li>That isn't to say that these are the only capacity metrics to take into account. Other metrics are useful too, but are often not cause for an immediate scale-up and instead require further investigation. These other metrics include:<ul>
-<li>CPU:<ul>
+<li>CPU:</li>
 <li>sum of (Kubernetes) CPU requests to CPU allocatable;</li>
 <li>load average;</li>
-</ul>
-</li>
-<li>Memory:<ul>
+<li>Memory:</li>
 <li>sum of (Kubernetes) memory request to memory allocatable;</li>
-</ul>
-</li>
-<li>Storage:<ul>
+<li>Storage:</li>
 <li>host disk used to size;</li>
 <li>PersistentVolumeClaim used to size;</li>
 <li>Rook/Ceph OSD used to size;</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -3847,7 +3841,7 @@ Nevertheless, Application Developer trust us to keep infrastructure costs down, 
 <h3 id="how_1">How?<a class="headerlink" href="#how_1" title="Permanent link">&para;</a></h3>
 <p>If a decision has been made to downscale, make sure to drain and cordon the Node before decommissioning it.</p>
 <p>If you are about to go below 3 Nodes, consider replacing the Nodes with 6 Nodes of half-the-size before downscaling.
-Before doing this, get in touch with Application Developers to ensure they don't have Kubernetes scheduling constraints that would  cause issues on the consolidated environment.</p>
+Before doing this, get in touch with Application Developers to ensure they don't have Kubernetes scheduling constraints that would cause issues on the consolidated environment.</p>
 <p>If you are about to half the number of Nodes, get in touch with Application Developers to ensure their application is not misbehaving, before downscaling.</p>
 <h3 id="optimization">Optimization<a class="headerlink" href="#optimization" title="Permanent link">&para;</a></h3>
 <p>Removing capacity is more dangerous than having extra capacity, when it comes to application uptime.

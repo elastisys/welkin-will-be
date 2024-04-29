@@ -594,7 +594,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3899,7 +3899,7 @@ kubectl<span class="w"> </span>-n<span class="w"> </span>argocd-system<span clas
 <p>The <code>.sops.yaml</code> file should look something like this:</p>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="nt">creation_rules</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">pgp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;public-gpg-key&gt;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">pgp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;public-gpg-key&gt;</span>
 </code></pre></div>
 </li>
 <li>
@@ -3982,6 +3982,7 @@ kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="
 <span class="w">  </span><span class="nt">VAULT_TOKEN</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
 </code></pre></div>
 <p>Fill out required data in secret to connect it to your Vault.</p>
+<!-- prettier-ignore -->
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>When encoding your data, make sure to use <code>echo -n &lt;data&gt; | base64</code> to avoid adding a new line at the end of your encoded secret.</p>
@@ -4001,16 +4002,16 @@ kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="
 <span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argocd-application</span>
 <span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argocd-system</span>
 <span class="w">  </span><span class="nt">finalizers</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">resources-finalizer.argocd.argoproj.io</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">resources-finalizer.argocd.argoproj.io</span>
 <span class="nt">spec</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">destination</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">staging</span>
-<span class="w">      </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://kubernetes.default.svc</span>
+<span class="w">    </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">staging</span>
+<span class="w">    </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://kubernetes.default.svc</span>
 <span class="w">  </span><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
 <span class="w">  </span><span class="nt">source</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">helm</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">valueFiles</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">values.yaml</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">values.yaml</span>
 <span class="w">      </span><span class="nt">fileParameters</span><span class="p">:</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
 <span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secrets+literal://vals!ref+vault://secret/user/#/password</span>
@@ -4080,7 +4081,7 @@ kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="
 <p>Argo CD Notifications support multiple <a href="https://argocd-notifications.readthedocs.io/en/stable/services/overview/#service-types">service types</a>, and provide detailed steps on how to configure each service. To learn more, see <a href="https://argocd-notifications.readthedocs.io/en/stable/services/overview/">Notification services</a>.</p>
 <h3 id="subscriptions">Subscriptions<a class="headerlink" href="#subscriptions" title="Permanent link">&para;</a></h3>
 <p>The subscription to Argo CD application events can be defined using <code>notifications.argoproj.io/subscribe.&lt;trigger&gt;.&lt;service&gt;: &lt;recipient&gt;</code> annotation. For example, the following annotation subscribes two Slack channels to notifications about every successful synchronization of the Argo CD application:</p>
-<p><div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>edit<span class="w"> </span>Application<span class="w"> </span>my-argo-application
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>edit<span class="w"> </span>Application<span class="w"> </span>my-argo-application
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argoproj.io/v1alpha1</span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Application</span>
@@ -4088,63 +4089,63 @@ kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="
 <span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-argo-application</span>
 <span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">notifications.argoproj.io/subscribe.on-sync-succeeded.slack</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-channel1;my-channel2</span>
-</code></pre></div></p>
+</code></pre></div>
 <h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
 <p>To configure Email service for example:</p>
 <ol>
 <li>
 <p>Add Email username and password token to <code>argocd-notifications-secret</code> secret</p>
-<p><div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;sender@example.com&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-w0<span class="w"> </span><span class="c1"># c2VuZGVyQGV4YW1wbGUuY29t</span>
-<span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;secretPassword&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-w0<span class="w"> </span><span class="c1">#  c2VjcmV0UGFzc3dvcmQ=</span>
-<span class="gp">$ </span>kubectl<span class="w"> </span>edit<span class="w"> </span>-n<span class="w"> </span>argocd-system<span class="w"> </span>argocd-notifications-secret
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;sender@example.com&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-w0<span class="w"> </span><span class="c1"># c2VuZGVyQGV4YW1wbGUuY29t</span>
+<span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;secretPassword&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-w0<span class="w"> </span><span class="c1">#  c2VjcmV0UGFzc3dvcmQ=</span>
+kubectl<span class="w"> </span>edit<span class="w"> </span>-n<span class="w"> </span>argocd-system<span class="w"> </span>argocd-notifications-secret
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span>
 <span class="nt">metadata</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argocd-notifications-secret</span>
-<span class="w">    </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argocd-system</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argocd-notifications-secret</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argocd-system</span>
 <span class="nt">data</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">email-username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">c2VuZGVyQGV4YW1wbGUuY29t</span>
-<span class="w">    </span><span class="nt">email-password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">c2VjcmV0UGFzc3dvcmQ=</span>
-</code></pre></div></p>
+<span class="w">  </span><span class="nt">email-username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">c2VuZGVyQGV4YW1wbGUuY29t</span>
+<span class="w">  </span><span class="nt">email-password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">c2VjcmV0UGFzc3dvcmQ=</span>
+</code></pre></div>
 </li>
 <li>
 <p>Register Email notification service</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>edit<span class="w"> </span>-n<span class="w"> </span>argocd-system<span class="w"> </span>argocd-notifications-cm
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>edit<span class="w"> </span>-n<span class="w"> </span>argocd-system<span class="w"> </span>argocd-notifications-cm
 </code></pre></div>
 <p>Add the service under the ConfigMap data</p>
-<p><div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
-<span class="nt">metadata</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argocd-notifications-cm</span>
-<span class="nt">data</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">service.email.gmail</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">        </span><span class="no">username: $email-username</span>
-<span class="w">        </span><span class="no">password: $email-password</span>
-<span class="w">        </span><span class="no">host: smtp.gmail.com</span>
-<span class="w">        </span><span class="no">port: 465</span>
-<span class="w">        </span><span class="no">from: $email-username</span>
-</code></pre></div>
-In case you want to use a separate SMTP server instead of gmail
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
 <span class="nt">metadata</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argocd-notifications-cm</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argocd-notifications-cm</span>
 <span class="nt">data</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">service.email.custom</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">        </span><span class="no">username: $email-username</span>
-<span class="w">        </span><span class="no">password: $email-password</span>
-<span class="w">        </span><span class="no">host: smtp.custom.com</span>
-<span class="w">        </span><span class="no">port: 587</span>
-<span class="w">        </span><span class="no">from: $email-username</span>
-</code></pre></div></p>
+<span class="w">  </span><span class="nt">service.email.gmail</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">username: $email-username</span>
+<span class="w">    </span><span class="no">password: $email-password</span>
+<span class="w">    </span><span class="no">host: smtp.gmail.com</span>
+<span class="w">    </span><span class="no">port: 465</span>
+<span class="w">    </span><span class="no">from: $email-username</span>
+</code></pre></div>
+<p>In case you want to use a separate SMTP server instead of gmail</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">argocd-notifications-cm</span>
+<span class="nt">data</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">service.email.custom</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">username: $email-username</span>
+<span class="w">    </span><span class="no">password: $email-password</span>
+<span class="w">    </span><span class="no">host: smtp.custom.com</span>
+<span class="w">    </span><span class="no">port: 587</span>
+<span class="w">    </span><span class="no">from: $email-username</span>
+</code></pre></div>
 </li>
 <li>
 <p>Subscribe to notifications by adding the notifications.argoproj.io/subscribe.on-sync-succeeded.gmail annotation to the Argo CD application:</p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>patch<span class="w"> </span>app<span class="w"> </span>my-argo-application<span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;{&quot;metadata&quot;: {&quot;annotations&quot;: {&quot;notifications.argoproj.io/subscribe.on-sync-succeeded.gmail&quot;:&quot;receiver@example.com&quot;}}}&#39;</span><span class="w"> </span>--type<span class="w"> </span>merge
+</code></pre></div>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>patch<span class="w"> </span>app<span class="w"> </span>my-argo-application<span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;{&quot;metadata&quot;: {&quot;annotations&quot;: {&quot;notifications.argoproj.io/subscribe.on-sync-succeeded.gmail&quot;:&quot;receiver@example.com&quot;}}}&#39;</span><span class="w"> </span>--type<span class="w"> </span>merge
-</code></pre></div>
 <p>Now, if we try syncing an application, we will get the notification once sync is completed.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>

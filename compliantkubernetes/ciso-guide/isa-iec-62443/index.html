@@ -592,7 +592,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3699,12 +3699,12 @@ This ensures both system integrity and data confidentiality, e.g., Application D
 <p>Compliant Kubernetes restricts data flows at three levels:</p>
 <ul>
 <li>Infrastructure: Provided the infrastructure supports this, the servers composing Compliant Kubernetes should always be put on a private network, fronted by a load-balancer.
-The load-balancer should restrict communication to port 80 (TCP ACME) and 443 (HTTPS).</li>
+  The load-balancer should restrict communication to port 80 (TCP ACME) and 443 (HTTPS).</li>
 <li>Platform: Within the platform, most Compliant Kubernetes components have NetworkPolicies in place.
-NetworkPolicies are roughly equivalent to firewall in a containerized environment.
-This ensures that components can only communicate to one-another on an "as-needed" basis, and severely restricts the ability to exploit certain vulnerabilities, such as the infamous Log4j vulnerability.</li>
+  NetworkPolicies are roughly equivalent to firewall in a containerized environment.
+  This ensures that components can only communicate to one-another on an "as-needed" basis, and severely restricts the ability to exploit certain vulnerabilities, such as the infamous Log4j vulnerability.</li>
 <li>Application: Application Developers should ship their application with NetworkPolicies to restrict data flows, as described on the <a href="../../user-guide/network-model/">Network Model</a> page.
-By default, Compliant Kubernetes <a href="../../user-guide/safeguards/enforce-networkpolicies/">warns Application Developer if NetworkPolicies are missing</a>.</li>
+  By default, Compliant Kubernetes <a href="../../user-guide/safeguards/enforce-networkpolicies/">warns Application Developer if NetworkPolicies are missing</a>.</li>
 </ul>
 <h2 id="fr-6-timely-response-to-events-incident-management">FR 6: Timely Response to Events (Incident Management)<a class="headerlink" href="#fr-6-timely-response-to-events-incident-management" title="Permanent link">&para;</a></h2>
 <p>Compliant Kubernetes issues alerts when the application or platform requires human attention.

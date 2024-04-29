@@ -592,7 +592,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Continous Development
+    Continuous Development
   </span>
   
 
@@ -3950,8 +3950,8 @@ if(!document.__defineGetter__) {
 <p>Create a git working folder to store Compliant Kubernetes configurations in a version-controlled manner. Run the following commands from the root of the config repo.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The following steps are done from the root of the git repository you created for the configurations.</p>
 </div>
+<p>The following steps are done from the root of the git repository you created for the configurations.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_CONFIG_PATH</span><span class="o">=</span>./
 <span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_ENVIRONMENT_NAME</span><span class="o">=</span>&lt;my-ck8s-cluster&gt;
 <span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_CLOUD_PROVIDER</span><span class="o">=[</span>exoscale<span class="p">|</span>safespring<span class="p">|</span>citycloud<span class="p">|</span>elastx<span class="p">|</span>aws<span class="p">|</span>baremetal<span class="o">]</span>
@@ -3981,18 +3981,14 @@ ansible-playbook<span class="w"> </span>-e<span class="w"> </span><span class="s
 <p>Create the domain name.
     You need to create a domain name to access the different services in your environment. You will need to set up the following DNS entries.</p>
 <ul>
-<li>Point these domains to the Workload Cluster ingress controller (this step is done during Compliant Kubernetes app installation):<ul>
+<li>Point these domains to the Workload Cluster ingress controller (this step is done during Compliant Kubernetes app installation):</li>
 <li><code>*.$DOMAIN</code></li>
-</ul>
-</li>
-<li>Point these domains to the Management Cluster ingress controller (this step is done during Compliant Kubernetes app installation):<ul>
+<li>Point these domains to the Management Cluster ingress controller (this step is done during Compliant Kubernetes app installation):</li>
 <li><code>*.ops.$DOMAIN</code></li>
 <li><code>dex.$DOMAIN</code></li>
 <li><code>grafana.$DOMAIN</code></li>
 <li><code>harbor.$DOMAIN</code></li>
 <li><code>opensearch.$DOMAIN</code></li>
-</ul>
-</li>
 </ul>
 <details class="note" open="open">
 <summary>If both Management and Workload Clusters are in the same subnet</summary>
@@ -4077,6 +4073,8 @@ ansible-playbook<span class="w"> </span>-e<span class="w"> </span><span class="s
 </div>
 <h2 id="rook-block-storage">Rook Block Storage<a class="headerlink" href="#rook-block-storage" title="Permanent link">&para;</a></h2>
 <p>Normally, we want to use block storage solutions provided by the infra provider. However, this is not always available, especially for on-prem environments. In such cases we can partition separate volumes on nodes in the cluster for Rook-Ceph and use that as a block storage solution.</p>
+<!-- markdownlint-disable-file first-line-h1 -->
+
 <h3 id="deploy-rook">Deploy Rook<a class="headerlink" href="#deploy-rook" title="Permanent link">&para;</a></h3>
 <p>To deploy Rook, go to the <code>compliantkubernetes-kubespray</code> repo, change directory to <code>rook</code> and follow the instructions <a href="https://github.com/elastisys/compliantkubernetes-kubespray/tree/main/rook#rook-ceph">here</a> for each cluster.</p>
 <div class="admonition note">
@@ -4199,8 +4197,8 @@ Rather create a new set of credentials with write-only access, when supported by
 <h3 id="settling">Settling<a class="headerlink" href="#settling" title="Permanent link">&para;</a></h3>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Leave sufficient time for the system to settle, e.g., request TLS certificates from Let's Encrypt, perhaps as much as 20 minutes.</p>
 </div>
+<p>Leave sufficient time for the system to settle, e.g., request TLS certificates from Let's Encrypt, perhaps as much as 20 minutes.</p>
 <p>Check if all helm charts succeeded.</p>
 <div class="highlight"><pre><span></span><code>compliantkubernetes-apps/bin/ck8s<span class="w"> </span>ops<span class="w"> </span>helm<span class="w"> </span>wc<span class="w"> </span>list<span class="w"> </span>-A<span class="w"> </span>--all
 </code></pre></div>
@@ -4215,11 +4213,12 @@ Rather create a new set of credentials with write-only access, when supported by
 <span class="k">done</span>
 </code></pre></div>
 <p>Check the output of the command above.
-All resources need to have the Ready column True.</p>
+All resources need to have the Ready column True.
+n</p>
 <h3 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h3>
 <p>After completing the installation step you can test if the apps are properly installed and ready using the commands below:</p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span>sc<span class="w"> </span>wc<span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span>compliantkubernetes-apps/bin/ck8s<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>
+<span class="w">  </span>compliantkubernetes-apps/bin/ck8s<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>
 <span class="k">done</span>
 </code></pre></div>
 <p>Done.
