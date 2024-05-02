@@ -3776,22 +3776,30 @@ They provide a "northern star" to orient development.</p>
 <p>Below we explain what we mean with each word in the mission and vision.</p>
 <h3 id="best-application-developer-experience">Best application developer experience<a class="headerlink" href="#best-application-developer-experience" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Closes the DevOps loop</strong>:</li>
+<li><strong>Closes the DevOps loop</strong>:<ul>
 <li>It should be easy for application developer to deploy their code.</li>
 <li>It should be easy for application developers to observe their code via the three pillars of observability: logs, metrics and traces.</li>
-<li><strong>As self-service as possible</strong>:</li>
+</ul>
+</li>
+<li><strong>As self-service as possible</strong>:<ul>
 <li>Application developers should be able to reach their goals with as little platform administrator involvement as possible.</li>
 <li>This should not be interpreted as “click to deploy”, rather "as a platform administrator, I can point application developers to documentation to quickly achieve their goals".</li>
 <li>"Click to deploy" <strong>can</strong> be part of the solution, but it doesn't <strong>have to</strong> be.</li>
-<li><strong>Good documentation</strong>:</li>
+</ul>
+</li>
+<li><strong>Good documentation</strong>:<ul>
 <li>Documentation should help application developers throughout their journey of getting started and making the best use of the platform.</li>
 <li>Documentation should be searchable, for example, application developers should be able to copy-paste an error message to quickly recover from it.</li>
-<li><strong>Makes security and compliance easy</strong>:</li>
+</ul>
+</li>
+<li><strong>Makes security and compliance easy</strong>:<ul>
 <li>The platform should make it hard for application developers to do the wrong thing by employing safeguards and secure defaults.</li>
+</ul>
+</li>
 </ul>
 <h3 id="best-administrator-experience">Best administrator experience<a class="headerlink" href="#best-administrator-experience" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Good documentation</strong>:</li>
+<li><strong>Good documentation</strong>:<ul>
 <li>It should be easy for the platform administrator to get an overview of the platform, its components and the interaction between its components.</li>
 <li>The platform administrator should be provided with:<ul>
 <li>checklists, for rare and hard-to-automate tasks;</li>
@@ -3799,27 +3807,43 @@ They provide a "northern star" to orient development.</p>
 <li>scripts.</li>
 </ul>
 </li>
-<li><strong>Good scalability</strong>:</li>
+</ul>
+</li>
+<li><strong>Good scalability</strong>:<ul>
 <li>A team of platform administrators should be able to administer many environments.</li>
 <li>Cognitive load on platform administrators should be limited, for example, by:<ul>
 <li>limiting the scope (tech stack) of the platform;</li>
 <li>limiting divergence between environments.</li>
 </ul>
 </li>
-<li><strong>Minimise number of tickets from application developers</strong>:</li>
+</ul>
+</li>
+<li><strong>Minimise number of tickets from application developers</strong>:<ul>
 <li>Ideally, the platform administrator should be able to point application developers to documentation which enables the latter to reach their goals by themselves.</li>
-<li><strong>Minimise amount of manual actions, "thinking" and troubleshooting</strong></li>
+</ul>
+</li>
+<li><strong>Minimise amount of manual actions, "thinking" and troubleshooting</strong><ul>
 <li>The platform should perform frequent actions by itself, such as related to patching, updates and capacity management.</li>
 <li>The platform should obey configuration-by-code. Note that, 100% GitOps -- i.e., performing all operations via <code>git commit</code> -- is a non-goal.</li>
-<li><strong>Minimise likelihood and impact of incidents</strong>:</li>
+</ul>
+</li>
+<li><strong>Minimise likelihood and impact of incidents</strong>:<ul>
 <li>The platform should alert when an environment needs human attention.</li>
-<li><strong>Minimise number of alerts, especially off-hours ones</strong>:</li>
+</ul>
+</li>
+<li><strong>Minimise number of alerts, especially off-hours ones</strong>:<ul>
 <li>All alerts should be actionable.</li>
 <li>The platform should reduce the priority of alerts via resilience and automation.</li>
-<li><strong>Minimize time spent on billing</strong>:</li>
+</ul>
+</li>
+<li><strong>Minimize time spent on billing</strong>:<ul>
 <li>It should be easy to understand how to bill for the services provided by the platform.</li>
-<li><strong>Minimize time spent on verifying environment specification</strong>:</li>
+</ul>
+</li>
+<li><strong>Minimize time spent on verifying environment specification</strong>:<ul>
 <li>It should be easy for platform administrators to retrieve and verify the configuration of a large number of environments to ensure that important details, such as backup retention, log retention, are configured as expected by application developers.</li>
+</ul>
+</li>
 </ul>
 <h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
 <p>The platform should support an organization's information security certification efforts, e.g., with ISO 27001:2022.</p>
