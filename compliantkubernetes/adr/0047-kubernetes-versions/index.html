@@ -3620,9 +3620,11 @@ This makes the potential of it introducing bugs and regressions much smaller as 
 </ul>
 <h3 id="negative-consequences">Negative Consequences <!-- optional --><a class="headerlink" href="#negative-consequences" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Slower adoption of new versions in Cluster API</li>
+<li>Slower adoption of new versions in Cluster API<ul>
 <li>Mitigator 1: rework patch process to accelerate the release of new patch versions</li>
 <li>Mitigator 2: keep main branch of Cluster API aligned with latest minor version</li>
+</ul>
+</li>
 </ul>
 <h2 id="pros-and-cons-of-the-options">Pros and Cons of the Options <!-- optional --><a class="headerlink" href="#pros-and-cons-of-the-options" title="Permanent link">&para;</a></h2>
 <h3 id="option-1-upgrade-as-soon-as-there-is-a-new-minor-version">Option 1: <em>Upgrade as soon as there is a new minor version</em><a class="headerlink" href="#option-1-upgrade-as-soon-as-there-is-a-new-minor-version" title="Permanent link">&para;</a></h3>
@@ -3633,9 +3635,11 @@ This makes the potential of it introducing bugs and regressions much smaller as 
 </ul>
 <h3 id="option-2-upgrade-when-kubespray-upgrades">Option 2 - <em>Upgrade when Kubespray upgrades</em><a class="headerlink" href="#option-2-upgrade-when-kubespray-upgrades" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Bad, because Cluster API will not be fully up to date</li>
+<li>Bad, because Cluster API will not be fully up to date<ul>
 <li>Mitigator 1: rework patch process to accelerate the release of new patch versions</li>
 <li>Mitigator 2: keep main branch of Cluster API aligned with latest minor version</li>
+</ul>
+</li>
 <li>Good, because new minor Kubernetes versions will be more tested by the community at large</li>
 <li>Good, because we do not get a version skew between Cluster API and Kubespray</li>
 </ul>

@@ -3589,7 +3589,7 @@ If yes, how?</p>
 <li>
 <p>Setup Argo CD cluster-wide installation.</p>
 <ul>
-<li>Bad, because cluster-wide installation would give Argo a lot of permissions and right now, there is no good solution to stop Argo from deploying applications into our system namespaces such as falco, gatekeeper-system, etc., assuming that one needs to use a wildcard as destinations in ArgoCD projects.</li>
+<li>Bad, because cluster-wide installation would give Argo a lot of permissions and right now, there is no good solution to stop Argo from deploying applications into our system namespaces such as Falco, gatekeeper-system, etc., assuming that one needs to use a wildcard as destinations in ArgoCD projects.</li>
 <li>Bad, because even if Argo CD is installed cluster-wide, When ArgoCD syncs by kind, it does not prioritize subnamespaces first. See <a href="https://github.com/argoproj/gitops-engine/blob/bc9ce5764fa306f58cf59199a94f6c968c775a2d/pkg/sync/sync_tasks.go#L27-L66">here</a>.</li>
 <li>Bad, because this would also require us to build a lot of OPA policies and later makes it hard to pivot to new ways.</li>
 </ul>

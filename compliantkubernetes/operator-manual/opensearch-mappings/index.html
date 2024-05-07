@@ -3635,7 +3635,7 @@ if(!document.__defineGetter__) {
 <p>You can see that OpenSearch choose a type of text for duration, which is technically correct, but it won't be of value especially if we were to run custom queries on the <em>duration_minutes</em> field, for example: Get all movies longer than a certain duration .. etc</p>
 <p>We can instruct OpenSearch to detect numeric values, by configuring the Index at creation time. Let' recreate the index and enable numeric detection:</p>
 <p><img alt="Detect Numeric" src="../../img/dynamic_mapping_5.png" /></p>
-<p>Checking the dynamic mapping again, we can see that Opensearch was able to detect the numeric, and set the value of field to <strong>long</strong></p>
+<p>Checking the dynamic mapping again, we can see that OpenSearch was able to detect the numeric, and set the value of field to <strong>long</strong></p>
 <p><img alt="Get Mapping" src="../../img/dynamic_mapping_6.png" /></p>
 <p>Although OpenSearch was able to detect the numeric type, <strong>long</strong> in our case is not the best data type, as it is an inefficient use of memory space. A better data type here could be <strong>short</strong>.</p>
 <table>

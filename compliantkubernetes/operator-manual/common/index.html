@@ -3521,7 +3521,7 @@ if(!document.__defineGetter__) {
         <li class="md-nav__item">
   <a href="#install-compliant-kubernetes-apps" class="md-nav__link">
     <span class="md-ellipsis">
-      Install Compliant Kubernetes apps
+      Install Compliant Kubernetes Apps
     </span>
   </a>
   
@@ -3596,7 +3596,7 @@ if(!document.__defineGetter__) {
 <span class="nb">export</span><span class="w"> </span><span class="nv">KUBECONFIG</span><span class="o">=</span><span class="nv">$CLUSTER</span>.yaml
 </code></pre></div>
 </div>
-<p>Please restart the operator pod, <code>rook-ceph-operator*</code>, if some pods stalls in initialization state as shown below:</p>
+<p>Please restart the operator Pod, <code>rook-ceph-operator*</code>, if some pods stalls in initialization state as shown below:</p>
 <div class="highlight"><pre><span></span><code><span class="go">rook-ceph     rook-ceph-crashcollector-minion-0-b75b9fc64-tv2vg    0/1     Init:0/2   0          24m</span>
 <span class="go">rook-ceph     rook-ceph-crashcollector-minion-1-5cfb88b66f-mggrh   0/1     Init:0/2   0          36m</span>
 <span class="go">rook-ceph     rook-ceph-crashcollector-minion-2-5c74ffffb6-jwk55   0/1     Init:0/2   0          14m</span>
@@ -3640,7 +3640,7 @@ if(!document.__defineGetter__) {
 
 <!--clone-apps-start-->
 
-<p>Now that the Kubernetes clusters are up and running, we are ready to install the Compliant Kubernetes apps.</p>
+<p>Now that the Kubernetes clusters are up and running, we are ready to install Compliant Kubernetes Apps.</p>
 <h3 id="clone-compliantkubernetes-apps-and-install-pre-requisites">Clone <code>compliantkubernetes-apps</code> and Install Pre-requisites<a class="headerlink" href="#clone-compliantkubernetes-apps-and-install-pre-requisites" title="Permanent link">&para;</a></h3>
 <p>If you haven't done so already, clone the <code>compliantkubernetes-apps</code> repo and install pre-requisites.</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/elastisys/compliantkubernetes-apps.git
@@ -3679,8 +3679,8 @@ vim<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFI
 </code></pre></div>
 <p>Edit the secrets.yaml file and add the credentials for:</p>
 <ul>
-<li>s3 - used for backup storage</li>
-<li>dex - connectors -- check <a href="https://dexidp.io/docs/connectors/">your identity provider</a>.</li>
+<li>S3 - used for backup storage</li>
+<li>Dex - connectors -- check <a href="https://dexidp.io/docs/connectors/">your identity provider</a>.</li>
 <li>On-call management tool configurations-- Check <a href="https://prometheus.io/docs/alerting/latest/configuration/">supported on-call management tools</a></li>
 </ul>
 <div class="highlight"><pre><span></span><code>sops<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/secrets.yaml
@@ -3697,7 +3697,7 @@ vim<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFI
 
 <!--install-apps-start-->
 
-<h3 id="install-compliant-kubernetes-apps">Install Compliant Kubernetes apps<a class="headerlink" href="#install-compliant-kubernetes-apps" title="Permanent link">&para;</a></h3>
+<h3 id="install-compliant-kubernetes-apps">Install Compliant Kubernetes Apps<a class="headerlink" href="#install-compliant-kubernetes-apps" title="Permanent link">&para;</a></h3>
 <p>Start with the Management Cluster:</p>
 <div class="highlight"><pre><span></span><code>compliantkubernetes-apps/bin/ck8s<span class="w"> </span>apply<span class="w"> </span>sc
 </code></pre></div>

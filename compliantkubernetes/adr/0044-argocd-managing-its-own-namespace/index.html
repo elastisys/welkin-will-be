@@ -3585,19 +3585,23 @@ This service account has a larger set of permissions than a developer's most pri
 <h2 id="decision-outcome">Decision Outcome<a class="headerlink" href="#decision-outcome" title="Permanent link">&para;</a></h2>
 <p>Chosen option:</p>
 <ul>
-<li>No, we do not allow argocd to manage its own namespace.</li>
+<li>No, we do not allow ArgoCD to manage its own namespace.<ul>
 <li>ArgoCD, through an Application Developer's configuration, should not deploy standard Kubernetes resources (such as pods or secrets) directly into its own namespace. If there is a requirement for such deployments, it should be initiated through a service ticket, ensuring that it undergoes thorough security and stability assessments to prevent any compromises to the platform.</li>
+</ul>
+</li>
 </ul>
 <h3 id="positive-consequences">Positive Consequences<a class="headerlink" href="#positive-consequences" title="Permanent link">&para;</a></h3>
 <ul>
 <li>We get to keep ArgoCD secure.</li>
 <li>A malicious user cannot exploit a potential bug in ArgoCD to deploy resources into <code>argocd-system</code> namespace.</li>
-<li>An Application Developer will not be able to deploy a malicious pod and read secrets in <code>argocd-system</code> namespace.</li>
+<li>An Application Developer will not be able to deploy a malicious Pod and read secrets in <code>argocd-system</code> namespace.</li>
 </ul>
 <h3 id="negative-consequences">Negative Consequences<a class="headerlink" href="#negative-consequences" title="Permanent link">&para;</a></h3>
 <ul>
-<li>An Application Developer may also not be able to deploy standard Kubernetes resources via ArgoCD into <code>argocd-system</code> namespaces.</li>
+<li>An Application Developer may also not be able to deploy standard Kubernetes resources via ArgoCD into <code>argocd-system</code> namespaces.<ul>
 <li>This should not count as a negative consequence, because our current security stance is that Application Developers should not be supposed to deploy into the <code>argocd-system</code> Namespace at all.</li>
+</ul>
+</li>
 <li>Features such as Apps of Apps will not be available in our offering.</li>
 </ul>
 

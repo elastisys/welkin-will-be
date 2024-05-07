@@ -3732,7 +3732,7 @@ At the very least, you must:</p>
 <ol>
 <li>The example provided serves as a starting point for configuring resource requests and limits for your Keycloak deployment. Be sure to tailor these values to your specific requirements, and monitor your deployment to optimize resource allocation for your unique use case.</li>
 <li>Insert the variables that you got from initial preparation.</li>
-<li>Configure the ingress hostname and which issuer you will be using.</li>
+<li>Configure the Ingress hostname and which issuer you will be using.</li>
 <li>Enabling production mode and TLS for HTTPS. Disclaimer: Enabling production mode does not mean that the configuration here is ready for production. Please see further reading on Production configuration.</li>
 </ol>
 <div class="admonition failure">
@@ -3764,11 +3764,13 @@ helm<span class="w"> </span>upgrade<span class="w"> </span>--install<span class=
 <li><a href="https://www.keycloak.org/documentation">Documentation</a></li>
 <li><a href="https://www.keycloak.org/guides">Guides</a></li>
 <li><a href="https://www.keycloak.org/server/configuration-production">Production Configuration</a></li>
-<li><a href="https://www.keycloak.org/server/reverseproxy">Reverse Proxy</a></li>
-<li><a href="https://kubernetes.github.io/ingress-nginx/examples/auth/oauth-external-auth/">Ingress Nginx</a></li>
+<li><a href="https://www.keycloak.org/server/reverseproxy">Reverse Proxy</a><ul>
+<li><a href="https://kubernetes.github.io/ingress-nginx/examples/auth/oauth-external-auth/">Ingress NGINX</a></li>
 <li><a href="https://oauth2-proxy.github.io/oauth2-proxy/configuration/providers/keycloak">Oauth2-Proxy</a><ul>
 <li>Note: the “oidc-issuer-url” may be outdated in the guide. See <a href="https://stackoverflow.com/questions/70577004/keycloak-could-not-find-resource-for-full-path">this issue.</a></li>
-<li>Note: Keycloak realm steps may be different if you are using the new admin console. Instructions for that can be found on their <a href="https://github.com/oauth2-proxy/oauth2-proxy/blob/master/docs/docs/configuration/providers/keycloak_oidc.md">github</a>.</li>
+<li>Note: Keycloak realm steps may be different if you are using the new admin console. Instructions for that can be found on their <a href="https://github.com/oauth2-proxy/oauth2-proxy/blob/master/docs/docs/configuration/providers/keycloak_oidc.md">GitHub</a>.</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="https://www.keycloak.org/docs/latest/securing_apps/index.html">Securing your applications</a></li>

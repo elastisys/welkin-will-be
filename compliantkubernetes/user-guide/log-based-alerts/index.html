@@ -3616,15 +3616,12 @@ if(!document.__defineGetter__) {
 </li>
 </ul>
 <p><img alt="OpenSearch Notification" src="../../img/add-notifications-channel.png" /></p>
+<div class="highlight"><pre><span></span><code>- **Name** - Name of the destination - for example `user-demo-404-slack-notify`
+- **Channel type** - choose **Slack**
+- **Slack webhook URL** - Create a Slack Webhook following [Slack documentation](https://api.slack.com/messaging/webhooks). Paste the webhook URL
+</code></pre></div>
 <ul>
-<li><strong>Name</strong> - Name of the destination - for example <strong>user-demo-404-slack-notify</strong></li>
-<li><strong>Channel type</strong> - choose <strong>Slack</strong></li>
-<li>
-<p><strong>Slack webhook URL</strong> - Create a Slack Webhook following <a href="https://api.slack.com/messaging/webhooks">Slack documentation</a>. Paste the webhook URL</p>
-</li>
-<li>
-<p>Test that the Slack integration works by clicking <strong>Send test message</strong> button and check if you receive a test message in your Slack Channel.</p>
-</li>
+<li>Test that the Slack integration works by clicking <strong>Send test message</strong> button and check if you receive a test message in your Slack Channel.</li>
 </ul>
 <p><img alt="OpenSearch Notification Test" src="../../img/notifications-channel-slack-test.png" /></p>
 <ul>
@@ -3646,61 +3643,44 @@ if(!document.__defineGetter__) {
 </li>
 </ul>
 <p><img alt="OpenSearch Monitor 1" src="../../img/monitor-creation-1.png" /></p>
+<div class="highlight"><pre><span></span><code>- **Monitor name** - Name of the monitor, for example `user-demo-404-error`
+- **Monitor type** - Select **Per query monitor** - For more information check OpenSearch documentation on [Monitor types](https://opensearch.org/docs/latest/observing-your-data/alerting/monitors/#monitor-types)
+- **Schedule** - How often to monitor, for example, to check every 1 minute, set:
+    - **Frequency** - **By interval**
+    - **Run every** - **1 Minutes**
+- **Data source**
+
+    - **Index** where your logs are stored, for instance, `kubernetes*` (per default, Compliant Kubernetes will store all application logs indices that match the `kubernetes*` index pattern)
+
+    - **Time field** should be set to `@timestamp`
+</code></pre></div>
 <ul>
-<li><strong>Monitor name</strong> - Name of the monitor, for example <strong>user-demo-404-error</strong></li>
-<li><strong>Monitor type</strong> - Select <strong>Per query monitor</strong> - For more information check OpenSearch documentation on <a href="https://opensearch.org/docs/latest/observing-your-data/alerting/monitors/#monitor-types">Monitor types</a></li>
-<li><strong>Schedule</strong> - How often to monitor, for example, to check every 1 minute, set:<ul>
-<li><strong>Frequency</strong> - <strong>By interval</strong></li>
-<li><strong>Run every</strong> - <strong>1 Minutes</strong></li>
-</ul>
-</li>
-<li>
-<p><strong>Data source</strong></p>
-<ul>
-<li>
-<p><strong>Index</strong> where your logs are stored, for instance, <strong>kubernetes*</strong> (per default, Compliant Kubernetes will store all application logs indices that match the <strong>kubernetes*</strong> index pattern)</p>
-</li>
-<li>
-<p><strong>Time field</strong> should be set to <strong>@timestamp</strong></p>
-</li>
-</ul>
-</li>
-<li>
-<p>Continue with <strong>Query</strong> details</p>
-</li>
+<li>Continue with <strong>Query</strong> details</li>
 </ul>
 <p><img alt="OpenSearch Monitor 2" src="../../img/monitor-creation-2.png" /></p>
+<div class="highlight"><pre><span></span><code>- **Metrics** - optional
+- **Time range for the last** - Time frame of data the plugin should monitor - **1 minute(s)**
+- **Data filter** - `status-code is 404`
+</code></pre></div>
 <ul>
-<li><strong>Metrics</strong> - optional</li>
-<li><strong>Time range for the last</strong> - Time frame of data the plugin should monitor - <strong>1 minute(s)</strong></li>
-<li>
-<p><strong>Data filter</strong> - <strong>status-code is 404</strong></p>
-</li>
-<li>
-<p>Continue with <strong>Triggers</strong> details</p>
-</li>
+<li>Continue with <strong>Triggers</strong> details</li>
 </ul>
 <p><img alt="OpenSearch Trigger" src="../../img/trigger.png" /></p>
+<div class="highlight"><pre><span></span><code>- **Trigger name** - Name of the trigger - **404-error occurred &gt;5 times in last 1 minute**
+- **Severity level** - Select the severity level **1(Highest)**
+- **Trigger condition** - Select the condition according to your applications - **IS ABOVE 5**
+</code></pre></div>
 <ul>
-<li><strong>Trigger name</strong> - Name of the trigger - <strong>404-error occurred &gt;5 times in last 1 minute</strong></li>
-<li><strong>Severity level</strong> - Select the severity level <strong>1(Highest)</strong></li>
-<li>
-<p><strong>Trigger condition</strong> - Select the condition according to your applications - <strong>IS ABOVE 5</strong></p>
-</li>
-<li>
-<p>Continue with <strong>Actions</strong> details</p>
-</li>
+<li>Continue with <strong>Actions</strong> details</li>
 </ul>
 <p><img alt="OpenSearch Action" src="../../img/action.png" /></p>
+<div class="highlight"><pre><span></span><code>- Create an action with name, destination and customized message notification accordingly.
+- Test the action by clicking **Send test message** and check if you receive a test message in your Slack Channel.
+
+![OpenSearch Test Trigger](../img/trigger-notification-slack-test.png)
+</code></pre></div>
 <ul>
-<li>Create an action with name, destination and customized message notification accordingly.</li>
-<li>
-<p>Test the action by clicking <strong>Send test message</strong> and check if you receive a test message in your Slack Channel.</p>
-<p><img alt="OpenSearch Test Trigger" src="../../img/trigger-notification-slack-test.png" /></p>
-</li>
-<li>
-<p>Finally click <strong>Create</strong> button to complete the creation of the monitor.</p>
-</li>
+<li>Finally click <strong>Create</strong> button to complete the creation of the monitor.</li>
 </ul>
 <p><img alt="OpenSearch Monitor Create" src="../../img/create-monitor-button.png" /></p>
 <ul>

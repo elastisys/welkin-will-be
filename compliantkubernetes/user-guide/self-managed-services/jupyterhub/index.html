@@ -3852,7 +3852,7 @@ sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s|nam
 <p>JupyterHub's Admin functionality is limited since some of the admin functions require container root access. Pre-installed python packages for users can not be added through the admin interface. They can be added by <a href="https://z2jh.jupyter.org/en/stable/jupyterhub/customizing/user-environment.html#choose-and-use-an-existing-docker-image">modifying the Docker image</a>, pushing it to your image registry and redeploying JupyterHub. <strong>NOTE</strong> Users can still install their own packages.</p>
 </li>
 <li>
-<p>Persistent storage is currently disabled for Jypyter lab instances but <a href="https://z2jh.jupyter.org/en/stable/jupyterhub/customizing/user-storage.html">can be enabled</a>. It is disabled since Jupyter will allocate new storage for each user and should be carefully considered before it is enabled. This means that the workspace will be reset when the pod crashes or is scaled down from not being used. This includes code added to the lab and installed packages.</p>
+<p>Persistent storage is currently disabled for Jypyter lab instances but <a href="https://z2jh.jupyter.org/en/stable/jupyterhub/customizing/user-storage.html">can be enabled</a>. It is disabled since Jupyter will allocate new storage for each user and should be carefully considered before it is enabled. This means that the workspace will be reset when the Pod crashes or is scaled down from not being used. This includes code added to the lab and installed packages.</p>
 </li>
 <li>
 <p>GPU is not enabled currently but <a href="https://z2jh.jupyter.org/en/stable/jupyterhub/customizing/user-resources.html#set-user-gpu-guarantees-limits">can be enabled</a> depending on your infrastructure provider.</p>
@@ -3860,11 +3860,13 @@ sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s|nam
 </ul>
 <h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://z2jh.jupyter.org/en/stable/index.html">General Documentation on Setting Up JupyterHub on Kubernetes</a></li>
+<li><a href="https://z2jh.jupyter.org/en/stable/index.html">General Documentation on Setting Up JupyterHub on Kubernetes</a><ul>
 <li><a href="https://z2jh.jupyter.org/en/stable/administrator/authentication.html">Customizing User Management</a></li>
 <li><a href="https://z2jh.jupyter.org/en/stable/jupyterhub/customizing/user-storage.html">Customizing User Storage</a></li>
 <li><a href="https://z2jh.jupyter.org/en/stable/jupyterhub/customizing/user-environment.html">Customizing User Environment</a></li>
 <li><a href="https://z2jh.jupyter.org/en/stable/jupyterhub/customizing/user-resources.html">Customizing User Resources</a></li>
+</ul>
+</li>
 </ul>
 
 

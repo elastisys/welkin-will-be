@@ -4154,7 +4154,7 @@ curl<span class="w"> </span>-kL<span class="w"> </span>-u<span class="w"> </span
 <h4 id="restoring-opensearch-dashboards-data">Restoring OpenSearch Dashboards data<a class="headerlink" href="#restoring-opensearch-dashboards-data" title="Permanent link">&para;</a></h4>
 <p>Data in OpenSearch Dashboards (saved searches, visualizations, dashboards, etc) is stored in the index <code>.opensearch_dashboards_x</code>. To restore that data you first need to delete the index and then do a restore.</p>
 <p>This will overwrite anything in the current <code>.opensearch_dashboards_x</code> index. If there is something new that should be saved, then <a href="https://www.elastic.co/guide/en/kibana/7.10/managing-saved-objects.html#_export">export</a> the saved objects and <a href="https://www.elastic.co/guide/en/kibana/7.10/managing-saved-objects.html#_import">import</a> them after the restore.</p>
-<p>There can be multiple <code>.opensearch_dashboards</code> indices in Opensearch, the current index should be the one you want to restore. To view your dashboard indices, follow these steps.</p>
+<p>There can be multiple <code>.opensearch_dashboards</code> indices in OpenSearch, the current index should be the one you want to restore. To view your dashboard indices, follow these steps.</p>
 <div class="highlight"><pre><span></span><code><span class="nv">snapshot_name</span><span class="o">=</span>&lt;Snapshot<span class="w"> </span>name<span class="w"> </span>from<span class="w"> </span>previous<span class="w"> </span>step&gt;
 
 curl<span class="w"> </span>-kL<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">user</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">password</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="si">${</span><span class="nv">os_url</span><span class="si">}</span><span class="s1">&#39;/.opensearch_dashboard*?pretty&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">&#39;keys&#39;</span>
@@ -4315,13 +4315,13 @@ velero<span class="w"> </span>backup-location<span class="w"> </span>create<span
 <p>This refers to the user Grafana, not the ops Grafana.</p>
 <h3 id="backup_3">Backup<a class="headerlink" href="#backup_3" title="Permanent link">&para;</a></h3>
 <p>Grafana is set up to be included in the daily Velero backup.
-We then include the Grafana deployment, pod, and PVC (including the data).
+We then include the Grafana deployment, Pod, and PVC (including the data).
 Manual backups can be taken using velero (include the same resources).</p>
 <h3 id="restore_3">Restore<a class="headerlink" href="#restore_3" title="Permanent link">&para;</a></h3>
 <p>To restore the Grafana backup you must:</p>
 <ul>
 <li>Have Grafana installed</li>
-<li>Delete the grafana deployment, PVC and PV</li>
+<li>Delete the Grafana deployment, PVC and PV</li>
 </ul>
 <div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span>sc<span class="w"> </span>delete<span class="w"> </span>deploy<span class="w"> </span>-n<span class="w"> </span>monitoring<span class="w"> </span>user-grafana
 ./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span>sc<span class="w"> </span>delete<span class="w"> </span>pvc<span class="w"> </span>-n<span class="w"> </span>monitoring<span class="w"> </span>user-grafana

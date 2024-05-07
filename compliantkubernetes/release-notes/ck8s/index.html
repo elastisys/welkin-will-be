@@ -5764,7 +5764,7 @@ if(!document.__defineGetter__) {
 <p>Released 2024-04-12</p>
 <h3 id="improvements">Improvement(s)<a class="headerlink" href="#improvements" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Opensearch and Opensearch Dashboards were upgraded to v2.12</li>
+<li>OpenSearch and OpenSearch Dashboards were upgraded to v2.12</li>
 <li>Grafana was upgraded to v10.4</li>
 <li>Falco was upgraded to v0.37.1</li>
 <li>A new capacity management Grafana dashboard is now available. This will give better visibility over resource usage per node groups</li>
@@ -5775,7 +5775,7 @@ if(!document.__defineGetter__) {
 <h3 id="features">Feature(s)<a class="headerlink" href="#features" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Added some initial disk performance alerts</li>
-<li>Added probe ingress to monitor services</li>
+<li>Added probe Ingress to monitor services</li>
 </ul>
 <h3 id="improvements_1">Improvement(s)<a class="headerlink" href="#improvements_1" title="Permanent link">&para;</a></h3>
 <ul>
@@ -5783,7 +5783,7 @@ if(!document.__defineGetter__) {
 </ul>
 <h3 id="others">Other(s)<a class="headerlink" href="#others" title="Permanent link">&para;</a></h3>
 <ul>
-<li>bug - Fixed issue where large harbor backups would fail</li>
+<li>bug - Fixed issue where large Harbor backups would fail</li>
 <li>clean-up - Removed the ciskubernetesbenchmark dashboard from Grafana</li>
 </ul>
 <h2 id="v0342">v0.34.2<a class="headerlink" href="#v0342" title="Permanent link">&para;</a></h2>
@@ -5806,7 +5806,7 @@ if(!document.__defineGetter__) {
 </ul>
 <h3 id="others_1">Other(s)<a class="headerlink" href="#others_1" title="Permanent link">&para;</a></h3>
 <ul>
-<li>bug - Fixed issue where large harbor backups would fail</li>
+<li>bug - Fixed issue where large Harbor backups would fail</li>
 </ul>
 <h2 id="v0350">v0.35.0<a class="headerlink" href="#v0350" title="Permanent link">&para;</a></h2>
 <p>Released 2023-12-20</p>
@@ -5825,7 +5825,7 @@ if(!document.__defineGetter__) {
 </div>
 <h3 id="features_1">Feature(s)<a class="headerlink" href="#features_1" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Added option to run nginx in chroot</li>
+<li>Added option to run NGINX in chroot</li>
 <li>Added support for self-managed Kafka</li>
 </ul>
 <h3 id="improvements_5">Improvement(s)<a class="headerlink" href="#improvements_5" title="Permanent link">&para;</a></h3>
@@ -5859,23 +5859,27 @@ if(!document.__defineGetter__) {
 <p>Released 2023-10-20</p>
 <h3 id="updated">Updated<a class="headerlink" href="#updated" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Ingress-nginx controller to 1.8.4 and chart to 4.7.3 (HTTP/2 fix for CVE-2023-44487)</strong></li>
+<li><strong>Ingress-NGINX controller to 1.8.4 and chart to 4.7.3 (HTTP/2 fix for CVE-2023-44487)</strong><ul>
 <li>a limit of no more than 2 * max_concurrent_streams new streams per one event loop iteration was introduced</li>
 <li>refused streams are now limited to maximum of max_concurrent_streams and 100</li>
+</ul>
+</li>
 </ul>
 <h2 id="v0322">v0.32.2<a class="headerlink" href="#v0322" title="Permanent link">&para;</a></h2>
 <p>Released 2023-10-20</p>
 <h3 id="updated_1">Updated<a class="headerlink" href="#updated_1" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Ingress-nginx controller to 1.8.4 and chart to 4.7.3 (HTTP/2 fix for CVE-2023-44487)</strong></li>
+<li><strong>Ingress-NGINX controller to 1.8.4 and chart to 4.7.3 (HTTP/2 fix for CVE-2023-44487)</strong><ul>
 <li>a limit of no more than 2 * max_concurrent_streams new streams per one event loop iteration was introduced</li>
 <li>refused streams are now limited to maximum of max_concurrent_streams and 100</li>
+</ul>
+</li>
 </ul>
 <h2 id="v0330">v0.33.0<a class="headerlink" href="#v0330" title="Permanent link">&para;</a></h2>
 <p>Released 2023-09-28</p>
 <h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Increased the default <code>proxy-buffer-size</code> setting in ingress-nginx to <code>8k</code>.</strong></li>
+<li><strong>Increased the default <code>proxy-buffer-size</code> setting in Ingress-NGINX to <code>8k</code>.</strong></li>
 </ul>
 <h3 id="fixed">Fixed<a class="headerlink" href="#fixed" title="Permanent link">&para;</a></h3>
 <ul>
@@ -5883,7 +5887,7 @@ if(!document.__defineGetter__) {
 </ul>
 <h3 id="removed">Removed<a class="headerlink" href="#removed" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Removed the deprecated grafana dashboard Image vulnerabilities.</strong></li>
+<li><strong>Removed the deprecated Grafana dashboard Image vulnerabilities.</strong></li>
 </ul>
 <h2 id="v0320">v0.32.0<a class="headerlink" href="#v0320" title="Permanent link">&para;</a></h2>
 <p>Released 2023-08-07</p>
@@ -5893,33 +5897,41 @@ if(!document.__defineGetter__) {
 </ul>
 <h3 id="added">Added<a class="headerlink" href="#added" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Added support to turn off trailing dots for grafana.</strong></li>
+<li><strong>Added support to turn off trailing dots for Grafana.</strong><ul>
 <li>This fixes an issue with the certificate for Grafana appearing not to be valid on some browsers.</li>
+</ul>
+</li>
 </ul>
 <h3 id="changed_1">Changed<a class="headerlink" href="#changed_1" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Increased window for <code>FrequentPacketsDroppedFromWorkload</code> and <code>FrequentPacketsDroppedToWorkload</code> alerts.</strong></li>
+<li><strong>Increased window for <code>FrequentPacketsDroppedFromWorkload</code> and <code>FrequentPacketsDroppedToWorkload</code> alerts.</strong><ul>
 <li>To make it less sensitive to semi-consistent blocked network traffic.</li>
+</ul>
+</li>
 <li><strong>Reduced CPU requests for some components in the service cluster.</strong></li>
 </ul>
 <h3 id="fixed_1">Fixed<a class="headerlink" href="#fixed_1" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Added some default annotations for harbor that will fix issues with not being able to upload larger images.</strong></li>
-<li><strong>Fixed the Gatekeeper Grafana dashboard.</strong></li>
+<li><strong>Added some default annotations for Harbor that will fix issues with not being able to upload larger images.</strong></li>
+<li><strong>Fixed the Gatekeeper Grafana dashboard.</strong><ul>
 <li>Updated queries to produce correct numbers</li>
 <li>Removed broken/duplicate panels</li>
+</ul>
+</li>
 </ul>
 <h2 id="v0310">v0.31.0<a class="headerlink" href="#v0310" title="Permanent link">&para;</a></h2>
 <p>Released 2023-07-17</p>
 <h3 id="updated_3">Updated<a class="headerlink" href="#updated_3" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Harbor is upgraded to <code>v2.8.2</code>.</strong></li>
+<li><strong>Harbor is upgraded to <code>v2.8.2</code>.</strong><ul>
 <li>This version drops the support for chartmuseum and replaces it with a OCI compatible chart storage. You can find the documentation for how to use OCI compatible chart storage <a href="https://goharbor.io/docs/2.7.0/working-with-projects/working-with-images/managing-helm-charts/#manage-helm-charts-with-the-oci-compatible-registry-of-harbor">here</a>.</li>
 <li>They are also replacing the Notary image signer with Cosign image signer. You can find the documentation for how to use Cosign to sign images <a href="https://goharbor.io/docs/2.7.0/working-with-projects/working-with-images/sign-images/#use-cosign-to-sign-artifacts">here</a>.</li>
 <li>Dex is now the default login page.</li>
-<li><strong>Ingess-nginx is upgraded to <code>v1.8.0</code>.</strong></li>
+</ul>
+</li>
+<li><strong>Ingess-NGINX is upgraded to <code>v1.8.0</code>.</strong></li>
 <li><strong>Grafana is upgraded to <code>v9.5.5</code>.</strong></li>
-<li><strong>Opensearch and Opensearch Dashboard are upgraded to <code>v2.8.0</code>.</strong></li>
+<li><strong>OpenSearch and OpenSearch Dashboard are upgraded to <code>v2.8.0</code>.</strong></li>
 </ul>
 <h3 id="added_1">Added<a class="headerlink" href="#added_1" title="Permanent link">&para;</a></h3>
 <ul>
@@ -5932,9 +5944,9 @@ if(!document.__defineGetter__) {
 <h3 id="updated_4">Updated<a class="headerlink" href="#updated_4" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Update Trivy Operator Dashboard to improve the user experience.</strong></li>
-<li><strong>Another network policy fix for Harbor to allow garbage collection.</strong></li>
-<li><strong>Fixed duplicate exception for falco alerts.</strong></li>
-<li><strong>Update Falco rules and falco alert exceptions.</strong></li>
+<li><strong>Another Network Policy fix for Harbor to allow garbage collection.</strong></li>
+<li><strong>Fixed duplicate exception for Falco alerts.</strong></li>
+<li><strong>Update Falco rules and Falco alert exceptions.</strong></li>
 </ul>
 <h3 id="changed_2">Changed<a class="headerlink" href="#changed_2" title="Permanent link">&para;</a></h3>
 <ul>
@@ -5948,28 +5960,38 @@ if(!document.__defineGetter__) {
 </ul>
 <h3 id="updated_5">Updated<a class="headerlink" href="#updated_5" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>kube-prometheus-stack chart to <code>v45.2.0</code>.</strong></li>
-<li>the portName for alertmanager and prometheus have been renamed from web to http-web. If this port names are used by you application or to port-forward to prometheus/alertmanager, you will need to update them to http-web or use the port numbers instead (e.g 9090 for prometheus and 9093 for alertmanager);</li>
+<li><strong>kube-prometheus-stack chart to <code>v45.2.0</code>.</strong><ul>
+<li>the portName for Alertmanager and Prometheus have been renamed from web to http-web. If this port names are used by you application or to port-forward to Prometheus/Alertmanager, you will need to update them to http-web or use the port numbers instead (e.g 9090 for Prometheus and 9093 for Alertmanager);</li>
 <li>added default metric relabeling for cAdvisor and apiserver metrics to reduce cardinality;</li>
-<li>alertmanager, using regex field from the Matcher type is deprecated and it will be removed in a future version.</li>
+<li>Alertmanager, using regex field from the Matcher type is deprecated and it will be removed in a future version.</li>
+</ul>
+</li>
 </ul>
 <h3 id="changed_3">Changed<a class="headerlink" href="#changed_3" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Kubernetes PodSecurityPolcies have been replaced with Kubernetes Pod Security Standards and additional Gatekeeper Constraints and Mutations.</strong></li>
+<li><strong>Kubernetes PodSecurityPolcies have been replaced with Kubernetes Pod Security Standards and additional Gatekeeper Constraints and Mutations.</strong><ul>
 <li>This should not affect user applications as the default behavior is kept, and the new default restricted Pod Security Standard is slightly less restricted than the previous restricted PodSecurityPolicy following the upstream changes;</li>
 <li>You might see <code>warnings</code> generated by PodSecurity while deploying manifests into your Kubernetes cluster, if fields are unset or do not follow the <a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">Restricted policy for the Pod Security Standards</a>. If fields are unset, the new Gatekeeper mutations will set defaults, that follow the restricted Pod Security Standards, as the Pods get scheduled.</li>
-<li><strong>Trivy Operator has replaced Starboard Operator as the online security scanning tool.</strong></li>
+</ul>
+</li>
+<li><strong>Trivy Operator has replaced Starboard Operator as the online security scanning tool.</strong><ul>
 <li>This includes a new Trivy Operator dashboard and the deprecation of the old Image vulnerabilities dashboard.</li>
+</ul>
+</li>
 <li><strong>Both <code>responseObject</code> and <code>requestObject</code> are no longer dropped in Fluentd from Kubernetes audit events.</strong></li>
 <li><strong>Changed timekey to stageTimestamp for Kubernetes audit logs. Use auditID to correlate stages of the same request.</strong></li>
 </ul>
 <h3 id="removed_1">Removed<a class="headerlink" href="#removed_1" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Remove HNC admin-rbac from admin (attached to user admins).</strong></li>
+<li><strong>Remove HNC admin-rbac from admin (attached to user admins).</strong><ul>
 <li>User admins will now only have the HNC user-rbac instead.</li>
-<li><strong>Removed the ability to edit HierarchyConfiguration for users.</strong></li>
+</ul>
+</li>
+<li><strong>Removed the ability to edit HierarchyConfiguration for users.</strong><ul>
 <li>HierarchyConfiguration controls the Pod Security Standard level, and as such should not be allowed to be changed by a user.</li>
-<li><strong>Disable Non sudo setuid falco rule.</strong></li>
+</ul>
+</li>
+<li><strong>Disable Non sudo setuid Falco rule.</strong></li>
 </ul>
 <h2 id="v0290">v0.29.0<a class="headerlink" href="#v0290" title="Permanent link">&para;</a></h2>
 <p>Released 2023-03-16</p>
@@ -5983,36 +6005,38 @@ if(!document.__defineGetter__) {
 </ul>
 <h3 id="updated_6">Updated<a class="headerlink" href="#updated_6" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Cert-manager updated to <code>v1.11.0</code>.</strong></li>
+<li><strong>cert-manager updated to <code>v1.11.0</code>.</strong><ul>
 <li>The containers in pods created by cert-manager have been renamed to better reflect what they do. This can be breaking for automation that relies on these names being static.</li>
 <li>The cert-manager Gateway API integration now uses the v1beta1 API version. ExperimentalGatewayAPISupport alpha feature users must upgrade to v1beta of Gateway API.</li>
+</ul>
+</li>
 </ul>
 <h2 id="v0281">v0.28.1<a class="headerlink" href="#v0281" title="Permanent link">&para;</a></h2>
 <p>Released 2023-03-02</p>
 <h3 id="added_4">Added<a class="headerlink" href="#added_4" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Added falco rules to ignore redis operator related alerts.</strong></li>
+<li><strong>Added Falco rules to ignore Redis operator related alerts.</strong></li>
 </ul>
 <h2 id="v0280">v0.28.0<a class="headerlink" href="#v0280" title="Permanent link">&para;</a></h2>
 <p>Released 2023-01-30</p>
 <h3 id="changed_5">Changed<a class="headerlink" href="#changed_5" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Updated Rook alerts to <code>v1.10.5</code>.</strong></li>
-<li><strong>Nginx ingress controller service can now have multiple annotations instead of just one.</strong></li>
-<li><strong>Synced all grafana dashboards to use the default organization timezone.</strong></li>
+<li><strong>NGINX Ingress Controller service can now have multiple annotations instead of just one.</strong></li>
+<li><strong>Synced all Grafana dashboards to use the default organization timezone.</strong></li>
 <li><strong>Several default resource requests and limits have changed for the included services.</strong></li>
 </ul>
 <h3 id="fixed_2">Fixed<a class="headerlink" href="#fixed_2" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Use FQDN for services connecting from the Workload Cluster to the service cluster to prevent resolve timeouts.</strong></li>
 <li><strong>Fixed <code>KubeletDown</code> alert rule not alerting if a kubelet was missing.</strong></li>
-<li><strong>Added permissions to the <code>alerting_full_access</code> role in Opensearch to be able to view notification channels.</strong></li>
-<li><strong>Added <code>fluent-plugin-record-modifier</code> to the fluentd image to prevent mapping errors.</strong></li>
-<li><strong>Various fixes to network policies.</strong></li>
+<li><strong>Added permissions to the <code>alerting_full_access</code> role in OpenSearch to be able to view notification channels.</strong></li>
+<li><strong>Added <code>fluent-plugin-record-modifier</code> to the Fluentd image to prevent mapping errors.</strong></li>
+<li><strong>Various fixes to Network Policies.</strong></li>
 </ul>
 <h3 id="added_5">Added<a class="headerlink" href="#added_5" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Improved security posture by adding network policies for some of the networking and storage components.</strong></li>
+<li><strong>Improved security posture by adding Network Policies for some of the networking and storage components.</strong></li>
 <li><strong>Added alert for less kubelets than nodes in the cluster.</strong></li>
 <li><strong>Added alert for object limits in buckets.</strong></li>
 </ul>
@@ -6028,12 +6052,12 @@ if(!document.__defineGetter__) {
 </ul>
 <h3 id="changed_6">Changed<a class="headerlink" href="#changed_6" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Improved Network security by adding Network policies to a lot of the included services.</strong></li>
+<li><strong>Improved Network security by adding Network Policies to a lot of the included services.</strong></li>
 <li><strong>NetworkPolicies are now automatically propagated from a parent namespace to its subnamespaces in HNC.</strong></li>
 <li><strong>Several default resource requests and limits have changed for the included services.</strong></li>
 <li><strong>Lowered the default retention age for Kubernetes logs in the prod flavor down to 30 days.</strong></li>
-<li><strong>Made dex ID Token expiration time configurable.</strong></li>
-<li><strong>User alertmanager is now enabled by default.</strong></li>
+<li><strong>Made Dex ID Token expiration time configurable.</strong></li>
+<li><strong>User Alertmanager is now enabled by default.</strong></li>
 </ul>
 <h3 id="fixed_3">Fixed<a class="headerlink" href="#fixed_3" title="Permanent link">&para;</a></h3>
 <ul>
@@ -6044,8 +6068,10 @@ if(!document.__defineGetter__) {
 <ul>
 <li><strong>Added RBAC for admin users to view Gatekeeper constraints.</strong></li>
 <li><strong>New section in the welcoming dashboards, displaying the most relevant features and changes for the user added in the last two releases.</strong></li>
-<li><strong>Added an option to configure alerts for growing indices in OpenSearch.</strong></li>
+<li><strong>Added an option to configure alerts for growing indices in OpenSearch.</strong><ul>
 <li><strong>The settings for this might need to be tweaked to better suit the environment.</strong></li>
+</ul>
+</li>
 <li><strong>Added an alert for failed evicted pods (KubeFailedEvictedPods).</strong></li>
 </ul>
 <h2 id="v0260">v0.26.0<a class="headerlink" href="#v0260" title="Permanent link">&para;</a></h2>
@@ -6053,7 +6079,7 @@ if(!document.__defineGetter__) {
 <h3 id="updated_8">Updated<a class="headerlink" href="#updated_8" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Harbor upgraded to <code>v2.6.0</code></strong></li>
-<li><strong>Upgraded Opensearch helm chart to <code>2.6.0</code>, this upgrades Opensearch to <code>2.3.0</code>. For more information about the upgrade, check out their <a href="https://opensearch.org/blog/releases/2022/09/opensearch-2-3-is-ready-for-download/">2.3 Launch Announcement</a>.</strong></li>
+<li><strong>Upgraded OpenSearch helm chart to <code>2.6.0</code>, this upgrades OpenSearch to <code>2.3.0</code>. For more information about the upgrade, check out their <a href="https://opensearch.org/blog/releases/2022/09/opensearch-2-3-is-ready-for-download/">2.3 Launch Announcement</a>.</strong></li>
 </ul>
 <h3 id="fixed_4">Fixed<a class="headerlink" href="#fixed_4" title="Permanent link">&para;</a></h3>
 <ul>
@@ -6066,7 +6092,7 @@ if(!document.__defineGetter__) {
   Automated CIS tests are performed on each node using kube-bench
   Added a CIS kube-bench Grafana dashboard</li>
 <li><strong>Added option for kured to notify to slack when draning and rebooting nodes</strong></li>
-<li><strong>Allow users to proxy and port-forward to prometheus running in the Workload Cluster</strong></li>
+<li><strong>Allow users to proxy and port-forward to Prometheus running in the Workload Cluster</strong></li>
 </ul>
 <h2 id="v0250">v0.25.0<a class="headerlink" href="#v0250" title="Permanent link">&para;</a></h2>
 <p>Released 2022-08-25</p>
@@ -6087,7 +6113,7 @@ if(!document.__defineGetter__) {
 </ul>
 <h3 id="changed_7">Changed<a class="headerlink" href="#changed_7" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>New additions to the Kubernetes cluster status Grafana dashboard</strong> <br/> It now shows information about resource requests and limits per node, and resource usage vs request per pod.</li>
+<li><strong>New additions to the Kubernetes cluster status Grafana dashboard</strong> <br/> It now shows information about resource requests and limits per node, and resource usage vs request per Pod.</li>
 </ul>
 <h2 id="v0241">v0.24.1<a class="headerlink" href="#v0241" title="Permanent link">&para;</a></h2>
 <p>Released 2022-08-01</p>
@@ -6096,7 +6122,7 @@ if(!document.__defineGetter__) {
 </ul>
 <h3 id="fixed_5">Fixed<a class="headerlink" href="#fixed_5" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Fixed a formatting issue with harbor s3 configuration.</li>
+<li>Fixed a formatting issue with Harbor S3 configuration.</li>
 </ul>
 <h2 id="v0240">v0.24.0<a class="headerlink" href="#v0240" title="Permanent link">&para;</a></h2>
 <p>Released 2022-07-25</p>
@@ -6116,14 +6142,16 @@ if(!document.__defineGetter__) {
 </ul>
 <h3 id="added_9">Added<a class="headerlink" href="#added_9" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Further configurability to ingress-nginx</strong><br/></li>
+<li><strong>Further configurability to Ingress-NGINX</strong><br/></li>
 </ul>
 <h2 id="v0230">v0.23.0<a class="headerlink" href="#v0230" title="Permanent link">&para;</a></h2>
 <p>Released 2022-07-06</p>
 <h3 id="updated_11">Updated<a class="headerlink" href="#updated_11" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Updated the ingress controller <code>ingress-nginx</code> to image version v1.2.1</strong><br/></li>
+<li><strong>Updated the Ingress Controller <code>ingress-nginx</code> to image version v1.2.1</strong><br/><ul>
 <li>You can find the changelog <a href="https://github.com/kubernetes/ingress-nginx/releases/tag/controller-v1.2.1">here</a>.</li>
+</ul>
+</li>
 </ul>
 <h3 id="changed_9">Changed<a class="headerlink" href="#changed_9" title="Permanent link">&para;</a></h3>
 <ul>
@@ -6161,7 +6189,7 @@ if(!document.__defineGetter__) {
 <h3 id="fixed_7">Fixed<a class="headerlink" href="#fixed_7" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
-<p><strong>Fixed a bug where users couldn't silence alerts when portforwarding to alertmanager.</strong><br/></p>
+<p><strong>Fixed a bug where users couldn't silence alerts when portforwarding to Alertmanager.</strong><br/></p>
 </li>
 <li>
 <p><strong>Improved logging stack and fixed a number of issues to ensure reliability.</strong><br/></p>
@@ -6183,17 +6211,17 @@ if(!document.__defineGetter__) {
 </li>
 <li>
 <p><strong>Ensured all CISO dashboards are available to users.</strong><br/>
-  All the grafana dashboards in our <a href="../../ciso-guide/">CISO docs</a> are now available.</p>
+  All the Grafana dashboards in our <a href="../../ciso-guide/">CISO docs</a> are now available.</p>
 </li>
 <li>
-<p><strong>Better stability for dex</strong><br/>
+<p><strong>Better stability for Dex</strong><br/>
   Dex now runs with two replicas and has been updated.</p>
 </li>
 </ul>
 <h3 id="updated_12">Updated<a class="headerlink" href="#updated_12" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Image upgrades to reduce number of vulnerabilities</strong><br/>
-  Upgrades for fluentd, grafana, and harbor chartmuseum.</li>
+  Upgrades for Fluentd, Grafana, and Harbor chartmuseum.</li>
 </ul>
 <h2 id="v0200">v0.20.0<a class="headerlink" href="#v0200" title="Permanent link">&para;</a></h2>
 <p>Released 2022-03-21</p>
@@ -6204,14 +6232,14 @@ if(!document.__defineGetter__) {
   This enables automatic node reboots and security patching of the underlying base Operating System image, container runtime and Kubernetes cluster components.</p>
 </li>
 <li>
-<p><strong>Added fluentd grafana dashboard and alerts.</strong><br/></p>
+<p><strong>Added Fluentd Grafana dashboard and alerts.</strong><br/></p>
 </li>
 <li>
 <p><strong>Added RBAC for admin users.</strong><br/>
   Admin users can now list pods cluster wide and run the kubectl top command.</p>
 </li>
 <li>
-<p><strong>Added containerd support for fluentd.</strong><br/></p>
+<p><strong>Added containerd support for Fluentd.</strong><br/></p>
 </li>
 </ul>
 <h3 id="changed_11">Changed<a class="headerlink" href="#changed_11" title="Permanent link">&para;</a></h3>
@@ -6234,8 +6262,8 @@ if(!document.__defineGetter__) {
 <h3 id="updated_13">Updated<a class="headerlink" href="#updated_13" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
-<p><strong>Upgraded nginx-ingress helm chart to v4.0.17</strong><br/>
-  This upgrades nginx-ingress to v1.1.1. When upgrading an ingressClass object called nginx will be installed, this class has been set as the default class in Kubernetes. Ingress-nginx has been configured to still handle existing ingress objects that do not specify any ingressClassName.</p>
+<p><strong>Upgraded Ingress-NGINX helm chart to v4.0.17</strong><br/>
+  This upgrades Ingress-NGINX to v1.1.1. When upgrading an ingressClass object called NGINX will be installed, this class has been set as the default class in Kubernetes. Ingress-NGINX has been configured to still handle existing Ingress objects that do not specify any ingressClassName.</p>
 </li>
 <li>
 <p><strong>Upgraded starboard-operator helm chart to v0.9.1</strong><br/>
@@ -6322,8 +6350,10 @@ if(!document.__defineGetter__) {
 <p>Released 2021-11-04.</p>
 <p>Changes:</p>
 <ul>
-<li>Ingress-nginx-controller has been updated from v0.28.0 to v0.49.3, bringing various updates.</li>
+<li>Ingress-NGINX-controller has been updated from v0.28.0 to v0.49.3, bringing various updates.<ul>
 <li>Additionally, the configuration option <code>allow-snippet-annotations</code> has been set to <code>false</code> to mitigate known security issue <a href="https://github.com/kubernetes/ingress-nginx/issues/7837">CVE-2021-25742</a></li>
+</ul>
+</li>
 <li>Fixes, minor version upgrades, improvements to resource requests and limits for applications, improvements to stability.</li>
 </ul>
 <h2 id="v0170">v0.17.0<a class="headerlink" href="#v0170" title="Permanent link">&para;</a></h2>

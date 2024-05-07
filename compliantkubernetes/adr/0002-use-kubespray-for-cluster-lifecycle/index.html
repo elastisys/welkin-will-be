@@ -3614,11 +3614,11 @@ if(!document.__defineGetter__) {
 <ul>
 <li><a href="https://www.rancher.com/">Rancher</a></li>
 <li><a href="https://github.com/elastisys/ck8s-cluster">kubeadm via in-house tools (ck8s-cluster)</a></li>
-<li><a href="https://github.com/kubernetes-sigs/kubespray">kubespray</a></li>
+<li><a href="https://github.com/kubernetes-sigs/kubespray">Kubespray</a></li>
 <li><a href="https://github.com/kubernetes/kops">kops</a></li>
 </ul>
 <h2 id="decision-outcome">Decision Outcome<a class="headerlink" href="#decision-outcome" title="Permanent link">&para;</a></h2>
-<p>We chose kubespray, because it is best aligned with our interests, both feature- and roadmap-wise. It has a large community and is expected to be well maintained in the future. It uses kubeadm for domain knowledge on how to set up Kubernetes clusters.</p>
+<p>We chose Kubespray, because it is best aligned with our interests, both feature- and roadmap-wise. It has a large community and is expected to be well maintained in the future. It uses kubeadm for domain knowledge on how to set up Kubernetes clusters.</p>
 <h3 id="positive-consequences">Positive Consequences<a class="headerlink" href="#positive-consequences" title="Permanent link">&para;</a></h3>
 <ul>
 <li>We learn how to use a widely-used tool for cluster lifecycle management.</li>
@@ -3627,9 +3627,9 @@ if(!document.__defineGetter__) {
 </ul>
 <h3 id="negative-consequences">Negative Consequences<a class="headerlink" href="#negative-consequences" title="Permanent link">&para;</a></h3>
 <ul>
-<li>We need training on kubespray.</li>
-<li>We need to port our tooling and practices to kubespray.</li>
-<li>We need to port <code>compliantkubernetes-apps</code> to work on kubespray.</li>
+<li>We need training on Kubespray.</li>
+<li>We need to port our tooling and practices to Kubespray.</li>
+<li>We need to port <code>compliantkubernetes-apps</code> to work on Kubespray.</li>
 </ul>
 <h2 id="pros-and-cons-of-the-options">Pros and Cons of the Options<a class="headerlink" href="#pros-and-cons-of-the-options" title="Permanent link">&para;</a></h2>
 <h3 id="rancher">Rancher<a class="headerlink" href="#rancher" title="Permanent link">&para;</a></h3>
@@ -3648,9 +3648,9 @@ if(!document.__defineGetter__) {
 <h3 id="kops">kops<a class="headerlink" href="#kops" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Good, because it integrates well with the underlying Infrastructure Provider (e.g., AWS).</li>
-<li>Bad, because it supports fewer Infrastructure Providers than kubespray.</li>
+<li>Bad, because it supports fewer Infrastructure Providers than Kubespray.</li>
 </ul>
-<p>NOTE: In the future, we might want to support <code>compliantkubernetes-apps</code> on top of both kops and kubespray, but this does not seem to bring value just now.</p>
+<p>NOTE: In the future, we might want to support <code>compliantkubernetes-apps</code> on top of both kops and Kubespray, but this does not seem to bring value just now.</p>
 
 
 

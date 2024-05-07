@@ -875,7 +875,7 @@ if(!document.__defineGetter__) {
           <li class="md-nav__item">
   <a href="#kubeaudit" class="md-nav__link">
     <span class="md-ellipsis">
-      kubeaudit
+      Kubeaudit
     </span>
   </a>
   
@@ -884,7 +884,7 @@ if(!document.__defineGetter__) {
           <li class="md-nav__item">
   <a href="#kubernetes" class="md-nav__link">
     <span class="md-ellipsis">
-      kubernetes
+      Kubernetes
     </span>
   </a>
   
@@ -893,7 +893,7 @@ if(!document.__defineGetter__) {
           <li class="md-nav__item">
   <a href="#other" class="md-nav__link">
     <span class="md-ellipsis">
-      other
+      Other
     </span>
   </a>
   
@@ -902,7 +902,7 @@ if(!document.__defineGetter__) {
           <li class="md-nav__item">
   <a href="#authlog" class="md-nav__link">
     <span class="md-ellipsis">
-      authlog
+      Authlog
     </span>
   </a>
   
@@ -3836,7 +3836,7 @@ if(!document.__defineGetter__) {
           <li class="md-nav__item">
   <a href="#kubeaudit" class="md-nav__link">
     <span class="md-ellipsis">
-      kubeaudit
+      Kubeaudit
     </span>
   </a>
   
@@ -3845,7 +3845,7 @@ if(!document.__defineGetter__) {
           <li class="md-nav__item">
   <a href="#kubernetes" class="md-nav__link">
     <span class="md-ellipsis">
-      kubernetes
+      Kubernetes
     </span>
   </a>
   
@@ -3854,7 +3854,7 @@ if(!document.__defineGetter__) {
           <li class="md-nav__item">
   <a href="#other" class="md-nav__link">
     <span class="md-ellipsis">
-      other
+      Other
     </span>
   </a>
   
@@ -3863,7 +3863,7 @@ if(!document.__defineGetter__) {
           <li class="md-nav__item">
   <a href="#authlog" class="md-nav__link">
     <span class="md-ellipsis">
-      authlog
+      Authlog
     </span>
   </a>
   
@@ -4020,9 +4020,9 @@ if(!document.__defineGetter__) {
 <li>Open the sidebar and click <strong>Visualize</strong> under OpenSearch Dashboards.</li>
 <li>Click <strong>Create visualization</strong> button located on the top right side of the page.</li>
 <li>Select a visualization type, we will use <strong>Pie</strong> here.</li>
-<li>Choose an index pattern or saved search name under <strong>New Pie / Choose a source</strong>. You can utilize the search function. We will use the <strong>kubernetes*</strong> index here.</li>
+<li>Choose an index pattern or saved search name under <strong>New Pie / Choose a source</strong>. You can utilize the search function. We will use the <code>kubernetes*</code> index here.</li>
 </ol>
-<p>By default a pie chart with the total number of logs will be provided by OpenSearch Dashboards. Let us divide the pie chart based on the number of logs contributed by each <strong>namespace</strong>. To do that perform the following steps:</p>
+<p>By default a pie chart with the total number of logs will be provided by OpenSearch Dashboards. Let us divide the pie chart based on the number of logs contributed by each <code>namespace</code>. To do that perform the following steps:</p>
 <ol>
 <li>
 <p>Under <strong>Buckets</strong> click <strong>Add</strong> then <strong>Split slices</strong>. See the figure below.</p>
@@ -4033,7 +4033,7 @@ if(!document.__defineGetter__) {
 <p><img alt="Visualize Aggregation" src="../../img/aggregation.png" /></p>
 </li>
 <li>
-<p>Under <strong>Field</strong> select <strong>kubernetes.namespace_name.keyword</strong> and under <strong>Size</strong> input <strong>10</strong>. See the figure below.</p>
+<p>Under <strong>Field</strong> select <code>kubernetes.namespace_name.keyword</code> and under <strong>Size</strong> input <code>10</code>. See the figure below.</p>
 <p><img alt="Visualize Fields" src="../../img/namespace.png" /></p>
 </li>
 <li>
@@ -4043,7 +4043,7 @@ if(!document.__defineGetter__) {
 <p>The final result will look like the following figure.</p>
 <p><img alt="Visualize Namespace Pie" src="../../img/namespace_pie.png" /></p>
 <p>Please save the pie chart as we will use it later.</p>
-<p>Let us create a similar pie chart using <strong>host</strong> instead of <strong>namespace</strong>. The chart will look like the following figure.</p>
+<p>Let us create a similar pie chart using <code>host</code> instead of <code>namespace</code>. The chart will look like the following figure.</p>
 <p><img alt="Visualize Host Pie" src="../../img/host_pie.png" /></p>
 <h4 id="dashboard">Dashboard<a class="headerlink" href="#dashboard" title="Permanent link">&para;</a></h4>
 <p>The <strong>Dashboard</strong> component in OpenSearch Dashboards is used for organizing related visualizations together.</p>
@@ -4058,7 +4058,7 @@ if(!document.__defineGetter__) {
 <p>The figure below shows the dashboard generated from the above steps showing the two pie charts in a single page.</p>
 <p><img alt="Dashboard" src="../../img/dashboard.png" /></p>
 <h2 id="accessing-falco-and-opa-logs">Accessing Falco and OPA Logs<a class="headerlink" href="#accessing-falco-and-opa-logs" title="Permanent link">&para;</a></h2>
-<p>To access Falco or OPA logs, go to the <strong>Discover</strong> panel and write <strong>Falco</strong> or <strong>OPA</strong> on the <strong>search textbox</strong>. Make sure that the <strong>Kubernetes</strong> log index category is selected.</p>
+<p>To access Falco or OPA logs, go to the <strong>Discover</strong> panel and write <strong>Falco</strong> or <strong>OPA</strong> in the <strong>search textbox</strong>. Make sure that the <strong>Kubernetes</strong> log index category is selected.</p>
 <p>The figure below shows the search result for <strong>Falco</strong> logs.
 <img alt="Falco logs" src="../../img/falco_log.png" /></p>
 <p>The figure below shows the search result for <strong>OPA</strong> logs.
@@ -4078,22 +4078,22 @@ To set explicit mappings, reach out to your platform administrator.
 A mapping conflict occurs when you try to send data into a field that already has a mapping created but the data doesn't meet the same type (date, integer, string, etc.)</p>
 <p>A very short example of index mapping is displayed and commented below:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;movies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">                           </span><span class="err">#</span><span class="w"> </span><span class="err">I</span><span class="kc">n</span><span class="err">dex</span><span class="w"> </span><span class="kc">na</span><span class="err">me</span><span class="w"> </span><span class="err">we&#39;re</span><span class="w"> </span><span class="err">looki</span><span class="kc">n</span><span class="err">g</span><span class="w"> </span><span class="err">a</span><span class="kc">t</span>
+<span class="w">  </span><span class="nt">&quot;movies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">                         </span><span class="err">#</span><span class="w"> </span><span class="err">I</span><span class="kc">n</span><span class="err">dex</span><span class="w"> </span><span class="kc">na</span><span class="err">me</span><span class="w"> </span><span class="err">we&#39;re</span><span class="w"> </span><span class="err">looki</span><span class="kc">n</span><span class="err">g</span><span class="w"> </span><span class="err">a</span><span class="kc">t</span>
 <span class="w">    </span><span class="nt">&quot;mappings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;release_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">             </span><span class="err">#</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">release_da</span><span class="kc">te</span><span class="w"> </span><span class="kc">f</span><span class="err">ield</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">o</span><span class="kc">f</span>
-<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;date&quot;</span><span class="w">              </span><span class="err">#</span><span class="w"> </span><span class="err">da</span><span class="kc">te</span><span class="w"> </span><span class="kc">f</span><span class="err">orma</span><span class="kc">t</span><span class="w"> </span><span class="err">allowi</span><span class="kc">n</span><span class="err">g</span><span class="w"> </span><span class="kc">f</span><span class="err">or</span><span class="w"> </span><span class="kc">t</span><span class="err">ime</span><span class="w"> </span><span class="err">based</span>
-<span class="w">          </span><span class="p">},</span><span class="w">                            </span><span class="err">#</span><span class="w"> </span><span class="err">searchi</span><span class="kc">n</span><span class="err">g</span><span class="p">,</span><span class="w"> </span><span class="err">eg</span><span class="w"> </span><span class="err">be</span><span class="kc">t</span><span class="err">wee</span><span class="kc">n</span><span class="w"> </span><span class="mi">1970</span><span class="w"> </span><span class="err">a</span><span class="kc">n</span><span class="err">d</span><span class="w"> </span><span class="mi">2000</span>
-<span class="w">          </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">                    </span><span class="err">#</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="kc">t</span><span class="err">i</span><span class="kc">tle</span><span class="w"> </span><span class="kc">f</span><span class="err">ield</span><span class="w"> </span><span class="err">s</span><span class="kc">t</span><span class="err">ores</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="kc">t</span><span class="err">i</span><span class="kc">tle</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="p">,</span><span class="w">             </span><span class="err">#</span><span class="w"> </span><span class="err">a</span><span class="kc">n</span><span class="err">d</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">o</span><span class="kc">f</span><span class="w"> </span><span class="kc">t</span><span class="err">ype</span><span class="w"> </span><span class="kc">te</span><span class="err">x</span><span class="kc">t</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">                 </span><span class="err">#</span><span class="w"> </span><span class="err">a</span><span class="kc">n</span><span class="err">d</span><span class="w"> </span><span class="err">also</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">keyword</span>
-<span class="w">              </span><span class="nt">&quot;keyword&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">              </span><span class="err">#</span><span class="w"> </span><span class="err">less</span><span class="w"> </span><span class="kc">t</span><span class="err">ha</span><span class="kc">n</span><span class="w"> </span><span class="mi">256</span><span class="w"> </span><span class="err">by</span><span class="kc">tes</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="w"> </span><span class="err">le</span><span class="kc">n</span><span class="err">g</span><span class="kc">t</span><span class="err">h</span>
-<span class="w">                </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;keyword&quot;</span><span class="p">,</span><span class="w">      </span><span class="err">#</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">de</span><span class="kc">fault</span><span class="w"> </span><span class="err">limi</span><span class="kc">t</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="err">avoid</span>
-<span class="w">                </span><span class="nt">&quot;ignore_above&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">256</span><span class="w">     </span><span class="err">#</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">excessive</span><span class="w"> </span><span class="err">disk/memory</span><span class="w"> </span><span class="err">usage</span>
-<span class="w">              </span><span class="p">}</span>
+<span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;release_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">             </span><span class="err">#</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">release_da</span><span class="kc">te</span><span class="w"> </span><span class="kc">f</span><span class="err">ield</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">o</span><span class="kc">f</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;date&quot;</span><span class="w">              </span><span class="err">#</span><span class="w"> </span><span class="err">da</span><span class="kc">te</span><span class="w"> </span><span class="kc">f</span><span class="err">orma</span><span class="kc">t</span><span class="w"> </span><span class="err">allowi</span><span class="kc">n</span><span class="err">g</span><span class="w"> </span><span class="kc">f</span><span class="err">or</span><span class="w"> </span><span class="kc">t</span><span class="err">ime</span><span class="w"> </span><span class="err">based</span>
+<span class="w">        </span><span class="p">},</span><span class="w">                            </span><span class="err">#</span><span class="w"> </span><span class="err">searchi</span><span class="kc">n</span><span class="err">g</span><span class="p">,</span><span class="w"> </span><span class="err">eg</span><span class="w"> </span><span class="err">be</span><span class="kc">t</span><span class="err">wee</span><span class="kc">n</span><span class="w"> </span><span class="mi">1970</span><span class="w"> </span><span class="err">a</span><span class="kc">n</span><span class="err">d</span><span class="w"> </span><span class="mi">2000</span>
+<span class="w">        </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">                    </span><span class="err">#</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="kc">t</span><span class="err">i</span><span class="kc">tle</span><span class="w"> </span><span class="kc">f</span><span class="err">ield</span><span class="w"> </span><span class="err">s</span><span class="kc">t</span><span class="err">ores</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="kc">t</span><span class="err">i</span><span class="kc">tle</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="p">,</span><span class="w">             </span><span class="err">#</span><span class="w"> </span><span class="err">a</span><span class="kc">n</span><span class="err">d</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">o</span><span class="kc">f</span><span class="w"> </span><span class="kc">t</span><span class="err">ype</span><span class="w"> </span><span class="kc">te</span><span class="err">x</span><span class="kc">t</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">                 </span><span class="err">#</span><span class="w"> </span><span class="err">a</span><span class="kc">n</span><span class="err">d</span><span class="w"> </span><span class="err">also</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">keyword</span>
+<span class="w">            </span><span class="nt">&quot;keyword&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">              </span><span class="err">#</span><span class="w"> </span><span class="err">less</span><span class="w"> </span><span class="kc">t</span><span class="err">ha</span><span class="kc">n</span><span class="w"> </span><span class="mi">256</span><span class="w"> </span><span class="err">by</span><span class="kc">tes</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="w"> </span><span class="err">le</span><span class="kc">n</span><span class="err">g</span><span class="kc">t</span><span class="err">h</span>
+<span class="w">              </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;keyword&quot;</span><span class="p">,</span><span class="w">      </span><span class="err">#</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">de</span><span class="kc">fault</span><span class="w"> </span><span class="err">limi</span><span class="kc">t</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="err">avoid</span>
+<span class="w">              </span><span class="nt">&quot;ignore_above&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">256</span><span class="w">     </span><span class="err">#</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">excessive</span><span class="w"> </span><span class="err">disk/memory</span><span class="w"> </span><span class="err">usage</span>
 <span class="w">            </span><span class="p">}</span>
-<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="p">}</span>
 <span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
@@ -4157,33 +4157,31 @@ docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </
 <p><img alt="Log review dashboard" src="../../img/log-review-dashboard.png" /></p>
 <ul>
 <li>
-<h3 id="kubeaudit">kubeaudit<a class="headerlink" href="#kubeaudit" title="Permanent link">&para;</a></h3>
-</li>
-<li>
-<p>All api-requests = Successful API requests</p>
-</li>
-<li>Forbid error = Forbidden API requests</li>
+<h3 id="kubeaudit">Kubeaudit<a class="headerlink" href="#kubeaudit" title="Permanent link">&para;</a></h3>
+<ul>
+<li>All API-Requests = Successful API requests</li>
+<li>Forbid Error = Forbidden API requests</li>
 <li>Client Error = Client error logs</li>
-<li>
-<p>Server error = Server error logs</p>
+<li>Server Error = Server error logs</li>
+</ul>
 </li>
 <li>
-<h3 id="kubernetes">kubernetes<a class="headerlink" href="#kubernetes" title="Permanent link">&para;</a></h3>
+<h3 id="kubernetes">Kubernetes<a class="headerlink" href="#kubernetes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>error OR denied = Error &amp; denied logs</li>
+</ul>
 </li>
 <li>
-<p>error OR denied = Error &amp; denied logs</p>
+<h3 id="other">Other<a class="headerlink" href="#other" title="Permanent link">&para;</a></h3>
+<ul>
+<li>error OR critical OR alert OR warning = System logs of priority 1-4</li>
+</ul>
 </li>
 <li>
-<h3 id="other">other<a class="headerlink" href="#other" title="Permanent link">&para;</a></h3>
-</li>
-<li>
-<p>error OR critical OR alert OR warning = System logs of priority 1-4</p>
-</li>
-<li>
-<h3 id="authlog">authlog<a class="headerlink" href="#authlog" title="Permanent link">&para;</a></h3>
-</li>
-<li>
-<p>number of authlog sessions = Authlog sessions</p>
+<h3 id="authlog">Authlog<a class="headerlink" href="#authlog" title="Permanent link">&para;</a></h3>
+<ul>
+<li>number of authlog sessions = Authlog sessions</li>
+</ul>
 </li>
 </ul>
 <h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>

@@ -3651,7 +3651,7 @@ Also depending on underlying cloud infrastructure, the IP might also not be excl
 <p class="admonition-title">Note</p>
 <p>Elastisys will look into the possibility of getting a stable egress IP for Application Developers that really need it.</p>
 </div>
-<p>All ingress traffic will go through load balancers and there will not be any major differences for the ingress traffic.</p>
+<p>All Ingress traffic will go through load balancers and there will not be any major differences for the Ingress traffic.</p>
 <h2 id="cluster-autoscaling">Cluster autoscaling<a class="headerlink" href="#cluster-autoscaling" title="Permanent link">&para;</a></h2>
 <p>The <a href="https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/clusterapi/README.md">Cluster Autoscaler</a> will scale up a Cluster if there are Pods in the Pending state (refer to the <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/">Kubernetes documentation on Pod Lifecycle</a>) that cannot currently be scheduled because of a lack of resources with the current set of Nodes.
 This means that the scaling is based on resource <strong>requests</strong> on Pods, not the actual current CPU/memory utilization.

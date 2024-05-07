@@ -3792,8 +3792,8 @@ Your Compliant Kubernetes administrator will provide you with a kubeconfig file 
 <p>The following sections describe how to access the cluster in order to manage your Kubernetes resources.</p>
 <h2 id="authentication-and-access-control-in-compliant-kubernetes">Authentication and Access Control in Compliant Kubernetes<a class="headerlink" href="#authentication-and-access-control-in-compliant-kubernetes" title="Permanent link">&para;</a></h2>
 <p>In order to facilitate access control and audit logging, Compliant Kubernetes imposes a certain way to access the Kubernetes API.
-The kubeconfig file provides individual access to the Kubernetes API through <a href="https://github.com/dexidp/dex">dex</a>.
-Normally, you should authenticate using your organizations identity provider connected to dex, but it is also possible for your administrator to configure static usernames and passwords.</p>
+The kubeconfig file provides individual access to the Kubernetes API through <a href="https://github.com/dexidp/dex">Dex</a>.
+Normally, you should authenticate using your organizations identity provider connected to Dex, but it is also possible for your administrator to configure static usernames and passwords.</p>
 <p>The authorization is done by the Kubernetes API based on <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">Kubernetes role-based access controls</a>.
 Your cluster administrator will grant you permissions as part of onboarding.
 You have administrator access to the user workload Kubernetes Namespaces by default.
@@ -3905,7 +3905,7 @@ kubectl<span class="w"> </span>patch<span class="w"> </span>serviceaccount<span 
 </div>
 <h2 id="further-reading">Further reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://github.com/dexidp/dex">dex on GitHub</a></li>
+<li><a href="https://github.com/dexidp/dex">Dex on GitHub</a></li>
 <li><a href="https://github.com/int128/kubelogin">oidc-login/kubelogin on GitHub</a></li>
 <li><a href="https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/">Organizing Cluster Access Using kubeconfig Files</a></li>
 </ul>

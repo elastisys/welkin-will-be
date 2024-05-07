@@ -4123,7 +4123,7 @@ We need to look both at the commands you typed and their output.</p>
 
 ./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>-n<span class="w"> </span>rook-ceph<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span><span class="nv">$CK8S_KUBESPRAY_PATH</span>/rook/toolbox-deploy.yaml
 </code></pre></div>
-<p>Once the pod is Ready run:</p>
+<p>Once the Pod is Ready run:</p>
 <div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>-n<span class="w"> </span>rook-ceph<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>deploy/rook-ceph-tools<span class="w"> </span>--<span class="w"> </span>ceph<span class="w"> </span>status
 </code></pre></div>
 <h3 id="are-kubernetes-pods-doing-fine">Are Kubernetes Pods doing fine?<a class="headerlink" href="#are-kubernetes-pods-doing-fine" title="Permanent link">&para;</a></h3>
@@ -4224,7 +4224,7 @@ If the infrastructure is not managed by terraform you can skip to step 3:</p>
 </code></pre></div>
 </li>
 <li>
-<p>Update network policies</p>
+<p>Update Network Policies</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="o">[</span>compliatkubernetes-apps-root-dir<span class="o">]</span>
 
 ./bin/ck8s<span class="w"> </span>update-ips<span class="w"> </span>sc<span class="w"> </span>update

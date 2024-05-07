@@ -3861,6 +3861,8 @@ docker<span class="w"> </span>push<span class="w"> </span>harbor.<span class="nv
 <li>(Optional) While you're at it, why not run the vulnerability scanner on the image you just pushed.</li>
 </ol>
 <h2 id="deploy-your-application">Deploy Your Application<a class="headerlink" href="#deploy-your-application" title="Permanent link">&para;</a></h2>
+<!-- markdownlint-disable MD044 -->
+
 <h3 id="pre-verification">Pre-verification<a class="headerlink" href="#pre-verification" title="Permanent link">&para;</a></h3>
 <p>Make sure you are in the right namespace on the right cluster:</p>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>nodes
@@ -3929,6 +3931,8 @@ kubectl<span class="w"> </span>patch<span class="w"> </span>serviceaccount<span 
 <p class="admonition-title">Do not expose <code>$DOMAIN</code> to your users.</p>
 <p>Although your administrator will set <code>*.$DOMAIN</code> to point to your applications, prefer to buy a branded domain. For example, register the domain <code>myapp.com</code> and point it via a <a href="https://en.wikipedia.org/wiki/CNAME_record">CNAME</a> or <a href="https://en.wikipedia.org/wiki/CNAME_record#ANAME_record">ALIAS</a> record to <code>myapp.$DOMAIN</code>.</p>
 </div>
+<!-- markdownlint-enable MD044 -->
+
 <h2 id="view-application-logs">View Application Logs<a class="headerlink" href="#view-application-logs" title="Permanent link">&para;</a></h2>
 <p>The user demo application already includes structured logging: For each HTTP request, it logs the URL, the user agent, etc. Compliant Kubernetes further adds the Pod name, Helm Chart name, Helm Release name, etc. to each log entry.</p>
 <p>The screenshot below gives an example of log entries produced by the user demo application. It was obtained by using the index pattern <code>kubernetes*</code> and the filter <code>kubernetes.labels.app_kubernetes_io/instance:myapp</code>.</p>

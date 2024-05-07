@@ -3614,10 +3614,14 @@ if(!document.__defineGetter__) {
 <p>Kubernetes by default allows any Pod to run with any privileges it requests, which easily allows an application to take full control over a cluster and everything in it.
 To minimise this risk Compliant Kubernetes employs two systems to restrict what privileges an application can request:</p>
 <ul>
-<li><a href="https://kubernetes.io/docs/concepts/security/pod-security-admission/">Kubernetes - Pod Security Admission</a> (PSA)</li>
+<li><a href="https://kubernetes.io/docs/concepts/security/pod-security-admission/">Kubernetes - Pod Security Admission</a> (PSA)<ul>
 <li>Coarse-grained enforcement built into Kubernetes</li>
-<li><a href="https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/pod-security-policy/">Open Policy Agent Gatekeeper - Pod Security Policies</a> (PSP)</li>
+</ul>
+</li>
+<li><a href="https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/pod-security-policy/">Open Policy Agent Gatekeeper - Pod Security Policies</a> (PSP)<ul>
 <li>Fine-grained enforcement built with OPA Gatekeeper</li>
+</ul>
+</li>
 </ul>
 <p>In addition to enforcement Compliant Kubernetes also employ OPA Gatekeeper mutations to modify security contexts of applications to make it easier to comply with the enforced rules.
 This modification happens at the stage when Pods are created, which means that their security context may contain additional content compared to the resource they were created for.
@@ -3658,17 +3662,17 @@ This standard includes the following:</p>
 <ul>
 <li>
 <p>Running with the following volume types:</p>
+<ul>
+<li><code>configMap</code></li>
+<li><code>csi</code></li>
+<li><code>downwardAPI</code></li>
+<li><code>emptyDir</code></li>
+<li><code>ephemeral</code></li>
+<li><code>persistentVolumeClaim</code></li>
+<li><code>projected</code></li>
+<li><code>secret</code></li>
+</ul>
 </li>
-<li>
-<p>configMap</p>
-</li>
-<li>csi</li>
-<li>downwardAPI</li>
-<li>emptyDir</li>
-<li>ephemeral</li>
-<li>persistentVolumeClaim</li>
-<li>projected</li>
-<li>secret</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>

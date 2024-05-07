@@ -3590,10 +3590,14 @@ because it fulfills the all decision drivers with little complexity.</p>
 </ul>
 <h3 id="negative-consequences">Negative Consequences<a class="headerlink" href="#negative-consequences" title="Permanent link">&para;</a></h3>
 <ul>
-<li>[Minor] We need to configure data sources in <code>sc-config.yaml</code></li>
+<li>[Minor] We need to configure data sources in <code>sc-config.yaml</code><ul>
 <li>For example, if we forget to add the name of a Workload Cluster, the data source will be missing, but filtering based on <code>cluster</code> label is still possible.</li>
-<li>[Minor] Label enforcer uses a bit of resources.</li>
+</ul>
+</li>
+<li>[Minor] Label enforcer uses a bit of resources.<ul>
 <li>However, we already saved a lot by migrating from InfluxDB to Thanos, so we can afford go back a bit.</li>
+</ul>
+</li>
 </ul>
 
 

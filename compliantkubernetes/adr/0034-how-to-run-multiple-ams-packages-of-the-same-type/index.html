@@ -3571,7 +3571,7 @@ if(!document.__defineGetter__) {
 <h2 id="context-and-problem-statement">Context and Problem Statement<a class="headerlink" href="#context-and-problem-statement" title="Permanent link">&para;</a></h2>
 <p>Some of the Application Developers request multiple AMS packages of the same size or different sizes, using 1 package per request or multiple packages in the same request (batch-order).
 How should we add the second or n-th package? Should we scale the nodes vertically or horizontally?
-If we scale horizontally, then in some cases we need to add AMS packages of different sizes and this brings up the problem where we need to stick the package to a specific set of nodes otherwise for example, after a maintenance that reboots the nodes, a postgres-4 package might be scheduled on a node that was intended for a postgres-8 package and the postgres-8 pod will not be able to be scheduled anymore because it does not fit on the postgres-4 node.
+If we scale horizontally, then in some cases we need to add AMS packages of different sizes and this brings up the problem where we need to stick the package to a specific set of nodes otherwise for example, after a maintenance that reboots the nodes, a postgres-4 package might be scheduled on a node that was intended for a postgres-8 package and the postgres-8 Pod will not be able to be scheduled anymore because it does not fit on the postgres-4 node.
 How can we overcome this issue? Should we add a <code>elastisys.io/ams-cluster-name</code> label/taint for the AMS with dedicated nodes?</p>
 <h2 id="decision-drivers">Decision Drivers<a class="headerlink" href="#decision-drivers" title="Permanent link">&para;</a></h2>
 <ul>

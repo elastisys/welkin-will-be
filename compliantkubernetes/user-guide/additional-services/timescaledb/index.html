@@ -3759,6 +3759,8 @@ This is not usually a problem for collecting application specific metrics, since
 To comply with this, it is essential that every PostgreSQL database that gets created on the PostgreSQL cluster also has the Timescale extension created for it.</p>
 </div>
 <p>If you want to use TimescaleDB on your Compliant Kubernetes cluster, ask your administrator to provision a new PostgreSQL cluster inside your Compliant Kubernetes environment. Then set up the TimescaleDB extension.</p>
+<!-- markdownlint-disable MD044 -->
+
 <h2 id="install-prerequisites">Install Prerequisites<a class="headerlink" href="#install-prerequisites" title="Permanent link">&para;</a></h2>
 <p>Before continuing, make sure you have access to the Kubernetes API, as describe <a href="../../prepare/">here</a>.</p>
 <p>Make sure to install the PostgreSQL client on your workstation. On Ubuntu, this can be achieved as follows:</p>
@@ -3866,6 +3868,8 @@ To get the intended mode for <code>require</code> set the variable to <code>no-v
 <li><a href="https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/#create-a-pod-that-has-access-to-the-secret-data-through-a-volume">Create a Pod that has access to the secret data through a Volume</a></li>
 <li><a href="https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/#define-container-environment-variables-using-secret-data">Define container environment variables using Secret data</a></li>
 </ul>
+<!-- markdownlint-enable MD044 -->
+
 <h2 id="set-up-the-timescaledb-extension-on-postgresql">Set up the TimescaleDB extension on PostgreSQL<a class="headerlink" href="#set-up-the-timescaledb-extension-on-postgresql" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Connect to the created database:</li>

@@ -3739,7 +3739,7 @@ This can be done by figuring out the app label for the application in question b
 <div class="highlight"><pre><span></span><code><span class="go">bin/ck8s ops helmfile {wc|sc} -l app=dex diff</span>
 </code></pre></div>
 <p>Instead of running <code>helmfile apply</code>, it might be useful to run <code>helmfile sync</code>.
-This will do a 3-way upgrade and make sure that the helm state matches the objects actually running in kubernetes.
+This will do a 3-way upgrade and make sure that the helm state matches the objects actually running in Kubernetes.
 This will make sure that you haven't manually edited something for debugging and forgot about it.</p>
 <div class="highlight"><pre><span></span><code><span class="go">bin/ck8s ops helmfile {wc|sc} -l app=dex sync</span>
 </code></pre></div>

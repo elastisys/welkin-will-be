@@ -1949,7 +1949,7 @@ if(!document.__defineGetter__) {
           <li class="md-nav__item">
   <a href="#install-compliant-kubernetes-apps" class="md-nav__link">
     <span class="md-ellipsis">
-      Install Compliant Kubernetes apps
+      Install Compliant Kubernetes Apps
     </span>
   </a>
   
@@ -3855,7 +3855,7 @@ if(!document.__defineGetter__) {
           <li class="md-nav__item">
   <a href="#install-compliant-kubernetes-apps" class="md-nav__link">
     <span class="md-ellipsis">
-      Install Compliant Kubernetes apps
+      Install Compliant Kubernetes Apps
     </span>
   </a>
   
@@ -3981,9 +3981,9 @@ ansible-playbook<span class="w"> </span>-e<span class="w"> </span><span class="s
 <p>Create the domain name.
     You need to create a domain name to access the different services in your environment. You will need to set up the following DNS entries.</p>
 <ul>
-<li>Point these domains to the Workload Cluster ingress controller (this step is done during Compliant Kubernetes app installation):</li>
+<li>Point these domains to the Workload Cluster Ingress Controller (this step is done during Compliant Kubernetes Apps installation):</li>
 <li><code>*.$DOMAIN</code></li>
-<li>Point these domains to the Management Cluster ingress controller (this step is done during Compliant Kubernetes app installation):</li>
+<li>Point these domains to the Management Cluster Ingress Controller (this step is done during Compliant Kubernetes Apps installation):</li>
 <li><code>*.ops.$DOMAIN</code></li>
 <li><code>dex.$DOMAIN</code></li>
 <li><code>grafana.$DOMAIN</code></li>
@@ -4055,7 +4055,7 @@ ansible-playbook<span class="w"> </span>-e<span class="w"> </span><span class="s
 <div class="highlight"><pre><span></span><code><span class="nt">create_oidc_kubeconfig</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">kubeconfig_localhost</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 </code></pre></div>
-<p>For more information on managing OIDC kubeconfigs and RBAC, or on running without OIDC, <a href="https://github.com/elastisys/compliantkubernetes-kubespray#kubeconfig">see the ck8s-kubespray documentation</a>.</p>
+<p>For more information on managing OIDC kubeconfigs and RBAC, or on running without OIDC, <a href="https://github.com/elastisys/compliantkubernetes-kubespray#kubeconfig">see the ck8s-Kubespray documentation</a>.</p>
 <h3 id="copy-the-vms-information-to-the-inventory-files">Copy the VMs information to the inventory files<a class="headerlink" href="#copy-the-vms-information-to-the-inventory-files" title="Permanent link">&para;</a></h3>
 <p>Add the host name, user and IP address of each VM that you prepared above in <code>${CK8S_CONFIG_PATH}/sc-config/inventory.ini</code>for Management Cluster and <code>${CK8S_CONFIG_PATH}/sc-config/inventory.ini</code> for Workload Cluster. Moreover, you also need to add the host names of the master nodes under <code>[kube_control_plane]</code>, etcd nodes under <code>[etcd]</code> and worker nodes under <code>[kube_node]</code>.</p>
 <div class="admonition note">
@@ -4084,7 +4084,7 @@ ansible-playbook<span class="w"> </span>-e<span class="w"> </span><span class="s
 <span class="nb">export</span><span class="w"> </span><span class="nv">KUBECONFIG</span><span class="o">=</span><span class="nv">$CLUSTER</span>.yaml
 </code></pre></div>
 </div>
-<p>Please restart the operator pod, <code>rook-ceph-operator*</code>, if some pods stalls in initialization state as shown below:</p>
+<p>Please restart the operator Pod, <code>rook-ceph-operator*</code>, if some pods stalls in initialization state as shown below:</p>
 <div class="highlight"><pre><span></span><code><span class="go">rook-ceph     rook-ceph-crashcollector-minion-0-b75b9fc64-tv2vg    0/1     Init:0/2   0          24m</span>
 <span class="go">rook-ceph     rook-ceph-crashcollector-minion-1-5cfb88b66f-mggrh   0/1     Init:0/2   0          36m</span>
 <span class="go">rook-ceph     rook-ceph-crashcollector-minion-2-5c74ffffb6-jwk55   0/1     Init:0/2   0          14m</span>
@@ -4162,8 +4162,8 @@ vim<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFI
 </code></pre></div>
 <p>Edit the secrets.yaml file and add the credentials for:</p>
 <ul>
-<li>s3 - used for backup storage</li>
-<li>dex - connectors -- check <a href="https://dexidp.io/docs/connectors/">your identity provider</a>.</li>
+<li>S3 - used for backup storage</li>
+<li>Dex - connectors -- check <a href="https://dexidp.io/docs/connectors/">your identity provider</a>.</li>
 <li>On-call management tool configurations-- Check <a href="https://prometheus.io/docs/alerting/latest/configuration/">supported on-call management tools</a></li>
 </ul>
 <div class="highlight"><pre><span></span><code>sops<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/secrets.yaml
@@ -4187,7 +4187,7 @@ scripts/S3/entry.sh<span class="w"> </span>create
 <p>You should not use your own credentials for S3.
 Rather create a new set of credentials with write-only access, when supported by the object storage provider.</p>
 </div>
-<h3 id="install-compliant-kubernetes-apps">Install Compliant Kubernetes apps<a class="headerlink" href="#install-compliant-kubernetes-apps" title="Permanent link">&para;</a></h3>
+<h3 id="install-compliant-kubernetes-apps">Install Compliant Kubernetes Apps<a class="headerlink" href="#install-compliant-kubernetes-apps" title="Permanent link">&para;</a></h3>
 <p>Start with the Management Cluster:</p>
 <div class="highlight"><pre><span></span><code>compliantkubernetes-apps/bin/ck8s<span class="w"> </span>apply<span class="w"> </span>sc
 </code></pre></div>

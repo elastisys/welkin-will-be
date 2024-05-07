@@ -3570,7 +3570,7 @@ if(!document.__defineGetter__) {
 </ul>
 <p>Technical Story: <a href="https://github.com/elastisys/compliantkubernetes-kubespray/issues/25">Ingress configuration</a></p>
 <h2 id="context-and-problem-statement">Context and Problem Statement<a class="headerlink" href="#context-and-problem-statement" title="Permanent link">&para;</a></h2>
-<p>Many regulations require traffic to be encrypted over public Internet. Compliant Kubernetes solves this problem via an <a href="https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/">Ingress controller</a> and <a href="https://github.com/cert-manager/cert-manager">cert-manager</a>. As of February 2021, Compliant Kubernetes comes by default with <a href="https://kubernetes.github.io/ingress-nginx/">nginx-ingress</a>, but <a href="https://www.getambassador.io/">Ambassador</a> is planned as an alternative. The question is, how does traffic arrive at the Ingress controller?</p>
+<p>Many regulations require traffic to be encrypted over public Internet. Compliant Kubernetes solves this problem via an <a href="https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/">Ingress Controller</a> and <a href="https://github.com/cert-manager/cert-manager">cert-manager</a>. As of February 2021, Compliant Kubernetes comes by default with <a href="https://kubernetes.github.io/ingress-nginx/">Ingress-NGINX</a>, but <a href="https://www.getambassador.io/">Ambassador</a> is planned as an alternative. The question is, how does traffic arrive at the Ingress Controller?</p>
 <h2 id="decision-drivers">Decision Drivers<a class="headerlink" href="#decision-drivers" title="Permanent link">&para;</a></h2>
 <ul>
 <li>We want to obey the <a href="https://en.wikipedia.org/wiki/Principle_of_least_astonishment">Principle of Least Astonishment</a>.</li>
@@ -3580,9 +3580,9 @@ if(!document.__defineGetter__) {
 </ul>
 <h2 id="considered-options">Considered Options<a class="headerlink" href="#considered-options" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://kubernetes.github.io/ingress-nginx/deploy/baremetal/#via-the-host-network">Via the host network</a>, i.e., some workers expose the Ingress controller on their port 80 and 443.</li>
-<li><a href="https://kubernetes.github.io/ingress-nginx/deploy/baremetal/#over-a-nodeport-service">Over a NodePort service</a>, i.e., <code>kube-proxy</code> exposes the Ingress controller on a port between 30000-32767 on each worker.</li>
-<li><a href="https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer">As a Service Type LoadBalancer</a>, i.e., above plus Kubernetes provisions a load balancer via <a href="https://kubernetes.io/docs/concepts/architecture/cloud-controller/#service-controller">Service controller</a>.</li>
+<li><a href="https://kubernetes.github.io/ingress-nginx/deploy/baremetal/#via-the-host-network">Via the host network</a>, i.e., some workers expose the Ingress Controller on their port 80 and 443.</li>
+<li><a href="https://kubernetes.github.io/ingress-nginx/deploy/baremetal/#over-a-nodeport-service">Over a NodePort service</a>, i.e., <code>kube-proxy</code> exposes the Ingress Controller on a port between 30000-32767 on each worker.</li>
+<li><a href="https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer">As a Service type LoadBalancer</a>, i.e., above plus Kubernetes provisions a load balancer via <a href="https://kubernetes.io/docs/concepts/architecture/cloud-controller/#service-controller">Service controller</a>.</li>
 </ul>
 <h2 id="decision-outcome">Decision Outcome<a class="headerlink" href="#decision-outcome" title="Permanent link">&para;</a></h2>
 <p>Chosen options:</p>
@@ -3590,14 +3590,14 @@ if(!document.__defineGetter__) {
 <li>
 <p>Use host network if Kubernetes-controlled load balancer is unavailable or undesired. If necessary, front the worker nodes with a manual or Terraform-controlled load-balancer. This includes:</p>
 <ul>
-<li>Where load-balancing does not add value, e.g., if a deployment is planned to have only a single-node or single-worker for the foreseeable future: Point the DNS entry to the worker IP instead.</li>
+<li>Where load-balancing does not add value, e.g., if a Deployment is planned to have only a single-node or single-worker for the foreseeable future: Point the DNS entry to the worker IP instead.</li>
 <li>Exoscale currently falls in this category, due to its Kubernetes integration being rather recent.</li>
-<li>SafeSpring falls in this category, since it is missing load balancers.</li>
+<li>Safespring falls in this category, since it is missing load balancers.</li>
 <li>If the Infrastructure Provider is missing a storage controller, it might be undesirable to perform integration "just" for load-balancing.</li>
 </ul>
 </li>
 <li>
-<p>Use Service Type LoadBalancer when available. This includes: AWS, Azure, GCP and CityCloud.</p>
+<p>Use Service type LoadBalancer when available. This includes: AWS, Azure, GCP and CityCloud.</p>
 </li>
 </ol>
 <p>Additional considerations: This means that, generally, it will not be possible to set up the correct DNS entries until <em>after</em> we apply Compliant Kubernetes Apps. There is a risk for "the Internet" -- Let's Encrypt specifically -- to perform DNS lookups too soon and cause negative DNS caches with a long lifetime. Therefore, placeholder IP addresses must be used, e.g.:</p>
@@ -3618,7 +3618,7 @@ if(!document.__defineGetter__) {
 <h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://kubernetes.io/docs/concepts/architecture/cloud-controller/">Cloud Controller Manager</a></li>
-<li><a href="https://kubernetes.github.io/ingress-nginx/deploy/baremetal/">Ingress Nginx: Bare Metal Considerations</a></li>
+<li><a href="https://kubernetes.github.io/ingress-nginx/deploy/baremetal/">Ingress NGINX: Bare Metal Considerations</a></li>
 </ul>
 
 

@@ -3877,8 +3877,8 @@ kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> <
 <h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
 <p>After you have deployed your Kafka cluster, you can test sending and receiving messages to see if it works!</p>
 <p>To do this, you can use a producer and consumer as seen <a href="https://strimzi.io/quickstarts/">here</a>, under the section "Send and receive messages". But since Compliant Kubernetes requires resource requests to be specified, just copy pasting those commands will not work.</p>
-<p>You need to create a pod manifest using the image <code>quay.io/strimzi/kafka:0.38.0-kafka-3.6.0</code>, and then you need to add your resource requests to this manifest. You also need to have an initial sleep command in the pod manifest, to sleep the container for a while, this is to avoid the pod going into the "Completed" stage instantly.</p>
-<p>Alternatively you can download a ready to use producer and consumer pod manifests:</p>
+<p>You need to create a Pod manifest using the image <code>quay.io/strimzi/kafka:0.38.0-kafka-3.6.0</code>, and then you need to add your resource requests to this manifest. You also need to have an initial sleep command in the Pod manifest, to sleep the container for a while, this is to avoid the Pod going into the "Completed" stage instantly.</p>
+<p>Alternatively you can download a ready to use producer and consumer Pod manifests:</p>
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>kafka-testing
 
 <span class="c1"># Fetches pod manifests for a producer and consumer and saves it in the kafka-testing directory</span>

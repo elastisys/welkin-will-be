@@ -3977,13 +3977,13 @@ if(!document.__defineGetter__) {
 </ol>
 <p>The Prometheus UI is only available by default starting in Compliant Kubernetes version 0.26.</p>
 <h3 id="grafana">Grafana<a class="headerlink" href="#grafana" title="Permanent link">&para;</a></h3>
-<p>Grafana can be accessed at the endpoint provided by the Compliant Kubernetes install scripts. If you have configured dex you can login with a connected account.</p>
+<p>Grafana can be accessed at the endpoint provided by the Compliant Kubernetes install scripts. If you have configured Dex you can login with a connected account.</p>
 <p>Compliant Kubernetes deploys Grafana with a selection of dashboards by default. Dashboards are accessed by clicking the Dashboard icon (four squares) at the lefthand side of the Grafana window and selecting Browse. Some examples of useful dashboards are listed below.</p>
 <h4 id="node-health">Node health<a class="headerlink" href="#node-health" title="Permanent link">&para;</a></h4>
 <p>The Nodes dashboard (Node Exporter / Nodes) gives a quick overview of the status (health) of a node in the cluster. By selecting an instance in the "instance" dropdown metrics for CPU, Load, Memory, Disk and Network I/O is showed for that node. The time frame can be changed either by using the time dropdown or selecting directly in the graphs.</p>
 <p><img alt="Node Health" src="../../img/node_health.png" title="Nodes dashboard" /></p>
 <h4 id="pod-health">Pod health<a class="headerlink" href="#pod-health" title="Permanent link">&para;</a></h4>
-<p>The Pods dashboard (Kubernetes/Compute resources/Pods) gives a quick overview of the status (health) of a pod in the cluster. By selecting a pod in the "pod" dropdown metrics for CPU, Memory, and Network I/O is showed for that node. The time frame can be changed either by using the time dropdown or selecting directly in the graphs.</p>
+<p>The Pods dashboard (Kubernetes/Compute resources/Pods) gives a quick overview of the status (health) of a Pod in the cluster. By selecting a Pod in the "Pod" dropdown metrics for CPU, Memory, and Network I/O is showed for that node. The time frame can be changed either by using the time dropdown or selecting directly in the graphs.</p>
 <p><img alt="Pod health" src="../../img/pod_health.png" title="Pod health" /></p>
 <h2 id="collecting-metrics">Collecting metrics<a class="headerlink" href="#collecting-metrics" title="Permanent link">&para;</a></h2>
 <p>Configuring Prometheus to collect metrics from an application requires either a ServiceMonitor or a PodMonitor, targeting a Kubernetes Service or Pod respectively. They are both described upstream in the <a href="https://prometheus-operator.dev/docs/operator/api/">API reference for Prometheus Operator</a>. In general ServiceMonitors are recommended over PodMonitors, and it is the most common way to configure metrics collection.</p>
