@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="How to work with Lens and Elastisys Compliant Kubernetes, the security-focused Kubernetes distribution.">
+        <meta name="description" content="How to work with Monokle or VSCode and Elastisys Compliant Kubernetes, the security-focused Kubernetes distribution.">
       
       
         <meta name="author" content="Elastisys AB">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Kubernetes UI (Lens) - Elastisys Compliant Kubernetes</title>
+        <title>Kubernetes UI - Elastisys Compliant Kubernetes</title>
       
     
     
@@ -71,9 +71,9 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Kubernetes UI (Lens) - Elastisys Compliant Kubernetes" >
+        <meta  property="og:title"  content="Kubernetes UI - Elastisys Compliant Kubernetes" >
       
-        <meta  property="og:description"  content="How to work with Lens and Elastisys Compliant Kubernetes, the security-focused Kubernetes distribution." >
+        <meta  property="og:description"  content="How to work with Monokle or VSCode and Elastisys Compliant Kubernetes, the security-focused Kubernetes distribution." >
       
         <meta  property="og:image"  content="https://elastisys.io/compliantkubernetes/assets/images/social/user-guide/kubernetes-ui.png" >
       
@@ -87,9 +87,9 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Kubernetes UI (Lens) - Elastisys Compliant Kubernetes" >
+        <meta  name="twitter:title"  content="Kubernetes UI - Elastisys Compliant Kubernetes" >
       
-        <meta  name="twitter:description"  content="How to work with Lens and Elastisys Compliant Kubernetes, the security-focused Kubernetes distribution." >
+        <meta  name="twitter:description"  content="How to work with Monokle or VSCode and Elastisys Compliant Kubernetes, the security-focused Kubernetes distribution." >
       
         <meta  name="twitter:image"  content="https://elastisys.io/compliantkubernetes/assets/images/social/user-guide/kubernetes-ui.png" >
       
@@ -152,7 +152,7 @@ if(!document.__defineGetter__) {
     <div data-md-component="skip">
       
         
-        <a href="#kubernetes-ui-lens" class="md-skip">
+        <a href="#kubernetes-ui" class="md-skip">
           Skip to content
         </a>
       
@@ -191,7 +191,7 @@ if(!document.__defineGetter__) {
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Kubernetes UI (Lens)
+              Kubernetes UI
             
           </span>
         </div>
@@ -668,7 +668,7 @@ if(!document.__defineGetter__) {
           
   
   <span class="md-ellipsis">
-    Kubernetes UI (Lens)
+    Kubernetes UI
   </span>
   
 
@@ -679,7 +679,7 @@ if(!document.__defineGetter__) {
         
   
   <span class="md-ellipsis">
-    Kubernetes UI (Lens)
+    Kubernetes UI
   </span>
   
 
@@ -701,16 +701,6 @@ if(!document.__defineGetter__) {
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#installing-lens" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installing Lens
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Installing Lens">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#note-for-macos-and-linux-users" class="md-nav__link">
     <span class="md-ellipsis">
       Note for macOS and Linux users
@@ -718,58 +708,20 @@ if(!document.__defineGetter__) {
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#monokle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monokle
+    </span>
+  </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#getting-started-with-lens" class="md-nav__link">
+  <a href="#kubernetes-extension-for-visual-studio-code" class="md-nav__link">
     <span class="md-ellipsis">
-      Getting started with Lens
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Getting started with Lens">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#connecting-to-a-cluster" class="md-nav__link">
-    <span class="md-ellipsis">
-      Connecting to a cluster
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cluster-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cluster settings
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pod-information-and-interaction" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pod information and interaction
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#optional-permissions-and-steps-required-for-prometheus-integration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Optional permissions and steps required for Prometheus integration
+      Kubernetes Extension for Visual Studio Code
     </span>
   </a>
   
@@ -3599,16 +3551,6 @@ if(!document.__defineGetter__) {
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#installing-lens" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installing Lens
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Installing Lens">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#note-for-macos-and-linux-users" class="md-nav__link">
     <span class="md-ellipsis">
       Note for macOS and Linux users
@@ -3616,58 +3558,20 @@ if(!document.__defineGetter__) {
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#monokle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monokle
+    </span>
+  </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#getting-started-with-lens" class="md-nav__link">
+  <a href="#kubernetes-extension-for-visual-studio-code" class="md-nav__link">
     <span class="md-ellipsis">
-      Getting started with Lens
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Getting started with Lens">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#connecting-to-a-cluster" class="md-nav__link">
-    <span class="md-ellipsis">
-      Connecting to a cluster
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cluster-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cluster settings
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pod-information-and-interaction" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pod information and interaction
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#optional-permissions-and-steps-required-for-prometheus-integration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Optional permissions and steps required for Prometheus integration
+      Kubernetes Extension for Visual Studio Code
     </span>
   </a>
   
@@ -3691,32 +3595,30 @@ if(!document.__defineGetter__) {
   
 
 
-<h1 id="kubernetes-ui-lens">Kubernetes UI (Lens)<a class="headerlink" href="#kubernetes-ui-lens" title="Permanent link">&para;</a></h1>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>As of September 2022, the Lens binary includes proprietary code on top of the open-source Lens source code.
-Unfortunately, some of that code includes <strong>non-features</strong>, like requiring a Lens ID for "activating" Lens and tracking your activity.</p>
-<p>We find such practices questionable, especially in highly-regulated industries.
-Therefore, we currently recommend using <a href="https://github.com/MuhammedKalkan/OpenLens/releases">OpenLens</a>, which is a "clean" binary of the Lens source code.
-OpenLens consists of all the open-source Lens code without the prioprietary code.
-Even better, OpenLens does not require "activation" and does not track your actions.</p>
-<p>The Compliant Kubernetes project monitors the situation and will decide on permanently switching to OpenLens or finding a suitable replacement, like the <a href="https://code.visualstudio.com/docs/azure/kubernetes">VSCode plugin for Kubernetes</a>.</p>
-</div>
-<p><a href="https://k8slens.dev/">Lens</a> is a graphical user interface that you install locally on your machine. It provides an attractive and easy to use way of interacting with your Kubernetes cluster. Similar to <code>kubectl</code>, it can be used to manage multiple clusters. You can also install <a href="https://github.com/lensapp/lens-extensions/blob/main/README.md">extensions that help you manage your clusters or applications deployed on them</a> from a growing list of community-provided extensions.</p>
-<p>Because Lens is installed locally, and has no cluster-side component, it uses the <em>exact same permissions</em> as your Compliant Kubernetes user has. This makes it a perfectly <em>safe and secure</em> user interface to use and does <strong>not</strong> compromise your cluster's stability or security posture.</p>
-<h2 id="installing-lens">Installing Lens<a class="headerlink" href="#installing-lens" title="Permanent link">&para;</a></h2>
-<p>Head over to the <a href="https://k8slens.dev/">official Lens website</a> and download the appropriate installation package for your operating system. Follow the instructions, and you should have Lens installed.</p>
-<p>On Debian or Ubuntu-based systems, once you've downloaded the <code>.deb</code> file for your architecture, you simply run the following command (assuming you called the downloaded file <code>lens.deb</code>):</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>lens.deb
-</code></pre></div>
-<h3 id="note-for-macos-and-linux-users">Note for macOS and Linux users<a class="headerlink" href="#note-for-macos-and-linux-users" title="Permanent link">&para;</a></h3>
-<p>If you followed the <a href="../prepare/">Install Prerequisites</a> steps of this documentation, you have probably installed the <code>oidc-login</code> plugin to <code>kubectl</code> via <code>krew</code>. If so, Lens will not be able to find it. That makes Lens fail to authenticate via Dex, the OpenID Connect provider in Compliant Kubernetes.</p>
-<p>You have two options for making the <code>oidc-login</code> plugin findable by Lens:</p>
+<h1 id="kubernetes-ui">Kubernetes UI<a class="headerlink" href="#kubernetes-ui" title="Permanent link">&para;</a></h1>
+<p>Compliant Kubernetes recommends operations to be done via script -- if possible the GitOps way -- to improve repeatability and application developer productivity, as well as reduce human errors.
+That being said, User Interfaces (UIs) have their advantages.
+In particular, they have a reduced learning curve and make features more discoverable.</p>
+<p>Compliant Kubernetes does not come with a UI for the sake of resource efficiency.
+However, you can run a locally-installed Kubernetes UI yourself.
+We have tested:</p>
+<ul>
+<li><a href="#monokle">Monokle</a></li>
+<li><a href="#kubernetes-extension-for-visual-studio-code">Kubernetes Extension for Visual Studio Code</a></li>
+</ul>
+<p>Both of these projects are installed locally, and have no cluster-side component.
+Both use the <em>exact same permissions</em> as your Compliant Kubernetes user has.
+This makes it a perfectly <em>safe and secure</em> user interface to use and does <strong>not</strong> compromise your cluster's stability or security posture.</p>
+<h2 id="note-for-macos-and-linux-users">Note for macOS and Linux users<a class="headerlink" href="#note-for-macos-and-linux-users" title="Permanent link">&para;</a></h2>
+<p>If you followed the <a href="../prepare/">Install Prerequisites</a> steps of this documentation, you have probably installed the <code>oidc-login</code> plugin to <code>kubectl</code> via <code>krew</code>.
+If so, a locally-installed Kubernetes UI might not be able to find it.
+That makes it fail to authenticate via Dex, the OpenID Connect provider in Compliant Kubernetes.</p>
+<p>You have two options for making the <code>oidc-login</code> plugin findable by locally-installed Kubernetes UIs:</p>
 <ol>
 <li>
 <p>Edit <code>~/.profile</code> and add:</p>
 <div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.krew/bin&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.krew/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.krew/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
 <span class="k">fi</span>
 </code></pre></div>
 </li>
@@ -3726,88 +3628,25 @@ Even better, OpenLens does not require "activation" and does not track your acti
 </code></pre></div>
 </li>
 </ol>
-<h2 id="getting-started-with-lens">Getting started with Lens<a class="headerlink" href="#getting-started-with-lens" title="Permanent link">&para;</a></h2>
-<h3 id="connecting-to-a-cluster">Connecting to a cluster<a class="headerlink" href="#connecting-to-a-cluster" title="Permanent link">&para;</a></h3>
-<p>When Lens starts up, it will have located all the <code>kubectl</code> configuration files that are in your default directory (<code>$HOME/.kube</code>) and presents these in a list for you as clusters you can connect to.</p>
-<p><img alt="Lens cluster selection" src="../img/lens-cluster-selection.png" /></p>
-<p>If you choose a cluster on this screen, you can then connect to it by hitting the big image for it above the "Click to open" text:</p>
-<p><img alt="Lens with selected cluster" src="../img/lens-cluster-chosen.png" /></p>
-<p>Authentication with Dex does not happen within Lens itself, but it starts the correct component and will show the following screen:</p>
-<p><img alt="Lens initial login failure, but with authentication proxy started" src="../img/lens-initial-login-failure.png" /></p>
-<p>Go to the address it says, i.e., <a href="http://localhost:8000/">localhost:8000</a> to authenticate via Dex:</p>
-<p><img alt="Dex login" src="../img/lens-dex-authentication.png" /></p>
-<p>Log in as usual with your identity provider and return to Lens. Hit the Reconnect button, and you're in!</p>
-<h3 id="cluster-settings">Cluster settings<a class="headerlink" href="#cluster-settings" title="Permanent link">&para;</a></h3>
-<p>When you view your cluster's overview page, it comes up with an empty loading icon. That is because your user account does not have the permissions to view all Pods in all Namespaces. Lens assumes you do, but you do not.</p>
-<p>To remedy this, we can tell Lens which Namespaces to pull data from. Going back to the cluster selection screen, choose the Pen icon to configure the cluster's settings.</p>
-<p>You can then go to the setting called Namespaces and enter the names of the ones you have access to:</p>
-<p><img alt="Namespace configuration" src="../img/lens-namespaces.png" /></p>
-<p>Going back to the Overview of the cluster, you will now instead see information about it:</p>
-<p><img alt="Overview without monitoring information" src="../img/lens-overview-no-monitoring.png" /></p>
-<p>Note that, for security reasons, monitoring metrics are not enabled, but you can read about that in the section below.</p>
-<h3 id="pod-information-and-interaction">Pod information and interaction<a class="headerlink" href="#pod-information-and-interaction" title="Permanent link">&para;</a></h3>
-<p>In the Workload pane, you can see the Pods in your chosen Namespace:</p>
-<p><img alt="Pod overview" src="../img/lens-workloads-pods.png" /></p>
-<p>If you choose a Pod, you will see detailed information about that Pod, such as its labels, and other metadata. Again, note that for security reasons, the monitoring metrics part is empty.</p>
-<p><img alt="Selected Pod with metadata" src="../img/lens-selected-pod.png" /></p>
-<p>Among the things one can do with this overview, if the user has access to it, is to both manipulate the Pod as one would be able to do with <code>kubectl edit</code>, but also start an interactive shell session against it (like <code>kubectl exec</code> does):</p>
-<p><img alt="Pod shell" src="../img/lens-pod-shell.png" /></p>
-<h2 id="optional-permissions-and-steps-required-for-prometheus-integration">Optional permissions and steps required for Prometheus integration<a class="headerlink" href="#optional-permissions-and-steps-required-for-prometheus-integration" title="Permanent link">&para;</a></h2>
-<p>Lens can present monitoring information regarding your Pods if you have the appropriate permissions. To get the monitoring data for the graphs, it needs to query the Prometheus component in Compliant Kubernetes.</p>
-<p>However, your cluster administrator may have forbidden this access for security reasons.</p>
-<div class="admonition warning">
-<p class="admonition-title">Why Prometheus integration can be a security risk</p>
-<p>With the Prometheus access Lens requires, one is able to exfiltrate the credentials that Prometheus itself uses for writing to long-term storage of metrics in Compliant Kubernetes. These could be used to send in junk data and possibly also overwrite the metrics that the real Prometheus process has written.</p>
-<p>For more information about this issue and how it develops, Compliant Kubernetes is tracking the implications of <a href="https://github.com/elastisys/compliantkubernetes-apps/issues/691">in this GitHub issue</a>.</p>
-</div>
-<p>That said, if you self-administer your cluster, are aware of the potential risks, and <strong>still</strong> would like to have Prometheus integration, you can do as follows.</p>
-<p>Download the <a href="../lens-user-role.yaml">lens-user-role.yaml</a> file, the contents of which is shown below:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rbac.authorization.k8s.io/v1</span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Role</span>
-<span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">monitoring</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lens-user</span>
-<span class="nt">rules</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">apiGroups</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;&quot;</span>
-<span class="w">    </span><span class="nt">resources</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pods/portforward</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pods/proxy</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">services/portforward</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">services/proxy</span>
-<span class="w">    </span><span class="nt">verbs</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">get</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">list</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">create</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">delete</span>
-</code></pre></div>
-<p>Apply it, as-is, to your cluster by running <code>kubectl apply -f lens-user-role.yaml</code>.</p>
-<p>Assign this role to your user or the group your user belongs to by downloading and modifying it so that it lists your user name (typically that will be your email address) or the group you want to give these permissions to. Do that by downloading the <a href="../lens-user-rolebinding-example.yaml">lens-user-rolebinding-example.yaml</a> file and editing it. The file is shown below:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rbac.authorization.k8s.io/v1</span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RoleBinding</span>
-<span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lens-user</span>
-<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">monitoring</span>
-<span class="nt">roleRef</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Role</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lens-user</span>
-<span class="w">  </span><span class="nt">apiGroup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rbac.authorization.k8s.io</span>
-<span class="nt">subjects</span><span class="p">:</span>
-<span class="w">  </span><span class="c1"># Note that you can specify more than one &quot;subject&quot;</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Group</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example-group@elastisys.com</span>
-<span class="w">    </span><span class="nt">apiGroup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rbac.authorization.k8s.io</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">User</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">some.person@elastisys.com</span>
-<span class="w">    </span><span class="nt">apiGroup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rbac.authorization.k8s.io</span>
-</code></pre></div>
-<p>Apply it to your cluster after making your changes to a copy of the template via, for instance, <code>kubectl apply -f lens-user-rolebinding.yaml</code>.</p>
-<p>Next, we must configure Lens to connect to the Prometheus instance correctly:</p>
-<p><img alt="Metrics settings" src="../img/lens-metrics-settings.png" /></p>
-<p>The address to your Prometheus instance is: <code>monitoring/kube-prometheus-stack-prometheus:9090</code> and you should choose the <code>Prometheus Stack</code> option in the dropdown.</p>
-<p>With these settings in place, you will have metrics integration working, showing e.g. output like this for the overview and Pod information:</p>
-<p><img alt="Overview with metrics" src="../img/lens-overview.png" /></p>
-<p><img alt="Overview with metrics" src="../img/lens-pod-metrics.png" /></p>
+<h2 id="monokle">Monokle<a class="headerlink" href="#monokle" title="Permanent link">&para;</a></h2>
+<p>To get started with Monokle:</p>
+<ol>
+<li>Make sure you performing the <a href="#note-for-macos-and-linux-users">above changes</a>.</li>
+<li>Install <a href="https://monokle.io/">Monokle</a> as instructed in the upstream documentation.</li>
+<li>Perform OpenID authentication via your browser.</li>
+<li>Make sure to select a valid namespace, since Compliant Kubernetes does not allow access to the <code>default</code> namespace.</li>
+</ol>
+<p>Monokle should work out-of-the-box with Compliant Kubernetes.</p>
+<p><img alt="Monokle with Compliant Kubernetes" src="../img/monokle.png" /></p>
+<h2 id="kubernetes-extension-for-visual-studio-code">Kubernetes Extension for Visual Studio Code<a class="headerlink" href="#kubernetes-extension-for-visual-studio-code" title="Permanent link">&para;</a></h2>
+<p>To get started:</p>
+<ol>
+<li>Make sure you performing the <a href="#note-for-macos-and-linux-users">above changes</a>.</li>
+<li>Install the <a href="https://code.visualstudio.com/docs/azure/kubernetes">Kubernetes extension</a> as instructed in the upstream documentation.</li>
+<li>Perform OpenID authentication via your browser.</li>
+</ol>
+<p>The Kubernetes extension should work out-of-the-box with Compliant Kubernetes.</p>
+<p><img alt="Kubernetes extension for Visual Studio Code with Compliant Kubernetes" src="../img/vscode.png" /></p>
 
 
 
