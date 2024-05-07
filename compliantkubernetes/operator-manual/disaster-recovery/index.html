@@ -4267,7 +4267,8 @@ If a clean wipe is the desired behavior, then the volume must be wiped manually 
 <li>Restoring from <strong>unencrypted</strong> off-site backup:</li>
 </ul>
 <p>To recover directly from off-site backup the backup-location must be reconfigured:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">S3_BUCKET</span><span class="o">=</span><span class="s2">&quot;&lt;off-site-s3-bucket&gt;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CLUSTER</span><span class="o">=</span><span class="s2">&quot;&lt;sc|wc&gt;&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">S3_BUCKET</span><span class="o">=</span><span class="s2">&quot;&lt;off-site-s3-bucket&gt;&quot;</span><span class="w"> </span><span class="c1"># Do not include s3:// prefix</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">S3_PREFIX</span><span class="o">=</span><span class="s2">&quot;&lt;service-cluster|workload-cluster&gt;&quot;</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">S3_ACCESS_KEY</span><span class="o">=</span><span class="k">$(</span>sops<span class="w"> </span>-d<span class="w"> </span>--extract<span class="w"> </span><span class="s1">&#39;[&quot;objectStorage&quot;][&quot;sync&quot;][&quot;s3&quot;][&quot;accessKey&quot;]&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$CK8S_CONFIG_PATH</span><span class="s2">/secrets.yaml&quot;</span><span class="k">)</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">S3_SECRET_KEY</span><span class="o">=</span><span class="k">$(</span>sops<span class="w"> </span>-d<span class="w"> </span>--extract<span class="w"> </span><span class="s1">&#39;[&quot;objectStorage&quot;][&quot;sync&quot;][&quot;s3&quot;][&quot;secretKey&quot;]&#39;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$CK8S_CONFIG_PATH</span><span class="s2">/secrets.yaml&quot;</span><span class="k">)</span>
@@ -4275,13 +4276,11 @@ If a clean wipe is the desired behavior, then the volume must be wiped manually 
 <span class="nb">export</span><span class="w"> </span><span class="nv">S3_ENDPOINT</span><span class="o">=</span><span class="k">$(</span>yq<span class="w"> </span>r<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$CK8S_CONFIG_PATH</span><span class="s2">/sc-config.yaml&quot;</span><span class="w"> </span><span class="s2">&quot;objectStorage.sync.s3.regionEndpoint&quot;</span><span class="k">)</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">S3_PATH_STYLE</span><span class="o">=</span><span class="k">$(</span>yq<span class="w"> </span>r<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$CK8S_CONFIG_PATH</span><span class="s2">/sc-config.yaml&quot;</span><span class="w"> </span><span class="s2">&quot;objectStorage.sync.s3.forcePathStyle&quot;</span><span class="k">)</span>
 
+<span class="c1"># Delete backups from default backup location, note that this is only the backup metadata</span>
+./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>-n<span class="w"> </span>velero<span class="w"> </span>delete<span class="w"> </span>backups.velero.io<span class="w"> </span>--all
+
 <span class="c1"># Delete default backup location</span>
 velero<span class="w"> </span>backup-location<span class="w"> </span>delete<span class="w"> </span>default
-
-<span class="c1"># Delete backups from default backup location, note that this is only the backup metadata</span>
-./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span>sc<span class="w"> </span>-n<span class="w"> </span>velero<span class="w"> </span>delete<span class="w"> </span>backups.velero.io<span class="w"> </span>--all
-
-./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span>wc<span class="w"> </span>-n<span class="w"> </span>velero<span class="w"> </span>delete<span class="w"> </span>backups.velero.io<span class="w"> </span>--all
 
 <span class="c1"># Create off-site credentials</span>
 kubectl<span class="w"> </span>-n<span class="w"> </span>velero<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>velero-backup<span class="w"> </span><span class="se">\</span>
@@ -4305,18 +4304,12 @@ velero<span class="w"> </span>backup-location<span class="w"> </span>create<span
   When they are available restore one of them using <code>velero restore create &lt;name-of-restore&gt; --from-backup &lt;name-of-backup&gt;</code>.</p>
 <p>After the restore is complete Velero should be reconfigured to use the main S3 service again, with a new bucket if the previous one is unusable.
   Updating or syncing the Helm chart:</p>
-<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>helmfile<span class="w"> </span>sc<span class="w"> </span>-f<span class="w"> </span>helmfile<span class="w"> </span>-l<span class="w"> </span><span class="nv">app</span><span class="o">=</span>velero<span class="w"> </span>-i<span class="w"> </span>apply
-
-./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>helmfile<span class="w"> </span>wc<span class="w"> </span>-f<span class="w"> </span>helmfile<span class="w"> </span>-l<span class="w"> </span><span class="nv">app</span><span class="o">=</span>velero<span class="w"> </span>-i<span class="w"> </span>apply
+<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>helmfile<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>-f<span class="w"> </span>helmfile<span class="w"> </span>-l<span class="w"> </span><span class="nv">app</span><span class="o">=</span>velero<span class="w"> </span>-i<span class="w"> </span>apply
 </code></pre></div>
 <p>The secret and the backup metadata from the off-site backups can be deleted:</p>
-<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span>sc<span class="w"> </span>-n<span class="w"> </span>velero<span class="w"> </span>delete<span class="w"> </span>secret<span class="w"> </span>velero-backup
-./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span>sc<span class="w"> </span>-n<span class="w"> </span>velero<span class="w"> </span>delete<span class="w"> </span>backups.velero.io<span class="w"> </span>--all
-./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span>sc<span class="w"> </span>-n<span class="w"> </span>velero<span class="w"> </span>delete<span class="w"> </span>backupstoragelocations.velero.io<span class="w"> </span>backup
-
-./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span>wc<span class="w"> </span>-n<span class="w"> </span>velero<span class="w"> </span>delete<span class="w"> </span>secret<span class="w"> </span>velero-backup
-./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span>wc<span class="w"> </span>-n<span class="w"> </span>velero<span class="w"> </span>delete<span class="w"> </span>backups.velero.io<span class="w"> </span>--all
-./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span>wc<span class="w"> </span>-n<span class="w"> </span>velero<span class="w"> </span>delete<span class="w"> </span>backupstoragelocations.velero.io<span class="w"> </span>backup
+<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>-n<span class="w"> </span>velero<span class="w"> </span>delete<span class="w"> </span>secret<span class="w"> </span>velero-backup
+./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>-n<span class="w"> </span>velero<span class="w"> </span>delete<span class="w"> </span>backups.velero.io<span class="w"> </span>--all
+./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>-n<span class="w"> </span>velero<span class="w"> </span>delete<span class="w"> </span>backupstoragelocations.velero.io<span class="w"> </span>backup
 </code></pre></div>
 <h2 id="grafana">Grafana<a class="headerlink" href="#grafana" title="Permanent link">&para;</a></h2>
 <p>This refers to the user Grafana, not the ops Grafana.</p>
