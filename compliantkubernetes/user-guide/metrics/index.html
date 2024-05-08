@@ -868,9 +868,18 @@ if(!document.__defineGetter__) {
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#accessing-prometheus" class="md-nav__link">
+  <a href="#accessing-the-prometheus-ui" class="md-nav__link">
     <span class="md-ellipsis">
-      Accessing Prometheus
+      Accessing the Prometheus UI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessing-the-prometheus-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessing the Prometheus API
     </span>
   </a>
   
@@ -3751,9 +3760,18 @@ if(!document.__defineGetter__) {
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#accessing-prometheus" class="md-nav__link">
+  <a href="#accessing-the-prometheus-ui" class="md-nav__link">
     <span class="md-ellipsis">
-      Accessing Prometheus
+      Accessing the Prometheus UI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessing-the-prometheus-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessing the Prometheus API
     </span>
   </a>
   
@@ -3969,13 +3987,20 @@ if(!document.__defineGetter__) {
 </tr>
 </tbody>
 </table>
-<h4 id="accessing-prometheus">Accessing Prometheus<a class="headerlink" href="#accessing-prometheus" title="Permanent link">&para;</a></h4>
+<h4 id="accessing-the-prometheus-ui">Accessing the Prometheus UI<a class="headerlink" href="#accessing-the-prometheus-ui" title="Permanent link">&para;</a></h4>
 <p>If you want to access the web interface of Prometheus, proceed as follows:</p>
 <ol>
 <li>Type: <code>kubectl proxy</code></li>
 <li>Open <a href="http://127.0.0.1:8001/api/v1/namespaces/monitoring/services/kube-prometheus-stack-prometheus:9090/proxy/">this link</a> in your browser</li>
 </ol>
 <p>The Prometheus UI is only available by default starting in Compliant Kubernetes version 0.26.</p>
+<h4 id="accessing-the-prometheus-api">Accessing the Prometheus API<a class="headerlink" href="#accessing-the-prometheus-api" title="Permanent link">&para;</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is an optional feature that is disabled by default to reduce the attack surface and improve security. You can contact your Platform Administrator to enable it.</p>
+</div>
+<p>There is a feature to grant certain Pods access to the Prometheus API, e.g. for the purpose of setting up your own Prometheus instance with <a href="https://prometheus.io/docs/prometheus/latest/querying/remote_read_api/">remote read</a> or <a href="https://prometheus.io/docs/prometheus/latest/federation/">federation</a> against the Prometheus instance that is part of Compliant Kubernetes. This feature is disabled by default, but can be enabled by your Platform Administrator.</p>
+<p>In order to use this feature, you will need you to provide a list of allowed namespaces, in addition to you labeling any Pod within those namespaces that should have access with <code>elastisys.io/prometheus-access: allow</code>.</p>
 <h3 id="grafana">Grafana<a class="headerlink" href="#grafana" title="Permanent link">&para;</a></h3>
 <p>Grafana can be accessed at the endpoint provided by the Compliant Kubernetes install scripts. If you have configured Dex you can login with a connected account.</p>
 <p>Compliant Kubernetes deploys Grafana with a selection of dashboards by default. Dashboards are accessed by clicking the Dashboard icon (four squares) at the lefthand side of the Grafana window and selecting Browse. Some examples of useful dashboards are listed below.</p>
@@ -4012,12 +4037,12 @@ if(!document.__defineGetter__) {
 <p>The "Explore" mode is great for developing queries and exploring the data set. If you want to save a query so you can refer back to it, you can create a Dashboard instead. Dashboards consist of multiple Panels, each of which, can display the results of running queries. Learn more <a href="https://grafana.com/docs/grafana/latest/panels-visualizations/">about Grafana panels</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-</div>
 <p>You may want to save frequently used Dashboards. Compliant Kubernetes saves and backs these up for you.</p>
+</div>
 <!--user-demo-metrics-end-->
 
 <h3 id="troubleshooting-metrics-collection">Troubleshooting metrics collection<a class="headerlink" href="#troubleshooting-metrics-collection" title="Permanent link">&para;</a></h3>
-<p>It is possible to see if monitors are picked up by <a href="#accessing-prometheus">accessing Prometheus web interface</a>. Navigating to "Status" &gt; "Service Discovery" will show all monitors picked by Prometheus, and the "(x/y active targets)" will show how many targets of those monitors are active. Active targets are actively scraped by Prometheus and inactive targets are those that fail to match the selectors of the monitor.</p>
+<p>It is possible to see if monitors are picked up by <a href="#accessing-the-prometheus-ui">accessing Prometheus web interface</a>. Navigating to "Status" &gt; "Service Discovery" will show all monitors picked by Prometheus, and the "(x/y active targets)" will show how many targets of those monitors are active. Active targets are actively scraped by Prometheus and inactive targets are those that fail to match the selectors of the monitor.</p>
 <p>Monitors can be expanded further down to list and inspect its targets, within each one the "Discovered Labels" column will list information about the object in Kubernetes and in the "Target Labels" it will show the labels recorded from the target.</p>
 <p>If the "Target Labels" is "Dropped" for a target then it means that it has been excluded from scraping since it doesn't match the monitor. There are three key things to check to make sure a target is properly picked up by a monitor:</p>
 <ol>
