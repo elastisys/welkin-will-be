@@ -2188,6 +2188,24 @@ if(!document.__defineGetter__) {
 </li>
         
           <li class="md-nav__item">
+  <a href="#example-restoring-a-partially-failed-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example restoring a partially failed backup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-restoring-a-single-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example restoring a single resource
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#restore-from-off-site-backup" class="md-nav__link">
     <span class="md-ellipsis">
       Restore from off-site backup
@@ -3877,6 +3895,24 @@ if(!document.__defineGetter__) {
 </li>
         
           <li class="md-nav__item">
+  <a href="#example-restoring-a-partially-failed-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example restoring a partially failed backup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-restoring-a-single-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example restoring a single resource
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#restore-from-off-site-backup" class="md-nav__link">
     <span class="md-ellipsis">
       Restore from off-site backup
@@ -4235,14 +4271,20 @@ A basic example with the Velero CLI would be <code>velero backup create manual-b
 <h3 id="restore_2">Restore<a class="headerlink" href="#restore_2" title="Permanent link">&para;</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you are restoring an environment under a new domain name then there is a possibility to reconfigure image references with <a href="https://velero.io/docs/main/restore-reference/#changing-poddeploymentstatefulsetdaemonsetreplicasetreplicationcontrollerjobcronjob-image-repositories">Velero</a>, but ingresses must be updated manually.</p>
 </div>
+<p>If you are restoring an environment under a new domain name then there is a possibility to reconfigure image references with <a href="https://velero.io/docs/main/restore-reference/#changing-poddeploymentstatefulsetdaemonsetreplicasetreplicationcontrollerjobcronjob-image-repositories">Velero</a>, but ingresses must be updated manually.</p>
 <p>Restoring from a backup with Velero is meant to be a type of disaster recovery.
 <strong>Velero will not overwrite existing Resources when restoring.</strong>
 As such, if you want to restore the state of a Resource that is still running, the Resource must be deleted first.</p>
 <p>To restore the state from the latest daily backup, run:</p>
 <div class="highlight"><pre><span></span><code>velero<span class="w"> </span>restore<span class="w"> </span>create<span class="w"> </span>--from-schedule<span class="w"> </span>velero-daily-backup<span class="w"> </span>--wait
 </code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+</div>
+<p>Use <code>velero restore create --help</code> to see available flags and some examples.
+If a backup has a status of PartiallyFailed, the argument <code>--allow-partially-failed</code> can be used to restore from such a backup.
+If a backup or restore gets stuck or has other issues, refer to this <a href="../troubleshooting/#velero-backup-stuck-in-progress">guide</a>.</p>
 <p>This command will wait until the restore has finished.
 You can also do partial restorations, e.g. just restoring one namespace, by using different arguments.
 You can also restore from manual backups by using the flag <code>--from-backup &lt;backup-name&gt;</code></p>
@@ -4252,6 +4294,17 @@ When restoring the Persistent Volume it will overwrite any existing files with t
 Any other files will be left as they were before the restoration started.
 So a restore will not wipe the volume clean and then restore.
 If a clean wipe is the desired behavior, then the volume must be wiped manually before restoring.</p>
+<h3 id="example-restoring-a-partially-failed-backup">Example restoring a partially failed backup<a class="headerlink" href="#example-restoring-a-partially-failed-backup" title="Permanent link">&para;</a></h3>
+<p>A backup that has status <code>PartiallyFailed</code> can be restored by using <code>--allow-partially-failed</code> flag</p>
+<div class="highlight"><pre><span></span><code>velero<span class="w"> </span>restore<span class="w"> </span>create<span class="w"> </span>&lt;restore-name&gt;<span class="w"> </span>--allow-partially-failed<span class="w"> </span>--from-schedule<span class="w"> </span>velero-daily-backup<span class="w"> </span>--wait
+</code></pre></div>
+<h3 id="example-restoring-a-single-resource">Example restoring a single resource<a class="headerlink" href="#example-restoring-a-single-resource" title="Permanent link">&para;</a></h3>
+<p>You can explore a <code>Completed</code> backup as follows</p>
+<div class="highlight"><pre><span></span><code>velero<span class="w"> </span>backup<span class="w"> </span>describe<span class="w"> </span>--details<span class="w"> </span>&lt;name-of-backup&gt;
+</code></pre></div>
+<p>and you can then use the following to handpick resources from the backup you want restored</p>
+<div class="highlight"><pre><span></span><code>velero<span class="w"> </span>restore<span class="w"> </span>create<span class="w"> </span>&lt;restore-name&gt;<span class="w">  </span>--include-resources<span class="w"> </span>pod,volume<span class="w"> </span>--from-backup<span class="w"> </span>&lt;backup-name&gt;<span class="w"> </span>--include-namespaces<span class="w"> </span>&lt;namespace-name&gt;<span class="w"> </span>--selector<span class="w"> </span>&lt;resource-selector&gt;<span class="w"> </span>--wait
+</code></pre></div>
 <h3 id="restore-from-off-site-backup">Restore from off-site backup<a class="headerlink" href="#restore-from-off-site-backup" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Restoring from <strong>encrypted</strong> off-site backup:</li>
