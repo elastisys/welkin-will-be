@@ -3841,6 +3841,15 @@ if(!document.__defineGetter__) {
 <p class="admonition-title">Warning</p>
 <p>Each air-gapped network is different. Therefore, this page should only be taken as a guideline, not as "works out-of-the-box instructions". Contact <a href="https://elastisys.com/self-managed/">Elastisys Support</a> if you need help.</p>
 </div>
+<div class="admonition elastisys-self-managed">
+<p class="admonition-title">For Elastisys Self-Managed Customers</p>
+<p>Please start by running <a href="../troubleshooting/#i-have-no-clue-where-to-start">these commands</a>.</p>
+<p>If you are struggling, don't hesitate to <a href="https://elastisys.atlassian.net/servicedesk/customer/portals">file a ticket</a>.</p>
+<p>You can run the following command  from the <a href="https://github.com/elastisys/compliantkubernetes-apps">compliantkubernetes-apps</a> repository to collect diagnostic information that will help us support you.</p>
+<p><code>CK8S_PGP_FP=&lt;fingerprint provided during onboarding&gt; ./bin/ck8s diagnostics [sc|wc]</code></p>
+<p>Please also provide us with your terminal in a text format.
+We need to look both at the commands you typed and their output.</p>
+</div>
 <h2 id="background">Background<a class="headerlink" href="#background" title="Permanent link">&para;</a></h2>
 <p>In an air-gapped network, machines are isolated from insecure networks such as the public Internet. Air-gapping is used for networks that handle highly confidential data such as military or governmental systems, or in life-critical systems, for example, in nuclear power plants or for medical equipment. This document provides guidelines on how to configure Compliant Kubernetes Apps to work inside an air-gapped network.</p>
 <h2 id="system-context-diagram">System Context Diagram<a class="headerlink" href="#system-context-diagram" title="Permanent link">&para;</a></h2>
