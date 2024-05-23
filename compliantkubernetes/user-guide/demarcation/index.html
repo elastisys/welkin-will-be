@@ -3851,13 +3851,13 @@ The mission of administrators is to make you, the Compliant Kubernetes user, suc
 <h2 id="general-principle">General Principle<a class="headerlink" href="#general-principle" title="Permanent link">&para;</a></h2>
 <p>Compliant Kubernetes does not allow users to make any changes which may compromise the security of the platform. This includes compromising or working around access control, logging, monitoring, backups, alerting, etc. For example, accidental deletion of the CustomResourceDefinitions of Prometheus would prevent administrators from getting alerts and fixing cluster issues before your application is impacted. Similarly, accidentally deleting Fluentd Pods would make it impossible to capture the Kubernetes audit log and investigate data breaches.</p>
 <h2 id="specifics">Specifics<a class="headerlink" href="#specifics" title="Permanent link">&para;</a></h2>
-<p>To stick to the general principles above, Compliant Kubernetes puts the following technical safeguards. This list may be updated in the future to take into account the fast evolving risk and technological landscape.</p>
+<p>To stick to the general principles above, Compliant Kubernetes comes with some technical safeguards. These are implemented through <a href="https://kubernetes.io/docs/concepts/security/pod-security-admission/">Pod Security Admission</a> enforcing that user namespaces adhere to the <code>restricted</code> <a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">Pod Security Standard</a>, in combination with OPA Policies and RBAC. This list may be updated in the future to take into account the fast evolving risk and technological landscape.</p>
 <p>More technically, Compliant Kubernetes does not allow users to:</p>
 <!--safeguards-start-->
 
 <ul>
 <li>change the Kubernetes API through <a href="https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/">CustomResourceDefinitions</a> or <a href="https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/#what-are-admission-webhooks">Dynamic Webhooks</a>;</li>
-<li>gain more container execution permissions by mutating <a href="https://kubernetes.io/docs/concepts/security/pod-security-policy/">PodSecurityPolicies</a>; this implies that you cannot run container images as root or mount <a href="https://kubernetes.io/docs/concepts/storage/volumes/#hostpath">hostPaths</a>;</li>
+<li>run container images as root or mount <a href="https://kubernetes.io/docs/concepts/storage/volumes/#hostpath">hostPaths</a>;</li>
 <li>mutate ClusterRoles or Roles so as to <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/#privilege-escalation-prevention-and-bootstrapping">escalate privileges</a>;</li>
 <li>mutate Kubernetes resources in administrator-owned namespaces, such as <code>monitoring</code> or <code>kube-system</code>;</li>
 <li>re-configure system Pods, such as Prometheus or Fluentd;</li>
@@ -3870,11 +3870,11 @@ The mission of administrators is to make you, the Compliant Kubernetes user, suc
 <ul>
 <li>ClusterRoles, ClusterRoleBindings</li>
 <li>Too permissive Roles and RoleBindings</li>
-<li>PodSecurityPolicy and/or use of <code>privileged</code> PodSecurityPolicy</li>
+<li>Namespaces that do not have the <code>restricted</code> Pod Security Standard enforced</li>
 <li>CustomResourceDefinitions</li>
 <li>WebhookConfiguration</li>
 </ul>
-<p>In such a case, ask your administrator to make a risk-reward analysis. As long as they stick to the general principles, this should be fine. However, as much as they want to help, they might not be allowed to say "yes". Remember, administrators are there to help you focus on application development, but at the same time they are responsible to protect your application against security risks.</p>
+<p>In such a case, ask your administrator to make a risk-reward analysis. As long as they stick to the general principles, this should be fine. However, as much as they want to help, they might not be allowed to say "yes". Remember, administrators are there to help you focus on application development, but at the same time they have a responsibility to protect your application against security risks.</p>
 
 
 
