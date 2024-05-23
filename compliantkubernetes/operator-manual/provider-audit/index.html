@@ -3994,6 +3994,7 @@ Failing to due your due diligence will end up in <a href="https://en.wikipedia.o
 </ol>
 </li>
 <li>Do you support anti-affinity?<ol>
+<li>If yes, what is the maximum number of VMs which can be part of an anti-affinity group?</li>
 <li>If not, how can we ensure that VMs don't end up on the same physical servers?</li>
 </ol>
 </li>
@@ -4044,6 +4045,7 @@ Failing to due your due diligence will end up in <a href="https://en.wikipedia.o
 <li>The <a href="https://github.com/kubernetes-sigs/kubespray/blob/v2.18.0/inventory/sample/group_vars/k8s_cluster/k8s-cluster.yml#L78">default Kubernetes Pod network</a> (<code>10.233.64.0/18</code>)?</li>
 </ol>
 </li>
+<li>How can we peer private networks across projects?</li>
 </ol>
 </li>
 <li>Firewall-aaS<ol>
@@ -4057,8 +4059,8 @@ Failing to due your due diligence will end up in <a href="https://en.wikipedia.o
 <li>Do you have a Terraform provider for your API?</li>
 <li>Can I use a <a href="https://kubernetes.io/docs/concepts/architecture/cloud-controller/">cloud-controller</a> for automatic creation of <a href="https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/">external LoadBalancers</a>?</li>
 <li>Can I set up a LB across zones? Via API?</li>
-<li>Can VMs see themselves via the LB's IP? (If not, then VMs need a minor <a href="https://github.com/kubernetes-sigs/kubespray/blob/release-2.18/contrib/terraform/exoscale/modules/kubernetes-cluster/templates/cloud-init.tmpl#L29">fix</a>.)</li>
-<li>Do your LBs preserve source IPs? Usually, this involves clever <a href="https://en.wikipedia.org/wiki/Network_address_translation#DNAT">DNAT</a> or <a href="https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt">PROXY protocol support</a>.</li>
+<li>Can VMs see themselves via the load-balancers's IP address? (If not, then VMs need a minor <a href="https://github.com/kubernetes-sigs/kubespray/blob/release-2.18/contrib/terraform/exoscale/modules/kubernetes-cluster/templates/cloud-init.tmpl#L29">fix</a>.)</li>
+<li>Do your LBs preserve source IP addresses? Usually, this involves clever <a href="https://en.wikipedia.org/wiki/Network_address_translation#DNAT">DNAT</a> or <a href="https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt">PROXY protocol support</a>.</li>
 </ol>
 </li>
 <li>Do you offer IPv6 support? By default?</li>
@@ -4115,7 +4117,7 @@ Failing to due your due diligence will end up in <a href="https://en.wikipedia.o
 </ol>
 </li>
 <li>How do you handle access control?</li>
-<li>Does your operation team have individual accounts? How do you handle team member onboarding / offboarding?</li>
+<li>Does your operation team have individual accounts? How do you handle team member on-boarding / off-boarding?</li>
 <li>How do you communicate credentials to your customers?</li>
 <li>Do you have audit logs?<ol>
 <li>How long do you store audit logs? Who has access to them? How are they protected against disclosure and tampering?</li>
@@ -4178,7 +4180,7 @@ We share them here for the sake of full transparency.</p>
 <h2 id="environment-management">Environment Management<a class="headerlink" href="#environment-management" title="Permanent link">&para;</a></h2>
 <ol>
 <li>What environmental policies and certifications do you have?</li>
-<li>What energy sources are your datacenters using?</li>
+<li>What energy sources are your data-centers using?</li>
 <li>How do you work to become more energy efficient?</li>
 <li>How do you recycle used/old equipment?</li>
 <li>Do you do any form of environmental compensation activities?</li>

@@ -3773,7 +3773,7 @@ If you have any questions then contact our support.</p>
 <p>This document aims to show what changes to expect as an Application Developer using Compliant Kubernetes when running on Cluster API instead of Kubespray.</p>
 <h2 id="what-is-cluster-api">What is Cluster API<a class="headerlink" href="#what-is-cluster-api" title="Permanent link">&para;</a></h2>
 <p><a href="https://Cluster-api.sigs.k8s.io/">Cluster API</a> is a project that provides declarative APIs and tools to provision, upgrade and operate Kubernetes Clusters.
-It works using Kubernetes objects that describe the state (Cluster) you want and operators that tries to reconcile the actual state to the desired state.
+It works using Kubernetes objects that describe the state (Cluster) you want and operators that try to reconcile the actual state to the desired state.
 This means it's very similar to how one normally works with <code>Pods</code> and other resources in Kubernetes, e.g. one can use a <code>MachineDeployment</code> to provision Kubernetes Nodes (<code>Machines</code>) in a similar way that one can use <code>Deployments</code> to provision <code>Pods</code>.</p>
 <p>Application Developers don't need a full understanding of Cluster API.
 In fact, Application Developers will not interact directly with Cluster API at all.
@@ -3791,10 +3791,10 @@ This means that you should not expect individual Kubernetes Nodes to stay in the
 <p>For Clusters that are spread out across zones you can also rely on the new Nodes being spread out across zones in the same way.</p>
 <h2 id="egress-traffic-source-ip">Egress traffic source IP<a class="headerlink" href="#egress-traffic-source-ip" title="Permanent link">&para;</a></h2>
 <p>Kubernetes Nodes provisioned with Cluster API will by default only have a private IP address.
-This means that egress traffic will use Network Address Translation (NAT) via the cloud provider, similar to how home networks behind a router work.
+This means that egress traffic will use Network Address Translation (NAT) via the Infrastructure Provider, similar to how home networks behind a router work.
 In turn, this removes the possibility to allowlist traffic from specific Kubernetes Nodes in external services based on the source IP that the external service will see.
-Depending on the underlying cloud infrastructure provider and their features, we cannot guarantee that the IP the external services sees is stable over time.
-Also depending on underlying cloud infrastructure, the IP might also not be exclusive for your Compliant Kubernetes environment, so traffic from that IP could originate from other servers that is not related to your environment.</p>
+Depending on the underlying Cloud Infrastructure Provider and their features, we cannot guarantee that the IP the external services sees is stable over time.
+Also depending on underlying cloud infrastructure, the IP might not be exclusive for your Compliant Kubernetes environment, so traffic from that IP could originate from other servers that are not related to your environment.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Elastisys will look into the possibility of getting a stable egress IP for Application Developers that really need it.</p>
@@ -3806,7 +3806,7 @@ This means that the scaling is based on resource <strong>requests</strong> on Po
 In turn, this means the autoscaler cannot prevent Nodes from running out of CPU or memory if the resource requests are not close to the actual usage: to benefit the most from autoscaling, you need to set resource requests as correctly as possible.
 The autoscaler will scale down a Cluster if there are unneeded nodes for more than 10 minutes.
 A node is unneeded if it has less than cpu and memory requests less that 50% of its capacity and all pods running there can be moved to other nodes (refer to <a href="https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-does-scale-down-work">this documentation</a> for more information)</p>
-<p>Cluster autoscaling will not be needed for everyone and might not be available on all cloud providers, contact your Kubernetes administrator to see if it could be possible to enable for you.</p>
+<p>Cluster autoscaling will not be needed for everyone and might not be available on all Infrastructure Providers, contact your Platform Administrator to see if it could be possible to enable for you.</p>
 
 
 
