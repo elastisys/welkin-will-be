@@ -4141,7 +4141,6 @@ if(!document.__defineGetter__) {
 <li>Type: <code>kubectl proxy</code></li>
 <li>Open <a href="http://127.0.0.1:8001/api/v1/namespaces/monitoring/services/kube-prometheus-stack-prometheus:9090/proxy/">this link</a> in your browser</li>
 </ol>
-<p>The Prometheus UI is only available by default starting in Compliant Kubernetes version 0.26.</p>
 <h4 id="accessing-the-prometheus-api">Accessing the Prometheus API<a class="headerlink" href="#accessing-the-prometheus-api" title="Permanent link">&para;</a></h4>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -4190,8 +4189,8 @@ if(!document.__defineGetter__) {
 <!--user-demo-metrics-end-->
 
 <h3 id="troubleshooting-metrics-collection">Troubleshooting metrics collection<a class="headerlink" href="#troubleshooting-metrics-collection" title="Permanent link">&para;</a></h3>
-<p>It is possible to see if monitors are picked up by <a href="#accessing-the-prometheus-ui">accessing Prometheus web interface</a>. Navigating to "Status" &gt; "Service Discovery" will show all monitors picked by Prometheus, and the "(x/y active targets)" will show how many targets of those monitors are active. Active targets are actively scraped by Prometheus and inactive targets are those that fail to match the selectors of the monitor.</p>
-<p>Monitors can be expanded further down to list and inspect its targets, within each one the "Discovered Labels" column will list information about the object in Kubernetes and in the "Target Labels" it will show the labels recorded from the target.</p>
+<p>It is possible to see if monitors are picked up by <a href="#accessing-the-prometheus-ui">accessing the Prometheus web interface</a>. Navigating to "Status" &gt; "Service Discovery" will show all monitors picked by Prometheus, and the "(x/y active targets)" will show how many targets of those monitors are active. Active targets are actively scraped by Prometheus and inactive targets are those that fail to match the selectors of the monitor.</p>
+<p>Monitors can be expanded further down to list and inspect its targets, within each one the "Discovered Labels" column will list information about the object in Kubernetes, and in the "Target Labels" it will show the labels recorded from the target.</p>
 <p>If the "Target Labels" is "Dropped" for a target then it means that it has been excluded from scraping since it doesn't match the monitor. There are three key things to check to make sure a target is properly picked up by a monitor:</p>
 <ol>
 <li>

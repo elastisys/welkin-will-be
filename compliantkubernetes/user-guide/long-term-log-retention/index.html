@@ -3805,7 +3805,7 @@ if(!document.__defineGetter__) {
 <h1 id="long-term-log-retention">Long-term log retention<a class="headerlink" href="#long-term-log-retention" title="Permanent link">&para;</a></h1>
 <p>Compliant Kubernetes by default sets an retention of 30 days for logs.
 Many regulators, including Swedish Healthcare, require a minimum of 5 year log retention.</p>
-<p>This is not provided at the platform level by Compliant Kubernetes as it runs the risk of GDPR non-complicance.
+<p>This is not provided at the platform level by Compliant Kubernetes as it runs the risk of GDPR non-compliance.
 Logs may include sensitive information like personal data, which requires that the the retention scheme is designed together with application-specific knowledge to ensure compliance.
 Specifically, this includes that the retention scheme ensures that erased personal data can not be accidentally restored, as per <a href="https://gdpr.fan/a17">Art. 17 GDPR Right to erasure (‘right to be forgotten’)</a>.</p>
 <p>Using application-specific knowledge would also make it possible to reduce the amount of logs stored, by filtering out so only the required logs are kept.
@@ -3859,9 +3859,9 @@ For Elastisys managed services customers this can be done by filing a <a href="h
 <p>In OpenSearch logs are stored into <em>indices</em>.
 These indices are managed in a way that will limit them both in time and size, to make them more manageable.
 Each index typically represents a days worth of logs, but if the size of the index exceeds a set threshold a new one will be created to limit their maximum size.</p>
-<p>The indices are all grouped within index <em>aliases</em>, a sort of virtual index that behind the scenes link to other indices.
+<p>The indices are all grouped within index <em>aliases</em>, a sort of virtual index that behind the scenes links to other indices.
 This allows one to read from all indices and write to one designated write index, all using the same name.</p>
-<p>Since only the write index can change one method to select indices for exporting into log-term storage is to only export the read indices.
+<p>Since only the write index can change, one method to select indices for exporting into log-term storage is to only export the read indices.
 This way there is no need to check and update indices in case they've changed since the previous export run, simplifying the export logic.</p>
 <div class="admonition example">
 <p class="admonition-title">Example: List all indices using a pattern</p>
@@ -3881,7 +3881,7 @@ get_indices<span class="o">()</span><span class="w"> </span><span class="o">{</s
 <span class="o">}</span>
 </code></pre></div>
 <p>This will generate a list of all indices within OpenSearch for the specified pattern.</p>
-<p>The pattern accept regex used by <code>sed</code> and should in most instances be <code>kubernetes*</code> to only include the application logs indices.</p>
+<p>The pattern accepts regex used by <code>sed</code> and should in most instances be <code>kubernetes*</code> to only include the application logs indices.</p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">Example: List all write indices using a pattern</p>
@@ -3901,8 +3901,8 @@ get_write_index<span class="o">()</span><span class="w"> </span><span class="o">
 <span class="o">}</span>
 </code></pre></div>
 <p>This will generate a list of all write indices within OpenSearch for the specified pattern.</p>
-<p>The pattern accept regex used by <code>sed</code> and should in most instances be <code>kubernetes*</code> to only include the application logs alias.</p>
-<p>Since the pattern only should only match a single alias, and since each alias can only have a single write index, the output should be validated that it at most only contains one index.</p>
+<p>The pattern accepts regex used by <code>sed</code> and should in most instances be <code>kubernetes*</code> to only include the application logs alias.</p>
+<p>Since the pattern should only match a single alias, and since each alias can only have a single write index, the output should be validated that it at most only contains one index.</p>
 </div>
 <p>Using these two example functions we can now fetch the indices for a pattern and find the write index for any matching alias, meaning we can iterate over them, filter out the write index, and perform our backup:</p>
 <div class="admonition example">
@@ -3975,7 +3975,7 @@ s3cmd<span class="w"> </span><span class="se">\</span>
 </code></pre></div></p>
 </div>
 </div>
-<p>In the example above only certain logs can be exported by adding a query using <a href="https://opensearch.org/docs/latest/opensearch/query-dsl/index/">OpenSearch Query DSL</a> with the <code>--searchBody '&lt;query&gt;'</code> flag.
+<p>The example above can be modified to only export certain logs, by adding a query using <a href="https://opensearch.org/docs/latest/opensearch/query-dsl/index/">OpenSearch Query DSL</a> with the <code>--searchBody '&lt;query&gt;'</code> flag.
 This way it is possible to filter on certain labels to only export logs for a particular namespace, deployment, or even using identifier within structured logs.
 An example for a specific namespace would be:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>

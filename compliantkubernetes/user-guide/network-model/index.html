@@ -4055,7 +4055,6 @@ if(!document.__defineGetter__) {
 <span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
 <span class="w">    </span><span class="c1"># To list your current ClusterIssuers, simply use &#39;kubectl get ClusterIssuers&#39;.</span>
 <span class="w">    </span><span class="nt">cert-manager.io/cluster-issuer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">letsencrypt-prod</span>
-<span class="w">    </span><span class="nt">kubernetes.io/ingress.class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
 <span class="w">    </span><span class="c1">## Uncomment the line below to implement source IP allowlisting.</span>
 <span class="w">    </span><span class="c1">## Blocklisted IPs will get HTTP 403.</span>
 <span class="w">    </span><span class="c1"># nginx.ingress.kubernetes.io/whitelist-source-range: 98.128.193.2/32</span>
@@ -4066,6 +4065,7 @@ if(!document.__defineGetter__) {
 <span class="w">    </span><span class="c1"># nginx.ingress.kubernetes.io/auth-signin: &quot;https://$host/oauth2/start?rd=$escaped_request_uri&quot;</span>
 <span class="w">    </span><span class="c1"># nginx.ingress.kubernetes.io/auth-response-headers: &quot;authorization&quot;</span>
 <span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ingressClassName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
 <span class="w">  </span><span class="nt">rules</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;demo.example.com&quot;</span>
 <span class="w">      </span><span class="nt">http</span><span class="p">:</span>
@@ -4161,7 +4161,7 @@ if(!document.__defineGetter__) {
 <p>Certificates issued by the Let's Encrypt staging environment are signed by untrusted authorities, similar to self-signed certificates. They are typically not used in production environments.</p>
 </div>
 <h3 id="rate-limits">Rate Limits<a class="headerlink" href="#rate-limits" title="Permanent link">&para;</a></h3>
-<p>Let's Encrypt provides rate-limits on generated certificates to ensure fair usage across all clients. The production environment limits can be exceeded more frequently in environments certificates are installed or reinstalled frequently. This can result in failed installations due to rate limit exceptions on certificate generation.</p>
+<p>Let's Encrypt provides rate-limits on generated certificates to ensure fair usage across all clients. The production environment limits can be exceeded more frequently in environments where certificates are installed or reinstalled frequently. This can result in failed installations due to rate limit exceptions on certificate generation.</p>
 <p>In such environments, it is better to use the Let's Encrypt staging environment, which has much higher limits than the production environment.</p>
 <p>The default rate limits for the production environment are listed in the following page by Let's Encrypt: <a href="https://letsencrypt.org/docs/rate-limits/">Production Rate Limits</a>.</p>
 <p>The staging environment uses the same rate limits as described for the production environment with some exceptions that are listed here : <a href="https://letsencrypt.org/docs/staging-environment/">Staging Rate Limits</a>.</p>
@@ -4177,7 +4177,7 @@ if(!document.__defineGetter__) {
 <ul>
 <li>ensuring cert-manager works and is configured correctly;</li>
 <li>ensuring ClusterIssuers exist and are configured correctly;</li>
-<li>ensure the private network is secure or trusted.</li>
+<li>ensuring the private network is secure or trusted.</li>
 </ul>
 <h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
 <ul>

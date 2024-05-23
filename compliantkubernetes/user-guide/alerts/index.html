@@ -3894,8 +3894,8 @@ kubectl<span class="w"> </span>patch<span class="w"> </span>-n<span class="w"> <
 <p>You can configure silences in the UI, but they will not be persisted if Alertmanager is restarted. Use the secret mentioned above instead to create silences that persist.</p>
 <h2 id="configuring-alerts">Configuring alerts<a class="headerlink" href="#configuring-alerts" title="Permanent link">&para;</a></h2>
 <p>Before setting up an alert, you must first <a href="../metrics/">collect metrics</a> from your application by setting up either ServiceMonitors or PodMonitors. In general ServiceMonitors are recommended over PodMonitors, and it is the most common way to configure metrics collection.</p>
-<p>Then create a <code>PrometheusRule</code> following the examples below or the upstream documentation with an expression that evaluates to the condition to alert on. Prometheus will pick them up, evaluate them, and then send notifications to Alertmanager.</p>
-<p>The <a href="https://prometheus-operator.dev/docs/operator/api/#monitoring.coreos.com/v1.PrometheusRule">API reference for Prometheus Operator</a> describes how the Kubernetes resource is configured and the <a href="https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/">configuration reference for Prometheus</a> describes the rules themselves.</p>
+<p>Then create a <code>PrometheusRule</code> following the examples below, or the upstream documentation, with an expression that evaluates to the condition to alert on. Prometheus will pick them up, evaluate them, and then send notifications to Alertmanager.</p>
+<p>The <a href="https://prometheus-operator.dev/docs/operator/api/#monitoring.coreos.com/v1.PrometheusRule">API reference for the Prometheus Operator</a> describes how the Kubernetes resource is configured, and the <a href="https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/">configuration reference for Prometheus</a> describes the rules themselves.</p>
 <p>In Compliant Kubernetes the Prometheus Operator in the Workload Cluster is configured to pick up all PrometheusRules, regardless in which namespace they are or which labels they have.</p>
 <h3 id="running-example">Running Example<a class="headerlink" href="#running-example" title="Permanent link">&para;</a></h3>
 <!--user-demo-alerts-start-->
@@ -3921,7 +3921,7 @@ kubectl<span class="w"> </span>patch<span class="w"> </span>-n<span class="w"> <
 <!--user-demo-alerts-end-->
 
 <h3 id="detailed-example">Detailed example<a class="headerlink" href="#detailed-example" title="Permanent link">&para;</a></h3>
-<p>PrometheusRules have two features, either the rules <em>alerts</em> based on expression, or the rules <code>records</code> based on a expression.
+<p>PrometheusRules have two features, either the rules <em>alert</em> based on an expression, or the rules <code>record</code> based on an expression.
 The former is the way to create alerting rules and the latter is a way to precompute complex queries that will be stored as separate metrics:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">monitoring.coreos.com/v1</span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PrometheusRule</span>
@@ -3948,8 +3948,8 @@ The former is the way to create alerting rules and the latter is a way to precom
 <span class="w">          </span><span class="nt">labels</span><span class="p">:</span>
 <span class="w">            </span><span class="nt">record</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example</span>
 </code></pre></div>
-<p>For alert rules labels and annotations can be added or overridden that will become present in the resulting alert notifications, in addition the annotations support Go Templating allowing access to the evaluated value via the <code>$value</code> variable and all labels from the expression using the <code>$labels</code> variable.</p>
-<p>For recording rules labels can be added or overridden that will become present in the resulting metric.</p>
+<p>For alert rules, labels and annotations can be added or overridden, which will then be included in the resulting alert notifications. Furthermore, the annotations support Go Templating, allowing access to the evaluated value via the <code>$value</code> variable, and all labels from the expression using the <code>$labels</code> variable.</p>
+<p>For recording rules, labels can be added or overridden, which will then be included in the resulting metric.</p>
 
 
 
