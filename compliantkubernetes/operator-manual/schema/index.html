@@ -3815,7 +3815,25 @@ if(!document.__defineGetter__) {
 <p><a href="config-defs-cpu-and-memory-specifications/" title="Use">CPU and Memory specifications</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/$defs/cpumem</code></p>
 </li>
 <li>
+<p><a href="config-properties-calico-accountant/">Calico Accountant</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/calicoAccountant</code></p>
+</li>
+<li>
+<p><a href="config-properties-calico-felix-metrics/">Calico Felix Metrics</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/calicoFelixMetrics</code></p>
+</li>
+<li>
+<p><a href="config-properties-cluster-dns-service/">Cluster DNS Service</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/nodeLocalDns</code></p>
+</li>
+<li>
 <p><a href="config-defs-common-resource/" title="This is meant to describe the base class if you will, for ck8s resources">Common Resource</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/$defs/component</code></p>
+</li>
+<li>
+<p><a href="config-properties-configuration-for-cert-manager-and-its-components/">Configuration for cert-manager and its components</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/certmanager</code></p>
+</li>
+<li>
+<p><a href="config-properties-configuration-for-cert-manager-issuers/">Configuration for cert-manager issuers.</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/issuers</code></p>
+</li>
+<li>
+<p><a href="config-properties-external-dns/" title="Enable ExternalDNS to manage dns records from kubernetes objects">External DNS</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/externalDns</code></p>
 </li>
 <li>
 <p><a href="config-properties-fluentd/">Fluentd</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/fluentd</code></p>
@@ -3836,7 +3854,13 @@ if(!document.__defineGetter__) {
 <p><a href="config-properties-externaltrafficpolicy-properties-ip-range-allow-lists/" title="CIDR IP ranges that enable various">IP range allow-lists</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/externalTrafficPolicy/properties/whitelistRange</code></p>
 </li>
 <li>
+<p><a href="config-properties-ingress-nginx-controller-configuration/">Ingress-Nginx Controller Configuration</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/ingressNginx</code></p>
+</li>
+<li>
 <p><a href="config-properties-kubernetes-metrics/">Kubernetes Metrics</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/kubeStateMetrics</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster/" title="Network policy configuration for various services in service cluster">Network policies for service cluster</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies</code></p>
 </li>
 <li>
 <p><a href="config-properties-open-policy-agent-gatekeeper-configuration/">Open Policy Agent Gatekeeper configuration</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/gatekeeper</code></p>
@@ -4595,6 +4619,204 @@ if(!document.__defineGetter__) {
 <p><a href="config-properties-opensearch-properties-sso/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/opensearch/properties/sso</code></p>
 </li>
 <li>
+<p><a href="config-properties-ingress-nginx-controller-configuration-properties-controller/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/ingressNginx/properties/controller</code></p>
+</li>
+<li>
+<p><a href="config-properties-ingress-nginx-controller-configuration-properties-controller-properties-additionalconfig/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/ingressNginx/properties/controller/properties/additionalConfig</code></p>
+</li>
+<li>
+<p><a href="config-properties-ingress-nginx-controller-configuration-properties-controller-properties-config/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/ingressNginx/properties/controller/properties/config</code></p>
+</li>
+<li>
+<p><a href="config-properties-ingress-nginx-controller-configuration-properties-controller-properties-service/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/ingressNginx/properties/controller/properties/service</code></p>
+</li>
+<li>
+<p><a href="config-properties-ingress-nginx-controller-configuration-properties-controller-properties-service-then-properties-annotations/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/ingressNginx/properties/controller/properties/service/then/properties/annotations</code></p>
+</li>
+<li>
+<p><a href="config-properties-ingress-nginx-controller-configuration-properties-controller-properties-service-then-properties-nodeports/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/ingressNginx/properties/controller/properties/service/then/properties/nodePorts</code></p>
+</li>
+<li>
+<p><a href="config-properties-ingress-nginx-controller-configuration-properties-defaultbackend/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/ingressNginx/properties/defaultBackend</code></p>
+</li>
+<li>
+<p><a href="config-properties-configuration-for-cert-manager-issuers-properties-letsencrypt/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/issuers/properties/letsencrypt</code></p>
+</li>
+<li>
+<p><a href="config-properties-configuration-for-cert-manager-issuers-properties-letsencrypt-properties-prod/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/issuers/properties/letsencrypt/properties/prod</code></p>
+</li>
+<li>
+<p><a href="config-properties-configuration-for-cert-manager-issuers-properties-letsencrypt-properties-staging/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/issuers/properties/letsencrypt/properties/staging</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-additional/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/additional</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-alertmanager/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/alertmanager</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-certmanager/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/certManager</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-certmanager-properties-letsencrypt/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/certManager/properties/letsencrypt</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-certmanager-properties-dns01/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/certManager/properties/dns01</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-coredns/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/coredns</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-coredns-properties-externaldns/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/coredns/properties/externalDns</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-coredns-properties-serviceip/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/coredns/properties/serviceIp</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-dex/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/dex</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-dex-properties-connectors/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/dex/properties/connectors</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-dnsautoscaler/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/dnsAutoscaler</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-falco/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/falco</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-falco-properties-plugins/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/falco/properties/plugins</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-fluentd/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/fluentd</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-gatekeeper/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/gatekeeper</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-global/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/global</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-global-properties-objectstorage/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/global/properties/objectStorage</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-global-properties-objectstorageswift/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/global/properties/objectStorageSwift</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-global-properties-scapiserver/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/global/properties/scApiserver</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-global-properties-scingress/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/global/properties/scIngress</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-global-properties-scnodes/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/global/properties/scNodes</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-global-properties-trivy/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/global/properties/trivy</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-global-properties-wcingress/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/global/properties/wcIngress</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-harbor/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/harbor</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-harbor-properties-database/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/harbor/properties/database</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-harbor-properties-database-properties-externalegress/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/harbor/properties/database/properties/externalEgress</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-harbor-properties-database-properties-internalingress/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/harbor/properties/database/properties/internalIngress</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-harbor-properties-jobservice/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/harbor/properties/jobservice</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-harbor-properties-redis/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/harbor/properties/redis</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-harbor-properties-redis-properties-externalegress/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/harbor/properties/redis/properties/externalEgress</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-harbor-properties-registries/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/harbor/properties/registries</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-harbor-properties-trivy/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/harbor/properties/trivy</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-ingressnginx/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/ingressNginx</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-ingressnginx-properties-ingressoverride/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/ingressNginx/properties/ingressOverride</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-kubesystem/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/kubeSystem</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-kubesystem-properties-openstack/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/kubeSystem/properties/openstack</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-kubesystem-properties-upcloud/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/kubeSystem/properties/upcloud</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-kured/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/kured</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-kured-properties-notificationslack/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/kured/properties/notificationSlack</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-monitoring/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/monitoring</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-monitoring-properties-grafana/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/monitoring/properties/grafana</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-monitoring-properties-grafana-properties-externaldashboardprovider/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/monitoring/properties/grafana/properties/externalDashboardProvider</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-monitoring-properties-grafana-properties-externaldatasources-then/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/monitoring/properties/grafana/properties/externalDataSources/then</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-opensearch/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/opensearch</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-opensearch-properties-plugins/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/opensearch/properties/plugins</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-rclonesync/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/rcloneSync</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-rclonesync-properties-destinationobjectstorages3/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/rcloneSync/properties/destinationObjectStorageS3</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-rclonesync-properties-destinationobjectstorageswift/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/rcloneSync/properties/destinationObjectStorageSwift</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-rclonesync-properties-secondaryurl/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/rcloneSync/properties/secondaryUrl</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-rookceph/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/rookCeph</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-s3exporter/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/s3Exporter</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-thanos/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/thanos</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-velero/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/velero</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-rclone/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/rclone</code></p>
+</li>
+<li>
+<p><a href="config-properties-external-dns-properties-endpoints-items/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/externalDns/properties/endpoints/items</code></p>
+</li>
+<li>
+<p><a href="config-properties-external-dns-properties-sources/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/externalDns/properties/sources</code></p>
+</li>
+<li>
 <p><a href="config-additionalproperties/">Untitled object in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/additionalProperties</code></p>
 </li>
 <li>
@@ -4698,6 +4920,12 @@ if(!document.__defineGetter__) {
 </li>
 <li>
 <p><a href="secrets-properties-issuers-properties-secrets-properties-route53-credentials-secret/">Untitled object in undefined</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/secrets.yaml#/properties/issuers/properties/secrets/properties/route53-credentials-secret</code></p>
+</li>
+<li>
+<p><a href="secrets-properties-externaldns/">Untitled object in undefined</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/secrets.yaml#/properties/externalDns</code></p>
+</li>
+<li>
+<p><a href="secrets-properties-externaldns-properties-awsroute53/">Untitled object in undefined</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/secrets.yaml#/properties/externalDns/properties/awsRoute53</code></p>
 </li>
 <li>
 <p><a href="config-properties-user-configuration/">User configuration</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/user</code></p>
@@ -4937,6 +5165,69 @@ if(!document.__defineGetter__) {
 <p><a href="config-properties-opensearch-properties-promindexalerts/">Untitled array in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/opensearch/properties/promIndexAlerts</code></p>
 </li>
 <li>
+<p><a href="config-properties-ingress-nginx-controller-configuration-properties-controller-properties-service-then-properties-loadbalancersourceranges/">Untitled array in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/ingressNginx/properties/controller/properties/service/then/properties/loadBalancerSourceRanges</code></p>
+</li>
+<li>
+<p><a href="config-properties-ingress-nginx-controller-configuration-properties-controller-properties-service-then-properties-ipfamilies/" title="List of IP families (e">Untitled array in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/ingressNginx/properties/controller/properties/service/then/properties/ipFamilies</code></p>
+</li>
+<li>
+<p><a href="config-properties-configuration-for-cert-manager-issuers-properties-extraissuers/">Untitled array in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/issuers/properties/extraIssuers</code></p>
+</li>
+<li>
+<p><a href="config-properties-configuration-for-cert-manager-issuers-properties-letsencrypt-properties-prod-properties-solvers/">Untitled array in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/issuers/properties/letsencrypt/properties/prod/properties/solvers</code></p>
+</li>
+<li>
+<p><a href="config-properties-configuration-for-cert-manager-issuers-properties-letsencrypt-properties-staging-properties-solvers/">Untitled array in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/issuers/properties/letsencrypt/properties/staging/properties/solvers</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-additionalegresspolicies/">Untitled array in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/additionalEgressPolicies</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-additionalingresspolicies/">Untitled array in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/additionalIngressPolicies</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-allowednamespaces/">Untitled array in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/allowedNameSpaces</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-certmanager-properties-namespaces/">Untitled array in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/certManager/properties/namespaces</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-global-properties-objectstorageswift-properties-ips/">Untitled array in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/global/properties/objectStorageSwift/properties/ips</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-global-properties-scapiserver-properties-ips/">Untitled array in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/global/properties/scApiserver/properties/ips</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-harbor-properties-database-properties-externalegress-properties-peers/">Untitled array in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/harbor/properties/database/properties/externalEgress/properties/peers</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-harbor-properties-database-properties-externalegress-properties-ports/">Untitled array in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/harbor/properties/database/properties/externalEgress/properties/ports</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-harbor-properties-database-properties-internalingress-properties-peers/">Untitled array in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/harbor/properties/database/properties/internalIngress/properties/peers</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-harbor-properties-database-properties-internalingress-properties-ports/">Untitled array in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/harbor/properties/database/properties/internalIngress/properties/ports</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-harbor-properties-redis-properties-externalegress-properties-peers/">Untitled array in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/harbor/properties/redis/properties/externalEgress/properties/peers</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-harbor-properties-redis-properties-externalegress-properties-ports/">Untitled array in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/harbor/properties/redis/properties/externalEgress/properties/ports</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-for-service-cluster-properties-prometheus-properties-internalaccess-properties-namespaces/">Untitled array in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/prometheus/properties/internalAccess/properties/namespaces</code></p>
+</li>
+<li>
+<p><a href="config-properties-external-dns-properties-domains/">Untitled array in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/externalDns/properties/domains</code></p>
+</li>
+<li>
+<p><a href="config-properties-external-dns-properties-endpoints/" title="If externalDns">Untitled array in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/externalDns/properties/endpoints</code></p>
+</li>
+<li>
+<p><a href="config-properties-external-dns-properties-endpoints-items-properties-targets/">Untitled array in Compliant Kubernetes Apps settings</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/externalDns/properties/endpoints/items/properties/targets</code></p>
+</li>
+<li>
 <p><a href="secrets-properties-grafana-properties-ops-properties-envrendersecret/">Untitled array in undefined</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/secrets.yaml#/properties/grafana/properties/ops/properties/envRenderSecret</code></p>
 </li>
 <li>
@@ -4967,7 +5258,7 @@ if(!document.__defineGetter__) {
 <h2 id="version-note">Version Note<a class="headerlink" href="#version-note" title="Permanent link">&para;</a></h2>
 <p>The schemas linked above follow the JSON Schema Spec version: <code>https://json-schema.org/draft/2020-12/schema</code></p>
 <hr />
-<p>Generated Thu May 23 11:16:49 UTC 2024 from <a href="https://github.com/elastisys/compliantkubernetes-apps/commit/80c2a205a49267bd4f4e99f22669aa455b9845a8">elastisys/compliantkubernetes-apps@main</a></p>
+<p>Generated Thu May 23 14:23:50 UTC 2024 from <a href="https://github.com/elastisys/compliantkubernetes-apps/commit/6a5ff1d7b6b81c4b2fc7e20caf5f7052d5b4b1d3">elastisys/compliantkubernetes-apps@main</a></p>
 
 
 

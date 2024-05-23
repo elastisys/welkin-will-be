@@ -3677,6 +3677,15 @@ if(!document.__defineGetter__) {
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#extraargs" class="md-nav__link">
+    <span class="md-ellipsis">
+      extraArgs
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3701,7 +3710,7 @@ if(!document.__defineGetter__) {
 <p>This is auto-generated documentation from a JSON schema that is under construction, this will improve over time.</p>
 </div>
 <p><a href="../config/">Return to the root config schema</a></p>
-<div class="highlight"><pre><span></span><code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/fluentd/properties/user
+<div class="highlight"><pre><span></span><code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/certmanager/properties/webhook
 </code></pre></div>
 <p>This is meant to describe the base class if you will, for ck8s resources.</p>
 <table>
@@ -3785,6 +3794,13 @@ if(!document.__defineGetter__) {
 <td style="text-align: left;">Optional</td>
 <td style="text-align: left;">cannot be null</td>
 <td style="text-align: left;"><a href="../config-defs-kubernetestopologyspreadconstraints/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/$defs/component/properties/topologySpreadConstraints">Compliant Kubernetes Apps settings</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#extraargs">extraArgs</a></td>
+<td style="text-align: left;"><code>array</code></td>
+<td style="text-align: left;">Optional</td>
+<td style="text-align: left;">cannot be null</td>
+<td style="text-align: left;"><a href="../config-defs-extra-arguments/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/$defs/component/properties/extraArgs">Compliant Kubernetes Apps settings</a></td>
 </tr>
 </tbody>
 </table>
@@ -3910,9 +3926,28 @@ pods on. Limits are enforced. Resources are commonly 'cpu' and 'memory'.</p>
 </ul>
 <p><strong>TYPE</strong>:</p>
 <p><code>object[]</code> (<a href="../config-defs-kubernetestopologyspreadconstraints-items/">Details</a>)</p>
+<h2 id="extraargs">extraArgs<a class="headerlink" href="#extraargs" title="Permanent link">&para;</a></h2>
+<p>Extra arguments passed to a container</p>
+<p><code>extraArgs</code></p>
+<ul>
+<li>
+<p>is optional</p>
+</li>
+<li>
+<p>Type: <code>string[]</code></p>
+</li>
+<li>
+<p>cannot be null</p>
+</li>
+<li>
+<p>defined in: <a href="../config-defs-extra-arguments/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/$defs/component/properties/extraArgs">Compliant Kubernetes Apps settings</a></p>
+</li>
+</ul>
+<p><strong>TYPE</strong>:</p>
+<p><code>string[]</code></p>
 <p><a href="../config/">Return to the root config schema</a></p>
 <hr />
-<p>Generated Thu May 23 11:16:49 UTC 2024 from <a href="https://github.com/elastisys/compliantkubernetes-apps/commit/80c2a205a49267bd4f4e99f22669aa455b9845a8">elastisys/compliantkubernetes-apps@main</a></p>
+<p>Generated Thu May 23 14:23:50 UTC 2024 from <a href="https://github.com/elastisys/compliantkubernetes-apps/commit/6a5ff1d7b6b81c4b2fc7e20caf5f7052d5b4b1d3">elastisys/compliantkubernetes-apps@main</a></p>
 
 
 
