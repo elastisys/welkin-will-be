@@ -3929,7 +3929,7 @@ Keeping the application secure means having sufficient capacity in the environme
 <p>The average memory usage for a Node or Node Group, over one hour, is above 85%.</p>
 </li>
 <li>
-<p><strong>Why a P1 alert?</strong> P1 alerts are events that need immediate attention, which makes them suitable for scenarios with a higher usage threshold over a shorter timespan. If the alert is triggered for a single Node, the administrator can attempt to redistribute the workload more evenly across the Node Group. If the alert is triggered for a Node Group, that Node Group needs to be scaled up.</p>
+<p><strong>Why a P1 alert?</strong> P1 alerts are events that need immediate attention, which makes them suitable for scenarios with a higher usage threshold over a shorter time-span. If the alert is triggered for a single Node, the administrator can attempt to redistribute the workload more evenly across the Node Group. If the alert is triggered for a Node Group, that Node Group needs to be scaled up.</p>
 </li>
 </ul>
 <p>Compliant Kubernetes triggers a P2 alert when:</p>
@@ -3938,7 +3938,7 @@ Keeping the application secure means having sufficient capacity in the environme
 <p>The average CPU or memory usage for a Node Group, over 24 hours, is above 75%.</p>
 </li>
 <li>
-<p><strong>Why a P2 alert?</strong> P2 alerts are events that need to be dealt with within a business day. This makes them suitable for scenarios with a lower usage threshold over a longer timespan, giving administrators enough time to take action. Excess capacity is cheaper than frustrated administrators. There is no need to disturb anyone's sleep.</p>
+<p><strong>Why a P2 alert?</strong> P2 alerts are events that need to be dealt with within a business day. This makes them suitable for scenarios with a lower usage threshold over a longer time-span, giving administrators enough time to take action. Excess capacity is cheaper than frustrated administrators. There is no need to disturb anyone's sleep.</p>
 </li>
 </ul>
 <h3 id="metrics">Metrics<a class="headerlink" href="#metrics" title="Permanent link">&para;</a></h3>
@@ -3976,8 +3976,13 @@ Keeping the application secure means having sufficient capacity in the environme
 </div>
 <h3 id="how">How?<a class="headerlink" href="#how" title="Permanent link">&para;</a></h3>
 <p><a href="../troubleshooting/#node-seems-really-not-fine-i-want-a-new-one">Add a new Node</a> of the same type as the other Nodes in the cluster.</p>
-<p>If the cluster has 6 Nodes, consider consolidating to 3 Nodes of twice-the-size -- in number of CPUs or memory or both -- if the infrastructure cost is reduced.
-Before doing this, get in touch with Application Developers to ensure they don't have Kubernetes scheduling constraints that would cause issues on the consolidated environment.</p>
+<p>If the cluster has 6 Nodes, consider consolidating to 3 Nodes of twice-the-size -- in number of CPUs or memory or both. This may have several benefits:</p>
+<ul>
+<li>it may reduces infrastructure cost;</li>
+<li>it reduces platform administrator burden;</li>
+<li>it reduces the risk of hitting the maximum VMs per anti-affinity group limit; for some infrastructure providers, this may be as low as 5.</li>
+</ul>
+<p>Before doing this, get in touch with Application Developers to ensure they don't have Kubernetes scheduling constraints that would cause issues on the consolidated environment.</p>
 <p>If you are about to double the number of Nodes, get in touch with Application Developers to ensure their application is not misbehaving, before upscaling.</p>
 <h2 id="downscaling">Downscaling<a class="headerlink" href="#downscaling" title="Permanent link">&para;</a></h2>
 <p>We hope that the applications we host will only grow in popularity and that downscaling is never needed.
