@@ -3658,6 +3658,7 @@ if(!document.__defineGetter__) {
 <p><a href="../config/">Return to the root config schema</a></p>
 <div class="highlight"><pre><span></span><code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/prometheusNodeExporter
 </code></pre></div>
+<p>Configure Prometheus Node Exporter, the exporter used for collecting node metrics.</p>
 <table>
 <thead>
 <tr>
@@ -3703,30 +3704,30 @@ if(!document.__defineGetter__) {
 <td style="text-align: left;"><code>object</code></td>
 <td style="text-align: left;">Optional</td>
 <td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="../config-defs-resource-requirements/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/prometheusNodeExporter/properties/resources">Compliant Kubernetes Apps settings</a></td>
+<td style="text-align: left;"><a href="../config-defs-kubernetes-resource-requirements/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/prometheusNodeExporter/properties/resources">Compliant Kubernetes Apps Config</a></td>
 </tr>
 </tbody>
 </table>
 <h2 id="resources">resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<p>Resource requests are used by the kube-scheduler to pick a node to schedule
-pods on. Limits are enforced. Resources are commonly 'cpu' and 'memory'.</p>
+<p>Resource requests are used by the kube-scheduler to pick a node to schedule pods on.</p>
+<p>Limits are enforced. Resources are commonly 'cpu' and 'memory'.</p>
 <p><code>resources</code></p>
 <ul>
 <li>
 <p>is optional</p>
 </li>
 <li>
-<p>Type: <code>object</code> (<a href="../config-defs-resource-requirements/">Resource requirements</a>)</p>
+<p>Type: <code>object</code> (<a href="../config-defs-kubernetes-resource-requirements/">Kubernetes Resource Requirements</a>)</p>
 </li>
 <li>
 <p>cannot be null</p>
 </li>
 <li>
-<p>defined in: <a href="../config-defs-resource-requirements/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/prometheusNodeExporter/properties/resources">Compliant Kubernetes Apps settings</a></p>
+<p>defined in: <a href="../config-defs-kubernetes-resource-requirements/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/prometheusNodeExporter/properties/resources">Compliant Kubernetes Apps Config</a></p>
 </li>
 </ul>
 <p><strong>TYPE</strong>:</p>
-<p><code>object</code> (<a href="../config-defs-resource-requirements/">Resource requirements</a>)</p>
+<p><code>object</code> (<a href="../config-defs-kubernetes-resource-requirements/">Kubernetes Resource Requirements</a>)</p>
 <p><strong>EXAMPLES</strong>:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">requests</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">128Mi</span>
@@ -3737,7 +3738,7 @@ pods on. Limits are enforced. Resources are commonly 'cpu' and 'memory'.</p>
 </code></pre></div>
 <p><a href="../config/">Return to the root config schema</a></p>
 <hr />
-<p>Generated Fri May 31 03:48:14 UTC 2024 from <a href="https://github.com/elastisys/compliantkubernetes-apps/commit/a2d9ee1823a7bb8c67d6697739324a71e4060061">elastisys/compliantkubernetes-apps@main</a></p>
+<p>Generated Fri May 31 06:03:20 UTC 2024 from <a href="https://github.com/elastisys/compliantkubernetes-apps/commit/94b14150ce78cf1ffd8ce93db1196c095a214ac5">elastisys/compliantkubernetes-apps@main</a></p>
 
 
 

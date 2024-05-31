@@ -3624,15 +3624,6 @@ if(!document.__defineGetter__) {
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#affinity" class="md-nav__link">
-    <span class="md-ellipsis">
-      affinity
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#enabled" class="md-nav__link">
     <span class="md-ellipsis">
       enabled
@@ -3651,9 +3642,9 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
-  <a href="#nodeselector" class="md-nav__link">
+  <a href="#scrapetimeout" class="md-nav__link">
     <span class="md-ellipsis">
-      nodeSelector
+      scrapeTimeout
     </span>
   </a>
   
@@ -3669,18 +3660,27 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
-  <a href="#scrapetimeout" class="md-nav__link">
+  <a href="#tolerations" class="md-nav__link">
     <span class="md-ellipsis">
-      scrapeTimeout
+      tolerations
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#tolerations" class="md-nav__link">
+  <a href="#nodeselector" class="md-nav__link">
     <span class="md-ellipsis">
-      tolerations
+      nodeSelector
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#affinity" class="md-nav__link">
+    <span class="md-ellipsis">
+      affinity
     </span>
   </a>
   
@@ -3712,6 +3712,7 @@ if(!document.__defineGetter__) {
 <p><a href="../config/">Return to the root config schema</a></p>
 <div class="highlight"><pre><span></span><code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/s3Exporter
 </code></pre></div>
+<p>Configure S3 exporter, used to collect metrics about S3 usage.</p>
 <table>
 <thead>
 <tr>
@@ -3753,75 +3754,56 @@ if(!document.__defineGetter__) {
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><a href="#affinity">affinity</a></td>
-<td style="text-align: left;"><code>object</code></td>
-<td style="text-align: left;">Optional</td>
-<td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="../config-defs-iok8sapicorev1affinity/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/s3Exporter/properties/affinity">Compliant Kubernetes Apps settings</a></td>
-</tr>
-<tr>
 <td style="text-align: left;"><a href="#enabled">enabled</a></td>
 <td style="text-align: left;"><code>boolean</code></td>
 <td style="text-align: left;">Optional</td>
 <td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="../config-properties-s3-exporter-properties-enabled/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/s3Exporter/properties/enabled">Compliant Kubernetes Apps settings</a></td>
+<td style="text-align: left;"><a href="../config-properties-s3-exporter-properties-s3-exporter-enabled/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/s3Exporter/properties/enabled">Compliant Kubernetes Apps Config</a></td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="#interval">interval</a></td>
 <td style="text-align: left;"><code>string</code></td>
 <td style="text-align: left;">Optional</td>
 <td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="../config-properties-s3-exporter-properties-interval/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/s3Exporter/properties/interval">Compliant Kubernetes Apps settings</a></td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="#nodeselector">nodeSelector</a></td>
-<td style="text-align: left;"><code>object</code></td>
-<td style="text-align: left;">Optional</td>
-<td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="../config-defs-kubernetesnodeselector/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/s3Exporter/properties/nodeSelector">Compliant Kubernetes Apps settings</a></td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="#resources">resources</a></td>
-<td style="text-align: left;"><code>object</code></td>
-<td style="text-align: left;">Optional</td>
-<td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="../config-defs-resource-requirements/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/s3Exporter/properties/resources">Compliant Kubernetes Apps settings</a></td>
+<td style="text-align: left;"><a href="../config-properties-s3-exporter-properties-s3-exporter-interval/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/s3Exporter/properties/interval">Compliant Kubernetes Apps Config</a></td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="#scrapetimeout">scrapeTimeout</a></td>
 <td style="text-align: left;"><code>string</code></td>
 <td style="text-align: left;">Optional</td>
 <td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="../config-properties-s3-exporter-properties-scrapetimeout/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/s3Exporter/properties/scrapeTimeout">Compliant Kubernetes Apps settings</a></td>
+<td style="text-align: left;"><a href="../config-properties-s3-exporter-properties-s3-exporter-scrape-timeout/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/s3Exporter/properties/scrapeTimeout">Compliant Kubernetes Apps Config</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#resources">resources</a></td>
+<td style="text-align: left;"><code>object</code></td>
+<td style="text-align: left;">Optional</td>
+<td style="text-align: left;">cannot be null</td>
+<td style="text-align: left;"><a href="../config-defs-kubernetes-resource-requirements/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/s3Exporter/properties/resources">Compliant Kubernetes Apps Config</a></td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="#tolerations">tolerations</a></td>
 <td style="text-align: left;"><code>array</code></td>
 <td style="text-align: left;">Optional</td>
 <td style="text-align: left;">cannot be null</td>
-<td style="text-align: left;"><a href="../config-defs-kubernetestolerations/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/s3Exporter/properties/tolerations">Compliant Kubernetes Apps settings</a></td>
+<td style="text-align: left;"><a href="../config-defs-kubernetes-tolerations/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/s3Exporter/properties/tolerations">Compliant Kubernetes Apps Config</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#nodeselector">nodeSelector</a></td>
+<td style="text-align: left;"><code>object</code></td>
+<td style="text-align: left;">Optional</td>
+<td style="text-align: left;">cannot be null</td>
+<td style="text-align: left;"><a href="../config-defs-kubernetes-node-selector/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/s3Exporter/properties/nodeSelector">Compliant Kubernetes Apps Config</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#affinity">affinity</a></td>
+<td style="text-align: left;"><code>object</code></td>
+<td style="text-align: left;">Optional</td>
+<td style="text-align: left;">cannot be null</td>
+<td style="text-align: left;"><a href="../config-defs-affinity/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/s3Exporter/properties/affinity">Compliant Kubernetes Apps Config</a></td>
 </tr>
 </tbody>
 </table>
-<h2 id="affinity">affinity<a class="headerlink" href="#affinity" title="Permanent link">&para;</a></h2>
-<p>Affinity is a group of affinity scheduling rules.</p>
-<p><code>affinity</code></p>
-<ul>
-<li>
-<p>is optional</p>
-</li>
-<li>
-<p>Type: <code>object</code> (<a href="../config-defs-iok8sapicorev1affinity/">Details</a>)</p>
-</li>
-<li>
-<p>cannot be null</p>
-</li>
-<li>
-<p>defined in: <a href="../config-defs-iok8sapicorev1affinity/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/s3Exporter/properties/affinity">Compliant Kubernetes Apps settings</a></p>
-</li>
-</ul>
-<p><strong>TYPE</strong>:</p>
-<p><code>object</code> (<a href="../config-defs-iok8sapicorev1affinity/">Details</a>)</p>
 <h2 id="enabled">enabled<a class="headerlink" href="#enabled" title="Permanent link">&para;</a></h2>
 <p><code>enabled</code></p>
 <ul>
@@ -3829,17 +3811,17 @@ if(!document.__defineGetter__) {
 <p>is optional</p>
 </li>
 <li>
-<p>Type: <code>boolean</code></p>
+<p>Type: <code>boolean</code> (<a href="../config-properties-s3-exporter-properties-s3-exporter-enabled/">S3 Exporter Enabled</a>)</p>
 </li>
 <li>
 <p>cannot be null</p>
 </li>
 <li>
-<p>defined in: <a href="../config-properties-s3-exporter-properties-enabled/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/s3Exporter/properties/enabled">Compliant Kubernetes Apps settings</a></p>
+<p>defined in: <a href="../config-properties-s3-exporter-properties-s3-exporter-enabled/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/s3Exporter/properties/enabled">Compliant Kubernetes Apps Config</a></p>
 </li>
 </ul>
 <p><strong>TYPE</strong>:</p>
-<p><code>boolean</code></p>
+<p><code>boolean</code> (<a href="../config-properties-s3-exporter-properties-s3-exporter-enabled/">S3 Exporter Enabled</a>)</p>
 <p><strong>DEFAULTS</strong>:</p>
 <p>The default value is:</p>
 <div class="highlight"><pre><span></span><code><span class="kc">true</span>
@@ -3851,69 +3833,20 @@ if(!document.__defineGetter__) {
 <p>is optional</p>
 </li>
 <li>
-<p>Type: <code>string</code></p>
+<p>Type: <code>string</code> (<a href="../config-properties-s3-exporter-properties-s3-exporter-interval/">S3 Exporter Interval</a>)</p>
 </li>
 <li>
 <p>cannot be null</p>
 </li>
 <li>
-<p>defined in: <a href="../config-properties-s3-exporter-properties-interval/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/s3Exporter/properties/interval">Compliant Kubernetes Apps settings</a></p>
+<p>defined in: <a href="../config-properties-s3-exporter-properties-s3-exporter-interval/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/s3Exporter/properties/interval">Compliant Kubernetes Apps Config</a></p>
 </li>
 </ul>
 <p><strong>TYPE</strong>:</p>
-<p><code>string</code></p>
+<p><code>string</code> (<a href="../config-properties-s3-exporter-properties-s3-exporter-interval/">S3 Exporter Interval</a>)</p>
 <p><strong>DEFAULTS</strong>:</p>
 <p>The default value is:</p>
 <div class="highlight"><pre><span></span><code><span class="s2">&quot;60m&quot;</span>
-</code></pre></div>
-<h2 id="nodeselector">nodeSelector<a class="headerlink" href="#nodeselector" title="Permanent link">&para;</a></h2>
-<p><code>nodeSelector</code></p>
-<ul>
-<li>
-<p>is optional</p>
-</li>
-<li>
-<p>Type: <code>object</code> (<a href="../config-defs-kubernetesnodeselector/">Details</a>)</p>
-</li>
-<li>
-<p>cannot be null</p>
-</li>
-<li>
-<p>defined in: <a href="../config-defs-kubernetesnodeselector/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/s3Exporter/properties/nodeSelector">Compliant Kubernetes Apps settings</a></p>
-</li>
-</ul>
-<p><strong>TYPE</strong>:</p>
-<p><code>object</code> (<a href="../config-defs-kubernetesnodeselector/">Details</a>)</p>
-<p><strong>EXAMPLES</strong>:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">kubernetes.io/os</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">linux</span>
-</code></pre></div>
-<h2 id="resources">resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
-<p>Resource requests are used by the kube-scheduler to pick a node to schedule
-pods on. Limits are enforced. Resources are commonly 'cpu' and 'memory'.</p>
-<p><code>resources</code></p>
-<ul>
-<li>
-<p>is optional</p>
-</li>
-<li>
-<p>Type: <code>object</code> (<a href="../config-defs-resource-requirements/">Resource requirements</a>)</p>
-</li>
-<li>
-<p>cannot be null</p>
-</li>
-<li>
-<p>defined in: <a href="../config-defs-resource-requirements/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/s3Exporter/properties/resources">Compliant Kubernetes Apps settings</a></p>
-</li>
-</ul>
-<p><strong>TYPE</strong>:</p>
-<p><code>object</code> (<a href="../config-defs-resource-requirements/">Resource requirements</a>)</p>
-<p><strong>EXAMPLES</strong>:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">requests</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">128Mi</span>
-<span class="w">  </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100m</span>
-<span class="nt">limits</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">256Mi</span>
-<span class="w">  </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">250m</span>
 </code></pre></div>
 <h2 id="scrapetimeout">scrapeTimeout<a class="headerlink" href="#scrapetimeout" title="Permanent link">&para;</a></h2>
 <p><code>scrapeTimeout</code></p>
@@ -3922,42 +3855,114 @@ pods on. Limits are enforced. Resources are commonly 'cpu' and 'memory'.</p>
 <p>is optional</p>
 </li>
 <li>
-<p>Type: <code>string</code></p>
+<p>Type: <code>string</code> (<a href="../config-properties-s3-exporter-properties-s3-exporter-scrape-timeout/">S3 Exporter Scrape Timeout</a>)</p>
 </li>
 <li>
 <p>cannot be null</p>
 </li>
 <li>
-<p>defined in: <a href="../config-properties-s3-exporter-properties-scrapetimeout/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/s3Exporter/properties/scrapeTimeout">Compliant Kubernetes Apps settings</a></p>
+<p>defined in: <a href="../config-properties-s3-exporter-properties-s3-exporter-scrape-timeout/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/s3Exporter/properties/scrapeTimeout">Compliant Kubernetes Apps Config</a></p>
 </li>
 </ul>
 <p><strong>TYPE</strong>:</p>
-<p><code>string</code></p>
+<p><code>string</code> (<a href="../config-properties-s3-exporter-properties-s3-exporter-scrape-timeout/">S3 Exporter Scrape Timeout</a>)</p>
 <p><strong>DEFAULTS</strong>:</p>
 <p>The default value is:</p>
 <div class="highlight"><pre><span></span><code><span class="s2">&quot;10m&quot;</span>
 </code></pre></div>
+<h2 id="resources">resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
+<p>Resource requests are used by the kube-scheduler to pick a node to schedule pods on.</p>
+<p>Limits are enforced. Resources are commonly 'cpu' and 'memory'.</p>
+<p><code>resources</code></p>
+<ul>
+<li>
+<p>is optional</p>
+</li>
+<li>
+<p>Type: <code>object</code> (<a href="../config-defs-kubernetes-resource-requirements/">Kubernetes Resource Requirements</a>)</p>
+</li>
+<li>
+<p>cannot be null</p>
+</li>
+<li>
+<p>defined in: <a href="../config-defs-kubernetes-resource-requirements/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/s3Exporter/properties/resources">Compliant Kubernetes Apps Config</a></p>
+</li>
+</ul>
+<p><strong>TYPE</strong>:</p>
+<p><code>object</code> (<a href="../config-defs-kubernetes-resource-requirements/">Kubernetes Resource Requirements</a>)</p>
+<p><strong>EXAMPLES</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">requests</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">128Mi</span>
+<span class="w">  </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100m</span>
+<span class="nt">limits</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">256Mi</span>
+<span class="w">  </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">250m</span>
+</code></pre></div>
 <h2 id="tolerations">tolerations<a class="headerlink" href="#tolerations" title="Permanent link">&para;</a></h2>
+<p>Kubernetes Tolerations</p>
+<p><a href="https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/">Kubernetes taint and toleration</a></p>
 <p><code>tolerations</code></p>
 <ul>
 <li>
 <p>is optional</p>
 </li>
 <li>
-<p>Type: <code>object[]</code> (<a href="../config-defs-kubernetestolerations-items/">Details</a>)</p>
+<p>Type: an array of merged types (<a href="../config-defs-kubernetes-tolerations-items/">Details</a>)</p>
 </li>
 <li>
 <p>cannot be null</p>
 </li>
 <li>
-<p>defined in: <a href="../config-defs-kubernetestolerations/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/s3Exporter/properties/tolerations">Compliant Kubernetes Apps settings</a></p>
+<p>defined in: <a href="../config-defs-kubernetes-tolerations/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/s3Exporter/properties/tolerations">Compliant Kubernetes Apps Config</a></p>
 </li>
 </ul>
 <p><strong>TYPE</strong>:</p>
-<p><code>object[]</code> (<a href="../config-defs-kubernetestolerations-items/">Details</a>)</p>
+<p>an array of merged types (<a href="../config-defs-kubernetes-tolerations-items/">Details</a>)</p>
+<h2 id="nodeselector">nodeSelector<a class="headerlink" href="#nodeselector" title="Permanent link">&para;</a></h2>
+<p>Kubernetes node selector</p>
+<p><a href="https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector">Kubernetes assign pod node</a></p>
+<p><code>nodeSelector</code></p>
+<ul>
+<li>
+<p>is optional</p>
+</li>
+<li>
+<p>Type: <code>object</code> (<a href="../config-defs-kubernetes-node-selector/">Kubernetes Node Selector</a>)</p>
+</li>
+<li>
+<p>cannot be null</p>
+</li>
+<li>
+<p>defined in: <a href="../config-defs-kubernetes-node-selector/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/s3Exporter/properties/nodeSelector">Compliant Kubernetes Apps Config</a></p>
+</li>
+</ul>
+<p><strong>TYPE</strong>:</p>
+<p><code>object</code> (<a href="../config-defs-kubernetes-node-selector/">Kubernetes Node Selector</a>)</p>
+<p><strong>EXAMPLES</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">kubernetes.io/os</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">linux</span>
+</code></pre></div>
+<h2 id="affinity">affinity<a class="headerlink" href="#affinity" title="Permanent link">&para;</a></h2>
+<p>Affinity is a group of affinity scheduling rules.</p>
+<p><code>affinity</code></p>
+<ul>
+<li>
+<p>is optional</p>
+</li>
+<li>
+<p>Type: <code>object</code> (<a href="../config-defs-affinity/">Affinity</a>)</p>
+</li>
+<li>
+<p>cannot be null</p>
+</li>
+<li>
+<p>defined in: <a href="../config-defs-affinity/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/s3Exporter/properties/affinity">Compliant Kubernetes Apps Config</a></p>
+</li>
+</ul>
+<p><strong>TYPE</strong>:</p>
+<p><code>object</code> (<a href="../config-defs-affinity/">Affinity</a>)</p>
 <p><a href="../config/">Return to the root config schema</a></p>
 <hr />
-<p>Generated Fri May 31 03:48:14 UTC 2024 from <a href="https://github.com/elastisys/compliantkubernetes-apps/commit/a2d9ee1823a7bb8c67d6697739324a71e4060061">elastisys/compliantkubernetes-apps@main</a></p>
+<p>Generated Fri May 31 06:03:20 UTC 2024 from <a href="https://github.com/elastisys/compliantkubernetes-apps/commit/94b14150ce78cf1ffd8ce93db1196c095a214ac5">elastisys/compliantkubernetes-apps@main</a></p>
 
 
 
