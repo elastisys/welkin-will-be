@@ -3632,6 +3632,15 @@ if(!document.__defineGetter__) {
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#extraoutput" class="md-nav__link">
+    <span class="md-ellipsis">
+      extraOutput
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3706,6 +3715,13 @@ if(!document.__defineGetter__) {
 <td style="text-align: left;">cannot be null</td>
 <td style="text-align: left;"><a href="../config-properties-network-policies-config-properties-network-policies-fluentd-properties-network-policies-fluentd-enabled/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/fluentd/properties/enabled">Compliant Kubernetes Apps Config</a></td>
 </tr>
+<tr>
+<td style="text-align: left;"><a href="#extraoutput">extraOutput</a></td>
+<td style="text-align: left;"><code>object</code></td>
+<td style="text-align: left;">Optional</td>
+<td style="text-align: left;">cannot be null</td>
+<td style="text-align: left;"><a href="../config-properties-network-policies-config-properties-network-policies-fluentd-properties-extra-output-rule/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/fluentd/properties/extraOutput">Compliant Kubernetes Apps Config</a></td>
+</tr>
 </tbody>
 </table>
 <h2 id="enabled">enabled<a class="headerlink" href="#enabled" title="Permanent link">&para;</a></h2>
@@ -3730,9 +3746,29 @@ if(!document.__defineGetter__) {
 <p>The default value is:</p>
 <div class="highlight"><pre><span></span><code><span class="kc">true</span>
 </code></pre></div>
+<h2 id="extraoutput">extraOutput<a class="headerlink" href="#extraoutput" title="Permanent link">&para;</a></h2>
+<p>Configure extra output egress rules.</p>
+<p>This may be used to allow application developers to send logs externally from user Fluentd with extra config and plugins.</p>
+<p><code>extraOutput</code></p>
+<ul>
+<li>
+<p>is optional</p>
+</li>
+<li>
+<p>Type: <code>object</code> (<a href="../config-properties-network-policies-config-properties-network-policies-fluentd-properties-extra-output-rule/">Extra Output Rule</a>)</p>
+</li>
+<li>
+<p>cannot be null</p>
+</li>
+<li>
+<p>defined in: <a href="../config-properties-network-policies-config-properties-network-policies-fluentd-properties-extra-output-rule/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/fluentd/properties/extraOutput">Compliant Kubernetes Apps Config</a></p>
+</li>
+</ul>
+<p><strong>TYPE</strong>:</p>
+<p><code>object</code> (<a href="../config-properties-network-policies-config-properties-network-policies-fluentd-properties-extra-output-rule/">Extra Output Rule</a>)</p>
 <p><a href="../config/">Return to the root config schema</a></p>
 <hr />
-<p>Generated Wed Jun  5 08:25:28 UTC 2024 from <a href="https://github.com/elastisys/compliantkubernetes-apps/commit/ef7a0916dffc35645baa59043be76652c71e89a6">elastisys/compliantkubernetes-apps@main</a></p>
+<p>Generated Thu Jun  6 03:48:17 UTC 2024 from <a href="https://github.com/elastisys/compliantkubernetes-apps/commit/e4e8dc769dc99b74a70a91cf5decd6e71e0d437b">elastisys/compliantkubernetes-apps@main</a></p>
 
 
 
