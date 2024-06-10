@@ -4150,6 +4150,10 @@ if(!document.__defineGetter__) {
 <li>Placing a host in the TLS config will determine what ends up in the cert’s subjectAltNames.</li>
 <li>The created certificate is stored in this secret.</li>
 </ol>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You can monitor your own certificates using the User Alertmanager instance. Read more in our documentation about <a href="../alerts/">Alerts</a>.</p>
+</div>
 <h3 id="lets-encrypt-environments">Let's Encrypt Environments<a class="headerlink" href="#lets-encrypt-environments" title="Permanent link">&para;</a></h3>
 <p>Let's Encrypt provides two environments as part of their ACME V2 standardization: Staging &amp; Production.</p>
 <p>The ACME URL for Let's Encrypt ACME v2 staging environment is: https://acme-staging-v02.api.letsencrypt.org/directory</p>
@@ -4159,6 +4163,10 @@ if(!document.__defineGetter__) {
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Certificates issued by the Let's Encrypt staging environment are signed by untrusted authorities, similar to self-signed certificates. They are typically not used in production environments.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Cert-manager's <a href="https://cert-manager.io/docs/configuration/acme/dns01/">DNS-01 issuers</a> that talk to the Internet will not work by default in Compliant Kubernetes due to restrictive Network Policies. If you need to make use of such issuers, e.g. for wildcard domains, please contact your Compliant Kubernetes Administrator.</p>
 </div>
 <h3 id="rate-limits">Rate Limits<a class="headerlink" href="#rate-limits" title="Permanent link">&para;</a></h3>
 <p>Let's Encrypt provides rate-limits on generated certificates to ensure fair usage across all clients. The production environment limits can be exceeded more frequently in environments where certificates are installed or reinstalled frequently. This can result in failed installations due to rate limit exceptions on certificate generation.</p>
