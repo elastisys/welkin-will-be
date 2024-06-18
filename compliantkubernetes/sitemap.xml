@@ -361,6 +361,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://elastisys.io/compliantkubernetes/ciso-guide/information-security/</loc>
+         <lastmod>2024-06-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/ciso-guide/information-security/dod-enterprise-devsecops-reference-design-kubernetes/</loc>
+         <lastmod>2024-06-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://elastisys.io/compliantkubernetes/contributor-guide/</loc>
          <lastmod>2024-06-18</lastmod>
          <changefreq>daily</changefreq>
@@ -3681,6 +3691,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-object-storage-config-properties-rclone-sync-config-properties-rclone-cronjob-active-deadline-seconds/</loc>
+         <lastmod>2024-06-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-object-storage-config-properties-rclone-sync-config-properties-rclone-crypt-default/</loc>
          <lastmod>2024-06-18</lastmod>
          <changefreq>daily</changefreq>
@@ -5562,6 +5577,11 @@
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-user-config-properties-constraints-additionalproperties-additionalproperties/</loc>
+         <lastmod>2024-06-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-user-config-properties-constraints-additionalproperties-properties-pod-security-admission-level-on-the-namespace/</loc>
          <lastmod>2024-06-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
