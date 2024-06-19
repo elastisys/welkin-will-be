@@ -2131,6 +2131,15 @@ if(!document.__defineGetter__) {
 </li>
         
           <li class="md-nav__item">
+  <a href="#optional-start-new-cluster-from-snapshot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional: Start new cluster from snapshot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#restore" class="md-nav__link">
     <span class="md-ellipsis">
       Restore
@@ -2151,15 +2160,6 @@ if(!document.__defineGetter__) {
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#start-new-cluster-from-snapshot" class="md-nav__link">
-    <span class="md-ellipsis">
-      Start new cluster from snapshot
-    </span>
-  </a>
   
 </li>
         
@@ -4008,6 +4008,15 @@ if(!document.__defineGetter__) {
 </li>
         
           <li class="md-nav__item">
+  <a href="#optional-start-new-cluster-from-snapshot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional: Start new cluster from snapshot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#restore" class="md-nav__link">
     <span class="md-ellipsis">
       Restore
@@ -4028,15 +4037,6 @@ if(!document.__defineGetter__) {
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#start-new-cluster-from-snapshot" class="md-nav__link">
-    <span class="md-ellipsis">
-      Start new cluster from snapshot
-    </span>
-  </a>
   
 </li>
         
@@ -4278,6 +4278,31 @@ if(!document.__defineGetter__) {
 <p>To take a snapshot on-demand, execute</p>
 <div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>kubectl<span class="w"> </span>sc<span class="w"> </span>-n<span class="w"> </span>opensearch-system<span class="w"> </span>create<span class="w"> </span>job<span class="w"> </span>--from<span class="o">=</span>cronjob/opensearch-backup<span class="w"> </span>&lt;name-of-job&gt;
 </code></pre></div>
+<h3 id="optional-start-new-cluster-from-snapshot">Optional: Start new cluster from snapshot<a class="headerlink" href="#optional-start-new-cluster-from-snapshot" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only perform the steps in this section if you are starting a new cluster from a snapshot.
+Otherwise, skip ahead to the <strong>Restore</strong> section.</p>
+</div>
+<p>Before you install OpenSearch you should disable the initial index creation to make the restore process leaner by setting the following configuration option:</p>
+<div class="highlight"><pre><span></span><code>opensearch.createIndices:<span class="w"> </span><span class="nb">false</span>
+</code></pre></div>
+<p>Install the OpenSearch suite:</p>
+<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>helmfile<span class="w"> </span>sc<span class="w"> </span>-l<span class="w"> </span><span class="nv">app</span><span class="o">=</span>opensearch<span class="w"> </span>apply
+</code></pre></div>
+<p>Wait for the installation to complete.</p>
+<p>After the installation, continue to the <strong>Restore</strong> section to proceed with the restore.
+If you want to restore all indices, use the following <code>indices</code> variable</p>
+<div class="highlight"><pre><span></span><code><span class="nv">indices</span><span class="o">=</span><span class="s2">&quot;kubernetes-*,kubeaudit-*,other-*,authlog-*&quot;</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This process assumes that you are using the same S3 bucket as your previous cluster. If you aren't:</p>
+<ul>
+<li>Register a new S3 snapshot repository to the old bucket as <a href="https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/snapshots/snapshot-restore/#register-repository">described here</a></li>
+<li>Use the newly registered snapshot repository in the restore process</li>
+</ul>
+</div>
 <h3 id="restore">Restore<a class="headerlink" href="#restore" title="Permanent link">&para;</a></h3>
 <p>Set the following variables</p>
 <ol>
@@ -4429,27 +4454,6 @@ curl<span class="w"> </span>-kL<span class="w"> </span>-u<span class="w"> </span
 <span class="s1">}</span>
 <span class="s1">&#39;</span>
 </code></pre></div>
-<h3 id="start-new-cluster-from-snapshot">Start new cluster from snapshot<a class="headerlink" href="#start-new-cluster-from-snapshot" title="Permanent link">&para;</a></h3>
-<p>This process is very similar to the one described above, but there are a few extra steps to carry out.</p>
-<p>Before you install OpenSearch you can preferably disable the initial index creation to make the restore process leaner by setting the following configuration option:</p>
-<div class="highlight"><pre><span></span><code>opensearch.createIndices:<span class="w"> </span><span class="nb">false</span>
-</code></pre></div>
-<p>Install the OpenSearch suite:</p>
-<div class="highlight"><pre><span></span><code>./bin/ck8s<span class="w"> </span>ops<span class="w"> </span>helmfile<span class="w"> </span>sc<span class="w"> </span>-l<span class="w"> </span><span class="nv">group</span><span class="o">=</span>opensearch<span class="w"> </span>apply
-</code></pre></div>
-<p>Wait for the installation to complete.</p>
-<p>After the installation, go back up to the <strong>Restore</strong> section to proceed with the restore.
-If you want to restore all indices, use the following <code>indices</code> variable</p>
-<div class="highlight"><pre><span></span><code><span class="nv">indices</span><span class="o">=</span><span class="s2">&quot;kubernetes-*,kubeaudit-*,other-*,authlog-*&quot;</span>
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This process assumes that you are using the same S3 bucket as your previous cluster. If you aren't:</p>
-<ul>
-<li>Register a new S3 snapshot repository to the old bucket as <a href="https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/snapshots/snapshot-restore/#register-repository">described here</a></li>
-<li>Use the newly registered snapshot repository in the restore process</li>
-</ul>
-</div>
 <h2 id="harbor">Harbor<a class="headerlink" href="#harbor" title="Permanent link">&para;</a></h2>
 <h3 id="backup_1">Backup<a class="headerlink" href="#backup_1" title="Permanent link">&para;</a></h3>
 <p>Harbor is set up to store backups of the database in an S3 bucket (note that this does not include the actual images, since those are already stored in S3 by default).
