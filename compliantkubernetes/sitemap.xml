@@ -3621,6 +3621,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-object-storage-config-properties-azure-backend-config-properties-azure-storage-account-name/</loc>
+         <lastmod>2024-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-object-storage-config-properties-azure-backend-config/</loc>
          <lastmod>2024-06-20</lastmod>
          <changefreq>daily</changefreq>
@@ -5422,6 +5427,11 @@
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-trivy-config-properties-trivy-config-excluded-namespaces/</loc>
+         <lastmod>2024-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-trivy-config-properties-trivy-node-collector/</loc>
          <lastmod>2024-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>

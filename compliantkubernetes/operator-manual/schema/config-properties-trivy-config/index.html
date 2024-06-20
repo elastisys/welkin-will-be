@@ -3742,6 +3742,15 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
+  <a href="#nodecollector" class="md-nav__link">
+    <span class="md-ellipsis">
+      nodeCollector
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#resources" class="md-nav__link">
     <span class="md-ellipsis">
       resources
@@ -3886,6 +3895,13 @@ if(!document.__defineGetter__) {
 <td style="text-align: left;">Optional</td>
 <td style="text-align: left;">cannot be null</td>
 <td style="text-align: left;"><a href="../config-properties-trivy-config-properties-trivy-service-monitor/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/trivy/properties/serviceMonitor">Compliant Kubernetes Apps Config</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#nodecollector">nodeCollector</a></td>
+<td style="text-align: left;"><code>object</code></td>
+<td style="text-align: left;">Optional</td>
+<td style="text-align: left;">cannot be null</td>
+<td style="text-align: left;"><a href="../config-properties-trivy-config-properties-trivy-node-collector/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/trivy/properties/nodeCollector">Compliant Kubernetes Apps Config</a></td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="#resources">resources</a></td>
@@ -4039,6 +4055,25 @@ See <a href="https://elastisys.io/compliantkubernetes/operator-manual/air-gapped
 </ul>
 <p><strong>TYPE</strong>:</p>
 <p><code>object</code> (<a href="../config-properties-trivy-config-properties-trivy-service-monitor/">Trivy Service Monitor</a>)</p>
+<h2 id="nodecollector">nodeCollector<a class="headerlink" href="#nodecollector" title="Permanent link">&para;</a></h2>
+<p>Configure the node collector created by Trivy.</p>
+<p><code>nodeCollector</code></p>
+<ul>
+<li>
+<p>is optional</p>
+</li>
+<li>
+<p>Type: <code>object</code> (<a href="../config-properties-trivy-config-properties-trivy-node-collector/">Trivy Node Collector</a>)</p>
+</li>
+<li>
+<p>cannot be null</p>
+</li>
+<li>
+<p>defined in: <a href="../config-properties-trivy-config-properties-trivy-node-collector/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/trivy/properties/nodeCollector">Compliant Kubernetes Apps Config</a></p>
+</li>
+</ul>
+<p><strong>TYPE</strong>:</p>
+<p><code>object</code> (<a href="../config-properties-trivy-config-properties-trivy-node-collector/">Trivy Node Collector</a>)</p>
 <h2 id="resources">resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
 <p>Resource requests are used by the kube-scheduler to pick a node to schedule pods on.</p>
 <p>Limits are enforced. Resources are commonly 'cpu' and 'memory'.</p>
@@ -4133,7 +4168,7 @@ scanner.</p>
 <p><code>boolean</code></p>
 <p><a href="../config/">Return to the root config schema</a></p>
 <hr />
-<p>Generated Thu Jun 20 07:00:19 UTC 2024 from <a href="https://github.com/elastisys/compliantkubernetes-apps/commit/cac5d2f7d5464cc51fed5a17c1dbfcc0749d629d">elastisys/compliantkubernetes-apps@main</a></p>
+<p>Generated Thu Jun 20 09:05:13 UTC 2024 from <a href="https://github.com/elastisys/compliantkubernetes-apps/commit/abf8b392bd0a0e8a08a8d7f37c20e5ea7620a760">elastisys/compliantkubernetes-apps@main</a></p>
 
 
 
