@@ -6451,6 +6451,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://elastisys.io/compliantkubernetes/release-notes/</loc>
+         <lastmod>2024-06-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://elastisys.io/compliantkubernetes/release-notes/argocd/</loc>
          <lastmod>2024-06-24</lastmod>
          <changefreq>daily</changefreq>
