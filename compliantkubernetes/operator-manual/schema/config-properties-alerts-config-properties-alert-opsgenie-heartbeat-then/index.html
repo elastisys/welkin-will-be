@@ -3702,6 +3702,32 @@ if(!document.__defineGetter__) {
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#name" class="md-nav__link">
+    <span class="md-ellipsis">
+      name
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#url" class="md-nav__link">
+    <span class="md-ellipsis">
+      url
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3744,7 +3770,7 @@ if(!document.__defineGetter__) {
 <td style="text-align: left;">Can be instantiated</td>
 <td style="text-align: left;">No</td>
 <td style="text-align: left;">Unknown status</td>
-<td style="text-align: left;">Unknown identifiability</td>
+<td style="text-align: left;">No</td>
 <td style="text-align: left;">Forbidden</td>
 <td style="text-align: left;">Allowed</td>
 <td style="text-align: left;">none</td>
@@ -3754,9 +3780,79 @@ if(!document.__defineGetter__) {
 </table>
 <p><strong>TYPE</strong>:</p>
 <p>unknown</p>
+<p><strong>PROPERTIES</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Nullable</th>
+<th style="text-align: left;">Defined by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><a href="#name">name</a></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;">Required</td>
+<td style="text-align: left;">cannot be null</td>
+<td style="text-align: left;"><a href="../config-properties-alerts-config-properties-alert-opsgenie-heartbeat-then-properties-opsgenie-heartbeat-name/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/alerts/properties/opsGenieHeartbeat/then/properties/name">Compliant Kubernetes Apps Config</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#url">url</a></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;">Required</td>
+<td style="text-align: left;">cannot be null</td>
+<td style="text-align: left;"><a href="../config-properties-alerts-config-properties-alert-opsgenie-heartbeat-then-properties-opsgenie-heartbeat-url/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/alerts/properties/opsGenieHeartbeat/then/properties/url">Compliant Kubernetes Apps Config</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="name">name<a class="headerlink" href="#name" title="Permanent link">&para;</a></h2>
+<p><code>name</code></p>
+<ul>
+<li>
+<p>is required</p>
+</li>
+<li>
+<p>Type: <code>string</code> (<a href="../config-properties-alerts-config-properties-alert-opsgenie-heartbeat-then-properties-opsgenie-heartbeat-name/">OpsGenie Heartbeat Name</a>)</p>
+</li>
+<li>
+<p>cannot be null</p>
+</li>
+<li>
+<p>defined in: <a href="../config-properties-alerts-config-properties-alert-opsgenie-heartbeat-then-properties-opsgenie-heartbeat-name/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/alerts/properties/opsGenieHeartbeat/then/properties/name">Compliant Kubernetes Apps Config</a></p>
+</li>
+</ul>
+<p><strong>TYPE</strong>:</p>
+<p><code>string</code> (<a href="../config-properties-alerts-config-properties-alert-opsgenie-heartbeat-then-properties-opsgenie-heartbeat-name/">OpsGenie Heartbeat Name</a>)</p>
+<h2 id="url">url<a class="headerlink" href="#url" title="Permanent link">&para;</a></h2>
+<p><code>url</code></p>
+<ul>
+<li>
+<p>is required</p>
+</li>
+<li>
+<p>Type: <code>string</code> (<a href="../config-properties-alerts-config-properties-alert-opsgenie-heartbeat-then-properties-opsgenie-heartbeat-url/">OpsGenie Heartbeat URL</a>)</p>
+</li>
+<li>
+<p>cannot be null</p>
+</li>
+<li>
+<p>defined in: <a href="../config-properties-alerts-config-properties-alert-opsgenie-heartbeat-then-properties-opsgenie-heartbeat-url/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/alerts/properties/opsGenieHeartbeat/then/properties/url">Compliant Kubernetes Apps Config</a></p>
+</li>
+</ul>
+<p><strong>TYPE</strong>:</p>
+<p><code>string</code> (<a href="../config-properties-alerts-config-properties-alert-opsgenie-heartbeat-then-properties-opsgenie-heartbeat-url/">OpsGenie Heartbeat URL</a>)</p>
+<p><strong>CONSTRAINTS</strong>:</p>
+<p><strong>URI</strong>: the string must be a URI, according to <a href="https://tools.ietf.org/html/rfc3986" title="check the specification">RFC 3986</a></p>
+<p><strong>DEFAULTS</strong>:</p>
+<p>The default value is:</p>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;https://api.eu.opsgenie.com/v2/heartbeats&quot;</span>
+</code></pre></div>
 <p><a href="../config/">Return to the root config schema</a></p>
 <hr />
-<p>Generated Tue Jun 25 03:48:34 UTC 2024 from <a href="https://github.com/elastisys/compliantkubernetes-apps/commit/abf8b392bd0a0e8a08a8d7f37c20e5ea7620a760">elastisys/compliantkubernetes-apps@main</a></p>
+<p>Generated Tue Jun 25 11:29:45 UTC 2024 from <a href="https://github.com/elastisys/compliantkubernetes-apps/commit/3929a92b0f5b29960381b64154fca46104712ede">elastisys/compliantkubernetes-apps@main</a></p>
 
 
 

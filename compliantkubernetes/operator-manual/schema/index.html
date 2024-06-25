@@ -4224,10 +4224,7 @@ if(!document.__defineGetter__) {
 <p><a href="config-properties-network-policies-config-properties-network-policies-monitoring-properties-network-policies-grafana-properties-grafana-external-dashboards/" title="Configure network policy rules to allow Grafana to use external dashboards">Grafana External Dashboards</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/monitoring/properties/grafana/properties/externalDashboardProvider</code></p>
 </li>
 <li>
-<p><a href="config-properties-network-policies-config-properties-network-policies-monitoring-properties-network-policies-grafana-properties-externaldatasources-grafana-external-datasources/" title="Configure network policy rules to allow Grafana to use external datasources">Grafana External Datasources</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/monitoring/properties/grafana/properties/externalDataSources/if</code></p>
-</li>
-<li>
-<p><a href="config-properties-network-policies-config-properties-network-policies-monitoring-properties-network-policies-grafana-properties-externaldatasources-grafana-external-datasources-1/" title="Configure network policy rules to allow Grafana to use external datasources">Grafana External Datasources</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/monitoring/properties/grafana/properties/externalDataSources/then</code></p>
+<p><a href="config-properties-network-policies-config-properties-network-policies-monitoring-properties-network-policies-grafana-properties-grafana-external-datasources/" title="Configure network policy rules to allow Grafana to use external datasources">Grafana External Datasources</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/monitoring/properties/grafana/properties/externalDataSources</code></p>
 </li>
 <li>
 <p><a href="config-properties-grafana-label-enforcer-config/" title="Configure Grafana Label Enforcer, responsible to filter metrics from different clusters for Grafana datasources">Grafana Label Enforcer Config</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/grafanaLabelEnforcer</code></p>
@@ -4243,6 +4240,9 @@ if(!document.__defineGetter__) {
 </li>
 <li>
 <p><a href="config-properties-grafana-config-properties-grafana-properties-grafana-sidecar/" title="Configure the sidecar provisioning dashboards from ConfigMaps in Grafana">Grafana Sidecar</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/grafana/properties/ops/properties/sidecar</code></p>
+</li>
+<li>
+<p><a href="config-properties-grafana-config-properties-grafana-properties-grafana-dataproxy-values/" title="Configure Grafana dataproxy values">Grafana dataproxy values</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/grafana/properties/ops/properties/dataproxy</code></p>
 </li>
 <li>
 <p><a href="config-properties-hnc-hierarchical-namespace-controller-config/" title="Configuration for Hierarchical Namespace Controller">HNC (Hierarchical Namespace Controller) Config</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/hnc</code></p>
@@ -4437,6 +4437,9 @@ if(!document.__defineGetter__) {
 <p><a href="config-properties-network-policies-config-properties-network-policies-dex-properties-network-policies-dex-connectors/" title="Configure network policy rule to allow Dex to reach configured connectors">Network Policies Dex Connectors</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/dex/properties/connectors</code></p>
 </li>
 <li>
+<p><a href="config-properties-network-policies-config-properties-network-policies-externaldns/" title="Configure ExternalDNS network policy rules">Network Policies ExternalDNS</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/externalDns</code></p>
+</li>
+<li>
 <p><a href="config-properties-network-policies-config-properties-network-policies-falco/" title="Configure Falco network policy rules">Network Policies Falco</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/falco</code></p>
 </li>
 <li>
@@ -4522,6 +4525,18 @@ if(!document.__defineGetter__) {
 </li>
 <li>
 <p><a href="config-properties-network-policies-config-properties-network-policies-rclone/" title="Configure Rclone network policy rules">Network Policies Rclone</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/rclone</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-config-properties-network-policies-rclone-properties-network-policies-rclone-sync/" title="Configure network policy rules to allow rclone to sync">Network Policies Rclone Sync</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/rclone/properties/sync</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-config-properties-network-policies-rclone-properties-network-policies-rclone-sync-properties-network-policies-rclone-sync-object-storage/" title="Configure network policy rules to allow rclone to sync object storage">Network Policies Rclone Sync Object Storage</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/rclone/properties/sync/properties/objectStorage</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-config-properties-network-policies-rclone-properties-network-policies-rclone-sync-properties-network-policies-rclone-sync-object-storage-1/" title="Configure network policy rules to allow rclone to sync object storage with Swift">Network Policies Rclone Sync Object Storage</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/rclone/properties/sync/properties/objectStorageSwift</code></p>
+</li>
+<li>
+<p><a href="config-properties-network-policies-config-properties-network-policies-rclone-properties-network-policies-rclone-sync-properties-network-policies-rclone-sync-object-storage-2/" title="Configure network policy rules to allow rclone to sync with a secondary URL">Network Policies Rclone Sync Object Storage</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/rclone/properties/sync/properties/secondaryUrl</code></p>
 </li>
 <li>
 <p><a href="config-properties-network-policies-config-properties-network-policies-rook-ceph/" title="Configure Rook Ceph network policy rules">Network Policies Rook Ceph</a> – <code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/networkPolicies/properties/rookCeph</code></p>
@@ -5322,7 +5337,7 @@ if(!document.__defineGetter__) {
 <h2 id="version-note">Version Note<a class="headerlink" href="#version-note" title="Permanent link">&para;</a></h2>
 <p>The schemas linked above follow the JSON Schema Spec version: <code>https://json-schema.org/draft/2020-12/schema</code></p>
 <hr />
-<p>Generated Tue Jun 25 03:48:34 UTC 2024 from <a href="https://github.com/elastisys/compliantkubernetes-apps/commit/abf8b392bd0a0e8a08a8d7f37c20e5ea7620a760">elastisys/compliantkubernetes-apps@main</a></p>
+<p>Generated Tue Jun 25 11:29:45 UTC 2024 from <a href="https://github.com/elastisys/compliantkubernetes-apps/commit/3929a92b0f5b29960381b64154fca46104712ede">elastisys/compliantkubernetes-apps@main</a></p>
 
 
 

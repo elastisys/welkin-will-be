@@ -506,6 +506,1041 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-0-if-properties-trivy-properties-enabled/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-0-if-properties-trivy-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-0-if-properties-trivy/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-0-if-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-0-if/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-0-then-properties-networkpolicies-properties-global-properties-trivy-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-0-then-properties-networkpolicies-properties-global-properties-trivy/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-0-then-properties-networkpolicies-properties-global-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-0-then-properties-networkpolicies-properties-global/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-0-then-properties-networkpolicies-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-0-then-properties-networkpolicies/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-0-then-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-0-then/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-0/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-1-if-properties-kured-properties-enabled/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-1-if-properties-kured-properties-notification-properties-slack-properties-enabled/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-1-if-properties-kured-properties-notification-properties-slack-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-1-if-properties-kured-properties-notification-properties-slack/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-1-if-properties-kured-properties-notification-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-1-if-properties-kured-properties-notification/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-1-if-properties-kured-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-1-if-properties-kured/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-1-if-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-1-if/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-1-then-properties-networkpolicies-properties-kured-properties-notificationslack-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-1-then-properties-networkpolicies-properties-kured-properties-notificationslack/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-1-then-properties-networkpolicies-properties-kured-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-1-then-properties-networkpolicies-properties-kured/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-1-then-properties-networkpolicies-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-1-then-properties-networkpolicies/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-1-then-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-1-then/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-1/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-2-if-properties-falco-properties-enabled/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-2-if-properties-falco-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-2-if-properties-falco/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-2-if-properties-networkpolicies-properties-falco-properties-enabled/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-2-if-properties-networkpolicies-properties-falco-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-2-if-properties-networkpolicies-properties-falco/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-2-if-properties-networkpolicies-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-2-if-properties-networkpolicies/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-2-if-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-2-if/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-2-then-properties-networkpolicies-properties-falco-properties-plugins-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-2-then-properties-networkpolicies-properties-falco-properties-plugins/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-2-then-properties-networkpolicies-properties-falco-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-2-then-properties-networkpolicies-properties-falco/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-2-then-properties-networkpolicies-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-2-then-properties-networkpolicies/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-2-then-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-2-then/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-2/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-3-if-properties-externaldns-properties-enabled/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-3-if-properties-externaldns-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-3-if-properties-externaldns/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-3-if-properties-networkpolicies-properties-externaldns-properties-enabled/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-3-if-properties-networkpolicies-properties-externaldns-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-3-if-properties-networkpolicies-properties-externaldns/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-3-if-properties-networkpolicies-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-3-if-properties-networkpolicies/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-3-if-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-3-if/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-3-then-properties-networkpolicies-properties-externaldns-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-3-then-properties-networkpolicies-properties-externaldns/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-3-then-properties-networkpolicies-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-3-then-properties-networkpolicies/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-3-then-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-3-then/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-3/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-4-if-properties-harbor-properties-persistence-properties-type/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-4-if-properties-harbor-properties-persistence-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-4-if-properties-harbor-properties-persistence/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-4-if-properties-harbor-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-4-if-properties-harbor/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-4-if-properties-thanos-properties-objectstorage-properties-type/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-4-if-properties-thanos-properties-objectstorage-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-4-if-properties-thanos-properties-objectstorage/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-4-if-properties-thanos-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-4-if-properties-thanos/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-4-if-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-4-if/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-4-then-properties-networkpolicies-properties-global-properties-objectstorageswift-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-4-then-properties-networkpolicies-properties-global-properties-objectstorageswift/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-4-then-properties-networkpolicies-properties-global-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-4-then-properties-networkpolicies-properties-global/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-4-then-properties-networkpolicies-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-4-then-properties-networkpolicies/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-4-then-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-4-then/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-4/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-5-if-properties-harbor-properties-enabled/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-5-if-properties-harbor-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-5-if-properties-harbor/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-5-if-properties-networkpolicies-properties-harbor-properties-enabled/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-5-if-properties-networkpolicies-properties-harbor-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-5-if-properties-networkpolicies-properties-harbor/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-5-if-properties-networkpolicies-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-5-if-properties-networkpolicies/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-5-if-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-5-if/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-5-then-properties-networkpolicies-properties-harbor-properties-jobservice-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-5-then-properties-networkpolicies-properties-harbor-properties-jobservice/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-5-then-properties-networkpolicies-properties-harbor-properties-registries-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-5-then-properties-networkpolicies-properties-harbor-properties-registries/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-5-then-properties-networkpolicies-properties-harbor-properties-trivy-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-5-then-properties-networkpolicies-properties-harbor-properties-trivy/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-5-then-properties-networkpolicies-properties-harbor-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-5-then-properties-networkpolicies-properties-harbor/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-5-then-properties-networkpolicies-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-5-then-properties-networkpolicies/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-5-then-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-5-then/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-5/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-6-if-properties-objectstorage-properties-sync-properties-enabled/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-6-if-properties-objectstorage-properties-sync-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-6-if-properties-objectstorage-properties-sync/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-6-if-properties-objectstorage-properties-type/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-6-if-properties-objectstorage-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-6-if-properties-objectstorage/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-6-if-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-6-if/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-6-then-properties-networkpolicies-properties-rclone-properties-sync-properties-objectstorage-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-6-then-properties-networkpolicies-properties-rclone-properties-sync-properties-objectstorage/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-6-then-properties-networkpolicies-properties-rclone-properties-sync-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-6-then-properties-networkpolicies-properties-rclone-properties-sync/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-6-then-properties-networkpolicies-properties-rclone-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-6-then-properties-networkpolicies-properties-rclone/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-6-then-properties-networkpolicies-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-6-then-properties-networkpolicies/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-6-then-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-6-then/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-6/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-if-anyof-0-properties-harbor-properties-persistence-properties-type/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-if-anyof-0-properties-harbor-properties-persistence-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-if-anyof-0-properties-harbor-properties-persistence/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-if-anyof-0-properties-harbor-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-if-anyof-0-properties-harbor/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-if-anyof-0-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-if-anyof-0/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-if-anyof-1-properties-thanos-properties-objectstorage-properties-type/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-if-anyof-1-properties-thanos-properties-objectstorage-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-if-anyof-1-properties-thanos-properties-objectstorage/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-if-anyof-1-properties-thanos-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-if-anyof-1-properties-thanos/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-if-anyof-1-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-if-anyof-1/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-if-properties-objectstorage-properties-sync-properties-enabled/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-if-properties-objectstorage-properties-sync-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-if-properties-objectstorage-properties-sync/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-if-properties-objectstorage-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-if-properties-objectstorage/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-if-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-if/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-then-properties-networkpolicies-properties-rclone-properties-sync-properties-objectstorageswift-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-then-properties-networkpolicies-properties-rclone-properties-sync-properties-objectstorageswift/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-then-properties-networkpolicies-properties-rclone-properties-sync-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-then-properties-networkpolicies-properties-rclone-properties-sync/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-then-properties-networkpolicies-properties-rclone-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-then-properties-networkpolicies-properties-rclone/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-then-properties-networkpolicies-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-then-properties-networkpolicies/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-then-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7-then/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-7/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-8-if-not-properties-objectstorage-properties-sync-properties-secondaryurl/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-8-if-not-properties-objectstorage-properties-sync-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-8-if-not-properties-objectstorage-properties-sync/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-8-if-not-properties-objectstorage-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-8-if-not-properties-objectstorage/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-8-if-not-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-8-if-not/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-8-if-properties-objectstorage-properties-sync-properties-secondaryurl/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-8-if-properties-objectstorage-properties-sync-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-8-if-properties-objectstorage-properties-sync/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-8-if-properties-objectstorage-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-8-if-properties-objectstorage/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-8-if-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-8-if/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-8-then-properties-networkpolicies-properties-rclone-properties-sync-properties-secondaryurl-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-8-then-properties-networkpolicies-properties-rclone-properties-sync-properties-secondaryurl/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-8-then-properties-networkpolicies-properties-rclone-properties-sync-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-8-then-properties-networkpolicies-properties-rclone-properties-sync/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-8-then-properties-networkpolicies-properties-rclone-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-8-then-properties-networkpolicies-properties-rclone/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-8-then-properties-networkpolicies-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-8-then-properties-networkpolicies/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-8-then-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-8-then/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-8/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-9-if-properties-networkpolicies-properties-ingressnginx-properties-ingressoverride-properties-enabled/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-9-if-properties-networkpolicies-properties-ingressnginx-properties-ingressoverride-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-9-if-properties-networkpolicies-properties-ingressnginx-properties-ingressoverride/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-9-if-properties-networkpolicies-properties-ingressnginx-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-9-if-properties-networkpolicies-properties-ingressnginx/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-9-if-properties-networkpolicies-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-9-if-properties-networkpolicies/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-9-if-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-9-if/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-9-then-properties-networkpolicies-properties-ingressnginx-properties-ingressoverride-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-9-then-properties-networkpolicies-properties-ingressnginx-properties-ingressoverride/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-9-then-properties-networkpolicies-properties-ingressnginx-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-9-then-properties-networkpolicies-properties-ingressnginx/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-9-then-properties-networkpolicies-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-9-then-properties-networkpolicies/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-9-then-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-9-then/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-allof-9/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-defs-affinity-properties-nodeaffinity/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
@@ -1291,6 +2326,21 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-alerts-config-if-properties-alertto/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-alerts-config-if-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-alerts-config-if/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-alerts-config-properties-alert-custom-receivers/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
@@ -1306,7 +2356,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-alerts-config-properties-alert-opsgenie-heartbeat-if-properties-opsgenie-heartbeat-enabled/</loc>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-alerts-config-properties-alert-opsgenie-heartbeat-if-properties-enabled/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1326,12 +2376,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-alerts-config-properties-alert-opsgenie-heartbeat-properties-opsgenie-heartbeat-name/</loc>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-alerts-config-properties-alert-opsgenie-heartbeat-then-properties-opsgenie-heartbeat-name/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-alerts-config-properties-alert-opsgenie-heartbeat-properties-opsgenie-heartbeat-url/</loc>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-alerts-config-properties-alert-opsgenie-heartbeat-then-properties-opsgenie-heartbeat-url/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-alerts-config-properties-alert-opsgenie-heartbeat-then-properties/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1342,11 +2397,6 @@
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-alerts-config-properties-alert-opsgenie-heartbeat/</loc>
-         <lastmod>2024-06-25</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-alerts-config-properties-alert-slack-config-properties-slack-channel/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1362,6 +2412,31 @@
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-alerts-config-properties-alert-to/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-alerts-config-then-properties-slack-properties-slack-channel/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-alerts-config-then-properties-slack-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-alerts-config-then-properties-slack/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-alerts-config-then-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-alerts-config-then/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1546,6 +2621,21 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-external-dns-config-if-properties-enabled/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-external-dns-config-if-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-external-dns-config-if/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-external-dns-config-properties-external-dns-domains-external-dns-domain/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
@@ -1631,12 +2721,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-external-dns-config-properties-external-dns-txt-owner-id/</loc>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-external-dns-config-properties-external-dns-txt-prefix/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-external-dns-config-properties-external-dns-txt-prefix/</loc>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-external-dns-config-then-properties-external-dns-txt-owner-id/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-external-dns-config-then-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-external-dns-config-then/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -2167,6 +3267,16 @@
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-grafana-config-properties-grafana-properties-grafana-additional-plugins/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-grafana-config-properties-grafana-properties-grafana-dataproxy-values-properties-grafana-dataproxy-timeout/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-grafana-config-properties-grafana-properties-grafana-dataproxy-values/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -2936,12 +4046,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-issuers-config-properties-issuers-lets-encrypt-properties-lets-encrypt-enabled/</loc>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-issuers-config-properties-issuers-lets-encrypt-if-properties-enabled/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-issuers-config-properties-issuers-lets-encrypt-properties-lets-encrypt-prod-properties-issuer-email/</loc>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-issuers-config-properties-issuers-lets-encrypt-if-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-issuers-config-properties-issuers-lets-encrypt-if/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-issuers-config-properties-issuers-lets-encrypt-properties-lets-encrypt-enabled/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -2956,17 +4076,52 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-issuers-config-properties-issuers-lets-encrypt-properties-lets-encrypt-staging-properties-issuer-email/</loc>
-         <lastmod>2024-06-25</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-issuers-config-properties-issuers-lets-encrypt-properties-lets-encrypt-staging-properties-issuer-solver/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-issuers-config-properties-issuers-lets-encrypt-properties-lets-encrypt-staging/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-issuers-config-properties-issuers-lets-encrypt-then-properties-prod-properties-issuer-email/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-issuers-config-properties-issuers-lets-encrypt-then-properties-prod-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-issuers-config-properties-issuers-lets-encrypt-then-properties-prod/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-issuers-config-properties-issuers-lets-encrypt-then-properties-staging-properties-issuer-email/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-issuers-config-properties-issuers-lets-encrypt-then-properties-staging-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-issuers-config-properties-issuers-lets-encrypt-then-properties-staging/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-issuers-config-properties-issuers-lets-encrypt-then-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-issuers-config-properties-issuers-lets-encrypt-then/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -3121,6 +4276,21 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-cert-manager-if-properties-enabled/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-cert-manager-if-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-cert-manager-if/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-cert-manager-properties-network-policies-cert-manager-dns-01/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
@@ -3146,7 +4316,42 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-cert-manager-then-properties-letsencrypt-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-cert-manager-then-properties-letsencrypt/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-cert-manager-then-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-cert-manager-then/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-cert-manager/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-coredns-if-properties-enabled/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-coredns-if-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-coredns-if/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -3166,7 +4371,52 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-coredns-then-properties-externaldns-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-coredns-then-properties-externaldns/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-coredns-then-properties-serviceip-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-coredns-then-properties-serviceip/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-coredns-then-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-coredns-then/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-coredns/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-dex-if-properties-enabled/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-dex-if-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-dex-if/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -3177,6 +4427,26 @@
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-dex-properties-network-policies-dex-enabled/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-dex-then-properties-connectors-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-dex-then-properties-connectors/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-dex-then-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-dex-then/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -3202,6 +4472,16 @@
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-enabled/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-externaldns-properties-enabled/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-externaldns/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -3396,16 +4676,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-ingress-nginx-properties-network-policies-ingress-override-properties-network-policies-ingress-override-ips-oneof-1/</loc>
-         <lastmod>2024-06-25</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-ingress-nginx-properties-network-policies-ingress-override-properties-network-policies-ingress-override-ips/</loc>
-         <lastmod>2024-06-25</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-ingress-nginx-properties-network-policies-ingress-override/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
@@ -3466,32 +4736,57 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-monitoring-properties-network-policies-grafana-properties-externaldatasources-grafana-external-datasources-1-properties-grafana-external-datasources-enabled/</loc>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-monitoring-if-properties-enabled/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-monitoring-properties-network-policies-grafana-properties-externaldatasources-grafana-external-datasources-1/</loc>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-monitoring-if-properties-grafana-properties-externaldatasources-properties-enabled/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-monitoring-properties-network-policies-grafana-properties-externaldatasources-grafana-external-datasources-properties-grafana-external-datasources-enabled/</loc>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-monitoring-if-properties-grafana-properties-externaldatasources-properties/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-monitoring-properties-network-policies-grafana-properties-externaldatasources-grafana-external-datasources/</loc>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-monitoring-if-properties-grafana-properties-externaldatasources/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-monitoring-properties-network-policies-grafana-properties-externaldatasources/</loc>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-monitoring-if-properties-grafana-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-monitoring-if-properties-grafana/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-monitoring-if-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-monitoring-if/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-monitoring-properties-network-policies-grafana-properties-grafana-external-dashboards/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-monitoring-properties-network-policies-grafana-properties-grafana-external-datasources-properties-grafana-external-datasources-enabled/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-monitoring-properties-network-policies-grafana-properties-grafana-external-datasources/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -3506,7 +4801,52 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-monitoring-then-properties-grafana-properties-externaldatasources-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-monitoring-then-properties-grafana-properties-externaldatasources/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-monitoring-then-properties-grafana-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-monitoring-then-properties-grafana/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-monitoring-then-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-monitoring-then/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-monitoring/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-opensearch-if-properties-enabled/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-opensearch-if-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-opensearch-if/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -3517,6 +4857,26 @@
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-opensearch-properties-network-policies-opensearch-plugins/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-opensearch-then-properties-plugins-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-opensearch-then-properties-plugins/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-opensearch-then-properties/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-opensearch-then/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -3552,6 +4912,26 @@
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-rclone-properties-network-policies-rclone-enabled/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-rclone-properties-network-policies-rclone-sync-properties-network-policies-rclone-sync-object-storage-1/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-rclone-properties-network-policies-rclone-sync-properties-network-policies-rclone-sync-object-storage-2/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-rclone-properties-network-policies-rclone-sync-properties-network-policies-rclone-sync-object-storage/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-rclone-properties-network-policies-rclone-sync/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -3752,6 +5132,11 @@
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-object-storage-config-properties-rclone-sync-config-properties-rclone-sync-enable/</loc>
+         <lastmod>2024-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-object-storage-config-properties-rclone-sync-config-properties-rclone-sync-secondary-url/</loc>
          <lastmod>2024-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
