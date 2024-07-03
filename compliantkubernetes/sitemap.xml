@@ -3171,6 +3171,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-global-options-properties-ck8sk8sinstaller/</loc>
+         <lastmod>2024-07-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-global-options-properties-clusterdns/</loc>
          <lastmod>2024-07-03</lastmod>
          <changefreq>daily</changefreq>
@@ -4132,16 +4137,6 @@
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-issuers-config/</loc>
-         <lastmod>2024-07-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-kube-state-metrics-properties-cluster-api-metrics-properties-cluster-api-metrics-enabled/</loc>
-         <lastmod>2024-07-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-kube-state-metrics-properties-cluster-api-metrics/</loc>
          <lastmod>2024-07-03</lastmod>
          <changefreq>daily</changefreq>
     </url>

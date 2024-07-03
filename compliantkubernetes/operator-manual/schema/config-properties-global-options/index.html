@@ -3745,6 +3745,15 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
+  <a href="#ck8sk8sinstaller" class="md-nav__link">
+    <span class="md-ellipsis">
+      ck8sK8sInstaller
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#basedomain" class="md-nav__link">
     <span class="md-ellipsis">
       baseDomain
@@ -3930,6 +3939,13 @@ if(!document.__defineGetter__) {
 <td style="text-align: left;"><a href="../config-properties-global-options-properties-ck8sflavor/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/global/properties/ck8sFlavor">Compliant Kubernetes Apps Config</a></td>
 </tr>
 <tr>
+<td style="text-align: left;"><a href="#ck8sk8sinstaller">ck8sK8sInstaller</a></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;">Required</td>
+<td style="text-align: left;">cannot be null</td>
+<td style="text-align: left;"><a href="../config-properties-global-options-properties-ck8sk8sinstaller/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/global/properties/ck8sK8sInstaller">Compliant Kubernetes Apps Config</a></td>
+</tr>
+<tr>
 <td style="text-align: left;"><a href="#basedomain">baseDomain</a></td>
 <td style="text-align: left;"><code>string</code></td>
 <td style="text-align: left;">Required</td>
@@ -4093,6 +4109,10 @@ Otherwise use full commit hash of current commit.
 <td style="text-align: left;"><code>"upcloud"</code></td>
 <td style="text-align: left;"></td>
 </tr>
+<tr>
+<td style="text-align: left;"><code>"openstack"</code></td>
+<td style="text-align: left;"></td>
+</tr>
 </tbody>
 </table>
 <h2 id="ck8senvironmentname">ck8sEnvironmentName<a class="headerlink" href="#ck8senvironmentname" title="Permanent link">&para;</a></h2>
@@ -4154,6 +4174,44 @@ Otherwise use full commit hash of current commit.
 </tr>
 <tr>
 <td style="text-align: left;"><code>"air-gapped"</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ck8sk8sinstaller">ck8sK8sInstaller<a class="headerlink" href="#ck8sk8sinstaller" title="Permanent link">&para;</a></h2>
+<p><code>ck8sK8sInstaller</code></p>
+<ul>
+<li>
+<p>is required</p>
+</li>
+<li>
+<p>Type: <code>string</code></p>
+</li>
+<li>
+<p>cannot be null</p>
+</li>
+<li>
+<p>defined in: <a href="../config-properties-global-options-properties-ck8sk8sinstaller/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/global/properties/ck8sK8sInstaller">Compliant Kubernetes Apps Config</a></p>
+</li>
+</ul>
+<p><strong>TYPE</strong>:</p>
+<p><code>string</code></p>
+<p><strong>CONSTRAINTS</strong>:</p>
+<p><strong>enum</strong>: the value of this property must be equal to one of the following values:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Value</th>
+<th style="text-align: left;">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>"kubespray"</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>"capi"</code></td>
 <td style="text-align: left;"></td>
 </tr>
 </tbody>
@@ -4434,7 +4492,7 @@ Normally one of <code>letsencrypt-staging</code> or <code>letsencrypt-prod</code
 </code></pre></div>
 <p><a href="../config/">Return to the root config schema</a></p>
 <hr />
-<p>Generated Wed Jul  3 05:33:54 UTC 2024 from <a href="https://github.com/elastisys/compliantkubernetes-apps/commit/83a046221ea10ac392392e6ad56c2f687406c2ce">elastisys/compliantkubernetes-apps@main</a></p>
+<p>Generated Wed Jul  3 15:02:02 UTC 2024 from <a href="https://github.com/elastisys/compliantkubernetes-apps/commit/2b5bfd01216d4b96bb47fc2c13ff9482aebc58c2">elastisys/compliantkubernetes-apps@main</a></p>
 
 
 

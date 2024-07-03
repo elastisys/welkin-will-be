@@ -12,7 +12,7 @@
         <meta name="author" content="Elastisys AB">
       
       
-        <link rel="canonical" href="https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-kube-state-metrics-properties-cluster-api-metrics-properties-cluster-api-metrics-enabled/">
+        <link rel="canonical" href="https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-global-options-properties-ck8sk8sinstaller/">
       
       
       
@@ -22,7 +22,7 @@
     
     
       
-        <title>Cluster API Metrics Enabled Schema - Elastisys Compliant Kubernetes</title>
+        <title>Untitled string in Compliant Kubernetes Apps Config Schema - Elastisys Compliant Kubernetes</title>
       
     
     
@@ -67,11 +67,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Cluster API Metrics Enabled Schema - Elastisys Compliant Kubernetes" >
+        <meta  property="og:title"  content="Untitled string in Compliant Kubernetes Apps Config Schema - Elastisys Compliant Kubernetes" >
       
         <meta  property="og:description"  content="Compliant Kubernetes, the Kubernetes platform for software critical to our society. NIS2, ISO-27001, etc." >
       
-        <meta  property="og:image"  content="https://elastisys.io/compliantkubernetes/assets/images/social/operator-manual/schema/config-properties-kube-state-metrics-properties-cluster-api-metrics-properties-cluster-api-metrics-enabled.png" >
+        <meta  property="og:image"  content="https://elastisys.io/compliantkubernetes/assets/images/social/operator-manual/schema/config-properties-global-options-properties-ck8sk8sinstaller.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -79,15 +79,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-kube-state-metrics-properties-cluster-api-metrics-properties-cluster-api-metrics-enabled/" >
+        <meta  property="og:url"  content="https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-global-options-properties-ck8sk8sinstaller/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Cluster API Metrics Enabled Schema - Elastisys Compliant Kubernetes" >
+        <meta  name="twitter:title"  content="Untitled string in Compliant Kubernetes Apps Config Schema - Elastisys Compliant Kubernetes" >
       
         <meta  name="twitter:description"  content="Compliant Kubernetes, the Kubernetes platform for software critical to our society. NIS2, ISO-27001, etc." >
       
-        <meta  name="twitter:image"  content="https://elastisys.io/compliantkubernetes/assets/images/social/operator-manual/schema/config-properties-kube-state-metrics-properties-cluster-api-metrics-properties-cluster-api-metrics-enabled.png" >
+        <meta  name="twitter:image"  content="https://elastisys.io/compliantkubernetes/assets/images/social/operator-manual/schema/config-properties-global-options-properties-ck8sk8sinstaller.png" >
       
     
     
@@ -148,7 +148,7 @@ if(!document.__defineGetter__) {
     <div data-md-component="skip">
       
         
-        <a href="#cluster-api-metrics-enabled-schema" class="md-skip">
+        <a href="#untitled-string-in-compliant-kubernetes-apps-config-schema" class="md-skip">
           Skip to content
         </a>
       
@@ -187,7 +187,7 @@ if(!document.__defineGetter__) {
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Cluster API Metrics Enabled Schema
+              Untitled string in Compliant Kubernetes Apps Config Schema
             
           </span>
         </div>
@@ -3718,13 +3718,13 @@ if(!document.__defineGetter__) {
   
 
 
-<h1 id="cluster-api-metrics-enabled-schema">Cluster API Metrics Enabled Schema<a class="headerlink" href="#cluster-api-metrics-enabled-schema" title="Permanent link">&para;</a></h1>
+<h1 id="untitled-string-in-compliant-kubernetes-apps-config-schema">Untitled string in Compliant Kubernetes Apps Config Schema<a class="headerlink" href="#untitled-string-in-compliant-kubernetes-apps-config-schema" title="Permanent link">&para;</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This is auto-generated documentation from a JSON schema that is under construction, this will improve over time.</p>
 </div>
 <p><a href="../config/">Return to the root config schema</a></p>
-<div class="highlight"><pre><span></span><code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/kubeStateMetrics/properties/clusterAPIMetrics/properties/enabled
+<div class="highlight"><pre><span></span><code>https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/global/properties/ck8sK8sInstaller
 </code></pre></div>
 <table>
 <thead>
@@ -3753,10 +3753,30 @@ if(!document.__defineGetter__) {
 </tbody>
 </table>
 <p><strong>TYPE</strong>:</p>
-<p><code>boolean</code> (<a href="./">Cluster API Metrics Enabled</a>)</p>
+<p><code>string</code></p>
+<p><strong>CONSTRAINTS</strong>:</p>
+<p><strong>enum</strong>: the value of this property must be equal to one of the following values:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Value</th>
+<th style="text-align: left;">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>"kubespray"</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>"capi"</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
 <p><a href="../config/">Return to the root config schema</a></p>
 <hr />
-<p>Generated Wed Jul  3 05:33:54 UTC 2024 from <a href="https://github.com/elastisys/compliantkubernetes-apps/commit/83a046221ea10ac392392e6ad56c2f687406c2ce">elastisys/compliantkubernetes-apps@main</a></p>
+<p>Generated Wed Jul  3 15:02:02 UTC 2024 from <a href="https://github.com/elastisys/compliantkubernetes-apps/commit/2b5bfd01216d4b96bb47fc2c13ff9482aebc58c2">elastisys/compliantkubernetes-apps@main</a></p>
 
 
 
