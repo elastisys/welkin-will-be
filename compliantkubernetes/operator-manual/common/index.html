@@ -3877,16 +3877,22 @@ if(!document.__defineGetter__) {
 <h3 id="clone-compliantkubernetes-apps-and-install-pre-requisites">Clone <code>compliantkubernetes-apps</code> and Install Pre-requisites<a class="headerlink" href="#clone-compliantkubernetes-apps-and-install-pre-requisites" title="Permanent link">&para;</a></h3>
 <p>If you haven't done so already, clone the <code>compliantkubernetes-apps</code> repo and install pre-requisites.</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/elastisys/compliantkubernetes-apps.git
-<span class="nb">cd</span><span class="w"> </span>compliantkubernetes-apps
 compliantkubernetes-apps/bin/ck8s<span class="w"> </span>install-requirements
 </code></pre></div>
-<p>Export the following variables before initializing apps config:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_ENVIRONMENT_NAME</span><span class="o">=</span>my-environment-name
-<span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_FLAVOR</span><span class="o">=</span><span class="c1"># [dev|prod|air-gapped] # defaults to dev</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_CONFIG_PATH</span><span class="o">=</span>~/.ck8s/my-cluster-path
-<span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_CLOUD_PROVIDER</span><span class="o">=</span><span class="c1"># [exoscale|safespring|citycloud|aws|baremetal]</span>
+<p>Export the following variables:</p>
+<!--export-variables-start-->
+
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_CONFIG_PATH</span><span class="o">=</span>~/.ck8s/my-cluster-path
+<span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_CLOUD_PROVIDER</span><span class="o">=</span><span class="c1"># run &#39;compliantkubernetes-apps/bin/ck8s providers&#39; to list available providers</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_ENVIRONMENT_NAME</span><span class="o">=</span>my-environment-name
+<span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_FLAVOR</span><span class="o">=</span><span class="c1"># run &#39;compliantkubernetes-apps/bin/ck8s flavors&#39; to list available flavors</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_K8S_INSTALLER</span><span class="o">=</span><span class="c1"># run &#39;compliantkubernetes-apps/bin/ck8s k8s-installers&#39; to list available k8s-installers</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_PGP_FP</span><span class="o">=</span>&lt;your<span class="w"> </span>GPG<span class="w"> </span>key<span class="w"> </span>fingerprint&gt;<span class="w">  </span><span class="c1"># retrieve with gpg --list-secret-keys</span>
+
+<span class="nb">export</span><span class="w"> </span><span class="nv">CLUSTERS</span><span class="o">=(</span><span class="w"> </span><span class="s2">&quot;sc&quot;</span><span class="w"> </span><span class="s2">&quot;wc&quot;</span><span class="w"> </span><span class="o">)</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">DOMAIN</span><span class="o">=</span>example.com<span class="w"> </span><span class="c1"># your domain</span>
 </code></pre></div>
+<!--export-variables-stop-->
 <!--clone-apps-stop-->
 
 <!--init-apps-start-->
@@ -3918,10 +3924,7 @@ vim<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFI
 </ul>
 <div class="highlight"><pre><span></span><code>sops<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/secrets.yaml
 </code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
 <p>The default configuration for the Management Cluster and Workload Cluster are available in the directory <code>${CK8S_CONFIG_PATH}/defaults/</code> and can be used as a reference for available options.</p>
-</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Do not modify the read-only default configurations files found in the directory <code>${CK8S_CONFIG_PATH}/defaults/</code>. Instead configure the cluster by modifying the regular files <code>${CK8S_CONFIG_PATH}/sc-config.yaml</code> and <code>${CK8S_CONFIG_PATH}/wc-config.yaml</code> as they will override the default options.</p>
@@ -3944,8 +3947,8 @@ vim<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFI
 <h3 id="settling">Settling<a class="headerlink" href="#settling" title="Permanent link">&para;</a></h3>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-</div>
 <p>Leave sufficient time for the system to settle, e.g., request TLS certificates from Let's Encrypt, perhaps as much as 20 minutes.</p>
+</div>
 <p>Check if all helm charts succeeded.</p>
 <div class="highlight"><pre><span></span><code>compliantkubernetes-apps/bin/ck8s<span class="w"> </span>ops<span class="w"> </span>helm<span class="w"> </span>wc<span class="w"> </span>list<span class="w"> </span>-A<span class="w"> </span>--all
 </code></pre></div>
@@ -3986,8 +3989,7 @@ scripts/S3/entry.sh<span class="w"> </span>create
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>You should not use your own credentials for S3.
-Rather create a new set of credentials with write-only access, when supported by the object storage provider.</p>
+<p>You should not use your own credentials for S3. Rather create a new set of credentials with write-only access, when supported by the object storage provider.</p>
 </div>
 <!--create-s3-buckets-stop-->
 

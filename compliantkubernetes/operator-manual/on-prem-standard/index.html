@@ -4159,7 +4159,7 @@ if(!document.__defineGetter__) {
 <p>This document contains instructions on how to set-up a new Compliant Kubernetes on-prem environment.</p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <div class="admonition important">
-<p class="admonition-title">Decision to be taken</p>
+<p class="admonition-title">Important</p>
 <p>Decisions regarding the following items should be made before venturing on deploying Compliant Kubernetes.</p>
 <ul>
 <li>Overall architecture, i.e., VM sizes, load-balancer configuration, storage configuration, etc.</li>
@@ -4181,32 +4181,40 @@ if(!document.__defineGetter__) {
 </li>
 <li>
 <p>Create a git working folder to store Compliant Kubernetes configurations in a version-controlled manner. Run the following commands from the root of the config repo.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-</div>
-<p>The following steps are done from the root of the git repository you created for the configurations.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_CONFIG_PATH</span><span class="o">=</span>./
-<span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_ENVIRONMENT_NAME</span><span class="o">=</span>&lt;my-ck8s-cluster&gt;
-<span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_CLOUD_PROVIDER</span><span class="o">=[</span>exoscale<span class="p">|</span>safespring<span class="p">|</span>citycloud<span class="p">|</span>elastx<span class="p">|</span>aws<span class="p">|</span>baremetal<span class="o">]</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_FLAVOR</span><span class="o">=[</span>dev<span class="p">|</span>prod<span class="p">|</span>air-gapped<span class="o">]</span><span class="w"> </span><span class="c1"># defaults to dev</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_PGP_FP</span><span class="o">=</span>&lt;PGP-fingerprint&gt;<span class="w"> </span><span class="c1"># retrieve with gpg --list-secret-keys</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">DOMAIN</span><span class="o">=</span>example.com<span class="w"> </span><span class="c1"># your domain</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_CONFIG_PATH</span><span class="o">=</span>~/.ck8s/my-cluster-path
+<span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_CLOUD_PROVIDER</span><span class="o">=</span><span class="c1"># run &#39;compliantkubernetes-apps/bin/ck8s providers&#39; to list available providers</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_ENVIRONMENT_NAME</span><span class="o">=</span>my-environment-name
+<span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_FLAVOR</span><span class="o">=</span><span class="c1"># run &#39;compliantkubernetes-apps/bin/ck8s flavors&#39; to list available flavors</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_K8S_INSTALLER</span><span class="o">=</span><span class="c1"># run &#39;compliantkubernetes-apps/bin/ck8s k8s-installers&#39; to list available k8s-installers</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CK8S_PGP_FP</span><span class="o">=</span>&lt;your<span class="w"> </span>GPG<span class="w"> </span>key<span class="w"> </span>fingerprint&gt;<span class="w">  </span><span class="c1"># retrieve with gpg --list-secret-keys</span>
+
 <span class="nb">export</span><span class="w"> </span><span class="nv">CLUSTERS</span><span class="o">=(</span><span class="w"> </span><span class="s2">&quot;sc&quot;</span><span class="w"> </span><span class="s2">&quot;wc&quot;</span><span class="w"> </span><span class="o">)</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">DOMAIN</span><span class="o">=</span>example.com<span class="w"> </span><span class="c1"># your domain</span>
 </code></pre></div>
 </li>
 <li>
 <p>Add the Elastisys Compliant Kubernetes Kubespray repo as a <code>git submodule</code> to the configuration repo and install pre-requisites as follows:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Remember to switch to the desired version of <code>compliantkubernetes-kubespray</code>.</p>
+</div>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>submodule<span class="w"> </span>add<span class="w"> </span>https://github.com/elastisys/compliantkubernetes-kubespray.git
 git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init<span class="w"> </span>--recursive
 <span class="nb">cd</span><span class="w"> </span>compliantkubernetes-kubespray
+git<span class="w"> </span>switch<span class="w"> </span>-d<span class="w"> </span><span class="k">$(</span>git<span class="w"> </span>tag<span class="w"> </span>--sort<span class="o">=</span>committerdate<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-1<span class="k">)</span><span class="w"> </span><span class="c1"># this will switch to the latest release tag</span>
 pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>kubespray/requirements.txt<span class="w">  </span><span class="c1"># this will install ansible</span>
 ansible-playbook<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;ansible_python_interpreter=/usr/bin/python3&#39;</span><span class="w"> </span>--ask-become-pass<span class="w"> </span>--connection<span class="w"> </span><span class="nb">local</span><span class="w"> </span>--inventory<span class="w"> </span><span class="m">127</span>.0.0.1,<span class="w"> </span>get-requirements.yaml
 </code></pre></div>
 </li>
 <li>
 <p>Add the Compliant Kubernetes Apps repo as a <code>git submodule</code> to the configuration repo and install pre-requisites as follows:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Remember to switch to the desired version of <code>compliantkubernetes-apps</code>.</p>
+</div>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>submodule<span class="w"> </span>add<span class="w"> </span>https://github.com/elastisys/compliantkubernetes-apps.git
 <span class="nb">cd</span><span class="w"> </span>compliantkubernetes-apps
+git<span class="w"> </span>switch<span class="w"> </span>-d<span class="w"> </span><span class="k">$(</span>git<span class="w"> </span>tag<span class="w"> </span>--sort<span class="o">=</span>committerdate<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-1<span class="k">)</span><span class="w"> </span><span class="c1"># this will switch to the latest release tag</span>
 ./bin/ck8s<span class="w"> </span>install-requirements
 </code></pre></div>
 </li>
@@ -4300,9 +4308,9 @@ ansible-playbook<span class="w"> </span>-e<span class="w"> </span><span class="s
 <span class="w">    </span>compliantkubernetes-kubespray/bin/ck8s-kubespray<span class="w"> </span>apply<span class="w"> </span><span class="nv">$CLUSTER</span><span class="w"> </span>--flush-cache
 <span class="k">done</span>
 </code></pre></div>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>The kubeconfig for wc <code>.state/kube_config_wc.yaml</code> will not be usable until you have installed dex in the Management Cluster (by <a href="#deploying-compliant-kubernetes-apps">deploying apps</a>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The kubeconfig for wc <code>.state/kube_config_wc.yaml</code> will not be usable until you have installed Dex in the Management Cluster (by <a href="#deploying-compliant-kubernetes-apps">deploying apps</a>).</p>
 </div>
 <h2 id="rook-block-storage">Rook Block Storage<a class="headerlink" href="#rook-block-storage" title="Permanent link">&para;</a></h2>
 <p>Normally, we want to use block storage solutions provided by the infra provider. However, this is not always available, especially for on-prem environments. In such cases we can partition separate volumes on nodes in the cluster for Rook-Ceph and use that as a block storage solution.</p>
@@ -4401,10 +4409,7 @@ vim<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFI
 </ul>
 <div class="highlight"><pre><span></span><code>sops<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/secrets.yaml
 </code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
 <p>The default configuration for the Management Cluster and Workload Cluster are available in the directory <code>${CK8S_CONFIG_PATH}/defaults/</code> and can be used as a reference for available options.</p>
-</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Do not modify the read-only default configurations files found in the directory <code>${CK8S_CONFIG_PATH}/defaults/</code>. Instead configure the cluster by modifying the regular files <code>${CK8S_CONFIG_PATH}/sc-config.yaml</code> and <code>${CK8S_CONFIG_PATH}/wc-config.yaml</code> as they will override the default options.</p>
@@ -4417,8 +4422,7 @@ scripts/S3/entry.sh<span class="w"> </span>create
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>You should not use your own credentials for S3.
-Rather create a new set of credentials with write-only access, when supported by the object storage provider.</p>
+<p>You should not use your own credentials for S3. Rather create a new set of credentials with write-only access, when supported by the object storage provider.</p>
 </div>
 <h3 id="install-compliant-kubernetes-apps">Install Compliant Kubernetes Apps<a class="headerlink" href="#install-compliant-kubernetes-apps" title="Permanent link">&para;</a></h3>
 <p>Start with the Management Cluster:</p>
@@ -4430,8 +4434,8 @@ Rather create a new set of credentials with write-only access, when supported by
 <h3 id="settling">Settling<a class="headerlink" href="#settling" title="Permanent link">&para;</a></h3>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-</div>
 <p>Leave sufficient time for the system to settle, e.g., request TLS certificates from Let's Encrypt, perhaps as much as 20 minutes.</p>
+</div>
 <p>Check if all helm charts succeeded.</p>
 <div class="highlight"><pre><span></span><code>compliantkubernetes-apps/bin/ck8s<span class="w"> </span>ops<span class="w"> </span>helm<span class="w"> </span>wc<span class="w"> </span>list<span class="w"> </span>-A<span class="w"> </span>--all
 </code></pre></div>
