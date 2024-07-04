@@ -4164,12 +4164,12 @@ if(!document.__defineGetter__) {
 <ul>
 <li>Overall architecture, i.e., VM sizes, load-balancer configuration, storage configuration, etc.</li>
 <li>Identity Provider (IdP) choice and configuration. See <a href="../../user-guide/prepare-idp/">this page</a>.</li>
-<li>On-call Management Tool (OMT) choice and configuration</li>
+<li>On-call Management Tool (OMT) choice and configuration.</li>
 </ul>
 </div>
 <ol>
 <li>
-<p>Make sure you <a href="../getting-started/">install all prerequisites</a> on your laptop.</p>
+<p>Make sure you <a href="../getting-started/">install all prerequisites</a> on your computer.</p>
 </li>
 <li>
 <p>Prepare Ubuntu-based VMs:
@@ -4202,7 +4202,7 @@ if(!document.__defineGetter__) {
 git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init<span class="w"> </span>--recursive
 <span class="nb">cd</span><span class="w"> </span>compliantkubernetes-kubespray
 git<span class="w"> </span>switch<span class="w"> </span>-d<span class="w"> </span><span class="k">$(</span>git<span class="w"> </span>tag<span class="w"> </span>--sort<span class="o">=</span>committerdate<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-1<span class="k">)</span><span class="w"> </span><span class="c1"># this will switch to the latest release tag</span>
-pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>kubespray/requirements.txt<span class="w">  </span><span class="c1"># this will install ansible</span>
+pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>kubespray/requirements.txt<span class="w">  </span><span class="c1"># this will install Ansible</span>
 ansible-playbook<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;ansible_python_interpreter=/usr/bin/python3&#39;</span><span class="w"> </span>--ask-become-pass<span class="w"> </span>--connection<span class="w"> </span><span class="nb">local</span><span class="w"> </span>--inventory<span class="w"> </span><span class="m">127</span>.0.0.1,<span class="w"> </span>get-requirements.yaml
 </code></pre></div>
 </li>
@@ -4298,7 +4298,7 @@ git<span class="w"> </span>switch<span class="w"> </span>-d<span class="w"> </sp
 </code></pre></div>
 <p>For more information on managing OIDC kubeconfigs and RBAC, or on running without OIDC, <a href="https://github.com/elastisys/compliantkubernetes-kubespray#kubeconfig">see the ck8s-Kubespray documentation</a>.</p>
 <h3 id="copy-the-vms-information-to-the-inventory-files">Copy the VMs information to the inventory files<a class="headerlink" href="#copy-the-vms-information-to-the-inventory-files" title="Permanent link">&para;</a></h3>
-<p>Add the host name, user and IP address of each VM that you prepared above in <code>${CK8S_CONFIG_PATH}/sc-config/inventory.ini</code>for Management Cluster and <code>${CK8S_CONFIG_PATH}/sc-config/inventory.ini</code> for Workload Cluster. Moreover, you also need to add the host names of the master nodes under <code>[kube_control_plane]</code>, etcd nodes under <code>[etcd]</code> and worker nodes under <code>[kube_node]</code>.</p>
+<p>Add the host name, user and IP address of each VM that you prepared above in <code>${CK8S_CONFIG_PATH}/sc-config/inventory.ini</code> for Management Cluster and <code>${CK8S_CONFIG_PATH}/wc-config/inventory.ini</code> for Workload Cluster. Moreover, you also need to add the host names of the master nodes under <code>[kube_control_plane]</code>, etcd nodes under <code>[etcd]</code> and worker nodes under <code>[kube_node]</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Make sure that the user has SSH access to the VMs.</p>
@@ -4313,7 +4313,7 @@ git<span class="w"> </span>switch<span class="w"> </span>-d<span class="w"> </sp
 <p>The kubeconfig for wc <code>.state/kube_config_wc.yaml</code> will not be usable until you have installed Dex in the Management Cluster (by <a href="#deploying-compliant-kubernetes-apps">deploying apps</a>).</p>
 </div>
 <h2 id="rook-block-storage">Rook Block Storage<a class="headerlink" href="#rook-block-storage" title="Permanent link">&para;</a></h2>
-<p>Normally, we want to use block storage solutions provided by the infra provider. However, this is not always available, especially for on-prem environments. In such cases we can partition separate volumes on nodes in the cluster for Rook-Ceph and use that as a block storage solution.</p>
+<p>Normally, we want to use block storage solutions provided by the infra provider. However, this is not always available, especially for on-prem environments. In such cases we can partition separate volumes on Nodes in the cluster for Rook-Ceph and use that as a block storage solution.</p>
 <!-- markdownlint-disable-file first-line-h1 -->
 
 <h3 id="deploy-rook">Deploy Rook<a class="headerlink" href="#deploy-rook" title="Permanent link">&para;</a></h3>
@@ -4350,10 +4350,10 @@ git<span class="w"> </span>switch<span class="w"> </span>-d<span class="w"> </sp
 <span class="w">    </span>kubectl<span class="w"> </span>--kubeconfig<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>.yaml<span class="w"> </span>-n<span class="w"> </span>default<span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>csirbd-demo-pod
 <span class="k">done</span>
 </code></pre></div>
-<p>You should see PVCs in Bound state, and that the pods which mounts the volumes are running.</p>
+<p>You should see PVCs in Bound state, and that the Pods which mounts the volumes are running.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>If you have taints on certain nodes which should support running pods that mounts <code>rook-ceph</code> PVCs, you need to ensure these nodes are tolerated by the rook-ceph DaemonSet <code>csi-rbdplugin</code>, otherwise, pods on these nodes will not be able to attach or mount the volumes.</p>
+<p>If you have taints on certain Nodes which should support running Pods that mounts <code>rook-ceph</code> PVCs, you need to ensure these Nodes are tolerated by the rook-ceph DaemonSet <code>csi-rbdplugin</code>, otherwise, Pods on these Nodes will not be able to attach or mount the volumes.</p>
 </div>
 <p>If you want to clean the previously created PVCs:</p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span>sc<span class="w"> </span>wc<span class="p">;</span><span class="w"> </span><span class="k">do</span>
@@ -4371,7 +4371,7 @@ Once you get the IP address edit <code>${CK8S_CONFIG_PATH}/common-config.yaml</c
 </details>
 <details class="note" open="open">
 <summary>Configure the load balancer IP on the loopback interface for each worker node</summary>
-<p>The Kubernetes data plane nodes (i.e., worker nodes) cannot connect to themselves with the IP address of the load balancer that fronts them. The easiest is to configure the load balancer's IP address on the loopback interface of each nodes. Create <code>/etc/netplan/20-eip-fix.yaml</code> file and add the following to it. <code>${loadblancer_ip_address}</code> should be replaced with the IP address of the load balancer for each cluster.</p>
+<p>The Kubernetes data plane Nodes (i.e., worker Nodes) cannot connect to themselves with the IP address of the load balancer that fronts them. The easiest is to configure the load balancer's IP address on the loopback interface of each Nodes. Create <code>/etc/netplan/20-eip-fix.yaml</code> file and add the following to it. <code>${loadblancer_ip_address}</code> should be replaced with the IP address of the load balancer for each cluster.</p>
 <p><div class="highlight"><pre><span></span><code><span class="nt">network</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
 <span class="w">  </span><span class="nt">ethernets</span><span class="p">:</span>
@@ -4382,7 +4382,7 @@ Once you get the IP address edit <code>${CK8S_CONFIG_PATH}/common-config.yaml</c
 <span class="w">      </span><span class="nt">addresses</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${loadblancer_ip_address}/32</span>
 </code></pre></div>
-After adding the above content, run the following command in each worker node:</p>
+After adding the above content, run the following command in each worker Node:</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>netplan<span class="w"> </span>apply
 </code></pre></div>
 </details>
@@ -4403,9 +4403,9 @@ vim<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFI
 </code></pre></div>
 <p>Edit the secrets.yaml file and add the credentials for:</p>
 <ul>
-<li>S3 - used for backup storage</li>
+<li>S3 - used for backup storage.</li>
 <li>Dex - connectors -- check <a href="https://dexidp.io/docs/connectors/">your identity provider</a>.</li>
-<li>On-call management tool configurations-- Check <a href="https://prometheus.io/docs/alerting/latest/configuration/">supported on-call management tools</a></li>
+<li>On-call management tool configurations-- Check <a href="https://prometheus.io/docs/alerting/latest/configuration/">supported on-call management tools</a>.</li>
 </ul>
 <div class="highlight"><pre><span></span><code>sops<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/secrets.yaml
 </code></pre></div>
@@ -4436,7 +4436,7 @@ scripts/S3/entry.sh<span class="w"> </span>create
 <p class="admonition-title">Important</p>
 <p>Leave sufficient time for the system to settle, e.g., request TLS certificates from Let's Encrypt, perhaps as much as 20 minutes.</p>
 </div>
-<p>Check if all helm charts succeeded.</p>
+<p>Check if all Helm charts succeeded.</p>
 <div class="highlight"><pre><span></span><code>compliantkubernetes-apps/bin/ck8s<span class="w"> </span>ops<span class="w"> </span>helm<span class="w"> </span>wc<span class="w"> </span>list<span class="w"> </span>-A<span class="w"> </span>--all
 </code></pre></div>
 <p>You can check if the system settled as follows:</p>
@@ -4450,8 +4450,7 @@ scripts/S3/entry.sh<span class="w"> </span>create
 <span class="k">done</span>
 </code></pre></div>
 <p>Check the output of the command above.
-All resources need to have the Ready column True.
-n</p>
+All resources need to have the Ready column True.</p>
 <h3 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h3>
 <p>After completing the installation step you can test if the apps are properly installed and ready using the commands below:</p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span>sc<span class="w"> </span>wc<span class="p">;</span><span class="w"> </span><span class="k">do</span>
@@ -4471,7 +4470,6 @@ curl<span class="w"> </span>--head<span class="w"> </span>app.ops.<span class="n
 <span class="c1"># All commands above should return &#39;HTTP/2 200&#39;</span>
 
 curl<span class="w"> </span>--head<span class="w"> </span>-k<span class="w"> </span>https://kube-apiserver.<span class="nv">$DOMAIN</span>
-curl<span class="w"> </span>--head<span class="w"> </span>https://notary.harbor.<span class="nv">$DOMAIN</span>
 curl<span class="w"> </span>--head<span class="w"> </span>https://thanos-receiver.ops.<span class="nv">$DOMAIN</span>
 curl<span class="w"> </span>--head<span class="w"> </span>https://opensearch.ops.<span class="nv">$DOMAIN</span>
 curl<span class="w"> </span>--head<span class="w"> </span>https://opensearch.<span class="nv">$DOMAIN</span>/api/status
@@ -4479,7 +4477,7 @@ curl<span class="w"> </span>--head<span class="w"> </span>https://opensearch.<sp
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Some of these subdomains can be overwritten in config (see example <a href="https://github.com/elastisys/compliantkubernetes-apps/blob/v0.33.0/config/config/common-config.yaml#L260">here</a>)</p>
+<p>Some of these subdomains can be overwritten in config (see example <a href="https://github.com/elastisys/compliantkubernetes-apps/blob/v0.39.0/config/config/common-config.yaml#L516">here</a>)</p>
 </div>
 
 

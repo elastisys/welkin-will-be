@@ -3858,10 +3858,10 @@ if(!document.__defineGetter__) {
 <span class="w">    </span>kubectl<span class="w"> </span>--kubeconfig<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/.state/kube_config_<span class="si">${</span><span class="nv">CLUSTER</span><span class="si">}</span>.yaml<span class="w"> </span>-n<span class="w"> </span>default<span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>csirbd-demo-pod
 <span class="k">done</span>
 </code></pre></div>
-<p>You should see PVCs in Bound state, and that the pods which mounts the volumes are running.</p>
+<p>You should see PVCs in Bound state, and that the Pods which mounts the volumes are running.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>If you have taints on certain nodes which should support running pods that mounts <code>rook-ceph</code> PVCs, you need to ensure these nodes are tolerated by the rook-ceph DaemonSet <code>csi-rbdplugin</code>, otherwise, pods on these nodes will not be able to attach or mount the volumes.</p>
+<p>If you have taints on certain Nodes which should support running Pods that mounts <code>rook-ceph</code> PVCs, you need to ensure these Nodes are tolerated by the rook-ceph DaemonSet <code>csi-rbdplugin</code>, otherwise, Pods on these Nodes will not be able to attach or mount the volumes.</p>
 </div>
 <p>If you want to clean the previously created PVCs:</p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>CLUSTER<span class="w"> </span><span class="k">in</span><span class="w"> </span>sc<span class="w"> </span>wc<span class="p">;</span><span class="w"> </span><span class="k">do</span>
@@ -3918,9 +3918,9 @@ vim<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFI
 </code></pre></div>
 <p>Edit the secrets.yaml file and add the credentials for:</p>
 <ul>
-<li>S3 - used for backup storage</li>
+<li>S3 - used for backup storage.</li>
 <li>Dex - connectors -- check <a href="https://dexidp.io/docs/connectors/">your identity provider</a>.</li>
-<li>On-call management tool configurations-- Check <a href="https://prometheus.io/docs/alerting/latest/configuration/">supported on-call management tools</a></li>
+<li>On-call management tool configurations-- Check <a href="https://prometheus.io/docs/alerting/latest/configuration/">supported on-call management tools</a>.</li>
 </ul>
 <div class="highlight"><pre><span></span><code>sops<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFIG_PATH</span><span class="si">}</span>/secrets.yaml
 </code></pre></div>
@@ -3949,7 +3949,7 @@ vim<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFI
 <p class="admonition-title">Important</p>
 <p>Leave sufficient time for the system to settle, e.g., request TLS certificates from Let's Encrypt, perhaps as much as 20 minutes.</p>
 </div>
-<p>Check if all helm charts succeeded.</p>
+<p>Check if all Helm charts succeeded.</p>
 <div class="highlight"><pre><span></span><code>compliantkubernetes-apps/bin/ck8s<span class="w"> </span>ops<span class="w"> </span>helm<span class="w"> </span>wc<span class="w"> </span>list<span class="w"> </span>-A<span class="w"> </span>--all
 </code></pre></div>
 <p>You can check if the system settled as follows:</p>
@@ -3963,8 +3963,7 @@ vim<span class="w"> </span><span class="si">${</span><span class="nv">CK8S_CONFI
 <span class="k">done</span>
 </code></pre></div>
 <p>Check the output of the command above.
-All resources need to have the Ready column True.
-n</p>
+All resources need to have the Ready column True.</p>
 <!--settling-stop-->
 
 <!--testing-start-->

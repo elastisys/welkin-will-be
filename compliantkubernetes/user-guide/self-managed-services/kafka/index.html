@@ -3991,10 +3991,10 @@ At the very least, you must:</p>
 
 <div class="admonition important">
 <p class="admonition-title">This page is a preview for self-managed cluster-wide resources</p>
-<p>Compliant Kubernetes restricts application developers to manage CustomResourceDefinitions (CRDs) and other cluster-wide resources <a href="../../demarcation/">for security purposes</a>.
-This means that some applications that require such cluster-wide resources are not possible to install for you as an application developer.
+<p>Compliant Kubernetes restricts Application Developers to manage CustomResourceDefinitions (CRDs) and other cluster-wide resources <a href="../../demarcation/">for security purposes</a>.
+This means that some applications that require such cluster-wide resources are not possible to install for you as an Application Developer.
 As a trade-off, we are launching this preview feature that allows for self-management of specific cluster-wide resources required for certain popular applications.
-It is disabled by default, so please ask your platform administrator to enable this preview feature.</p>
+It is disabled by default, so please ask your Platform Administrator to enable this preview feature.</p>
 </div>
 <div class="admonition elastisys">
 <p class="admonition-title">For Elastisys Managed Services Customers</p>
@@ -4004,23 +4004,23 @@ This is a preview feature. For more information, please read <a href="https://el
 <!-- END INCLUDE -->
 
 <p><a href="https://kafka.apache.org/">Apache Kafka®</a> is an open-source distributed event streaming platform. To run an Apache Kafka® cluster on Kubernetes you can use an operator. This guide uses the <a href="https://github.com/strimzi/strimzi-kafka-operator">Strimzi Kafka Operator</a>.</p>
-<p>Strimzi is a <a href="https://www.cncf.io/projects/strimzi/">CNCF Sandbox project</a></p>
-<p>This page will show you how to install Strimzi Kafka Operator on Elastisys Compliant Kubernetes. You can configure the operator to watch a single or multiple Namespaces.</p>
+<p>Strimzi is a <a href="https://www.cncf.io/projects/strimzi/">CNCF Sandbox project</a>.</p>
+<p>This page will show you how to install Strimzi Kafka Operator on Elastisys Compliant Kubernetes. You can configure the operator to watch a single or multiple namespaces.</p>
 <div class="admonition note">
 <p class="admonition-title">Supported versions</p>
 <p>This installation guide has been tested with Strimzi Kafka Operator version <a href="https://github.com/strimzi/strimzi-kafka-operator/tree/0.38.0">0.38.0</a>.</p>
 </div>
 <h2 id="enable-self-managed-kafka">Enable Self-Managed Kafka<a class="headerlink" href="#enable-self-managed-kafka" title="Permanent link">&para;</a></h2>
 <p>This guide depends on the <a href="../../../operator-manual/user-managed-crds/">self-managed cluster resources</a> feature to be enabled. This is so Strimzi Kafka Operator gets the necessary CRDs and ClusterRoles installed.</p>
-<p>Strimzi Kafka Operator also requires the image repository <code>quay.io/strimzi</code> to be allowlisted. Ask your platform administrator to do this while enabling the self-managed cluster resources feature.</p>
+<p>Strimzi Kafka Operator also requires the image repository <code>quay.io/strimzi</code> to be allowlisted. Ask your Platform Administrator to do this while enabling the self-managed cluster resources feature.</p>
 <h2 id="setup-crds-and-rbac">Setup CRDs and RBAC<a class="headerlink" href="#setup-crds-and-rbac" title="Permanent link">&para;</a></h2>
 <p>In Kubernetes you will need to:</p>
 <ol>
 <li>
-<p>Install the required CRDs</p>
+<p>Install the required CRDs.</p>
 </li>
 <li>
-<p>Create a Namespace for Strimzi Kafka Operator.</p>
+<p>Create a namespace for Strimzi Kafka Operator.</p>
 </li>
 <li>
 <p>Create Roles/RoleBindings for Strimzi Kafka Operator.</p>
@@ -4039,12 +4039,12 @@ curl<span class="w"> </span>-L<span class="w"> </span>https://github.com/strimzi
 kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>crds/kafka-crds.yaml
 </code></pre></div>
 <h3 id="namespace">Namespace<a class="headerlink" href="#namespace" title="Permanent link">&para;</a></h3>
-<p>You need to create a Namespace where Strimzi Kafka Operator will work. This Namespace should be called <code>kafka</code>. Create this <a href="../../namespaces/">sub-namespace</a> under eg. <code>production</code>.</p>
+<p>You need to create a namespace where Strimzi Kafka Operator will work. This namespace should be called <code>kafka</code>. Create this <a href="../../namespaces/">sub-namespace</a> under e.g. <code>production</code>.</p>
 <p><code>kubectl hns create -n production kafka</code></p>
 <h3 id="roles-and-rolebindings">Roles and RoleBindings<a class="headerlink" href="#roles-and-rolebindings" title="Permanent link">&para;</a></h3>
-<p>You need to create the necessary Roles for Strimzi Kafka Operator to function. This needs to be done in every Namespace that you want Strimzi Kafka Operator to work in.</p>
-<p>Since Compliant Kubernetes uses the Hierarchical Namespace Controller, the easiest way to achieve this is to place the Roles and RoleBindings in the parent Namespace where <code>kafka</code> was created from. By doing so, all Namespaces created under the same parent Namespace will inherit the Roles and RoleBindings.</p>
-<p>If you have multiple Namespaces that ought to be targets for Strimzi Kafka Operator, you can add the Roles and RoleBindings to more than one "parent" Namespace. For instance, to <code>staging</code>, to get Strimzi Kafka Operator to work with the <code>staging</code> Namespace and any Namespace anchored to it.</p>
+<p>You need to create the necessary Roles for Strimzi Kafka Operator to function. This needs to be done in every namespace that you want Strimzi Kafka Operator to work in.</p>
+<p>Since Compliant Kubernetes uses the Hierarchical Namespace Controller, the easiest way to achieve this is to place the Roles and RoleBindings in the parent namespace where <code>kafka</code> was created from. By doing so, all namespaces created under the same parent namespace will inherit the Roles and RoleBindings.</p>
+<p>If you have multiple namespaces that ought to be targets for Strimzi Kafka Operator, you can add the Roles and RoleBindings to more than one "parent" namespace. For instance, to <code>staging</code>, to get Strimzi Kafka Operator to work with the <code>staging</code> namespace and any namespace anchored to it.</p>
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>roles
 
 <span class="c1"># Fetches the necessary Roles and saves it in the roles directory</span>
@@ -4052,7 +4052,7 @@ curl<span class="w"> </span>https://raw.githubusercontent.com/elastisys/complian
 curl<span class="w"> </span>https://raw.githubusercontent.com/elastisys/compliantkubernetes/main/docs/user-guide/self-managed-services/kafka-files/roles/kafka-rolebinding.yaml<span class="w"> </span>&gt;<span class="w"> </span>roles/kafka-rolebinding.yaml
 curl<span class="w"> </span>https://raw.githubusercontent.com/elastisys/compliantkubernetes/main/docs/user-guide/self-managed-services/kafka-files/roles/kustomization.yaml<span class="w"> </span>&gt;<span class="w"> </span>roles/kustomization.yaml
 
-<span class="c1"># If you created the Namespace kafka from another Namespace other than production, edit the Namespace in roles/kustomization.yaml</span>
+<span class="c1"># If you created the namespace kafka from another namespace other than production, edit the namespace in roles/kustomization.yaml</span>
 
 kubectl<span class="w"> </span>apply<span class="w"> </span>-k<span class="w"> </span>roles
 </code></pre></div>
@@ -4083,12 +4083,12 @@ kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> <
 <p>Alternatively you can fetch an already edited file:</p>
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>deployment
 
-<span class="c1"># Fetches the edited operator deployment and saves it in the deployment directory</span>
+<span class="c1"># Fetches the edited operator Deployment and saves it in the deployment directory</span>
 curl<span class="w"> </span>https://raw.githubusercontent.com/elastisys/compliantkubernetes/main/docs/user-guide/self-managed-services/kafka-files/deployment/kafka-operator-deployment.yaml<span class="w"> </span>&gt;<span class="w"> </span>deployment/kafka-operator-deployment.yaml
 
 kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>deployment/kafka-operator-deployment.yaml
 </code></pre></div>
-<p>To configure the Strimzi Kafka Operator to watch multiple Namespaces (e.g. running Kafka clusters in different Namespaces other than the kafka Namespace), refer to <a href="#further-reading">Further reading</a>.</p>
+<p>To configure the Strimzi Kafka Operator to watch multiple namespaces (e.g. running Kafka clusters in different namespaces other than the kafka namespace), refer to <a href="#further-reading">Further reading</a>.</p>
 <h2 id="deploy-your-kafka-cluster">Deploy your Kafka cluster<a class="headerlink" href="#deploy-your-kafka-cluster" title="Permanent link">&para;</a></h2>
 <p>You are now ready to deploy your Kafka cluster!</p>
 <p>The example files provided by Strimzi <a href="https://github.com/strimzi/strimzi-kafka-operator/tree/0.38.0/examples/kafka">here</a> serves as a good starting point.</p>
@@ -4114,7 +4114,7 @@ kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> <
 <p>Alternatively you can download a ready to use producer and consumer Pod manifests:</p>
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>kafka-testing
 
-<span class="c1"># Fetches pod manifests for a producer and consumer and saves it in the kafka-testing directory</span>
+<span class="c1"># Fetches Pod manifests for a producer and consumer and saves it in the kafka-testing directory</span>
 curl<span class="w"> </span>https://raw.githubusercontent.com/elastisys/compliantkubernetes/main/docs/user-guide/self-managed-services/kafka-files/kafka-testing/kafka-producer.yaml<span class="w"> </span>&gt;<span class="w"> </span>kafka-testing/kafka-producer.yaml
 curl<span class="w"> </span>https://raw.githubusercontent.com/elastisys/compliantkubernetes/main/docs/user-guide/self-managed-services/kafka-files/kafka-testing/kafka-consumer.yaml<span class="w"> </span>&gt;<span class="w"> </span>kafka-testing/kafka-consumer.yaml
 
@@ -4128,7 +4128,7 @@ kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </sp
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you are running the producer and/or consumer in different Namespace than where your Kafka cluster is, make sure you specify the path to the bootstrap service. E.g. "my-cluster-kafka-bootstrap.kafka.svc:9092", if the Kafka cluster is in the "kafka" Namespace.</p>
+<p>If you are running the producer and/or consumer in different namespace than where your Kafka cluster is, make sure you specify the path to the bootstrap service. E.g. "my-cluster-kafka-bootstrap.kafka.svc:9092", if the Kafka cluster is in the "kafka" namespace.</p>
 </div>
 <h2 id="further-reading">Further reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
 <ul>

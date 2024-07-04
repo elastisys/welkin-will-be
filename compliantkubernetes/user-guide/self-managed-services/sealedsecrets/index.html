@@ -3853,10 +3853,10 @@ At the very least, you must:</p>
 
 <div class="admonition important">
 <p class="admonition-title">This page is a preview for self-managed cluster-wide resources</p>
-<p>Compliant Kubernetes restricts application developers to manage CustomResourceDefinitions (CRDs) and other cluster-wide resources <a href="../../demarcation/">for security purposes</a>.
-This means that some applications that require such cluster-wide resources are not possible to install for you as an application developer.
+<p>Compliant Kubernetes restricts Application Developers to manage CustomResourceDefinitions (CRDs) and other cluster-wide resources <a href="../../demarcation/">for security purposes</a>.
+This means that some applications that require such cluster-wide resources are not possible to install for you as an Application Developer.
 As a trade-off, we are launching this preview feature that allows for self-management of specific cluster-wide resources required for certain popular applications.
-It is disabled by default, so please ask your platform administrator to enable this preview feature.</p>
+It is disabled by default, so please ask your Platform Administrator to enable this preview feature.</p>
 </div>
 <div class="admonition elastisys">
 <p class="admonition-title">For Elastisys Managed Services Customers</p>
@@ -3871,8 +3871,8 @@ This is a preview feature. For more information, please read <a href="https://el
 <p>The self-managed cluster-wide resources feature adds specific Roles, ServiceAccounts, etc. for you.
 This enables you to install and manage the resources that Sealed Secrets needs.
 These pre-installed resources are propagated via HNC from your root Namespace (<a href="../../namespaces/">recall the documentation of this feature</a>).</p>
-<p>First create a new Namespace using HNC, using the snippet below.
-If you do not know which root namespace you should use, ask your platform administrator.</p>
+<p>First create a new namespace using HNC, using the snippet below.
+If you do not know which root namespace you should use, ask your Platform Administrator.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hnc.x-k8s.io/v1alpha2</span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SubnamespaceAnchor</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -3904,9 +3904,9 @@ If you do not know which root namespace you should use, ask your platform admini
 </code></pre></div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Add the namespaces that should support creation of SealedSecrets to the <code>additionalNamespaces</code> list. If this list is empty the SealedSecrets controller will output an error when attempting to create a SealedSecret as it attempts to get secrets at cluster level.</p>
+<p>Add the namespaces that should support creation of SealedSecrets to the <code>additionalNamespaces</code> list. If this list is empty the SealedSecrets controller will output an error when attempting to create a SealedSecret as it attempts to get Secrets at cluster level.</p>
 </div>
-<p>You are now ready to install Sealed Secrets</p>
+<p>You are now ready to install Sealed Secrets:</p>
 <div class="highlight"><pre><span></span><code><span class="go">helm repo add sealed-secrets https://bitnami-labs.github.io/sealed-secrets</span>
 <span class="go">helm upgrade --install sealed-secrets -n sealed-secrets --version 2.13.1 sealed-secrets/sealed-secrets -f config.yaml</span>
 </code></pre></div>

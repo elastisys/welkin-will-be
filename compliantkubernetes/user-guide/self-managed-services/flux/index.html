@@ -4117,10 +4117,10 @@ At the very least, you must:</p>
 
 <div class="admonition important">
 <p class="admonition-title">This page is a preview for self-managed cluster-wide resources</p>
-<p>Compliant Kubernetes restricts application developers to manage CustomResourceDefinitions (CRDs) and other cluster-wide resources <a href="../../demarcation/">for security purposes</a>.
-This means that some applications that require such cluster-wide resources are not possible to install for you as an application developer.
+<p>Compliant Kubernetes restricts Application Developers to manage CustomResourceDefinitions (CRDs) and other cluster-wide resources <a href="../../demarcation/">for security purposes</a>.
+This means that some applications that require such cluster-wide resources are not possible to install for you as an Application Developer.
 As a trade-off, we are launching this preview feature that allows for self-management of specific cluster-wide resources required for certain popular applications.
-It is disabled by default, so please ask your platform administrator to enable this preview feature.</p>
+It is disabled by default, so please ask your Platform Administrator to enable this preview feature.</p>
 </div>
 <div class="admonition elastisys">
 <p class="admonition-title">For Elastisys Managed Services Customers</p>
@@ -4134,12 +4134,12 @@ This is a preview feature. For more information, please read <a href="https://el
 <p>This page will help you install Flux in a Compliant Kubernetes environment.</p>
 <div class="admonition note">
 <p class="admonition-title">Supported versions</p>
-</div>
 <p>This installation guide has been tested with Flux version <a href="https://github.com/fluxcd/flux2/tree/v2.1.2">2.1.2</a>.</p>
+</div>
 <h2 id="initial-prep">Initial Prep<a class="headerlink" href="#initial-prep" title="Permanent link">&para;</a></h2>
 <h3 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h3>
 <p>This guide depends on the <a href="../../../operator-manual/user-managed-crds/">self-managed cluster resources</a> feature to be enabled. This is so Flux gets the necessary CRDs and ClusterRoles installed.</p>
-<p>Flux also requires the image repository <code>ghcr.io/fluxcd</code> to be allowlisted. Ask your platform administrator to do this while enabling the self-managed cluster resources feature.</p>
+<p>Flux also requires the image repository <code>ghcr.io/fluxcd</code> to be allowlisted. Ask your Platform Administrator to do this while enabling the self-managed cluster resources feature.</p>
 <h3 id="git">Git<a class="headerlink" href="#git" title="Permanent link">&para;</a></h3>
 <p>You need to setup a Git repository that will contain the manifest files. This can be a personal or organization repository. <em>It is strongly recommended that it is a private (as in: not public) repository.</em></p>
 <p>Next you need to generate an SSH key that will be used to communicate with the Git repository. The private key will be used as a Kubernetes Secret in a later step.</p>
@@ -4150,8 +4150,8 @@ This is a preview feature. For more information, please read <a href="https://el
 <p>In Kubernetes you will need to:</p>
 <ol>
 <li>Install CRDs</li>
-<li>Create a Namespace for Flux</li>
-<li>Create a Git Secret in the Namespace</li>
+<li>Create a namespace for Flux</li>
+<li>Create a Git Secret in the namespace</li>
 <li>Create Roles/RoleBindings for Flux.</li>
 </ol>
 <h4 id="crds">CRDs<a class="headerlink" href="#crds" title="Permanent link">&para;</a></h4>
@@ -4164,7 +4164,7 @@ curl<span class="w"> </span>https://raw.githubusercontent.com/fluxcd/flux2/v2.1.
 kubectl<span class="w"> </span>apply<span class="w"> </span>-k<span class="w"> </span>crds
 </code></pre></div>
 <h4 id="namespace">Namespace<a class="headerlink" href="#namespace" title="Permanent link">&para;</a></h4>
-<p>You need create a Namespace where Flux will work. This Namespace should be called <code>flux-system</code>. Create this <a href="../../namespaces/">sub-namespace</a> under eg. <code>production</code>.</p>
+<p>You need to create a namespace where Flux will work. This namespace should be called <code>flux-system</code>. Create this <a href="../../namespaces/">sub-namespace</a> under e.g. <code>production</code>.</p>
 <p><code>kubectl hns create -n production flux-system</code></p>
 <h4 id="git-secret">Git Secret<a class="headerlink" href="#git-secret" title="Permanent link">&para;</a></h4>
 <p>Next to allow Flux to interact with your Git Repository you need to create a Secret containing the ssh private key created earlier. This can be done with the Flux CLI:</p>
@@ -4173,9 +4173,9 @@ kubectl<span class="w"> </span>apply<span class="w"> </span>-k<span class="w"> <
 <span class="w">    </span>--private-key-file<span class="o">=</span>&lt;path-to-ssh-private-key&gt;
 </code></pre></div>
 <h4 id="roles-and-rolebindings">Roles and RoleBindings<a class="headerlink" href="#roles-and-rolebindings" title="Permanent link">&para;</a></h4>
-<p>You need to create the necessary Roles for Flux to function. This needs to be done in every Namespace that you want Flux to work in.</p>
-<p>Since Compliant Kubernetes uses the Hierarchical Namespace Controller, the easiest way to achieve this is to place the Roles and RoleBindings in the parent namespace where <code>flux-system</code> was created from. By doing so, all Namespaces created under the same parent Namespace will inherit the Roles and RoleBindings.</p>
-<p>If you have multiple Namespaces that ought to be targets for Flux, you can add the Roles and RoleBindings to more than one "parent" Namespace. For instance, to <code>staging</code>, to get Flux to work with the <code>staging</code> Namespace and any Namespace anchored to it.</p>
+<p>You need to create the necessary Roles for Flux to function. This needs to be done in every namespace that you want Flux to work in.</p>
+<p>Since Compliant Kubernetes uses the Hierarchical Namespace Controller, the easiest way to achieve this is to place the Roles and RoleBindings in the parent namespace that <code>flux-system</code> was created from. By doing so, all namespaces created under the same parent namespace will inherit the Roles and RoleBindings.</p>
+<p>If you have multiple namespaces that ought to be targets for Flux, you can add the Roles and RoleBindings to more than one "parent" namespace. For instance, to <code>staging</code>, to get Flux to work with the <code>staging</code> namespace and any namespace anchored to it.</p>
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>roles
 
 <span class="c1"># Fetches the necessary Roles and saves it in the roles directory</span>
@@ -4183,11 +4183,11 @@ curl<span class="w"> </span>https://raw.githubusercontent.com/elastisys/complian
 curl<span class="w"> </span>https://raw.githubusercontent.com/elastisys/compliantkubernetes/main/docs/user-guide/self-managed-services/flux-files/roles/source-controller-role.yaml<span class="w"> </span>&gt;<span class="w"> </span>roles/source-controller-role.yaml
 curl<span class="w"> </span>https://raw.githubusercontent.com/elastisys/compliantkubernetes/main/docs/user-guide/self-managed-services/flux-files/roles/kustomization.yaml<span class="w"> </span>&gt;<span class="w"> </span>roles/kustomization.yaml
 
-<span class="c1"># If you installed Flux in another Namespace other than production, edit the Namespace in roles/kustomization.yaml</span>
+<span class="c1"># If you installed Flux in another namespace other than production, edit the namespace in roles/kustomization.yaml</span>
 
 kubectl<span class="w"> </span>apply<span class="w"> </span>-k<span class="w"> </span>roles
 </code></pre></div>
-<p>The kustomize and helm controller needs some extra permissions as well since it wants to deploy. The simplest is to add these controller ServiceAccounts to the <code>extra-workload-admins</code> RoleBinding in the parent Namespace eg. <code>production</code>. This will grant Flux the maximum permission an application developer can give in the Namespaces where it is configured. Edit the RoleBinding and add the lines below.</p>
+<p>The kustomize and helm controller needs some extra permissions as well since it wants to deploy. The simplest is to add these controller ServiceAccounts to the <code>extra-workload-admins</code> RoleBinding in the parent namespace eg. <code>production</code>. This will grant Flux the maximum permission an Application Developer can give in the namespaces where it is configured. Edit the RoleBinding and add the lines below.</p>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>edit<span class="w"> </span>rolebindings<span class="w"> </span>extra-workload-admins<span class="w"> </span>-n<span class="w"> </span>production
 
 ...
@@ -4223,7 +4223,7 @@ touch<span class="w"> </span>clusters/<span class="nv">$CLUSTER_NAME</span>/flux
 <span class="w">    </span>clusters/<span class="nv">$CLUSTER_NAME</span>/flux-system/gotk-sync.yaml<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>clusters/<span class="nv">$CLUSTER_NAME</span>/flux-system/kustomization.yaml
 
-<span class="c1"># Generate flux manifests</span>
+<span class="c1"># Generate Flux manifests</span>
 flux<span class="w"> </span>install<span class="w"> </span>--export<span class="w"> </span>&gt;<span class="w"> </span>clusters/<span class="nv">$CLUSTER_NAME</span>/flux-system/gotk-components.yaml
 
 <span class="c1"># Create repo manifest</span>

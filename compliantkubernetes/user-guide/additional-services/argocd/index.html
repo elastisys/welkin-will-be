@@ -1447,24 +1447,6 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
-  <a href="#follow-the-go-live-checklist" class="md-nav__link">
-    <span class="md-ellipsis">
-      Follow the Go-Live Checklist
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ck8s-argo-cd-release-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      CK8S Argo CD Release Notes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#secret-management" class="md-nav__link">
     <span class="md-ellipsis">
       Secret Management
@@ -1570,6 +1552,24 @@ if(!document.__defineGetter__) {
   <a href="#known-issues" class="md-nav__link">
     <span class="md-ellipsis">
       Known Issues
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#follow-the-go-live-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Follow the Go-Live Checklist
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ck8s-argo-cd-release-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      CK8S Argo CD Release Notes
     </span>
   </a>
   
@@ -3913,24 +3913,6 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
-  <a href="#follow-the-go-live-checklist" class="md-nav__link">
-    <span class="md-ellipsis">
-      Follow the Go-Live Checklist
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ck8s-argo-cd-release-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      CK8S Argo CD Release Notes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#secret-management" class="md-nav__link">
     <span class="md-ellipsis">
       Secret Management
@@ -4042,6 +4024,24 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
+  <a href="#follow-the-go-live-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Follow the Go-Live Checklist
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ck8s-argo-cd-release-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      CK8S Argo CD Release Notes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#further-reading" class="md-nav__link">
     <span class="md-ellipsis">
       Further Reading
@@ -4124,13 +4124,8 @@ if(!document.__defineGetter__) {
 <p>This page will help you succeed in connecting to Argo CD application which meets your security and compliance requirements.</p>
 <h2 id="getting-access">Getting Access<a class="headerlink" href="#getting-access" title="Permanent link">&para;</a></h2>
 <p>Your administrator will set up the authentication inside Compliant Kubernetes, which will give you access to Argo CD UI.</p>
-<h2 id="follow-the-go-live-checklist">Follow the Go-Live Checklist<a class="headerlink" href="#follow-the-go-live-checklist" title="Permanent link">&para;</a></h2>
-<p>You should be all set.
-Before going into production, don't forget to go through the <a href="../../go-live/">go-live checklist</a>.</p>
-<h2 id="ck8s-argo-cd-release-notes">CK8S Argo CD Release Notes<a class="headerlink" href="#ck8s-argo-cd-release-notes" title="Permanent link">&para;</a></h2>
-<p>Check out the <a href="../../../release-notes/argocd/">release notes</a> for the Argo CD setup that runs in Compliant Kubernetes environments!</p>
 <h2 id="secret-management">Secret Management<a class="headerlink" href="#secret-management" title="Permanent link">&para;</a></h2>
-<p>Secret values should never be stored in plain-text in code repositories. The following sections will describe two supported approaches on how Application Developers can do secret management with Elastisys Managed Argo CD.</p>
+<p>Secret values should never be stored in plain-text in code repositories. The following sections will describe three supported approaches on how Application Developers can do secret management with Elastisys Managed Argo CD.</p>
 <h3 id="with-helm-secrets">With Helm Secrets<a class="headerlink" href="#with-helm-secrets" title="Permanent link">&para;</a></h3>
 <p>Argo CD can be configured to decrypt files encrypted with <code>sops</code> using <a href="https://github.com/jkroepke/helm-secrets#helm-secrets">Helm Secrets</a>. To be able to use Helm-secrets with Argo CD, you will need to contact your Platform Administrator requesting that you want to use this feature and for which OIDC group, users or ServiceAccounts (otherwise the Application Developer group used for accessing the cluster is assumed). Once your Platform Administrator has approved your request, you should be able to create and manage a Kubernetes Secret resource in the <code>argocd-system</code> namespace as instructed below.</p>
 <p>The following steps will show how to get started with encrypting files using <code>sops</code> and <code>gpg</code>, storing the encrypted files in a Helm chart, and lastly deploying the Helm chart with Argo CD.</p>
@@ -4143,7 +4138,7 @@ gpg<span class="w"> </span>--output<span class="w"> </span><span class="s2">&quo
 </code></pre></div>
 </li>
 <li>
-<p>For Argo CD to be able to use this key for decrypting <code>sops</code> encrypted values files in your Helm charts, you will need to create a Kubernetes Secret in the <code>argocd-system</code> namespace named <code>helm-secrets-private-keys</code>. This secret will then be mounted and read by the Argo CD repo server. Create the Secret using the private key file created in the previous step:</p>
+<p>For Argo CD to be able to use this key for decrypting <code>sops</code> encrypted values files in your Helm charts, you will need to create a Kubernetes Secret in the <code>argocd-system</code> namespace named <code>helm-secrets-private-keys</code>. This Secret will then be mounted and read by the Argo CD repo server. Create the Secret using the private key file created in the previous step:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">PRIVATE_KEY_FILE</span><span class="o">=</span><span class="s2">&quot;private.asc&quot;</span>
 kubectl<span class="w"> </span>-n<span class="w"> </span>argocd-system<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>helm-secrets-private-keys<span class="w"> </span>--from-file<span class="o">=</span>key.asc<span class="o">=</span><span class="nv">$PRIVATE_KEY_FILE</span><span class="w"> </span>--dry-run<span class="o">=</span>client<span class="w"> </span>-oyaml<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>kubectl<span class="w"> </span>label<span class="w"> </span>-f-<span class="w"> </span>-oyaml<span class="w"> </span>argocd.argoproj.io/secret-type<span class="o">=</span>repository<span class="w"> </span>--dry-run<span class="o">=</span>client<span class="w"> </span>--local<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
@@ -4154,7 +4149,7 @@ kubectl<span class="w"> </span>-n<span class="w"> </span>argocd-system<span clas
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Once your Platform Administrator has enabled Helm-secrets with Argo CD, the Argo CD repo server pod will not be able to initialize if this secret does not exist. Check pods in the <code>argocd-system</code> namespace after creating the secret to confirm that the secret got mounted properly by the repo server:</p>
+<p>Once your Platform Administrator has enabled Helm-secrets with Argo CD, the Argo CD repo server Pod will not be able to initialize if this Secret does not exist. Check Pods in the <code>argocd-system</code> namespace after creating the Secret to confirm that the Secret got mounted properly by the repo server:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>argocd-system<span class="w"> </span>-l<span class="w"> </span>app.kubernetes.io/component<span class="o">=</span>repo-server
 <span class="go">NAME                                  READY   STATUS    RESTARTS   AGE</span>
 <span class="go">argocd-repo-server-77fd58b498-kjm95   1/1     Running   0          3m45s</span>
@@ -4219,7 +4214,7 @@ kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>With SealedSecrets it is possible to set a <em>scope</em> of a secret. By default this scope is set to <code>strict</code> in which the SealedSecret controller uses the name and namespace of the secret as attributes during encryption, hence, the SealedSecret needs to be created with the same values for these attributes if the controller is to be able to decrypt the SealedSecret. It is possible to change the scope with the <code>--scope</code> flag for <code>kubeseal</code>, refer to the <a href="https://github.com/bitnami-labs/sealed-secrets#scopes">official documentation for SealedSecrets</a> for possible scopes.</p>
+<p>With SealedSecrets it is possible to set a <em>scope</em> of a Secret. By default this scope is set to <code>strict</code> in which the SealedSecret controller uses the name and namespace of the Secret as attributes during encryption, hence, the SealedSecret needs to be created with the same values for these attributes if the controller is to be able to decrypt the SealedSecret. It is possible to change the scope with the <code>--scope</code> flag for <code>kubeseal</code>, refer to the <a href="https://github.com/bitnami-labs/sealed-secrets#scopes">official documentation for SealedSecrets</a> for possible scopes.</p>
 </div>
 </li>
 <li>
@@ -4233,7 +4228,7 @@ kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="
 <p>If you want to use <a href="https://github.com/helmfile/vals">vals</a> with <a href="https://www.vaultproject.io/">Vault</a>, you will need to contact your Platform Administrator requesting that you want to use vals with Vault together with Argo CD.</p>
 <ol>
 <li>
-<p>Create a secret in the <code>argocd-system</code> Namespace called <code>vals-secret</code>:</p>
+<p>Create a Secret in the <code>argocd-system</code> namespace called <code>vals-secret</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -4285,7 +4280,7 @@ kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
 <span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secrets+literal://vals!ref+vault://secret/user/#/password</span>
 <span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deploy/helm/app</span>
-<span class="w">    </span><span class="nt">repoURL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/username/repoistory.git</span>
+<span class="w">    </span><span class="nt">repoURL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/username/repository.git</span>
 <span class="w">    </span><span class="nt">targetRevision</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HEAD</span>
 <span class="w">  </span><span class="nt">syncPolicy</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">automated</span><span class="p">:</span>
@@ -4302,7 +4297,7 @@ kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="
 <li><code>configmap/argocd-notifications-cm</code></li>
 </ul>
 <p>For Elastisys Managed Argo CD, you should be able to modify those objects if you belong to any customer admin group, or if you are a customer admin user.</p>
-<p>In case you're not, ask your platform administrator to add you accordingly.</p>
+<p>In case you're not, ask your Platform Administrator to add you accordingly.</p>
 <h3 id="triggers-templates">Triggers &amp; Templates<a class="headerlink" href="#triggers-templates" title="Permanent link">&para;</a></h3>
 <p>The trigger defines the condition when the notification should be sent. The definition includes name, condition and notification templates reference.</p>
 <p>The notification template is used to generate the notification content. Templates are meant to be reusable and can be referenced by multiple triggers.</p>
@@ -4346,7 +4341,7 @@ kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="
 </code></pre></div>
 </div>
 <h3 id="notification-services">Notification Services<a class="headerlink" href="#notification-services" title="Permanent link">&para;</a></h3>
-<p>The notification services represent integration with services such as slack, email or custom webhook. Services are configured in <code>argocd-notifications-cm</code> ConfigMap using <code>service.&lt;type&gt;.(&lt;custom-name&gt;)</code> keys and might reference sensitive data from <code>argocd-notifications-secret</code> Secret.</p>
+<p>The notification services represent integration with services such as Slack, email or custom webhook. Services are configured in <code>argocd-notifications-cm</code> ConfigMap using <code>service.&lt;type&gt;.(&lt;custom-name&gt;)</code> keys and might reference sensitive data from <code>argocd-notifications-secret</code> Secret.</p>
 <p>Argo CD Notifications support multiple <a href="https://argocd-notifications.readthedocs.io/en/stable/services/overview/#service-types">service types</a>, and provide detailed steps on how to configure each service. To learn more, see <a href="https://argocd-notifications.readthedocs.io/en/stable/services/overview/">Notification services</a>.</p>
 <h3 id="subscriptions">Subscriptions<a class="headerlink" href="#subscriptions" title="Permanent link">&para;</a></h3>
 <p>The subscription to Argo CD application events can be defined using <code>notifications.argoproj.io/subscribe.&lt;trigger&gt;.&lt;service&gt;: &lt;recipient&gt;</code> annotation. For example, the following annotation subscribes two Slack channels to notifications about every successful synchronization of the Argo CD application:</p>
@@ -4363,7 +4358,7 @@ kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="
 <p>To configure Email service for example:</p>
 <ol>
 <li>
-<p>Add Email username and password token to <code>argocd-notifications-secret</code> secret</p>
+<p>Add email username and password token to <code>argocd-notifications-secret</code> Secret</p>
 <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;sender@example.com&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-w0<span class="w"> </span><span class="c1"># c2VuZGVyQGV4YW1wbGUuY29t</span>
 <span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;secretPassword&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-w0<span class="w"> </span><span class="c1">#  c2VjcmV0UGFzc3dvcmQ=</span>
 kubectl<span class="w"> </span>edit<span class="w"> </span>-n<span class="w"> </span>argocd-system<span class="w"> </span>argocd-notifications-secret
@@ -4424,7 +4419,7 @@ kubectl<span class="w"> </span>edit<span class="w"> </span>-n<span class="w"> </
 <p>Example error:</p>
 <p><code>Failed to load live state: Cluster level Namespace "application" can not be managed when in namespaced mode</code></p>
 <p>Our Argo CD installation is using the <a href="https://argo-cd.readthedocs.io/en/stable/operator-manual/installation/#non-high-availability">namespaced method</a>. This means that Argo CD has access to Roles with permissions to CRUD on objects in the inclusion list. It has a <a href="https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#clusters">list of namespaces</a> that it can look at and reconcile things every few seconds. Any feature that requires Argo CD cluster-wide installation will not be supported with our offering.</p>
-<p>The reason for this choice is that, according to the <a href="../../../mission-and-vision/">Compliant Kubernetes mission and vision</a>, the platform should make it hard for application developers to do the wrong thing by employing safeguards and secure defaults. With this configuration, we prevent Argo CD from having access to objects in the inclusions list across the entire cluster. This prevents objects from being deployed into namespaces owned by the platform administrator, which could compromise platform security and stability. For example, this choice adds another layer of protection, preventing the application developer from interfering with backups. Read more about it <a href="../../demarcation/#general-principle">here</a>.</p>
+<p>The reason for this choice is that, according to the <a href="../../../mission-and-vision/">Compliant Kubernetes mission and vision</a>, the platform should make it hard for Application Developers to do the wrong thing by employing safeguards and secure defaults. With this configuration, we prevent Argo CD from having access to objects in the inclusions list across the entire cluster. This prevents objects from being deployed into namespaces owned by the Platform Administrator, which could compromise platform security and stability. For example, this choice adds another layer of protection, preventing the Application Developer from interfering with backups. Read more about it <a href="../../demarcation/#general-principle">here</a>.</p>
 <p>Argo CD is not allowed to manage its own namespace. This means that features such as <a href="https://argo-cd.readthedocs.io/en/stable/operator-manual/cluster-bootstrapping/#app-of-apps-pattern">Apps of Apps</a> does not work by default. Read more about the decision <a href="../../../adr/0044-argocd-managing-its-own-namespace/">here</a>.</p>
 <div class="admonition elastisys">
 <p class="admonition-title">Apps of Apps (preview)</p>
@@ -4448,6 +4443,11 @@ kubectl<span class="w"> </span>edit<span class="w"> </span>-n<span class="w"> </
 <p>failed to get token: oauth2: "invalid_client” “Invalid client credentials."</p>
 </blockquote>
 <p>This is a known issue in Argo CD and the progress for it can be tracked <a href="https://github.com/argoproj/argo-cd/issues/17088">here</a>. Sometimes, when encountering this login issue, opening a new tab and re-trying the login process after entering the Argo CD homepage URL can resolve the problem.</p>
+<h2 id="follow-the-go-live-checklist">Follow the Go-Live Checklist<a class="headerlink" href="#follow-the-go-live-checklist" title="Permanent link">&para;</a></h2>
+<p>You should be all set.
+Before going into production, don't forget to go through the <a href="../../go-live/">go-live checklist</a>.</p>
+<h2 id="ck8s-argo-cd-release-notes">CK8S Argo CD Release Notes<a class="headerlink" href="#ck8s-argo-cd-release-notes" title="Permanent link">&para;</a></h2>
+<p>Check out the <a href="../../../release-notes/argocd/">release notes</a> for the Argo CD setup that runs in Compliant Kubernetes environments!</p>
 <h2 id="further-reading">Further Reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://argo-cd.readthedocs.io/en/stable/">Argo CD documentation</a></li>
