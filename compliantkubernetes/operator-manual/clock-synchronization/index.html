@@ -3758,12 +3758,7 @@ if(!document.__defineGetter__) {
 
 
 <h1 id="clock-synchronization">Clock Synchronization<a class="headerlink" href="#clock-synchronization" title="Permanent link">&para;</a></h1>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Compliant Kubernetes is about to add clock synchronization with <code>ntp.se</code> by default.
-This will be done according to <a href="https://www.netnod.se/blog/best-practices-connecting-ntp-servers">best practices</a>.
-To check progress, see <a href="https://github.com/elastisys/compliantkubernetes-kubespray/issues/250">this issue</a>.</p>
-</div>
+<p>Compliant Kubernetes follows <a href="https://www.netnod.se/blog/best-practices-connecting-ntp-servers">best practices from ntp.se</a> regarding clock synchronization by default. This ensures reliable synchronization with at least two clock sources using NTP servers.</p>
 <p>Clock synchronization is important for the following reasons:</p>
 <ul>
 <li>Several Kubernetes components, in particular etcd, Rook/Ceph, do not work correctly if Nodes' clock drifts by more than 100ms;</li>
