@@ -3825,6 +3825,15 @@ if(!document.__defineGetter__) {
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#sourcetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      sourceType
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3983,6 +3992,13 @@ if(!document.__defineGetter__) {
 <td style="text-align: left;">cannot be null</td>
 <td style="text-align: left;"><a href="../config-properties-object-storage-config-properties-rclone-sync-config-properties-rclone-crypt/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/objectStorage/properties/sync/properties/encrypt">Compliant Kubernetes Apps Config</a></td>
 </tr>
+<tr>
+<td style="text-align: left;"><a href="#sourcetype">sourceType</a></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;">Optional</td>
+<td style="text-align: left;">cannot be null</td>
+<td style="text-align: left;"><a href="../config-properties-object-storage-config-properties-rclone-sync-config-properties-rclone-sync-source-type/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/objectStorage/properties/sync/properties/sourceType">Compliant Kubernetes Apps Config</a></td>
+</tr>
 </tbody>
 </table>
 <h2 id="activedeadlineseconds">activeDeadlineSeconds<a class="headerlink" href="#activedeadlineseconds" title="Permanent link">&para;</a></h2>
@@ -4095,7 +4111,7 @@ if(!document.__defineGetter__) {
 <p>is optional</p>
 </li>
 <li>
-<p>Type: <code>array</code> (<a href="../config-properties-object-storage-config-properties-rclone-sync-config-properties-rclone-sync-buckets/">Rclone Sync Buckets</a>)</p>
+<p>Type: <code>object[]</code> (<a href="../config-properties-object-storage-config-properties-rclone-sync-config-properties-rclone-sync-buckets-buckets-to-sync/">Buckets to sync</a>)</p>
 </li>
 <li>
 <p>cannot be null</p>
@@ -4105,7 +4121,7 @@ if(!document.__defineGetter__) {
 </li>
 </ul>
 <p><strong>TYPE</strong>:</p>
-<p><code>array</code> (<a href="../config-properties-object-storage-config-properties-rclone-sync-config-properties-rclone-sync-buckets/">Rclone Sync Buckets</a>)</p>
+<p><code>object[]</code> (<a href="../config-properties-object-storage-config-properties-rclone-sync-config-properties-rclone-sync-buckets-buckets-to-sync/">Buckets to sync</a>)</p>
 <p><strong>DEFAULTS</strong>:</p>
 <p>The default value is:</p>
 <div class="highlight"><pre><span></span><code><span class="p">[]</span>
@@ -4284,9 +4300,37 @@ if(!document.__defineGetter__) {
 </ul>
 <p><strong>TYPE</strong>:</p>
 <p><code>object</code> (<a href="../config-properties-object-storage-config-properties-rclone-sync-config-properties-rclone-crypt/">Rclone Crypt</a>)</p>
+<h2 id="sourcetype">sourceType<a class="headerlink" href="#sourcetype" title="Permanent link">&para;</a></h2>
+<p>Object storage type to use. Defaults to .objectStorage.type</p>
+<p><code>sourceType</code></p>
+<ul>
+<li>
+<p>is optional</p>
+</li>
+<li>
+<p>Type: <code>string</code> (<a href="../config-properties-object-storage-config-properties-rclone-sync-config-properties-rclone-sync-source-type/">Rclone Sync Source Type</a>)</p>
+</li>
+<li>
+<p>cannot be null</p>
+</li>
+<li>
+<p>defined in: <a href="../config-properties-object-storage-config-properties-rclone-sync-config-properties-rclone-sync-source-type/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/objectStorage/properties/sync/properties/sourceType">Compliant Kubernetes Apps Config</a></p>
+</li>
+</ul>
+<p><strong>TYPE</strong>:</p>
+<p><code>string</code> (<a href="../config-properties-object-storage-config-properties-rclone-sync-config-properties-rclone-sync-source-type/">Rclone Sync Source Type</a>)</p>
+<p><strong>EXAMPLES</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">azure</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">gcs</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">s3</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">swift</span>
+</code></pre></div>
 <p><a href="../config/">Return to the root config schema</a></p>
 <hr />
-<p>Generated Thu Aug  1 03:48:23 UTC 2024 from <a href="https://github.com/elastisys/compliantkubernetes-apps/commit/20696c7e4c736882ee1759f07abd508325c19e1e">elastisys/compliantkubernetes-apps@main</a></p>
+<p>Generated Fri Aug  2 03:48:08 UTC 2024 from <a href="https://github.com/elastisys/compliantkubernetes-apps/commit/baf00a3ca7a30e34a47893e2d1065a2e96f9e701">elastisys/compliantkubernetes-apps@main</a></p>
 
 
 
