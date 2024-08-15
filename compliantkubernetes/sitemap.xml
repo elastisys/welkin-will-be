@@ -7171,6 +7171,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-velero-config-properties-velero-use-volume-snapshots/</loc>
+         <lastmod>2024-08-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-velero-config/</loc>
          <lastmod>2024-08-15</lastmod>
          <changefreq>daily</changefreq>
