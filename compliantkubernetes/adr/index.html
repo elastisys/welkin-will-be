@@ -4028,7 +4028,7 @@ Both are stored in Git, hence a decision log is also captured as part of the Git
 <li><a href="0022-use-dedicated-nodes-for-additional-services/">ADR-0022</a> - Use Dedicated Nodes for Additional Services</li>
 <li><a href="0023-allow-snippets-annotations/">ADR-0023</a> - Only allow Ingress Configuration Snippet Annotations after Proper Risk Acceptance</li>
 <li><a href="0024-allow-Harbor-robot-account/">ADR-0024</a> - Allow a Harbor robot account that can create other robot accounts with full privileges</li>
-<li><a href="0025-local-storage/">ADR-0025</a> - Use local-volume-provisioner for Managed Services that requires high-speed disks.</li>
+<li><a href="0025-local-storage/">ADR-0025</a> - Use local-volume-provisioner for Managed Services that requires high-speed disks</li>
 <li><a href="0026-hnc/">ADR-0026</a> - Use <code>environment-name</code> as the default root of Hierarchical Namespace Controller (HNC)</li>
 <li><a href="0027-postgresql-external-replication/">ADR-0027</a> - PostgreSQL - Enable external replication</li>
 <li><a href="0028-harder-pod-eviction-when-node-goes-OOM/">ADR-0028</a> - Harder Pod eviction when nodes are going OOM</li>
@@ -4047,12 +4047,13 @@ Both are stored in Git, hence a decision log is also captured as part of the Git
 <li><a href="0041-encryption-at-rest/">ADR-0041</a> - Rely on Infrastructure Provider for encryption-at-rest</li>
 <li><a href="0042-argocd-dynamic-hnc-namespaces/">ADR-0042</a> - ArgoCD with dynamic HNC namespaces</li>
 <li><a href="0043-rclone-and-encryption-adhere-cryptography-policy/">ADR-0043</a> - Rclone and Encryption adheres Cryptography Policy</li>
-<li><a href="0044-argocd-managing-its-own-namespace/">ADR-0044</a> - ArgoCD is not allowed to manage its own namespace.</li>
+<li><a href="0044-argocd-managing-its-own-namespace/">ADR-0044</a> - ArgoCD is not allowed to manage its own namespace</li>
 <li><a href="0045-use-specialised-prebuilt-images/">ADR-0045</a> - Use specialised prebuilt images</li>
 <li><a href="0046-handle-crds/">ADR-0046</a> - Handle all CRDs with the standard Helm CRD management</li>
 <li><a href="0047-kubernetes-versions/">ADR-0047</a> - When to upgrade to new Kubernetes versions</li>
-<li><a href="0048-access-management-for-AMS-with-network-policies/">ADR-0048</a> - Access Management for Additional Managed Services (AMS-es).</li>
-<li><a href="0049-run-ingress-nginx-in-chroot/">ADR-0049</a> - Run Ingress-NGINX in chroot.</li>
+<li><a href="0048-access-management-for-AMS-with-network-policies/">ADR-0048</a> - Access Management for Additional Managed Services (AMS-es)</li>
+<li><a href="0049-run-ingress-nginx-in-chroot/">ADR-0049</a> - Running NGINX with Chroot Option</li>
+<li><a href="0050-use-cluster-isolation/">ADR-0050</a> - Use Cluster Isolation to separate the application and its traces from its logs and metrics</li>
 </ul>
 <!-- adrlogstop -->
 
@@ -4066,7 +4067,7 @@ General information about architectural decision records is available at <a href
 <li>Install <a href="https://github.com/adr/adr-log#install">adr-log</a></li>
 <li>Install <a href="https://packages.ubuntu.com/search?keywords=make">make</a></li>
 </ul>
-<p>Run <code>make -C docs/adr</code></p>
+<p>Run <code>make -C docs/adr</code>, then run <code>pre-commit run --all-files</code>.</p>
 
 
 

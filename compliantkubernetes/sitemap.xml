@@ -281,6 +281,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://elastisys.io/compliantkubernetes/adr/0050-use-cluster-isolation/</loc>
+         <lastmod>2024-08-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/template/</loc>
          <lastmod>2024-08-20</lastmod>
          <changefreq>daily</changefreq>
@@ -4952,6 +4957,21 @@
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-s3-exporter/</loc>
+         <lastmod>2024-08-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-tekton-piepline-properties-network-policies-tekton-enabled/</loc>
+         <lastmod>2024-08-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-tekton-piepline-properties-network-policies-tekton-pipeline/</loc>
+         <lastmod>2024-08-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-tekton-piepline/</loc>
          <lastmod>2024-08-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
