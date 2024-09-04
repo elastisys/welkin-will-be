@@ -286,6 +286,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://elastisys.io/compliantkubernetes/adr/0051-open-cert-manager-netpols/</loc>
+         <lastmod>2024-09-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/template/</loc>
          <lastmod>2024-09-04</lastmod>
          <changefreq>daily</changefreq>
