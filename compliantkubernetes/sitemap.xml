@@ -351,11 +351,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://elastisys.io/compliantkubernetes/ciso-guide/nis2/</loc>
-         <lastmod>2024-09-05</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://elastisys.io/compliantkubernetes/ciso-guide/pdl-audit-logs/</loc>
          <lastmod>2024-09-05</lastmod>
          <changefreq>daily</changefreq>
@@ -8282,6 +8277,11 @@
     </url>
     <url>
          <loc>https://elastisys.io/compliantkubernetes/ciso-guide/controls/msbfs-20207/</loc>
+         <lastmod>2024-09-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://elastisys.io/compliantkubernetes/ciso-guide/controls/nis2/</loc>
          <lastmod>2024-09-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
