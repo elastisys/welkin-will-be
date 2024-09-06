@@ -4267,6 +4267,7 @@ If you have configured Dex you can login with a connected account, which can be 
 <h2 id="collecting-metrics">Collecting metrics<a class="headerlink" href="#collecting-metrics" title="Permanent link">&para;</a></h2>
 <p>Configuring Prometheus to collect metrics from an application requires either a ServiceMonitor or a PodMonitor, targeting a Kubernetes Service or Pod respectively. They are both described upstream in the <a href="https://prometheus-operator.dev/docs/api-reference/api/">API reference for Prometheus Operator</a>. In general ServiceMonitors are recommended over PodMonitors, and it is the most common way to configure metrics collection.</p>
 <p>In Compliant Kubernetes the Prometheus Operator in the Workload Cluster is configured to pick up all ServiceMonitors and PodMonitors, regardless in which namespace they are or which labels they have.</p>
+<p>The default scrape interval is 30 seconds, this is how often Prometheus will gather metrics from the Pods. The default scrape timeout is 10 seconds, this is how long Prometheus will wait after starting a scrape before it considers the scrape to have failed. These can be configured in your ServiceMonitor or PodMonitor, but we do recommend you to keep the default.</p>
 <h3 id="running-example">Running Example<a class="headerlink" href="#running-example" title="Permanent link">&para;</a></h3>
 <!--user-demo-metrics-start-->
 
