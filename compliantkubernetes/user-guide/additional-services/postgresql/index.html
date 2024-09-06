@@ -3947,6 +3947,7 @@ if(!document.__defineGetter__) {
 <li><strong>Business continuity</strong>:<ul>
 <li>Standard Plan is configured with two replicas (one primary and one standby).</li>
 <li>Premium Plan is configured with three replicas (one primary and two standby-s).</li>
+<li>Both plans come with a <a href="https://kubernetes.io/docs/tasks/run-application/configure-pdb/">PodDisruptionBudget</a> to minimize downtime.</li>
 </ul>
 </li>
 <li><strong>Disaster recovery</strong>:<ul>
