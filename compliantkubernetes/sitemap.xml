@@ -4301,6 +4301,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-cert-manager-properties-network-policies-cert-manager-http-01/</loc>
+         <lastmod>2024-09-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://elastisys.io/compliantkubernetes/operator-manual/schema/config-properties-network-policies-config-properties-network-policies-cert-manager-properties-network-policies-cert-manager-lets-encrypt/</loc>
          <lastmod>2024-09-09</lastmod>
          <changefreq>daily</changefreq>
