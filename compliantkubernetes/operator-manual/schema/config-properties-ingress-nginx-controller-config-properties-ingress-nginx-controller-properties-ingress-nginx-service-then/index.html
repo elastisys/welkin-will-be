@@ -3802,6 +3802,15 @@ if(!document.__defineGetter__) {
 </li>
       
         <li class="md-nav__item">
+  <a href="#loadbalancerip" class="md-nav__link">
+    <span class="md-ellipsis">
+      loadBalancerIP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#nodeports" class="md-nav__link">
     <span class="md-ellipsis">
       nodePorts
@@ -3931,6 +3940,13 @@ if(!document.__defineGetter__) {
 <td style="text-align: left;">Optional</td>
 <td style="text-align: left;">cannot be null</td>
 <td style="text-align: left;"><a href="../config-properties-ingress-nginx-controller-config-properties-ingress-nginx-controller-properties-ingress-nginx-service-then-properties-load-balancer-source-ranges/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/ingressNginx/properties/controller/properties/service/then/properties/loadBalancerSourceRanges">Compliant Kubernetes Apps Config</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#loadbalancerip">loadBalancerIP</a></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;">Optional</td>
+<td style="text-align: left;">cannot be null</td>
+<td style="text-align: left;"><a href="../config-properties-ingress-nginx-controller-config-properties-ingress-nginx-controller-properties-ingress-nginx-service-then-properties-load-balancer-ip/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/ingressNginx/properties/controller/properties/service/then/properties/loadBalancerIP">Compliant Kubernetes Apps Config</a></td>
 </tr>
 <tr>
 <td style="text-align: left;"><a href="#nodeports">nodePorts</a></td>
@@ -4178,6 +4194,29 @@ IPv6 would also need to be included in order for the ingress service to allocate
 <p>The default value is:</p>
 <div class="highlight"><pre><span></span><code><span class="p">[]</span>
 </code></pre></div>
+<h2 id="loadbalancerip">loadBalancerIP<a class="headerlink" href="#loadbalancerip" title="Permanent link">&para;</a></h2>
+<p>Configure the Load Balancer IP to use an existing IP if supported by the infrastructure provider.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>With OpenStack Octavia the floating IP can be created via the CLI beforehand, and one should set the annotation <code>loadbalancer.openstack.org/keep-floatingip: "true"</code> to prevent the floating IP to be deleted.</p>
+</div>
+<p><code>loadBalancerIP</code></p>
+<ul>
+<li>
+<p>is optional</p>
+</li>
+<li>
+<p>Type: <code>string</code> (<a href="../config-properties-ingress-nginx-controller-config-properties-ingress-nginx-controller-properties-ingress-nginx-service-then-properties-load-balancer-ip/">Load Balancer IP</a>)</p>
+</li>
+<li>
+<p>cannot be null</p>
+</li>
+<li>
+<p>defined in: <a href="../config-properties-ingress-nginx-controller-config-properties-ingress-nginx-controller-properties-ingress-nginx-service-then-properties-load-balancer-ip/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/ingressNginx/properties/controller/properties/service/then/properties/loadBalancerIP">Compliant Kubernetes Apps Config</a></p>
+</li>
+</ul>
+<p><strong>TYPE</strong>:</p>
+<p><code>string</code> (<a href="../config-properties-ingress-nginx-controller-config-properties-ingress-nginx-controller-properties-ingress-nginx-service-then-properties-load-balancer-ip/">Load Balancer IP</a>)</p>
 <h2 id="nodeports">nodePorts<a class="headerlink" href="#nodeports" title="Permanent link">&para;</a></h2>
 <p>Configure the node ports to allocate for the Service.</p>
 <p><code>nodePorts</code></p>
@@ -4199,7 +4238,7 @@ IPv6 would also need to be included in order for the ingress service to allocate
 <p><code>object</code> (<a href="../config-properties-ingress-nginx-controller-config-properties-ingress-nginx-controller-properties-ingress-nginx-service-then-properties-node-ports/">Node Ports</a>)</p>
 <p><a href="../config/">Return to the root config schema</a></p>
 <hr />
-<p>Generated Tue Sep 10 12:02:44 UTC 2024 from <a href="https://github.com/elastisys/compliantkubernetes-apps/commit/0b168d906920870ffbbcb96b8791d8cf1b8cce59">elastisys/compliantkubernetes-apps@main</a></p>
+<p>Generated Wed Sep 11 03:48:15 UTC 2024 from <a href="https://github.com/elastisys/compliantkubernetes-apps/commit/c0c7c5e4879f544f41ff816ad5b147b28e1575fe">elastisys/compliantkubernetes-apps@main</a></p>
 
 
 
