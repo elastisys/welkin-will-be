@@ -3843,6 +3843,12 @@ if(!document.__defineGetter__) {
 
 
 <h1 id="reduce-blast-radius-enforcing-restricted-privileges">Reduce blast radius: Enforcing restricted privileges<a class="headerlink" href="#reduce-blast-radius-enforcing-restricted-privileges" title="Permanent link">&para;</a></h1>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<ul>
+<li>This group of safeguards are enabled by default and will deny or mutate on violations. As a result, resources that violate this policy will either not be created or they will be mutated to conform to the policy, depending on the type of violation.</li>
+</ul>
+</div>
 <p>This page helps you understand why warnings are emitted when deploying workloads similar to:</p>
 <div class="highlight"><pre><span></span><code><span class="go">Warning: would violate PodSecurity &quot;restricted:latest&quot;:</span>
 <span class="go">    allowPrivilegeEscalation != false (container &quot;&lt;container-name&gt;&quot; must set securityContext.allowPrivilegeEscalation=false),</span>
@@ -3991,6 +3997,10 @@ This standard includes the following:</p>
 <p>Certain applications may need more privileges than what is allowed from the restricted standard, and platform administrators may configure custom policies to allow application developers more freedom to applications in certain namespaces.</p>
 <p>To do so application developers should put together a Pod Security Policy to be evaluated and accepted by the platform administrator, which then can allow access to these privileges in a certain namespace for resources with a certain label.
 The format should be as follows:</p>
+<div class="admonition elastisys">
+<p class="admonition-title">For Elastisys Managed Services Customers</p>
+<p>Please file a <a href="https://elastisys.atlassian.net/servicedesk/">service ticket</a> and we will review and discuss your request for increased privileges. We will try to find a solution that works for you, but there is no guarantee that your request will be approved.</p>
+</div>
 <div class="highlight"><pre><span></span><code><span class="nt">podSelectorLabels</span><span class="p">:</span><span class="w"> </span><span class="c1"># Must be provided</span>
 <span class="w">  </span><span class="nt">&lt;key&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;value&gt;</span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>

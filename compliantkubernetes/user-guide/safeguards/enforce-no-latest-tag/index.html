@@ -3866,7 +3866,7 @@ if(!document.__defineGetter__) {
 </div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>This safeguard is enabled by default with the enforcement action <code>deny</code> since <a href="../../../release-notes/ck8s/#v0290">Compliant Kubernetes apps v0.29.0</a>. As a result, resources that violate this policy will not be created.</p>
+<p>This safeguard is enabled by default and will deny violations. As a result, resources that violate this policy will not be created.</p>
 </div>
 <p>Using the <code>:latest</code> tag can lead to inconsistent deployments, where it is difficult to rollback. In Compliant Kubernetes we suggest using explicit tags for your container images. This way you know that image version <code>v1.0.0</code> will be deployed if you are using the <code>:v1.0.0</code> tag.</p>
 <h2 id="how-to-solve-container-image-must-not-have-disallowed-tags">How to solve: [container-image-must-not-have-disallowed-tags]<a class="headerlink" href="#how-to-solve-container-image-must-not-have-disallowed-tags" title="Permanent link">&para;</a></h2>
@@ -3874,10 +3874,9 @@ if(!document.__defineGetter__) {
 <div class="highlight"><pre><span></span><code><span class="go">Error from server ([container-image-must-not-have-disallowed-tags] container &lt;example-container&gt; uses a disallowed tag &lt;harbor.$DOMAIN/$REGISTRY_PROJECT/example-container:latest&gt;; disallowed tags are [&quot;latest&quot;])</span>
 </code></pre></div>
 <p>This means that you are not allowed to use the <code>:latest</code> tag on your images. If no tag is specified, Kubernetes assumes <code>:latest</code>, but that does not mean that the most recent version of the image will actually be used. <code>:latest</code> is just a tag and is not dynamically updated to the most recent version of the image. It also becomes difficult to track which version of the image was used if you were to do a rollback.</p>
-<p>To fix this, you have the following options:</p>
-<ul>
-<li>Use a meaningful tag for your images i.e. <code>v1.0.0</code>.</li>
-</ul>
+<p>To fix this, you have to start specifying tags for your images i.e. <code>v1.0.0</code>.</p>
+<p>We recommend that you treat all tags as immutable, i.e. you don't use tags like <code>dev</code> or <code>prod</code> that you intend to continue to push tags to. Do this by always creating a new tag when you push a new image, you can include some versioning or a hash to make the tag unique. E.g. <code>prod-v1.2.3</code> or <code>dev-f6451806e5b6</code>. If you do not treat tags as immutable, then you get the same risk of having inconsistent deployments.</p>
+<p>It is possible to add more tags that will be denied. Perhaps you want to deny images with <code>dev</code> tags in your production environment. If you want to add more tags that should be denied, then contact your administrator.</p>
 <p>If your administrator has not enforced this policy yet, you can view current violations of the policy by running:</p>
 <div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>k8sdisallowedtags.constraints.gatekeeper.sh<span class="w"> </span>container-image-must-not-have-disallowed-tags<span class="w"> </span>-ojson<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>.status.violations
 </code></pre></div>
