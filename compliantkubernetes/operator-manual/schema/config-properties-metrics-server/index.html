@@ -3811,6 +3811,24 @@ if(!document.__defineGetter__) {
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#tolerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      tolerations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#affinity" class="md-nav__link">
+    <span class="md-ellipsis">
+      affinity
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3892,6 +3910,20 @@ if(!document.__defineGetter__) {
 <td style="text-align: left;">cannot be null</td>
 <td style="text-align: left;"><a href="../config-defs-kubernetes-resource-requirements/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/metricsServer/properties/resources">Compliant Kubernetes Apps Config</a></td>
 </tr>
+<tr>
+<td style="text-align: left;"><a href="#tolerations">tolerations</a></td>
+<td style="text-align: left;"><code>array</code></td>
+<td style="text-align: left;">Optional</td>
+<td style="text-align: left;">cannot be null</td>
+<td style="text-align: left;"><a href="../config-defs-kubernetes-tolerations/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/metricsServer/properties/tolerations">Compliant Kubernetes Apps Config</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="#affinity">affinity</a></td>
+<td style="text-align: left;"><code>object</code></td>
+<td style="text-align: left;">Optional</td>
+<td style="text-align: left;">cannot be null</td>
+<td style="text-align: left;"><a href="../config-defs-affinity/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/metricsServer/properties/affinity">Compliant Kubernetes Apps Config</a></td>
+</tr>
 </tbody>
 </table>
 <h2 id="enabled">enabled<a class="headerlink" href="#enabled" title="Permanent link">&para;</a></h2>
@@ -3944,9 +3976,48 @@ if(!document.__defineGetter__) {
 <span class="w">  </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">256Mi</span>
 <span class="w">  </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">250m</span>
 </code></pre></div>
+<h2 id="tolerations">tolerations<a class="headerlink" href="#tolerations" title="Permanent link">&para;</a></h2>
+<p>Kubernetes Tolerations</p>
+<p><a href="https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/">Kubernetes taint and toleration</a></p>
+<p><code>tolerations</code></p>
+<ul>
+<li>
+<p>is optional</p>
+</li>
+<li>
+<p>Type: an array of merged types (<a href="../config-defs-kubernetes-tolerations-items/">Details</a>)</p>
+</li>
+<li>
+<p>cannot be null</p>
+</li>
+<li>
+<p>defined in: <a href="../config-defs-kubernetes-tolerations/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/metricsServer/properties/tolerations">Compliant Kubernetes Apps Config</a></p>
+</li>
+</ul>
+<p><strong>TYPE</strong>:</p>
+<p>an array of merged types (<a href="../config-defs-kubernetes-tolerations-items/">Details</a>)</p>
+<h2 id="affinity">affinity<a class="headerlink" href="#affinity" title="Permanent link">&para;</a></h2>
+<p>Affinity is a group of affinity scheduling rules.</p>
+<p><code>affinity</code></p>
+<ul>
+<li>
+<p>is optional</p>
+</li>
+<li>
+<p>Type: <code>object</code> (<a href="../config-defs-affinity/">Affinity</a>)</p>
+</li>
+<li>
+<p>cannot be null</p>
+</li>
+<li>
+<p>defined in: <a href="../config-defs-affinity/" title="https://raw.githubusercontent.com/elastisys/compliantkubernetes-apps/main/config/schemas/config.yaml#/properties/metricsServer/properties/affinity">Compliant Kubernetes Apps Config</a></p>
+</li>
+</ul>
+<p><strong>TYPE</strong>:</p>
+<p><code>object</code> (<a href="../config-defs-affinity/">Affinity</a>)</p>
 <p><a href="../config/">Return to the root config schema</a></p>
 <hr />
-<p>Generated Tue Sep 24 03:48:29 UTC 2024 from <a href="https://github.com/elastisys/compliantkubernetes-apps/commit/260f6c61af9e0fc51fc04cf391e1237a943115b1">elastisys/compliantkubernetes-apps@main</a></p>
+<p>Generated Wed Sep 25 03:49:05 UTC 2024 from <a href="https://github.com/elastisys/compliantkubernetes-apps/commit/8a76c4f861455cd97eeae601b38fddf1133cd99b">elastisys/compliantkubernetes-apps@main</a></p>
 
 
 
