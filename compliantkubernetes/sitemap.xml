@@ -296,6 +296,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://elastisys.io/compliantkubernetes/adr/0053-do-not-expose-platform-observability-services-to-end-users/</loc>
+         <lastmod>2024-09-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://elastisys.io/compliantkubernetes/adr/0054-allow-write-access-to-endpoints-and-endpointslices-after-risk-acceptance/</loc>
          <lastmod>2024-09-30</lastmod>
          <changefreq>daily</changefreq>
