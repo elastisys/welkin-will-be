@@ -4367,7 +4367,7 @@ if(!document.__defineGetter__) {
 <p>Backups can be set up to be replicated off-site using CronJobs.</p>
 <p>If these are <strong>encrypted</strong> then these off-site backups must first be restored themselves before they can be used to restore other services.</p>
 <p>If these are <strong>unencrypted</strong> then these off-site backups can be used directly to restore other services by reconfiguring which object storage service they are using.</p>
-<p>See <a href="https://github.com/elastisys/compliantkubernetes-apps/blob/main/docs/restore/rclone.md">the instructions in <code>compliantkubernetes-apps</code> for how to restore off-site backups</a>.</p>
+<p>See <a href="https://github.com/elastisys/compliantkubernetes-apps/blob/main/restore/rclone/README.md">the instructions in <code>compliantkubernetes-apps</code> for how to restore off-site backups</a>.</p>
 <h2 id="when-a-new-regioninfrastructure-provider-is-used">When a new region/Infrastructure Provider is used<a class="headerlink" href="#when-a-new-regioninfrastructure-provider-is-used" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Configure and set base ck8s-configs:</li>
@@ -4578,7 +4578,7 @@ There is a CronJob called <code>harbor-backup-cronjob</code> in the cluster that
 <p class="admonition-title">Restoring from off-site backup</p>
 <p>Since Harbor stores both database backups and images in the same bucket it is recommended to restore the off-site backup into the main S3 service first, reconfigure Harbor to use it, then restore the database from it.</p>
 </div>
-<p>Instructions for how to restore Harbor can be found in <code>compliantkubernetes-apps</code>: <a href="https://github.com/elastisys/compliantkubernetes-apps/tree/main/scripts/restore#restore-harbor">https://github.com/elastisys/compliantkubernetes-apps/tree/main/scripts/restore#restore-harbor</a></p>
+<p>Instructions for how to restore Harbor can be found in <code>compliantkubernetes-apps</code>: <a href="https://github.com/elastisys/compliantkubernetes-apps/blob/main/restore/harbor/README.md">https://github.com/elastisys/compliantkubernetes-apps/blob/main/restore/harbor/README.md</a></p>
 <h2 id="velero">Velero<a class="headerlink" href="#velero" title="Permanent link">&para;</a></h2>
 <p>These instructions make use of the Velero CLI, you can download it <a href="https://github.com/vmware-tanzu/velero/releases/tag/v1.7.1">here</a> (version 1.7.1).
 The CLI needs the env variable <code>KUBECONFIG</code> set to the path of a decrypted kubeconfig.
