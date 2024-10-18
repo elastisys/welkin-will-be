@@ -3971,6 +3971,11 @@ Also depending on underlying cloud infrastructure, the IP might not be exclusive
 </div>
 <p>All Ingress traffic will go through load balancers and there will not be any major differences for the Ingress traffic.</p>
 <h2 id="cluster-autoscaling">Cluster autoscaling<a class="headerlink" href="#cluster-autoscaling" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For Elastisys Managed Services customers that have or want to use the cluster autoscaling feature, please ensure your workload does not prevent the autoscaler from removing nodes, e.g. running pods that configure non-memory <code>emptyDir</code> volumes.
+Please go through the list in the <a href="https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-types-of-pods-can-prevent-ca-from-removing-a-node">cluster autoscaling documentation</a>.</p>
+</div>
 <p>The <a href="https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/clusterapi/README.md">Cluster Autoscaler</a> will scale up a Cluster if there are Pods in the Pending state (refer to the <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/">Kubernetes documentation on Pod Lifecycle</a>) that cannot currently be scheduled because of a lack of resources with the current set of Nodes.
 This means that the scaling is based on resource <strong>requests</strong> on Pods, not the actual current CPU/memory utilization.
 In turn, this means the autoscaler cannot prevent Nodes from running out of CPU or memory if the resource requests are not close to the actual usage: to benefit the most from autoscaling, you need to set resource requests as correctly as possible.
